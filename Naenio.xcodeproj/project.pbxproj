@@ -44,6 +44,7 @@
 		9B085F192879991600DE8E60 /* NaenioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NaenioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B085F1D2879991600DE8E60 /* NaenioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITests.swift; sourceTree = "<group>"; };
 		9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9BF00BF2287AC72800F08035 /* Naenio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Naenio.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +95,7 @@
 		9B085F012879991400DE8E60 /* Naenio */ = {
 			isa = PBXGroup;
 			children = (
+				9BF00BF2287AC72800F08035 /* Naenio.entitlements */,
 				9B085F022879991400DE8E60 /* NaenioApp.swift */,
 				9B085F042879991400DE8E60 /* ContentView.swift */,
 				9B085F062879991600DE8E60 /* Assets.xcassets */,
@@ -414,6 +416,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Naenio/Naenio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
@@ -443,6 +446,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Naenio/Naenio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
