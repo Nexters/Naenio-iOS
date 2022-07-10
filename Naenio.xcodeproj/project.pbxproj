@@ -14,6 +14,12 @@
 		9B085F142879991600DE8E60 /* NaenioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F132879991600DE8E60 /* NaenioTests.swift */; };
 		9B085F1E2879991600DE8E60 /* NaenioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1D2879991600DE8E60 /* NaenioUITests.swift */; };
 		9B085F202879991600DE8E60 /* NaenioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */; };
+		9BF00BF7287AC95A00F08035 /* AppleLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00BF6287AC95A00F08035 /* AppleLoginManager.swift */; };
+		9BF00BFC287ACA6C00F08035 /* AppleLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00BFB287ACA6C00F08035 /* AppleLoginButton.swift */; };
+		9BF00BFF287ACBC500F08035 /* AppleLoginTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00BFE287ACBC500F08035 /* AppleLoginTestView.swift */; };
+		9BF00C02287ACC0900F08035 /* AppleLoginTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00C01287ACC0900F08035 /* AppleLoginTestViewModel.swift */; };
+		9BF00C08287ACE8D00F08035 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00C07287ACE8D00F08035 /* LoginManager.swift */; };
+		9BF00C0B287ACFA900F08035 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00C0A287ACFA900F08035 /* LoginResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +51,12 @@
 		9B085F1D2879991600DE8E60 /* NaenioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITests.swift; sourceTree = "<group>"; };
 		9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9BF00BF2287AC72800F08035 /* Naenio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Naenio.entitlements; sourceTree = "<group>"; };
+		9BF00BF6287AC95A00F08035 /* AppleLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginManager.swift; sourceTree = "<group>"; };
+		9BF00BFB287ACA6C00F08035 /* AppleLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginButton.swift; sourceTree = "<group>"; };
+		9BF00BFE287ACBC500F08035 /* AppleLoginTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginTestView.swift; sourceTree = "<group>"; };
+		9BF00C01287ACC0900F08035 /* AppleLoginTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginTestViewModel.swift; sourceTree = "<group>"; };
+		9BF00C07287ACE8D00F08035 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		9BF00C0A287ACFA900F08035 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +107,8 @@
 		9B085F012879991400DE8E60 /* Naenio */ = {
 			isa = PBXGroup;
 			children = (
+				9BF00C04287ACCA300F08035 /* Features */,
+				9BF00C03287ACC9F00F08035 /* Shared */,
 				9BF00BF2287AC72800F08035 /* Naenio.entitlements */,
 				9B085F022879991400DE8E60 /* NaenioApp.swift */,
 				9B085F042879991400DE8E60 /* ContentView.swift */,
@@ -127,6 +141,74 @@
 				9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */,
 			);
 			path = NaenioUITests;
+			sourceTree = "<group>";
+		};
+		9BF00BF4287AC92500F08035 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				9BF00BF6287AC95A00F08035 /* AppleLoginManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		9BF00BF9287ACA3300F08035 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9BF00BFA287ACA5000F08035 /* Sign-In */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9BF00BFA287ACA5000F08035 /* Sign-In */ = {
+			isa = PBXGroup;
+			children = (
+				9BF00BFB287ACA6C00F08035 /* AppleLoginButton.swift */,
+			);
+			path = "Sign-In";
+			sourceTree = "<group>";
+		};
+		9BF00C03287ACC9F00F08035 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				9BF00C09287ACF7800F08035 /* Models */,
+				9BF00BF9287ACA3300F08035 /* Views */,
+				9BF00BF4287AC92500F08035 /* Managers */,
+				9BF00C06287ACE7D00F08035 /* Protocols */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		9BF00C04287ACCA300F08035 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				9BF00C05287ACCC500F08035 /* LogIn */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		9BF00C05287ACCC500F08035 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				9BF00BFE287ACBC500F08035 /* AppleLoginTestView.swift */,
+				9BF00C01287ACC0900F08035 /* AppleLoginTestViewModel.swift */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
+		9BF00C06287ACE7D00F08035 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9BF00C07287ACE8D00F08035 /* LoginManager.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		9BF00C09287ACF7800F08035 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9BF00C0A287ACFA900F08035 /* LoginResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +341,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BF00BFC287ACA6C00F08035 /* AppleLoginButton.swift in Sources */,
 				9B085F052879991400DE8E60 /* ContentView.swift in Sources */,
+				9BF00C08287ACE8D00F08035 /* LoginManager.swift in Sources */,
 				9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */,
+				9BF00C02287ACC0900F08035 /* AppleLoginTestViewModel.swift in Sources */,
+				9BF00BF7287AC95A00F08035 /* AppleLoginManager.swift in Sources */,
+				9BF00C0B287ACFA900F08035 /* LoginResponse.swift in Sources */,
+				9BF00BFF287ACBC500F08035 /* AppleLoginTestView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
