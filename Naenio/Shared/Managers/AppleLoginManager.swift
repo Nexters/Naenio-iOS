@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AppleLoginManager: LoginManager {
+class AppleLoginManager {
     func requestLogin() -> LoginResponse? {
         let mockResponse = LoginResponse(accessToken: "")
         
