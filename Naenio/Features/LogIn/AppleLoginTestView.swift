@@ -12,7 +12,7 @@ struct AppleLoginTestView: View {
     
     var body: some View {
         VStack(spacing: 35) {
-            Text(viewModel.status.rawValue)
+            Text(viewModel.status.description)
             
             Button(action: { viewModel.requestLogin() }) {
                 AppleLoginButton()

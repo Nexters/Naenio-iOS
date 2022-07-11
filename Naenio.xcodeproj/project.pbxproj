@@ -173,7 +173,6 @@
 				9BF00C09287ACF7800F08035 /* Models */,
 				9BF00BF9287ACA3300F08035 /* Views */,
 				9BF00BF4287AC92500F08035 /* Managers */,
-				9BF00C06287ACE7D00F08035 /* Protocols */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -193,13 +192,6 @@
 				9BF00C01287ACC0900F08035 /* AppleLoginTestViewModel.swift */,
 			);
 			path = LogIn;
-			sourceTree = "<group>";
-		};
-		9BF00C06287ACE7D00F08035 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		9BF00C09287ACF7800F08035 /* Models */ = {

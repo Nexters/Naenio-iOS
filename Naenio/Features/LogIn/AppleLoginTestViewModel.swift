@@ -15,14 +15,12 @@ class AppleLoginTestViewModel: ObservableObject {
     @Published var status: Status = .waiting
     
     func requestLogin() {
-        status = .inProgress
-        
-        guard let _ = loginManager.requestLogin() else {
-            status = .fail
-            return
+        switch loginManager.requestLogin() {
+        case .success(()):
+            status = .done
+        case .failure(let error):
+            status = .fail(with: error)
         }
-        
-        status = .done
     }
     
     init(_ loginManager: AppleLoginManager = AppleLoginManager()) {
@@ -31,10 +29,23 @@ class AppleLoginTestViewModel: ObservableObject {
 }
 
 extension AppleLoginTestViewModel {
-    enum Status: String {
+    enum Status {
         case waiting
         case inProgress
         case done
-        case fail
+        case fail(with: Error)
+        
+        var description: String {
+            switch self {
+            case .waiting:
+                return "Waiting"
+            case .inProgress:
+                return "In progres..."
+            case .done:
+                return "Successfully done"
+            case .fail(let error):
+                return "Failed with error: \(error.localizedDescription)"
+            }
+        }
     }
 }
