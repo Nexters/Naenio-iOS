@@ -21,7 +21,6 @@ class AppleLoginManager: NSObject {
         
     }
     
-    @discardableResult // !!!: Remove when use
     private func submitUserInformationToServer(with info: LoginRequestInfo) throws -> UserInformation {
         // let userInfo = API.request(with: info)
         let mockInfo = UserInformation(name: "", id: "")

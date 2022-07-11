@@ -26,12 +26,22 @@ class AppleLoginTestViewModel: ObservableObject {
     }
     
     private func requestLoginToServer(with result: ASAuthorization) {
-        let info = LoginRequestInfo(accessToken: result.credential.description)
+        guard let info = result.credential as? ASAuthorizationAppleIDCredential,
+              let token = info.identityToken,
+              let stringToken = String(data: token, encoding: .utf8)
+        else {
+            status = .fail(with: URLError(.cannotDecodeRawData)) // TODO: TBD
+            return
+        }
         
-        switch loginManager.requestLogin(with: info) {
+        let tokenWrapper = LoginRequestInfo(accessToken: stringToken)
+        
+        switch loginManager.requestLogin(with: tokenWrapper) {
         case .success(let user):
             print(user)
+            
             // Save(user)
+            
             status = .done
         case .failure(let error):
             status = .fail(with: error)
