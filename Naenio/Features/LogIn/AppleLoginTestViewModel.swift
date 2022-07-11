@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AuthenticationServices
 
 class AppleLoginTestViewModel: ObservableObject {
     // Dependencies
@@ -14,9 +15,23 @@ class AppleLoginTestViewModel: ObservableObject {
     // Published vars
     @Published var status: Status = .waiting
     
-    func requestLogin() {
-        switch loginManager.requestLogin() {
-        case .success(()):
+    func handleLoginResult(result: Result<ASAuthorization, Error>) {
+        switch result {
+        case .success(let authResult):
+            requestLoginToServer(with: authResult)
+            status = .done
+        case .failure(let error):
+            status = .fail(with: error)
+        }
+    }
+    
+    private func requestLoginToServer(with result: ASAuthorization) {
+        let info = LoginRequestInfo(accessToken: result.credential.description)
+        
+        switch loginManager.requestLogin(with: info) {
+        case .success(let user):
+            print(user)
+            // Save(user)
             status = .done
         case .failure(let error):
             status = .fail(with: error)

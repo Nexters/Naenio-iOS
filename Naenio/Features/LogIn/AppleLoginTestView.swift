@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AuthenticationServices
 
 struct AppleLoginTestView: View {
     @ObservedObject var viewModel = AppleLoginTestViewModel()
@@ -14,10 +15,17 @@ struct AppleLoginTestView: View {
         VStack(spacing: 35) {
             Text(viewModel.status.description)
             
-            Button(action: { viewModel.requestLogin() }) {
-                AppleLoginButton()
-                    .frame(width: 280, height: 60)
-            }
+            SignInWithAppleButton(
+                .signIn,
+                onRequest: { request in
+                    request.requestedScopes = [.fullName, .email]
+                },
+                onCompletion: { result in
+                    viewModel.handleLoginResult(result: result)
+                }
+            )
+            .frame(width: 280, height: 60)
+            
         }
     }
 }

@@ -8,31 +8,17 @@
 import Foundation
 import AuthenticationServices
 
-class AppleLoginManager {
-    func requestLogin() -> Result<Void, Error> {
+class AppleLoginManager: NSObject {
+    func requestLogin(with loginInfo: LoginRequestInfo) -> Result<UserInformation, Error> {
         do {
-            let info = try authenticateWithAppleOauth()
-            try submitUserInformationToServer(with: info)
+            let userInfo = try submitUserInformationToServer(with: loginInfo)
             
-            return .success(())
+            return .success(userInfo)
         }
         catch let error {
             return .failure(error)
         }
-    }
-    
-    private func authenticateWithAppleOauth() throws -> LoginRequestInfo {
-        let mockInfo = LoginRequestInfo(accessToken: "")
-        /*
-         do {
-            ...
-            < Apple Oauth Routine >
-            ...
-         } catch let error {
-            throw error
-         }
-        */
-        return mockInfo
+        
     }
     
     @discardableResult // !!!: Remove when use
@@ -42,3 +28,4 @@ class AppleLoginManager {
         return mockInfo
     }
 }
+
