@@ -14,6 +14,12 @@
 		9B085F142879991600DE8E60 /* NaenioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F132879991600DE8E60 /* NaenioTests.swift */; };
 		9B085F1E2879991600DE8E60 /* NaenioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1D2879991600DE8E60 /* NaenioUITests.swift */; };
 		9B085F202879991600DE8E60 /* NaenioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */; };
+		9BF00BF7287AC95A00F08035 /* AppleLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00BF6287AC95A00F08035 /* AppleLoginManager.swift */; };
+		9BF00BFC287ACA6C00F08035 /* AppleLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00BFB287ACA6C00F08035 /* AppleLoginButton.swift */; };
+		9BF00BFF287ACBC500F08035 /* AppleLoginTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00BFE287ACBC500F08035 /* AppleLoginTestView.swift */; };
+		9BF00C02287ACC0900F08035 /* AppleLoginTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00C01287ACC0900F08035 /* AppleLoginTestViewModel.swift */; };
+		9BF00C0B287ACFA900F08035 /* LoginRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00C0A287ACFA900F08035 /* LoginRequestInformation.swift */; };
+		9CA7922D287BA90600600C32 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7922C287BA90600600C32 /* UserInformation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +50,13 @@
 		9B085F192879991600DE8E60 /* NaenioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NaenioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B085F1D2879991600DE8E60 /* NaenioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITests.swift; sourceTree = "<group>"; };
 		9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9BF00BF2287AC72800F08035 /* Naenio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Naenio.entitlements; sourceTree = "<group>"; };
+		9BF00BF6287AC95A00F08035 /* AppleLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginManager.swift; sourceTree = "<group>"; };
+		9BF00BFB287ACA6C00F08035 /* AppleLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginButton.swift; sourceTree = "<group>"; };
+		9BF00BFE287ACBC500F08035 /* AppleLoginTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginTestView.swift; sourceTree = "<group>"; };
+		9BF00C01287ACC0900F08035 /* AppleLoginTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginTestViewModel.swift; sourceTree = "<group>"; };
+		9BF00C0A287ACFA900F08035 /* LoginRequestInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestInformation.swift; sourceTree = "<group>"; };
+		9CA7922C287BA90600600C32 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +107,12 @@
 		9B085F012879991400DE8E60 /* Naenio */ = {
 			isa = PBXGroup;
 			children = (
-				9B085F022879991400DE8E60 /* NaenioApp.swift */,
-				9B085F042879991400DE8E60 /* ContentView.swift */,
-				9B085F062879991600DE8E60 /* Assets.xcassets */,
+				9BF00BF2287AC72800F08035 /* Naenio.entitlements */,
 				9B085F082879991600DE8E60 /* Preview Content */,
+				9B085F2D287E353600DE8E60 /* Resources */,
+				9B085F2C287E352A00DE8E60 /* Sources */,
+				9B085F2E287E353C00DE8E60 /* Supporting files */,
+				9B085F2F287E356300DE8E60 /* Utils */,
 			);
 			path = Naenio;
 			sourceTree = "<group>";
@@ -125,6 +140,67 @@
 				9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */,
 			);
 			path = NaenioUITests;
+			sourceTree = "<group>";
+		};
+		9B085F2C287E352A00DE8E60 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				9B085F042879991400DE8E60 /* ContentView.swift */,
+				9BF00C05287ACCC500F08035 /* LogIn */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		9B085F2D287E353600DE8E60 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9B085F062879991600DE8E60 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9B085F2E287E353C00DE8E60 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				9B085F022879991400DE8E60 /* NaenioApp.swift */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		9B085F2F287E356300DE8E60 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9BF00BF4287AC92500F08035 /* Managers */,
+				9BF00C09287ACF7800F08035 /* Models */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9BF00BF4287AC92500F08035 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				9BF00BF6287AC95A00F08035 /* AppleLoginManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		9BF00C05287ACCC500F08035 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				9BF00BFB287ACA6C00F08035 /* AppleLoginButton.swift */,
+				9BF00BFE287ACBC500F08035 /* AppleLoginTestView.swift */,
+				9BF00C01287ACC0900F08035 /* AppleLoginTestViewModel.swift */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
+		9BF00C09287ACF7800F08035 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9BF00C0A287ACFA900F08035 /* LoginRequestInformation.swift */,
+				9CA7922C287BA90600600C32 /* UserInformation.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +333,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BF00BFC287ACA6C00F08035 /* AppleLoginButton.swift in Sources */,
 				9B085F052879991400DE8E60 /* ContentView.swift in Sources */,
 				9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */,
+				9BF00C02287ACC0900F08035 /* AppleLoginTestViewModel.swift in Sources */,
+				9BF00BF7287AC95A00F08035 /* AppleLoginManager.swift in Sources */,
+				9CA7922D287BA90600600C32 /* UserInformation.swift in Sources */,
+				9BF00C0B287ACFA900F08035 /* LoginRequestInformation.swift in Sources */,
+				9BF00BFF287ACBC500F08035 /* AppleLoginTestView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +496,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Naenio/Naenio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
@@ -443,6 +526,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Naenio/Naenio.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
