@@ -20,7 +20,7 @@ class AppleLoginManager: NSObject {
             }
             
             // TODO: LoginRequestInformation May contain authorization codes
-            let loginInfo = LoginRequestInfo(accessToken: stringToken)
+            let loginInfo = LoginRequestInformation(accessToken: stringToken)
             let userInfo = try submitUserInformationToServer(with: loginInfo)
             
             return .success(userInfo)
@@ -31,7 +31,7 @@ class AppleLoginManager: NSObject {
         
     }
     
-    private func submitUserInformationToServer(with info: LoginRequestInfo) throws -> UserInformation {
+    private func submitUserInformationToServer(with info: LoginRequestInformation) throws -> UserInformation {
         // let userInfo = API.request(with: info)
         let mockInfo = UserInformation(name: "", id: "")
         return mockInfo
