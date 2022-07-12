@@ -9,8 +9,17 @@ import Foundation
 import AuthenticationServices
 
 class AppleLoginManager: NSObject {
-    func requestLogin(with loginInfo: LoginRequestInfo) -> Result<UserInformation, Error> {
+    func requestLoginToServer(with result: ASAuthorization) -> Result<UserInformation, Error> {
         do {
+            guard let info = result.credential as? ASAuthorizationAppleIDCredential,
+                  let token = info.identityToken,
+                  let stringToken = String(data: token, encoding: .utf8)
+            else {
+                // TODO: Replace here
+                throw URLError(.cannotDecodeRawData)
+            }
+            
+            let loginInfo = LoginRequestInfo(accessToken: stringToken)
             let userInfo = try submitUserInformationToServer(with: loginInfo)
             
             return .success(userInfo)
