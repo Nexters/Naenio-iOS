@@ -19,6 +19,7 @@ class AppleLoginManager: NSObject {
                 throw URLError(.cannotDecodeRawData)
             }
             
+            // TODO: LoginRequestInformation May contain authorization codes
             let loginInfo = LoginRequestInfo(accessToken: stringToken)
             let userInfo = try submitUserInformationToServer(with: loginInfo)
             
