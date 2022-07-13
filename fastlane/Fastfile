@@ -87,8 +87,8 @@ platform :ios do
         "Version" => lane_context[SharedValues::VERSION_NUMBER],
         "Build number" => lane_context[SharedValues::BUILD_NUMBER],
         "Date" => Time.new.to_s
-        }
-      )
+      }
+    )
   end
 
   # 에러 발생 시 호출 됨
@@ -103,5 +103,5 @@ platform :ios do
         "Error Info" => exception.message
         }
       )
-end
+  end
 end
