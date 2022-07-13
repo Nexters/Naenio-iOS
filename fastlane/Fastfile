@@ -62,5 +62,6 @@ platform :ios do
       method: "app-store",
       signingStyle: "manual"
     }
-    )
+  )
+  end
 end
