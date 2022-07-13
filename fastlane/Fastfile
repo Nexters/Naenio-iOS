@@ -56,7 +56,7 @@ platform :ios do
   # 빌드 및 내보내기 
   gym(
     workspace: "Naenio.xcworkspace",
-    scheme: "Naenio",
+    scheme: "Testflight",
     configuration: "Release",
     export_options: {
       method: "app-store",
