@@ -20,7 +20,7 @@ jobs:
         with:
           ruby-version: 2.7
           
-      - run: fastlane testflight
+      - run: fastlane testFlight
         env:
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
           KEYCHAIN_NAME: ${{ secrets.KEYCHAIN_NAME }}
