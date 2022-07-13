@@ -1,0 +1,66 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Upload the app to Testflight"
+  lane :  testFlight do
+  # keychain 초기화 
+  create_keychain(
+    name: ENV["KEYCHAIN_NAME"],
+    password: ENV["KEYCHAIN_PASSWORD"],
+    timeout: 1800,
+    default_keychain: true,
+    unlock: true,
+    lock_when_sleeps: false
+  )
+
+  app_store_connect_api_key(
+    key_id: ENV["APP_STORE_CONNECT_API_KEY_ID"],
+    issuer_id: ENV["APP_STORE_CONNECT_API_ISSUER_ID"],
+    key_content: ENV["APP_STORE_CONNECT_API_KEY_CONTENT"]
+    )
+
+  # match를 실행하여 인증서 및 프로파일 불러오기 
+  match(
+    git_url: "git@github.com:enebin/naenio-iOS-match.git",
+    storage_mode: "git",
+    type: "appstore",
+    readonly: true,
+    keychain_name: ENV["KEYCHAIN_NAME"],
+    keychain_password: ENV["KEYCHAIN_PASSWORD"]
+    )
+
+  xcversion(version: "~> 13.0")
+
+  cocoapods(
+      clean: true,
+      podfile: "./Podfile",
+      try_repo_update_on_error: true,
+      use_bundle_exec: false
+  )
+
+  # 빌드 및 내보내기 
+  gym(
+    workspace: ENV["XCWORKSPACE"],
+    scheme: ENV["PRODUCTION_SCHEME"],
+    configuration: "Release",
+    export_options: {
+      method: "app-store",
+      signingStyle: "manual"
+    }
+    )
+end
