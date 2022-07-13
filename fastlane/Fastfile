@@ -82,7 +82,7 @@ platform :ios do
     # 9. 배포 결과 슬랙 노티 🚨
     slack(
       message: "Testflight에 새로운 버전이 업데이트 되었습니다.",
-      success: true
+      success: true,
       payload: {
         "Version" => lane_context[SharedValues::VERSION_NUMBER],
         "Build number" => lane_context[SharedValues::BUILD_NUMBER],
@@ -95,7 +95,7 @@ platform :ios do
   error do |lane, exception|
     slack(
       message: "빌드 실패",
-      success: false
+      success: false,
       payload: {
         "Version" => lane_context[SharedValues::VERSION_NUMBER],
         "Build number" => lane_context[SharedValues::BUILD_NUMBER],
