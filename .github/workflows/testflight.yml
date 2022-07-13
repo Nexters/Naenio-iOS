@@ -2,7 +2,8 @@ name: Testflight
 
 on:
   push:
-    branches: [ "feature/fastlane-testflight" ]
+    branches: 
+      - 'feature/fastlane-testflight'
 
 jobs:
   Ready-for-flying:
