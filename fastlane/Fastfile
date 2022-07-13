@@ -62,6 +62,13 @@ platform :ios do
       method: "app-store",
       signingStyle: "manual"
     }
+  )	
+
+  increment_build_number(
+    xcodeproj: "Naenio.xcodeproj"
   )
+
+  upload_to_testflight
+
   end
 end
