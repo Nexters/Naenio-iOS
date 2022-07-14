@@ -6,6 +6,8 @@ target 'Naenio' do
   use_frameworks!
 
   # Pods for Naenio
+    pod "KakaoSDKAuth"
+    pod "Alamofire"
 
   target 'NaenioTests' do
     inherit! :search_paths
