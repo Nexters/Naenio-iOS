@@ -54,8 +54,6 @@ platform :ios do
       }
     )	
     
-    puts latest_testflight_build_number
-
     increment_build_number({
       build_number: latest_testflight_build_number + 1
     })
@@ -74,7 +72,8 @@ platform :ios do
         "Version" => lane_context[SharedValues::VERSION_NUMBER],
         "Build number" => lane_context[SharedValues::BUILD_NUMBER],
         "Date" => Time.new.to_s
-      }
+      },
+      slack_url: ENV["SLACK_URL"]
     )
   end
 
@@ -88,7 +87,8 @@ platform :ios do
         "Build number" => lane_context[SharedValues::BUILD_NUMBER],
         "Date" => Time.new.to_s,
         "Error Info" => exception.message
-        }
+        },
+        slack_url: ENV["SLACK_URL"]
       )
   end
 end
