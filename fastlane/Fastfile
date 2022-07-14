@@ -4,7 +4,7 @@ platform :ios do
   desc "Upload the app to Testflight"
   
   before_all do
-    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
   end
   
   lane :testFlight do
