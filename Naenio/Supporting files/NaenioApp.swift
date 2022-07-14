@@ -6,9 +6,16 @@
 //
 
 import SwiftUI
+import KakaoSDKAuth
+import KakaoSDKCommon
 
 @main
 struct NaenioApp: App {
+    init() {
+        // Kakao SDK 초기화
+        KakaoSDK.initSDK(appKey: "NATIVE_APP_KEY")
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
