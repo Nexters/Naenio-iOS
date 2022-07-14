@@ -53,6 +53,8 @@ platform :ios do
         signingStyle: "manual"
       }
     )	
+    
+    puts latest_testflight_build_number
 
     increment_build_number({
       build_number: latest_testflight_build_number + 1
