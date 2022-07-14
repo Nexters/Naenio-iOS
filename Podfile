@@ -7,6 +7,7 @@ target 'Naenio' do
 
   # Pods for Naenio
     pod "KakaoSDKAuth"
+    pod "KakaoSDKUser" 
     pod "Alamofire"
 
   target 'NaenioTests' do
