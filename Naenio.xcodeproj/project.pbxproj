@@ -206,28 +206,18 @@
 		9B085F2F287E356300DE8E60 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				9BF00BF4287AC92500F08035 /* Managers */,
-				9BF00C09287ACF7800F08035 /* Models */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		9BF00BF4287AC92500F08035 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				9BF00BF6287AC95A00F08035 /* AppleLoginManager.swift */,
-				9CA1364B2880155E0044062F /* KakaoLoginManager.swift */,
-			);
-			path = Managers;
 			sourceTree = "<group>";
 		};
 		9BF00C05287ACCC500F08035 /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
+				9BF00C09287ACF7800F08035 /* Models */,
+				9C1042F12880088400D24BEB /* Apple */,
+				9C1042F22880088C00D24BEB /* Kakao */,
 				9BF00BFE287ACBC500F08035 /* LoginTestView.swift */,
 				9BF00C01287ACC0900F08035 /* LoginTestViewModel.swift */,
-				9C1042F22880088C00D24BEB /* Kakao */,
-				9C1042F12880088400D24BEB /* Apple */,
 			);
 			path = LogIn;
 			sourceTree = "<group>";
@@ -244,6 +234,7 @@
 		9C1042F12880088400D24BEB /* Apple */ = {
 			isa = PBXGroup;
 			children = (
+				9BF00BF6287AC95A00F08035 /* AppleLoginManager.swift */,
 			);
 			path = Apple;
 			sourceTree = "<group>";
@@ -251,6 +242,7 @@
 		9C1042F22880088C00D24BEB /* Kakao */ = {
 			isa = PBXGroup;
 			children = (
+				9CA1364B2880155E0044062F /* KakaoLoginManager.swift */,
 				9CA1364528800D670044062F /* SignInWithKakaoButton.swift */,
 				9CA1364D28801F8D0044062F /* SignInWithKakaoButtonViewModel.swift */,
 			);
