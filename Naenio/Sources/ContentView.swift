@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-import KakaoSDKAuth
-import KakaoSDKCommon
 
 struct ContentView: View {
     var body: some View {
@@ -18,11 +16,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .onOpenURL(perform: { url in
-                if (AuthApi.isKakaoTalkLoginUrl(url)) {
-                    // TODO: Handle errors
-                    let _ = AuthController.handleOpenUrl(url: url)
-                }
-            })
     }
 }

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AuthenticationServices
+import KakaoSDKAuth
 
 class LoginTestViewModel: ObservableObject {
     // Dependencies
@@ -40,7 +41,7 @@ class LoginTestViewModel: ObservableObject {
     
     
     // For kakao
-    func handleKakaoLoginResult(result: Result<KakaoAuthorization, Error>) {
+    func handleKakaoLoginResult(result: Result<OAuthToken, Error>) {
         switch result {
         case .success(let authResult):
             requestKakaoLoginToServer(with: authResult)
@@ -49,7 +50,7 @@ class LoginTestViewModel: ObservableObject {
         }
     }
     
-    private func requestKakaoLoginToServer(with result: KakaoAuthorization) {
+    private func requestKakaoLoginToServer(with result: OAuthToken) {
         switch kakaoLoginManager.requestLoginToServer(with: result) {
         case .success(let user):
             print(user)

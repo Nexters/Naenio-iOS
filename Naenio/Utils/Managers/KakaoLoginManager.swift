@@ -10,7 +10,7 @@ import KakaoSDKCommon
 import KakaoSDKUser
 
 class KakaoLoginManager {
-    func requestLoginToServer(with result: KakaoAuthorization) -> Result<UserInformation, Error> {
+    func requestLoginToServer(with result: OAuthToken) -> Result<UserInformation, Error> {
         
         return .failure(URLError(.badURL))
     }

@@ -16,7 +16,7 @@ struct LoginTestView: View {
             Text(viewModel.status.description)
             
             SignInWithKakaoButton { request in
-                print(request)
+                // Nothing to do yet
             } onCompletion: { result in
                 viewModel.handleKakaoLoginResult(result: result)
             }
