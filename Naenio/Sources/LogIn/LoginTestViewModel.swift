@@ -15,9 +15,10 @@ class LoginTestViewModel: ObservableObject {
     let kakaoLoginManager: KakaoLoginManager
     
     // Published vars
+    /// 로그인 루틴 처리 상태를 표시
     @Published var status: Status = .waiting
     
-    // For apple
+    // MARK: - For apple
     func handleAppleLoginResult(result: Result<ASAuthorization, Error>) {
         switch result {
         case .success(let authResult):
@@ -40,7 +41,7 @@ class LoginTestViewModel: ObservableObject {
     }
     
     
-    // For kakao
+    // MARK: - For kakao
     func handleKakaoLoginResult(result: Result<OAuthToken, Error>) {
         switch result {
         case .success(let authResult):
@@ -89,10 +90,4 @@ extension LoginTestViewModel {
             }
         }
     }
-    
-    enum Channel {
-        case Kakao
-        case Apple
-    }
-    
 }

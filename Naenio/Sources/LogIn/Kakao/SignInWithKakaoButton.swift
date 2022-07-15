@@ -11,9 +11,7 @@ import KakaoSDKAuth
 struct SignInWithKakaoButton: View {
     let viewModel = SignInWithKakaoButtonViewModel()
     
-    /// Request 옵션을 받는 클로저(Apple login onRequest처럼)
-    let onRequest: (KakaoAuthorizationRequest) -> Void
-    /// 완료 시 토큰을 반환하는 컴플리션 핸들러
+    /// 완료 시 토큰을 반환하는 컴플리션 핸들러.  사용자 레이어에서 받아옴
     let onCompletion: (Result<OAuthToken, Error>) -> Void
     
     var body: some View {
@@ -32,9 +30,7 @@ struct SignInWithKakaoButton: View {
         }
     }
     
-    init(onRequest: @escaping (KakaoAuthorizationRequest) -> Void,
-         onCompletion: @escaping ((Result<OAuthToken, Error>) -> Void)) {
-        self.onRequest = onRequest
+    init(onCompletion: @escaping ((Result<OAuthToken, Error>) -> Void)) {
         self.onCompletion = onCompletion
     }
 }

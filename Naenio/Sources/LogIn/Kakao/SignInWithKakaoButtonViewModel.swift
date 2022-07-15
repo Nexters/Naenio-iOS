@@ -11,8 +11,8 @@ import KakaoSDKCommon
 import Combine
 
 class SignInWithKakaoButtonViewModel {
+    /// - Returns: `Result` type을 리턴함.  Kakao SDK 고유 타입인 `OAuthToken`와 Swift native type `Error`를 포함한다.
     func requestLoginToKakaoServer(_ completion: @escaping (Result<OAuthToken, Error>) -> Void) {
-        print(UserApi.isKakaoTalkLoginAvailable())
         if (UserApi.isKakaoTalkLoginAvailable()) {
             UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
                 if let error = error {

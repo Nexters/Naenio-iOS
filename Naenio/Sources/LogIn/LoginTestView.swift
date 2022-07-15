@@ -15,13 +15,11 @@ struct LoginTestView: View {
         VStack(spacing: 35) {
             Text(viewModel.status.description)
             
-            SignInWithKakaoButton { request in
-                // Nothing to do yet
-            } onCompletion: { result in
+            SignInWithKakaoButton { result in
                 viewModel.handleKakaoLoginResult(result: result)
             }
             .frame(width: 280, height: 60)
-
+            
             
             SignInWithAppleButton(
                 .signIn,
@@ -33,7 +31,6 @@ struct LoginTestView: View {
                 }
             )
             .frame(width: 280, height: 60)
-            
         }
     }
 }
