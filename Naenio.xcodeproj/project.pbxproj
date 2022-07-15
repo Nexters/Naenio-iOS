@@ -25,6 +25,7 @@
 		9CA1364828800E720044062F /* KakaoAuthorizationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA1364728800E720044062F /* KakaoAuthorizationRequest.swift */; };
 		9CA1364A28800EC50044062F /* KakaoAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA1364928800EC50044062F /* KakaoAuthorization.swift */; };
 		9CA1364C2880155E0044062F /* KakaoLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA1364B2880155E0044062F /* KakaoLoginManager.swift */; };
+		9CA1364E28801F8D0044062F /* SignInWithKakaoButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA1364D28801F8D0044062F /* SignInWithKakaoButtonViewModel.swift */; };
 		9CA7922D287BA90600600C32 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7922C287BA90600600C32 /* UserInformation.swift */; };
 		CE11F3B32F8A533FA821501E /* Pods_NaenioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FB0BEB83949C2C4F7B94801 /* Pods_NaenioTests.framework */; };
 /* End PBXBuildFile section */
@@ -72,6 +73,7 @@
 		9CA1364728800E720044062F /* KakaoAuthorizationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthorizationRequest.swift; sourceTree = "<group>"; };
 		9CA1364928800EC50044062F /* KakaoAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoAuthorization.swift; sourceTree = "<group>"; };
 		9CA1364B2880155E0044062F /* KakaoLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginManager.swift; sourceTree = "<group>"; };
+		9CA1364D28801F8D0044062F /* SignInWithKakaoButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithKakaoButtonViewModel.swift; sourceTree = "<group>"; };
 		9CA7922C287BA90600600C32 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		AD724DA8F651698B18462E10 /* Pods-Naenio-NaenioUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio-NaenioUITests.release.xcconfig"; path = "Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B9F5691769E0478B78C3BD1E /* Pods-Naenio-NaenioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio-NaenioUITests.debug.xcconfig"; path = "Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				9CA1364528800D670044062F /* SignInWithKakaoButton.swift */,
+				9CA1364D28801F8D0044062F /* SignInWithKakaoButtonViewModel.swift */,
 			);
 			path = Kakao;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				9CA1364628800D670044062F /* SignInWithKakaoButton.swift in Sources */,
 				9CA1364C2880155E0044062F /* KakaoLoginManager.swift in Sources */,
 				9BF00BF7287AC95A00F08035 /* AppleLoginManager.swift in Sources */,
+				9CA1364E28801F8D0044062F /* SignInWithKakaoButtonViewModel.swift in Sources */,
 				9CA7922D287BA90600600C32 /* UserInformation.swift in Sources */,
 				9BF00C0B287ACFA900F08035 /* LoginRequestInformation.swift in Sources */,
 				9BF00BFF287ACBC500F08035 /* LoginTestView.swift in Sources */,
