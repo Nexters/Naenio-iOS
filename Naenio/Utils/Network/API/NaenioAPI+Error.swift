@@ -10,6 +10,35 @@ import Moya
 import Alamofire
 import Then
 
+extension NaenioAPI {
+  private func handleInternetConnection<T: Any>(error: Error) throws -> Single<T> {
+    guard
+      let urlError = Self.converToURLError(error),
+      Self.isNotConnection(error: error)
+    else { throw error }
+    throw NaenioAPIError.internetConnection(urlError)
+  }
+    
+    private func handleTimeOut<T: Any>(error: Error) throws -> Single<T> {
+      guard
+        let urlError = Self.converToURLError(error),
+        urlError.code == .timedOut
+      else { throw error }
+      throw NaenioAPIError.requestTimeout(urlError)
+    }
+  
+  private func handleREST<T: Any>(error: Error) throws -> Single<T> {
+    guard error is NaenioAPIError else {
+      throw NaenioAPIError.restError(
+        error,
+        statusCode: (error as? MoyaError)?.response?.statusCode,
+        errorCode: (try? (error as? MoyaError)?.response?.mapJSON() as? [String: Any])?["code"] as? String
+      )
+    }
+    throw error
+  }
+}
+
 enum NaenioAPIError: Error {
     case empty
     case requestTimeout(Error)
