@@ -11,7 +11,7 @@ import Alamofire
 import Then
 
 extension NaenioAPI {
-  private func handleInternetConnection<T: Any>(error: Error) throws -> Single<T> {
+  func handleInternetConnection<T: Any>(error: Error) throws -> Single<T> {
     guard
       let urlError = Self.converToURLError(error),
       Self.isNotConnection(error: error)
@@ -19,7 +19,7 @@ extension NaenioAPI {
     throw NaenioAPIError.internetConnection(urlError)
   }
     
-    private func handleTimeOut<T: Any>(error: Error) throws -> Single<T> {
+    func handleTimeOut<T: Any>(error: Error) throws -> Single<T> {
       guard
         let urlError = Self.converToURLError(error),
         urlError.code == .timedOut
@@ -27,7 +27,7 @@ extension NaenioAPI {
       throw NaenioAPIError.requestTimeout(urlError)
     }
   
-  private func handleREST<T: Any>(error: Error) throws -> Single<T> {
+  func handleREST<T: Any>(error: Error) throws -> Single<T> {
     guard error is NaenioAPIError else {
       throw NaenioAPIError.restError(
         error,
