@@ -12,6 +12,10 @@ struct NaenioApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onOpenURL { url in
+                    // TODO: Add implementation of further handling later
+                    print("URL received: \(url)")
+                }
         }
     }
 }
