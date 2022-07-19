@@ -14,7 +14,7 @@ import Alamofire
 import Moya
 
 extension TargetType {
-    static func isNotConnection(error: Error) -> Bool {
+    static func isNotConnected(error: Error) -> Bool {
         Self.convertToURLError(error)?.code == .notConnectedToInternet
     }
     
