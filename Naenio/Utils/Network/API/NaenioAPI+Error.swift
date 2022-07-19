@@ -8,12 +8,11 @@
 import RxSwift
 import Moya
 import Alamofire
-import Then
 
 extension NaenioAPI {
   func handleInternetConnection<T: Any>(error: Error) throws -> Single<T> {
     guard
-      let urlError = Self.converToURLError(error),
+      let urlError = Self.convertToURLError(error),
       Self.isNotConnection(error: error)
     else { throw error }
     throw NaenioAPIError.internetConnection(urlError)
@@ -21,7 +20,7 @@ extension NaenioAPI {
     
     func handleTimeOut<T: Any>(error: Error) throws -> Single<T> {
       guard
-        let urlError = Self.converToURLError(error),
+        let urlError = Self.convertToURLError(error),
         urlError.code == .timedOut
       else { throw error }
       throw NaenioAPIError.requestTimeout(urlError)

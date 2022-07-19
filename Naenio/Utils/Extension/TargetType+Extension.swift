@@ -15,7 +15,7 @@ import Moya
 
 extension TargetType {
     static func isNotConnection(error: Error) -> Bool {
-        Self.converToURLError(error)?.code == .notConnectedToInternet
+        Self.convertToURLError(error)?.code == .notConnectedToInternet
     }
     
     static func isLostConnection(error: Error) -> Bool {
@@ -34,7 +34,7 @@ extension TargetType {
         return true
     }
     
-    static func converToURLError(_ error: Error) -> URLError? {
+    static func convertToURLError(_ error: Error) -> URLError? {
         switch error {
         case let MoyaError.underlying(afError as AFError, _):
             fallthrough

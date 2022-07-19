@@ -8,10 +8,8 @@ target 'Naenio' do
   pod 'Moya', '~> 15.0'
   pod 'Moya/RxSwift', '~> 15.0'
   pod 'Kingfisher', '~> 7.0'
-  pod 'Then'
 
   pod 'RxSwift'
-  pod 'RxCocoa'
   
   target 'NaenioTests' do
     inherit! :search_paths
