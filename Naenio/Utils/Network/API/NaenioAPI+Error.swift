@@ -13,7 +13,7 @@ extension NaenioAPI {
   func handleInternetConnection<T: Any>(error: Error) throws -> Single<T> {
     guard
       let urlError = Self.convertToURLError(error),
-      Self.isNotConnection(error: error)
+      Self.isNotConnected(error: error)
     else { throw error }
     throw NaenioAPIError.internetConnection(urlError)
   }
@@ -67,7 +67,7 @@ enum NaenioAPIError: Error {
         case let .requestTimeout(error):
             fallthrough
         case let .restError(error, _, _):
-            return NaenioAPI.isNotConnection(error: error) || NaenioAPI.isLostConnection(error: error)
+            return NaenioAPI.isNotConnected(error: error) || NaenioAPI.isLostConnection(error: error)
         case .internetConnection:
             return true
         default:
