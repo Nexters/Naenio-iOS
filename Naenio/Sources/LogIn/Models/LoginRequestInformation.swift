@@ -7,6 +7,7 @@
 
 import Foundation
 
-struct LoginRequestInformation: Encodable {
+struct LoginRequestInformation: ModelType {
+
     let accessToken: String
 }
