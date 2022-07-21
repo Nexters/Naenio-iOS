@@ -20,7 +20,6 @@
 		4C4B134528847640006044B0 /* NaenioAPI+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B134428847640006044B0 /* NaenioAPI+Request.swift */; };
 		4CC296D92880533C001950A2 /* DefaultSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC296D82880533C001950A2 /* DefaultSession.swift */; };
 		4CC296DB28805366001950A2 /* NaenioAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC296DA28805366001950A2 /* NaenioAPI.swift */; };
-		4CC296DE288054E7001950A2 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC296DD288054E7001950A2 /* KeyValue.swift */; };
 		4CC296E0288055FD001950A2 /* HeaderInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC296DF288055FD001950A2 /* HeaderInformation.swift */; };
 		92D901F16488AB4A41D32F75 /* Pods_Naenio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B546567C3E3421F07641077D /* Pods_Naenio.framework */; };
 		9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F022879991400DE8E60 /* NaenioApp.swift */; };
@@ -31,10 +30,13 @@
 		9B085F1E2879991600DE8E60 /* NaenioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1D2879991600DE8E60 /* NaenioUITests.swift */; };
 		9B085F202879991600DE8E60 /* NaenioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */; };
 		9BF00BF7287AC95A00F08035 /* AppleLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00BF6287AC95A00F08035 /* AppleLoginManager.swift */; };
-		9BF00BFC287ACA6C00F08035 /* AppleLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00BFB287ACA6C00F08035 /* AppleLoginButton.swift */; };
-		9BF00BFF287ACBC500F08035 /* AppleLoginTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00BFE287ACBC500F08035 /* AppleLoginTestView.swift */; };
-		9BF00C02287ACC0900F08035 /* AppleLoginTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00C01287ACC0900F08035 /* AppleLoginTestViewModel.swift */; };
 		9BF00C0B287ACFA900F08035 /* LoginRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00C0A287ACFA900F08035 /* LoginRequestInformation.swift */; };
+		9C3309CD2888EC52000C592F /* KakaoLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309CC2888EC52000C592F /* KakaoLoginManager.swift */; };
+		9C3309CF2888ED08000C592F /* SignInWithKakaoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309CE2888ED08000C592F /* SignInWithKakaoButton.swift */; };
+		9C3309D12888ED16000C592F /* SignInWithKakaoButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309D02888ED16000C592F /* SignInWithKakaoButtonViewModel.swift */; };
+		9C3309D52888ED52000C592F /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309D42888ED52000C592F /* KeyValue.swift */; };
+		9C3309D72888EE0D000C592F /* LoginTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309D62888EE0D000C592F /* LoginTestView.swift */; };
+		9C3309D92888EE20000C592F /* LoginTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309D82888EE20000C592F /* LoginTestViewModel.swift */; };
 		9CA7922D287BA90600600C32 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7922C287BA90600600C32 /* UserInformation.swift */; };
 		D377232EF7564B4D94602233 /* Pods_Naenio_NaenioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF541D3D8763AF8CB32F473 /* Pods_Naenio_NaenioUITests.framework */; };
 /* End PBXBuildFile section */
@@ -73,7 +75,6 @@
 		4C4B134428847640006044B0 /* NaenioAPI+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Request.swift"; sourceTree = "<group>"; };
 		4CC296D82880533C001950A2 /* DefaultSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSession.swift; sourceTree = "<group>"; };
 		4CC296DA28805366001950A2 /* NaenioAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioAPI.swift; sourceTree = "<group>"; };
-		4CC296DD288054E7001950A2 /* KeyValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
 		4CC296DF288055FD001950A2 /* HeaderInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderInformation.swift; sourceTree = "<group>"; };
 		8D95CCC0C2681997F36E4AFB /* Pods-Naenio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio.debug.xcconfig"; path = "Target Support Files/Pods-Naenio/Pods-Naenio.debug.xcconfig"; sourceTree = "<group>"; };
 		9B085EFF2879991400DE8E60 /* Naenio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Naenio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,10 +89,14 @@
 		9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9BF00BF2287AC72800F08035 /* Naenio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Naenio.entitlements; sourceTree = "<group>"; };
 		9BF00BF6287AC95A00F08035 /* AppleLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginManager.swift; sourceTree = "<group>"; };
-		9BF00BFB287ACA6C00F08035 /* AppleLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginButton.swift; sourceTree = "<group>"; };
-		9BF00BFE287ACBC500F08035 /* AppleLoginTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginTestView.swift; sourceTree = "<group>"; };
-		9BF00C01287ACC0900F08035 /* AppleLoginTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginTestViewModel.swift; sourceTree = "<group>"; };
 		9BF00C0A287ACFA900F08035 /* LoginRequestInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestInformation.swift; sourceTree = "<group>"; };
+		9C3309CC2888EC52000C592F /* KakaoLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginManager.swift; sourceTree = "<group>"; };
+		9C3309CE2888ED08000C592F /* SignInWithKakaoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithKakaoButton.swift; sourceTree = "<group>"; };
+		9C3309D02888ED16000C592F /* SignInWithKakaoButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithKakaoButtonViewModel.swift; sourceTree = "<group>"; };
+		9C3309D42888ED52000C592F /* KeyValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
+		9C3309D62888EE0D000C592F /* LoginTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTestView.swift; sourceTree = "<group>"; };
+		9C3309D82888EE20000C592F /* LoginTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTestViewModel.swift; sourceTree = "<group>"; };
+		9C3309DA2888EFA9000C592F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9CA7922C287BA90600600C32 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		A23C6C1FBD1AFD04C21BFC37 /* Pods-NaenioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaenioTests.debug.xcconfig"; path = "Target Support Files/Pods-NaenioTests/Pods-NaenioTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B546567C3E3421F07641077D /* Pods_Naenio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naenio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,9 +177,9 @@
 		4CC296DC288054C0001950A2 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				4CC296DD288054E7001950A2 /* KeyValue.swift */,
 				4CC296DF288055FD001950A2 /* HeaderInformation.swift */,
 				4C4B13422883D88A006044B0 /* HttpResponseCode.swift */,
+				9C3309D42888ED52000C592F /* KeyValue.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 		9B085F012879991400DE8E60 /* Naenio */ = {
 			isa = PBXGroup;
 			children = (
+				9C3309DA2888EFA9000C592F /* Info.plist */,
 				9BF00BF2287AC72800F08035 /* Naenio.entitlements */,
 				9B085F082879991600DE8E60 /* Preview Content */,
 				9B085F2D287E353600DE8E60 /* Resources */,
@@ -292,37 +298,47 @@
 			children = (
 				4C4B13352883B543006044B0 /* Extension */,
 				4CC296D228804E88001950A2 /* Network */,
-				9BF00BF4287AC92500F08035 /* Managers */,
-				9BF00C09287ACF7800F08035 /* Models */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		9BF00BF4287AC92500F08035 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				9BF00BF6287AC95A00F08035 /* AppleLoginManager.swift */,
-			);
-			path = Managers;
 			sourceTree = "<group>";
 		};
 		9BF00C05287ACCC500F08035 /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
-				9BF00BFB287ACA6C00F08035 /* AppleLoginButton.swift */,
-				9BF00BFE287ACBC500F08035 /* AppleLoginTestView.swift */,
-				9BF00C01287ACC0900F08035 /* AppleLoginTestViewModel.swift */,
+				9C3309C92888EC13000C592F /* Models */,
+				9C3309CA2888EC37000C592F /* Apple */,
+				9C3309CB2888EC3D000C592F /* Kakao */,
+				9C3309D62888EE0D000C592F /* LoginTestView.swift */,
+				9C3309D82888EE20000C592F /* LoginTestViewModel.swift */,
 			);
 			path = LogIn;
 			sourceTree = "<group>";
 		};
-		9BF00C09287ACF7800F08035 /* Models */ = {
+		9C3309C92888EC13000C592F /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				9BF00C0A287ACFA900F08035 /* LoginRequestInformation.swift */,
 				9CA7922C287BA90600600C32 /* UserInformation.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		9C3309CA2888EC37000C592F /* Apple */ = {
+			isa = PBXGroup;
+			children = (
+				9BF00BF6287AC95A00F08035 /* AppleLoginManager.swift */,
+			);
+			path = Apple;
+			sourceTree = "<group>";
+		};
+		9C3309CB2888EC3D000C592F /* Kakao */ = {
+			isa = PBXGroup;
+			children = (
+				9C3309CC2888EC52000C592F /* KakaoLoginManager.swift */,
+				9C3309CE2888ED08000C592F /* SignInWithKakaoButton.swift */,
+				9C3309D02888ED16000C592F /* SignInWithKakaoButtonViewModel.swift */,
+			);
+			path = Kakao;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -563,28 +579,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BF00BFC287ACA6C00F08035 /* AppleLoginButton.swift in Sources */,
 				9B085F052879991400DE8E60 /* ContentView.swift in Sources */,
 				4CC296DB28805366001950A2 /* NaenioAPI.swift in Sources */,
 				4C4B13392883B709006044B0 /* NaenioAPI+Error.swift in Sources */,
 				4C4B13322883AAC3006044B0 /* NaenioAPI+Path.swift in Sources */,
+				9C3309D72888EE0D000C592F /* LoginTestView.swift in Sources */,
 				4CC296D92880533C001950A2 /* DefaultSession.swift in Sources */,
 				4C4B13342883AAE0006044B0 /* NaenioAPI+Task.swift in Sources */,
 				9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */,
 				4C4B133D2883C5EB006044B0 /* NaenioAPI+Wrapper.swift in Sources */,
-				9BF00C02287ACC0900F08035 /* AppleLoginTestViewModel.swift in Sources */,
+				9C3309D52888ED52000C592F /* KeyValue.swift in Sources */,
 				4C4B13432883D88A006044B0 /* HttpResponseCode.swift in Sources */,
 				9BF00BF7287AC95A00F08035 /* AppleLoginManager.swift in Sources */,
 				4C43C8C42886FB8200A60372 /* String+Extension.swift in Sources */,
+				9C3309CF2888ED08000C592F /* SignInWithKakaoButton.swift in Sources */,
 				4C4B133B2883C44C006044B0 /* TargetType+Extension.swift in Sources */,
 				4C4B133F2883CD32006044B0 /* ModelType.swift in Sources */,
 				4C4B13372883B55F006044B0 /* Encodable+Extension.swift in Sources */,
 				4CC296E0288055FD001950A2 /* HeaderInformation.swift in Sources */,
 				4C4B134528847640006044B0 /* NaenioAPI+Request.swift in Sources */,
-				4CC296DE288054E7001950A2 /* KeyValue.swift in Sources */,
+				9C3309D92888EE20000C592F /* LoginTestViewModel.swift in Sources */,
+				9C3309D12888ED16000C592F /* SignInWithKakaoButtonViewModel.swift in Sources */,
 				9CA7922D287BA90600600C32 /* UserInformation.swift in Sources */,
 				9BF00C0B287ACFA900F08035 /* LoginRequestInformation.swift in Sources */,
-				9BF00BFF287ACBC500F08035 /* AppleLoginTestView.swift in Sources */,
+				9C3309CD2888EC52000C592F /* KakaoLoginManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,6 +766,7 @@
 				DEVELOPMENT_TEAM = W6QHM4Y43Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Naenio/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -779,6 +798,7 @@
 				DEVELOPMENT_TEAM = W6QHM4Y43Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Naenio/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
