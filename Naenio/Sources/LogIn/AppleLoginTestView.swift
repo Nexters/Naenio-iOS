@@ -8,18 +8,12 @@
 import SwiftUI
 import AuthenticationServices
 
-struct LoginTestView: View {
-    @ObservedObject var viewModel = LoginTestViewModel()
+struct AppleLoginTestView: View {
+    @ObservedObject var viewModel = AppleLoginTestViewModel()
     
     var body: some View {
         VStack(spacing: 35) {
             Text(viewModel.status.description)
-            
-            SignInWithKakaoButton { result in
-                viewModel.handleKakaoLoginResult(result: result)
-            }
-            .frame(width: 280, height: 60)
-            
             
             SignInWithAppleButton(
                 .signIn,
@@ -27,16 +21,17 @@ struct LoginTestView: View {
                     request.requestedScopes = [.fullName, .email]
                 },
                 onCompletion: { result in
-                    viewModel.handleAppleLoginResult(result: result)
+                    viewModel.handleLoginResult(result: result)
                 }
             )
             .frame(width: 280, height: 60)
+            
         }
     }
 }
 
 struct AppleLoginTestView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginTestView()
+        AppleLoginTestView()
     }
 }

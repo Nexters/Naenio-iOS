@@ -8,9 +8,6 @@ target 'Naenio' do
   pod 'Moya', '~> 15.0'
   pod 'Moya/RxSwift', '~> 15.0'
   pod 'Kingfisher', '~> 7.0'
-  pod "KakaoSDKAuth"
-  pod "KakaoSDKUser" 
-  pod "Alamofire"
 
   pod 'RxSwift'
   
