@@ -29,6 +29,9 @@ struct SignInWithKakaoButton: View {
                     .fill(.yellow)
             )
         }
+        .onOpenURL { url in
+            _ = AuthController.handleOpenUrl(url: url)
+        }
     }
     
     init(onCompletion: @escaping ((Result<OAuthToken, Error>) -> Void)) {
