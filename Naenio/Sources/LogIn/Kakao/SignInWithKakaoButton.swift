@@ -17,7 +17,7 @@ struct SignInWithKakaoButton: View {
     
     var body: some View {
         Button(action: {
-            viewModel.requestLoginToKakaoServer(onCompletion)
+            viewModel.login(onCompletion)
         }) {
             HStack {
                 Text("카카오로 로그인")
