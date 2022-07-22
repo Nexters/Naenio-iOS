@@ -89,7 +89,7 @@ class LoginTestViewModel: ObservableObject {
     
 #if DEBUG
     deinit {
-        print("\(#function) deinit")
+        print("LoginTestViewModel deinit")
     }
 #endif
 }
