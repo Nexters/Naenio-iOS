@@ -8,5 +8,6 @@
 import Foundation
 
 struct LoginRequestInformation: ModelType {
-    let accessToken: String
+    let authToken: String
+    let authServiceType: String
 }

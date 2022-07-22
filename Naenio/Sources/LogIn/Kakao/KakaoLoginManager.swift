@@ -14,7 +14,7 @@ class KakaoLoginManager {
     func requestLoginToServer(with result: OAuthToken) -> Result<UserInformation, Error> {
         do {
             let token = result.accessToken
-            let loginInfo = LoginRequestInformation(accessToken: token)
+            let loginInfo = LoginRequestInformation(authToken: token, authServiceType: "KAKAO")
             let userInfo = try submitUserInformationToServer(with: loginInfo)
             
             return .success(userInfo)
