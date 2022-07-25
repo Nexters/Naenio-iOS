@@ -8,6 +8,7 @@
 import SwiftUI
 import AuthenticationServices
 import KakaoSDKAuth
+import RxSwift
 
 class LoginTestViewModel: ObservableObject {
     // Dependencies
@@ -17,6 +18,9 @@ class LoginTestViewModel: ObservableObject {
     // Published vars
     /// 로그인 루틴 처리 상태를 표시
     @Published var status: Status = .waiting
+    
+    // Private vars
+    private let bag = DisposeBag()
     
     // MARK: - For apple
     func handleAppleLoginResult(result: Result<ASAuthorization, Error>) {
@@ -52,15 +56,29 @@ class LoginTestViewModel: ObservableObject {
     }
     
     private func requestKakaoLoginToServer(with result: OAuthToken) {
-        switch kakaoLoginManager.requestLoginToServer(with: result) {
-        case .success(let user):
-            print(user)
-            // Save(user)
-            
-            status = .done
-        case .failure(let error):
-            status = .fail(with: error)
-        }
+        kakaoLoginManager.requestLoginToServer(with: result)
+            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .utility))
+            .subscribe(
+                onSuccess: { [weak self] userInfo in
+                    guard let self = self else { return }
+                    // Save(userInfo)
+                    DispatchQueue.main.async {
+                        self.status = .done
+                    }
+                },
+                onFailure: { [weak self] error in
+                    guard let self = self else { return }
+                    DispatchQueue.main.async {
+                        self.status = .fail(with: error)
+                    }
+                },
+                onDisposed: {
+#if DEBUG
+                    print("disposed")
+#endif
+                }
+            )
+            .disposed(by: bag)
     }
     
     init(_ appleLoginManager: AppleLoginManager = AppleLoginManager(),
@@ -68,6 +86,12 @@ class LoginTestViewModel: ObservableObject {
         self.appleLoginManager = appleLoginManager
         self.kakaoLoginManager = kakaoLoginManager
     }
+    
+#if DEBUG
+    deinit {
+        print("LoginTestViewModel deinit")
+    }
+#endif
 }
 
 extension LoginTestViewModel {

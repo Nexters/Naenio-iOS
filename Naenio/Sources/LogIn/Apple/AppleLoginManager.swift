@@ -29,7 +29,7 @@ class AppleLoginManager {
             }
             
             // TODO: LoginRequestInformation May contain authorization codes
-            let loginInfo = LoginRequestInformation(accessToken: stringToken)
+            let loginInfo = LoginRequestInformation(authToken: stringToken, authServiceType: "APPLE")
             let userInfo = try submitUserInformationToServer(with: loginInfo)
             
             return .success(userInfo)
@@ -42,7 +42,7 @@ class AppleLoginManager {
     /// API 콜을 요청하는 내부 메소드입니다
     private func submitUserInformationToServer(with info: LoginRequestInformation) throws -> UserInformation {
         // let userInfo = API.request(with: info)
-        let mockInfo = UserInformation(name: "", id: "")
+        let mockInfo = UserInformation(token: "")
         return mockInfo
     }
 }

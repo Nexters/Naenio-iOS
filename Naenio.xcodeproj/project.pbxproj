@@ -87,6 +87,7 @@
 		9B085F192879991600DE8E60 /* NaenioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NaenioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B085F1D2879991600DE8E60 /* NaenioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITests.swift; sourceTree = "<group>"; };
 		9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9B811653288AD72700099F29 /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
 		9BF00BF2287AC72800F08035 /* Naenio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Naenio.entitlements; sourceTree = "<group>"; };
 		9BF00BF6287AC95A00F08035 /* AppleLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginManager.swift; sourceTree = "<group>"; };
 		9BF00C0A287ACFA900F08035 /* LoginRequestInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestInformation.swift; sourceTree = "<group>"; };
@@ -177,6 +178,7 @@
 		4CC296DC288054C0001950A2 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				9B811653288AD72700099F29 /* KeyValue.swift */,
 				4CC296DF288055FD001950A2 /* HeaderInformation.swift */,
 				4C4B13422883D88A006044B0 /* HttpResponseCode.swift */,
 				9C3309D42888ED52000C592F /* KeyValue.swift */,

@@ -9,6 +9,5 @@ import Foundation
 
 // !!!: Temporary
 struct UserInformation: Codable {
-    let name: String
-    let id: String
+    let token: String
 }
