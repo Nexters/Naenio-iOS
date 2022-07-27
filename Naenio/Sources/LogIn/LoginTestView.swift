@@ -12,25 +12,31 @@ struct LoginTestView: View {
     @ObservedObject var viewModel = LoginTestViewModel()
     
     var body: some View {
-        VStack(spacing: 35) {
-            Text(viewModel.status.description)
-            
-            SignInWithKakaoButton { result in
-                viewModel.handleKakaoLoginResult(result: result)
-            }
-            .frame(width: 280, height: 60)
-            
-            
-            SignInWithAppleButton(
-                .signIn,
-                onRequest: { request in
-                    request.requestedScopes = [.fullName, .email]
-                },
-                onCompletion: { result in
-                    viewModel.handleAppleLoginResult(result: result)
+        NavigationView {
+            VStack(spacing: 35) {
+                Text(viewModel.status.description)
+                
+                SignInWithKakaoButton { result in
+                    viewModel.handleKakaoLoginResult(result: result)
                 }
-            )
-            .frame(width: 280, height: 60)
+                .frame(width: 280, height: 60)
+                
+                SignInWithAppleButton(
+                    .signIn,
+                    onRequest: { request in
+                        request.requestedScopes = [.fullName, .email]
+                    },
+                    onCompletion: { result in
+                        viewModel.handleAppleLoginResult(result: result)
+                    }
+                )
+                .frame(width: 280, height: 60)
+                
+                
+                NavigationLink(destination: HapticTestView()) {
+                    Text("Go to haptic test")
+                }
+            }
         }
     }
 }
