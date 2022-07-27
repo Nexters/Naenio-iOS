@@ -35,7 +35,13 @@ class HapticTestViewModel {
         case .heavy:
             impact(.heavy).impactOccurred()
         case .selection:
-            selection.selectionChanged()
+            let timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+                self.selection.selectionChanged()
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+                timer.invalidate()
+            }
         }
     }
 }

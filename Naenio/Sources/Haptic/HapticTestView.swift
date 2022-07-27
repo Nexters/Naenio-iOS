@@ -18,14 +18,14 @@ struct HapticTestView: View {
                 }) {
                     Text(haptic.rawValue)
                         .bold()
+                        .frame(width: UIScreen.main.bounds.width - 50)
+                        .padding()
                 }
-                .frame(width: UIScreen.main.bounds.width - 50)
-                .padding()
                 .foregroundColor(.white)
                 .background(Color.blue)
                 .cornerRadius(10)
-                .navigationBarTitleDisplayMode(.inline)
             }
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
