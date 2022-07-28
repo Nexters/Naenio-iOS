@@ -16,10 +16,9 @@ on:
       - '.swiftlint.yml'
       - '**/*.swift'
 jobs:
-  swiftlint:
-    runs-on: macos-latest
+  SwiftLint:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-
-      - name: Run swiftlint
-        run: swiftlint --config .swiftlint.yml
+      - name: run GitHub Action for SwiftLint
+        uses: norio-nomura/action-swiftlint@3.2.1
