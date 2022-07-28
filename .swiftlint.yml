@@ -1,0 +1,29 @@
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Pods
+
+disabled_rules: 
+  - force_unwrapping
+  
+trailing_whitespace:
+    ignores_empty_lines: true
+    
+force_cast: # From https://realm.github.io/SwiftLint/force_cast.html
+    warning
+
+line_length: 250 # From https://realm.github.io/SwiftLint/line_length.html
+
+function_body_length:   # From https://realm.github.io/SwiftLint/function_body_length.html
+    error:  200
+
+identifier_name:
+  min_length:
+    error: 3
+  max_length:
+    warning: 50
+    error: 60
+  excluded:
+    - id
+    - URL
+    
+reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji)
+
