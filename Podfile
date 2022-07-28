@@ -8,11 +8,12 @@ target 'Naenio' do
   pod 'Moya', '~> 15.0'
   pod 'Moya/RxSwift', '~> 15.0'
   pod 'Kingfisher', '~> 7.0'
-  pod "KakaoSDKAuth"
-  pod "KakaoSDKUser" 
-  pod "Alamofire"
+  pod 'KakaoSDKAuth', '~> 2.11.0'
+  pod 'KakaoSDKUser', '~> 2.11.0'
+  pod 'Alamofire'
 
   pod 'RxSwift'
+  pod 'SwiftLint'
   
   target 'NaenioTests' do
     inherit! :search_paths
