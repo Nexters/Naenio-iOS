@@ -25,6 +25,11 @@ struct HapticTestView: View {
                 .background(Color.blue)
                 .cornerRadius(10)
             }
+            
+        
+            NavigationLink(destination: { HapticAdvanvedTestView(viewModel: self.viewModel) }) {
+                Text("Go to advanced test view")
+            }
         }
         .navigationBarTitleDisplayMode(.inline)
     }
