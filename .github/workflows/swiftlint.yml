@@ -2,13 +2,19 @@ name: swiftlint
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: 
+      - '**'
+on:
+  push:
+    branches-ignore:
+      - master
     paths:
       - '.github/workflows/swiftlint.yml'
       - 'Naenio-iOS/.swiftlint.yml'
       - 'Naenio-iOS/**/*.swift'
   pull_request:
-    branches: [ "develop" ]
+    branches-ignore:
+      - master
     paths:
       - '.github/workflows/swiftlint.yml'
       - 'Naenio-iOS/.swiftlint.yml'
