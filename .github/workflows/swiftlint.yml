@@ -1,0 +1,23 @@
+name: swiftlint
+
+on:
+  push:
+    branches: [ "develop" ]
+    paths:
+      - '.github/workflows/swiftlint.yml'
+      - 'Naenio-iOS/.swiftlint.yml'
+      - 'Naenio-iOS/**/*.swift'
+  pull_request:
+    branches: [ "develop" ]
+    paths:
+      - '.github/workflows/swiftlint.yml'
+      - 'Naenio-iOS/.swiftlint.yml'
+      - 'Naenio-iOS/**/*.swift'
+jobs:
+  swiftlint:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Run swiftlint
+        run: swiftlint --config Naenio-iOS/.swiftlint.yml
