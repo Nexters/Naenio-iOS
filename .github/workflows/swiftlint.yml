@@ -2,10 +2,6 @@ name: swiftlint
 
 on:
   push:
-    branches: 
-      - '**'
-on:
-  push:
     branches-ignore:
       - master
     paths:
