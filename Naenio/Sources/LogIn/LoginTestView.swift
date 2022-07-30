@@ -19,8 +19,7 @@ struct LoginTestView: View {
                 viewModel.handleKakaoLoginResult(result: result)
             }
             .frame(width: 280, height: 60)
-            
-            
+             
             SignInWithAppleButton(
                 .signIn,
                 onRequest: { request in

@@ -24,7 +24,7 @@ struct NaenioApp: App {
                     // TODO: Add implementation of further handling later
                     print("URL received: \(url)")
                     guard let link = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return }
-                    print(link.queryItems?.filter{ $0.name == "link" } as Any)
+                    print(link.queryItems?.filter { $0.name == "link" } as Any)
                 }
         }
     }

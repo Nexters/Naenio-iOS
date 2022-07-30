@@ -27,7 +27,6 @@ extension TargetType {
             fallthrough
         case let urlError as URLError:
             guard urlError.code == URLError.networkConnectionLost else { fallthrough }
-            break
         default:
             return false
         }

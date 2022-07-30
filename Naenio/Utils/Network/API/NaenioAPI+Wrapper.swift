@@ -9,9 +9,9 @@ import Moya
 import RxSwift
 import Alamofire
 
-//Wrapper 정의
+// Wrapper 정의
 extension NaenioAPI {
-    struct Wrapper: TargetType  {
+    struct Wrapper: TargetType {
         let base: NaenioAPI
         
         var baseURL: URL { self.base.baseURL }
