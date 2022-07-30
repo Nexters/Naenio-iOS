@@ -34,8 +34,17 @@
 		9B085F202879991600DE8E60 /* NaenioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */; };
 		9BD6DE9E2896281F00051C3E /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6DE9D2896281F00051C3E /* KeyValue.swift */; };
 		9BD6DEA4289628D400051C3E /* MockLoginReponseData.json in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6DEA3289628D400051C3E /* MockLoginReponseData.json */; };
+		9B687DEA28954D4A0048AED0 /* Font + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B687DE928954D4A0048AED0 /* Font + extension.swift */; };
 		9BE6029128953FD2008F291C /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6029028953FD2008F291C /* KeyValue.swift */; };
 		9BE60293289541B6008F291C /* Color + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE60292289541B6008F291C /* Color + extension.swift */; };
+		9BE602A0289548CF008F291C /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE60297289548CE008F291C /* Pretendard-Medium.ttf */; };
+		9BE602A3289548CF008F291C /* Pretendard-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE6029A289548CE008F291C /* Pretendard-SemiBold.ttf */; };
+		9BE602A5289548CF008F291C /* Pretendard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE6029C289548CE008F291C /* Pretendard-Regular.ttf */; };
+		9BE602A7289548CF008F291C /* Pretendard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE6029E289548CF008F291C /* Pretendard-Bold.ttf */; };
+		9BE602B32895491B008F291C /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE602AA2895491B008F291C /* Montserrat-Medium.ttf */; };
+		9BE602B42895491B008F291C /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE602AB2895491B008F291C /* Montserrat-SemiBold.ttf */; };
+		9BE602B52895491B008F291C /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE602AC2895491B008F291C /* Montserrat-Bold.ttf */; };
+		9BE602B82895491B008F291C /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE602AF2895491B008F291C /* Montserrat-Regular.ttf */; };
 		9BF00BF7287AC95A00F08035 /* AppleLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00BF6287AC95A00F08035 /* AppleLoginManager.swift */; };
 		9BF00C0B287ACFA900F08035 /* LoginRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00C0A287ACFA900F08035 /* LoginRequestInformation.swift */; };
 		9C3309CD2888EC52000C592F /* KakaoLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309CC2888EC52000C592F /* KakaoLoginManager.swift */; };
@@ -99,8 +108,17 @@
 		9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9BD6DE9D2896281F00051C3E /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
 		9BD6DEA3289628D400051C3E /* MockLoginReponseData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockLoginReponseData.json; sourceTree = "<group>"; };
+		9B687DE928954D4A0048AED0 /* Font + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font + extension.swift"; sourceTree = "<group>"; };
 		9BE6029028953FD2008F291C /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
 		9BE60292289541B6008F291C /* Color + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + extension.swift"; sourceTree = "<group>"; };
+		9BE60297289548CE008F291C /* Pretendard-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.ttf"; sourceTree = "<group>"; };
+		9BE6029A289548CE008F291C /* Pretendard-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.ttf"; sourceTree = "<group>"; };
+		9BE6029C289548CE008F291C /* Pretendard-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.ttf"; sourceTree = "<group>"; };
+		9BE6029E289548CF008F291C /* Pretendard-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.ttf"; sourceTree = "<group>"; };
+		9BE602AA2895491B008F291C /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		9BE602AB2895491B008F291C /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		9BE602AC2895491B008F291C /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		9BE602AF2895491B008F291C /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		9BF00BF2287AC72800F08035 /* Naenio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Naenio.entitlements; sourceTree = "<group>"; };
 		9BF00BF6287AC95A00F08035 /* AppleLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginManager.swift; sourceTree = "<group>"; };
 		9BF00C0A287ACFA900F08035 /* LoginRequestInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestInformation.swift; sourceTree = "<group>"; };
@@ -303,6 +321,7 @@
 		9B085F2D287E353600DE8E60 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9BE6029428954678008F291C /* Fonts */,
 				9B085F062879991600DE8E60 /* Assets.xcassets */,
 				9BE60292289541B6008F291C /* Color + extension.swift */,
 			);
@@ -341,6 +360,36 @@
 				9BD6DEA3289628D400051C3E /* MockLoginReponseData.json */,
 			);
 			path = Data;
+		9BE6029428954678008F291C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9BE602A8289548D4008F291C /* Montserrat */,
+				9BE602952895484F008F291C /* Pretendard */,
+				9B687DE928954D4A0048AED0 /* Font + extension.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9BE602952895484F008F291C /* Pretendard */ = {
+			isa = PBXGroup;
+			children = (
+				9BE6029E289548CF008F291C /* Pretendard-Bold.ttf */,
+				9BE60297289548CE008F291C /* Pretendard-Medium.ttf */,
+				9BE6029C289548CE008F291C /* Pretendard-Regular.ttf */,
+				9BE6029A289548CE008F291C /* Pretendard-SemiBold.ttf */,
+			);
+			path = Pretendard;
+			sourceTree = "<group>";
+		};
+		9BE602A8289548D4008F291C /* Montserrat */ = {
+			isa = PBXGroup;
+			children = (
+				9BE602AC2895491B008F291C /* Montserrat-Bold.ttf */,
+				9BE602AA2895491B008F291C /* Montserrat-Medium.ttf */,
+				9BE602AF2895491B008F291C /* Montserrat-Regular.ttf */,
+				9BE602AB2895491B008F291C /* Montserrat-SemiBold.ttf */,
+			);
+			path = Montserrat;
 			sourceTree = "<group>";
 		};
 		9BF00C05287ACCC500F08035 /* LogIn */ = {
@@ -493,9 +542,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BE602A3289548CF008F291C /* Pretendard-SemiBold.ttf in Resources */,
+				9BE602A5289548CF008F291C /* Pretendard-Regular.ttf in Resources */,
+				9BE602A0289548CF008F291C /* Pretendard-Medium.ttf in Resources */,
 				4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */,
+				9BE602B82895491B008F291C /* Montserrat-Regular.ttf in Resources */,
 				9B085F0A2879991600DE8E60 /* Preview Assets.xcassets in Resources */,
 				9B085F072879991600DE8E60 /* Assets.xcassets in Resources */,
+				9BE602B42895491B008F291C /* Montserrat-SemiBold.ttf in Resources */,
+				9BE602B32895491B008F291C /* Montserrat-Medium.ttf in Resources */,
+				9BE602B52895491B008F291C /* Montserrat-Bold.ttf in Resources */,
+				9BE602A7289548CF008F291C /* Pretendard-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,6 +705,7 @@
 				4CC296D92880533C001950A2 /* DefaultSession.swift in Sources */,
 				4C4B13342883AAE0006044B0 /* NaenioAPI+Task.swift in Sources */,
 				4CA47BC0288EC36C00D300A7 /* KeyValue.swift in Sources */,
+				9B687DEA28954D4A0048AED0 /* Font + extension.swift in Sources */,
 				9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */,
 				9BD6DE9E2896281F00051C3E /* KeyValue.swift in Sources */,
 				9BE6029128953FD2008F291C /* KeyValue.swift in Sources */,
