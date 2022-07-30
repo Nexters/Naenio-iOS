@@ -13,10 +13,10 @@ jobs:
     steps:
       - name: Checkout Naenio repository
         uses: actions/checkout@v3 
-
-      - name: Check branches
+      
+      - name: Fetch base ref
         run: |
-          git branch
+          git fetch --prune --no-tags --depth=1 origin +refs/heads/${{ github.base_ref }}:refs/heads/${{ github.base_ref }}
 
       - name: Run GitHub Action for SwiftLint(Only files changed in the PR)
         uses: norio-nomura/action-swiftlint@3.2.1
