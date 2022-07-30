@@ -28,7 +28,7 @@ class AppleLoginManager {
     func requestLoginToServer(with result: ASAuthorization) -> Single<UserInformation> {
         if let info = result.credential as? ASAuthorizationAppleIDCredential,
            let token = info.identityToken,
-           let stringToken = String(data: token, encoding: .utf8)  {
+           let stringToken = String(data: token, encoding: .utf8)   {
             let loginInfo = LoginRequestInformation(authToken: stringToken, authServiceType: "APPLE")
             return loginRequestService.submitUserInformationToServer(with: loginInfo)
         } else {
