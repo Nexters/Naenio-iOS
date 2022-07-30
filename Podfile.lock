@@ -1,3 +1,58 @@
-PODFILE CHECKSUM: c3e71a4a9082c01dfc20b2b4331beba5af1a3abc
+PODS:
+  - Alamofire (5.6.2)
+  - KakaoSDKAuth (2.11.0):
+    - KakaoSDKCommon (= 2.11.0)
+  - KakaoSDKCommon (2.11.0):
+    - KakaoSDKCommon/Common (= 2.11.0)
+    - KakaoSDKCommon/Network (= 2.11.0)
+  - KakaoSDKCommon/Common (2.11.0)
+  - KakaoSDKCommon/Network (2.11.0):
+    - Alamofire (~> 5.1)
+    - KakaoSDKCommon/Common (= 2.11.0)
+  - KakaoSDKUser (2.11.0):
+    - KakaoSDKAuth (= 2.11.0)
+  - Kingfisher (7.3.0)
+  - Moya (15.0.0):
+    - Moya/Core (= 15.0.0)
+  - Moya/Core (15.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (15.0.0):
+    - Moya/Core
+    - RxSwift (~> 6.0)
+  - RxSwift (6.5.0)
+  - SwiftLint (0.47.1)
 
-COCOAPODS: 1.11.3
+DEPENDENCIES:
+  - Alamofire
+  - KakaoSDKAuth (~> 2.11.0)
+  - KakaoSDKUser (~> 2.11.0)
+  - Kingfisher (~> 7.0)
+  - Moya (~> 15.0)
+  - Moya/RxSwift (~> 15.0)
+  - RxSwift
+  - SwiftLint
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - KakaoSDKAuth
+    - KakaoSDKCommon
+    - KakaoSDKUser
+    - Kingfisher
+    - Moya
+    - RxSwift
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
+  KakaoSDKAuth: b9470887e42b869725b391f4af34c4aaec42ea46
+  KakaoSDKCommon: 0f59f2c1aead6012d92758e8ca46b63ea11c408b
+  KakaoSDKUser: 5dbefe494c50dfdc87e4072710e503d39b41a609
+  Kingfisher: cdb1189a9223b1bc028816bd47c8b8101a58831c
+  Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
+  RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SwiftLint: f80f1be7fa96d30e0aa68e58d45d4ea1ccaac519
+
+PODFILE CHECKSUM: f214aea1b3a1f139c0d4293bec1ef40122b11f10
+
+COCOAPODS: 1.11.2
