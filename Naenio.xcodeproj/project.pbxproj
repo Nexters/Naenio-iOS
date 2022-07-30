@@ -321,9 +321,9 @@
 		9B085F2D287E353600DE8E60 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9BD6DE9C2895536E00051C3E /* Colors */,
 				9BE6029428954678008F291C /* Fonts */,
 				9B085F062879991600DE8E60 /* Assets.xcassets */,
-				9BE60292289541B6008F291C /* Color + extension.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -360,6 +360,14 @@
 				9BD6DEA3289628D400051C3E /* MockLoginReponseData.json */,
 			);
 			path = Data;
+		9BD6DE9C2895536E00051C3E /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				9BE60292289541B6008F291C /* Color + extension.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
 		9BE6029428954678008F291C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
