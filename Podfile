@@ -4,9 +4,17 @@ platform :ios, '14.0'
 target 'Naenio' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
   # Pods for Naenio
+  pod 'Moya', '~> 15.0'
+  pod 'Moya/RxSwift', '~> 15.0'
+  pod 'Kingfisher', '~> 7.0'
+  pod 'KakaoSDKAuth', '~> 2.11.0'
+  pod 'KakaoSDKUser', '~> 2.11.0'
+  pod 'Alamofire'
 
+  pod 'RxSwift'
+  pod 'SwiftLint'
+  
   target 'NaenioTests' do
     inherit! :search_paths
     # Pods for testing
