@@ -1,24 +1,18 @@
 name: swiftlint
 
 on:
-  push:
-    branches-ignore:
-      - master
-    paths:
-      - '.github/workflows/swiftlint.yml'
-      - '.swiftlint.yml'
-      - '**/*.swift'
   pull_request:
-    branches-ignore:
-      - master
     paths:
       - '.github/workflows/swiftlint.yml'
       - '.swiftlint.yml'
       - '**/*.swift'
+      
 jobs:
   SwiftLint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: run GitHub Action for SwiftLint
+      - name: Checkout Naenio repository
+        uses: actions/checkout@v3 
+      
+      - name: Run GitHub Action for SwiftLint(Only files changed in the PR)
         uses: norio-nomura/action-swiftlint@3.2.1
