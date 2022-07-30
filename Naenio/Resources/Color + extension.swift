@@ -11,6 +11,11 @@ extension Color {
     static let naenioBlue = Color("NBlue")
     static let naenioPink = Color("NPink")
     static let background = Color("NBackground")
+    static let warningRed = Color("NWarningRed")
+    static let naenioGray = Color("NGray")
+    
     static let card = Color("NCard")
+    static let tabBarBackground = Color("NBottomBackground")
+    static let subCard = Color("NCardSub")
 }
     
