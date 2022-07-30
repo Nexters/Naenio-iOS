@@ -1,8 +1,8 @@
 ---
 name: Bug report
-about: Create a report to help us improve
-title: "[BUG]"
-labels: bug
+about: Bug fix와 관련된 Issue template입니다.
+title: ''
+labels: ''
 assignees: ''
 
 ---

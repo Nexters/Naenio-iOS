@@ -1,8 +1,8 @@
 ---
 name: Feature request
-about: Suggest an idea for this project
-title: "[Feature]"
-labels: enhancement
+about: 기능 구현과 관련된 Issue template입니다.
+title: ''
+labels: ''
 assignees: ''
 
 ---
