@@ -34,6 +34,8 @@
 		9B085F202879991600DE8E60 /* NaenioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */; };
 		9BD6DE9E2896281F00051C3E /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6DE9D2896281F00051C3E /* KeyValue.swift */; };
 		9BD6DEA4289628D400051C3E /* MockLoginReponseData.json in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6DEA3289628D400051C3E /* MockLoginReponseData.json */; };
+		9BE6029128953FD2008F291C /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE6029028953FD2008F291C /* KeyValue.swift */; };
+		9BE60293289541B6008F291C /* Color + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE60292289541B6008F291C /* Color + extension.swift */; };
 		9BF00BF7287AC95A00F08035 /* AppleLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00BF6287AC95A00F08035 /* AppleLoginManager.swift */; };
 		9BF00C0B287ACFA900F08035 /* LoginRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00C0A287ACFA900F08035 /* LoginRequestInformation.swift */; };
 		9C3309CD2888EC52000C592F /* KakaoLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309CC2888EC52000C592F /* KakaoLoginManager.swift */; };
@@ -97,6 +99,8 @@
 		9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9BD6DE9D2896281F00051C3E /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
 		9BD6DEA3289628D400051C3E /* MockLoginReponseData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockLoginReponseData.json; sourceTree = "<group>"; };
+		9BE6029028953FD2008F291C /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
+		9BE60292289541B6008F291C /* Color + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + extension.swift"; sourceTree = "<group>"; };
 		9BF00BF2287AC72800F08035 /* Naenio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Naenio.entitlements; sourceTree = "<group>"; };
 		9BF00BF6287AC95A00F08035 /* AppleLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginManager.swift; sourceTree = "<group>"; };
 		9BF00C0A287ACFA900F08035 /* LoginRequestInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestInformation.swift; sourceTree = "<group>"; };
@@ -195,6 +199,7 @@
 			children = (
 				4CA47BBF288EC36C00D300A7 /* KeyValue.swift */,
 				9BD6DE9D2896281F00051C3E /* KeyValue.swift */,
+				9BE6029028953FD2008F291C /* KeyValue.swift */,
 				4CC296DF288055FD001950A2 /* HeaderInformation.swift */,
 				4C4B13422883D88A006044B0 /* HttpResponseCode.swift */,
 			);
@@ -299,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				9B085F062879991600DE8E60 /* Assets.xcassets */,
+				9BE60292289541B6008F291C /* Color + extension.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -644,6 +650,8 @@
 				4CA47BC0288EC36C00D300A7 /* KeyValue.swift in Sources */,
 				9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */,
 				9BD6DE9E2896281F00051C3E /* KeyValue.swift in Sources */,
+				9BE6029128953FD2008F291C /* KeyValue.swift in Sources */,
+				9BE60293289541B6008F291C /* Color + extension.swift in Sources */,
 				4C4B133D2883C5EB006044B0 /* NaenioAPI+Wrapper.swift in Sources */,
 				4C4B13432883D88A006044B0 /* HttpResponseCode.swift in Sources */,
 				9BF00BF7287AC95A00F08035 /* AppleLoginManager.swift in Sources */,
@@ -841,7 +849,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -875,7 +883,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
