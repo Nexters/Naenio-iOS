@@ -14,11 +14,5 @@ jobs:
       - name: Checkout Naenio repository
         uses: actions/checkout@v3 
       
-      - name: Fetch base ref
-        run: git fetch --no-tags --prune --depth=1 origin ${{ github.base_ref }}
-
-
       - name: Run GitHub Action for SwiftLint(Only files changed in the PR)
         uses: norio-nomura/action-swiftlint@3.2.1
-        env:
-          DIFF_BASE: origin/${{ github.base_ref }}
