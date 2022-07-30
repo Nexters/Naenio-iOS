@@ -31,9 +31,8 @@ class AppleLoginManager {
            let stringToken = String(data: token, encoding: .utf8) {
             let loginInfo = LoginRequestInformation(authToken: stringToken, authServiceType: "APPLE")
             return loginRequestService.submitUserInformationToServer(with: loginInfo)
+        } else {
+            return Single<UserInformation>.error(URLError(.badServerResponse))
         }
-        
-        // FIXME: ASAuthorization에서 받아온 값이 nil값일 경우 어떻게?
-        return Single<UserInformation>.create(subscribe: { _ in return Disposables.create() })
     }
 }
