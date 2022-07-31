@@ -32,9 +32,9 @@
 		9B085F142879991600DE8E60 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F132879991600DE8E60 /* LoginTests.swift */; };
 		9B085F1E2879991600DE8E60 /* NaenioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1D2879991600DE8E60 /* NaenioUITests.swift */; };
 		9B085F202879991600DE8E60 /* NaenioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */; };
-		9B687DEA28954D4A0048AED0 /* Font + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B687DE928954D4A0048AED0 /* Font + extension.swift */; };
+		9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B687DE928954D4A0048AED0 /* Font + Extension.swift */; };
 		9BD6DEA4289628D400051C3E /* MockLoginReponseData.json in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6DEA3289628D400051C3E /* MockLoginReponseData.json */; };
-		9BE60293289541B6008F291C /* Color + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE60292289541B6008F291C /* Color + extension.swift */; };
+		9BE60293289541B6008F291C /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE60292289541B6008F291C /* Color + Extension.swift */; };
 		9BE602A0289548CF008F291C /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE60297289548CE008F291C /* Pretendard-Medium.ttf */; };
 		9BE602A3289548CF008F291C /* Pretendard-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE6029A289548CE008F291C /* Pretendard-SemiBold.ttf */; };
 		9BE602A5289548CF008F291C /* Pretendard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE6029C289548CE008F291C /* Pretendard-Regular.ttf */; };
@@ -104,10 +104,10 @@
 		9B085F192879991600DE8E60 /* NaenioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NaenioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B085F1D2879991600DE8E60 /* NaenioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITests.swift; sourceTree = "<group>"; };
 		9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		9B687DE928954D4A0048AED0 /* Font + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font + extension.swift"; sourceTree = "<group>"; };
+		9B687DE928954D4A0048AED0 /* Font + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font + Extension.swift"; sourceTree = "<group>"; };
 		9BD6DE9D2896281F00051C3E /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
 		9BD6DEA3289628D400051C3E /* MockLoginReponseData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockLoginReponseData.json; sourceTree = "<group>"; };
-		9BE60292289541B6008F291C /* Color + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + extension.swift"; sourceTree = "<group>"; };
+		9BE60292289541B6008F291C /* Color + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
 		9BE60297289548CE008F291C /* Pretendard-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.ttf"; sourceTree = "<group>"; };
 		9BE6029A289548CE008F291C /* Pretendard-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.ttf"; sourceTree = "<group>"; };
 		9BE6029C289548CE008F291C /* Pretendard-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.ttf"; sourceTree = "<group>"; };
@@ -353,7 +353,7 @@
 		9BD6DE9C2895536E00051C3E /* Colors */ = {
 			isa = PBXGroup;
 			children = (
-				9BE60292289541B6008F291C /* Color + extension.swift */,
+				9BE60292289541B6008F291C /* Color + Extension.swift */,
 			);
 			path = Colors;
 			sourceTree = "<group>";
@@ -371,7 +371,7 @@
 			children = (
 				9BE602A8289548D4008F291C /* Montserrat */,
 				9BE602952895484F008F291C /* Pretendard */,
-				9B687DE928954D4A0048AED0 /* Font + extension.swift */,
+				9B687DE928954D4A0048AED0 /* Font + Extension.swift */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -711,9 +711,9 @@
 				4CC296D92880533C001950A2 /* DefaultSession.swift in Sources */,
 				4C4B13342883AAE0006044B0 /* NaenioAPI+Task.swift in Sources */,
 				4CA47BC0288EC36C00D300A7 /* KeyValue.swift in Sources */,
-				9B687DEA28954D4A0048AED0 /* Font + extension.swift in Sources */,
+				9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */,
 				9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */,
-				9BE60293289541B6008F291C /* Color + extension.swift in Sources */,
+				9BE60293289541B6008F291C /* Color + Extension.swift in Sources */,
 				4C4B133D2883C5EB006044B0 /* NaenioAPI+Wrapper.swift in Sources */,
 				4C4B13432883D88A006044B0 /* HttpResponseCode.swift in Sources */,
 				9BF00BF7287AC95A00F08035 /* AppleLoginManager.swift in Sources */,
