@@ -24,7 +24,14 @@ extension NaenioAPI: TargetType {
     
     var method: Moya.Method { return .post }
   
-    var sampleData: Data { Data() }
+    var sampleData: Data {
+        switch self {
+        case .login(_):
+            return "{\"token\": \"mock-server-token\"}".data(using: String.Encoding.utf8)!
+        default:
+            return "".data(using: String.Encoding.utf8)!
+        }
+    }
     
     var task: Task { self.getTask() }
 
