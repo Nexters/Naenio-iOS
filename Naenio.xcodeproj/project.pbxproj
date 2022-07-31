@@ -29,9 +29,11 @@
 		9B085F052879991400DE8E60 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F042879991400DE8E60 /* ContentView.swift */; };
 		9B085F072879991600DE8E60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B085F062879991600DE8E60 /* Assets.xcassets */; };
 		9B085F0A2879991600DE8E60 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B085F092879991600DE8E60 /* Preview Assets.xcassets */; };
-		9B085F142879991600DE8E60 /* NaenioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F132879991600DE8E60 /* NaenioTests.swift */; };
+		9B085F142879991600DE8E60 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F132879991600DE8E60 /* LoginTests.swift */; };
 		9B085F1E2879991600DE8E60 /* NaenioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1D2879991600DE8E60 /* NaenioUITests.swift */; };
 		9B085F202879991600DE8E60 /* NaenioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */; };
+		9BD6DE9E2896281F00051C3E /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6DE9D2896281F00051C3E /* KeyValue.swift */; };
+		9BD6DEA4289628D400051C3E /* MockLoginReponseData.json in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6DEA3289628D400051C3E /* MockLoginReponseData.json */; };
 		9BF00BF7287AC95A00F08035 /* AppleLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00BF6287AC95A00F08035 /* AppleLoginManager.swift */; };
 		9BF00C0B287ACFA900F08035 /* LoginRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00C0A287ACFA900F08035 /* LoginRequestInformation.swift */; };
 		9C3309CD2888EC52000C592F /* KakaoLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309CC2888EC52000C592F /* KakaoLoginManager.swift */; };
@@ -89,10 +91,12 @@
 		9B085F062879991600DE8E60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B085F092879991600DE8E60 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9B085F0F2879991600DE8E60 /* NaenioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NaenioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B085F132879991600DE8E60 /* NaenioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioTests.swift; sourceTree = "<group>"; };
+		9B085F132879991600DE8E60 /* LoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
 		9B085F192879991600DE8E60 /* NaenioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NaenioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B085F1D2879991600DE8E60 /* NaenioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITests.swift; sourceTree = "<group>"; };
 		9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9BD6DE9D2896281F00051C3E /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
+		9BD6DEA3289628D400051C3E /* MockLoginReponseData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockLoginReponseData.json; sourceTree = "<group>"; };
 		9BF00BF2287AC72800F08035 /* Naenio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Naenio.entitlements; sourceTree = "<group>"; };
 		9BF00BF6287AC95A00F08035 /* AppleLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginManager.swift; sourceTree = "<group>"; };
 		9BF00C0A287ACFA900F08035 /* LoginRequestInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestInformation.swift; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				4CA47BBF288EC36C00D300A7 /* KeyValue.swift */,
+				9BD6DE9D2896281F00051C3E /* KeyValue.swift */,
 				4CC296DF288055FD001950A2 /* HeaderInformation.swift */,
 				4C4B13422883D88A006044B0 /* HttpResponseCode.swift */,
 			);
@@ -267,7 +272,7 @@
 		9B085F122879991600DE8E60 /* NaenioTests */ = {
 			isa = PBXGroup;
 			children = (
-				9B085F132879991600DE8E60 /* NaenioTests.swift */,
+				9BD6DE9F2896285D00051C3E /* Network */,
 			);
 			path = NaenioTests;
 			sourceTree = "<group>";
@@ -313,6 +318,23 @@
 				4CC296D228804E88001950A2 /* Network */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		9BD6DE9F2896285D00051C3E /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9BD6DEA02896286A00051C3E /* Data */,
+				9B085F132879991600DE8E60 /* LoginTests.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		9BD6DEA02896286A00051C3E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				9BD6DEA3289628D400051C3E /* MockLoginReponseData.json */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		9BF00C05287ACCC500F08035 /* LogIn */ = {
@@ -621,6 +643,7 @@
 				4C4B13342883AAE0006044B0 /* NaenioAPI+Task.swift in Sources */,
 				4CA47BC0288EC36C00D300A7 /* KeyValue.swift in Sources */,
 				9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */,
+				9BD6DE9E2896281F00051C3E /* KeyValue.swift in Sources */,
 				4C4B133D2883C5EB006044B0 /* NaenioAPI+Wrapper.swift in Sources */,
 				4C4B13432883D88A006044B0 /* HttpResponseCode.swift in Sources */,
 				9BF00BF7287AC95A00F08035 /* AppleLoginManager.swift in Sources */,
@@ -644,7 +667,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B085F142879991600DE8E60 /* NaenioTests.swift in Sources */,
+				9B085F142879991600DE8E60 /* LoginTests.swift in Sources */,
+				9BD6DEA4289628D400051C3E /* MockLoginReponseData.json in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
