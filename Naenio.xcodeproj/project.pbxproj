@@ -45,6 +45,12 @@
 		9BE602B82895491B008F291C /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE602AF2895491B008F291C /* Montserrat-Regular.ttf */; };
 		9BF00BF7287AC95A00F08035 /* AppleLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00BF6287AC95A00F08035 /* AppleLoginManager.swift */; };
 		9BF00C0B287ACFA900F08035 /* LoginRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00C0A287ACFA900F08035 /* LoginRequestInformation.swift */; };
+		9C2D07B72897C683008BBD75 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D07B62897C683008BBD75 /* User.swift */; };
+		9C2D07B92897C728008BBD75 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D07B82897C728008BBD75 /* UserManager.swift */; };
+		9C2D07BB2897CD0A008BBD75 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D07BA2897CD0A008BBD75 /* UserError.swift */; };
+		9C2D07BE2897D7D4008BBD75 /* UserManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D07BD2897D7D4008BBD75 /* UserManagerTests.swift */; };
+		9C2D07C12897D818008BBD75 /* MockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D07C02897D818008BBD75 /* MockUser.swift */; };
+		9C2D07C32897DA6F008BBD75 /* ProfileImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D07C22897DA6F008BBD75 /* ProfileImages.swift */; };
 		9C3309CD2888EC52000C592F /* KakaoLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309CC2888EC52000C592F /* KakaoLoginManager.swift */; };
 		9C3309CF2888ED08000C592F /* SignInWithKakaoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309CE2888ED08000C592F /* SignInWithKakaoButton.swift */; };
 		9C3309D12888ED16000C592F /* SignInWithKakaoButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309D02888ED16000C592F /* SignInWithKakaoButtonViewModel.swift */; };
@@ -119,6 +125,12 @@
 		9BF00BF2287AC72800F08035 /* Naenio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Naenio.entitlements; sourceTree = "<group>"; };
 		9BF00BF6287AC95A00F08035 /* AppleLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginManager.swift; sourceTree = "<group>"; };
 		9BF00C0A287ACFA900F08035 /* LoginRequestInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestInformation.swift; sourceTree = "<group>"; };
+		9C2D07B62897C683008BBD75 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9C2D07B82897C728008BBD75 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		9C2D07BA2897CD0A008BBD75 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserE\U0010rror.swift"; sourceTree = "<group>"; };
+		9C2D07BD2897D7D4008BBD75 /* UserManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagerTests.swift; sourceTree = "<group>"; };
+		9C2D07C02897D818008BBD75 /* MockUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUser.swift; sourceTree = "<group>"; };
+		9C2D07C22897DA6F008BBD75 /* ProfileImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImages.swift; sourceTree = "<group>"; };
 		9C3309CC2888EC52000C592F /* KakaoLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginManager.swift; sourceTree = "<group>"; };
 		9C3309CE2888ED08000C592F /* SignInWithKakaoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithKakaoButton.swift; sourceTree = "<group>"; };
 		9C3309D02888ED16000C592F /* SignInWithKakaoButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithKakaoButtonViewModel.swift; sourceTree = "<group>"; };
@@ -291,6 +303,7 @@
 		9B085F122879991600DE8E60 /* NaenioTests */ = {
 			isa = PBXGroup;
 			children = (
+				9C2D07BC2897D7C1008BBD75 /* User */,
 				9BD6DE9F2896285D00051C3E /* Network */,
 			);
 			path = NaenioTests;
@@ -336,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				4C4B13352883B543006044B0 /* Extension */,
+				9C2D07B52897C66C008BBD75 /* User */,
 				4CC296D228804E88001950A2 /* Network */,
 			);
 			path = Utils;
@@ -409,6 +423,42 @@
 				9C3309D82888EE20000C592F /* LoginTestViewModel.swift */,
 			);
 			path = LogIn;
+			sourceTree = "<group>";
+		};
+		9C2D07B52897C66C008BBD75 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				9C2D07C42897DE32008BBD75 /* Constants */,
+				9C2D07B62897C683008BBD75 /* User.swift */,
+				9C2D07B82897C728008BBD75 /* UserManager.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		9C2D07BC2897D7C1008BBD75 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				9C2D07BF2897D811008BBD75 /* Data */,
+				9C2D07BD2897D7D4008BBD75 /* UserManagerTests.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		9C2D07BF2897D811008BBD75 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				9C2D07C02897D818008BBD75 /* MockUser.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		9C2D07C42897DE32008BBD75 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				9C2D07C22897DA6F008BBD75 /* ProfileImages.swift */,
+				9C2D07BA2897CD0A008BBD75 /* UserError.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		9C3309C92888EC13000C592F /* Models */ = {
@@ -706,21 +756,25 @@
 			files = (
 				9B085F052879991400DE8E60 /* ContentView.swift in Sources */,
 				4CC296DB28805366001950A2 /* NaenioAPI.swift in Sources */,
+				9C2D07BB2897CD0A008BBD75 /* UserError.swift in Sources */,
 				4C4B13392883B709006044B0 /* NaenioAPI+Error.swift in Sources */,
 				4C4B13322883AAC3006044B0 /* NaenioAPI+Path.swift in Sources */,
 				9C3309D72888EE0D000C592F /* LoginTestView.swift in Sources */,
 				4CC296D92880533C001950A2 /* DefaultSession.swift in Sources */,
 				4C4B13342883AAE0006044B0 /* NaenioAPI+Task.swift in Sources */,
 				4CA47BC0288EC36C00D300A7 /* KeyValue.swift in Sources */,
+				9C2D07B72897C683008BBD75 /* User.swift in Sources */,
 				9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */,
 				9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */,
 				9BE60293289541B6008F291C /* Color + Extension.swift in Sources */,
 				9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */,
+				9C2D07C32897DA6F008BBD75 /* ProfileImages.swift in Sources */,
 				4C4B133D2883C5EB006044B0 /* NaenioAPI+Wrapper.swift in Sources */,
 				4C4B13432883D88A006044B0 /* HttpResponseCode.swift in Sources */,
 				9BF00BF7287AC95A00F08035 /* AppleLoginManager.swift in Sources */,
 				4C43C8C42886FB8200A60372 /* String+Extension.swift in Sources */,
 				9C3309CF2888ED08000C592F /* SignInWithKakaoButton.swift in Sources */,
+				9C2D07B92897C728008BBD75 /* UserManager.swift in Sources */,
 				4C4B133B2883C44C006044B0 /* TargetType+Extension.swift in Sources */,
 				4C4B133F2883CD32006044B0 /* ModelType.swift in Sources */,
 				4C4B13372883B55F006044B0 /* Encodable+Extension.swift in Sources */,
@@ -739,7 +793,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C2D07BE2897D7D4008BBD75 /* UserManagerTests.swift in Sources */,
 				9B085F142879991600DE8E60 /* LoginTests.swift in Sources */,
+				9C2D07C12897D818008BBD75 /* MockUser.swift in Sources */,
 				9BD6DEA4289628D400051C3E /* MockLoginReponseData.json in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
