@@ -19,6 +19,16 @@ jobs:
           path: Naenio/ignored
           repository: enebin/naenio-ios-ignored
           token: ${{ secrets.ACTION_TOKEN }}
+      
+      - uses: actions/cache@v3
+        with:
+          path: Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+            
+      - name: Install pods
+        run: pod install
 
       - name: Set Default Scheme
         run: |
@@ -26,7 +36,7 @@ jobs:
           default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
           echo $default | cat >default
           echo Using default scheme: $default
-          
+
       - name: Build
         env:
           scheme: ${{ 'default' }}
