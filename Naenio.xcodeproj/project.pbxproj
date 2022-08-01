@@ -18,7 +18,6 @@
 		4C4B133F2883CD32006044B0 /* ModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B133E2883CD32006044B0 /* ModelType.swift */; };
 		4C4B13432883D88A006044B0 /* HttpResponseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B13422883D88A006044B0 /* HttpResponseCode.swift */; };
 		4C4B134528847640006044B0 /* NaenioAPI+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B134428847640006044B0 /* NaenioAPI+Request.swift */; };
-		4CA47BC0288EC36C00D300A7 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA47BBF288EC36C00D300A7 /* KeyValue.swift */; };
 		4CA47BC6288ED06A00D300A7 /* LoginRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA47BC5288ED06A00D300A7 /* LoginRequestService.swift */; };
 		4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4CA47BC92890344400D300A7 /* .swiftlint.yml */; };
 		4CC296D92880533C001950A2 /* DefaultSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC296D82880533C001950A2 /* DefaultSession.swift */; };
@@ -33,6 +32,7 @@
 		9B085F1E2879991600DE8E60 /* NaenioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1D2879991600DE8E60 /* NaenioUITests.swift */; };
 		9B085F202879991600DE8E60 /* NaenioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */; };
 		9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B687DE928954D4A0048AED0 /* Font + Extension.swift */; };
+		9BCF128F2897EA4B00D5D21E /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCF128D2897EA4B00D5D21E /* KeyValue.swift */; };
 		9BD6DEA4289628D400051C3E /* MockLoginReponseData.json in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6DEA3289628D400051C3E /* MockLoginReponseData.json */; };
 		9BE60293289541B6008F291C /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE60292289541B6008F291C /* Color + Extension.swift */; };
 		9BE602A0289548CF008F291C /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE60297289548CE008F291C /* Pretendard-Medium.ttf */; };
@@ -92,8 +92,6 @@
 		4C4B133E2883CD32006044B0 /* ModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelType.swift; sourceTree = "<group>"; };
 		4C4B13422883D88A006044B0 /* HttpResponseCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponseCode.swift; sourceTree = "<group>"; };
 		4C4B134428847640006044B0 /* NaenioAPI+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Request.swift"; sourceTree = "<group>"; };
-		4CA42F2B288E6BD900DE7BF3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4CA47BBF288EC36C00D300A7 /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
 		4CA47BC5288ED06A00D300A7 /* LoginRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestService.swift; sourceTree = "<group>"; };
 		4CA47BC92890344400D300A7 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		4CC296D82880533C001950A2 /* DefaultSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSession.swift; sourceTree = "<group>"; };
@@ -111,6 +109,8 @@
 		9B085F1D2879991600DE8E60 /* NaenioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITests.swift; sourceTree = "<group>"; };
 		9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9B687DE928954D4A0048AED0 /* Font + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font + Extension.swift"; sourceTree = "<group>"; };
+		9BCF128C2897EA4A00D5D21E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BCF128D2897EA4B00D5D21E /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
 		9BD6DE9D2896281F00051C3E /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
 		9BD6DEA3289628D400051C3E /* MockLoginReponseData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockLoginReponseData.json; sourceTree = "<group>"; };
 		9BE60292289541B6008F291C /* Color + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
@@ -224,7 +224,6 @@
 		4CC296DC288054C0001950A2 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				4CA47BBF288EC36C00D300A7 /* KeyValue.swift */,
 				4CC296DF288055FD001950A2 /* HeaderInformation.swift */,
 				4C4B13422883D88A006044B0 /* HttpResponseCode.swift */,
 			);
@@ -281,8 +280,8 @@
 		9B085F012879991400DE8E60 /* Naenio */ = {
 			isa = PBXGroup;
 			children = (
+				9BCF128B2897EA3800D5D21E /* ignored */,
 				9BF00BF2287AC72800F08035 /* Naenio.entitlements */,
-				4CA42F2B288E6BD900DE7BF3 /* Info.plist */,
 				9B085F082879991600DE8E60 /* Preview Content */,
 				9B085F2D287E353600DE8E60 /* Resources */,
 				9B085F2C287E352A00DE8E60 /* Sources */,
@@ -362,6 +361,15 @@
 				9BD6DEA3289628D400051C3E /* MockLoginReponseData.json */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		9BCF128B2897EA3800D5D21E /* ignored */ = {
+			isa = PBXGroup;
+			children = (
+				9BCF128C2897EA4A00D5D21E /* Info.plist */,
+				9BCF128D2897EA4B00D5D21E /* KeyValue.swift */,
+			);
+			path = ignored;
 			sourceTree = "<group>";
 		};
 		9BD6DE9C2895536E00051C3E /* Colors */ = {
@@ -786,6 +794,7 @@
 				9CA7922D287BA90600600C32 /* UserInformation.swift in Sources */,
 				9BF00C0B287ACFA900F08035 /* LoginRequestInformation.swift in Sources */,
 				9C3309CD2888EC52000C592F /* KakaoLoginManager.swift in Sources */,
+				9BCF128F2897EA4B00D5D21E /* KeyValue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -953,7 +962,7 @@
 				DEVELOPMENT_TEAM = KT2XM3Z9DZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Naenio/Info.plist;
+				INFOPLIST_FILE = Naenio/ignored/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -987,7 +996,7 @@
 				DEVELOPMENT_TEAM = KT2XM3Z9DZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Naenio/Info.plist;
+				INFOPLIST_FILE = Naenio/ignored/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
