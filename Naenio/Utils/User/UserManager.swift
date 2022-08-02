@@ -20,7 +20,7 @@ class UserManager: ObservableObject {
         user.profileImage = image
     }
     
-    /// 프리셋에서 이미지를 하나 골라옵니다. 인덱스 에러에서 안전합니다.
+    /// 프리셋에서 이미지를 하나 골라옵니다. 인덱스 에러로부터 안전합니다.
     ///
     /// - Parameters:
     ///     - index: 팀 내 협의된 이미지 프리셋의 번호입니다
