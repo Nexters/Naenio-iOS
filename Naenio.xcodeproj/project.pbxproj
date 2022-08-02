@@ -57,6 +57,7 @@
 		9C3309D92888EE20000C592F /* LoginTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309D82888EE20000C592F /* LoginTestViewModel.swift */; };
 		9C68A2972898EFE4006D36B1 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C68A2952898EFE4006D36B1 /* KeyValue.swift */; };
 		9C68A29A2898F3A6006D36B1 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C68A2992898F3A6006D36B1 /* LocalStorageManager.swift */; };
+		9C68A29D28990015006D36B1 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C68A29C28990015006D36B1 /* TokenManager.swift */; };
 		9CA7922D287BA90600600C32 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7922C287BA90600600C32 /* UserInformation.swift */; };
 		D377232EF7564B4D94602233 /* Pods_Naenio_NaenioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF541D3D8763AF8CB32F473 /* Pods_Naenio_NaenioUITests.framework */; };
 /* End PBXBuildFile section */
@@ -138,6 +139,7 @@
 		9C68A2952898EFE4006D36B1 /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
 		9C68A2962898EFE4006D36B1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C68A2992898F3A6006D36B1 /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
+		9C68A29C28990015006D36B1 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		9CA7922C287BA90600600C32 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		A23C6C1FBD1AFD04C21BFC37 /* Pods-NaenioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaenioTests.debug.xcconfig"; path = "Target Support Files/Pods-NaenioTests/Pods-NaenioTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B546567C3E3421F07641077D /* Pods_Naenio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naenio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -349,7 +351,7 @@
 		9B085F2F287E356300DE8E60 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				9C68A2992898F3A6006D36B1 /* LocalStorageManager.swift */,
+				9C68A29B2898FFF5006D36B1 /* Storage */,
 				4C4B13352883B543006044B0 /* Extension */,
 				9C2D07B52897C66C008BBD75 /* User */,
 				4CC296D228804E88001950A2 /* Network */,
@@ -433,6 +435,7 @@
 				9C2D07C42897DE32008BBD75 /* Constants */,
 				9C2D07B62897C683008BBD75 /* User.swift */,
 				9C2D07B82897C728008BBD75 /* UserManager.swift */,
+				9C68A29C28990015006D36B1 /* TokenManager.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -497,6 +500,14 @@
 				9C68A2962898EFE4006D36B1 /* Info.plist */,
 			);
 			path = ignored;
+			sourceTree = "<group>";
+		};
+		9C68A29B2898FFF5006D36B1 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				9C68A2992898F3A6006D36B1 /* LocalStorageManager.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -782,6 +793,7 @@
 				9C2D07C32897DA6F008BBD75 /* ProfileImages.swift in Sources */,
 				4C4B133D2883C5EB006044B0 /* NaenioAPI+Wrapper.swift in Sources */,
 				4C4B13432883D88A006044B0 /* HttpResponseCode.swift in Sources */,
+				9C68A29D28990015006D36B1 /* TokenManager.swift in Sources */,
 				9BF00BF7287AC95A00F08035 /* AppleLoginManager.swift in Sources */,
 				4C43C8C42886FB8200A60372 /* String+Extension.swift in Sources */,
 				9C3309CF2888ED08000C592F /* SignInWithKakaoButton.swift in Sources */,
