@@ -20,6 +20,10 @@ class UserManager: ObservableObject {
         user.profileImage = image
     }
     
+    func changeProfileImageWithPreset(index: Int) {
+        user.profileImage = getPresetProfileImage(index: index)
+    }
+    
     /// 프리셋에서 이미지를 하나 골라옵니다. 인덱스 에러로부터 안전합니다.
     ///
     /// - Parameters:
