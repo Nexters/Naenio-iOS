@@ -13,10 +13,14 @@ import KakaoSDKCommon
 struct NaenioApp: App {
     @ObservedObject var tokenManager = TokenManager()
     @ObservedObject var userManager = UserManager()
-
+        
     init() {
         // Kakao SDK 초기화
         KakaoSDK.initSDK(appKey: KeyValue.kakaoAPIkey)
+        
+        if tokenManager.isTokenAvailable {
+            userManager.updateProfile()
+        }
     }
     
     var body: some Scene {
@@ -24,16 +28,20 @@ struct NaenioApp: App {
             if tokenManager.accessToken == nil {
                 LoginView()
                     .environmentObject(tokenManager)
+                    .environmentObject(userManager)
+            } else if userManager.status == .fetching {
+                ProgressView()
             } else if userManager.user == nil {
-                // OnboardingView()
+                OnboardingView()
+                    .environmentObject(userManager)
             } else {
-                // MainView()
-//                    .onOpenURL { url in
-//                        // TODO: Add implementation of further handling later
-//                        print("URL received: \(url)")
-//                        guard let link = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return }
-//                        print(link.queryItems?.filter { $0.name == "link" } as Any)
-//                    }
+                HomeView()
+                    .onOpenURL { url in
+                        // TODO: Add implementation of further handling later
+                        print("URL received: \(url)")
+                        guard let link = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return }
+                        print(link.queryItems?.filter { $0.name == "link" } as Any)
+                    }
             }
         }
         

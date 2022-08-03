@@ -10,6 +10,7 @@ import AuthenticationServices
 
 struct LoginView: View {
     @EnvironmentObject var tokenManager: TokenManager
+    @EnvironmentObject var userManager: UserManager
     @ObservedObject var viewModel = LoginViewModel()
     
     var body: some View {
@@ -36,6 +37,7 @@ struct LoginView: View {
             switch result {
             case .done(result: let userInfo):
                 tokenManager.saveToken(userInfo.token)
+                userManager.updateProfile()
             default:
                 // TODO: Show alert
                 return

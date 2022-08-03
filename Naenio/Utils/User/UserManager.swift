@@ -12,8 +12,17 @@ import SwiftUI
 class UserManager: ObservableObject {
     // Published vars
     @Published private(set) var user: User?
+    @Published private(set) var status: UserStatus = .waiting
     
     // Methods
+    func updateProfile() {
+        status = .fetching
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.user = User(profileImage: Image(""), nickname: "", channel: "")
+            self.status = .usable
+        }
+    }
+    
     func changeNickname(to nickname: String) {
         user?.nickname = nickname
     }
