@@ -12,6 +12,17 @@ struct HomeView: View {
         ZStack {
             Color.background
                 .ignoresSafeArea()
+            
+            VStack(alignment: .leading) {
+                Text("Feed")
+                    .font(.engBold(size: 24))
+                    .foregroundColor(.white)
+                
+                Spacer()
+            }
+            .fillScreen()
+            .padding(.horizontal, 20)
+            
         }
     }
 }

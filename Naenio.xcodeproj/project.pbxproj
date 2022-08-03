@@ -60,6 +60,8 @@
 		9C95B98A289A359700E0910C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B989289A359700E0910C /* OnboardingView.swift */; };
 		9C95B98D289A3AAB00E0910C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B98C289A3AAB00E0910C /* HomeView.swift */; };
 		9C95B991289A4AC100E0910C /* UserManager + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B990289A4AC100E0910C /* UserManager + Extension.swift */; };
+		9C95B994289A651600E0910C /* View + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B993289A651600E0910C /* View + Extensions.swift */; };
+		9C95B996289A672800E0910C /* FillScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B995289A672800E0910C /* FillScreen.swift */; };
 		9CA7922D287BA90600600C32 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7922C287BA90600600C32 /* UserInformation.swift */; };
 		D377232EF7564B4D94602233 /* Pods_Naenio_NaenioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF541D3D8763AF8CB32F473 /* Pods_Naenio_NaenioUITests.framework */; };
 /* End PBXBuildFile section */
@@ -143,6 +145,8 @@
 		9C95B989289A359700E0910C /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9C95B98C289A3AAB00E0910C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9C95B990289A4AC100E0910C /* UserManager + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserManager + Extension.swift"; sourceTree = "<group>"; };
+		9C95B993289A651600E0910C /* View + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + Extensions.swift"; sourceTree = "<group>"; };
+		9C95B995289A672800E0910C /* FillScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillScreen.swift; sourceTree = "<group>"; };
 		9CA7922C287BA90600600C32 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		A23C6C1FBD1AFD04C21BFC37 /* Pods-NaenioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaenioTests.debug.xcconfig"; path = "Target Support Files/Pods-NaenioTests/Pods-NaenioTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B546567C3E3421F07641077D /* Pods_Naenio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naenio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -336,6 +340,7 @@
 		9B085F2D287E353600DE8E60 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9C95B992289A650100E0910C /* Views */,
 				9BD6DE9C2895536E00051C3E /* Colors */,
 				9BE6029428954678008F291C /* Fonts */,
 				9B085F062879991600DE8E60 /* Assets.xcassets */,
@@ -520,6 +525,23 @@
 				9C95B98C289A3AAB00E0910C /* HomeView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		9C95B992289A650100E0910C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9C95B997289A672E00E0910C /* ViewModifiers */,
+				9C95B993289A651600E0910C /* View + Extensions.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9C95B997289A672E00E0910C /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				9C95B995289A672800E0910C /* FillScreen.swift */,
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -798,6 +820,7 @@
 				9C95B991289A4AC100E0910C /* UserManager + Extension.swift in Sources */,
 				4C4B13342883AAE0006044B0 /* NaenioAPI+Task.swift in Sources */,
 				9C2D07B72897C683008BBD75 /* User.swift in Sources */,
+				9C95B994289A651600E0910C /* View + Extensions.swift in Sources */,
 				9C95B98D289A3AAB00E0910C /* HomeView.swift in Sources */,
 				9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */,
 				9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */,
@@ -818,6 +841,7 @@
 				4C4B13372883B55F006044B0 /* Encodable+Extension.swift in Sources */,
 				4CC296E0288055FD001950A2 /* HeaderInformation.swift in Sources */,
 				4C4B134528847640006044B0 /* NaenioAPI+Request.swift in Sources */,
+				9C95B996289A672800E0910C /* FillScreen.swift in Sources */,
 				9C3309D92888EE20000C592F /* LoginViewModel.swift in Sources */,
 				4CA47BC6288ED06A00D300A7 /* LoginRequestService.swift in Sources */,
 				9C3309D12888ED16000C592F /* SignInWithKakaoButtonViewModel.swift in Sources */,
