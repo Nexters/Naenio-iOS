@@ -45,6 +45,12 @@ struct NaenioApp: App {
                 ProgressView()
             }
         }
-        
+    }
+    
+    // Maybe replaced later by URL handler class
+    func handleUrl(_ url: URL) {
+        print("URL received: \(url)")
+        guard let link = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return }
+        print(link.queryItems?.filter { $0.name == "link" } as Any)
     }
 }
