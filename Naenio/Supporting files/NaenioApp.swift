@@ -13,7 +13,10 @@ import KakaoSDKCommon
 struct NaenioApp: App {
     @ObservedObject var tokenManager = TokenManager()
     @ObservedObject var userManager = UserManager()
-        
+    
+    // !!!: DEBUG
+    let isDebug = true
+    
     init() {
         // Kakao SDK 초기화
         KakaoSDK.initSDK(appKey: KeyValue.kakaoAPIkey)
@@ -25,24 +28,31 @@ struct NaenioApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if tokenManager.accessToken == nil {
-                LoginView()
-                    .environmentObject(tokenManager)
-                    .environmentObject(userManager)
-            } else if userManager.user == nil,
-                      userManager.status == .fetched {
-                OnboardingView()
-                    .environmentObject(userManager)
-            } else if tokenManager.accessToken != nil,
-                      userManager.user != nil,
-                      userManager.status == .fetched {
+            if isDebug {
                 HomeView()
                     .onOpenURL { url in
-                        // TODO: Add implementation of further handling later
                         handleUrl(url)
                     }
             } else {
-                ProgressView()
+                if tokenManager.accessToken == nil {
+                    LoginView()
+                        .environmentObject(tokenManager)
+                        .environmentObject(userManager)
+                } else if userManager.user == nil,
+                          userManager.status == .fetched {
+                    OnboardingView()
+                        .environmentObject(userManager)
+                } else if tokenManager.accessToken != nil,
+                          userManager.user != nil,
+                          userManager.status == .fetched {
+                    HomeView()
+                        .onOpenURL { url in
+                            // TODO: Add implementation of further handling later
+                            handleUrl(url)
+                        }
+                } else {
+                    ProgressView()
+                }
             }
         }
     }

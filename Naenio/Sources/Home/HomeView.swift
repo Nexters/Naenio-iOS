@@ -9,8 +9,10 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        Text("Welcome to Naenio\n(Home)")
-            .font(.semoBold(size: 50))
+        ZStack {
+            Color.background
+                .ignoresSafeArea()
+        }
     }
 }
 
