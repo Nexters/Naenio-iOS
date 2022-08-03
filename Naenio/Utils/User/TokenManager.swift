@@ -13,7 +13,7 @@ class TokenManager: ObservableObject {
     let key = LocalStorageKeys.accessToken.rawValue
 
     // Published vars
-    @Published var accessToken: String?
+    @Published private(set) var accessToken: String?
     
     var isTokenAvailable: Bool {
         return accessToken == nil ? false : true

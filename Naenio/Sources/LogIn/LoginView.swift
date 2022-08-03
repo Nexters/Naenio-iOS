@@ -32,6 +32,15 @@ struct LoginView: View {
             )
             .frame(width: 280, height: 60)
         }
+        .onReceive(viewModel.$status) { result in
+            switch result {
+            case .done(result: let userInfo):
+                tokenManager.saveToken(userInfo.token)
+            default:
+                // TODO: Show alert
+                return
+            }
+        }
     }
 }
 

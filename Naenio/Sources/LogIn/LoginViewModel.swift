@@ -39,7 +39,7 @@ class LoginViewModel: ObservableObject {
                     guard let self = self else { return }
                     
                     DispatchQueue.main.async {
-                        self.status = .done
+                        self.status = .done(result: userInfo)
                     }
                 },
                 onFailure: { [weak self] error in
@@ -73,7 +73,7 @@ class LoginViewModel: ObservableObject {
                     guard let self = self else { return }
                     // Save(userInfo)
                     DispatchQueue.main.async {
-                        self.status = .done
+                        self.status = .done(result: userInfo)
                     }
                 },
                 onFailure: { [weak self] error in
@@ -108,7 +108,7 @@ extension LoginViewModel {
     enum Status {
         case waiting
         case inProgress
-        case done
+        case done(result: UserInformation)
         case fail(with: Error)
         
         var description: String {
