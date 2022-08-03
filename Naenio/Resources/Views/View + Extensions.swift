@@ -11,4 +11,8 @@ extension View {
     func fillScreen() -> some View {
         return self.modifier(FillScreen())
     }
+    
+    func fillHorizontal() -> some View {
+        return self.modifier(FillHorizontal())
+    }
 }

@@ -20,10 +20,14 @@ struct HomeView: View {
                 
                 categoryButtons
                 
+                ScrollView(.vertical) {
+                    LazyVStack {
+                        CardView()
+                    }
+                }
             }
             .fillScreen()
             .padding(.horizontal, 20)
-            
         }
     }
 }
