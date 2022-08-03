@@ -29,19 +29,20 @@ struct NaenioApp: App {
                 LoginView()
                     .environmentObject(tokenManager)
                     .environmentObject(userManager)
-            } else if userManager.status == .fetching {
-                ProgressView()
-            } else if userManager.user == nil {
+            } else if userManager.user == nil,
+                      userManager.status == .usable {
                 OnboardingView()
                     .environmentObject(userManager)
-            } else {
+            } else if tokenManager.accessToken != nil,
+                      userManager.user != nil,
+                      userManager.status == .usable {
                 HomeView()
                     .onOpenURL { url in
                         // TODO: Add implementation of further handling later
-                        print("URL received: \(url)")
-                        guard let link = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return }
-                        print(link.queryItems?.filter { $0.name == "link" } as Any)
+                        handleUrl(url)
                     }
+            } else {
+                ProgressView()
             }
         }
         

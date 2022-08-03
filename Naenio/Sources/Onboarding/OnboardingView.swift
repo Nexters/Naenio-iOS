@@ -12,7 +12,7 @@ struct OnboardingView: View {
     @EnvironmentObject var userManager: UserManager
     
     var body: some View {
-        Button(action: { userManager.user }) {
+        Button(action: { userManager.DEBUG_AddMockProfile() }) {
             Text("Hello, World!(On boarding)")
         }
         

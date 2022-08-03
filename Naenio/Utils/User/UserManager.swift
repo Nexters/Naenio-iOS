@@ -17,7 +17,15 @@ class UserManager: ObservableObject {
     // Methods
     func updateProfile() {
         status = .fetching
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.user = nil
+            self.status = .usable
+        }
+    }
+    
+    func DEBUG_AddMockProfile() {
+        status = .fetching
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.user = User(profileImage: Image(""), nickname: "", channel: "")
             self.status = .usable
         }
