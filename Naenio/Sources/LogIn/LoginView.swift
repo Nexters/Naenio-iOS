@@ -8,8 +8,8 @@
 import SwiftUI
 import AuthenticationServices
 
-struct LoginTestView: View {
-    @ObservedObject var viewModel = LoginTestViewModel()
+struct LoginView: View {
+    @ObservedObject var viewModel = LoginViewModel()
     
     var body: some View {
         VStack(spacing: 35) {
@@ -36,6 +36,6 @@ struct LoginTestView: View {
 
 struct AppleLoginTestView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginTestView()
+        LoginView()
     }
 }

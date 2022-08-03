@@ -10,7 +10,7 @@ import AuthenticationServices
 import KakaoSDKAuth
 import RxSwift
 
-class LoginTestViewModel: ObservableObject {
+class LoginViewModel: ObservableObject {
     // Dependencies
     let appleLoginManager: AppleLoginManager
     let kakaoLoginManager: KakaoLoginManager
@@ -104,7 +104,7 @@ class LoginTestViewModel: ObservableObject {
 #endif
 }
 
-extension LoginTestViewModel {
+extension LoginViewModel {
     enum Status {
         case waiting
         case inProgress
