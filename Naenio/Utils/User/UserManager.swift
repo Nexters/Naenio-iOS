@@ -10,26 +10,20 @@ import SwiftUI
 /// - Warning: Thread-safe 하지 않습니다.
 ///     유저 데이터를 다룰 때는 항상 1개의 작업만 진행되는 것을 보장하세요
 class UserManager: ObservableObject {
-    // Dependencies
-    private let tokenManager: TokenManager
-    
     // Published vars
-    @Published private(set) var user: User
-    
-    // vars and lets
-    let accessToken: String
+    @Published private(set) var user: User?
     
     // Methods
     func changeNickname(to nickname: String) {
-        user.nickname = nickname
+        user?.nickname = nickname
     }
     
     func changeProfileImage(to image: Image) {
-        user.profileImage = image
+        user?.profileImage = image
     }
     
     func changeProfileImageWithPreset(index: Int) {
-        user.profileImage = getPresetProfileImage(index: index)
+        user?.profileImage = getPresetProfileImage(index: index)
     }
     
     /// 프리셋에서 이미지를 하나 골라옵니다. 인덱스 에러로부터 안전합니다.
@@ -43,13 +37,7 @@ class UserManager: ObservableObject {
         if index < images.count {
             return images[index]
         } else {
-            return user.profileImage
+            return user?.profileImage ?? Image("")
         }
-    }
-    
-    init(user: User, tokenManager: TokenManager) {
-        self.user = user
-        self.tokenManager = tokenManager
-        self.accessToken = tokenManager.accessToken!
     }
 }

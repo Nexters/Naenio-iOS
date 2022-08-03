@@ -9,6 +9,7 @@ import SwiftUI
 import AuthenticationServices
 
 struct LoginView: View {
+    @EnvironmentObject var tokenManager: TokenManager
     @ObservedObject var viewModel = LoginViewModel()
     
     var body: some View {

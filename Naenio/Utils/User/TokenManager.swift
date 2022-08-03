@@ -7,13 +7,13 @@
 
 import Foundation
 
-class TokenManager {
+class TokenManager: ObservableObject {
     // Dependencies
     private let localStorageManager: LocalStorageManager
     let key = LocalStorageKeys.accessToken.rawValue
 
-    // vars and lets
-    var accessToken: String?
+    // Published vars
+    @Published var accessToken: String?
     
     var isTokenAvailable: Bool {
         return accessToken == nil ? false : true
