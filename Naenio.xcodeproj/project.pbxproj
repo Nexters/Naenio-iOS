@@ -54,8 +54,8 @@
 		9C3309CD2888EC52000C592F /* KakaoLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309CC2888EC52000C592F /* KakaoLoginManager.swift */; };
 		9C3309CF2888ED08000C592F /* SignInWithKakaoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309CE2888ED08000C592F /* SignInWithKakaoButton.swift */; };
 		9C3309D12888ED16000C592F /* SignInWithKakaoButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309D02888ED16000C592F /* SignInWithKakaoButtonViewModel.swift */; };
-		9C3309D72888EE0D000C592F /* LoginTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309D62888EE0D000C592F /* LoginTestView.swift */; };
-		9C3309D92888EE20000C592F /* LoginTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309D82888EE20000C592F /* LoginTestViewModel.swift */; };
+		9C3309D72888EE0D000C592F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309D62888EE0D000C592F /* LoginView.swift */; };
+		9C3309D92888EE20000C592F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309D82888EE20000C592F /* LoginViewModel.swift */; };
 		9C68A2972898EFE4006D36B1 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C68A2952898EFE4006D36B1 /* KeyValue.swift */; };
 		9C68A29A2898F3A6006D36B1 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C68A2992898F3A6006D36B1 /* LocalStorageManager.swift */; };
 		9C68A29D28990015006D36B1 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C68A29C28990015006D36B1 /* TokenManager.swift */; };
@@ -136,8 +136,8 @@
 		9C3309CC2888EC52000C592F /* KakaoLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginManager.swift; sourceTree = "<group>"; };
 		9C3309CE2888ED08000C592F /* SignInWithKakaoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithKakaoButton.swift; sourceTree = "<group>"; };
 		9C3309D02888ED16000C592F /* SignInWithKakaoButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithKakaoButtonViewModel.swift; sourceTree = "<group>"; };
-		9C3309D62888EE0D000C592F /* LoginTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTestView.swift; sourceTree = "<group>"; };
-		9C3309D82888EE20000C592F /* LoginTestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTestViewModel.swift; sourceTree = "<group>"; };
+		9C3309D62888EE0D000C592F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		9C3309D82888EE20000C592F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		9C68A2952898EFE4006D36B1 /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
 		9C68A2962898EFE4006D36B1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C68A2992898F3A6006D36B1 /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
@@ -269,7 +269,6 @@
 				9B085F002879991400DE8E60 /* Products */,
 				5384CA9EFAD91A1B81B34F6B /* Pods */,
 				5A5E2382BAF75B50B64733A4 /* Frameworks */,
-				9BB191E9289680DF00B10CBD /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -361,15 +360,6 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		9BB191E9289680DF00B10CBD /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				9BD6DE9D2896281F00051C3E /* KeyValue.swift */,
-				9BD6DEA3289628D400051C3E /* MockLoginReponseData.json */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		9BD6DE9C2895536E00051C3E /* Colors */ = {
 			isa = PBXGroup;
 			children = (
@@ -425,8 +415,8 @@
 				9C3309C92888EC13000C592F /* Models */,
 				9C3309CA2888EC37000C592F /* Apple */,
 				9C3309CB2888EC3D000C592F /* Kakao */,
-				9C3309D62888EE0D000C592F /* LoginTestView.swift */,
-				9C3309D82888EE20000C592F /* LoginTestViewModel.swift */,
+				9C3309D62888EE0D000C592F /* LoginView.swift */,
+				9C3309D82888EE20000C592F /* LoginViewModel.swift */,
 			);
 			path = LogIn;
 			sourceTree = "<group>";
@@ -784,7 +774,7 @@
 				9C2D07BB2897CD0A008BBD75 /* UserError.swift in Sources */,
 				4C4B13392883B709006044B0 /* NaenioAPI+Error.swift in Sources */,
 				4C4B13322883AAC3006044B0 /* NaenioAPI+Path.swift in Sources */,
-				9C3309D72888EE0D000C592F /* LoginTestView.swift in Sources */,
+				9C3309D72888EE0D000C592F /* LoginView.swift in Sources */,
 				4CC296D92880533C001950A2 /* DefaultSession.swift in Sources */,
 				9C68A2972898EFE4006D36B1 /* KeyValue.swift in Sources */,
 				4C4B13342883AAE0006044B0 /* NaenioAPI+Task.swift in Sources */,
@@ -807,7 +797,7 @@
 				4C4B13372883B55F006044B0 /* Encodable+Extension.swift in Sources */,
 				4CC296E0288055FD001950A2 /* HeaderInformation.swift in Sources */,
 				4C4B134528847640006044B0 /* NaenioAPI+Request.swift in Sources */,
-				9C3309D92888EE20000C592F /* LoginTestViewModel.swift in Sources */,
+				9C3309D92888EE20000C592F /* LoginViewModel.swift in Sources */,
 				4CA47BC6288ED06A00D300A7 /* LoginRequestService.swift in Sources */,
 				9C3309D12888ED16000C592F /* SignInWithKakaoButtonViewModel.swift in Sources */,
 				9CA7922D287BA90600600C32 /* UserInformation.swift in Sources */,
@@ -824,7 +814,6 @@
 				9C2D07BE2897D7D4008BBD75 /* UserManagerTests.swift in Sources */,
 				9B085F142879991600DE8E60 /* LoginTests.swift in Sources */,
 				9C2D07C12897D818008BBD75 /* MockUser.swift in Sources */,
-				9BD6DEA4289628D400051C3E /* MockLoginReponseData.json in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
