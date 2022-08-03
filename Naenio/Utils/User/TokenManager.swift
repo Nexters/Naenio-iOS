@@ -34,6 +34,11 @@ class TokenManager: ObservableObject {
         }
     }
     
+    func deleteToken() {
+        self.accessToken = nil
+        localStorageManager.delete(key: key)
+    }
+    
     init(_ localStorageManager: LocalStorageManager = LocalStorageManager.shared) {
         self.localStorageManager = localStorageManager
         self.accessToken = loadToken()

@@ -23,6 +23,10 @@ class LocalStorageManager {
         return storage.object(forKey: key)
     }
     
+    func delete(key: String) {
+        storage.removeObject(forKey: key)
+    }
+    
     init(_ storage: UserDefaults = UserDefaults.standard) {
         self.storage = storage
     }
