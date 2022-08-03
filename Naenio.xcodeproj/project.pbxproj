@@ -32,6 +32,7 @@
 		9B085F1E2879991600DE8E60 /* NaenioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1D2879991600DE8E60 /* NaenioUITests.swift */; };
 		9B085F202879991600DE8E60 /* NaenioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */; };
 		9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B687DE928954D4A0048AED0 /* Font + Extension.swift */; };
+		9B8B98BA289948DA007336DE /* LocalStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B98B9289948DA007336DE /* LocalStorageKeys.swift */; };
 		9BD6DEA4289628D400051C3E /* MockLoginReponseData.json in Sources */ = {isa = PBXBuildFile; fileRef = 9BD6DEA3289628D400051C3E /* MockLoginReponseData.json */; };
 		9BE60293289541B6008F291C /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE60292289541B6008F291C /* Color + Extension.swift */; };
 		9BE602A0289548CF008F291C /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE60297289548CE008F291C /* Pretendard-Medium.ttf */; };
@@ -111,6 +112,7 @@
 		9B085F1D2879991600DE8E60 /* NaenioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITests.swift; sourceTree = "<group>"; };
 		9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9B687DE928954D4A0048AED0 /* Font + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font + Extension.swift"; sourceTree = "<group>"; };
+		9B8B98B9289948DA007336DE /* LocalStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageKeys.swift; sourceTree = "<group>"; };
 		9BD6DE9D2896281F00051C3E /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
 		9BD6DEA3289628D400051C3E /* MockLoginReponseData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockLoginReponseData.json; sourceTree = "<group>"; };
 		9BE60292289541B6008F291C /* Color + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
@@ -506,6 +508,7 @@
 			isa = PBXGroup;
 			children = (
 				9C68A2992898F3A6006D36B1 /* LocalStorageManager.swift */,
+				9B8B98B9289948DA007336DE /* LocalStorageKeys.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -809,6 +812,7 @@
 				9C3309D12888ED16000C592F /* SignInWithKakaoButtonViewModel.swift in Sources */,
 				9CA7922D287BA90600600C32 /* UserInformation.swift in Sources */,
 				9BF00C0B287ACFA900F08035 /* LoginRequestInformation.swift in Sources */,
+				9B8B98BA289948DA007336DE /* LocalStorageKeys.swift in Sources */,
 				9C3309CD2888EC52000C592F /* KakaoLoginManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

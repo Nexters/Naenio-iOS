@@ -10,8 +10,16 @@ import SwiftUI
 /// - Warning: Thread-safe 하지 않습니다.
 ///     유저 데이터를 다룰 때는 항상 1개의 작업만 진행되는 것을 보장하세요
 class UserManager: ObservableObject {
+    // Dependencies
+    private let tokenManager: TokenManager
+    
+    // Published vars
     @Published private(set) var user: User
     
+    // vars and lets
+    let accessToken: String
+    
+    // Methods
     func changeNickname(to nickname: String) {
         user.nickname = nickname
     }
@@ -39,7 +47,9 @@ class UserManager: ObservableObject {
         }
     }
     
-    init(user: User) {
+    init(user: User, tokenManager: TokenManager) {
         self.user = user
+        self.tokenManager = tokenManager
+        self.accessToken = tokenManager.accessToken!
     }
 }
