@@ -12,5 +12,4 @@ struct User {
     var nickname: String
     
     let channel: String
-    let token: String
 }
