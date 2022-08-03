@@ -13,16 +13,44 @@ struct HomeView: View {
             Color.background
                 .ignoresSafeArea()
             
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 20) {
                 Text("Feed")
                     .font(.engBold(size: 24))
                     .foregroundColor(.white)
                 
-                Spacer()
+                categoryButtons
+                
             }
             .fillScreen()
             .padding(.horizontal, 20)
             
+        }
+    }
+}
+
+extension HomeView {
+    var categoryButtons: some View {
+        HStack {
+            Button(action: {}) {
+                Text("전체")
+            }
+            .buttonStyle(CapsuleButtonStyle(fontSize: 15.43,
+                                            bgColor: .naenioPink,
+                                            textColor: .white))
+            
+            Button(action: {}) {
+                Text("📄 게시한 투표")
+            }
+            .buttonStyle(CapsuleButtonStyle(fontSize: 15.43,
+                                            bgColor: .naenioBlue,
+                                            textColor: .white))
+            
+            Button(action: {}) {
+                Text("🗳 참여한 투표")
+            }
+            .buttonStyle(CapsuleButtonStyle(fontSize: 15.43,
+                                            bgColor: .naenioBlue,
+                                            textColor: .white))
         }
     }
 }
