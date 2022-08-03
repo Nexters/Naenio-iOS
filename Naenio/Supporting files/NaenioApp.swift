@@ -30,12 +30,12 @@ struct NaenioApp: App {
                     .environmentObject(tokenManager)
                     .environmentObject(userManager)
             } else if userManager.user == nil,
-                      userManager.status == .usable {
+                      userManager.status == .fetched {
                 OnboardingView()
                     .environmentObject(userManager)
             } else if tokenManager.accessToken != nil,
                       userManager.user != nil,
-                      userManager.status == .usable {
+                      userManager.status == .fetched {
                 HomeView()
                     .onOpenURL { url in
                         // TODO: Add implementation of further handling later

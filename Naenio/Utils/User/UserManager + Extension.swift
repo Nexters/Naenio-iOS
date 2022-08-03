@@ -15,7 +15,7 @@ extension UserManager {
         
         case waiting
         case fetching
-        case usable
+        case fetched
         case fail(with: Error)
         
         var description: String {
@@ -24,8 +24,8 @@ extension UserManager {
                 return "Waiting"
             case .fetching:
                 return "Fetching profile..."
-            case .usable:
-                return "Successfully done"
+            case .fetched:
+                return "Profile is successfully fetched"
             case .fail(let error):
                 return "Failed with error: \(error.localizedDescription)"
             }
