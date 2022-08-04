@@ -18,7 +18,7 @@ struct VoteButton: View {
                     .font(.engBold(size: 16))
                 
                 Text(text)
-                    .font(.semoBold(size: 14))
+                    .font(.semoBold(size: 16))
             }
             .fillHorizontal()
             .padding(.horizontal, 14)
