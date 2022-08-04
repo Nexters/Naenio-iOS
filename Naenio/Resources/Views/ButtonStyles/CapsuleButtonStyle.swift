@@ -20,6 +20,7 @@ struct CapsuleButtonStyle: ButtonStyle {
             .foregroundColor(textColor)
             .frame(height: height)
             .background(Capsule().fill(bgColor))
+            .opacity(configuration.isPressed ? 0.3 : 1)
             .font(.semoBold(size: fontSize))
     }
 }

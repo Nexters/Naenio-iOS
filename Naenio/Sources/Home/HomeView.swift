@@ -54,6 +54,10 @@ extension HomeView {
             .buttonStyle(CapsuleButtonStyle(fontSize: 15.43,
                                             bgColor: .naenioPink,
                                             textColor: .white))
+            .background(
+                Capsule()
+                    .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
+            )
             
             Button(action: {}) {
                 Text("📄 게시한 투표")
@@ -61,6 +65,10 @@ extension HomeView {
             .buttonStyle(CapsuleButtonStyle(fontSize: 15.43,
                                             bgColor: .naenioBlue,
                                             textColor: .white))
+            .background(
+                Capsule()
+                    .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
+            )
             
             Button(action: {}) {
                 Text("🗳 참여한 투표")
@@ -68,6 +76,10 @@ extension HomeView {
             .buttonStyle(CapsuleButtonStyle(fontSize: 15.43,
                                             bgColor: .naenioBlue,
                                             textColor: .white))
+            .background(
+                Capsule()
+                    .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
+            )
         }
     }
 }
