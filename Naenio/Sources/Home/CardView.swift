@@ -37,12 +37,14 @@ struct CardView: View {
                 
                 Text("세상에 모든 사람이 날 알아보기 투명 인간 취급 당하기?")
                     .lineLimit(2)
+                    .lineSpacing(7)
                     .font(.semoBold(size: 22))
                     .foregroundColor(.white)
                     .padding(.bottom, 10)
                 
                 Text("세상 모든 사람들이 날 알아보지 못하면 슬플 것 같아요.")
                     .lineLimit(2)
+                    .lineSpacing(5)
                     .font(.medium(size: 16))
                     .foregroundColor(.naenioGray)
                     .padding(.bottom, 18)
