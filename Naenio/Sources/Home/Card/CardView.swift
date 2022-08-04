@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CardView: View {
-    @StateObject var viewModel = CardViewModel()
+    @StateObject var viewModel: CardViewModel
 //     Redact
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -51,9 +51,9 @@ struct CardView: View {
                 
                 ZStack {
                     VStack(spacing: 18) {
-                        VoteButton(choice: .A, text: "\(viewModel.post.choices.first?.name)")
+                        VoteButton(choice: .A, text: "\(viewModel.post.choices.first?.name as Any)")
                         
-                        VoteButton(choice: .B, text: "\(viewModel.post.choices.last?.name)")
+                        VoteButton(choice: .B, text: "\(viewModel.post.choices.last?.name as Any)")
                     }
                     
                     Text("VS")
@@ -109,6 +109,6 @@ extension CardView {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView()
+        CardView(viewModel: CardViewModel(post: emptyPosts[0]))
     }
 }
