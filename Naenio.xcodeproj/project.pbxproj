@@ -70,7 +70,6 @@
 		9C95B9A5289A937100E0910C /* FillHorizontal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B9A4289A937100E0910C /* FillHorizontal.swift */; };
 		9CA7922D287BA90600600C32 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7922C287BA90600600C32 /* UserInformation.swift */; };
 		9CCA227F289B9EA900A2F9B0 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA227E289B9EA900A2F9B0 /* Post.swift */; };
-		9CCA228C289BA2C400A2F9B0 /* MockPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA228B289BA2C400A2F9B0 /* MockPost.swift */; };
 		9CCA228E289BA2EA00A2F9B0 /* MockPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA228D289BA2EA00A2F9B0 /* MockPost.json */; };
 		9CCA2292289BA7B600A2F9B0 /* EmptyPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA2291289BA7B600A2F9B0 /* EmptyPost.swift */; };
 		9CCA2293289BAB0F00A2F9B0 /* MockPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA228F289BA4A900A2F9B0 /* MockPost.json */; };
@@ -166,7 +165,6 @@
 		9C95B9A4289A937100E0910C /* FillHorizontal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillHorizontal.swift; sourceTree = "<group>"; };
 		9CA7922C287BA90600600C32 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		9CCA227E289B9EA900A2F9B0 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		9CCA228B289BA2C400A2F9B0 /* MockPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPost.swift; sourceTree = "<group>"; };
 		9CCA228D289BA2EA00A2F9B0 /* MockPost.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPost.json; sourceTree = "<group>"; };
 		9CCA228F289BA4A900A2F9B0 /* MockPost.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPost.json; sourceTree = "<group>"; };
 		9CCA2291289BA7B600A2F9B0 /* EmptyPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPost.swift; sourceTree = "<group>"; };
@@ -611,7 +609,6 @@
 		9CCA228A289BA2BD00A2F9B0 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				9CCA228B289BA2C400A2F9B0 /* MockPost.swift */,
 				9CCA228D289BA2EA00A2F9B0 /* MockPost.json */,
 			);
 			path = Data;
@@ -940,7 +937,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C2D07BE2897D7D4008BBD75 /* UserManagerTests.swift in Sources */,
-				9CCA228C289BA2C400A2F9B0 /* MockPost.swift in Sources */,
 				9B085F142879991600DE8E60 /* LoginTests.swift in Sources */,
 				9C2D07C12897D818008BBD75 /* MockUser.swift in Sources */,
 			);
