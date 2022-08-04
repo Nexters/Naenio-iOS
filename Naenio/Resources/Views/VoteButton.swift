@@ -15,9 +15,11 @@ struct VoteButton: View {
         Button(action: {}) {
             HStack(spacing: 6) {
                 Text(choice.rawValue + ".")
+                    .lineLimit(1)
                     .font(.engBold(size: 16))
                 
                 Text(text)
+                    .lineLimit(1)
                     .font(.semoBold(size: 16))
             }
             .fillHorizontal()

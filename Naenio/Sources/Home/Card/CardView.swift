@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CardView: View {
-    //    @StateObject var viewModel: CardViewModel
-    // Redact
+    @StateObject var viewModel = CardViewModel()
+//     Redact
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             VStack(alignment: .leading, spacing: 0) {
@@ -30,19 +30,19 @@ struct CardView: View {
                 }
                 .padding(.bottom, 24)
                 
-                Text("🗳 123명 투표")
+                Text("🗳 \(viewModel.post.voteCount)명 투표")
                     .font(.medium(size: 14))
                     .foregroundColor(.white)
                     .padding(.bottom, 8)
                 
-                Text("세상에 모든 사람이 날 알아보기 투명 인간 취급 당하기?")
+                Text("\(viewModel.post.title)")
                     .lineLimit(2)
                     .lineSpacing(7)
                     .font(.semoBold(size: 22))
                     .foregroundColor(.white)
                     .padding(.bottom, 10)
                 
-                Text("세상 모든 사람들이 날 알아보지 못하면 슬플 것 같아요.")
+                Text("\(viewModel.post.content)")
                     .lineLimit(2)
                     .lineSpacing(5)
                     .font(.medium(size: 16))
@@ -51,9 +51,9 @@ struct CardView: View {
                 
                 ZStack {
                     VStack(spacing: 18) {
-                        VoteButton(choice: .A, text: "세상 모든 사람이 날 알아보기정말")
+                        VoteButton(choice: .A, text: "\(viewModel.post.choices.first?.name)")
                         
-                        VoteButton(choice: .B, text: "투명 인간 취급당하며 힘들게 살기")
+                        VoteButton(choice: .B, text: "\(viewModel.post.choices.last?.name)")
                     }
                     
                     Text("VS")
@@ -74,7 +74,7 @@ struct CardView: View {
                         .font(.semoBold(size: 16))
                         .foregroundColor(.white)
                     
-                    Text("123개")
+                    Text("\(viewModel.post.commentCount)개")
                         .font(.regular(size: 16))
                         .foregroundColor(.naenioGray)
                 }
@@ -101,7 +101,7 @@ extension CardView {
                 .padding(3)
                 .background(Circle().fill(Color.green.opacity(0.2)))
             
-            Text("김만두")
+            Text("\(viewModel.post.author.nickname)")
                 .font(.medium(size: 16))
         }
     }
