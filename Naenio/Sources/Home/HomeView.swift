@@ -17,17 +17,30 @@ struct HomeView: View {
                 Text("Feed")
                     .font(.engBold(size: 24))
                     .foregroundColor(.white)
+                    .padding(.horizontal, 20)
                 
                 categoryButtons
+                    .padding(.horizontal, 20)
                 
-                ScrollView(.vertical) {
-                    LazyVStack {
-                        CardView()
+                ScrollView(.vertical, showsIndicators: false) {
+                    // Placeholder
+                    Rectangle()
+                        .fill(Color.clear)
+                        .frame(height: 4)
+                    
+                    LazyVStack(spacing: 20) {
+                        ForEach(0..<3) { _ in
+                            CardView()
+                                .background(
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
+                                )
+                                .padding(.horizontal, 20)
+                        }
                     }
                 }
             }
             .fillScreen()
-            .padding(.horizontal, 20)
         }
     }
 }
