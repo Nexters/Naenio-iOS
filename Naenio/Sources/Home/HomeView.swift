@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    @StateObject var viewModel = HomeViewModel()
+    @Namespace var topID
+
     var body: some View {
         ZStack {
             Color.background
@@ -22,20 +25,28 @@ struct HomeView: View {
                 categoryButtons
                     .padding(.horizontal, 20)
                 
-                ScrollView(.vertical, showsIndicators: false) {
-                    // Placeholder
-                    Rectangle()
-                        .fill(Color.clear)
-                        .frame(height: 4)
-                    
-                    LazyVStack(spacing: 20) {
-                        ForEach(0..<3) { _ in
-                            CardView()
-                                .background(
-                                    RoundedRectangle(cornerRadius: 16)
-                                        .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
-                                )
-                                .padding(.horizontal, 20)
+                ScrollViewReader { proxy in
+                    ScrollView(.vertical, showsIndicators: false) {
+                        // Placeholder
+                        Rectangle()
+                            .fill(Color.clear)
+                            .frame(height: 4)
+                            .id(topID)
+                        
+                        LazyVStack(spacing: 20) {
+                            ForEach(0..<viewModel.category.rawValue + 5, id: \.self) { _ in
+                                CardView()
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 16)
+                                            .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
+                                    )
+                                    .padding(.horizontal, 20)
+                            }
+                        }
+                        .onChange(of: viewModel.category) { _ in
+                            withAnimation(.easeOut(duration: 0.1)) {
+                                proxy.scrollTo(topID)
+                            }
                         }
                     }
                 }
@@ -48,33 +59,33 @@ struct HomeView: View {
 extension HomeView {
     var categoryButtons: some View {
         HStack {
-            Button(action: {}) {
+            Button(action: { viewModel.category = .entire }) {
                 Text("전체")
             }
-            .buttonStyle(CapsuleButtonStyle(fontSize: 15.43,
-                                            bgColor: .naenioPink,
+            .buttonStyle(CapsuleButtonStyle(fontSize: 16,
+                                            bgColor: viewModel.category == .entire ? .naenioPink : .naenioBlue ,
                                             textColor: .white))
             .background(
                 Capsule()
                     .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
             )
             
-            Button(action: {}) {
+            Button(action: { viewModel.category = .wrote }) {
                 Text("📄 게시한 투표")
             }
-            .buttonStyle(CapsuleButtonStyle(fontSize: 15.43,
-                                            bgColor: .naenioBlue,
+            .buttonStyle(CapsuleButtonStyle(fontSize: 16,
+                                            bgColor: viewModel.category == .wrote ? .naenioPink : .naenioBlue ,
                                             textColor: .white))
             .background(
                 Capsule()
                     .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
             )
             
-            Button(action: {}) {
+            Button(action: { viewModel.category = .participated }) {
                 Text("🗳 참여한 투표")
             }
-            .buttonStyle(CapsuleButtonStyle(fontSize: 15.43,
-                                            bgColor: .naenioBlue,
+            .buttonStyle(CapsuleButtonStyle(fontSize: 16,
+                                            bgColor: viewModel.category == .participated ? .naenioPink : .naenioBlue ,
                                             textColor: .white))
             .background(
                 Capsule()
