@@ -8,26 +8,37 @@
 import Foundation
 
 struct MockPostGenerator {
-    static func generate() -> Post {
+    static func generate(category: HomeViewModel.Category) -> Post {
+        var title = ""
+        
+        switch category {
+        case .entire:
+            title = "세상에 모든 사람이 날 알아보기 투명 인간 취급 당하기?"
+        case .participated:
+            title = "추운 겨울에는 따뜻한 커피와 티를 마셔야지요 추운 겨울에는 따뜻한 커피와 티를 마셔야지요"
+        case .wrote:
+            title = "다람쥐 헌 쳇바퀴에 타고파 다람쥐 헌 쳇바퀴에 타고파"
+        }
+        
         return Post(
             id: UUID().uuidString.hashValue,
             author: Post.Author(id: -1,
-                                nickname: "0000",
+                                nickname: "김만두",
                                 profileImageIndex: 0),
-            voteCount: 0,
-            title: "00000000000000000000000000000000000000000000",
-            content: "0000000000000000000000000000000000000000",
+            voteCount: 132,
+            title: title,
+            content: "세상 모든 사람들이 날 알아보지 못하면 슬플 것 같아요.",
             choices: [
                 Post.Choice(id: 0,
                             sequence: 0,
-                            name: "0000000000000000",
+                            name: "세상 모든 사람이 날 알아보기정말",
                             isSelected: false,
                             voteCount: 111),
-                Post.Choice(id: 0,
-                            sequence: 0,
-                            name: "0000000000000000",
+                Post.Choice(id: 1,
+                            sequence: 1,
+                            name: "투명 인간 취급당하며 힘들게 살기",
                             isSelected: false,
-                            voteCount: 111)
+                            voteCount: 25)
             ],
             commentCount: 111
         )

@@ -68,7 +68,7 @@ class HomeViewModel: ObservableObject {
     }
 
     init() {
-        self.posts = emptyPosts
+        self.posts = []
         self.requestPosts()
     }
 }
@@ -98,31 +98,32 @@ extension HomeViewModel {
     private func getPostDisposable(category: Category) -> Single<[Post]> {
         var posts = [Post]()
         
-        var path: String?
-        switch category {
-        case .entire:
-            path = Bundle.main.path(forResource: "MockPostList", ofType: "json")
-        case .participated:
-            path = Bundle.main.path(forResource: "MockPostParticipatedList", ofType: "json")
-        case .wrote:
-            path = Bundle.main.path(forResource: "MockPostWroteList", ofType: "json")
-        }
-        
-        guard let path = path else {
-            print("Invalid path")
-            return Observable.of(posts).asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
-        }
-        
-        do {
+//        var path: String?
+//        switch category {
+//        case .entire:
+//            path = Bundle.main.path(forResource: "MockPostList", ofType: "json")
+//        case .participated:
+//            path = Bundle.main.path(forResource: "MockPostParticipatedList", ofType: "json")
+//        case .wrote:
+//            path = Bundle.main.path(forResource: "MockPostWroteList", ofType: "json")
+//        }
+//
+//        guard let path = path else {
+//            print("Invalid path")
+//            return Observable.of(posts).asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
+//        }
+//
+//        do {
 //            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
 //            let decoded = try JSONDecoder().decode([Post].self, from: data)
-            (0..<10).forEach { _ in
-                posts.append(MockPostGenerator.generate())
-            }
-            
-            return Observable.of(posts).asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
-        } catch let error {
-            print(error)
+//
+//
+//            return Observable.of(posts).asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
+//        } catch let error {
+//            print(error)
+//        }
+        (0..<10).forEach { _ in
+            posts.append(MockPostGenerator.generate(category: category))
         }
         
         return Observable.of(posts).asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)

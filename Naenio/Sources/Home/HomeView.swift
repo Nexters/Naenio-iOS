@@ -40,8 +40,7 @@ struct HomeView: View {
                                 .id(topID)
                             
                             LazyVStack(spacing: 20) {
-                                ForEach(viewModel.posts.indices, id: \.self) { index in // FIXME: 아이디 겹치는 문제
-                                    let post = viewModel.posts[index]
+                                ForEach(Array(viewModel.posts.enumerated()), id: \.element.id) { (index: Int, post: Post) in
                                     let cardViewModel = CardViewModel(post: post)
                                     
                                     CardView(viewModel: cardViewModel)
