@@ -6,49 +6,67 @@
 //
 
 import Foundation
-import Combine
+import RxSwift
 
 class HomeViewModel: ObservableObject {
     // Published vars
     @Published var category: Category = .entire // ???: 마지막 선택 저장하는 것도 낫 배드 - using @SceneStorage
-    @Published var posts: [Post] // TODO: Solving data races caused by repeated network calls
+    @Published var posts: [Post] 
     @Published var currentPage: Int = 0
     @Published var status: Status = .waiting
     
     // vars and lets
     private let pagingValue = 10
+    private var bag = DisposeBag()₩
     
     // !!!: 테스트용
-    @discardableResult
-    func requestPosts() -> [Post] {
+    func requestPosts() {
+        bag = DisposeBag()
         status = .inProgress
                 
-        let newPosts = getPost(category: self.category)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.posts = newPosts
-            self.status = .done
-        }
-
-        return newPosts
+        getPostDisposable(category: self.category)
+            .subscribe(on: ConcurrentDispatchQueueScheduler.init(qos: .utility))
+            .observe(on: MainScheduler.instance)
+            .subscribe(onSuccess: { [weak self] newPosts in
+                guard let self = self else { return }
+                print("Success requestPosts")
+                self.posts = newPosts
+                self.status = .done
+            }, onFailure: { [weak self] error in
+                guard let self = self else { return }
+                self.status = .fail(with: error)
+            }, onDisposed: {
+                print("Disposed requestPosts")
+            })
+            .disposed(by: bag)
     }
     
     // !!!: 테스트용
-    @discardableResult
-    func requestMorePosts() -> [Post] {
+    func requestMorePosts() {
+        bag = DisposeBag()
         status = .inProgress
         
-        let newPosts = getPost(category: self.category)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.posts.append(contentsOf: newPosts)
-            self.status = .done
-        }
+        getPostDisposable(category: self.category)
+            .subscribe(on: ConcurrentDispatchQueueScheduler.init(qos: .utility))
+            .observe(on: MainScheduler.instance)
+            .subscribe(onSuccess: { [weak self] newPosts in
+                guard let self = self else { return }
+                print("Success requestMorePosts")
 
-        return newPosts
+                self.posts.append(contentsOf: newPosts)
+                self.status = .done
+            }, onFailure: { [weak self] error in
+                guard let self = self else { return }
+                self.status = .fail(with: error)
+            }, onDisposed: {
+                print("Disposed requestMorePosts")
+            })
+            .disposed(by: bag)
     }
 
     init() {
         self.posts = emptyPosts
-        self.posts = self.requestPosts()
+        self.requestPosts()
     }
 }
 
@@ -74,7 +92,7 @@ extension HomeViewModel {
         return posts
     }
     
-    private func getPost(category: Category) -> [Post] {
+    private func getPostDisposable(category: Category) -> Single<[Post]> {
         let posts = [Post]()
         
         var path: String?
@@ -89,19 +107,19 @@ extension HomeViewModel {
         
         guard let path = path else {
             print("Invalid path")
-            return posts
+            return Observable.of(posts).asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
         }
         
         do {
             let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
             let decoded = try JSONDecoder().decode([Post].self, from: data)
             
-            return decoded
+            return Observable.of(decoded).asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
         } catch let error {
             print(error)
         }
         
-        return posts
+        return Observable.of(posts).asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
     }
     
 }
