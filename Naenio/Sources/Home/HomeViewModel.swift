@@ -11,56 +11,59 @@ import RxSwift
 class HomeViewModel: ObservableObject {
     // Published vars
     @Published var category: Category = .entire // ???: 마지막 선택 저장하는 것도 낫 배드 - using @SceneStorage
-    @Published var posts: [Post] 
+    @Published var posts: [Post]
     @Published var currentPage: Int = 0
     @Published var status: Status = .waiting
     
     // vars and lets
     private let pagingValue = 10
-    private var bag = DisposeBag()₩
+    private var bag = DisposeBag()
+    private let serialQueue = SerialDispatchQueueScheduler.init(qos: .utility)
     
     // !!!: 테스트용
     func requestPosts() {
-        bag = DisposeBag()
+        bag = DisposeBag() // Cancel running tasks by initializing the bag
         status = .inProgress
                 
         getPostDisposable(category: self.category)
-            .subscribe(on: ConcurrentDispatchQueueScheduler.init(qos: .utility))
+            .subscribe(on: self.serialQueue)
             .observe(on: MainScheduler.instance)
-            .subscribe(onSuccess: { [weak self] newPosts in
-                guard let self = self else { return }
-                print("Success requestPosts")
-                self.posts = newPosts
-                self.status = .done
-            }, onFailure: { [weak self] error in
-                guard let self = self else { return }
-                self.status = .fail(with: error)
-            }, onDisposed: {
-                print("Disposed requestPosts")
-            })
+            .subscribe(
+                onSuccess: { [weak self] newPosts in
+                    guard let self = self else { return }
+                    print("Success requestPosts")
+                    self.posts = newPosts
+                    self.status = .done
+                }, onFailure: { [weak self] error in
+                    guard let self = self else { return }
+                    self.status = .fail(with: error)
+                }, onDisposed: {
+                    print("Disposed requestPosts")
+                })
             .disposed(by: bag)
     }
     
     // !!!: 테스트용
     func requestMorePosts() {
-        bag = DisposeBag()
+        bag = DisposeBag() // Cancel running tasks by initializing the bag
         status = .inProgress
         
         getPostDisposable(category: self.category)
-            .subscribe(on: ConcurrentDispatchQueueScheduler.init(qos: .utility))
+            .subscribe(on: self.serialQueue)
             .observe(on: MainScheduler.instance)
-            .subscribe(onSuccess: { [weak self] newPosts in
-                guard let self = self else { return }
-                print("Success requestMorePosts")
-
-                self.posts.append(contentsOf: newPosts)
-                self.status = .done
-            }, onFailure: { [weak self] error in
-                guard let self = self else { return }
-                self.status = .fail(with: error)
-            }, onDisposed: {
-                print("Disposed requestMorePosts")
-            })
+            .subscribe(
+                onSuccess: { [weak self] newPosts in
+                    guard let self = self else { return }
+                    print("Success requestMorePosts")
+                    
+                    self.posts.append(contentsOf: newPosts)
+                    self.status = .done
+                }, onFailure: { [weak self] error in
+                    guard let self = self else { return }
+                    self.status = .fail(with: error)
+                }, onDisposed: {
+                    print("Disposed requestMorePosts")
+                })
             .disposed(by: bag)
     }
 
