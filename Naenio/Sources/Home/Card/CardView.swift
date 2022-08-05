@@ -107,8 +107,8 @@ extension CardView {
     }
 }
 
-struct CardView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardView(viewModel: CardViewModel(post: emptyPosts[0]))
-    }
-}
+//struct CardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CardView(viewModel: CardViewModel(post: emptyPosts[0]))
+//    }
+//}

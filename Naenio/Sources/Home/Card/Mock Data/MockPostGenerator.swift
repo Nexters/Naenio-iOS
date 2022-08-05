@@ -15,7 +15,7 @@ struct MockPostGenerator {
         case .entire:
             title = "세상에 모든 사람이 날 알아보기 투명 인간 취급 당하기?"
         case .participated:
-            title = "추운 겨울에는 따뜻한 커피와 티를 마셔야지요 추운 겨울에는 따뜻한 커피와 티를 마셔야지요"
+            title = "추운 겨울에는 따뜻한 커피와 티를 마셔야지요"
         case .wrote:
             title = "다람쥐 헌 쳇바퀴에 타고파 다람쥐 헌 쳇바퀴에 타고파"
         }
