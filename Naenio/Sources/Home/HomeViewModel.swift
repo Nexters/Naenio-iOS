@@ -96,7 +96,7 @@ extension HomeViewModel {
     }
     
     private func getPostDisposable(category: Category) -> Single<[Post]> {
-        let posts = [Post]()
+        var posts = [Post]()
         
         var path: String?
         switch category {
@@ -114,10 +114,13 @@ extension HomeViewModel {
         }
         
         do {
-            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-            let decoded = try JSONDecoder().decode([Post].self, from: data)
+//            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+//            let decoded = try JSONDecoder().decode([Post].self, from: data)
+            (0..<10).forEach { _ in
+                posts.append(MockPostGenerator.generate())
+            }
             
-            return Observable.of(decoded).asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
+            return Observable.of(posts).asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
         } catch let error {
             print(error)
         }
