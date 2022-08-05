@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
-    @State var isNavigate = false
+    @State var navigationInformation = NavigationInformation()
     @Namespace var topID
 
     var body: some View {
@@ -18,7 +18,12 @@ struct HomeView: View {
                 Color.background
                     .ignoresSafeArea()
                 
-                navigator
+                if let fullViewModel = navigationInformation.childViewModel {
+                    NavigationLink(destination: FullView(viewModel: fullViewModel),
+                                   isActive: $navigationInformation.isReady) {
+                        EmptyView()
+                    }
+                }
                 
                 VStack(alignment: .leading, spacing: 20) {
                     Text("Feed")
@@ -55,8 +60,7 @@ struct HomeView: View {
                                             .padding(.horizontal, 20)
         //                                    .redacted(reason: (viewModel.status == .inProgress) ? .placeholder : [])
                                             .onTapGesture {
-                                                print("Tapped")
-                                                isNavigate = true
+                                                showFullView(withPost: post)
                                             }
                                             .onAppear {
                                                 if index == viewModel.posts.count - 3 {
@@ -85,6 +89,20 @@ struct HomeView: View {
             }
             .navigationBarHidden(true)
         }
+    }
+}
+
+// Internal methods
+extension HomeView {
+    struct NavigationInformation {
+        var isReady = false
+        var childViewModel: FullViewModel?
+    }
+    
+    private func showFullView(withPost post: Post) {
+        let viewModel = FullViewModel(post: post)
+        navigationInformation.childViewModel = viewModel
+        navigationInformation.isReady = true
     }
 }
 
@@ -123,12 +141,6 @@ extension HomeView {
                 Capsule()
                     .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
             )
-        }
-    }
-    
-    var navigator: some View {
-        NavigationLink(destination: Text("Destination"), isActive: $isNavigate) {
-            EmptyView()
         }
     }
 }

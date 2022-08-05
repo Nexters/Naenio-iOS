@@ -33,6 +33,8 @@
 		9B3B6F0C289BDE0E002A76A7 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3B6F0A289BDE0D002A76A7 /* KeyValue.swift */; };
 		9B3B6F10289BE3FA002A76A7 /* MockPostWroteList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B6F0E289BE1B4002A76A7 /* MockPostWroteList.json */; };
 		9B3B6F11289BE3FA002A76A7 /* MockPostParticipatedList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B6F0F289BE1B6002A76A7 /* MockPostParticipatedList.json */; };
+		9B425529289D0F9A00163327 /* FullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B425528289D0F9A00163327 /* FullView.swift */; };
+		9B42552B289D0FA200163327 /* FullViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42552A289D0FA200163327 /* FullViewModel.swift */; };
 		9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B687DE928954D4A0048AED0 /* Font + Extension.swift */; };
 		9B8B98BA289948DA007336DE /* LocalStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B98B9289948DA007336DE /* LocalStorageKeys.swift */; };
 		9BE60293289541B6008F291C /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE60292289541B6008F291C /* Color + Extension.swift */; };
@@ -130,6 +132,8 @@
 		9B3B6F0B289BDE0E002A76A7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B3B6F0E289BE1B4002A76A7 /* MockPostWroteList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPostWroteList.json; sourceTree = "<group>"; };
 		9B3B6F0F289BE1B6002A76A7 /* MockPostParticipatedList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPostParticipatedList.json; sourceTree = "<group>"; };
+		9B425528289D0F9A00163327 /* FullView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullView.swift; sourceTree = "<group>"; };
+		9B42552A289D0FA200163327 /* FullViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullViewModel.swift; sourceTree = "<group>"; };
 		9B687DE928954D4A0048AED0 /* Font + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font + Extension.swift"; sourceTree = "<group>"; };
 		9B8B98B9289948DA007336DE /* LocalStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageKeys.swift; sourceTree = "<group>"; };
 		9BE60292289541B6008F291C /* Color + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
@@ -395,6 +399,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		9B425527289D0F7E00163327 /* Full */ = {
+			isa = PBXGroup;
+			children = (
+				9B425528289D0F9A00163327 /* FullView.swift */,
+				9B42552A289D0FA200163327 /* FullViewModel.swift */,
+			);
+			path = Full;
+			sourceTree = "<group>";
+		};
 		9BD6DE9C2895536E00051C3E /* Colors */ = {
 			isa = PBXGroup;
 			children = (
@@ -550,6 +563,8 @@
 		9C95B98B289A3A9F00E0910C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9CCA2296289BBBFE00A2F9B0 /* Mock Data */,
+				9B425527289D0F7E00163327 /* Full */,
 				9CCA2284289BA06100A2F9B0 /* Card */,
 				9C95B98C289A3AAB00E0910C /* HomeView.swift */,
 				9C10439C289B747200A45711 /* HomeViewModel.swift */,
@@ -596,7 +611,6 @@
 		9CCA2284289BA06100A2F9B0 /* Card */ = {
 			isa = PBXGroup;
 			children = (
-				9CCA2296289BBBFE00A2F9B0 /* Mock Data */,
 				9C95B99B289A885900E0910C /* CardView.swift */,
 				9C95B99D289A8BCB00E0910C /* CardViewModel.swift */,
 			);
@@ -906,6 +920,7 @@
 				9C2D07BB2897CD0A008BBD75 /* UserError.swift in Sources */,
 				4C4B13392883B709006044B0 /* NaenioAPI+Error.swift in Sources */,
 				4C4B13322883AAC3006044B0 /* NaenioAPI+Path.swift in Sources */,
+				9B42552B289D0FA200163327 /* FullViewModel.swift in Sources */,
 				9C3309D72888EE0D000C592F /* LoginView.swift in Sources */,
 				9C95B99A289A679B00E0910C /* CapsuleButtonStyle.swift in Sources */,
 				4CC296D92880533C001950A2 /* DefaultSession.swift in Sources */,
@@ -925,6 +940,7 @@
 				4C4B13432883D88A006044B0 /* HttpResponseCode.swift in Sources */,
 				9C68A29D28990015006D36B1 /* TokenManager.swift in Sources */,
 				9BF00BF7287AC95A00F08035 /* AppleLoginManager.swift in Sources */,
+				9B425529289D0F9A00163327 /* FullView.swift in Sources */,
 				4C43C8C42886FB8200A60372 /* String+Extension.swift in Sources */,
 				9C3309CF2888ED08000C592F /* SignInWithKakaoButton.swift in Sources */,
 				9C95B99C289A885900E0910C /* CardView.swift in Sources */,
