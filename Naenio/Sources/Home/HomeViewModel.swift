@@ -18,7 +18,7 @@ class HomeViewModel: ObservableObject {
     // vars and lets
     private let pagingValue = 10
     private var bag = DisposeBag()
-    private let serialQueue = SerialDispatchQueueScheduler.init(qos: .utility)
+    private let serialQueue = SerialDispatchQueueScheduler.init(qos: .userInitiated)
     
     // !!!: 테스트용
     func requestPosts() {

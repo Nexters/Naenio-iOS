@@ -14,6 +14,7 @@ class LoginViewModel: ObservableObject {
     // Dependencies
     let appleLoginManager: AppleLoginManager
     let kakaoLoginManager: KakaoLoginManager
+    let concurrentQueue = ConcurrentDispatchQueueScheduler(qos: .userInitiated)
     
     // Published vars
     /// 로그인 루틴 처리 상태를 표시
@@ -33,7 +34,7 @@ class LoginViewModel: ObservableObject {
     }
     
     private func requestAppleLoginToServer(with result: ASAuthorization) {
-        appleLoginManager.requestLoginToServer(with: result).subscribe(on: ConcurrentDispatchQueueScheduler(qos: .utility))
+        appleLoginManager.requestLoginToServer(with: result).subscribe(on: self.concurrentQueue)
             .subscribe(
                 onSuccess: { [weak self] userInfo in
                     guard let self = self else { return }
@@ -67,7 +68,7 @@ class LoginViewModel: ObservableObject {
     
     private func requestKakaoLoginToServer(with result: OAuthToken) {
         kakaoLoginManager.requestLoginToServer(with: result)
-            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .utility))
+            .subscribe(on: self.concurrentQueue)
             .subscribe(
                 onSuccess: { [weak self] userInfo in
                     guard let self = self else { return }
