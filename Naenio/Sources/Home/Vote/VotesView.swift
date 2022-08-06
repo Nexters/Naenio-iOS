@@ -8,14 +8,21 @@
 import SwiftUI
 
 struct VotesView: View {
+    @Binding var choices: [Post.Choice]
     @ObservedObject var viewModel: VotesViewModel
+    
+    var isOpened: Bool {
+        return !choices
+            .filter { $0.isVoted }
+            .isEmpty
+    }
 
     var body: some View {
         ZStack {
-            VStack(spacing: 18) {
-                VoteButton(type: .A, choice: viewModel.choices[0])
+            VStack(spacing: 18) { // ???: 어느 미래에 선택지가 2개가 아닌 1개만 들어오는 케이스를 대비할 필요도 있음
+                VoteButton(type: .A, isOpened: self.isOpened, choice: $choices[0])
                 
-                VoteButton(type: .B, choice: viewModel.choices[1])
+                VoteButton(type: .B, isOpened: self.isOpened, choice: $choices[1])
             }
             
             Text("VS")
@@ -25,6 +32,11 @@ struct VotesView: View {
                         .frame(width: 34, height: 34)
                 )
         }
+    }
+    
+    init(choices: Binding<[Post.Choice]>) {
+        self._choices = choices
+        self.viewModel = VotesViewModel()
     }
 }
 

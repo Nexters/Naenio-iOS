@@ -8,9 +8,10 @@
 import Foundation
 
 class CardViewModel: ObservableObject {
-    @Published var post: Post
+//    @Published var post: Post
+//    Saved for future API implementations
     
-    init(post: Post) {
-        self.post = post
+    init() {
+//        self.post = post
     }
 }

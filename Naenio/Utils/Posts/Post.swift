@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct Post: Codable {
+struct Post: Codable, Identifiable {
     let id: Int
     let author: Author
     let voteCount: Int
     let title: String
     let content: String
-    let choices: [Choice]
+    var choices: [Choice]
     let commentCount: Int
     
     struct Author: Codable {
@@ -26,7 +26,7 @@ struct Post: Codable {
         let id: Int
         let sequence: Int
         let name: String
-        let isVoted: Bool
+        var isVoted: Bool
         let voteCount: Int
     }
 }

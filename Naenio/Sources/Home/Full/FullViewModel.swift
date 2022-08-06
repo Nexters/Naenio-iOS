@@ -8,9 +8,10 @@
 import SwiftUI
 
 class FullViewModel: ObservableObject {
-    @Published var post: Post
-    
-    init(post: Post) {
-        self.post = post
+//    @Published var post: Post
+//    Saved for future API implementations
+
+    init() {
+//        self.post = post
     }
 }

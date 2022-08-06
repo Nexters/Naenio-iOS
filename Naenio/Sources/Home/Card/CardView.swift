@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CardView: View {
-    @StateObject var viewModel: CardViewModel
+    @Binding var post: Post
+    @ObservedObject var viewModel: CardViewModel
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -30,27 +31,26 @@ struct CardView: View {
                 }
                 .padding(.bottom, 24)
                 
-                Text("🗳 \(viewModel.post.voteCount)명 투표")
+                Text("🗳 \(post.voteCount)명 투표")
                     .font(.medium(size: 14))
                     .foregroundColor(.white)
                     .padding(.bottom, 8)
                 
-                Text("\(viewModel.post.title)")
+                Text("\(post.title)")
                     .lineLimit(2)
                     .lineSpacing(7)
                     .font(.semoBold(size: 22))
                     .foregroundColor(.white)
                     .padding(.bottom, 10)
                 
-                Text("\(viewModel.post.content)")
+                Text("\(post.content)")
                     .lineLimit(2)
                     .lineSpacing(5)
                     .font(.medium(size: 16))
                     .foregroundColor(.naenioGray)
                     .padding(.bottom, 18)
                 
-                
-                VotesView(viewModel: VotesViewModel(data: viewModel.post.choices))
+                VotesView(choices: $post.choices)
             }
             .padding(.horizontal, 20)
             .padding(.top, 27)
@@ -62,7 +62,7 @@ struct CardView: View {
                         .font(.semoBold(size: 16))
                         .foregroundColor(.white)
                     
-                    Text("\(viewModel.post.commentCount)개")
+                    Text("\(post.commentCount)개")
                         .font(.regular(size: 16))
                         .foregroundColor(.naenioGray)
                 }
@@ -76,6 +76,11 @@ struct CardView: View {
         .background(Color.card)
         .mask(RoundedRectangle(cornerRadius: 16))
     }
+    
+    init(post: Binding<Post>) {
+        self._post = post
+        self.viewModel = CardViewModel()
+    }
 }
 
 extension CardView {
@@ -85,7 +90,7 @@ extension CardView {
                 .padding(3)
                 .background(Circle().fill(Color.green.opacity(0.2)))
             
-            Text("\(viewModel.post.author.nickname)")
+            Text("\(post.author.nickname)")
                 .font(.medium(size: 16))
         }
     }

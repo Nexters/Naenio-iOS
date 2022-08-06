@@ -18,9 +18,8 @@ struct HomeView: View {
                 Color.background
                     .ignoresSafeArea()
                 
-                if let fullViewModel = navigationInformation.childViewModel {
-                    NavigationLink(destination: FullView(viewModel: fullViewModel),
-                                   isActive: $navigationInformation.isReady) {
+                if let postBinding = navigationInformation.data {
+                    NavigationLink(destination: FullView(post: postBinding), isActive: $navigationInformation.isReady) {
                         EmptyView()
                     }
                 }
@@ -50,9 +49,7 @@ struct HomeView: View {
                                 
                                 LazyVStack(spacing: 20) {
                                     ForEach(Array(viewModel.posts.enumerated()), id: \.element.id) { (index: Int, post: Post) in
-                                        let cardViewModel = CardViewModel(post: post)
-
-                                        CardView(viewModel: cardViewModel)
+                                        CardView(post: $viewModel.posts[index])
                                             .background(
                                                 RoundedRectangle(cornerRadius: 16)
                                                     .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
@@ -60,7 +57,7 @@ struct HomeView: View {
                                             .padding(.horizontal, 20)
         //                                    .redacted(reason: (viewModel.status == .inProgress) ? .placeholder : [])
                                             .onTapGesture {
-                                                showFullView(withPost: post)
+                                                showFullView(withPost: $viewModel.posts[index])
                                             }
                                             .onAppear {
                                                 if index == viewModel.posts.count - 3 {
@@ -96,12 +93,11 @@ struct HomeView: View {
 extension HomeView {
     struct NavigationInformation {
         var isReady = false
-        var childViewModel: FullViewModel?
+        var data: Binding<Post>? = nil
     }
     
-    private func showFullView(withPost post: Post) {
-        let viewModel = FullViewModel(post: post)
-        navigationInformation.childViewModel = viewModel
+    private func showFullView(withPost post: Binding<Post>) {
+        navigationInformation.data = post
         navigationInformation.isReady = true
     }
 }

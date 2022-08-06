@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FullView: View {
+    @Binding var post: Post
     @ObservedObject var viewModel: FullViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
@@ -21,19 +22,19 @@ struct FullView: View {
                     .foregroundColor(.white)
                     .padding(.bottom, 24)
                 
-                Text("🗳 \(viewModel.post.voteCount)명 투표")
+                Text("🗳 \(post.voteCount)명 투표")
                     .font(.medium(size: 14))
                     .foregroundColor(.white)
                     .padding(.bottom, 8)
                 
-                Text("\(viewModel.post.title)")
+                Text("\(post.title)")
                     .lineLimit(2)
                     .lineSpacing(7)
                     .font(.semoBold(size: 22))
                     .foregroundColor(.white)
                     .padding(.bottom, 10)
                 
-                Text("\(viewModel.post.content)")
+                Text("\(post.content)")
                     .lineLimit(2)
                     .lineSpacing(5)
                     .font(.medium(size: 16))
@@ -42,21 +43,9 @@ struct FullView: View {
                 
                 Spacer()
                 
-                ZStack {
-                    VStack(spacing: 18) {
-                        VoteButton(choice: .A, text: "\(viewModel.post.choices.first?.name as Any)")
-                        
-                        VoteButton(choice: .B, text: "\(viewModel.post.choices.last?.name as Any)")
-                    }
-                    
-                    Text("VS")
-                        .font(.engSemiBold(size: 16)) // ???: 제플린 따라서 18로 넣으면 잘 안맞음(https://zpl.io/dxjxvn7)
-                        .background(
-                            Circle().fill(Color.white)
-                                .frame(width: 34, height: 34)
-                        )
-                }
-                .padding(.bottom, 32)
+                
+                VotesView(choices: $post.choices)
+                    .padding(.bottom, 32)
                 
                 commentButton
                     .fillHorizontal()
@@ -78,6 +67,11 @@ struct FullView: View {
                 moreInformationButton
             }
         }
+    }
+    
+    init(post: Binding<Post>) {
+        self._post = post
+        self.viewModel = FullViewModel()
     }
 }
 
@@ -111,7 +105,7 @@ extension FullView {
                 .padding(3)
                 .background(Circle().fill(Color.green.opacity(0.2)))
             
-            Text("\(viewModel.post.author.nickname)")
+            Text("\(post.author.nickname)")
                 .font(.medium(size: 16))
         }
     }
@@ -123,7 +117,7 @@ extension FullView {
                     .font(.semoBold(size: 16))
                     .foregroundColor(.white)
                 
-                Text("\(viewModel.post.commentCount)개")
+                Text("\(post.commentCount)개")
                     .font(.regular(size: 16))
                     .foregroundColor(.naenioGray)
             }

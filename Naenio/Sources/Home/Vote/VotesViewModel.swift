@@ -8,15 +8,10 @@
 import SwiftUI
 
 class VotesViewModel: ObservableObject {
-    @Published var choices: [Post.Choice]
+//    @Published var choices: [Post.Choice]
+//    Saved for future API implementations
     
-    var isVoted: Bool {
-        return choices
-            .filter({ $0.isVoted })
-            .isEmpty
-    }
-    
-    init(data: [Post.Choice]) {
-        self.choices = data
+    init() {
+//        self.choices = data
     }
 }

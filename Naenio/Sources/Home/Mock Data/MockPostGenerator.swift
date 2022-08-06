@@ -32,7 +32,7 @@ struct MockPostGenerator {
                 Post.Choice(id: 0,
                             sequence: 0,
                             name: "세상 모든 사람이 날 알아보기정말",
-                            isVoted: true,
+                            isVoted: false,
                             voteCount: 111),
                 Post.Choice(id: 1,
                             sequence: 1,
