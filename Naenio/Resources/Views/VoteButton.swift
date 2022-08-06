@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct VoteButton: View {
-    let choice: Choice
-    let text: String
+    let type: ChoiceType
+    let choice: Post.Choice
     
     var body: some View {
         Button(action: {}) {
             HStack(spacing: 6) {
-                Text(choice.rawValue + ".")
+                Text(type.rawValue + ".")
                     .lineLimit(1)
                     .font(.engBold(size: 16))
                 
-                Text(text)
+                Text(choice.name)
                     .lineLimit(1)
                     .font(.semoBold(size: 16))
             }
@@ -32,14 +32,15 @@ struct VoteButton: View {
 }
 
 extension VoteButton {
-    enum Choice: String {
+    enum ChoiceType: String {
         case A
         case B
+        case open
     }
 }
 
-struct VoteButton_Previews: PreviewProvider {
-    static var previews: some View {
-        VoteButton(choice: .A, text: "이런 저런 이야기")
-    }
-}
+//struct VoteButton_Previews: PreviewProvider {
+//    static var previews: some View {
+//        VoteButton(choice: .A, text: "이런 저런 이야기")
+//    }
+//}

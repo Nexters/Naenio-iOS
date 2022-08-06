@@ -49,20 +49,8 @@ struct CardView: View {
                     .foregroundColor(.naenioGray)
                     .padding(.bottom, 18)
                 
-                ZStack {
-                    VStack(spacing: 18) {
-                        VoteButton(choice: .A, text: "\(viewModel.post.choices.first?.name as Any)")
-                        
-                        VoteButton(choice: .B, text: "\(viewModel.post.choices.last?.name as Any)")
-                    }
-                    
-                    Text("VS")
-                        .font(.engSemiBold(size: 16)) // ???: 제플린 따라서 18로 넣으면 잘 안맞음(https://zpl.io/dxjxvn7)
-                        .background(
-                            Circle().fill(Color.white)
-                                .frame(width: 34, height: 34)
-                        )
-                }
+                
+                VotesView(viewModel: VotesViewModel(data: viewModel.post.choices))
             }
             .padding(.horizontal, 20)
             .padding(.top, 27)
