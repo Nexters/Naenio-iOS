@@ -26,7 +26,7 @@ struct Post: Codable {
         let id: Int
         let sequence: Int
         let name: String
-        let isSelected: Bool
+        let isVoted: Bool
         let voteCount: Int
     }
 }
