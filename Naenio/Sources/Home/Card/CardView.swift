@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CardView: View {
     @StateObject var viewModel: CardViewModel
-//     Redact
+
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             VStack(alignment: .leading, spacing: 0) {
@@ -89,10 +89,6 @@ struct CardView: View {
         .mask(RoundedRectangle(cornerRadius: 16))
     }
 }
-
-//    init(user: User) {
-//        self.viewModel = CardViewModel(user: user)
-//    }
 
 extension CardView {
     var profile: some View {
