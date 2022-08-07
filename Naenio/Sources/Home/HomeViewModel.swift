@@ -23,7 +23,7 @@ class HomeViewModel: ObservableObject {
     // !!!: 테스트용
     func requestPosts() {
         bag = DisposeBag() // Cancel running tasks by initializing the bag
-        status = .inProgress
+        status = .loadingDifferentCategoryPosts
                 
         getPostDisposable(category: self.category)
             .subscribe(on: self.serialQueue)
@@ -46,7 +46,7 @@ class HomeViewModel: ObservableObject {
     // !!!: 테스트용
     func requestMorePosts() {
         bag = DisposeBag() // Cancel running tasks by initializing the bag
-        status = .inProgress
+        status = .loadingSameCategoryPosts
         
         getPostDisposable(category: self.category)
             .subscribe(on: self.serialQueue)
@@ -138,7 +138,8 @@ extension HomeViewModel {
         }
         
         case waiting
-        case inProgress
+        case loadingDifferentCategoryPosts
+        case loadingSameCategoryPosts
         case done
         case fail(with: Error)
         
@@ -146,8 +147,10 @@ extension HomeViewModel {
             switch self {
             case .waiting:
                 return "Waiting"
-            case .inProgress:
-                return "In progres..."
+            case .loadingDifferentCategoryPosts:
+                return "Loading differnt category's posts"
+            case .loadingSameCategoryPosts:
+                return "Loading same category's posts"
             case .done:
                 return "Successfully done"
             case .fail(let error):

@@ -35,13 +35,12 @@ struct HomeView: View {
                     
                     // Card scroll view
                     ZStack {
-                        if viewModel.status == .inProgress {
-                            ProgressView()
-                                .progressViewStyle(CircularProgressViewStyle(tint: .yellow))
+                        if viewModel.status == .loadingDifferentCategoryPosts {
+                            loadingIndicator
                                 .zIndex(1)
                         }
                         
-                        ScrollView(.vertical, showsIndicators: false) {
+                        ScrollView(.vertical, showsIndicators: true) {
                             // Placeholder
                             Rectangle()
                                 .fill(Color.clear)
@@ -70,8 +69,16 @@ struct HomeView: View {
                                 }
                             }
                             .onChange(of: viewModel.category) { _ in
-                                //                                    viewModel.posts.removeAll()
+//                                    viewModel.posts.removeAll()
                                 viewModel.requestPosts()
+                            }
+                            
+                            // TODO: 디자인 팀이랑 논의
+                            // 하단 무한스크롤 중 생기는 버퍼링에 대한 로딩 인디케이터
+                            if viewModel.status == .loadingSameCategoryPosts {
+                                loadingIndicator
+                                    .zIndex(1)
+                                    .padding(.vertical, 15)
                             }
                         }
                     }
@@ -133,6 +140,10 @@ extension HomeView {
                     .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
             )
         }
+    }
+    var loadingIndicator: some View {
+        ProgressView()
+            .progressViewStyle(CircularProgressViewStyle(tint: .yellow))
     }
 }
 
