@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FullView: View {
-    @Binding var post: Post
+    let post: Post
     @ObservedObject var viewModel: FullViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
@@ -43,8 +43,7 @@ struct FullView: View {
                 
                 Spacer()
                 
-                
-                VotesView(choices: $post.choices)
+                VotesView(choices: post.choices)
                     .padding(.bottom, 32)
                 
                 commentButton
@@ -69,8 +68,8 @@ struct FullView: View {
         }
     }
     
-    init(post: Binding<Post>) {
-        self._post = post
+    init(post: Post) {
+        self.post = post
         self.viewModel = FullViewModel()
     }
 }

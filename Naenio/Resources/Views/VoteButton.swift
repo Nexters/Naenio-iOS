@@ -10,10 +10,10 @@ import SwiftUI
 struct VoteButton: View {
     let type: ChoiceType
     let isOpened: Bool
-    @Binding var choice: Post.Choice
+    let choice: Post.Choice
     
     var body: some View {
-        Button(action: { choice.isVoted.toggle() }) {
+        Button(action: {  }) {
             HStack(spacing: 6) {
                 Text(type.rawValue + ".")
                     .lineLimit(1)

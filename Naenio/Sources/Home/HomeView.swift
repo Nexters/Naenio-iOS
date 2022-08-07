@@ -17,8 +17,8 @@ struct HomeView: View {
                 Color.background
                     .ignoresSafeArea()
                 
-                if let postBinding = navigationInformation.data {
-                    NavigationLink(destination: FullView(post: postBinding), isActive: $navigationInformation.isReady) {
+                if let post = navigationInformation.post {
+                    NavigationLink(destination: FullView(post: post), isActive: $navigationInformation.isReady) {
                         EmptyView()
                     }
                 }
@@ -46,15 +46,15 @@ struct HomeView: View {
                                 .frame(height: 4)
                             
                             LazyVStack(spacing: 20) {
-                                ForEach(Array(viewModel.posts.enumerated()), id: \.element.id) { (index: Int, post: Post) in
-                                    CardView(post: $viewModel.posts[index])
+                                ForEach(Array(viewModel.posts.enumerated()), id: \.element.id) { (index, post) in
+                                    CardView(post: post)
                                         .background(
                                             RoundedRectangle(cornerRadius: 16)
                                                 .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
                                         )
                                         .padding(.horizontal, 20)
                                         .onTapGesture {
-                                            showFullView(withPost: $viewModel.posts[index])
+                                            showFullView(withPost: post)
                                         }
                                         .onAppear {
                                             if index == viewModel.posts.count - 3 {
@@ -68,7 +68,7 @@ struct HomeView: View {
                                 }
                             }
                             .onChange(of: viewModel.category) { _ in
-//                                    viewModel.posts.removeAll()
+                                viewModel.posts.removeAll()
                                 viewModel.requestPosts()
                             }
                             
@@ -94,11 +94,11 @@ struct HomeView: View {
 extension HomeView {
     struct NavigationInformation {
         var isReady = false
-        var data: Binding<Post>? = nil
+        var post: Post? = nil
     }
     
-    private func showFullView(withPost post: Binding<Post>) {
-        navigationInformation.data = post
+    private func showFullView(withPost post: Post) {
+        navigationInformation.post = post
         navigationInformation.isReady = true
     }
 }

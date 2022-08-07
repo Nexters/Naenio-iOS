@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CardView: View {
-    @Binding var post: Post
+    let post: Post
     @ObservedObject var viewModel: CardViewModel
 
     var body: some View {
@@ -50,7 +50,7 @@ struct CardView: View {
                     .foregroundColor(.naenioGray)
                     .padding(.bottom, 18)
                 
-                VotesView(choices: $post.choices)
+                VotesView(choices: post.choices)
             }
             .padding(.horizontal, 20)
             .padding(.top, 27)
@@ -77,8 +77,8 @@ struct CardView: View {
         .mask(RoundedRectangle(cornerRadius: 16))
     }
     
-    init(post: Binding<Post>) {
-        self._post = post
+    init(post: Post) {
+        self.post = post
         self.viewModel = CardViewModel()
     }
 }
