@@ -11,9 +11,10 @@ struct VoteButton: View {
     let type: ChoiceType
     let isOpened: Bool
     let choice: Post.Choice
+    let action: () -> ()
     
     var body: some View {
-        Button(action: {  }) {
+        Button(action: self.action) {
             HStack(spacing: 6) {
                 Text(type.rawValue + ".")
                     .lineLimit(1)
@@ -34,7 +35,7 @@ struct VoteButton: View {
 }
 
 extension VoteButton {
-    enum ChoiceType: String {
+    enum ChoiceType: String, Equatable {
         case A
         case B
         case open

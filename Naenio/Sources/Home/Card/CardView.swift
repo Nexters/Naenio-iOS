@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct CardView: View {
-    let post: Post
     @ObservedObject var viewModel: CardViewModel
+    @EnvironmentObject var sourceObject: HomeViewModel
+    let index: Int
+    let post: Post
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -50,7 +52,8 @@ struct CardView: View {
                     .foregroundColor(.naenioGray)
                     .padding(.bottom, 18)
                 
-                VotesView(choices: post.choices)
+                VotesView(index: index, choices: post.choices)
+                    .environmentObject(sourceObject)
             }
             .padding(.horizontal, 20)
             .padding(.top, 27)
@@ -77,7 +80,8 @@ struct CardView: View {
         .mask(RoundedRectangle(cornerRadius: 16))
     }
     
-    init(post: Post) {
+    init(index: Int, post: Post) {
+        self.index = index
         self.post = post
         self.viewModel = CardViewModel()
     }

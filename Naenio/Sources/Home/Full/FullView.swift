@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct FullView: View {
-    let post: Post
     @ObservedObject var viewModel: FullViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    let index: Int
+    let post: Post
 
     var body: some View {
         ZStack {
@@ -43,7 +45,7 @@ struct FullView: View {
                 
                 Spacer()
                 
-                VotesView(choices: post.choices)
+                VotesView(index: index, choices: post.choices)
                     .padding(.bottom, 32)
                 
                 commentButton
@@ -68,7 +70,8 @@ struct FullView: View {
         }
     }
     
-    init(post: Post) {
+    init(index: Int, post: Post) {
+        self.index = index
         self.post = post
         self.viewModel = FullViewModel()
     }

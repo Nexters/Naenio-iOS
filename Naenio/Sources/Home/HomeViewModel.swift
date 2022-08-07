@@ -20,6 +20,12 @@ class HomeViewModel: ObservableObject {
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler.init(qos: .userInitiated)
     
+    func vote(index: Int, sequence: Int) {
+        print(index, sequence)
+        self.posts[index].choices[sequence].isVoted = true
+        print(self.posts[index].choices[sequence].isVoted)
+    }
+    
     // !!!: 테스트용
     func requestPosts() {
         bag = DisposeBag() // Cancel running tasks by initializing the bag

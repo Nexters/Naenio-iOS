@@ -17,8 +17,8 @@ struct HomeView: View {
                 Color.background
                     .ignoresSafeArea()
                 
-                if let post = navigationInformation.post {
-                    NavigationLink(destination: FullView(post: post), isActive: $navigationInformation.isReady) {
+                if let info = navigationInformation.postInformation {
+                    NavigationLink(destination: FullView(index: info.index, post: info.post), isActive: $navigationInformation.isReady) {
                         EmptyView()
                     }
                 }
@@ -47,14 +47,15 @@ struct HomeView: View {
                             
                             LazyVStack(spacing: 20) {
                                 ForEach(Array(viewModel.posts.enumerated()), id: \.element.id) { (index, post) in
-                                    CardView(post: post)
+                                    CardView(index: index, post: post)
+                                        .environmentObject(viewModel)
                                         .background(
                                             RoundedRectangle(cornerRadius: 16)
                                                 .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
                                         )
                                         .padding(.horizontal, 20)
                                         .onTapGesture {
-                                            showFullView(withPost: post)
+                                            showFullView(index: index, post: post)
                                         }
                                         .onAppear {
                                             if index == viewModel.posts.count - 3 {
@@ -94,11 +95,11 @@ struct HomeView: View {
 extension HomeView {
     struct NavigationInformation {
         var isReady = false
-        var post: Post? = nil
+        var postInformation: (index: Int, post: Post)?
     }
     
-    private func showFullView(withPost post: Post) {
-        navigationInformation.post = post
+    private func showFullView(index: Int, post: Post) {
+        navigationInformation.postInformation = (index, post)
         navigationInformation.isReady = true
     }
 }
