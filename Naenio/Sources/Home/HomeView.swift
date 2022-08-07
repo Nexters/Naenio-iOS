@@ -10,7 +10,6 @@ import SwiftUI
 struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
     @State var navigationInformation = NavigationInformation()
-    @Namespace var topID
 
     var body: some View {
         NavigationView { // FIXME: Temporary position
