@@ -18,6 +18,7 @@ class LoginTestViewModel: ObservableObject {
     // Published vars
     /// 로그인 루틴 처리 상태를 표시
     @Published var status: Status = .waiting
+    @Published var presentView: Bool = false
     
     // Private vars
     private let bag = DisposeBag()
@@ -40,6 +41,7 @@ class LoginTestViewModel: ObservableObject {
                     
                     DispatchQueue.main.async {
                         self.status = .done
+                        self.presentView = true
                     }
                 },
                 onFailure: { [weak self] error in
@@ -74,6 +76,7 @@ class LoginTestViewModel: ObservableObject {
                     // Save(userInfo)
                     DispatchQueue.main.async {
                         self.status = .done
+                        self.presentView = true
                     }
                 },
                 onFailure: { [weak self] error in
@@ -105,7 +108,11 @@ class LoginTestViewModel: ObservableObject {
 }
 
 extension LoginTestViewModel {
-    enum Status {
+    enum Status: Equatable {
+        static func == (lhs: LoginTestViewModel.Status, rhs: LoginTestViewModel.Status) -> Bool {
+            return lhs.description == rhs.description
+        }
+        
         case waiting
         case inProgress
         case done

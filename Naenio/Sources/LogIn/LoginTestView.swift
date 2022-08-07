@@ -10,13 +10,11 @@ import AuthenticationServices
 
 struct LoginTestView: View {
     @ObservedObject var viewModel = LoginTestViewModel()
-    
     var body: some View {
         VStack(spacing: 35) {
             Text(viewModel.status.description)
-            
             SignInWithKakaoButton { result in
-                viewModel.handleKakaoLoginResult(result: result)
+                self.viewModel.handleKakaoLoginResult(result: result)
             }
             .frame(width: 280, height: 60)
              
@@ -26,10 +24,15 @@ struct LoginTestView: View {
                     request.requestedScopes = [.fullName, .email]
                 },
                 onCompletion: { result in
-                    viewModel.handleAppleLoginResult(result: result)
+                    self.viewModel.handleAppleLoginResult(result: result)
                 }
             )
             .frame(width: 280, height: 60)
+            .fullScreenCover(isPresented: $viewModel.presentView ) {
+                    // TODO: 회원가입 유무에 따른 화면 분기
+                    // SignUpView()
+                    MainView()
+                }
         }
     }
 }
