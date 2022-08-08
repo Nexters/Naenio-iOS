@@ -27,7 +27,7 @@ class UserManager: ObservableObject {
     func DEBUG_AddMockProfile() {
         status = .fetching
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.user = User(profileImage: Image(""), nickname: "", channel: "")
+            self.user = User(profileImage: Image(""), nickname: "", authServiceType: "")
             self.status = .fetched
         }
     }

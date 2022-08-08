@@ -10,5 +10,5 @@ import SwiftUI
 struct User {
     var profileImage: Image
     var nickname: String
-    let channel: String
+    let authServiceType: String
 }
