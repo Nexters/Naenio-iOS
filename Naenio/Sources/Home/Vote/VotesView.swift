@@ -22,11 +22,11 @@ struct VotesView: View {
     var body: some View {
         ZStack {
             VStack(spacing: 18) { // ???: 어느 미래에 선택지가 2개가 아닌 1개만 들어오는 케이스를 대비할 필요도 있음
-                VoteButton(type: .A, isOpened: self.isOpened, choice: choices[0]) {
+                VoteButton(type: .choiceA, isOpened: self.isOpened, choice: choices[0]) {
                     sourceObject.vote(index: self.index, sequence: 0)
                 }
                 
-                VoteButton(type: .B, isOpened: self.isOpened, choice: choices[1]) {
+                VoteButton(type: .choiceB, isOpened: self.isOpened, choice: choices[1]) {
                     sourceObject.vote(index: self.index, sequence: 1)
                 }
             }
@@ -46,9 +46,3 @@ struct VotesView: View {
         self.viewModel = VotesViewModel()
     }
 }
-
-//struct VoteView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        VotesView(viewModel: <#T##VotesViewModel#>)
-//    }
-//}

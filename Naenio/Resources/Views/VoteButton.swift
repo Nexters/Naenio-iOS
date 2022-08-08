@@ -11,7 +11,7 @@ struct VoteButton: View {
     let type: ChoiceType
     let isOpened: Bool
     let choice: Post.Choice
-    let action: () -> ()
+    let action: () -> Void
     
     var body: some View {
         Button(action: self.action) {
@@ -41,8 +41,8 @@ extension VoteButton {
     }
 }
 
-//struct VoteButton_Previews: PreviewProvider {
+// struct VoteButton_Previews: PreviewProvider {
 //    static var previews: some View {
 //        VoteButton(choice: .A, text: "이런 저런 이야기")
 //    }
-//}
+// }

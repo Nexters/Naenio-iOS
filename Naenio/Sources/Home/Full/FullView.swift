@@ -135,8 +135,8 @@ extension FullView {
     }
 }
 
-//struct FullView_Previews: PreviewProvider {
+// struct FullView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        FullView(viewModel: FullViewModel(post: <#Post#>))
 //    }
-//}
+// }

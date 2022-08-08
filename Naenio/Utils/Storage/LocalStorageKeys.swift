@@ -8,5 +8,5 @@
 import Foundation
 
 enum LocalStorageKeys: String {
-    case accessToken = "accessToken"
+    case accessToken
 }
