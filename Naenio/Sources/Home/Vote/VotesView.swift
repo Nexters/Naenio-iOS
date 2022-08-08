@@ -25,12 +25,16 @@ struct VotesView: View {
             // (일단 싱크 위해서 머지만 해놓고)
             VStack(spacing: 18) { // ???: 어느 미래에 선택지가 2개가 아닌 1개만 들어오는 케이스를 대비할 필요도 있음
                 VoteButton(type: .choiceA, isOpened: self.isOpened, choice: choices.first) {
-                    sourceObject.vote(index: self.index, sequence: 0)
+                    withAnimation(.easeInOut(duration: 0.2)) {
+                        sourceObject.vote(index: self.index, sequence: 0)
+                    }
                 }
 //                .frame(height: 72)
                 
                 VoteButton(type: .choiceB, isOpened: self.isOpened, choice: choices.last) {
-                    sourceObject.vote(index: self.index, sequence: 1)
+                    withAnimation(.easeInOut(duration: 0.2)) {
+                        sourceObject.vote(index: self.index, sequence: 1)
+                    }
                 }
 //                .frame(height: 72)
             }
