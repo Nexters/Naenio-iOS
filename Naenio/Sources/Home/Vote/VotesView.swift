@@ -27,10 +27,12 @@ struct VotesView: View {
                 VoteButton(type: .choiceA, isOpened: self.isOpened, choice: choices.first) {
                     sourceObject.vote(index: self.index, sequence: 0)
                 }
+//                .frame(height: 72)
                 
                 VoteButton(type: .choiceB, isOpened: self.isOpened, choice: choices.last) {
                     sourceObject.vote(index: self.index, sequence: 1)
                 }
+//                .frame(height: 72)
             }
             
             Text("VS")

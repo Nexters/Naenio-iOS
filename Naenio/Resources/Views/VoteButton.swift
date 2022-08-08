@@ -12,6 +12,8 @@ struct VoteButton: View {
     let isOpened: Bool
     let choice: Post.Choice?
     let action: () -> Void
+    @State private var _percent: Double = 0
+    let percent: Double = 65
     
     var body: some View {
         Button(action: choice == nil ? {} : self.action) {
@@ -26,21 +28,30 @@ struct VoteButton: View {
                 
                 Spacer()
                 
-                counts
+                if isOpened {
+                    counts
+                }
             }
             .fillHorizontal()
             .padding(.horizontal, 14)
-            .padding(.vertical, 14)
+            .frame(height: 72)
             .background(
                 GeometryReader(content: { geometry in
                     Rectangle()
-                        .fill(Color.blue)
-                        .frame(width: geometry.size.width*0.7)
+                        .fill(Color.linearGradient)
+                        .frame(width: geometry.size.width * CGFloat((isOpened ? percent : 0) / 100))
                 }),
                 alignment: .leading)
             .background(Color.black)
             .mask(RoundedRectangle(cornerRadius: 16))
             .foregroundColor(.white)
+            //            .onAppear {
+            //                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            //                    withAnimation {
+//                        self._percent = self.percent
+//                    }
+//                }
+//            }
         }
     }
 }
@@ -49,7 +60,7 @@ extension VoteButton {
     var counts: some View {
         VStack(spacing: 4) {
             if let choice = choice {
-                Text("65%")
+                Text("\(Int(percent))%")
                     .font(.semoBold(size: 16))
                 
                 Text("\(choice.voteCount)명")
