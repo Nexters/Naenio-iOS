@@ -10,10 +10,11 @@ import AuthenticationServices
 import KakaoSDKAuth
 import RxSwift
 
-class LoginTestViewModel: ObservableObject {
+class LoginViewModel: ObservableObject {
     // Dependencies
     let appleLoginManager: AppleLoginManager
     let kakaoLoginManager: KakaoLoginManager
+    let concurrentQueue = ConcurrentDispatchQueueScheduler(qos: .userInitiated)
     
     // Published vars
     /// 로그인 루틴 처리 상태를 표시
@@ -33,13 +34,13 @@ class LoginTestViewModel: ObservableObject {
     }
     
     private func requestAppleLoginToServer(with result: ASAuthorization) {
-        appleLoginManager.requestLoginToServer(with: result).subscribe(on: ConcurrentDispatchQueueScheduler(qos: .utility))
+        appleLoginManager.requestLoginToServer(with: result).subscribe(on: self.concurrentQueue)
             .subscribe(
                 onSuccess: { [weak self] userInfo in
                     guard let self = self else { return }
                     
                     DispatchQueue.main.async {
-                        self.status = .done
+                        self.status = .done(result: userInfo)
                     }
                 },
                 onFailure: { [weak self] error in
@@ -67,13 +68,13 @@ class LoginTestViewModel: ObservableObject {
     
     private func requestKakaoLoginToServer(with result: OAuthToken) {
         kakaoLoginManager.requestLoginToServer(with: result)
-            .subscribe(on: ConcurrentDispatchQueueScheduler(qos: .utility))
+            .subscribe(on: self.concurrentQueue)
             .subscribe(
                 onSuccess: { [weak self] userInfo in
                     guard let self = self else { return }
                     // Save(userInfo)
                     DispatchQueue.main.async {
-                        self.status = .done
+                        self.status = .done(result: userInfo)
                     }
                 },
                 onFailure: { [weak self] error in
@@ -104,11 +105,11 @@ class LoginTestViewModel: ObservableObject {
 #endif
 }
 
-extension LoginTestViewModel {
+extension LoginViewModel {
     enum Status {
         case waiting
         case inProgress
-        case done
+        case done(result: UserInformation)
         case fail(with: Error)
         
         var description: String {

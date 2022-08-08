@@ -8,8 +8,10 @@
 import SwiftUI
 import AuthenticationServices
 
-struct LoginTestView: View {
-    @ObservedObject var viewModel = LoginTestViewModel()
+struct LoginView: View {
+    @EnvironmentObject var tokenManager: TokenManager
+    @EnvironmentObject var userManager: UserManager
+    @ObservedObject var viewModel = LoginViewModel()
     
     var body: some View {
         VStack(spacing: 35) {
@@ -31,11 +33,21 @@ struct LoginTestView: View {
             )
             .frame(width: 280, height: 60)
         }
+        .onReceive(viewModel.$status) { result in
+            switch result {
+            case .done(result: let userInfo):
+                tokenManager.saveToken(userInfo.token)
+                userManager.updateProfile()
+            default:
+                // TODO: Show alert
+                return
+            }
+        }
     }
 }
 
 struct AppleLoginTestView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginTestView()
+        LoginView()
     }
 }
