@@ -8,16 +8,20 @@
 import SwiftUI
 
 struct VoteButton: View {
-    let choice: Choice
-    let text: String
+    let type: ChoiceType
+    let isOpened: Bool
+    let choice: Post.Choice
+    let action: () -> Void
     
     var body: some View {
-        Button(action: {}) {
+        Button(action: self.action) {
             HStack(spacing: 6) {
-                Text(choice.rawValue + ".")
+                Text(type.rawValue + ".")
+                    .lineLimit(1)
                     .font(.engBold(size: 16))
-                
-                Text(text)
+
+                Text(choice.name)
+                    .lineLimit(1)
                     .font(.semoBold(size: 16))
             }
             .fillHorizontal()
@@ -25,19 +29,20 @@ struct VoteButton: View {
             .padding(.vertical, 25)
             .background(RoundedRectangle(cornerRadius: 16).fill(Color.black))
             .foregroundColor(.white)
+            .redacted(reason: choice.isVoted ? [] : .placeholder)
         }
     }
 }
 
 extension VoteButton {
-    enum Choice: String {
-        case A
-        case B
+    enum ChoiceType: String, Equatable {
+        case choiceA
+        case choiceB
     }
 }
 
-struct VoteButton_Previews: PreviewProvider {
-    static var previews: some View {
-        VoteButton(choice: .A, text: "이런 저런 이야기")
-    }
-}
+// struct VoteButton_Previews: PreviewProvider {
+//    static var previews: some View {
+//        VoteButton(choice: .A, text: "이런 저런 이야기")
+//    }
+// }

@@ -30,7 +30,15 @@
 		9B085F142879991600DE8E60 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F132879991600DE8E60 /* LoginTests.swift */; };
 		9B085F1E2879991600DE8E60 /* NaenioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1D2879991600DE8E60 /* NaenioUITests.swift */; };
 		9B085F202879991600DE8E60 /* NaenioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */; };
+		9B244070289E8DC30060A244 /* View + Exetension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B24406F289E8DC30060A244 /* View + Exetension.swift */; };
+		9B244073289E9AA10060A244 /* VotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B244072289E9AA10060A244 /* VotesView.swift */; };
+		9B244075289E9AF10060A244 /* VotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B244074289E9AF10060A244 /* VotesViewModel.swift */; };
+		9B3B6F10289BE3FA002A76A7 /* MockPostWroteList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B6F0E289BE1B4002A76A7 /* MockPostWroteList.json */; };
+		9B3B6F11289BE3FA002A76A7 /* MockPostParticipatedList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B6F0F289BE1B6002A76A7 /* MockPostParticipatedList.json */; };
+		9B425529289D0F9A00163327 /* FullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B425528289D0F9A00163327 /* FullView.swift */; };
+		9B42552B289D0FA200163327 /* FullViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42552A289D0FA200163327 /* FullViewModel.swift */; };
 		9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B687DE928954D4A0048AED0 /* Font + Extension.swift */; };
+		9B89B9FB289E0CF900D0E205 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B89B9F9289E0CF900D0E205 /* KeyValue.swift */; };
 		9B8B98BA289948DA007336DE /* LocalStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B98B9289948DA007336DE /* LocalStorageKeys.swift */; };
 		9BE60293289541B6008F291C /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE60292289541B6008F291C /* Color + Extension.swift */; };
 		9BE602A0289548CF008F291C /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE60297289548CE008F291C /* Pretendard-Medium.ttf */; };
@@ -55,9 +63,9 @@
 		9C3309D12888ED16000C592F /* SignInWithKakaoButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309D02888ED16000C592F /* SignInWithKakaoButtonViewModel.swift */; };
 		9C3309D72888EE0D000C592F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309D62888EE0D000C592F /* LoginView.swift */; };
 		9C3309D92888EE20000C592F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309D82888EE20000C592F /* LoginViewModel.swift */; };
-		9C68A2972898EFE4006D36B1 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C68A2952898EFE4006D36B1 /* KeyValue.swift */; };
 		9C68A29A2898F3A6006D36B1 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C68A2992898F3A6006D36B1 /* LocalStorageManager.swift */; };
 		9C68A29D28990015006D36B1 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C68A29C28990015006D36B1 /* TokenManager.swift */; };
+		9C8B5E0A289CEF000029BB66 /* MockPostGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8B5E09289CEF000029BB66 /* MockPostGenerator.swift */; };
 		9C95B98A289A359700E0910C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B989289A359700E0910C /* OnboardingView.swift */; };
 		9C95B98D289A3AAB00E0910C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B98C289A3AAB00E0910C /* HomeView.swift */; };
 		9C95B991289A4AC100E0910C /* UserManager + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B990289A4AC100E0910C /* UserManager + Extension.swift */; };
@@ -69,6 +77,10 @@
 		9C95B9A2289A8DDE00E0910C /* VoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B9A1289A8DDE00E0910C /* VoteButton.swift */; };
 		9C95B9A5289A937100E0910C /* FillHorizontal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B9A4289A937100E0910C /* FillHorizontal.swift */; };
 		9CA7922D287BA90600600C32 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7922C287BA90600600C32 /* UserInformation.swift */; };
+		9CCA227F289B9EA900A2F9B0 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA227E289B9EA900A2F9B0 /* Post.swift */; };
+		9CCA228E289BA2EA00A2F9B0 /* MockPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA228D289BA2EA00A2F9B0 /* MockPost.json */; };
+		9CCA2293289BAB0F00A2F9B0 /* MockPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA228F289BA4A900A2F9B0 /* MockPost.json */; };
+		9CCA2295289BB3CF00A2F9B0 /* MockPostList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA2294289BB28500A2F9B0 /* MockPostList.json */; };
 		D377232EF7564B4D94602233 /* Pods_Naenio_NaenioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF541D3D8763AF8CB32F473 /* Pods_Naenio_NaenioUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -119,7 +131,16 @@
 		9B085F192879991600DE8E60 /* NaenioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NaenioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B085F1D2879991600DE8E60 /* NaenioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITests.swift; sourceTree = "<group>"; };
 		9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9B24406F289E8DC30060A244 /* View + Exetension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + Exetension.swift"; sourceTree = "<group>"; };
+		9B244072289E9AA10060A244 /* VotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotesView.swift; sourceTree = "<group>"; };
+		9B244074289E9AF10060A244 /* VotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotesViewModel.swift; sourceTree = "<group>"; };
+		9B3B6F0E289BE1B4002A76A7 /* MockPostWroteList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPostWroteList.json; sourceTree = "<group>"; };
+		9B3B6F0F289BE1B6002A76A7 /* MockPostParticipatedList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPostParticipatedList.json; sourceTree = "<group>"; };
+		9B425528289D0F9A00163327 /* FullView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullView.swift; sourceTree = "<group>"; };
+		9B42552A289D0FA200163327 /* FullViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullViewModel.swift; sourceTree = "<group>"; };
 		9B687DE928954D4A0048AED0 /* Font + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font + Extension.swift"; sourceTree = "<group>"; };
+		9B89B9F8289E0CF800D0E205 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B89B9F9289E0CF900D0E205 /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
 		9B8B98B9289948DA007336DE /* LocalStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageKeys.swift; sourceTree = "<group>"; };
 		9BE60292289541B6008F291C /* Color + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
 		9BE60297289548CE008F291C /* Pretendard-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.ttf"; sourceTree = "<group>"; };
@@ -145,10 +166,9 @@
 		9C3309D02888ED16000C592F /* SignInWithKakaoButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithKakaoButtonViewModel.swift; sourceTree = "<group>"; };
 		9C3309D62888EE0D000C592F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		9C3309D82888EE20000C592F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		9C68A2952898EFE4006D36B1 /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
-		9C68A2962898EFE4006D36B1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C68A2992898F3A6006D36B1 /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
 		9C68A29C28990015006D36B1 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		9C8B5E09289CEF000029BB66 /* MockPostGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPostGenerator.swift; sourceTree = "<group>"; };
 		9C95B989289A359700E0910C /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9C95B98C289A3AAB00E0910C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9C95B990289A4AC100E0910C /* UserManager + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserManager + Extension.swift"; sourceTree = "<group>"; };
@@ -160,6 +180,10 @@
 		9C95B9A1289A8DDE00E0910C /* VoteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteButton.swift; sourceTree = "<group>"; };
 		9C95B9A4289A937100E0910C /* FillHorizontal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillHorizontal.swift; sourceTree = "<group>"; };
 		9CA7922C287BA90600600C32 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
+		9CCA227E289B9EA900A2F9B0 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		9CCA228D289BA2EA00A2F9B0 /* MockPost.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPost.json; sourceTree = "<group>"; };
+		9CCA228F289BA4A900A2F9B0 /* MockPost.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPost.json; sourceTree = "<group>"; };
+		9CCA2294289BB28500A2F9B0 /* MockPostList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPostList.json; sourceTree = "<group>"; };
 		A23C6C1FBD1AFD04C21BFC37 /* Pods-NaenioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaenioTests.debug.xcconfig"; path = "Target Support Files/Pods-NaenioTests/Pods-NaenioTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B546567C3E3421F07641077D /* Pods_Naenio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naenio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5B262F1FD67B00E8EA61CF /* Pods_NaenioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NaenioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,6 +233,7 @@
 				4C4B13362883B55F006044B0 /* Encodable+Extension.swift */,
 				4C4B133A2883C44C006044B0 /* TargetType+Extension.swift */,
 				4C43C8C32886FB8200A60372 /* String+Extension.swift */,
+				9B24406F289E8DC30060A244 /* View + Exetension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -324,6 +349,7 @@
 		9B085F122879991600DE8E60 /* NaenioTests */ = {
 			isa = PBXGroup;
 			children = (
+				9CCA2289289BA2B900A2F9B0 /* Post */,
 				9C2D07BC2897D7C1008BBD75 /* User */,
 				9BD6DE9F2896285D00051C3E /* Network */,
 			);
@@ -371,12 +397,31 @@
 		9B085F2F287E356300DE8E60 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9CCA227D289B9E9400A2F9B0 /* Posts */,
 				9C68A29B2898FFF5006D36B1 /* Storage */,
 				4C4B13352883B543006044B0 /* Extension */,
 				9C2D07B52897C66C008BBD75 /* User */,
 				4CC296D228804E88001950A2 /* Network */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		9B244071289E9A900060A244 /* Vote */ = {
+			isa = PBXGroup;
+			children = (
+				9B244072289E9AA10060A244 /* VotesView.swift */,
+				9B244074289E9AF10060A244 /* VotesViewModel.swift */,
+			);
+			path = Vote;
+			sourceTree = "<group>";
+		};
+		9B425527289D0F7E00163327 /* Full */ = {
+			isa = PBXGroup;
+			children = (
+				9B425528289D0F9A00163327 /* FullView.swift */,
+				9B42552A289D0FA200163327 /* FullViewModel.swift */,
+			);
+			path = Full;
 			sourceTree = "<group>";
 		};
 		9BD6DE9C2895536E00051C3E /* Colors */ = {
@@ -508,8 +553,8 @@
 		9C68A2942898EFE4006D36B1 /* ignored */ = {
 			isa = PBXGroup;
 			children = (
-				9C68A2952898EFE4006D36B1 /* KeyValue.swift */,
-				9C68A2962898EFE4006D36B1 /* Info.plist */,
+				9B89B9F8289E0CF800D0E205 /* Info.plist */,
+				9B89B9F9289E0CF900D0E205 /* KeyValue.swift */,
 			);
 			path = ignored;
 			sourceTree = "<group>";
@@ -534,10 +579,12 @@
 		9C95B98B289A3A9F00E0910C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9CCA2296289BBBFE00A2F9B0 /* Mock Data */,
+				9B425527289D0F7E00163327 /* Full */,
+				9CCA2284289BA06100A2F9B0 /* Card */,
+				9B244071289E9A900060A244 /* Vote */,
 				9C95B98C289A3AAB00E0910C /* HomeView.swift */,
 				9C10439C289B747200A45711 /* HomeViewModel.swift */,
-				9C95B99B289A885900E0910C /* CardView.swift */,
-				9C95B99D289A8BCB00E0910C /* CardViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -568,6 +615,51 @@
 				9C95B999289A679B00E0910C /* CapsuleButtonStyle.swift */,
 			);
 			path = ButtonStyles;
+			sourceTree = "<group>";
+		};
+		9CCA227D289B9E9400A2F9B0 /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				9CCA227E289B9EA900A2F9B0 /* Post.swift */,
+			);
+			path = Posts;
+			sourceTree = "<group>";
+		};
+		9CCA2284289BA06100A2F9B0 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				9C95B99B289A885900E0910C /* CardView.swift */,
+				9C95B99D289A8BCB00E0910C /* CardViewModel.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		9CCA2289289BA2B900A2F9B0 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				9CCA228A289BA2BD00A2F9B0 /* Data */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		9CCA228A289BA2BD00A2F9B0 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				9CCA228D289BA2EA00A2F9B0 /* MockPost.json */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		9CCA2296289BBBFE00A2F9B0 /* Mock Data */ = {
+			isa = PBXGroup;
+			children = (
+				9C8B5E09289CEF000029BB66 /* MockPostGenerator.swift */,
+				9CCA228F289BA4A900A2F9B0 /* MockPost.json */,
+				9B3B6F0E289BE1B4002A76A7 /* MockPostWroteList.json */,
+				9B3B6F0F289BE1B6002A76A7 /* MockPostParticipatedList.json */,
+				9CCA2294289BB28500A2F9B0 /* MockPostList.json */,
+			);
+			path = "Mock Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -680,6 +772,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B3B6F10289BE3FA002A76A7 /* MockPostWroteList.json in Resources */,
+				9B3B6F11289BE3FA002A76A7 /* MockPostParticipatedList.json in Resources */,
+				9CCA2295289BB3CF00A2F9B0 /* MockPostList.json in Resources */,
+				9CCA2293289BAB0F00A2F9B0 /* MockPost.json in Resources */,
 				9BE602A3289548CF008F291C /* Pretendard-SemiBold.ttf in Resources */,
 				9BE602A5289548CF008F291C /* Pretendard-Regular.ttf in Resources */,
 				9BE602A0289548CF008F291C /* Pretendard-Medium.ttf in Resources */,
@@ -699,6 +795,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CCA228E289BA2EA00A2F9B0 /* MockPost.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,13 +934,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CC296DB28805366001950A2 /* NaenioAPI.swift in Sources */,
+				9B89B9FB289E0CF900D0E205 /* KeyValue.swift in Sources */,
 				9C2D07BB2897CD0A008BBD75 /* UserError.swift in Sources */,
 				4C4B13392883B709006044B0 /* NaenioAPI+Error.swift in Sources */,
 				4C4B13322883AAC3006044B0 /* NaenioAPI+Path.swift in Sources */,
+				9B42552B289D0FA200163327 /* FullViewModel.swift in Sources */,
 				9C3309D72888EE0D000C592F /* LoginView.swift in Sources */,
 				9C95B99A289A679B00E0910C /* CapsuleButtonStyle.swift in Sources */,
 				4CC296D92880533C001950A2 /* DefaultSession.swift in Sources */,
-				9C68A2972898EFE4006D36B1 /* KeyValue.swift in Sources */,
 				9C95B991289A4AC100E0910C /* UserManager + Extension.swift in Sources */,
 				4C4B13342883AAE0006044B0 /* NaenioAPI+Task.swift in Sources */,
 				9C2D07B72897C683008BBD75 /* User.swift in Sources */,
@@ -855,11 +953,14 @@
 				9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */,
 				9C95B98A289A359700E0910C /* OnboardingView.swift in Sources */,
 				9C2D07C32897DA6F008BBD75 /* ProfileImages.swift in Sources */,
+				9B244075289E9AF10060A244 /* VotesViewModel.swift in Sources */,
 				4C4B133D2883C5EB006044B0 /* NaenioAPI+Wrapper.swift in Sources */,
 				9C95B99E289A8BCB00E0910C /* CardViewModel.swift in Sources */,
 				4C4B13432883D88A006044B0 /* HttpResponseCode.swift in Sources */,
 				9C68A29D28990015006D36B1 /* TokenManager.swift in Sources */,
+				9B244070289E8DC30060A244 /* View + Exetension.swift in Sources */,
 				9BF00BF7287AC95A00F08035 /* AppleLoginManager.swift in Sources */,
+				9B425529289D0F9A00163327 /* FullView.swift in Sources */,
 				4C43C8C42886FB8200A60372 /* String+Extension.swift in Sources */,
 				9C3309CF2888ED08000C592F /* SignInWithKakaoButton.swift in Sources */,
 				9C95B99C289A885900E0910C /* CardView.swift in Sources */,
@@ -871,16 +972,19 @@
 				4C4B13372883B55F006044B0 /* Encodable+Extension.swift in Sources */,
 				9C95B9A5289A937100E0910C /* FillHorizontal.swift in Sources */,
 				9C95B9A2289A8DDE00E0910C /* VoteButton.swift in Sources */,
+				9CCA227F289B9EA900A2F9B0 /* Post.swift in Sources */,
 				4CC296E0288055FD001950A2 /* HeaderInformation.swift in Sources */,
 				4C4B134528847640006044B0 /* NaenioAPI+Request.swift in Sources */,
 				9C95B996289A672800E0910C /* FillScreen.swift in Sources */,
 				9C3309D92888EE20000C592F /* LoginViewModel.swift in Sources */,
 				4CA47BC6288ED06A00D300A7 /* LoginRequestService.swift in Sources */,
+				9B244073289E9AA10060A244 /* VotesView.swift in Sources */,
 				9C3309D12888ED16000C592F /* SignInWithKakaoButtonViewModel.swift in Sources */,
 				9CA7922D287BA90600600C32 /* UserInformation.swift in Sources */,
 				9BF00C0B287ACFA900F08035 /* LoginRequestInformation.swift in Sources */,
 				9B8B98BA289948DA007336DE /* LocalStorageKeys.swift in Sources */,
 				9C3309CD2888EC52000C592F /* KakaoLoginManager.swift in Sources */,
+				9C8B5E0A289CEF000029BB66 /* MockPostGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1040,9 +1144,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Naenio/Naenio.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
 				DEVELOPMENT_TEAM = W6QHM4Y43Z;
 				ENABLE_PREVIEWS = YES;
@@ -1061,7 +1165,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.teamVS.Naenio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development com.teamVS.Naenio";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1075,9 +1179,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Naenio/Naenio.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
 				DEVELOPMENT_TEAM = W6QHM4Y43Z;
 				ENABLE_PREVIEWS = YES;
@@ -1096,7 +1200,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.teamVS.Naenio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development com.teamVS.Naenio";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
