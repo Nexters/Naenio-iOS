@@ -27,7 +27,7 @@ nesting:
     
 identifier_name:
   min_length:
-    error: 1
+    error: 3
   max_length:
     warning: 50
     error: 60

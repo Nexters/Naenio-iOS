@@ -36,9 +36,8 @@ struct VoteButton: View {
 
 extension VoteButton {
     enum ChoiceType: String, Equatable {
-        case A
-        case B
-        case open
+        case choiceA
+        case choiceB
     }
 }
 
