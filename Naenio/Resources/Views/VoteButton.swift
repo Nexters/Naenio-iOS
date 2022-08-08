@@ -31,7 +31,15 @@ struct VoteButton: View {
             .fillHorizontal()
             .padding(.horizontal, 14)
             .padding(.vertical, 14)
-            .background(RoundedRectangle(cornerRadius: 16).fill(Color.black))
+            .background(
+                GeometryReader(content: { geometry in
+                    Rectangle()
+                        .fill(Color.blue)
+                        .frame(width: geometry.size.width*0.7)
+                }),
+                alignment: .leading)
+            .background(Color.black)
+            .mask(RoundedRectangle(cornerRadius: 16))
             .foregroundColor(.white)
         }
     }
