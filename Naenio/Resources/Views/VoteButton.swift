@@ -22,19 +22,20 @@ struct VoteButton: View {
                     .lineLimit(1)
                     .font(.engBold(size: 16))
 
-                Text(choice?.name ?? "🤔 일시적인 오류가 발생했어요!")
+                Text(choice == nil ? "🤔 일시적인 오류가 발생했어요!" : choice!.name)
                     .lineLimit(1)
                     .font(.semoBold(size: 16))
                 
                 Spacer()
                 
                 if isOpened {
-                    counts
+                    voteCountsAndPercentage
                 }
             }
-            .fillHorizontal()
             .padding(.horizontal, 14)
+            .fillHorizontal()
             .frame(height: 72)
+            .foregroundColor(.white)
             .background(
                 GeometryReader(content: { geometry in
                     Rectangle()
@@ -44,20 +45,12 @@ struct VoteButton: View {
                 alignment: .leading)
             .background(Color.black)
             .mask(RoundedRectangle(cornerRadius: 16))
-            .foregroundColor(.white)
-            //            .onAppear {
-            //                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            //                    withAnimation {
-//                        self._percent = self.percent
-//                    }
-//                }
-//            }
         }
     }
 }
 
 extension VoteButton {
-    var counts: some View {
+    var voteCountsAndPercentage: some View {
         VStack(spacing: 4) {
             if let choice = choice {
                 Text("\(Int(percent))%")
