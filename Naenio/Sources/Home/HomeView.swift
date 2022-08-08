@@ -9,22 +9,12 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
-    @State var navigationInformation = NavigationInformation()
 
     var body: some View {
         NavigationView { // FIXME: Temporary position
             ZStack {
                 Color.background
                     .ignoresSafeArea()
-                
-                if let info = navigationInformation.postInformation {
-                    NavigationLink(
-                        destination: FullView(index: info.index, post: info.post).environmentObject(viewModel),
-                        isActive: $navigationInformation.isReady
-                    ) {
-                        EmptyView()
-                    }
-                }
                 
                 VStack(alignment: .leading, spacing: 20) {
                     Text("Feed")
@@ -50,25 +40,26 @@ struct HomeView: View {
                             
                             LazyVStack(spacing: 20) {
                                 ForEach(Array(viewModel.posts.enumerated()), id: \.element.id) { (index, post) in
-                                    CardView(index: index, post: post)
-                                        .environmentObject(viewModel)
-                                        .background(
-                                            RoundedRectangle(cornerRadius: 16)
-                                                .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
-                                        )
-                                        .padding(.horizontal, 20)
-                                        .onTapGesture {
-                                            showFullView(index: index, post: post)
-                                        }
-                                        .onAppear {
-                                            if index == viewModel.posts.count - 3 {
-                                                // 무한 스크롤을 위해 끝에서 3번째에서 로딩 -> 개수는 추후 협의
+                                    NavigationLink(destination: FullView(index: index, post: post).environmentObject(viewModel) ) {
+                                        
+                                        CardView(index: index, post: post)
+                                            .environmentObject(viewModel)
+                                            .background(
+                                                RoundedRectangle(cornerRadius: 16)
+                                                    .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
+                                            )
+                                            .padding(.horizontal, 20)
+                                            .onAppear {
+                                                if index == viewModel.posts.count - 3 {
+                                                    // 무한 스크롤을 위해 끝에서 3번째에서 로딩 -> 개수는 추후 협의
 #if DEBUG
-                                                print("Loaded")
+                                                    print("Loaded")
 #endif
-                                                viewModel.requestMorePosts()
+                                                    viewModel.requestMorePosts()
+                                                }
                                             }
-                                        }
+                                    }
+                                    .buttonStyle(PlainButtonStyle())
                                 }
                             }
                             .onChange(of: viewModel.category) { _ in
@@ -91,19 +82,6 @@ struct HomeView: View {
             }
             .navigationBarHidden(true)
         }
-    }
-}
-
-// Internal methods
-extension HomeView {
-    struct NavigationInformation {
-        var isReady = false
-        var postInformation: (index: Int, post: Post)?
-    }
-    
-    private func showFullView(index: Int, post: Post) {
-        navigationInformation.postInformation = (index, post)
-        navigationInformation.isReady = true
     }
 }
 
