@@ -10,34 +10,51 @@ import SwiftUI
 struct VoteButton: View {
     let type: ChoiceType
     let isOpened: Bool
-    let choice: Post.Choice
+    let choice: Post.Choice?
     let action: () -> Void
     
     var body: some View {
-        Button(action: self.action) {
+        Button(action: choice == nil ? {} : self.action) {
             HStack(spacing: 6) {
-                Text(type.rawValue + ".")
+                Text(choice == nil ? "" : type.rawValue + ".")
                     .lineLimit(1)
                     .font(.engBold(size: 16))
 
-                Text(choice.name)
+                Text(choice?.name ?? "🤔 일시적인 오류가 발생했어요!")
                     .lineLimit(1)
                     .font(.semoBold(size: 16))
+                
+                Spacer()
+                
+                counts
             }
             .fillHorizontal()
             .padding(.horizontal, 14)
-            .padding(.vertical, 25)
+            .padding(.vertical, 14)
             .background(RoundedRectangle(cornerRadius: 16).fill(Color.black))
             .foregroundColor(.white)
-            .redacted(reason: choice.isVoted ? [] : .placeholder)
         }
     }
 }
 
 extension VoteButton {
+    var counts: some View {
+        VStack(spacing: 4) {
+            if let choice = choice {
+                Text("65%")
+                    .font(.semoBold(size: 16))
+                
+                Text("\(choice.voteCount)명")
+                    .lineLimit(1)
+                    .font(.semoBold(size: 12))
+                    .foregroundColor(.naenioGray)
+            }
+        }
+    }
+    
     enum ChoiceType: String, Equatable {
-        case choiceA
-        case choiceB
+        case choiceA = "A"
+        case choiceB = "B"
     }
 }
 
