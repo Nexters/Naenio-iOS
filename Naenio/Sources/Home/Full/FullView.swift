@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FullView: View {
+    @EnvironmentObject var sourceObject: HomeViewModel
     @ObservedObject var viewModel: FullViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -46,6 +47,7 @@ struct FullView: View {
                 Spacer()
                 
                 VotesView(index: index, choices: post.choices)
+                    .environmentObject(sourceObject)
                     .padding(.bottom, 32)
                 
                 commentButton

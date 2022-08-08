@@ -18,7 +18,10 @@ struct HomeView: View {
                     .ignoresSafeArea()
                 
                 if let info = navigationInformation.postInformation {
-                    NavigationLink(destination: FullView(index: info.index, post: info.post), isActive: $navigationInformation.isReady) {
+                    NavigationLink(
+                        destination: FullView(index: info.index, post: info.post).environmentObject(viewModel),
+                        isActive: $navigationInformation.isReady
+                    ) {
                         EmptyView()
                     }
                 }
