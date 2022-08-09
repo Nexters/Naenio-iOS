@@ -9,92 +9,89 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
-    @State var navigationInformation = NavigationInformation()
     @State var showNewPost = false
-
+    
     var body: some View {
-        NavigationView { // FIXME: Temporary position
-            ZStack(alignment: .bottomTrailing) {
-                Color.background
-                    .ignoresSafeArea()
+        ZStack(alignment: .bottomTrailing) {
+            Color.background
+                .ignoresSafeArea()
+            
+            VStack(alignment: .leading, spacing: 20) {
+                Text("Feed")
+                    .font(.engBold(size: 24))
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 20)
                 
-                VStack(alignment: .leading, spacing: 20) {
-                    Text("Feed")
-                        .font(.engBold(size: 24))
-                        .foregroundColor(.white)
-                        .padding(.horizontal, 20)
+                categoryButtons
+                    .padding(.horizontal, 20)
+                
+                // Card scroll view
+                ZStack {
+                    if viewModel.status == .loadingDifferentCategoryPosts {
+                        loadingIndicator
+                            .zIndex(1)
+                    }
                     
-                    categoryButtons
-                        .padding(.horizontal, 20)
-                    
-                    // Card scroll view
-                    ZStack {
-                        if viewModel.status == .loadingDifferentCategoryPosts {
-                            loadingIndicator
-                                .zIndex(1)
+                    ScrollView(.vertical, showsIndicators: true) {
+                        // Placeholder
+                        Rectangle()
+                            .fill(Color.clear)
+                            .frame(height: 4)
+                        
+                        LazyVStack(spacing: 20) {
+                            ForEach(Array(viewModel.posts.enumerated()), id: \.element.id) { (index, post) in
+                                NavigationLink(destination: FullView(index: index, post: post).environmentObject(viewModel)) {
+                                    CardView(index: index, post: post)
+                                        .environmentObject(viewModel)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 16)
+                                                .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
+                                        )
+                                        .padding(.horizontal, 20)
+                                        .onAppear {
+                                            if index == viewModel.posts.count - 3 {
+                                                // 무한 스크롤을 위해 끝에서 3번째에서 로딩 -> 개수는 추후 협의
+#if DEBUG
+                                                print("Loaded")
+#endif
+                                                viewModel.requestMorePosts()
+                                            }
+                                        }
+                                }
+                                .buttonStyle(PlainButtonStyle())
+                            }
+                        }
+                        .onChange(of: viewModel.category) { _ in
+                            viewModel.posts.removeAll()
+                            viewModel.requestPosts()
                         }
                         
-                        ScrollView(.vertical, showsIndicators: true) {
-                            // Placeholder
-                            Rectangle()
-                                .fill(Color.clear)
-                                .frame(height: 4)
-                            
-                            LazyVStack(spacing: 20) {
-                                ForEach(Array(viewModel.posts.enumerated()), id: \.element.id) { (index, post) in
-                                    NavigationLink(destination: FullView(index: index, post: post).environmentObject(viewModel)) {
-                                        CardView(index: index, post: post)
-                                            .environmentObject(viewModel)
-                                            .background(
-                                                RoundedRectangle(cornerRadius: 16)
-                                                    .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
-                                            )
-                                            .padding(.horizontal, 20)
-                                            .onAppear {
-                                                if index == viewModel.posts.count - 3 {
-                                                    // 무한 스크롤을 위해 끝에서 3번째에서 로딩 -> 개수는 추후 협의
-#if DEBUG
-                                                    print("Loaded")
-#endif
-                                                    viewModel.requestMorePosts()
-                                                }
-                                            }
-                                    }
-                                    .buttonStyle(PlainButtonStyle())
-                                }
-                            }
-                            .onChange(of: viewModel.category) { _ in
-                                viewModel.posts.removeAll()
-                                viewModel.requestPosts()
-                            }
-                            
-                            // TODO: 디자인 팀이랑 논의
-                            // 하단 무한스크롤 중 생기는 버퍼링에 대한 로딩 인디케이터
-                            if viewModel.status == .loadingSameCategoryPosts {
-                                loadingIndicator
-                                    .zIndex(1)
-                                    .padding(.vertical, 15)
-                            }
+                        // TODO: 디자인 팀이랑 논의
+                        // 하단 무한스크롤 중 생기는 버퍼링에 대한 로딩 인디케이터
+                        if viewModel.status == .loadingSameCategoryPosts {
+                            loadingIndicator
+                                .zIndex(1)
+                                .padding(.vertical, 15)
                         }
                     }
                 }
-                .fillScreen()
-                
-                Button(action: { showNewPost = true }) {
-                    Image("floatingButton")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 50, height: 50)
-                        .shadow(radius: 3)
-                }
-                .padding(20)
             }
-            .fullScreenCover(isPresented: $showNewPost) {
-                NewPostView(isPresented: $showNewPost)
-                    .environmentObject(viewModel)
+            .fillScreen()
+            
+            Button(action: { showNewPost = true }) {
+                Image("floatingButton")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50, height: 50)
+                    .shadow(radius: 3)
             }
-            .navigationBarHidden(true)
+            .padding(20)
         }
+        .fullScreenCover(isPresented: $showNewPost) {
+            NewPostView(isPresented: $showNewPost)
+                .environmentObject(viewModel)
+        }
+        .navigationBarHidden(true)
     }
 }
 
@@ -135,6 +132,7 @@ extension HomeView {
             )
         }
     }
+    
     var loadingIndicator: some View {
         ProgressView()
             .progressViewStyle(CircularProgressViewStyle(tint: .yellow))
