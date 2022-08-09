@@ -40,8 +40,7 @@ struct HomeView: View {
                             
                             LazyVStack(spacing: 20) {
                                 ForEach(Array(viewModel.posts.enumerated()), id: \.element.id) { (index, post) in
-                                    NavigationLink(destination: FullView(index: index, post: post).environmentObject(viewModel) ) {
-                                        
+                                    NavigationLink(destination: FullView(index: index, post: post).environmentObject(viewModel)) {
                                         CardView(index: index, post: post)
                                             .environmentObject(viewModel)
                                             .background(

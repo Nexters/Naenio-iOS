@@ -10,7 +10,7 @@ import SwiftUI
 struct VotesView: View {
     @ObservedObject var viewModel: VotesViewModel
     @EnvironmentObject var sourceObject: HomeViewModel
-
+    
     let index: Int
     let choices: [Post.Choice]
     var isOpened: Bool {
@@ -23,14 +23,18 @@ struct VotesView: View {
         ZStack {
             VStack(spacing: 18) {
                 VoteButton(type: .choiceA, isOpened: self.isOpened, choice: choices.first) {
-                    withAnimation(.easeInOut(duration: 0.2)) {
-                        sourceObject.vote(index: self.index, sequence: 0)
+                    DispatchQueue.main.async {
+//                        withAnimation(.easeInOut(duration: 0.2)) {
+                            sourceObject.vote(index: self.index, sequence: 0)
+//                        }
                     }
                 }
                 
                 VoteButton(type: .choiceB, isOpened: self.isOpened, choice: choices.last) {
-                    withAnimation(.easeInOut(duration: 0.2)) {
-                        sourceObject.vote(index: self.index, sequence: 1)
+                    DispatchQueue.main.async {
+//                        withAnimation(.easeInOut(duration: 0.2)) {
+                            sourceObject.vote(index: self.index, sequence: 1)
+//                        }
                     }
                 }
             }
