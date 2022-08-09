@@ -66,6 +66,7 @@
 		9C68A29A2898F3A6006D36B1 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C68A2992898F3A6006D36B1 /* LocalStorageManager.swift */; };
 		9C68A29D28990015006D36B1 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C68A29C28990015006D36B1 /* TokenManager.swift */; };
 		9C8B5E0A289CEF000029BB66 /* MockPostGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8B5E09289CEF000029BB66 /* MockPostGenerator.swift */; };
+		9C90C1AB28A227AE00197B32 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C90C1AA28A227AE00197B32 /* TextView.swift */; };
 		9C95B98A289A359700E0910C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B989289A359700E0910C /* OnboardingView.swift */; };
 		9C95B98D289A3AAB00E0910C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B98C289A3AAB00E0910C /* HomeView.swift */; };
 		9C95B991289A4AC100E0910C /* UserManager + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B990289A4AC100E0910C /* UserManager + Extension.swift */; };
@@ -76,6 +77,7 @@
 		9C95B99E289A8BCB00E0910C /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B99D289A8BCB00E0910C /* CardViewModel.swift */; };
 		9C95B9A2289A8DDE00E0910C /* VoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B9A1289A8DDE00E0910C /* VoteButton.swift */; };
 		9C95B9A5289A937100E0910C /* FillHorizontal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B9A4289A937100E0910C /* FillHorizontal.swift */; };
+		9CA6DA8728A21CD10060610F /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6DA8628A21CD10060610F /* NewPostView.swift */; };
 		9CA7922D287BA90600600C32 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7922C287BA90600600C32 /* UserInformation.swift */; };
 		9CCA227F289B9EA900A2F9B0 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA227E289B9EA900A2F9B0 /* Post.swift */; };
 		9CCA228E289BA2EA00A2F9B0 /* MockPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA228D289BA2EA00A2F9B0 /* MockPost.json */; };
@@ -169,6 +171,7 @@
 		9C68A2992898F3A6006D36B1 /* LocalStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageManager.swift; sourceTree = "<group>"; };
 		9C68A29C28990015006D36B1 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		9C8B5E09289CEF000029BB66 /* MockPostGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPostGenerator.swift; sourceTree = "<group>"; };
+		9C90C1AA28A227AE00197B32 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		9C95B989289A359700E0910C /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9C95B98C289A3AAB00E0910C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9C95B990289A4AC100E0910C /* UserManager + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserManager + Extension.swift"; sourceTree = "<group>"; };
@@ -179,6 +182,7 @@
 		9C95B99D289A8BCB00E0910C /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		9C95B9A1289A8DDE00E0910C /* VoteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteButton.swift; sourceTree = "<group>"; };
 		9C95B9A4289A937100E0910C /* FillHorizontal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillHorizontal.swift; sourceTree = "<group>"; };
+		9CA6DA8628A21CD10060610F /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
 		9CA7922C287BA90600600C32 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		9CCA227E289B9EA900A2F9B0 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		9CCA228D289BA2EA00A2F9B0 /* MockPost.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPost.json; sourceTree = "<group>"; };
@@ -368,6 +372,7 @@
 		9B085F2C287E352A00DE8E60 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				9CA6DA8528A21CBA0060610F /* New post */,
 				9C95B98B289A3A9F00E0910C /* Home */,
 				9C95B988289A358B00E0910C /* Onboarding */,
 				9BF00C05287ACCC500F08035 /* LogIn */,
@@ -615,6 +620,15 @@
 				9C95B999289A679B00E0910C /* CapsuleButtonStyle.swift */,
 			);
 			path = ButtonStyles;
+			sourceTree = "<group>";
+		};
+		9CA6DA8528A21CBA0060610F /* New post */ = {
+			isa = PBXGroup;
+			children = (
+				9CA6DA8628A21CD10060610F /* NewPostView.swift */,
+				9C90C1AA28A227AE00197B32 /* TextView.swift */,
+			);
+			path = "New post";
 			sourceTree = "<group>";
 		};
 		9CCA227D289B9E9400A2F9B0 /* Posts */ = {
@@ -964,11 +978,13 @@
 				4C43C8C42886FB8200A60372 /* String+Extension.swift in Sources */,
 				9C3309CF2888ED08000C592F /* SignInWithKakaoButton.swift in Sources */,
 				9C95B99C289A885900E0910C /* CardView.swift in Sources */,
+				9C90C1AB28A227AE00197B32 /* TextView.swift in Sources */,
 				9C2D07B92897C728008BBD75 /* UserManager.swift in Sources */,
 				9C10439D289B747200A45711 /* HomeViewModel.swift in Sources */,
 				4C4B133B2883C44C006044B0 /* TargetType+Extension.swift in Sources */,
 				9C68A29A2898F3A6006D36B1 /* LocalStorageManager.swift in Sources */,
 				4C4B133F2883CD32006044B0 /* ModelType.swift in Sources */,
+				9CA6DA8728A21CD10060610F /* NewPostView.swift in Sources */,
 				4C4B13372883B55F006044B0 /* Encodable+Extension.swift in Sources */,
 				9C95B9A5289A937100E0910C /* FillHorizontal.swift in Sources */,
 				9C95B9A2289A8DDE00E0910C /* VoteButton.swift in Sources */,

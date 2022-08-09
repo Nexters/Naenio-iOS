@@ -23,6 +23,7 @@ extension Color {
         endPoint: .trailing
     )
     
+    static let mono = Color("mono")
     static let card = Color("NCard")
     static let tabBarBackground = Color("NBottomBackground")
     static let subCard = Color("NCardSub")

@@ -24,6 +24,8 @@ struct NaenioApp: App {
         if tokenManager.isTokenAvailable {
             userManager.updateProfile()
         }
+        
+        UITextView.appearance().backgroundColor = .clear
     }
     
     var body: some Scene {

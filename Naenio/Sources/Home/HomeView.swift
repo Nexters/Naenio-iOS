@@ -9,10 +9,12 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
+    @State var navigationInformation = NavigationInformation()
+    @State var showNewPost = false
 
     var body: some View {
         NavigationView { // FIXME: Temporary position
-            ZStack {
+            ZStack(alignment: .bottomTrailing) {
                 Color.background
                     .ignoresSafeArea()
                 
@@ -78,6 +80,21 @@ struct HomeView: View {
                     
                 }
                 .fillScreen()
+                
+                Button(action: { showNewPost = true }) {
+                    Image("floatingButton")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 50, height: 50)
+                        .shadow(radius: 3)
+                }
+                .padding(20)
+            }
+            .fullScreenCover(isPresented: $showNewPost) {
+                NewPostView(isPresented: $showNewPost)
+                    .onAppear {
+                        UITextView.appearance().backgroundColor = .clear
+                    }
             }
             .navigationBarHidden(true)
         }
