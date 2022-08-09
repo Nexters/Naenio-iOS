@@ -21,6 +21,7 @@
 		4C4B134528847640006044B0 /* NaenioAPI+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B134428847640006044B0 /* NaenioAPI+Request.swift */; };
 		4CA47BC6288ED06A00D300A7 /* LoginRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA47BC5288ED06A00D300A7 /* LoginRequestService.swift */; };
 		4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4CA47BC92890344400D300A7 /* .swiftlint.yml */; };
+		4CB4196A28A29C2700EBB777 /* TabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB4196928A29C2700EBB777 /* TabContentView.swift */; };
 		4CC296D92880533C001950A2 /* DefaultSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC296D82880533C001950A2 /* DefaultSession.swift */; };
 		4CC296DB28805366001950A2 /* NaenioAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC296DA28805366001950A2 /* NaenioAPI.swift */; };
 		4CC296E0288055FD001950A2 /* HeaderInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC296DF288055FD001950A2 /* HeaderInformation.swift */; };
@@ -94,6 +95,7 @@
 		4C4B134428847640006044B0 /* NaenioAPI+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Request.swift"; sourceTree = "<group>"; };
 		4CA47BC5288ED06A00D300A7 /* LoginRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestService.swift; sourceTree = "<group>"; };
 		4CA47BC92890344400D300A7 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		4CB4196928A29C2700EBB777 /* TabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContentView.swift; sourceTree = "<group>"; };
 		4CC296D82880533C001950A2 /* DefaultSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSession.swift; sourceTree = "<group>"; };
 		4CC296DA28805366001950A2 /* NaenioAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioAPI.swift; sourceTree = "<group>"; };
 		4CC296DF288055FD001950A2 /* HeaderInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderInformation.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				4CC4B7352896BDEA00774192 /* Home */,
 				4CC4B7332896BDE400774192 /* MainView.swift */,
 				4C16915B289FF8D9000226BF /* TabBarView.swift */,
+				4CB4196928A29C2700EBB777 /* TabContentView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -751,6 +754,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CB4196A28A29C2700EBB777 /* TabContentView.swift in Sources */,
 				9B085F052879991400DE8E60 /* ContentView.swift in Sources */,
 				4C16915C289FF8DA000226BF /* TabBarView.swift in Sources */,
 				4CC296DB28805366001950A2 /* NaenioAPI.swift in Sources */,
