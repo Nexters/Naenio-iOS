@@ -31,14 +31,16 @@ struct FullView: View {
                     .padding(.bottom, 8)
                 
                 Text("\(post.title)")
-                    .lineLimit(2)
+                    .lineLimit(4)
+                    .fixedSize(horizontal: false, vertical: true)
                     .lineSpacing(7)
                     .font(.semoBold(size: 22))
                     .foregroundColor(.white)
                     .padding(.bottom, 10)
                 
                 Text("\(post.content)")
-                    .lineLimit(2)
+                    .lineLimit(4)
+                    .fixedSize(horizontal: false, vertical: true)
                     .lineSpacing(5)
                     .font(.medium(size: 16))
                     .foregroundColor(.naenioGray)
