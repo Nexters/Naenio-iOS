@@ -14,7 +14,7 @@ struct LoginTestView: View {
         VStack(spacing: 35) {
             Text(viewModel.status.description)
             SignInWithKakaoButton { result in
-                self.viewModel.handleKakaoLoginResult(result: result)
+                viewModel.handleKakaoLoginResult(result: result)
             }
             .frame(width: 280, height: 60)
              
@@ -24,7 +24,7 @@ struct LoginTestView: View {
                     request.requestedScopes = [.fullName, .email]
                 },
                 onCompletion: { result in
-                    self.viewModel.handleAppleLoginResult(result: result)
+                    viewModel.handleAppleLoginResult(result: result)
                 }
             )
             .frame(width: 280, height: 60)
