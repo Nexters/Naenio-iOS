@@ -5,7 +5,7 @@
 //  Created by 이영빈 on 2022/08/04.
 //
 
-import Foundation
+import SwiftUI
 import RxSwift
 
 class HomeViewModel: ObservableObject {
@@ -21,9 +21,31 @@ class HomeViewModel: ObservableObject {
     private let serialQueue = SerialDispatchQueueScheduler.init(qos: .userInitiated)
     
     func vote(index: Int, sequence: Int) {
-        print(index, sequence)
         self.posts[index].choices[sequence].isVoted = true
-        print(self.posts[index].choices[sequence].isVoted)
+    }
+    
+    // !!!: postPost가 어색해서 일단은 이렇게 네이밍 해놨는데 요기 개선사항 있으면 알려주십셔
+    func register(post: PostRequest) {
+        status = .loadingSameCategoryPosts
+        
+        registerNewPost(post)
+            .subscribe(on: serialQueue)
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onSuccess: { [weak self] post in
+                    guard let self = self else { return }
+                    
+                    withAnimation {
+                        self.posts.insert(post, at: 0)
+                    }
+                    self.status = .done
+                }, onFailure: { [weak self] error in
+                    guard let self = self else { return }
+                    self.status = .fail(with: error)
+                }, onDisposed: {
+                    print("Disposed requestPosts")
+                })
+            .disposed(by: bag)
     }
     
     // !!!: 테스트용
@@ -37,11 +59,13 @@ class HomeViewModel: ObservableObject {
             .subscribe(
                 onSuccess: { [weak self] newPosts in
                     guard let self = self else { return }
+                    
                     print("Success requestPosts")
                     self.posts = newPosts
                     self.status = .done
                 }, onFailure: { [weak self] error in
                     guard let self = self else { return }
+                    
                     self.status = .fail(with: error)
                 }, onDisposed: {
                     print("Disposed requestPosts")
@@ -81,6 +105,13 @@ class HomeViewModel: ObservableObject {
 
 // !!!: 테스트용
 extension HomeViewModel {
+    private func registerNewPost(_ postRequest: PostRequest) -> Single<Post> {
+        var mockPost = MockPostGenerator.generate(with: postRequest)
+        let observable = Observable.just(mockPost)
+        
+        return observable.asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
+    }
+    
     private func getPost() -> [Post] {
         let posts = [Post]()
         

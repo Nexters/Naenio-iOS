@@ -24,34 +24,38 @@ struct NaenioApp: App {
         if tokenManager.isTokenAvailable {
             userManager.updateProfile()
         }
+        
+        UITextView.appearance().backgroundColor = .clear
     }
     
     var body: some Scene {
         WindowGroup {
-            if isDebug {
-                HomeView()
-                    .onOpenURL { url in
-                        handleUrl(url)
-                    }
-            } else {
-                if tokenManager.accessToken == nil {
-                    LoginView()
-                        .environmentObject(tokenManager)
-                        .environmentObject(userManager)
-                } else if userManager.user == nil,
-                          userManager.status == .fetched {
-                    OnboardingView()
-                        .environmentObject(userManager)
-                } else if tokenManager.accessToken != nil,
-                          userManager.user != nil,
-                          userManager.status == .fetched {
-                    HomeView()
+            NavigationView { // FIXME: Temporary position
+                if isDebug {
+                    MainView()
                         .onOpenURL { url in
-                            // TODO: Add implementation of further handling later
                             handleUrl(url)
                         }
                 } else {
-                    ProgressView()
+                    if tokenManager.accessToken == nil {
+                        LoginView()
+                            .environmentObject(tokenManager)
+                            .environmentObject(userManager)
+                    } else if userManager.user == nil,
+                              userManager.status == .fetched {
+                        OnboardingView()
+                            .environmentObject(userManager)
+                    } else if tokenManager.accessToken != nil,
+                              userManager.user != nil,
+                              userManager.status == .fetched {
+                        MainView()
+                            .onOpenURL { url in
+                                // TODO: Add implementation of further handling later
+                                handleUrl(url)
+                            }
+                    } else {
+                        ProgressView()
+                    }
                 }
             }
         }

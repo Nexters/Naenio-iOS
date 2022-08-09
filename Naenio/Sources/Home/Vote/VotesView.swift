@@ -10,7 +10,7 @@ import SwiftUI
 struct VotesView: View {
     @ObservedObject var viewModel: VotesViewModel
     @EnvironmentObject var sourceObject: HomeViewModel
-
+    
     let index: Int
     let choices: [Post.Choice]
     var isOpened: Bool {
@@ -18,18 +18,38 @@ struct VotesView: View {
             .filter { $0.isVoted }
             .isEmpty
     }
+    
+    func percentage(ofSequence sequence: Int, source: [Post.Choice]) -> Double? {
+        let first = source.first
+        let second = source.last
+        
+        guard let first = first, let second = second else {
+            return nil
+        }
+        
+        let numerator = sequence == 0 ? Double(first.voteCount) : Double(second.voteCount)
+        let denominator = Double(first.voteCount + second.voteCount)
+        
+        return (numerator / denominator) * 100
+    }
 
     var body: some View {
         ZStack {
-            // TODO: 추가적인 작업 필요함. 지금은 액션 구현만 되어있는데 정확한 동작은 따로 브랜치 만들어서 작업할 예정
-            // (일단 싱크 위해서 머지만 해놓고)
-            VStack(spacing: 18) { // ???: 어느 미래에 선택지가 2개가 아닌 1개만 들어오는 케이스를 대비할 필요도 있음
-                VoteButton(type: .choiceA, isOpened: self.isOpened, choice: choices[0]) {
-                    sourceObject.vote(index: self.index, sequence: 0)
+            VStack(spacing: 18) {
+                VoteButton(type: .choiceA, isOpened: self.isOpened, choice: choices.first, percent: percentage(ofSequence: 0, source: self.choices)) {
+                    DispatchQueue.main.async {
+//                        withAnimation(.easeInOut(duration: 0.2)) {
+                            sourceObject.vote(index: self.index, sequence: 0)
+//                        }
+                    }
                 }
                 
-                VoteButton(type: .choiceB, isOpened: self.isOpened, choice: choices[1]) {
-                    sourceObject.vote(index: self.index, sequence: 1)
+                VoteButton(type: .choiceB, isOpened: self.isOpened, choice: choices.last, percent: percentage(ofSequence: 1, source: self.choices)) {
+                    DispatchQueue.main.async {
+//                        withAnimation(.easeInOut(duration: 0.2)) {
+                            sourceObject.vote(index: self.index, sequence: 1)
+//                        }
+                    }
                 }
             }
             

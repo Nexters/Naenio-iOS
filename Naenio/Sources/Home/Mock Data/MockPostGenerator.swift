@@ -15,7 +15,7 @@ struct MockPostGenerator {
         case .entire:
             title = "세상에 모든 사람이 날 알아보기 투명 인간 취급 당하기?"
         case .participated:
-            title = "추운 겨울에는 따뜻한 커피와 티를 마셔야지요"
+            title = "추운 겨울에는 따뜻한 커피와 티를 마셔야지요.추운 겨울에는 따뜻한 커피와 티를 마셔야지요.추운 겨울에는 따뜻한 커피와 티를 마셔야지요.추운 겨울에는 따뜻한 커피와 티를 마셔야지요.추운 겨울에는 따뜻한 커피와 티를 마셔야지요.추운 겨울에는 따뜻한 커피와 티를 마셔야지요.추운 겨울에는 따뜻한 커피와 티를 마셔야지요.추운 겨울에는 따뜻한 커피와 티를 마셔야지요.추운 겨울에는 따뜻한 커피와 티를 마셔야지요.추운 겨울에는 따뜻한 커피와 티를 마셔야지요.추운 겨울에는 따뜻한 커피와 티를 마셔야지요."
         case .wrote:
             title = "다람쥐 헌 쳇바퀴에 타고파 다람쥐 헌 쳇바퀴에 타고파"
         }
@@ -31,7 +31,7 @@ struct MockPostGenerator {
             choices: [
                 Post.Choice(id: 0,
                             sequence: 0,
-                            name: "세상 모든 사람이 날 알아보기정말",
+                            name: "세상 모든 사람이 날 알아보기 정말정말정말",
                             isVoted: false,
                             voteCount: 111),
                 Post.Choice(id: 1,
@@ -41,6 +41,31 @@ struct MockPostGenerator {
                             voteCount: 25)
             ],
             commentCount: 111
+        )
+    }
+    
+    static func generate(with request: PostRequest) -> Post {
+        return Post(
+            id: UUID().uuidString.hashValue,
+            author: Post.Author(id: -1,
+                                nickname: "김만두",
+                                profileImageIndex: 0),
+            voteCount: 0,
+            title: request.title,
+            content: request.content,
+            choices: [
+                Post.Choice(id: 0,
+                            sequence: 0,
+                            name: request.choices[0].name,
+                            isVoted: false,
+                            voteCount: 0),
+                Post.Choice(id: 1,
+                            sequence: 1,
+                            name: request.choices[1].name,
+                            isVoted: false,
+                            voteCount: 0)
+            ],
+            commentCount: 0
         )
     }
 }
