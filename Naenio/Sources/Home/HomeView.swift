@@ -77,7 +77,6 @@ struct HomeView: View {
                             }
                         }
                     }
-                    
                 }
                 .fillScreen()
                 
@@ -92,9 +91,7 @@ struct HomeView: View {
             }
             .fullScreenCover(isPresented: $showNewPost) {
                 NewPostView(isPresented: $showNewPost)
-                    .onAppear {
-                        UITextView.appearance().backgroundColor = .clear
-                    }
+                    .environmentObject(viewModel)
             }
             .navigationBarHidden(true)
         }

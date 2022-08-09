@@ -9,13 +9,13 @@ import SwiftUI
 import Combine
 
 struct NewPostView: View {
+    @EnvironmentObject var sourceObject: HomeViewModel
     @Binding var isPresented: Bool
     
     @State var title: String = ""
     @State var choiceA: String = ""
     @State var choiceB: String = ""
     @State var details: String = ""
-    
     
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
@@ -36,7 +36,14 @@ struct NewPostView: View {
                 
                 Spacer()
                 
-                Button(action: { isPresented = false }) {
+                Button(action: {
+                    let postRequest = makePostRequest(title: self.title,
+                                                      details: self.details,
+                                                      choiceA: self.choiceA,
+                                                      choiceB: self.choiceB)
+                    sourceObject.register(post: postRequest)
+                    isPresented = false
+                }) {
                     Text("등록")
                         .font(.semoBold(size: 18))
                         .foregroundColor(title.isEmpty || choiceA.isEmpty || choiceB.isEmpty ? .mono : .naenioPink)
@@ -89,6 +96,14 @@ struct NewPostView: View {
         .padding(.horizontal, 24)
         .fillScreen()
         .background(Color.background.ignoresSafeArea())
+    }
+    
+    func makePostRequest(title: String, details: String, choiceA: String, choiceB: String) -> PostRequest {
+        let wrappedA = PostRequest.Choice(name: choiceA)
+        let wrappedB = PostRequest.Choice(name: choiceA)
+        let post = PostRequest(title: title, content: details, categoryID: 0, choices: [wrappedA, wrappedB])
+        
+        return post
     }
     
     init(isPresented: Binding<Bool>) {

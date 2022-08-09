@@ -43,4 +43,29 @@ struct MockPostGenerator {
             commentCount: 111
         )
     }
+    
+    static func generate(with request: PostRequest) -> Post {
+        return Post(
+            id: UUID().uuidString.hashValue,
+            author: Post.Author(id: -1,
+                                nickname: "김만두",
+                                profileImageIndex: 0),
+            voteCount: 0,
+            title: request.title,
+            content: request.content,
+            choices: [
+                Post.Choice(id: 0,
+                            sequence: 0,
+                            name: request.choices[0].name,
+                            isVoted: false,
+                            voteCount: 0),
+                Post.Choice(id: 1,
+                            sequence: 1,
+                            name: request.choices[1].name,
+                            isVoted: false,
+                            voteCount: 0)
+            ],
+            commentCount: 0
+        )
+    }
 }
