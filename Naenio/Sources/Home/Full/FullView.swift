@@ -11,7 +11,7 @@ struct FullView: View {
     @EnvironmentObject var sourceObject: HomeViewModel
     @ObservedObject var viewModel: FullViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
+        
     let index: Int
     let post: Post
 
