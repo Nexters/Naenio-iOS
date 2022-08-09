@@ -45,7 +45,7 @@ struct NewPostView: View {
             }
             .padding(.bottom, 32)
             
-            // 투표 주제
+            // MARK: - 투표 주제
             Text("*투표 주제")
                 .foregroundColor(.white)
                 .font(.medium(size: 16))
@@ -54,20 +54,29 @@ struct NewPostView: View {
                 .frame(height: 108)
                 .padding(.bottom, 20)
             
-            // 투표 선택지
+            // MARK: -  투표 선택지
             Text("*투표 선택지")
                 .foregroundColor(.white)
                 .font(.medium(size: 16))
             
-            TextView(placeholder: "A의 선택지를 입력해 주세요", content: $choiceA, characterLimit: 32)
-                .frame(height: 70)
-                .padding(.bottom, 16)
-            
-            TextView(placeholder: "B의 선택지를 입력해 주세요", content: $choiceB, characterLimit: 32)
-                .frame(height: 70)
-                .padding(.bottom, 20)
+            ZStack(alignment: .center) {
+                Image("vsIcon")
+                    .resizable()
+                    .frame(width: 36, height: 36)
+                    .scaledToFit()
+                    .zIndex(1)
+                
+                VStack(spacing: 20) {
+                    TextView(placeholder: "A의 선택지를 입력해 주세요", content: $choiceA, characterLimit: 32)
+                        .frame(height: 70)
+                    
+                    TextView(placeholder: "B의 선택지를 입력해 주세요", content: $choiceB, characterLimit: 32)
+                        .frame(height: 70)
+                }
+            }
+            .padding(.bottom, 20)
 
-            // 내용
+            // MARK: -  내용
             Text("내용")
                 .foregroundColor(.white)
                 .font(.medium(size: 16))
