@@ -13,7 +13,6 @@ struct TabBarView: View {
     init(pages: Binding<[TabBarPage]>) {
         UITabBar.appearance().backgroundColor = UIColor(Color.background)
         UITabBar.appearance().layer.cornerRadius = 24
-        
         self._pages = pages
     }
     
@@ -23,7 +22,7 @@ struct TabBarView: View {
                 TabContentView(pageName: item.pageName)
                     .tabItem {
                         Image(self.selectedTab == item.tag ? item.selectedIcon : item.deselectedIcon)
-                           
+                        Text("")
                     }
                     .tag(item.tag)
             }
