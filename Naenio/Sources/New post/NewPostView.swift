@@ -72,7 +72,7 @@ struct NewPostView: View {
                 .foregroundColor(.white)
                 .font(.medium(size: 16))
             
-            TextView(placeholder: "무슨 주제를 담아볼까요?", content: $details, characterLimit: 100)
+            TextView(placeholder: "어떤 내용을 추가로 담을까요?", content: $details, characterLimit: 100)
                 .frame(height: 108)
 
             Spacer()

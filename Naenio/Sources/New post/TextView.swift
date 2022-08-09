@@ -14,7 +14,7 @@ struct TextView: View {
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            Text(content == "" ? "무슨 주제를 담아볼까요?" : "")
+            Text(content == "" ? placeholder : "")
                 .font(.medium(size: 16))
                 .foregroundColor(.mono)
                 .padding(16)
