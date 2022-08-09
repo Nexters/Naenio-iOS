@@ -600,7 +600,8 @@
 			isa = PBXGroup;
 			children = (
 				9C95B993289A651600E0910C /* View + Extensions.swift */,
-				9C95B9A1289A8DDE00E0910C /* VoteButton.swift */,
+				9CAA174328A24FDB00EAAE40 /* Buttons */,
+				9CAA174228A24FC700EAAE40 /* TextView */,
 				9C95B998289A678F00E0910C /* ButtonStyles */,
 				9C95B997289A672E00E0910C /* ViewModifiers */,
 			);
@@ -628,10 +629,25 @@
 			isa = PBXGroup;
 			children = (
 				9CA6DA8628A21CD10060610F /* NewPostView.swift */,
+			);
+			path = "New post";
+			sourceTree = "<group>";
+		};
+		9CAA174228A24FC700EAAE40 /* TextView */ = {
+			isa = PBXGroup;
+			children = (
 				9CAA173F28A2468600EAAE40 /* TextView.swift */,
 				9C90C1AA28A227AE00197B32 /* RepresentedUITextView.swift */,
 			);
-			path = "New post";
+			path = TextView;
+			sourceTree = "<group>";
+		};
+		9CAA174328A24FDB00EAAE40 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				9C95B9A1289A8DDE00E0910C /* VoteButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		9CCA227D289B9E9400A2F9B0 /* Posts */ = {
