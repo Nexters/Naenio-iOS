@@ -5,7 +5,6 @@
 //  Created by 조윤영 on 2022/08/07.
 //
 import SwiftUI
-import KakaoSDKCommon
 
 struct TabBarView: View {
     @State var selectedTab = 1
