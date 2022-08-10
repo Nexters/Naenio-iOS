@@ -41,14 +41,14 @@ struct CardView: View {
                 Text("\(post.title)")
                     .lineLimit(2)
                     .lineSpacing(7)
-                    .font(.semoBold(size: 22))
+                    .font(.semoBold(size: 20))
                     .foregroundColor(.white)
                     .padding(.bottom, 10)
                 
                 Text("\(post.content)")
                     .lineLimit(2)
                     .lineSpacing(5)
-                    .font(.medium(size: 16))
+                    .font(.medium(size: 14))
                     .foregroundColor(.naenioGray)
                     .padding(.bottom, 18)
                 
