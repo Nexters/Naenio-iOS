@@ -81,13 +81,18 @@ struct HomeView: View {
                             scrollView.refreshControl = control
                             scrollView.delegate = scrollViewHelper
                         }
-                        .onChange(of: viewModel.category) { _ in
-                            viewModel.posts.removeAll()
-                            proxy.scrollTo(topID)
-                            viewModel.requestPosts()
-                        }
                         .onChange(of: viewModel.posts) { _ in
                             scrollViewHelper.refreshController.endRefreshing()
+                        }
+                        .onChange(of: viewModel.category) { _ in
+                            viewModel.posts.removeAll()
+                            viewModel.requestPosts()
+                            DispatchQueue.main.async {
+                                withAnimation(.linear(duration: 0.1)) {
+                                    scrollViewHelper.scrollDirection = .downward
+                                }
+                            }
+                            
                         }
                     }
                 }
