@@ -72,6 +72,7 @@
 		9C68A29D28990015006D36B1 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C68A29C28990015006D36B1 /* TokenManager.swift */; };
 		9C8B5E0A289CEF000029BB66 /* MockPostGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8B5E09289CEF000029BB66 /* MockPostGenerator.swift */; };
 		9C8D603928A373FD00632BCC /* Navigation + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D603828A373FD00632BCC /* Navigation + Extension.swift */; };
+		9C8D603B28A3746500632BCC /* UIApplication + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D603A28A3746500632BCC /* UIApplication + Extension.swift */; };
 		9C90C1AB28A227AE00197B32 /* RepresentedUITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C90C1AA28A227AE00197B32 /* RepresentedUITextView.swift */; };
 		9C95B98A289A359700E0910C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B989289A359700E0910C /* OnboardingView.swift */; };
 		9C95B98D289A3AAB00E0910C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B98C289A3AAB00E0910C /* HomeView.swift */; };
@@ -184,6 +185,7 @@
 		9C68A29C28990015006D36B1 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		9C8B5E09289CEF000029BB66 /* MockPostGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPostGenerator.swift; sourceTree = "<group>"; };
 		9C8D603828A373FD00632BCC /* Navigation + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation + Extension.swift"; sourceTree = "<group>"; };
+		9C8D603A28A3746500632BCC /* UIApplication + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication + Extension.swift"; sourceTree = "<group>"; };
 		9C90C1AA28A227AE00197B32 /* RepresentedUITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepresentedUITextView.swift; sourceTree = "<group>"; };
 		9C95B989289A359700E0910C /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9C95B98C289A3AAB00E0910C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				4C43C8C32886FB8200A60372 /* String+Extension.swift */,
 				9B24406F289E8DC30060A244 /* View + Exetension.swift */,
 				9C8D603828A373FD00632BCC /* Navigation + Extension.swift */,
+				9C8D603A28A3746500632BCC /* UIApplication + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1030,6 +1033,7 @@
 				9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */,
 				9C95B98A289A359700E0910C /* OnboardingView.swift in Sources */,
 				9C2D07C32897DA6F008BBD75 /* ProfileImages.swift in Sources */,
+				9C8D603B28A3746500632BCC /* UIApplication + Extension.swift in Sources */,
 				9B244075289E9AF10060A244 /* VotesViewModel.swift in Sources */,
 				4C4B133D2883C5EB006044B0 /* NaenioAPI+Wrapper.swift in Sources */,
 				9C95B99E289A8BCB00E0910C /* CardViewModel.swift in Sources */,
