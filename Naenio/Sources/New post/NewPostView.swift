@@ -93,6 +93,10 @@ struct NewPostView: View {
 
             Spacer()
         }
+        .onTapGesture {
+            // Take focus out of text view when tapped
+            UIApplication.shared.endEditing()
+        }
         .padding(.horizontal, 24)
         .fillScreen()
         .background(Color.background.ignoresSafeArea())
