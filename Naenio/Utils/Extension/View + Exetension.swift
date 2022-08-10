@@ -7,13 +7,12 @@
 
 import SwiftUI
 
-extension UINavigationController: UIGestureRecognizerDelegate {
-    override open func viewDidLoad() {
-        super.viewDidLoad()
-        interactivePopGestureRecognizer?.delegate = self
+extension View {
+    func fillScreen() -> some View {
+        return self.modifier(FillScreen())
     }
-
-    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return viewControllers.count > 1
+    
+    func fillHorizontal() -> some View {
+        return self.modifier(FillHorizontal())
     }
 }
