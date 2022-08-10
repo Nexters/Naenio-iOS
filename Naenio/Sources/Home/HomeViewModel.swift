@@ -12,7 +12,6 @@ class HomeViewModel: ObservableObject {
     // Published vars
     @Published var category: Category = .entire // ???: 마지막 선택 저장하는 것도 낫 배드 - using @SceneStorage
     @Published var posts: [Post]
-    @Published var currentPage: Int = 0
     @Published var status: Status = .waiting
     
     // vars and lets
