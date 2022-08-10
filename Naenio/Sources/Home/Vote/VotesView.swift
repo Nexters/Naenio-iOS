@@ -30,7 +30,11 @@ struct VotesView: View {
         let numerator = sequence == 0 ? Double(first.voteCount) : Double(second.voteCount)
         let denominator = Double(first.voteCount + second.voteCount)
         
-        return (numerator / denominator) * 100
+        if denominator == 0 {
+            return 0
+        } else {
+            return (numerator / denominator) * 100
+        }
     }
 
     var body: some View {
