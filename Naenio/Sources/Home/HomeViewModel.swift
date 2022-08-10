@@ -19,8 +19,29 @@ class HomeViewModel: ObservableObject {
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler.init(qos: .userInitiated)
     
-    func vote(index: Int, sequence: Int) {
-        self.posts[index].choices[sequence].isVoted = true
+    func vote(index: Int, sequence: Int) {  // TODO: sequence에 조금 더 견고한 제한이 필요할 듯(Int 말고 enum 같은 걸로)
+        var post = self.posts[index]
+        var choice = post.choices[sequence]
+        var otherChoice = post.choices[sequence == 0 ? 1 : 0]
+        
+        if choice.isVoted {
+            return
+        } else {
+            choice.isVoted = true
+            choice.voteCount += 1
+            
+            if otherChoice.isVoted {
+                otherChoice.isVoted = false
+                otherChoice.voteCount -= 1
+            } else { // voted first time
+                post.voteCount += 1
+            }
+        }
+        
+        post.choices[sequence == 0 ? 0 : 1] = choice
+        post.choices[sequence == 0 ? 1 : 0] = otherChoice
+        
+        self.posts[index] = post
     }
     
     // !!!: postPost가 어색해서 일단은 이렇게 네이밍 해놨는데 요기 개선사항 있으면 알려주십셔
