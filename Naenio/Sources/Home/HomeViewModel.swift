@@ -69,7 +69,7 @@ class HomeViewModel: ObservableObject {
     }
     
     // !!!: 테스트용
-    func requestPosts() {
+    @objc func requestPosts() {
         bag = DisposeBag() // Cancel running tasks by initializing the bag
         status = .loadingDifferentCategoryPosts
                 

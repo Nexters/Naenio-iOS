@@ -73,7 +73,8 @@
 		9C8B5E0A289CEF000029BB66 /* MockPostGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8B5E09289CEF000029BB66 /* MockPostGenerator.swift */; };
 		9C8D603928A373FD00632BCC /* Navigation + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D603828A373FD00632BCC /* Navigation + Extension.swift */; };
 		9C8D603B28A3746500632BCC /* UIApplication + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D603A28A3746500632BCC /* UIApplication + Extension.swift */; };
-		9C90C1AB28A227AE00197B32 /* RepresentedUITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C90C1AA28A227AE00197B32 /* RepresentedUITextView.swift */; };
+		9C8D604E28A3CAE000632BCC /* ScrollViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D604D28A3CAE000632BCC /* ScrollViewHelper.swift */; };
+		9C90C1AB28A227AE00197B32 /* UITextViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C90C1AA28A227AE00197B32 /* UITextViewRepresentable.swift */; };
 		9C95B98A289A359700E0910C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B989289A359700E0910C /* OnboardingView.swift */; };
 		9C95B98D289A3AAB00E0910C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B98C289A3AAB00E0910C /* HomeView.swift */; };
 		9C95B991289A4AC100E0910C /* UserManager + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B990289A4AC100E0910C /* UserManager + Extension.swift */; };
@@ -186,7 +187,8 @@
 		9C8B5E09289CEF000029BB66 /* MockPostGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPostGenerator.swift; sourceTree = "<group>"; };
 		9C8D603828A373FD00632BCC /* Navigation + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation + Extension.swift"; sourceTree = "<group>"; };
 		9C8D603A28A3746500632BCC /* UIApplication + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication + Extension.swift"; sourceTree = "<group>"; };
-		9C90C1AA28A227AE00197B32 /* RepresentedUITextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepresentedUITextView.swift; sourceTree = "<group>"; };
+		9C8D604D28A3CAE000632BCC /* ScrollViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewHelper.swift; sourceTree = "<group>"; };
+		9C90C1AA28A227AE00197B32 /* UITextViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewRepresentable.swift; sourceTree = "<group>"; };
 		9C95B989289A359700E0910C /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		9C95B98C289A3AAB00E0910C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9C95B990289A4AC100E0910C /* UserManager + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserManager + Extension.swift"; sourceTree = "<group>"; };
@@ -620,6 +622,31 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		9C8D603C28A38AD900632BCC /* UIViewRepresentables */ = {
+			isa = PBXGroup;
+			children = (
+				9C8D603D28A38AF700632BCC /* TextVIew */,
+			);
+			path = UIViewRepresentables;
+			sourceTree = "<group>";
+		};
+		9C8D603D28A38AF700632BCC /* TextVIew */ = {
+			isa = PBXGroup;
+			children = (
+				9CAA173F28A2468600EAAE40 /* TextView.swift */,
+				9C90C1AA28A227AE00197B32 /* UITextViewRepresentable.swift */,
+			);
+			path = TextVIew;
+			sourceTree = "<group>";
+		};
+		9C8D604728A3BA3C00632BCC /* Scroll */ = {
+			isa = PBXGroup;
+			children = (
+				9C8D604D28A3CAE000632BCC /* ScrollViewHelper.swift */,
+			);
+			path = Scroll;
+			sourceTree = "<group>";
+		};
 		9C95B988289A358B00E0910C /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -644,8 +671,9 @@
 		9C95B992289A650100E0910C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9C8D604728A3BA3C00632BCC /* Scroll */,
+				9C8D603C28A38AD900632BCC /* UIViewRepresentables */,
 				9CAA174328A24FDB00EAAE40 /* Buttons */,
-				9CAA174228A24FC700EAAE40 /* TextView */,
 				9C95B998289A678F00E0910C /* ButtonStyles */,
 				9C95B997289A672E00E0910C /* ViewModifiers */,
 			);
@@ -675,15 +703,6 @@
 				9CA6DA8628A21CD10060610F /* NewPostView.swift */,
 			);
 			path = "New post";
-			sourceTree = "<group>";
-		};
-		9CAA174228A24FC700EAAE40 /* TextView */ = {
-			isa = PBXGroup;
-			children = (
-				9CAA173F28A2468600EAAE40 /* TextView.swift */,
-				9C90C1AA28A227AE00197B32 /* RepresentedUITextView.swift */,
-			);
-			path = TextView;
 			sourceTree = "<group>";
 		};
 		9CAA174328A24FDB00EAAE40 /* Buttons */ = {
@@ -759,6 +778,8 @@
 			dependencies = (
 			);
 			name = Naenio;
+			packageProductDependencies = (
+			);
 			productName = Naenio;
 			productReference = 9B085EFF2879991400DE8E60 /* Naenio.app */;
 			productType = "com.apple.product-type.application";
@@ -834,6 +855,8 @@
 				Base,
 			);
 			mainGroup = 9B085EF62879991400DE8E60;
+			packageReferences = (
+			);
 			productRefGroup = 9B085F002879991400DE8E60 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1037,6 +1060,7 @@
 				9B244075289E9AF10060A244 /* VotesViewModel.swift in Sources */,
 				4C4B133D2883C5EB006044B0 /* NaenioAPI+Wrapper.swift in Sources */,
 				9C95B99E289A8BCB00E0910C /* CardViewModel.swift in Sources */,
+				9C8D604E28A3CAE000632BCC /* ScrollViewHelper.swift in Sources */,
 				4C4B13432883D88A006044B0 /* HttpResponseCode.swift in Sources */,
 				9C68A29D28990015006D36B1 /* TokenManager.swift in Sources */,
 				9B244070289E8DC30060A244 /* View + Exetension.swift in Sources */,
@@ -1045,7 +1069,7 @@
 				4C43C8C42886FB8200A60372 /* String+Extension.swift in Sources */,
 				9C3309CF2888ED08000C592F /* SignInWithKakaoButton.swift in Sources */,
 				9C95B99C289A885900E0910C /* CardView.swift in Sources */,
-				9C90C1AB28A227AE00197B32 /* RepresentedUITextView.swift in Sources */,
+				9C90C1AB28A227AE00197B32 /* UITextViewRepresentable.swift in Sources */,
 				9C2D07B92897C728008BBD75 /* UserManager.swift in Sources */,
 				9C10439D289B747200A45711 /* HomeViewModel.swift in Sources */,
 				9CAA174028A2468600EAAE40 /* TextView.swift in Sources */,
