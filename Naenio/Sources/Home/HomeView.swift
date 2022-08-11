@@ -11,8 +11,6 @@ import Introspect
 struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
     @ObservedObject var scrollViewHelper = ScrollViewHelper()
-    
-    @Namespace var topID
 
     @State var showNewPost = false
     
@@ -51,7 +49,7 @@ struct HomeView: View {
                                         )
                                         .padding(.horizontal, 20)
                                         .onAppear {
-                                            if index == viewModel.posts.count - 5 {
+                                            if index == viewModel.posts.count - 5 { // FIXME: Possible error
                                                 // 무한 스크롤을 위해 끝에서 5번째에서 로딩 -> 개수는 추후 협의
 #if DEBUG
                                                 print("Loaded")
