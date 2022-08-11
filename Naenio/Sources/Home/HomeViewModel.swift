@@ -45,7 +45,7 @@ class HomeViewModel: ObservableObject {
     }
     
     // !!!: postPost가 어색해서 일단은 이렇게 네이밍 해놨는데 요기 개선사항 있으면 알려주십셔
-    func register(post: PostRequest) {
+    func register(post: PostRequestInformation) {
         status = .loadingSameCategoryPosts
         
         registerNewPost(post)
@@ -125,7 +125,7 @@ class HomeViewModel: ObservableObject {
 
 // !!!: 테스트용
 extension HomeViewModel {
-    private func registerNewPost(_ postRequest: PostRequest) -> Single<Post> {
+    private func registerNewPost(_ postRequest: PostRequestInformation) -> Single<Post> {
         let mockPost = MockPostGenerator.generate(with: postRequest)
         let observable = Observable.just(mockPost)
         

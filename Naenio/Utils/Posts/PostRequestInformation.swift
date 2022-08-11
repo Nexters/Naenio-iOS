@@ -7,13 +7,11 @@
 
 import Foundation
 
-// MARK: - Post
-struct PostRequest: Encodable {
+struct PostRequestInformation: Encodable {
     let title, content: String
     let categoryID: Int
     let choices: [Choice]
     
-    // MARK: - Choice
     struct Choice: Codable {
         let name: String
     }
