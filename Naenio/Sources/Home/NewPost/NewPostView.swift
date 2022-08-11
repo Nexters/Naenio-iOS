@@ -19,36 +19,12 @@ struct NewPostView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            HStack {
-                Button(action: { isPresented = false }) {
-                    Image(systemName: "xmark")
-                        .resizable()
-                        .frame(width: 18, height: 18)
-                        .scaledToFit()
-                        .foregroundColor(.white)
-                }
-                
-                Spacer()
-                
+            ZStack(alignment: .center) {
+                closeAndRegisterButtons
+
                 Text("New Post")
                     .font(.engBold(size: 18))
                     .foregroundColor(.white)
-                
-                Spacer()
-                
-                Button(action: {
-                    let postRequest = makePostRequest(title: self.title,
-                                                      details: self.details,
-                                                      choiceA: self.choiceA,
-                                                      choiceB: self.choiceB)
-                    sourceObject.register(post: postRequest)
-                    isPresented = false
-                }) {
-                    Text("등록")
-                        .font(.semoBold(size: 18))
-                        .foregroundColor(title.isEmpty || choiceA.isEmpty || choiceB.isEmpty ? .mono : .naenioPink)
-                }
-                .disabled(title.isEmpty || choiceA.isEmpty || choiceB.isEmpty)
             }
             .padding(.bottom, 32)
             
@@ -56,12 +32,13 @@ struct NewPostView: View {
             Text("*투표 주제")
                 .foregroundColor(.white)
                 .font(.medium(size: 16))
+                .id(1)
             
             TextView(placeholder: "무슨 주제를 담아볼까요?", content: $title, characterLimit: 72)
                 .frame(height: 108)
                 .padding(.bottom, 20)
             
-            // MARK: -  투표 선택지
+            // MARK: - 투표 선택지
             Text("*투표 선택지")
                 .foregroundColor(.white)
                 .font(.medium(size: 16))
@@ -82,24 +59,25 @@ struct NewPostView: View {
                 }
             }
             .padding(.bottom, 20)
-
-            //MARK: -  내용
+            
+            // MARK: - 내용
             Text("내용")
                 .foregroundColor(.white)
                 .font(.medium(size: 16))
             
             TextView(placeholder: "어떤 내용을 추가로 담을까요?", content: $details, characterLimit: 100)
                 .frame(height: 108)
-
-            Spacer()
+                .padding(.bottom, 200)
         }
+        .keyboardAdaptive()
+        .padding(.top, 24)
+        .padding(.horizontal, 24)
+        .fillScreen()
+        .background(Color.background.ignoresSafeArea())
         .onTapGesture {
             // Take focus out of text view when tapped
             UIApplication.shared.endEditing()
         }
-        .padding(.horizontal, 24)
-        .fillScreen()
-        .background(Color.background.ignoresSafeArea())
     }
     
     func makePostRequest(title: String, details: String, choiceA: String, choiceB: String) -> PostRequestInformation {
@@ -113,6 +91,36 @@ struct NewPostView: View {
     init(isPresented: Binding<Bool>) {
         UITextView.appearance().backgroundColor = .clear
         self._isPresented = isPresented
+    }
+}
+
+extension NewPostView {
+    var closeAndRegisterButtons: some View {
+        HStack {
+            Button(action: { isPresented = false }) {
+                Image(systemName: "xmark")
+                    .resizable()
+                    .frame(width: 16, height: 16)
+                    .scaledToFit()
+                    .foregroundColor(.white)
+            }
+            
+            Spacer()
+            
+            Button(action: {
+                let postRequest = makePostRequest(title: self.title,
+                                                  details: self.details,
+                                                  choiceA: self.choiceA,
+                                                  choiceB: self.choiceB)
+                sourceObject.register(post: postRequest)
+                isPresented = false
+            }) {
+                Text("등록")
+                    .font(.semoBold(size: 18))
+                    .foregroundColor(title.isEmpty || choiceA.isEmpty || choiceB.isEmpty ? .mono : .naenioPink)
+            }
+            .disabled(title.isEmpty || choiceA.isEmpty || choiceB.isEmpty)
+        }
     }
 }
 

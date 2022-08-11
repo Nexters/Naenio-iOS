@@ -29,6 +29,10 @@
 		4CC4B7392896BF1C00774192 /* CurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4B7382896BF1C00774192 /* CurationView.swift */; };
 		4CC4B73B2896BF2500774192 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4B73A2896BF2500774192 /* MyPageView.swift */; };
 		92D901F16488AB4A41D32F75 /* Pods_Naenio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B546567C3E3421F07641077D /* Pods_Naenio.framework */; };
+		9B03732428A5551B0089CC48 /* KeyboardAdaptive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732328A5551B0089CC48 /* KeyboardAdaptive.swift */; };
+		9B03732728A555800089CC48 /* Publishers + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732628A555800089CC48 /* Publishers + Extension.swift */; };
+		9B03732B28A555D60089CC48 /* Notification + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732A28A555D60089CC48 /* Notification + Extension.swift */; };
+		9B03732D28A556020089CC48 /* UIResponder + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732C28A556020089CC48 /* UIResponder + Extension.swift */; };
 		9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F022879991400DE8E60 /* NaenioApp.swift */; };
 		9B085F072879991600DE8E60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B085F062879991600DE8E60 /* Assets.xcassets */; };
 		9B085F0A2879991600DE8E60 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B085F092879991600DE8E60 /* Preview Assets.xcassets */; };
@@ -139,6 +143,10 @@
 		4CC4B73A2896BF2500774192 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		8D95CCC0C2681997F36E4AFB /* Pods-Naenio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio.debug.xcconfig"; path = "Target Support Files/Pods-Naenio/Pods-Naenio.debug.xcconfig"; sourceTree = "<group>"; };
 		9B03732128A2B4280089CC48 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../../ignored/Info.plist; sourceTree = "<group>"; };
+		9B03732328A5551B0089CC48 /* KeyboardAdaptive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAdaptive.swift; sourceTree = "<group>"; };
+		9B03732628A555800089CC48 /* Publishers + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers + Extension.swift"; sourceTree = "<group>"; };
+		9B03732A28A555D60089CC48 /* Notification + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification + Extension.swift"; sourceTree = "<group>"; };
+		9B03732C28A556020089CC48 /* UIResponder + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder + Extension.swift"; sourceTree = "<group>"; };
 		9B085EFF2879991400DE8E60 /* Naenio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Naenio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B085F022879991400DE8E60 /* NaenioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioApp.swift; sourceTree = "<group>"; };
 		9B085F062879991600DE8E60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -350,6 +358,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9B03732928A555B80089CC48 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				9B03732628A555800089CC48 /* Publishers + Extension.swift */,
+				9B03732A28A555D60089CC48 /* Notification + Extension.swift */,
+				9B03732C28A556020089CC48 /* UIResponder + Extension.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
 		9B085EF62879991400DE8E60 = {
 			isa = PBXGroup;
 			children = (
@@ -430,6 +448,7 @@
 		9B085F2D287E353600DE8E60 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9B03732928A555B80089CC48 /* System */,
 				9C95B992289A650100E0910C /* Views */,
 				9BD6DE9C2895536E00051C3E /* Colors */,
 				9BE6029428954678008F291C /* Fonts */,
@@ -685,6 +704,7 @@
 			children = (
 				9C95B995289A672800E0910C /* FillScreen.swift */,
 				9C95B9A4289A937100E0910C /* FillHorizontal.swift */,
+				9B03732328A5551B0089CC48 /* KeyboardAdaptive.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -1050,9 +1070,12 @@
 				4C4B13342883AAE0006044B0 /* NaenioAPI+Task.swift in Sources */,
 				9C2D07B72897C683008BBD75 /* User.swift in Sources */,
 				9C95B98D289A3AAB00E0910C /* HomeView.swift in Sources */,
+				9B03732428A5551B0089CC48 /* KeyboardAdaptive.swift in Sources */,
 				9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */,
+				9B03732D28A556020089CC48 /* UIResponder + Extension.swift in Sources */,
 				9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */,
 				9BE60293289541B6008F291C /* Color + Extension.swift in Sources */,
+				9B03732B28A555D60089CC48 /* Notification + Extension.swift in Sources */,
 				9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */,
 				9C95B98A289A359700E0910C /* OnboardingView.swift in Sources */,
 				9C2D07C32897DA6F008BBD75 /* ProfileImages.swift in Sources */,
@@ -1069,6 +1092,7 @@
 				4C43C8C42886FB8200A60372 /* String+Extension.swift in Sources */,
 				9C3309CF2888ED08000C592F /* SignInWithKakaoButton.swift in Sources */,
 				9C95B99C289A885900E0910C /* CardView.swift in Sources */,
+				9B03732728A555800089CC48 /* Publishers + Extension.swift in Sources */,
 				9C90C1AB28A227AE00197B32 /* UITextViewRepresentable.swift in Sources */,
 				9C2D07B92897C728008BBD75 /* UserManager.swift in Sources */,
 				9C10439D289B747200A45711 /* HomeViewModel.swift in Sources */,
