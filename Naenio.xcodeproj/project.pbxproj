@@ -420,7 +420,7 @@
 		9B085F2C287E352A00DE8E60 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				9CA6DA8528A21CBA0060610F /* New post */,
+				9CA6DA8528A21CBA0060610F /* NewPost */,
 				9C95B98B289A3A9F00E0910C /* Home */,
 				9C95B988289A358B00E0910C /* Onboarding */,
 				4CC4B7322896BDD500774192 /* Main */,
@@ -697,12 +697,12 @@
 			path = ButtonStyles;
 			sourceTree = "<group>";
 		};
-		9CA6DA8528A21CBA0060610F /* New post */ = {
+		9CA6DA8528A21CBA0060610F /* NewPost */ = {
 			isa = PBXGroup;
 			children = (
 				9CA6DA8628A21CD10060610F /* NewPostView.swift */,
 			);
-			path = "New post";
+			path = NewPost;
 			sourceTree = "<group>";
 		};
 		9CAA174328A24FDB00EAAE40 /* Buttons */ = {

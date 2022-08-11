@@ -83,7 +83,7 @@ struct NewPostView: View {
             }
             .padding(.bottom, 20)
 
-            // MARK: -  내용
+            //MARK: -  내용
             Text("내용")
                 .foregroundColor(.white)
                 .font(.medium(size: 16))

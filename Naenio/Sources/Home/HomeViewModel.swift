@@ -126,7 +126,7 @@ class HomeViewModel: ObservableObject {
 // !!!: 테스트용
 extension HomeViewModel {
     private func registerNewPost(_ postRequest: PostRequest) -> Single<Post> {
-        var mockPost = MockPostGenerator.generate(with: postRequest)
+        let mockPost = MockPostGenerator.generate(with: postRequest)
         let observable = Observable.just(mockPost)
         
         return observable.asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)

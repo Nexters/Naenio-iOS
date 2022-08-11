@@ -24,4 +24,3 @@ struct PostRequest: Encodable {
         case choices
     }
 }
-
