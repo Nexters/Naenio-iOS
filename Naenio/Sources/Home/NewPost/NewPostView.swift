@@ -102,10 +102,10 @@ struct NewPostView: View {
         .background(Color.background.ignoresSafeArea())
     }
     
-    func makePostRequest(title: String, details: String, choiceA: String, choiceB: String) -> PostRequest {
-        let wrappedA = PostRequest.Choice(name: choiceA)
-        let wrappedB = PostRequest.Choice(name: choiceA)
-        let post = PostRequest(title: title, content: details, categoryID: 0, choices: [wrappedA, wrappedB])
+    func makePostRequest(title: String, details: String, choiceA: String, choiceB: String) -> PostRequestInformation {
+        let wrappedA = PostRequestInformation.Choice(name: choiceA)
+        let wrappedB = PostRequestInformation.Choice(name: choiceA)
+        let post = PostRequestInformation(title: title, content: details, categoryID: 0, choices: [wrappedA, wrappedB])
         
         return post
     }
