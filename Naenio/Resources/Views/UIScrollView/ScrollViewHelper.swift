@@ -7,11 +7,14 @@
 
 import SwiftUI
 
+/// UIKit의 UIScrollView 기능을 사용할 수 있게 만들어주는 helper 클래스입니다
+///
+/// 내부에서 `UIScrollViewDelegate`를 채택해 scroll view에 대한 정보를 클래스 내부에 업데이트합니다.
+/// `ObservableObject`를 채택해 업데이트 된 변수에 대한 정보를 받아옵니다.
 class ScrollViewHelper: NSObject, ObservableObject {
     @Published var scrollDirection: ScrollDirection = .downward
     
-    var lastScrollPosition: CGFloat = 0    
-    var refreshController = UIRefreshControl()
+    let refreshController = UIRefreshControl()
     
     enum ScrollDirection {
         case upward
@@ -20,10 +23,6 @@ class ScrollViewHelper: NSObject, ObservableObject {
 }
 
 extension ScrollViewHelper: UIScrollViewDelegate {
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        lastScrollPosition = scrollView.contentOffset.y
-    }
-
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.panGestureRecognizer.translation(in: scrollView).y < 0 {
             DispatchQueue.main.async {
