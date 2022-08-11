@@ -44,6 +44,14 @@ struct VoteButton: View {
                 alignment: .leading)
             .background(Color.black)
             .mask(RoundedRectangle(cornerRadius: 16))
+            .overlay(
+                RoundedRectangle(cornerRadius: 16)
+                    .stroke(Color.angularGradient,
+                            style: StrokeStyle(lineWidth: choice?.isVoted == true ? 1 : 0,
+                                               lineCap: .round,
+                                               lineJoin: .round)
+                           )
+            )
         }
     }
 }

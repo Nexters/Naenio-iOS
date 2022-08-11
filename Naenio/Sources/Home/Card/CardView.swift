@@ -22,6 +22,7 @@ struct CardView: View {
                     
                     Spacer()
                     
+                    // 신고/공유
                     Button(action: {}) {
                         Image(systemName: "ellipsis")
                             .resizable()
@@ -33,21 +34,24 @@ struct CardView: View {
                 }
                 .padding(.bottom, 24)
                 
+                
                 Text("🗳 \(post.voteCount)명 투표")
                     .font(.medium(size: 14))
                     .foregroundColor(.white)
+                    .padding(.vertical, 4)
                     .padding(.bottom, 8)
                 
                 Text("\(post.title)")
                     .lineLimit(2)
-                    .lineSpacing(7)
+                    .lineSpacing(4)
                     .font(.semoBold(size: 20))
                     .foregroundColor(.white)
+                    .padding(.vertical, 4)
                     .padding(.bottom, 10)
                 
                 Text("\(post.content)")
                     .lineLimit(2)
-                    .lineSpacing(5)
+                    .lineSpacing(4)
                     .font(.medium(size: 14))
                     .foregroundColor(.naenioGray)
                     .padding(.bottom, 18)

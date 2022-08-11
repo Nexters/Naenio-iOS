@@ -255,7 +255,6 @@
 				4C4B13362883B55F006044B0 /* Encodable+Extension.swift */,
 				4C4B133A2883C44C006044B0 /* TargetType+Extension.swift */,
 				4C43C8C32886FB8200A60372 /* String+Extension.swift */,
-				9B24406F289E8DC30060A244 /* View + Exetension.swift */,
 				9C8D603828A373FD00632BCC /* Navigation + Extension.swift */,
 				9C8D603A28A3746500632BCC /* UIApplication + Extension.swift */,
 			);
@@ -671,6 +670,7 @@
 		9C95B992289A650100E0910C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9B24406F289E8DC30060A244 /* View + Exetension.swift */,
 				9C8D604728A3BA3C00632BCC /* UIScrollView */,
 				9C8D603C28A38AD900632BCC /* UITextView */,
 				9CAA174328A24FDB00EAAE40 /* Buttons */,
