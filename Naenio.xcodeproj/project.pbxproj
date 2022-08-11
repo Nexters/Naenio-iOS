@@ -305,8 +305,6 @@
 		4CC4B7322896BDD500774192 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				4CC4B7372896BE0D00774192 /* Curation */,
-				4CC4B7362896BE0300774192 /* MyPage */,
 				4CC4B7332896BDE400774192 /* MainView.swift */,
 				4C16915B289FF8D9000226BF /* TabBarView.swift */,
 				4CB4196928A29C2700EBB777 /* TabContentView.swift */,
@@ -420,10 +418,11 @@
 		9B085F2C287E352A00DE8E60 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				9CA6DA8528A21CBA0060610F /* NewPost */,
-				9C95B98B289A3A9F00E0910C /* Home */,
-				9C95B988289A358B00E0910C /* Onboarding */,
 				4CC4B7322896BDD500774192 /* Main */,
+				4CC4B7372896BE0D00774192 /* Curation */,
+				9C95B98B289A3A9F00E0910C /* Home */,
+				4CC4B7362896BE0300774192 /* MyPage */,
+				9C95B988289A358B00E0910C /* Onboarding */,
 				9BF00C05287ACCC500F08035 /* LogIn */,
 			);
 			path = Sources;
@@ -622,12 +621,12 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
-		9C8D603C28A38AD900632BCC /* UIViewRepresentables */ = {
+		9C8D603C28A38AD900632BCC /* UITextView */ = {
 			isa = PBXGroup;
 			children = (
 				9C8D603D28A38AF700632BCC /* TextVIew */,
 			);
-			path = UIViewRepresentables;
+			path = UITextView;
 			sourceTree = "<group>";
 		};
 		9C8D603D28A38AF700632BCC /* TextVIew */ = {
@@ -639,12 +638,12 @@
 			path = TextVIew;
 			sourceTree = "<group>";
 		};
-		9C8D604728A3BA3C00632BCC /* Scroll */ = {
+		9C8D604728A3BA3C00632BCC /* UIScrollView */ = {
 			isa = PBXGroup;
 			children = (
 				9C8D604D28A3CAE000632BCC /* ScrollViewHelper.swift */,
 			);
-			path = Scroll;
+			path = UIScrollView;
 			sourceTree = "<group>";
 		};
 		9C95B988289A358B00E0910C /* Onboarding */ = {
@@ -658,6 +657,7 @@
 		9C95B98B289A3A9F00E0910C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9CA6DA8528A21CBA0060610F /* NewPost */,
 				9CCA2296289BBBFE00A2F9B0 /* Mock Data */,
 				9B425527289D0F7E00163327 /* Full */,
 				9CCA2284289BA06100A2F9B0 /* Card */,
@@ -671,8 +671,8 @@
 		9C95B992289A650100E0910C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9C8D604728A3BA3C00632BCC /* Scroll */,
-				9C8D603C28A38AD900632BCC /* UIViewRepresentables */,
+				9C8D604728A3BA3C00632BCC /* UIScrollView */,
+				9C8D603C28A38AD900632BCC /* UITextView */,
 				9CAA174328A24FDB00EAAE40 /* Buttons */,
 				9C95B998289A678F00E0910C /* ButtonStyles */,
 				9C95B997289A672E00E0910C /* ViewModifiers */,
