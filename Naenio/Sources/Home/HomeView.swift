@@ -106,14 +106,9 @@ struct HomeView: View {
             }
             .fillScreen()
 
-            Button(action: { showNewPost = true }) {
-                Image("floatingButton")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 50)
-                    .shadow(radius: 3)
-            }
-            .padding(20)
+            
+            floatingButton
+                .padding(20)
         }
         .fullScreenCover(isPresented: $showNewPost) {
             NewPostView(isPresented: $showNewPost)
@@ -176,6 +171,16 @@ extension HomeView {
             Text("아직 투표가 없어요!")
                 .font(.medium(size: 18))
                 .foregroundColor(.naenioGray)
+        }
+    }
+    
+    var floatingButton: some View {
+        Button(action: { showNewPost = true }) {
+            Image("floatingButton")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 50, height: 50)
+                .shadow(radius: 3)
         }
     }
 }
