@@ -11,10 +11,7 @@ struct NewPostView: View {
     @EnvironmentObject var sourceObject: HomeViewModel
     @Binding var isPresented: Bool
     
-    @State var title: String = ""
-    @State var choiceA: String = ""
-    @State var choiceB: String = ""
-    @State var details: String = ""
+    @State private var postContent = PostContent()    
     
     var body: some View {
         ZStack {
@@ -40,7 +37,7 @@ struct NewPostView: View {
                     .foregroundColor(.white)
                     .font(.medium(size: 16))
                 
-                TextView(placeholder: "무슨 주제를 담아볼까요?", content: $title, characterLimit: 72)
+                TextView(placeholder: "무슨 주제를 담아볼까요?", content: $postContent.title, characterLimit: 72)
                     .frame(height: 108)
                     .padding(.bottom, 20)
                 
@@ -57,10 +54,10 @@ struct NewPostView: View {
                         .zIndex(1)
                     
                     VStack(spacing: 20) {
-                        TextView(placeholder: "A의 선택지를 입력해 주세요", content: $choiceA, characterLimit: 32)
+                        TextView(placeholder: "A의 선택지를 입력해 주세요", content: $postContent.choiceA, characterLimit: 32)
                             .frame(height: 70)
                         
-                        TextView(placeholder: "B의 선택지를 입력해 주세요", content: $choiceB, characterLimit: 32)
+                        TextView(placeholder: "B의 선택지를 입력해 주세요", content: $postContent.choiceB, characterLimit: 32)
                             .frame(height: 70)
                     }
                 }
@@ -71,7 +68,7 @@ struct NewPostView: View {
                     .foregroundColor(.white)
                     .font(.medium(size: 16))
                 
-                TextView(placeholder: "어떤 내용을 추가로 담을까요?", content: $details, characterLimit: 100)
+                TextView(placeholder: "어떤 내용을 추가로 담을까요?", content: $postContent.details, characterLimit: 100)
                     .frame(height: 108)
                     .padding(.bottom, 200)
             }
@@ -80,14 +77,6 @@ struct NewPostView: View {
             .padding(.horizontal, 24)
         }
         .fillScreen()
-    }
-    
-    func makePostRequest(title: String, details: String, choiceA: String, choiceB: String) -> PostRequestInformation {
-        let wrappedA = PostRequestInformation.Choice(name: choiceA)
-        let wrappedB = PostRequestInformation.Choice(name: choiceA)
-        let post = PostRequestInformation(title: title, content: details, categoryID: 0, choices: [wrappedA, wrappedB])
-        
-        return post
     }
     
     init(isPresented: Binding<Bool>) {
@@ -99,7 +88,13 @@ struct NewPostView: View {
 extension NewPostView {
     var closeAndRegisterButtons: some View {
         HStack {
-            Button(action: { isPresented = false }) {
+            Button(action: {
+                if !postContent.isAnyContentEmtpy {
+                    showAlert = true
+                } else {
+                    isPresented = false
+                }
+            }) {
                 Image(systemName: "xmark")
                     .resizable()
                     .scaledToFit()
@@ -111,19 +106,39 @@ extension NewPostView {
             Spacer()
             
             Button(action: {
-                let postRequest = makePostRequest(title: self.title,
-                                                  details: self.details,
-                                                  choiceA: self.choiceA,
-                                                  choiceB: self.choiceB)
+                let postRequest = postContent.toPostRequestInformation()
                 sourceObject.register(post: postRequest)
                 isPresented = false
             }) {
                 Text("등록")
                     .font(.semoBold(size: 18))
-                    .foregroundColor(title.isEmpty || choiceA.isEmpty || choiceB.isEmpty ? .mono : .naenioPink)
+                    .foregroundColor(postContent.isAllContentEmpty ? .mono : .naenioPink)
             }
-            .disabled(title.isEmpty || choiceA.isEmpty || choiceB.isEmpty)
+            .disabled(postContent.isAllContentEmpty)
         }
+    }
+}
+
+fileprivate struct PostContent {
+    var title: String = ""
+    var choiceA: String = ""
+    var choiceB: String = ""
+    var details: String = ""
+    
+    var isAllContentEmpty: Bool {
+        title.isEmpty || choiceA.isEmpty || choiceB.isEmpty
+    }
+    
+    var isAnyContentEmtpy: Bool {
+        title.isEmpty && choiceA.isEmpty && choiceB.isEmpty && details.isEmpty
+    }
+    
+    func toPostRequestInformation() -> PostRequestInformation {
+        let wrappedA = PostRequestInformation.Choice(name: choiceA)
+        let wrappedB = PostRequestInformation.Choice(name: choiceA)
+        let post = PostRequestInformation(title: title, content: details, categoryID: 0, choices: [wrappedA, wrappedB])
+        
+        return post
     }
 }
 
