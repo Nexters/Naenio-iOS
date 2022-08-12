@@ -81,7 +81,14 @@ class HomeViewModel: ObservableObject {
                     guard let self = self else { return }
                     
                     print("Success requestPosts")
-                    self.posts = newPosts
+                    
+                    // For empty view test
+                    if self.category == .participated {
+                        self.posts = []
+                    } else {
+                        self.posts = newPosts
+                    }
+                    
                     self.status = .done
                 }, onFailure: { [weak self] error in
                     guard let self = self else { return }
