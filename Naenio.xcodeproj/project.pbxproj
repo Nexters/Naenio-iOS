@@ -96,6 +96,9 @@
 		9CCA228E289BA2EA00A2F9B0 /* MockPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA228D289BA2EA00A2F9B0 /* MockPost.json */; };
 		9CCA2293289BAB0F00A2F9B0 /* MockPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA228F289BA4A900A2F9B0 /* MockPost.json */; };
 		9CCA2295289BB3CF00A2F9B0 /* MockPostList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA2294289BB28500A2F9B0 /* MockPostList.json */; };
+		9CE311CF28A63E7200EDB0F4 /* MockCommentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE311CE28A63E7200EDB0F4 /* MockCommentGenerator.swift */; };
+		9CE311D228A63FB300EDB0F4 /* CommentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE311D128A63FB300EDB0F4 /* CommentInformation.swift */; };
+		9CE311D428A6439900EDB0F4 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE311D328A6439900EDB0F4 /* CommentView.swift */; };
 		D377232EF7564B4D94602233 /* Pods_Naenio_NaenioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF541D3D8763AF8CB32F473 /* Pods_Naenio_NaenioUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -214,6 +217,9 @@
 		9CCA228D289BA2EA00A2F9B0 /* MockPost.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPost.json; sourceTree = "<group>"; };
 		9CCA228F289BA4A900A2F9B0 /* MockPost.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPost.json; sourceTree = "<group>"; };
 		9CCA2294289BB28500A2F9B0 /* MockPostList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPostList.json; sourceTree = "<group>"; };
+		9CE311CE28A63E7200EDB0F4 /* MockCommentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCommentGenerator.swift; sourceTree = "<group>"; };
+		9CE311D128A63FB300EDB0F4 /* CommentInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInformation.swift; sourceTree = "<group>"; };
+		9CE311D328A6439900EDB0F4 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		A23C6C1FBD1AFD04C21BFC37 /* Pods-NaenioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaenioTests.debug.xcconfig"; path = "Target Support Files/Pods-NaenioTests/Pods-NaenioTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B546567C3E3421F07641077D /* Pods_Naenio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naenio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5B262F1FD67B00E8EA61CF /* Pods_NaenioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NaenioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -675,8 +681,9 @@
 		9C95B98B289A3A9F00E0910C /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				9CA6DA8528A21CBA0060610F /* NewPost */,
 				9CCA2296289BBBFE00A2F9B0 /* Mock Data */,
+				9CE311CD28A63DFD00EDB0F4 /* Comment */,
+				9CA6DA8528A21CBA0060610F /* NewPost */,
 				9B425527289D0F7E00163327 /* Full */,
 				9CCA2284289BA06100A2F9B0 /* Card */,
 				9B244071289E9A900060A244 /* Vote */,
@@ -771,12 +778,30 @@
 			isa = PBXGroup;
 			children = (
 				9C8B5E09289CEF000029BB66 /* MockPostGenerator.swift */,
+				9CE311CE28A63E7200EDB0F4 /* MockCommentGenerator.swift */,
 				9CCA228F289BA4A900A2F9B0 /* MockPost.json */,
 				9B3B6F0E289BE1B4002A76A7 /* MockPostWroteList.json */,
 				9B3B6F0F289BE1B6002A76A7 /* MockPostParticipatedList.json */,
 				9CCA2294289BB28500A2F9B0 /* MockPostList.json */,
 			);
 			path = "Mock Data";
+			sourceTree = "<group>";
+		};
+		9CE311CD28A63DFD00EDB0F4 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				9CE311D028A63FA300EDB0F4 /* Model */,
+				9CE311D328A6439900EDB0F4 /* CommentView.swift */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
+		9CE311D028A63FA300EDB0F4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9CE311D128A63FB300EDB0F4 /* CommentInformation.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1056,6 +1081,7 @@
 			files = (
 				4CB4196A28A29C2700EBB777 /* TabContentView.swift in Sources */,
 				4C16915C289FF8DA000226BF /* TabBarView.swift in Sources */,
+				9CE311D228A63FB300EDB0F4 /* CommentInformation.swift in Sources */,
 				4CC296DB28805366001950A2 /* NaenioAPI.swift in Sources */,
 				9B89B9FB289E0CF900D0E205 /* KeyValue.swift in Sources */,
 				9C2D07BB2897CD0A008BBD75 /* UserError.swift in Sources */,
@@ -1115,11 +1141,13 @@
 				4CC4B73B2896BF2500774192 /* MyPageView.swift in Sources */,
 				9C3309D12888ED16000C592F /* SignInWithKakaoButtonViewModel.swift in Sources */,
 				9CA7922D287BA90600600C32 /* UserInformation.swift in Sources */,
+				9CE311CF28A63E7200EDB0F4 /* MockCommentGenerator.swift in Sources */,
 				4CC4B7342896BDE400774192 /* MainView.swift in Sources */,
 				9BF00C0B287ACFA900F08035 /* LoginRequestInformation.swift in Sources */,
 				9B8B98BA289948DA007336DE /* LocalStorageKeys.swift in Sources */,
 				9C3309CD2888EC52000C592F /* KakaoLoginManager.swift in Sources */,
 				9C8B5E0A289CEF000029BB66 /* MockPostGenerator.swift in Sources */,
+				9CE311D428A6439900EDB0F4 /* CommentView.swift in Sources */,
 				4CC4B7392896BF1C00774192 /* CurationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
