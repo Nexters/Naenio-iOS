@@ -11,7 +11,11 @@ struct NewPostView: View {
     @EnvironmentObject var sourceObject: HomeViewModel
     @Binding var isPresented: Bool
     
-    @State private var postContent = PostContent()    
+    @State private var postContent = PostContent()
+    
+    @State var showAlert = false
+    @State var alertType: AlertType = .none
+    
     
     var body: some View {
         ZStack {
@@ -77,10 +81,23 @@ struct NewPostView: View {
             .padding(.horizontal, 24)
         }
         .fillScreen()
+        .alert(isPresented: $showAlert) {
+            switch alertType {
+            case .warnBeforeExit:
+                return Alert(title: Text("정말 나가시겠어요?"),
+                             message: Text("작성 중인 글은 저장되지 않습니다"),
+                             primaryButton: .cancel(),
+                             secondaryButton: .default(Text("Ok"), action: { isPresented = false }))
+            default:
+                return Alert(title: Text("알 수 없는 에러"), // FIXME: 어차피 나중에 얼러트 바꿀거라 임시로 아무거나 넣어 놓음
+                             message: Text("알 수 없는 에러가 발생했습니다"),
+                             primaryButton: .cancel(),
+                             secondaryButton: .default(Text("Ok"), action: { isPresented = false }))
+            }
+        }
     }
     
     init(isPresented: Binding<Bool>) {
-        UITextView.appearance().backgroundColor = .clear
         self._isPresented = isPresented
     }
 }
@@ -90,6 +107,7 @@ extension NewPostView {
         HStack {
             Button(action: {
                 if !postContent.isAnyContentEmtpy {
+                    alertType = .warnBeforeExit
                     showAlert = true
                 } else {
                     isPresented = false
@@ -116,6 +134,13 @@ extension NewPostView {
             }
             .disabled(postContent.isAllContentEmpty)
         }
+    }
+    
+    // !!!: 일단 시스템 기본 alert로 기능 구현만
+    enum AlertType {
+        case warnBeforeExit
+        case errorHappend
+        case none
     }
 }
 
