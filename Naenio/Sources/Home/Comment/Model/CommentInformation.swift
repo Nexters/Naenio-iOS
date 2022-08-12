@@ -11,7 +11,7 @@ struct CommentInformation: Codable {
     let totalCommentCount: Int
     let comments: [Comment]
     
-    struct Comment: Codable {
+    struct Comment: Codable, Identifiable {
         let id: Int
         let author: Author
         let content, createdDatetime: String
@@ -20,7 +20,7 @@ struct CommentInformation: Codable {
         let repliesCount: Int
     }
     
-    struct Author: Codable {
+    struct Author: Codable, Identifiable {
         let id: Int
         let nickname: String
         let profileImageIndex: Int
