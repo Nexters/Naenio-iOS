@@ -37,6 +37,10 @@ struct HomeView: View {
                             .zIndex(1)
                     }
                     
+                    if viewModel.status == .done, viewModel.posts.isEmpty {
+                        emptyResultView
+                    }
+                    
                     ScrollView(.vertical, showsIndicators: true) {
                         LazyVStack(spacing: 20) {
                             ForEach(Array(viewModel.posts.enumerated()), id: \.element.id) { (index, post) in
@@ -78,8 +82,15 @@ struct HomeView: View {
                         scrollView.refreshControl = control
                         scrollView.delegate = scrollViewHelper
                     }
-                    .onChange(of: viewModel.posts) { _ in
-                        scrollViewHelper.refreshController.endRefreshing()
+                    .onChange(of: viewModel.status) { status in
+                        switch status {
+                        case .done:
+                            scrollViewHelper.refreshController.endRefreshing()
+                        case .fail(with: _):
+                            scrollViewHelper.refreshController.endRefreshing()
+                        default:
+                            break
+                        }
                     }
                     .onChange(of: viewModel.category) { _ in
                         viewModel.posts.removeAll()
@@ -153,6 +164,19 @@ extension HomeView {
     var loadingIndicator: some View {
         ProgressView()
             .progressViewStyle(CircularProgressViewStyle(tint: .yellow))
+    }
+    
+    var emptyResultView: some View {
+        VStack(spacing: 14) {
+            Image("empty")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 59, height: 59)
+            
+            Text("아직 투표가 없어요!")
+                .font(.medium(size: 18))
+                .foregroundColor(.naenioGray)
+        }
     }
 }
 
