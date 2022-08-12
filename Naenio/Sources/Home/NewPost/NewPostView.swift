@@ -16,7 +16,6 @@ struct NewPostView: View {
     @State var showAlert = false
     @State var alertType: AlertType = .none
     
-    
     var body: some View {
         ZStack {
             Color.background

@@ -13,6 +13,7 @@ struct HomeView: View {
     @ObservedObject var scrollViewHelper = ScrollViewHelper()
 
     @State var showNewPost = false
+    @State var showComments = false
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -33,7 +34,7 @@ struct HomeView: View {
                 // Card scroll view
                 ZStack {
                     if viewModel.status == .loadingDifferentCategoryPosts {
-                        loadingIndicator
+                        LoadingIndicator()
                             .zIndex(1)
                     }
                     
@@ -45,22 +46,24 @@ struct HomeView: View {
                         LazyVStack(spacing: 20) {
                             ForEach(Array(viewModel.posts.enumerated()), id: \.element.id) { (index, post) in
                                 NavigationLink(destination: FullView(index: index, post: post).environmentObject(viewModel)) {
-                                    CardView(index: index, post: post)
-                                        .environmentObject(viewModel)
-                                        .background(
-                                            RoundedRectangle(cornerRadius: 16)
-                                                .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
-                                        )
-                                        .padding(.horizontal, 20)
-                                        .onAppear {
-                                            if index == viewModel.posts.count - 5 { // FIXME: Possible error
-                                                // 무한 스크롤을 위해 끝에서 5번째에서 로딩 -> 개수는 추후 협의
+                                    CardView(index: index, post: post) {
+                                        showComments = true
+                                    }
+                                    .environmentObject(viewModel)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 16)
+                                            .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
+                                    )
+                                    .padding(.horizontal, 20)
+                                    .onAppear {
+                                        if index == viewModel.posts.count - 5 { // FIXME: Possible error
+                                            // 무한 스크롤을 위해 끝에서 5번째에서 로딩 -> 개수는 추후 협의
 #if DEBUG
-                                                print("Loaded")
+                                            print("Loaded")
 #endif
-                                                viewModel.requestMorePosts()
-                                            }
+                                            viewModel.requestMorePosts()
                                         }
+                                    }
                                 }
                             }
                             .buttonStyle(PlainButtonStyle())
@@ -69,7 +72,7 @@ struct HomeView: View {
                         // TODO: 디자인 팀이랑 논의
                         // 하단 무한스크롤 중 생기는 버퍼링에 대한 로딩 인디케이터
                         if viewModel.status == .loadingSameCategoryPosts {
-                            loadingIndicator
+                            LoadingIndicator()
                                 .zIndex(1)
                                 .padding(.vertical, 15)
                         }
@@ -105,14 +108,16 @@ struct HomeView: View {
                 }
             }
             .fillScreen()
-
-            
+     
             floatingButton
                 .padding(20)
         }
         .fullScreenCover(isPresented: $showNewPost) {
             NewPostView(isPresented: $showNewPost)
                 .environmentObject(viewModel)
+        }
+        .sheet(isPresented: $showComments) {
+            CommentView()
         }
         .navigationBarHidden(true)
     }
@@ -155,12 +160,7 @@ extension HomeView {
             )
         }
     }
-    
-    var loadingIndicator: some View {
-        ProgressView()
-            .progressViewStyle(CircularProgressViewStyle(tint: .yellow))
-    }
-    
+        
     var emptyResultView: some View {
         VStack(spacing: 14) {
             Image("empty")
