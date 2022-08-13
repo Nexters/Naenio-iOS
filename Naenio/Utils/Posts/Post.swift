@@ -20,17 +20,17 @@ struct Post: Codable, Identifiable, Equatable {
     var choices: [Choice]
     var commentCount: Int
     
-    struct Author: Codable {
-        let id: Int
-        let nickname: String
-        let profileImageIndex: Int
-    }
-
     struct Choice: Codable {
         let id: Int
         let sequence: Int
         let name: String
         var isVoted: Bool
         var voteCount: Int
+    }
+    
+    struct Author: Codable {
+        let id: Int
+        let nickname: String
+        let profileImageIndex: Int
     }
 }

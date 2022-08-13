@@ -15,6 +15,8 @@ enum NaenioAPI {
     case login(LoginRequestInformation)
     case signOut(token: String)
     case withDrawal(token: String)
+    
+    case postPost(PostRequestInformation)
 }
 
 extension NaenioAPI: TargetType {
@@ -22,7 +24,7 @@ extension NaenioAPI: TargetType {
 
     var path: String { self.getPath() }
     
-    var method: Moya.Method { return .post }
+    var method: Moya.Method { self.getMehod() }
   
     var sampleData: Data { Data() }
     
@@ -34,8 +36,9 @@ extension NaenioAPI: TargetType {
             return [HeaderInformation.HeaderKey.contentType: HeaderInformation.HeaderValue.json]
         default:
             return [
+                HeaderInformation.HeaderKey.accept: HeaderInformation.HeaderValue.json,
                 HeaderInformation.HeaderKey.contentType: HeaderInformation.HeaderValue.json,
-                HeaderInformation.HeaderValue.authoization: HeaderInformation.HeaderValue.authoization
+                HeaderInformation.HeaderKey.authorization: HeaderInformation.HeaderValue.authoization
             ]
         }
     }
