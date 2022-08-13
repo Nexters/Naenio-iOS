@@ -13,6 +13,7 @@ class HomeViewModel: ObservableObject {
     @Published var category: Category = .entire // ???: 마지막 선택 저장하는 것도 낫 배드 - using @SceneStorage
     @Published var posts: [Post]
     @Published var status: Status = .waiting
+    let postRequestService: PostRequestService
     
     // vars and lets
     private let pagingValue = 10
@@ -44,11 +45,10 @@ class HomeViewModel: ObservableObject {
         self.posts[index] = post
     }
     
-    // !!!: postPost가 어색해서 일단은 이렇게 네이밍 해놨는데 요기 개선사항 있으면 알려주십셔
-    func register(post: PostRequestInformation) {
+    func register(postRequesInformation: PostRequestInformation) {
         status = .loadingSameCategoryPosts
         
-        registerNewPost(post)
+        postRequestService.postPost(with: postRequesInformation)
             .subscribe(on: serialQueue)
             .observe(on: MainScheduler.instance)
             .subscribe(
@@ -56,7 +56,11 @@ class HomeViewModel: ObservableObject {
                     guard let self = self else { return }
                     
                     withAnimation {
-                        self.posts.insert(post, at: 0)
+                        let author = Post.Author(id: post.memberId, nickname: UserManager.shared.getNickName(), profileImageIndex: UserManager.shared.getProfileImagesIndex())
+                        let choices: [Post.Choice] = self.transferToPostChoiceModel(from: post.choices)
+                        let newPost = Post(id: post.id, author: author, voteCount: 0, title: post.title, content: post.content, choices: choices, commentCount: 0)
+                        
+                        self.posts.insert(newPost, at: 0)
                     }
                     self.status = .done
                 }, onFailure: { [weak self] error in
@@ -66,6 +70,15 @@ class HomeViewModel: ObservableObject {
                     print("Disposed requestPosts")
                 })
             .disposed(by: bag)
+    }
+    
+    func transferToPostChoiceModel(from choices: [PostResponseModel.Choice]) -> [Post.Choice] {
+        var result: [Post.Choice] = []
+        choices .forEach { choice in
+            result.append( Post.Choice(id: choice.id, sequence: choice.sequence, name: choice.name, isVoted: false, voteCount: 0))
+        }
+        
+        return result
     }
     
     // !!!: 테스트용
@@ -124,7 +137,9 @@ class HomeViewModel: ObservableObject {
             .disposed(by: bag)
     }
 
-    init() {
+    init(_ postRequestService: PostRequestService = PostRequestService()) {
+        self.postRequestService = postRequestService
+        
         self.posts = []
         self.requestPosts()
     }

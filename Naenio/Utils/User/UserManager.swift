@@ -7,18 +7,22 @@
 
 import SwiftUI
 
-/// - Warning: Thread-safe 하지 않습니다.
-///     유저 데이터를 다룰 때는 항상 1개의 작업만 진행되는 것을 보장하세요
 class UserManager: ObservableObject {
-    // Published vars
-    @Published private(set) var user: User?
+    static let shared = UserManager()
+    private let localStorageManager: LocalStorageManager
+    let profileImageIndexKey = LocalStorageKeys.profileIamgeIndex.rawValue
+    let nicknameKey = LocalStorageKeys.nickname.rawValue
+    let authServiceTypeKey = LocalStorageKeys.authServiceType.rawValue
     @Published private(set) var status: UserStatus = .waiting
+    @Published private(set) var user: User?
     
-    // Methods
-    func updateProfile() {
+    func updateUserInformation(profileImageIndex: Int = 0, nickname: String = "user", authServiceType: String) {
         status = .fetching
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.user = nil
+            self.user = User(profileImageIndex: profileImageIndex, nickname: nickname, authServiceType: authServiceType)
+            self.localStorageManager.save(profileImageIndex, key: self.profileImageIndexKey)
+            self.localStorageManager.save(nickname, key: self.nicknameKey)
+            self.localStorageManager.save(authServiceType, key: self.authServiceTypeKey)
             self.status = .fetched
         }
     }
@@ -27,35 +31,71 @@ class UserManager: ObservableObject {
     func DEBUG_AddMockProfile() {
         status = .fetching
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.user = User(profileImage: Image(""), nickname: "", authServiceType: "")
+            self.user = User(profileImageIndex: 0, nickname: "", authServiceType: "APPLE")
             self.status = .fetched
         }
     }
     
-    func changeNickname(to nickname: String) {
-        user?.nickname = nickname
+    // Methods
+    func updateProfileImageIndex(_ index: Int = 0) {
+        self.user?.profileImageIndex = index
+        localStorageManager.save(index, key: self.profileImageIndexKey)
     }
     
-    func changeProfileImage(to image: Image) {
-        user?.profileImage = image
+    func updateNickName(_ nickname: String = "user") {
+        self.user?.nickname = nickname
+        localStorageManager.save(nickname, key: self.nicknameKey)
     }
     
-    func changeProfileImageWithPreset(index: Int) {
-        user?.profileImage = getPresetProfileImage(index: index)
+    func updateAuthServiceType(_ authServiceType: String) {
+        self.user?.authServiceType = authServiceType
+        localStorageManager.save(authServiceType, key: self.authServiceTypeKey)
     }
     
-    /// 프리셋에서 이미지를 하나 골라옵니다. 인덱스 에러로부터 안전합니다.
-    ///
-    /// - Parameters:
-    ///     - index: 팀 내 협의된 이미지 프리셋의 번호입니다
-    func getPresetProfileImage(index: Int) -> Image {
-        let preset = ProfileImages()
-        let images = preset.images
-        
-        if index < images.count {
-            return images[index]
-        } else {
-            return user?.profileImage ?? Image("")
+    func getProfileImagesIndex() -> Int {
+        if let loadedProfileImageIndex = localStorageManager.load(key: self.profileImageIndexKey),
+           let profileImageIndex = loadedProfileImageIndex as? Int {
+            return profileImageIndex
         }
+        
+        return 0
     }
+    
+    func getNickName() -> String {
+        if let loadedNickName = localStorageManager.load(key: self.nicknameKey),
+           let nickname = loadedNickName as? String {
+            return nickname
+        }
+        
+        return ""
+    }
+    
+    func getAuthServiceType() -> String {
+        if let loadedAuthServiceType = localStorageManager.load(key: self.authServiceTypeKey),
+           let authServiceType = loadedAuthServiceType as? String {
+            return authServiceType
+        }
+        
+        return ""
+    }
+    
+    init(_ localStorageManager: LocalStorageManager = LocalStorageManager.shared) {
+        self.localStorageManager = localStorageManager
+        self.user = User(profileImageIndex: 0, nickname: "", authServiceType: "")
+    }
+    
+        /// 프리셋에서 이미지를 하나 골라옵니다. 인덱스 에러로부터 안전합니다.
+        ///
+        /// - Parameters:
+        ///     - index: 팀 내 협의된 이미지 프리셋의 번호입니다
+        func getPresetProfileImage(index: Int) -> Image {
+            let preset = ProfileImages()
+            let images = preset.images
+    
+            if index < images.count {
+                return images[index]
+            } else {
+                return Image("")
+            }
+        }
 }
