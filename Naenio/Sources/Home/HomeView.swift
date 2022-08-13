@@ -117,7 +117,7 @@ struct HomeView: View {
                 .environmentObject(viewModel)
         }
         .sheet(isPresented: $showComments) {
-            CommentView()
+            CommentView(isPresented: $showComments)
         }
         .navigationBarHidden(true)
     }

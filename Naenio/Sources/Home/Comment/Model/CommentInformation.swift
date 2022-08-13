@@ -18,11 +18,12 @@ struct CommentInformation: Codable {
         let likeCount: Int
         let isLiked: Bool
         let repliesCount: Int
+        
+        struct Author: Codable, Identifiable {
+            let id: Int
+            let nickname: String
+            let profileImageIndex: Int
+        }
     }
     
-    struct Author: Codable, Identifiable {
-        let id: Int
-        let nickname: String
-        let profileImageIndex: Int
-    }
 }

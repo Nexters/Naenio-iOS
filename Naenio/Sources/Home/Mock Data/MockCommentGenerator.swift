@@ -9,7 +9,7 @@ import Foundation
 
 struct MockCommentGenertor {
     typealias Comment = CommentInformation.Comment
-    typealias Author = CommentInformation.Author
+    typealias Author = CommentInformation.Comment.Author
     
     static func generate() -> CommentInformation {
         return CommentInformation(totalCommentCount: 14, comments: [

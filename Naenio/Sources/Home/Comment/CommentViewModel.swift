@@ -10,7 +10,7 @@ import RxSwift
 
 class CommentViewModel: ObservableObject {
     typealias Comment = CommentInformation.Comment
-    typealias Author = CommentInformation.Author
+    typealias Author = CommentInformation.Comment.Author
     
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler(qos: .utility)
