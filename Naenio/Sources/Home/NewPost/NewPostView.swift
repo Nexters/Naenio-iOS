@@ -135,7 +135,7 @@ extension NewPostView {
             
             Button(action: {
                 let postRequest = postContent.toPostRequestInformation()
-                sourceObject.register(post: postRequest)
+                sourceObject.register(postRequesInformation: postRequest)
                 isPresented = false
             }) {
                 Text("등록")
@@ -164,7 +164,7 @@ fileprivate struct PostContent {
     func toPostRequestInformation() -> PostRequestInformation {
         let wrappedA = PostRequestInformation.Choice(name: choiceA)
         let wrappedB = PostRequestInformation.Choice(name: choiceA)
-        let post = PostRequestInformation(title: title, content: details, categoryID: 0, choices: [wrappedA, wrappedB])
+        let post = PostRequestInformation(title: title, content: details, choices: [wrappedA, wrappedB])
         
         return post
     }

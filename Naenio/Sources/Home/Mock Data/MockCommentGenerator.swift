@@ -54,7 +54,7 @@ struct MockCommentGenertor {
                     createdDatetime: "22.01.06",
                     likeCount: 12,
                     isLiked: false,
-                    repliesCount: 5),
+                    repliesCount: 5)
         ])
     }
     
