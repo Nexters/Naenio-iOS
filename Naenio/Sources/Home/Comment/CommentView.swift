@@ -6,13 +6,15 @@
 //
 
 import SwiftUI
+import Introspect
 
 struct CommentView: View {
     @ObservedObject var viewModel = CommentViewModel()
+    @State var text: String = ""
     @Binding var isPresented: Bool
 
     var body: some View {
-        ZStack() {
+        ZStack(alignment: .bottom) {
             Color.card
                 .ignoresSafeArea()
             
@@ -46,6 +48,15 @@ struct CommentView: View {
                 }
                 .padding(.horizontal, 20)
             }
+            .introspectScrollView { scrollView in
+                scrollView.keyboardDismissMode = .interactive
+            }
+            
+            TextField("댓글 추가", text: $text)
+                .background(Color.white)
+                .frame(height: 32)
+                .fillHorizontal()
+                .zIndex(1)
         }
         .redacted(reason: viewModel.status == .loading ? .placeholder : [])
         .onAppear {
