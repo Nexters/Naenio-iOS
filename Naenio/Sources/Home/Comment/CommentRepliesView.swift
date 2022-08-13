@@ -10,11 +10,11 @@ import SwiftUI
 struct CommentRepliesView: View {
     typealias Comment = CommentInformation.Comment
 
+    @ObservedObject var viewModel = CommentRepliesViewModel()
     @State var text: String = ""
-    @Binding var isPresented: Bool
-    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+
     let comment: Comment
-    let replies: [Comment]
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -30,26 +30,35 @@ struct CommentRepliesView: View {
                 LazyVStack(spacing: 18) {
                     // Sheet's header
                     HStack {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(.white)
+                        Button(action: popNavigation) {
+                            Image(systemName: "chevron.left")
+                                .foregroundColor(.white)
+                        }
                         
                         Text("답글")
                             .font(.semoBold(size: 16))
+                            .foregroundColor(.white)
                         
                         Spacer()
                         
-                        CloseButton(action: { isPresented = false })
+                        CloseButton(action: popNavigation)
                             .frame(width: 12, height: 12)
                     }
                     
                     CustomDivider()
-                    CommentContentView(comment: comment)
                     
-                    ForEach(replies, id: \.id) { reply in
-                        CustomDivider()
-                            .frame(width: UIScreen.main.bounds.width)
+                    CommentContentView(comment: comment, isReply: true)
+                    
+                    CustomDivider()
 
-                        CommentContentView(comment: reply)
+                    ForEach(viewModel.replies, id: \.id) { reply in
+                        HStack {
+                            Text("😀")
+                                .padding(3)
+                                .opacity(0)
+                            
+                            CommentContentView(comment: reply, isReply: true)
+                        }
                     }
                     
                     // placeholder
@@ -63,6 +72,7 @@ struct CommentRepliesView: View {
                 scrollView.keyboardDismissMode = .onDrag
             }
             
+            // Keyboard
             VStack {
                 Spacer()
                 
@@ -87,6 +97,16 @@ struct CommentRepliesView: View {
                 .background(Color.background.ignoresSafeArea())
             }
         }
-//        .redacted(reason: viewModel.status == .loading ? .placeholder : [])
+        .navigationBarHidden(true)
+        .redacted(reason: viewModel.status == .loading ? .placeholder : [])
+        .onAppear {
+            viewModel.requestComments()
+        }
+    }
+}
+
+extension CommentRepliesView {
+    func popNavigation() {
+        self.presentationMode.wrappedValue.dismiss()
     }
 }

@@ -10,10 +10,17 @@ import SwiftUI
 struct CommentContentView: View {
     typealias Comment = CommentInformation.Comment
     
+    @State var isNavigationActive: Bool = false
+    
     let comment: Comment
+    let isReply: Bool
     
     var body: some View {
         HStack(alignment: .top, spacing: 8) {
+            NavigationLink( destination: CommentRepliesView(comment: comment), isActive: $isNavigationActive) {
+                EmptyView()
+            }
+
             Text("😀")
                 .padding(3)
                 .background(Circle().fill(Color.green.opacity(0.2)))
@@ -39,8 +46,8 @@ struct CommentContentView: View {
                     .foregroundColor(.white)
                     .padding(.bottom, 12)
                 
-                if comment.repliesCount != 0 {
-                    Button(action: {}) {
+                if comment.repliesCount != 0 && isReply == false {
+                    Button(action: { isNavigationActive = true }) {
                         Text("답글 \(comment.repliesCount)개")
                             .font(.semoBold(size: 16))
                             .foregroundColor(.naenioBlue)
@@ -63,10 +70,12 @@ extension CommentContentView {
                 }
             }
             
-            Button(action: {}) {
-                HStack(spacing: 5) {
-                    Image(systemName: "text.bubble")
-                    Text("\(comment.repliesCount)")
+            if isReply == false {
+                Button(action: { isNavigationActive = true }) {
+                    HStack(spacing: 5) {
+                        Image(systemName: "text.bubble")
+                        Text("\(comment.repliesCount)")
+                    }
                 }
             }
         }
