@@ -7,18 +7,12 @@
 
 import Foundation
 
-struct PostRequestInformation: Encodable {
-    let title, content: String
-    let categoryID: Int
+struct PostRequestInformation: Codable {
+    let title: String
+    let content: String
     let choices: [Choice]
     
     struct Choice: Codable {
         let name: String
-    }
-
-    enum CodingKeys: String, CodingKey {
-        case title, content
-        case categoryID = "categoryId"
-        case choices
     }
 }
