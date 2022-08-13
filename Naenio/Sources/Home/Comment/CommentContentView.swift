@@ -39,10 +39,12 @@ struct CommentContentView: View {
                     .foregroundColor(.white)
                     .padding(.bottom, 12)
                 
-                Button(action: {}) {
-                    Text("답글 \(comment.repliesCount)개") // ???: 버튼은 뭐고 여기는 뭐지
-                        .font(.semoBold(size: 16))
-                        .foregroundColor(.naenioBlue)
+                if comment.repliesCount != 0 {
+                    Button(action: {}) {
+                        Text("답글 \(comment.repliesCount)개")
+                            .font(.semoBold(size: 16))
+                            .foregroundColor(.naenioBlue)
+                    }
                 }
             }
             

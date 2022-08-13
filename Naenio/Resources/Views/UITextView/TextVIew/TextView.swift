@@ -11,6 +11,7 @@ struct TextView: View {
     let placeholder: String
     @Binding var content: String
     let characterLimit: Int
+    var showLimit = true
     
     var body: some View {
         ZStack(alignment: .topLeading) {
@@ -26,10 +27,12 @@ struct TextView: View {
                     .background(Color.card)
                     .cornerRadius(8)
                 
-                Text("\(content.count)/\(characterLimit)")
-                    .font(.medium(size: 12))
-                    .foregroundColor(.mono)
-                    .padding(16)
+                if showLimit {
+                    Text("\(content.count)/\(characterLimit)")
+                        .font(.medium(size: 12))
+                        .foregroundColor(.mono)
+                        .padding(16)
+                }
             }
         }
     }

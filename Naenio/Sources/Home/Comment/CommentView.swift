@@ -45,18 +45,41 @@ struct CommentView: View {
 
                         CommentContentView(comment: comment)
                     }
+                    
+                    Rectangle()
+                        .fill(.clear)
+                        .frame(height: 90)
                 }
                 .padding(.horizontal, 20)
             }
             .introspectScrollView { scrollView in
-                scrollView.keyboardDismissMode = .interactive
+                scrollView.keyboardDismissMode = .onDrag
             }
             
-            TextField("댓글 추가", text: $text)
-                .background(Color.white)
-                .frame(height: 32)
-                .fillHorizontal()
-                .zIndex(1)
+            VStack {
+                Spacer()
+                
+                HStack(spacing: 12) {
+                    Text("😀")
+                        .padding(3)
+                        .background(Circle().fill(Color.green.opacity(0.2)))
+                    
+                    TextView(placeholder: "댓글 추가", content: $text, characterLimit: 200, showLimit: false)
+                        .background(Color.card)
+                        .cornerRadius(3)
+                        .frame(height: 32)
+                    
+                    Button(action: {}) {
+                        Text("게시")
+                            .font(.semoBold(size: 14))
+                            .foregroundColor(.naenioGray)
+                    }
+                    
+               }
+                .padding(.vertical, 15)
+                .padding(.horizontal, 20)
+                .background(Color.background.ignoresSafeArea())
+            }
         }
         .redacted(reason: viewModel.status == .loading ? .placeholder : [])
         .onAppear {
