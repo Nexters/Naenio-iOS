@@ -82,7 +82,7 @@ struct CommentRepliesView: View {
                         .padding(3)
                         .background(Circle().fill(Color.green.opacity(0.2)))
                     
-                    TextView(placeholder: "댓글 추가", content: $text, characterLimit: 200, showLimit: false)
+                    WrappedTextView(placeholder: "댓글 추가", content: $text, characterLimit: 200, showLimit: false)
                         .background(Color.card)
                         .cornerRadius(3)
                         .frame(height: 32)

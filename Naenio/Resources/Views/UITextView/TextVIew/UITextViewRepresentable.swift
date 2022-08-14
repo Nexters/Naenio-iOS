@@ -25,20 +25,20 @@ struct RepresentedUITextView: UIViewRepresentable {
         textView.delegate = context.coordinator
 
         textView.font = UIFont(name: "Pretendard-Medium", size: 16) // Font.medium(size: 16)
-        textView.isScrollEnabled = false
+        textView.isScrollEnabled = true
         textView.isEditable = true
         textView.isUserInteractionEnabled = true
         textView.backgroundColor = UIColor(Color.card)
         
         textView.textColor = UIColor(Color.white)
-        textView.textContainer.lineBreakMode = .byTruncatingTail
-        textView.textContainerInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        textView.textContainerInset = UIEdgeInsets(top: 7, left: 16, bottom: 7, right: 16)
         textView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
 
         return textView
     }
 
     func updateUIView(_ uiView: UITextView, context: Context) {
+        uiView.text = self.text
     }
 
     class Coordinator: NSObject, UITextViewDelegate {

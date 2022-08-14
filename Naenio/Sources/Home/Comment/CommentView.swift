@@ -14,6 +14,7 @@ struct CommentView: View {
     
     @State var text: String = ""
     @Binding var isPresented: Bool
+    @State var isEditing: Bool = false
     
     var body: some View {
             NavigationView {
@@ -60,7 +61,7 @@ struct CommentView: View {
                     .onChange(of: scrollViewHelper.scrollVelocity) { newValue in
                         NotificationCenter.default.post(name: .scrollVelocity, object: newValue)
                     }
-
+                    
                     VStack {
                         Spacer()
                         
@@ -69,22 +70,48 @@ struct CommentView: View {
                                 .padding(3)
                                 .background(Circle().fill(Color.green.opacity(0.2)))
                             
-                            TextView(placeholder: "댓글 추가", content: $text, characterLimit: 200, showLimit: false)
-                                .background(Color.card)
-                                .cornerRadius(3)
-                                .frame(height: 32)
+//                            if #available(iOS 16.0, *) {
+//                                TextEditor(text: $text)
+//                                    .scrollContentBackground(.hidden)
+//                                    .background(.subCard)
+//                            } else {
+//                                TextEditor(text: $text)
+//                                    .introspectTextView { textView in
+//                                        textView.tintColor = .red
+//                                    }
+//                            }
                             
-                            Button(action: {}) {
+//                            TextView(
+//                                text: $text,
+//                                isEditing: $isEditing,
+//                                placeholder: "댓글 추가",
+//                                textHorizontalPadding: 14, textVerticalPadding: 7,
+//                                placeholderHorizontalPadding: 14, placeholderVerticalPadding: 7,
+//                                textColor: .white, placeholderColor: .mono,
+//                                isScrollingEnabled: true
+//                            )
+//                            .background(Color(red: 79.0/255, green: 85.0/255, blue: 100.0/255))
+//                            .cornerRadius(3)
+                            
+                            WrappedTextView(placeholder: "댓글 추가", content: $text, characterLimit: 100, isTight: true)
+                            
+                            Button(action: {
+                                viewModel.registerComment(self.text, parentID: viewModel.parentID)
+                                UIApplication.shared.endEditing()
+                                text = ""
+                            }) {
                                 Text("게시")
                                     .font(.semoBold(size: 14))
                                     .foregroundColor(.naenioGray)
                             }
+                            .disabled(text.isEmpty)
                             
                         }
                         .padding(.vertical, 15)
                         .padding(.horizontal, 20)
                         .background(Color.background.ignoresSafeArea())
                     }
+                    .frame(height: 60)
             }
                 .navigationBarHidden(true)
 

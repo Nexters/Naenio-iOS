@@ -57,6 +57,7 @@
 		9B61D0D328A88FB300F6DD0B /* CustomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D228A88FB200F6DD0B /* CustomSheetView.swift */; };
 		9B61D0D728A8DEF000F6DD0B /* CommentSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D628A8DEF000F6DD0B /* CommentSheet.swift */; };
 		9B61D0DC28A8EE4500F6DD0B /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0DB28A8EE4500F6DD0B /* RoundedCorner.swift */; };
+		9B61D0E428A9050600F6DD0B /* CommentRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0E328A9050600F6DD0B /* CommentRequestInformation.swift */; };
 		9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B687DE928954D4A0048AED0 /* Font + Extension.swift */; };
 		9B86192D28A77D920098AC8E /* CommentRepliesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86192C28A77D920098AC8E /* CommentRepliesView.swift */; };
 		9B86192F28A782990098AC8E /* CommentRepliesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86192E28A782990098AC8E /* CommentRepliesViewModel.swift */; };
@@ -103,7 +104,7 @@
 		9C95B9A5289A937100E0910C /* FillHorizontal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B9A4289A937100E0910C /* FillHorizontal.swift */; };
 		9CA6DA8728A21CD10060610F /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6DA8628A21CD10060610F /* NewPostView.swift */; };
 		9CA7922D287BA90600600C32 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7922C287BA90600600C32 /* UserInformation.swift */; };
-		9CAA174028A2468600EAAE40 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAA173F28A2468600EAAE40 /* TextView.swift */; };
+		9CAA174028A2468600EAAE40 /* WrappedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAA173F28A2468600EAAE40 /* WrappedTextView.swift */; };
 		9CAA174528A2570800EAAE40 /* PostRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAA174428A2570800EAAE40 /* PostRequestInformation.swift */; };
 		9CCA227F289B9EA900A2F9B0 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCA227E289B9EA900A2F9B0 /* Post.swift */; };
 		9CCA228E289BA2EA00A2F9B0 /* MockPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA228D289BA2EA00A2F9B0 /* MockPost.json */; };
@@ -190,6 +191,7 @@
 		9B61D0D228A88FB200F6DD0B /* CustomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheetView.swift; sourceTree = "<group>"; };
 		9B61D0D628A8DEF000F6DD0B /* CommentSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentSheet.swift; sourceTree = "<group>"; };
 		9B61D0DB28A8EE4500F6DD0B /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		9B61D0E328A9050600F6DD0B /* CommentRequestInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRequestInformation.swift; sourceTree = "<group>"; };
 		9B687DE928954D4A0048AED0 /* Font + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font + Extension.swift"; sourceTree = "<group>"; };
 		9B86192C28A77D920098AC8E /* CommentRepliesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesView.swift; sourceTree = "<group>"; };
 		9B86192E28A782990098AC8E /* CommentRepliesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesViewModel.swift; sourceTree = "<group>"; };
@@ -237,7 +239,7 @@
 		9C95B9A4289A937100E0910C /* FillHorizontal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillHorizontal.swift; sourceTree = "<group>"; };
 		9CA6DA8628A21CD10060610F /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
 		9CA7922C287BA90600600C32 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
-		9CAA173F28A2468600EAAE40 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		9CAA173F28A2468600EAAE40 /* WrappedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappedTextView.swift; sourceTree = "<group>"; };
 		9CAA174428A2570800EAAE40 /* PostRequestInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequestInformation.swift; sourceTree = "<group>"; };
 		9CCA227E289B9EA900A2F9B0 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		9CCA228D289BA2EA00A2F9B0 /* MockPost.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPost.json; sourceTree = "<group>"; };
@@ -724,7 +726,7 @@
 		9C8D603D28A38AF700632BCC /* TextVIew */ = {
 			isa = PBXGroup;
 			children = (
-				9CAA173F28A2468600EAAE40 /* TextView.swift */,
+				9CAA173F28A2468600EAAE40 /* WrappedTextView.swift */,
 				9C90C1AA28A227AE00197B32 /* UITextViewRepresentable.swift */,
 			);
 			path = TextVIew;
@@ -879,6 +881,7 @@
 			isa = PBXGroup;
 			children = (
 				9CE311D128A63FB300EDB0F4 /* CommentInformation.swift */,
+				9B61D0E328A9050600F6DD0B /* CommentRequestInformation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -980,6 +983,8 @@
 			);
 			mainGroup = 9B085EF62879991400DE8E60;
 			packageReferences = (
+				9B61D0E028A9029800F6DD0B /* XCRemoteSwiftPackageReference "SwiftUIX" */,
+				9B61D0E528A90B8800F6DD0B /* XCRemoteSwiftPackageReference "TextView" */,
 			);
 			productRefGroup = 9B085F002879991400DE8E60 /* Products */;
 			projectDirPath = "";
@@ -1209,7 +1214,7 @@
 				9B61D0DC28A8EE4500F6DD0B /* RoundedCorner.swift in Sources */,
 				9C2D07B92897C728008BBD75 /* UserManager.swift in Sources */,
 				9C10439D289B747200A45711 /* HomeViewModel.swift in Sources */,
-				9CAA174028A2468600EAAE40 /* TextView.swift in Sources */,
+				9CAA174028A2468600EAAE40 /* WrappedTextView.swift in Sources */,
 				9B61D0D728A8DEF000F6DD0B /* CommentSheet.swift in Sources */,
 				4C4B133B2883C44C006044B0 /* TargetType+Extension.swift in Sources */,
 				9C68A29A2898F3A6006D36B1 /* LocalStorageManager.swift in Sources */,
@@ -1226,6 +1231,7 @@
 				9B61D0D328A88FB300F6DD0B /* CustomSheetView.swift in Sources */,
 				9C95B996289A672800E0910C /* FillScreen.swift in Sources */,
 				9C3309D92888EE20000C592F /* LoginViewModel.swift in Sources */,
+				9B61D0E428A9050600F6DD0B /* CommentRequestInformation.swift in Sources */,
 				4CA47BC6288ED06A00D300A7 /* LoginRequestService.swift in Sources */,
 				9B244073289E9AA10060A244 /* VotesView.swift in Sources */,
 				4CC4B73B2896BF2500774192 /* MyPageView.swift in Sources */,
@@ -1583,6 +1589,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9B61D0E028A9029800F6DD0B /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.2;
+			};
+		};
+		9B61D0E528A90B8800F6DD0B /* XCRemoteSwiftPackageReference "TextView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kenmueller/TextView";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 9B085EF72879991400DE8E60 /* Project object */;
 }

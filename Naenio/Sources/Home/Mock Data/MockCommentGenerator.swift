@@ -57,6 +57,10 @@ struct MockCommentGenertor {
                     repliesCount: 5),
         ])
     }
+    
+    static func generate(with request: CommentRequestInformation) -> Comment {
+        return Comment(id: UUID().uuidString.hashValue, author: Author(id: UUID().uuidString.hashValue, nickname: "곽만두", profileImageIndex: 1), content: request.content, createdDatetime: "22.02.04", likeCount: 14, isLiked: true, repliesCount: 2)
+    }
 }
 
 /*

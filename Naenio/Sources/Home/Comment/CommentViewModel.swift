@@ -14,10 +14,35 @@ class CommentViewModel: ObservableObject {
     
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler(qos: .utility)
+    let parentID = UUID().uuidString.hashValue // TODO: 나중에 밖에서 받아와야 함
     
     @Published var commentsCount: Int?
     @Published var comments = [Comment]()
     @Published var status = Status.waiting
+    
+    func registerComment(_ content: String, parentID: Int) {
+        status = .loading
+        let request = CommentRequestInformation(parentID: parentID, parentType: "POST", content: content)
+        
+        registerNewComment(request)
+            .subscribe(on: serialQueue)
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onSuccess: { [weak self] newComment in
+                    guard let self = self else { return }
+                    
+                    withAnimation {
+                        self.comments.insert(newComment, at: 0)
+                    }
+                    self.status = .done
+                }, onFailure: { [weak self] error in
+                    guard let self = self else { return }
+                    self.status = .fail(with: error)
+                }, onDisposed: {
+                    print("Disposed registerComment")
+                })
+            .disposed(by: bag)
+    }
     
     // !!!: Test
     func requestComments() {
@@ -78,5 +103,12 @@ extension CommentViewModel {
         let commentInfo = MockCommentGenertor.generate()
         
         return Observable.of(commentInfo).asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
+    }
+    
+    private func registerNewComment(_ commentRequest: CommentRequestInformation) -> Single<Comment> {
+        let mockComment = MockCommentGenertor.generate(with: commentRequest)
+        let observable = Observable.just(mockComment)
+        
+        return observable.asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
     }
 }

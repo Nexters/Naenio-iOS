@@ -7,18 +7,19 @@
 
 import SwiftUI
 
-struct TextView: View {
+struct WrappedTextView: View {
     let placeholder: String
     @Binding var content: String
     let characterLimit: Int
     var showLimit = true
+    var isTight: Bool = false
     
     var body: some View {
         ZStack(alignment: .topLeading) {
             Text(content == "" ? placeholder : "")
                 .font(.medium(size: 16))
                 .foregroundColor(.mono)
-                .padding(16)
+                .padding(isTight ? 8 : 16)
                 .zIndex(1)
             
             ZStack(alignment: .bottomTrailing) {
@@ -31,7 +32,7 @@ struct TextView: View {
                     Text("\(content.count)/\(characterLimit)")
                         .font(.medium(size: 12))
                         .foregroundColor(.mono)
-                        .padding(16)
+                        .padding(isTight ? 8 : 16)
                 }
             }
         }

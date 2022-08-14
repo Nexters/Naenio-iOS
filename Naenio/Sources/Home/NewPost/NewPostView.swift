@@ -40,7 +40,7 @@ struct NewPostView: View {
                     .foregroundColor(.white)
                     .font(.medium(size: 16))
                 
-                TextView(placeholder: "무슨 주제를 담아볼까요?", content: $postContent.title, characterLimit: 72)
+                WrappedTextView(placeholder: "무슨 주제를 담아볼까요?", content: $postContent.title, characterLimit: 72)
                     .frame(height: 108)
                     .padding(.bottom, 20)
                 
@@ -57,10 +57,10 @@ struct NewPostView: View {
                         .zIndex(1)
                     
                     VStack(spacing: 20) {
-                        TextView(placeholder: "A의 선택지를 입력해 주세요", content: $postContent.choiceA, characterLimit: 32)
+                        WrappedTextView(placeholder: "A의 선택지를 입력해 주세요", content: $postContent.choiceA, characterLimit: 32)
                             .frame(height: 70)
                         
-                        TextView(placeholder: "B의 선택지를 입력해 주세요", content: $postContent.choiceB, characterLimit: 32)
+                        WrappedTextView(placeholder: "B의 선택지를 입력해 주세요", content: $postContent.choiceB, characterLimit: 32)
                             .frame(height: 70)
                     }
                 }
@@ -71,7 +71,7 @@ struct NewPostView: View {
                     .foregroundColor(.white)
                     .font(.medium(size: 16))
                 
-                TextView(placeholder: "어떤 내용을 추가로 담을까요?", content: $postContent.details, characterLimit: 100)
+                WrappedTextView(placeholder: "어떤 내용을 추가로 담을까요?", content: $postContent.details, characterLimit: 100)
                     .frame(height: 108)
                     .padding(.bottom, 200)
             }

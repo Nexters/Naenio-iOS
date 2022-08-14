@@ -125,6 +125,7 @@ struct HomeView: View {
                 CommentView(isPresented: $showComments)
             }
         }
+        
 }
 
 extension HomeView {

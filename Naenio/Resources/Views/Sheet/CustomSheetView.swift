@@ -8,10 +8,6 @@
 import SwiftUI
 import Combine
 
-protocol Scrollable {
-    
-}
-
 struct CustomSheetView<V: View>: View {
     @Binding var isPresented: Bool
     @State var translation: CGFloat = 0

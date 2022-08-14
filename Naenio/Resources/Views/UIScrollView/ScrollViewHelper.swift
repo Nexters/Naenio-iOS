@@ -26,8 +26,10 @@ class ScrollViewHelper: NSObject, ObservableObject {
 
 extension ScrollViewHelper: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.currentVerticalPosition = scrollView.contentOffset.y
-        
+        DispatchQueue.main.async {
+            self.currentVerticalPosition = scrollView.contentOffset.y
+        }
+
         if scrollView.panGestureRecognizer.translation(in: scrollView).y < 0 {
             DispatchQueue.main.async {
                 withAnimation(.linear(duration: 0.1)) {
