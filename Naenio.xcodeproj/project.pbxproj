@@ -52,6 +52,11 @@
 		9B478A5328A7127B007A4715 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5228A7127B007A4715 /* CloseButton.swift */; };
 		9B478A5728A71A48007A4715 /* CommentContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5628A71A48007A4715 /* CommentContentView.swift */; };
 		9B478A5A28A72100007A4715 /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5928A72100007A4715 /* CustomDivider.swift */; };
+		9B61D0CB28A87BDC00F6DD0B /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0CA28A87BDC00F6DD0B /* BottomSheetView.swift */; };
+		9B61D0D128A88E7F00F6DD0B /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D028A88E7F00F6DD0B /* CustomSheet.swift */; };
+		9B61D0D328A88FB300F6DD0B /* CustomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D228A88FB200F6DD0B /* CustomSheetView.swift */; };
+		9B61D0D728A8DEF000F6DD0B /* CommentSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D628A8DEF000F6DD0B /* CommentSheet.swift */; };
+		9B61D0DC28A8EE4500F6DD0B /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0DB28A8EE4500F6DD0B /* RoundedCorner.swift */; };
 		9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B687DE928954D4A0048AED0 /* Font + Extension.swift */; };
 		9B86192D28A77D920098AC8E /* CommentRepliesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86192C28A77D920098AC8E /* CommentRepliesView.swift */; };
 		9B86192F28A782990098AC8E /* CommentRepliesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86192E28A782990098AC8E /* CommentRepliesViewModel.swift */; };
@@ -180,6 +185,11 @@
 		9B478A5228A7127B007A4715 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		9B478A5628A71A48007A4715 /* CommentContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentContentView.swift; sourceTree = "<group>"; };
 		9B478A5928A72100007A4715 /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
+		9B61D0CA28A87BDC00F6DD0B /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		9B61D0D028A88E7F00F6DD0B /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
+		9B61D0D228A88FB200F6DD0B /* CustomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheetView.swift; sourceTree = "<group>"; };
+		9B61D0D628A8DEF000F6DD0B /* CommentSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentSheet.swift; sourceTree = "<group>"; };
+		9B61D0DB28A8EE4500F6DD0B /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		9B687DE928954D4A0048AED0 /* Font + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font + Extension.swift"; sourceTree = "<group>"; };
 		9B86192C28A77D920098AC8E /* CommentRepliesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesView.swift; sourceTree = "<group>"; };
 		9B86192E28A782990098AC8E /* CommentRepliesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesViewModel.swift; sourceTree = "<group>"; };
@@ -541,6 +551,24 @@
 			path = Divider;
 			sourceTree = "<group>";
 		};
+		9B61D0CF28A88E6E00F6DD0B /* Sheet */ = {
+			isa = PBXGroup;
+			children = (
+				9B61D0D028A88E7F00F6DD0B /* CustomSheet.swift */,
+				9B61D0D228A88FB200F6DD0B /* CustomSheetView.swift */,
+				9B61D0D628A8DEF000F6DD0B /* CommentSheet.swift */,
+			);
+			path = Sheet;
+			sourceTree = "<group>";
+		};
+		9B61D0DA28A8EE3A00F6DD0B /* Shape */ = {
+			isa = PBXGroup;
+			children = (
+				9B61D0DB28A8EE4500F6DD0B /* RoundedCorner.swift */,
+			);
+			path = Shape;
+			sourceTree = "<group>";
+		};
 		9BD6DE9C2895536E00051C3E /* Colors */ = {
 			isa = PBXGroup;
 			children = (
@@ -729,6 +757,7 @@
 				9B244071289E9A900060A244 /* Vote */,
 				9C95B98C289A3AAB00E0910C /* HomeView.swift */,
 				9C10439C289B747200A45711 /* HomeViewModel.swift */,
+				9B61D0CA28A87BDC00F6DD0B /* BottomSheetView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -736,8 +765,10 @@
 		9C95B992289A650100E0910C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9B478A5828A720EC007A4715 /* Divider */,
 				9B24406F289E8DC30060A244 /* View + Exetension.swift */,
+				9B61D0DA28A8EE3A00F6DD0B /* Shape */,
+				9B61D0CF28A88E6E00F6DD0B /* Sheet */,
+				9B478A5828A720EC007A4715 /* Divider */,
 				9CAA174328A24FDB00EAAE40 /* Buttons */,
 				9B478A5128A70F90007A4715 /* Components */,
 				9B03733028A692520089CC48 /* LodaingIndicator */,
@@ -1165,17 +1196,21 @@
 				4C4B13432883D88A006044B0 /* HttpResponseCode.swift in Sources */,
 				9C68A29D28990015006D36B1 /* TokenManager.swift in Sources */,
 				9B244070289E8DC30060A244 /* View + Exetension.swift in Sources */,
+				9B61D0D128A88E7F00F6DD0B /* CustomSheet.swift in Sources */,
 				9BF00BF7287AC95A00F08035 /* AppleLoginManager.swift in Sources */,
 				9B03733228A6926D0089CC48 /* LoadingIndicator.swift in Sources */,
 				9B425529289D0F9A00163327 /* FullView.swift in Sources */,
+				9B61D0CB28A87BDC00F6DD0B /* BottomSheetView.swift in Sources */,
 				4C43C8C42886FB8200A60372 /* String+Extension.swift in Sources */,
 				9C3309CF2888ED08000C592F /* SignInWithKakaoButton.swift in Sources */,
 				9C95B99C289A885900E0910C /* CardView.swift in Sources */,
 				9B03732728A555800089CC48 /* Publishers + Extension.swift in Sources */,
 				9C90C1AB28A227AE00197B32 /* UITextViewRepresentable.swift in Sources */,
+				9B61D0DC28A8EE4500F6DD0B /* RoundedCorner.swift in Sources */,
 				9C2D07B92897C728008BBD75 /* UserManager.swift in Sources */,
 				9C10439D289B747200A45711 /* HomeViewModel.swift in Sources */,
 				9CAA174028A2468600EAAE40 /* TextView.swift in Sources */,
+				9B61D0D728A8DEF000F6DD0B /* CommentSheet.swift in Sources */,
 				4C4B133B2883C44C006044B0 /* TargetType+Extension.swift in Sources */,
 				9C68A29A2898F3A6006D36B1 /* LocalStorageManager.swift in Sources */,
 				9B478A5328A7127B007A4715 /* CloseButton.swift in Sources */,
@@ -1188,6 +1223,7 @@
 				9CAA174528A2570800EAAE40 /* PostRequestInformation.swift in Sources */,
 				4CC296E0288055FD001950A2 /* HeaderInformation.swift in Sources */,
 				4C4B134528847640006044B0 /* NaenioAPI+Request.swift in Sources */,
+				9B61D0D328A88FB300F6DD0B /* CustomSheetView.swift in Sources */,
 				9C95B996289A672800E0910C /* FillScreen.swift in Sources */,
 				9C3309D92888EE20000C592F /* LoginViewModel.swift in Sources */,
 				4CA47BC6288ED06A00D300A7 /* LoginRequestService.swift in Sources */,

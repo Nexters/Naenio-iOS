@@ -11,7 +11,7 @@ struct NewPostView: View {
     @EnvironmentObject var sourceObject: HomeViewModel
     @Binding var isPresented: Bool
     
-    @State private var postContent = PostContent()
+    @State fileprivate var postContent = PostContent()
     
     @State var showAlert = false
     @State var alertType: AlertType = .none

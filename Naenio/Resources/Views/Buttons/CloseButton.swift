@@ -11,7 +11,12 @@ struct CloseButton: View {
     let action: () -> Void
     
     var body: some View {
-        Button(action: self.action) {
+        Button(action: {
+            withAnimation(.spring()) {
+                self.action()
+                UIApplication.shared.endEditing()
+            }
+        }) {
             Image(systemName: "xmark")
                 .resizable()
                 .scaledToFit()

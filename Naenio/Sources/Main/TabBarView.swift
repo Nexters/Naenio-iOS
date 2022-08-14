@@ -24,7 +24,7 @@ struct TabBarView: View {
         }
         .introspectTabBarController { contoller in
             contoller.tabBar.barTintColor = UIColor(Color.tabBarBackground)
-            contoller.tabBar.isTranslucent = false
+            contoller.tabBar.isTranslucent = true
             
             contoller.tabBar.layer.masksToBounds = true
             contoller.tabBar.layer.cornerRadius = 14

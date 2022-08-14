@@ -10,6 +10,7 @@ import SwiftUI
 struct CommentContentView: View {
     typealias Comment = CommentInformation.Comment
     
+    @Binding var isPresented: Bool
     @State var isNavigationActive: Bool = false
     
     let comment: Comment
@@ -17,7 +18,7 @@ struct CommentContentView: View {
     
     var body: some View {
         HStack(alignment: .top, spacing: 8) {
-            NavigationLink( destination: CommentRepliesView(comment: comment), isActive: $isNavigationActive) {
+            NavigationLink( destination: CommentRepliesView(isPresented: $isPresented, comment: comment), isActive: $isNavigationActive) {
                 EmptyView()
             }
 

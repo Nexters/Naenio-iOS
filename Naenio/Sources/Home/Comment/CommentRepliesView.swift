@@ -9,7 +9,9 @@ import SwiftUI
 
 struct CommentRepliesView: View {
     typealias Comment = CommentInformation.Comment
-
+    
+    @Binding var isPresented: Bool
+    @ObservedObject var scrollViewHelper = ScrollViewHelper()
     @ObservedObject var viewModel = CommentRepliesViewModel()
     @State var text: String = ""
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -22,11 +24,6 @@ struct CommentRepliesView: View {
                 .ignoresSafeArea()
             
             ScrollView {
-                // Placeholder
-                Rectangle()
-                    .fill(.clear)
-                    .frame(height: 30)
-                
                 LazyVStack(spacing: 18) {
                     // Sheet's header
                     HStack {
@@ -41,13 +38,13 @@ struct CommentRepliesView: View {
                         
                         Spacer()
                         
-                        CloseButton(action: popNavigation)
+                        CloseButton(action: { self.isPresented = false })
                             .frame(width: 12, height: 12)
                     }
                     
                     CustomDivider()
                     
-                    CommentContentView(comment: comment, isReply: true)
+                    CommentContentView(isPresented: $isPresented, comment: comment, isReply: true)
                     
                     CustomDivider()
 
@@ -57,7 +54,7 @@ struct CommentRepliesView: View {
                                 .padding(3)
                                 .opacity(0)
                             
-                            CommentContentView(comment: reply, isReply: true)
+                            CommentContentView(isPresented: $isPresented, comment: comment, isReply: true)
                         }
                     }
                     
@@ -68,8 +65,12 @@ struct CommentRepliesView: View {
                 }
                 .padding(.horizontal, 20)
             }
-            .introspectScrollView { scrollView in
-                scrollView.keyboardDismissMode = .onDrag
+            .onChange(of: scrollViewHelper.currentVerticalPosition) { newValue in
+                print(newValue)
+                NotificationCenter.default.post(name: .scrollOffsetNotification, object: newValue)
+            }
+            .onChange(of: scrollViewHelper.scrollVelocity) { newValue in
+                NotificationCenter.default.post(name: .scrollVelocity, object: newValue)
             }
             
             // Keyboard

@@ -22,4 +22,18 @@ extension View {
     func keyboardAdaptive() -> some View {
         ModifiedContent(content: self, modifier: KeyboardAdaptive())
     }
+    
+    /// 커스텀 시트를 위해 사용
+    func customSheet<C: View>(
+        isPresented: Binding<Bool>,
+        height: CGFloat,
+        @ViewBuilder content: () -> C
+    ) -> CustomSheet<C, Self> {
+        CustomSheet(isPresented: isPresented, content: content(), view: self, height: height)
+    }
+    
+    /// 특정 코너만 라운드 주고 싶을 때 사용
+    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+        clipShape( RoundedCorner(radius: radius, corners: corners) )
+    }
 }

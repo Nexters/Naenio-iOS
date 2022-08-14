@@ -13,6 +13,8 @@ import SwiftUI
 /// `ObservableObject`를 채택해 업데이트 된 변수에 대한 정보를 받아옵니다.
 class ScrollViewHelper: NSObject, ObservableObject {
     @Published var scrollDirection: ScrollDirection = .downward
+    @Published var scrollVelocity: CGFloat = 0
+    @Published var currentVerticalPosition: CGFloat = 0
     
     let refreshController = UIRefreshControl()
     
@@ -24,6 +26,8 @@ class ScrollViewHelper: NSObject, ObservableObject {
 
 extension ScrollViewHelper: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.currentVerticalPosition = scrollView.contentOffset.y
+        
         if scrollView.panGestureRecognizer.translation(in: scrollView).y < 0 {
             DispatchQueue.main.async {
                 withAnimation(.linear(duration: 0.1)) {
@@ -37,5 +41,9 @@ extension ScrollViewHelper: UIScrollViewDelegate {
                 }
             }
         }
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        self.scrollVelocity = velocity.y
     }
 }
