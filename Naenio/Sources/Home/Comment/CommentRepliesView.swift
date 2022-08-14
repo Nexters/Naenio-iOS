@@ -10,11 +10,13 @@ import SwiftUI
 struct CommentRepliesView: View {
     typealias Comment = CommentInformation.Comment
     
-    @Binding var isPresented: Bool
-    @ObservedObject var scrollViewHelper = ScrollViewHelper()
-    @ObservedObject var viewModel = CommentRepliesViewModel()
-    @State var text: String = ""
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @Binding var isPresented: Bool
+    
+    @ObservedObject var viewModel = CommentRepliesViewModel()
+    @ObservedObject var scrollViewHelper = ScrollViewHelper()
+    
+    @State var text: String = ""
 
     let comment: Comment
     
@@ -57,7 +59,7 @@ struct CommentRepliesView: View {
                                 .padding(3)
                                 .opacity(0)
                             
-                            CommentContentCell(isPresented: $isPresented, comment: comment, isReply: true)
+                            CommentContentCell(isPresented: $isPresented, comment: reply, isReply: true)
                         }
                     }
                     
@@ -90,7 +92,9 @@ struct CommentRepliesView: View {
                     
                     WrappedTextView(placeholder: "댓글 추가", content: $text, characterLimit: 100, showLimit: false, isTight: true)
                     
-                    Button(action: {}) {
+                    Button(action: {
+                        viewModel.registerComment(self.text, parentID: UUID().uuidString.hashValue)
+                    }) {
                         Text("게시")
                             .font(.semoBold(size: 14))
                             .foregroundColor(.naenioGray)

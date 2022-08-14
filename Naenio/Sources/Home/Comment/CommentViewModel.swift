@@ -20,6 +20,7 @@ class CommentViewModel: ObservableObject {
     @Published var comments = [Comment]()
     @Published var status = Status.waiting
     
+    // !!!: Test
     func registerComment(_ content: String, parentID: Int) {
         status = .loading
         let request = CommentRequestInformation(parentID: parentID, parentType: "POST", content: content)
