@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct NewPostView: View {
     @EnvironmentObject var sourceObject: HomeViewModel
@@ -25,6 +26,7 @@ struct NewPostView: View {
                     UIApplication.shared.endEditing()
                 }
             
+            // Header
             VStack(alignment: .leading, spacing: 4) {
                 ZStack(alignment: .center) {
                     closeAndRegisterButtons
@@ -32,51 +34,60 @@ struct NewPostView: View {
                     Text("New Post")
                         .font(.engBold(size: 18))
                         .foregroundColor(.white)
-                }
-                .padding(.bottom, 32)
-                
-                // MARK: - 투표 주제
-                Text("*투표 주제")
-                    .foregroundColor(.white)
-                    .font(.medium(size: 16))
-                
-                WrappedTextView(placeholder: "무슨 주제를 담아볼까요?", content: $postContent.title, characterLimit: 72)
-                    .frame(height: 108)
-                    .padding(.bottom, 20)
-                
-                // MARK: - 투표 선택지
-                Text("*투표 선택지")
-                    .foregroundColor(.white)
-                    .font(.medium(size: 16))
-                
-                ZStack(alignment: .center) {
-                    Image("vsIcon")
-                        .resizable()
-                        .frame(width: 36, height: 36)
-                        .scaledToFit()
-                        .zIndex(1)
                     
-                    VStack(spacing: 20) {
-                        WrappedTextView(placeholder: "A의 선택지를 입력해 주세요", content: $postContent.choiceA, characterLimit: 32)
-                            .frame(height: 70)
-                        
-                        WrappedTextView(placeholder: "B의 선택지를 입력해 주세요", content: $postContent.choiceB, characterLimit: 32)
-                            .frame(height: 70)
+                    VStack {
+                        Spacer()
                     }
                 }
-                .padding(.bottom, 20)
+                .padding(.top, 24)
+                .padding(.bottom, 32)
+                .background(Color.background.ignoresSafeArea())
+                .zIndex(1)
                 
-                // MARK: - 내용
-                Text("내용")
-                    .foregroundColor(.white)
-                    .font(.medium(size: 16))
-                
-                WrappedTextView(placeholder: "어떤 내용을 추가로 담을까요?", content: $postContent.details, characterLimit: 100)
-                    .frame(height: 108)
-                    .padding(.bottom, 200)
+                VStack(alignment: .leading, spacing: 4) {
+                    // MARK: - 투표 주제
+                    Text("*투표 주제")
+                        .foregroundColor(.white)
+                        .font(.medium(size: 16))
+                    
+                    WrappedTextView(placeholder: "무슨 주제를 담아볼까요?", content: $postContent.title, characterLimit: 72)
+                        .frame(height: 108)
+                        .padding(.bottom, 20)
+                    
+                    // MARK: - 투표 선택지
+                    Text("*투표 선택지")
+                        .foregroundColor(.white)
+                        .font(.medium(size: 16))
+                    
+                    ZStack(alignment: .center) {
+                        Image("vsIcon")
+                            .resizable()
+                            .frame(width: 36, height: 36)
+                            .scaledToFit()
+                            .zIndex(1)
+                        
+                        VStack(spacing: 20) {
+                            WrappedTextView(placeholder: "A의 선택지를 입력해 주세요", content: $postContent.choiceA, characterLimit: 32)
+                                .frame(height: 70)
+                            
+                            WrappedTextView(placeholder: "B의 선택지를 입력해 주세요", content: $postContent.choiceB, characterLimit: 32)
+                                .frame(height: 70)
+                        }
+                    }
+                    .padding(.bottom, 20)
+                    
+                    // MARK: - 내용
+                    Text("내용")
+                        .foregroundColor(.white)
+                        .font(.medium(size: 16))
+                    
+                    WrappedTextView(placeholder: "어떤 내용을 추가로 담을까요?", content: $postContent.details, characterLimit: 100)
+                        .frame(height: 108)
+                    
+                    Spacer()
+                }
+                .moveUpWhenKeyboardAppear(offset: 100)
             }
-            .keyboardAdaptive()
-            .padding(.top, 24)
             .padding(.horizontal, 24)
         }
         .fillScreen()

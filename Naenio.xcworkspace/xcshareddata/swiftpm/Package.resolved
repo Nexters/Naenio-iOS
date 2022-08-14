@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "bottom-sheet",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/weitieda/bottom-sheet",
+      "state" : {
+        "revision" : "de09fedfb7a9c5ab4effbdb4df284229c60f72db",
+        "version" : "1.0.11"
+      }
+    },
+    {
       "identity" : "swiftuix",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SwiftUIX/SwiftUIX",

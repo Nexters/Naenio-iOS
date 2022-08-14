@@ -27,7 +27,10 @@ struct CommentRepliesView: View {
                 LazyVStack(spacing: 18) {
                     // Sheet's header
                     HStack {
-                        Button(action: popNavigation) {
+                        Button(action: {
+                            UIApplication.shared.endEditing()
+                            self.presentationMode.wrappedValue.dismiss()
+                        }) {
                             Image(systemName: "chevron.left")
                                 .foregroundColor(.white)
                         }
@@ -44,7 +47,7 @@ struct CommentRepliesView: View {
                     
                     CustomDivider()
                     
-                    CommentContentView(isPresented: $isPresented, comment: comment, isReply: true)
+                    CommentContentCell(isPresented: $isPresented, comment: comment, isReply: true)
                     
                     CustomDivider()
 
@@ -54,7 +57,7 @@ struct CommentRepliesView: View {
                                 .padding(3)
                                 .opacity(0)
                             
-                            CommentContentView(isPresented: $isPresented, comment: comment, isReply: true)
+                            CommentContentCell(isPresented: $isPresented, comment: comment, isReply: true)
                         }
                     }
                     
@@ -65,8 +68,11 @@ struct CommentRepliesView: View {
                 }
                 .padding(.horizontal, 20)
             }
+            .introspectScrollView { scrollView in
+                scrollView.keyboardDismissMode = .onDrag
+                scrollView.delegate = scrollViewHelper
+            }
             .onChange(of: scrollViewHelper.currentVerticalPosition) { newValue in
-                print(newValue)
                 NotificationCenter.default.post(name: .scrollOffsetNotification, object: newValue)
             }
             .onChange(of: scrollViewHelper.scrollVelocity) { newValue in
@@ -82,10 +88,7 @@ struct CommentRepliesView: View {
                         .padding(3)
                         .background(Circle().fill(Color.green.opacity(0.2)))
                     
-                    WrappedTextView(placeholder: "댓글 추가", content: $text, characterLimit: 200, showLimit: false)
-                        .background(Color.card)
-                        .cornerRadius(3)
-                        .frame(height: 32)
+                    WrappedTextView(placeholder: "댓글 추가", content: $text, characterLimit: 100, showLimit: false, isTight: true)
                     
                     Button(action: {}) {
                         Text("게시")
@@ -93,6 +96,7 @@ struct CommentRepliesView: View {
                             .foregroundColor(.naenioGray)
                     }
                }
+                .frame(height: 32)
                 .padding(.vertical, 15)
                 .padding(.horizontal, 20)
                 .background(Color.background.ignoresSafeArea())
@@ -103,11 +107,5 @@ struct CommentRepliesView: View {
         .onAppear {
             viewModel.requestComments()
         }
-    }
-}
-
-extension CommentRepliesView {
-    func popNavigation() {
-        self.presentationMode.wrappedValue.dismiss()
     }
 }

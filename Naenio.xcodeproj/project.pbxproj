@@ -50,7 +50,7 @@
 		9B42552B289D0FA200163327 /* FullViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42552A289D0FA200163327 /* FullViewModel.swift */; };
 		9B478A5028A70F89007A4715 /* CommentCountComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A4F28A70F89007A4715 /* CommentCountComponent.swift */; };
 		9B478A5328A7127B007A4715 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5228A7127B007A4715 /* CloseButton.swift */; };
-		9B478A5728A71A48007A4715 /* CommentContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5628A71A48007A4715 /* CommentContentView.swift */; };
+		9B478A5728A71A48007A4715 /* CommentContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5628A71A48007A4715 /* CommentContentCell.swift */; };
 		9B478A5A28A72100007A4715 /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5928A72100007A4715 /* CustomDivider.swift */; };
 		9B61D0CB28A87BDC00F6DD0B /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0CA28A87BDC00F6DD0B /* BottomSheetView.swift */; };
 		9B61D0D128A88E7F00F6DD0B /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D028A88E7F00F6DD0B /* CustomSheet.swift */; };
@@ -184,7 +184,7 @@
 		9B42552A289D0FA200163327 /* FullViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullViewModel.swift; sourceTree = "<group>"; };
 		9B478A4F28A70F89007A4715 /* CommentCountComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCountComponent.swift; sourceTree = "<group>"; };
 		9B478A5228A7127B007A4715 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
-		9B478A5628A71A48007A4715 /* CommentContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentContentView.swift; sourceTree = "<group>"; };
+		9B478A5628A71A48007A4715 /* CommentContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentContentCell.swift; sourceTree = "<group>"; };
 		9B478A5928A72100007A4715 /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
 		9B61D0CA28A87BDC00F6DD0B /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		9B61D0D028A88E7F00F6DD0B /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
@@ -869,7 +869,7 @@
 			children = (
 				9CE311D028A63FA300EDB0F4 /* Model */,
 				9B86192C28A77D920098AC8E /* CommentRepliesView.swift */,
-				9B478A5628A71A48007A4715 /* CommentContentView.swift */,
+				9B478A5628A71A48007A4715 /* CommentContentCell.swift */,
 				9CE311D328A6439900EDB0F4 /* CommentView.swift */,
 				9B03732E28A68A6B0089CC48 /* CommentViewModel.swift */,
 				9B86192E28A782990098AC8E /* CommentRepliesViewModel.swift */,
@@ -985,6 +985,7 @@
 			packageReferences = (
 				9B61D0E028A9029800F6DD0B /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 				9B61D0E528A90B8800F6DD0B /* XCRemoteSwiftPackageReference "TextView" */,
+				9B61D0E828A9281800F6DD0B /* XCRemoteSwiftPackageReference "bottom-sheet" */,
 			);
 			productRefGroup = 9B085F002879991400DE8E60 /* Products */;
 			projectDirPath = "";
@@ -1163,7 +1164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B478A5728A71A48007A4715 /* CommentContentView.swift in Sources */,
+				9B478A5728A71A48007A4715 /* CommentContentCell.swift in Sources */,
 				4CB4196A28A29C2700EBB777 /* TabContentView.swift in Sources */,
 				4C16915C289FF8DA000226BF /* TabBarView.swift in Sources */,
 				9CE311D228A63FB300EDB0F4 /* CommentInformation.swift in Sources */,
@@ -1605,6 +1606,14 @@
 			requirement = {
 				branch = master;
 				kind = branch;
+			};
+		};
+		9B61D0E828A9281800F6DD0B /* XCRemoteSwiftPackageReference "bottom-sheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weitieda/bottom-sheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

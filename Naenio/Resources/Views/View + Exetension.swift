@@ -19,8 +19,8 @@ extension View {
     }
     
     /// Keyboard가 나타날 때 view를 위로 밀어 올립니다
-    func keyboardAdaptive() -> some View {
-        ModifiedContent(content: self, modifier: KeyboardAdaptive())
+    func moveUpWhenKeyboardAppear(offset: CGFloat) -> some View {
+        ModifiedContent(content: self, modifier: KeyboardAdaptive(offset: offset))
     }
     
     /// 커스텀 시트를 위해 사용

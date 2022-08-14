@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CommentContentView: View {
+struct CommentContentCell: View {
     typealias Comment = CommentInformation.Comment
     
     @Binding var isPresented: Bool
@@ -48,7 +48,10 @@ struct CommentContentView: View {
                     .padding(.bottom, 12)
                 
                 if comment.repliesCount != 0 && isReply == false {
-                    Button(action: { isNavigationActive = true }) {
+                    Button(action: {
+                        isNavigationActive = true
+                        UIApplication.shared.endEditing()
+                    }) {
                         Text("답글 \(comment.repliesCount)개")
                             .font(.semoBold(size: 16))
                             .foregroundColor(.naenioBlue)
@@ -61,7 +64,7 @@ struct CommentContentView: View {
     }
 }
 
-extension CommentContentView {
+extension CommentContentCell {
     var responsiveButtons: some View {
         HStack(spacing: 17) {
             Button(action: {}) {
@@ -72,7 +75,9 @@ extension CommentContentView {
             }
             
             if isReply == false {
-                Button(action: { isNavigationActive = true }) {
+                Button(action: {
+                    isNavigationActive = true
+                }) {
                     HStack(spacing: 5) {
                         Image(systemName: "text.bubble")
                         Text("\(comment.repliesCount)")
