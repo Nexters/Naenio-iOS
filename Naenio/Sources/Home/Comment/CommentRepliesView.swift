@@ -27,8 +27,7 @@ struct CommentRepliesView: View {
             
             ScrollView {
                 LazyVStack(spacing: 18) {
-                    // Sheet's header
-                    HStack {
+                    HStack { // Sheet's header
                         Button(action: {
                             UIApplication.shared.endEditing()
                             self.presentationMode.wrappedValue.dismiss()

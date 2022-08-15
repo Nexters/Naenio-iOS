@@ -63,8 +63,6 @@ extension CustomSheetView {
                     withAnimation(.easeInOut) {
                         translation = value
                     }
-                    
-                    print(translation, geometry.size.height)
                 }
                 .onReceive(Publishers.scrollOffset) { value in
                     // !!!: 매우 위험함. 하나의 스크롤뷰만 퍼블리싱 중임을 보장해야 함

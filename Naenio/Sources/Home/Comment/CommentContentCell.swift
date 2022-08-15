@@ -76,6 +76,7 @@ extension CommentContentCell {
             
             if isReply == false {
                 Button(action: {
+                    UIApplication.shared.endEditing()
                     isNavigationActive = true
                 }) {
                     HStack(spacing: 5) {
