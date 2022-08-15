@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Post: Codable, Identifiable, Equatable {
+struct Post: ModelType {
     static func == (lhs: Post, rhs: Post) -> Bool {
         return lhs.id == rhs.id
     }
@@ -19,18 +19,12 @@ struct Post: Codable, Identifiable, Equatable {
     let content: String
     var choices: [Choice]
     var commentCount: Int
-    
-    struct Author: Codable {
-        let id: Int
-        let nickname: String
-        let profileImageIndex: Int
-    }
+}
 
-    struct Choice: Codable {
-        let id: Int
-        let sequence: Int
-        let name: String
-        var isVoted: Bool
-        var voteCount: Int
-    }
+struct Choice: ModelType {
+    let id: Int
+    let sequence: Int
+    let name: String
+    var isVoted: Bool
+    var voteCount: Int
 }

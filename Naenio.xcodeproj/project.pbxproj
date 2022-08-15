@@ -22,6 +22,12 @@
 		4CA47BC6288ED06A00D300A7 /* LoginRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA47BC5288ED06A00D300A7 /* LoginRequestService.swift */; };
 		4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4CA47BC92890344400D300A7 /* .swiftlint.yml */; };
 		4CB4196A28A29C2700EBB777 /* TabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB4196928A29C2700EBB777 /* TabContentView.swift */; };
+		4CB8944928A74A0200BE2ECF /* NaenioAPI+Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8944828A74A0200BE2ECF /* NaenioAPI+Method.swift */; };
+		4CB8944C28A74AD000BE2ECF /* PostRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8944B28A74AD000BE2ECF /* PostRequestService.swift */; };
+		4CB8944E28A7513800BE2ECF /* ignored in Resources */ = {isa = PBXBuildFile; fileRef = 4CB8944D28A7513800BE2ECF /* ignored */; };
+		4CB8945028A755DD00BE2ECF /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8944F28A755DD00BE2ECF /* KeyValue.swift */; };
+		4CB8945428A766B500BE2ECF /* PostResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8945328A766B500BE2ECF /* PostResponseModel.swift */; };
+		4CB8945628A7A1E300BE2ECF /* AuthServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8945528A7A1E300BE2ECF /* AuthServiceType.swift */; };
 		4CC296D92880533C001950A2 /* DefaultSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC296D82880533C001950A2 /* DefaultSession.swift */; };
 		4CC296DB28805366001950A2 /* NaenioAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC296DA28805366001950A2 /* NaenioAPI.swift */; };
 		4CC296E0288055FD001950A2 /* HeaderInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC296DF288055FD001950A2 /* HeaderInformation.swift */; };
@@ -152,6 +158,12 @@
 		4CA47BC5288ED06A00D300A7 /* LoginRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestService.swift; sourceTree = "<group>"; };
 		4CA47BC92890344400D300A7 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		4CB4196928A29C2700EBB777 /* TabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContentView.swift; sourceTree = "<group>"; };
+		4CB8944828A74A0200BE2ECF /* NaenioAPI+Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Method.swift"; sourceTree = "<group>"; };
+		4CB8944B28A74AD000BE2ECF /* PostRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequestService.swift; sourceTree = "<group>"; };
+		4CB8944D28A7513800BE2ECF /* ignored */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ignored; path = ../../Desktop/ignored; sourceTree = "<group>"; };
+		4CB8944F28A755DD00BE2ECF /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyValue.swift; path = ../../../../../Desktop/ignored/KeyValue.swift; sourceTree = "<group>"; };
+		4CB8945328A766B500BE2ECF /* PostResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostResponseModel.swift; sourceTree = "<group>"; };
+		4CB8945528A7A1E300BE2ECF /* AuthServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceType.swift; sourceTree = "<group>"; };
 		4CC296D82880533C001950A2 /* DefaultSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSession.swift; sourceTree = "<group>"; };
 		4CC296DA28805366001950A2 /* NaenioAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioAPI.swift; sourceTree = "<group>"; };
 		4CC296DF288055FD001950A2 /* HeaderInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderInformation.swift; sourceTree = "<group>"; };
@@ -159,7 +171,6 @@
 		4CC4B7382896BF1C00774192 /* CurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurationView.swift; sourceTree = "<group>"; };
 		4CC4B73A2896BF2500774192 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		8D95CCC0C2681997F36E4AFB /* Pods-Naenio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio.debug.xcconfig"; path = "Target Support Files/Pods-Naenio/Pods-Naenio.debug.xcconfig"; sourceTree = "<group>"; };
-		9B03732128A2B4280089CC48 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../../ignored/Info.plist; sourceTree = "<group>"; };
 		9B03732328A5551B0089CC48 /* KeyboardAdaptive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAdaptive.swift; sourceTree = "<group>"; };
 		9B03732628A555800089CC48 /* Publishers + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers + Extension.swift"; sourceTree = "<group>"; };
 		9B03732A28A555D60089CC48 /* Notification + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification + Extension.swift"; sourceTree = "<group>"; };
@@ -311,6 +322,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		4CB8944A28A74ABD00BE2ECF /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4CB8944B28A74AD000BE2ECF /* PostRequestService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		4CC296D228804E88001950A2 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,6 +346,7 @@
 				4CC296DA28805366001950A2 /* NaenioAPI.swift */,
 				4C4B13312883AAC3006044B0 /* NaenioAPI+Path.swift */,
 				4C4B13332883AAE0006044B0 /* NaenioAPI+Task.swift */,
+				4CB8944828A74A0200BE2ECF /* NaenioAPI+Method.swift */,
 				4C4B13382883B709006044B0 /* NaenioAPI+Error.swift */,
 				4C4B133C2883C5EB006044B0 /* NaenioAPI+Wrapper.swift */,
 				4C4B134428847640006044B0 /* NaenioAPI+Request.swift */,
@@ -337,6 +357,7 @@
 		4CC296DC288054C0001950A2 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				4CB8944F28A755DD00BE2ECF /* KeyValue.swift */,
 				4CC296DF288055FD001950A2 /* HeaderInformation.swift */,
 				4C4B13422883D88A006044B0 /* HttpResponseCode.swift */,
 			);
@@ -436,7 +457,7 @@
 		9B085F012879991400DE8E60 /* Naenio */ = {
 			isa = PBXGroup;
 			children = (
-				9C68A2942898EFE4006D36B1 /* ignored */,
+				4CB8944D28A7513800BE2ECF /* ignored */,
 				9BF00BF2287AC72800F08035 /* Naenio.entitlements */,
 				9B085F082879991600DE8E60 /* Preview Content */,
 				9B085F2D287E353600DE8E60 /* Resources */,
@@ -666,6 +687,7 @@
 			children = (
 				9C2D07C22897DA6F008BBD75 /* ProfileImages.swift */,
 				9C2D07BA2897CD0A008BBD75 /* UserError.swift */,
+				4CB8945528A7A1E300BE2ECF /* AuthServiceType.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -695,15 +717,6 @@
 				9C3309D02888ED16000C592F /* SignInWithKakaoButtonViewModel.swift */,
 			);
 			path = Kakao;
-			sourceTree = "<group>";
-		};
-		9C68A2942898EFE4006D36B1 /* ignored */ = {
-			isa = PBXGroup;
-			children = (
-				9B03732128A2B4280089CC48 /* Info.plist */,
-				9B89B9F9289E0CF900D0E205 /* KeyValue.swift */,
-			);
-			path = ignored;
 			sourceTree = "<group>";
 		};
 		9C68A29B2898FFF5006D36B1 /* Storage */ = {
@@ -751,6 +764,7 @@
 		9C95B98B289A3A9F00E0910C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				4CB8944A28A74ABD00BE2ECF /* Service */,
 				9CCA2296289BBBFE00A2F9B0 /* Mock Data */,
 				9CE311CD28A63DFD00EDB0F4 /* Comment */,
 				9CA6DA8528A21CBA0060610F /* NewPost */,
@@ -822,6 +836,7 @@
 			children = (
 				9CCA227E289B9EA900A2F9B0 /* Post.swift */,
 				9CAA174428A2570800EAAE40 /* PostRequestInformation.swift */,
+				4CB8945328A766B500BE2ECF /* PostResponseModel.swift */,
 			);
 			path = Posts;
 			sourceTree = "<group>";
@@ -1007,6 +1022,7 @@
 				9BE602A3289548CF008F291C /* Pretendard-SemiBold.ttf in Resources */,
 				9BE602A5289548CF008F291C /* Pretendard-Regular.ttf in Resources */,
 				9BE602A0289548CF008F291C /* Pretendard-Medium.ttf in Resources */,
+				4CB8944E28A7513800BE2ECF /* ignored in Resources */,
 				4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */,
 				9BE602B82895491B008F291C /* Montserrat-Regular.ttf in Resources */,
 				4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */,
@@ -1166,7 +1182,6 @@
 				4C16915C289FF8DA000226BF /* TabBarView.swift in Sources */,
 				9CE311D228A63FB300EDB0F4 /* CommentInformation.swift in Sources */,
 				4CC296DB28805366001950A2 /* NaenioAPI.swift in Sources */,
-				9B89B9FB289E0CF900D0E205 /* KeyValue.swift in Sources */,
 				9B478A5A28A72100007A4715 /* CustomDivider.swift in Sources */,
 				9C2D07BB2897CD0A008BBD75 /* UserError.swift in Sources */,
 				4C4B13392883B709006044B0 /* NaenioAPI+Error.swift in Sources */,
@@ -1175,6 +1190,7 @@
 				9C3309D72888EE0D000C592F /* LoginView.swift in Sources */,
 				9C95B99A289A679B00E0910C /* CapsuleButtonStyle.swift in Sources */,
 				9B86192D28A77D920098AC8E /* CommentRepliesView.swift in Sources */,
+				4CB8944928A74A0200BE2ECF /* NaenioAPI+Method.swift in Sources */,
 				4CC296D92880533C001950A2 /* DefaultSession.swift in Sources */,
 				9C95B991289A4AC100E0910C /* UserManager + Extension.swift in Sources */,
 				9C8D603928A373FD00632BCC /* Navigation + Extension.swift in Sources */,
@@ -1192,18 +1208,21 @@
 				9C95B98A289A359700E0910C /* OnboardingView.swift in Sources */,
 				9C2D07C32897DA6F008BBD75 /* ProfileImages.swift in Sources */,
 				9C8D603B28A3746500632BCC /* UIApplication + Extension.swift in Sources */,
+				4CB8944C28A74AD000BE2ECF /* PostRequestService.swift in Sources */,
 				9B244075289E9AF10060A244 /* VotesViewModel.swift in Sources */,
 				4C4B133D2883C5EB006044B0 /* NaenioAPI+Wrapper.swift in Sources */,
 				9C95B99E289A8BCB00E0910C /* CardViewModel.swift in Sources */,
 				9C8D604E28A3CAE000632BCC /* ScrollViewHelper.swift in Sources */,
 				4C4B13432883D88A006044B0 /* HttpResponseCode.swift in Sources */,
 				9C68A29D28990015006D36B1 /* TokenManager.swift in Sources */,
+				4CB8945628A7A1E300BE2ECF /* AuthServiceType.swift in Sources */,
 				9B244070289E8DC30060A244 /* View + Exetension.swift in Sources */,
 				9B61D0D128A88E7F00F6DD0B /* CustomSheet.swift in Sources */,
 				9BF00BF7287AC95A00F08035 /* AppleLoginManager.swift in Sources */,
 				9B03733228A6926D0089CC48 /* LoadingIndicator.swift in Sources */,
 				9B425529289D0F9A00163327 /* FullView.swift in Sources */,
 				9B61D0CB28A87BDC00F6DD0B /* BottomSheetView.swift in Sources */,
+				4CB8945428A766B500BE2ECF /* PostResponseModel.swift in Sources */,
 				4C43C8C42886FB8200A60372 /* String+Extension.swift in Sources */,
 				9C3309CF2888ED08000C592F /* SignInWithKakaoButton.swift in Sources */,
 				9C95B99C289A885900E0910C /* CardView.swift in Sources */,
@@ -1227,6 +1246,7 @@
 				4CC296E0288055FD001950A2 /* HeaderInformation.swift in Sources */,
 				4C4B134528847640006044B0 /* NaenioAPI+Request.swift in Sources */,
 				9B61D0D328A88FB300F6DD0B /* CustomSheetView.swift in Sources */,
+				4CB8945028A755DD00BE2ECF /* KeyValue.swift in Sources */,
 				9C95B996289A672800E0910C /* FillScreen.swift in Sources */,
 				9C3309D92888EE20000C592F /* LoginViewModel.swift in Sources */,
 				9B61D0E428A9050600F6DD0B /* CommentRequestInformation.swift in Sources */,
@@ -1408,7 +1428,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
-				DEVELOPMENT_TEAM = W6QHM4Y43Z;
+				DEVELOPMENT_TEAM = KT2XM3Z9DZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Naenio/ignored/Info.plist;
@@ -1423,7 +1443,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamVS.Naenio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yoonyoung.Naenio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1443,7 +1463,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
-				DEVELOPMENT_TEAM = W6QHM4Y43Z;
+				DEVELOPMENT_TEAM = KT2XM3Z9DZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Naenio/ignored/Info.plist;
@@ -1458,7 +1478,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamVS.Naenio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yoonyoung.Naenio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
