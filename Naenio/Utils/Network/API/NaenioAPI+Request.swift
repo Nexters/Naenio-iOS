@@ -57,6 +57,7 @@ extension NaenioAPI {
                             print(message)
                         }
                     default:
+                        print("??")
                         break
                     }
                 },
