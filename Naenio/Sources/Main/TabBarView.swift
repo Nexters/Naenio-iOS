@@ -5,16 +5,11 @@
 //  Created by 조윤영 on 2022/08/07.
 //
 import SwiftUI
+import Introspect
 
 struct TabBarView: View {
     @State var selectedTab = 1
     @Binding var pages: [TabBarPage]
-    
-    init(pages: Binding<[TabBarPage]>) {
-        UITabBar.appearance().backgroundColor = UIColor(Color.background)
-        UITabBar.appearance().layer.cornerRadius = 24
-        self._pages = pages
-    }
     
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -22,11 +17,23 @@ struct TabBarView: View {
                 TabContentView(pageName: item.pageName)
                     .tabItem {
                         Image(self.selectedTab == item.tag ? item.selectedIcon : item.deselectedIcon)
-                        Text("")
+                        Text("") // For padding
                     }
                     .tag(item.tag)
             }
         }
+        .introspectTabBarController { contoller in
+            contoller.tabBar.barTintColor = UIColor(Color.tabBarBackground)
+            contoller.tabBar.isTranslucent = true
+            
+            contoller.tabBar.layer.masksToBounds = true
+            contoller.tabBar.layer.cornerRadius = 14
+            contoller.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        }
+    }
+    
+    init(pages: Binding<[TabBarPage]>) {
+        self._pages = pages
     }
 }
 

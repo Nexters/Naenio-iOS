@@ -10,8 +10,10 @@ import SwiftUI
 struct CardView: View {
     @ObservedObject var viewModel: CardViewModel
     @EnvironmentObject var sourceObject: HomeViewModel
+    
     let index: Int
     let post: Post
+    let action: () -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -22,6 +24,7 @@ struct CardView: View {
                     
                     Spacer()
                     
+                    // 신고/공유
                     Button(action: {}) {
                         Image(systemName: "ellipsis")
                             .resizable()
@@ -36,19 +39,21 @@ struct CardView: View {
                 Text("🗳 \(post.voteCount)명 투표")
                     .font(.medium(size: 14))
                     .foregroundColor(.white)
+                    .padding(.vertical, 4)
                     .padding(.bottom, 8)
                 
                 Text("\(post.title)")
                     .lineLimit(2)
-                    .lineSpacing(7)
-                    .font(.semoBold(size: 22))
+                    .lineSpacing(4)
+                    .font(.semoBold(size: 20))
                     .foregroundColor(.white)
+                    .padding(.vertical, 4)
                     .padding(.bottom, 10)
                 
                 Text("\(post.content)")
                     .lineLimit(2)
-                    .lineSpacing(5)
-                    .font(.medium(size: 16))
+                    .lineSpacing(4)
+                    .font(.medium(size: 14))
                     .foregroundColor(.naenioGray)
                     .padding(.bottom, 18)
                 
@@ -59,7 +64,7 @@ struct CardView: View {
             .padding(.top, 27)
             .padding(.bottom, 16)
 
-            Button(action: {}) {
+            Button(action: self.action) {
                 HStack(spacing: 6) {
                     Text("💬 댓글")
                         .font(.semoBold(size: 16))
@@ -80,9 +85,11 @@ struct CardView: View {
         .mask(RoundedRectangle(cornerRadius: 16))
     }
     
-    init(index: Int, post: Post) {
+    init(index: Int, post: Post, action: @escaping () -> Void) {
         self.index = index
         self.post = post
+        self.action = action
+        
         self.viewModel = CardViewModel()
     }
 }

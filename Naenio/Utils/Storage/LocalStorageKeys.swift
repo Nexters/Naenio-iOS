@@ -9,4 +9,7 @@ import Foundation
 
 enum LocalStorageKeys: String {
     case accessToken
+    case nickname
+    case profileIamgeIndex
+    case authServiceType
 }

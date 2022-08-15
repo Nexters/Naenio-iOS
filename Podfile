@@ -11,6 +11,7 @@ target 'Naenio' do
   pod 'KakaoSDKAuth', '~> 2.11.1'
   pod 'KakaoSDKUser', '~> 2.11.1'
   pod 'Alamofire'
+  pod 'Introspect'
 
   pod 'RxSwift'
   pod 'SwiftLint'
