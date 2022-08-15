@@ -15,6 +15,7 @@ extension NaenioAPI {
         case .withDrawal: return "/app/withDrawal"
             
         case .postPost: return "/app/posts"
+        case .getFeed: return "/app/feed"
         }
     }
 }

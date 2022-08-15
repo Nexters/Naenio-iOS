@@ -16,6 +16,7 @@ enum NaenioAPI {
     case signOut(token: String)
     case withDrawal(token: String)
     
+    case getFeed(FeedRequestInformation)
     case postPost(PostRequestInformation)
 }
 

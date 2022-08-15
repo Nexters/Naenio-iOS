@@ -9,6 +9,7 @@ extension NaenioAPI {
     func getMehod() -> Moya.Method {
         switch self {
         case .signOut, .withDrawal, .login, .postPost: return .post
+        case .getFeed: return .get
         }
     }
 }
