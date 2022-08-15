@@ -12,14 +12,14 @@ struct VotesView: View {
     @EnvironmentObject var sourceObject: HomeViewModel
     
     let index: Int
-    let choices: [Post.Choice]
+    let choices: [Choice]
     var isOpened: Bool {
         return !choices
             .filter { $0.isVoted }
             .isEmpty
     }
     
-    func percentage(ofSequence sequence: Int, source: [Post.Choice]) -> Double? {
+    func percentage(ofSequence sequence: Int, source: [Choice]) -> Double? {
         let first = source.first
         let second = source.last
         
@@ -64,7 +64,7 @@ struct VotesView: View {
         }
     }
     
-    init(index: Int, choices: [Post.Choice]) {
+    init(index: Int, choices: [Choice]) {
         self.index = index
         self.choices = choices
         self.viewModel = VotesViewModel()

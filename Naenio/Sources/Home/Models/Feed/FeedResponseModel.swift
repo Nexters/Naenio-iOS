@@ -6,12 +6,16 @@
 //
 
 struct FeedResponseModel: ModelType {
-    let commentCount: Int
-    let id: Int
-    let author: Author
-    let title: String
-    let content: String
-    let choices: [Choice]
+    let posts: [Post]
+    
+    struct Post: ModelType {
+        let commentCount: Int
+        let id: Int
+        let author: Author
+        let title: String
+        let content: String
+        let choices: [Choice]
+    }
 }
 
 struct Author: ModelType {

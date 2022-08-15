@@ -9,7 +9,7 @@ import SwiftUI
 struct VoteButton: View {
     let type: ChoiceType
     let isOpened: Bool
-    let choice: Post.Choice?
+    let choice: Choice?
     let percent: Double?
     
     let action: () -> Void

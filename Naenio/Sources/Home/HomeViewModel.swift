@@ -10,7 +10,7 @@ import RxSwift
 
 class HomeViewModel: ObservableObject {
     // Published vars
-    @Published var sortType: SortType?
+    @Published var sortType: SortType? = nil
     @Published var posts: [Post]
     @Published var status: Status = .waiting
     @Published var lastPostId: Int?
@@ -79,9 +79,9 @@ class HomeViewModel: ObservableObject {
         return choices[0].voteCount + choices[1].voteCount
     }
     
-    func transferToPostModel(from feed: [FeedResponseModel]) -> [Post] {
+    func transferToPostModel(from feed: FeedResponseModel) -> [Post] {
         var resultPosts: [Post] = [ ]
-        feed.forEach { post in
+        feed.posts.forEach { post in
             let voteTotalCount = voteTotalCount(choices: post.choices)
             let newPost = Post(id: post.id, author: post.author, voteCount: voteTotalCount, title: post.title, content: post.content, choices: post.choices, commentCount: post.commentCount)
             
@@ -94,6 +94,7 @@ class HomeViewModel: ObservableObject {
     @objc func requestPosts() {
         bag = DisposeBag()
         status = .loadingDifferentCategoryPosts
+        
         let feedRequestInformation: FeedRequestInformation = FeedRequestInformation(size: pagingSize, lastPostId: nil, sortType: sortType?.rawValue)
         
         feedRequestService.getFeed(with: feedRequestInformation)
