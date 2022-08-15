@@ -983,9 +983,6 @@
 			);
 			mainGroup = 9B085EF62879991400DE8E60;
 			packageReferences = (
-				9B61D0E028A9029800F6DD0B /* XCRemoteSwiftPackageReference "SwiftUIX" */,
-				9B61D0E528A90B8800F6DD0B /* XCRemoteSwiftPackageReference "TextView" */,
-				9B61D0E828A9281800F6DD0B /* XCRemoteSwiftPackageReference "bottom-sheet" */,
 			);
 			productRefGroup = 9B085F002879991400DE8E60 /* Products */;
 			projectDirPath = "";
@@ -1590,33 +1587,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		9B61D0E028A9029800F6DD0B /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.2;
-			};
-		};
-		9B61D0E528A90B8800F6DD0B /* XCRemoteSwiftPackageReference "TextView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kenmueller/TextView";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		9B61D0E828A9281800F6DD0B /* XCRemoteSwiftPackageReference "bottom-sheet" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/weitieda/bottom-sheet";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 9B085EF72879991400DE8E60 /* Project object */;
 }
