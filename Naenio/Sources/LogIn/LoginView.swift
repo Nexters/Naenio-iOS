@@ -37,7 +37,10 @@ struct LoginView: View {
             switch result {
             case .done(result: let userInfo):
                 tokenManager.saveToken(userInfo.token)
-                userManager.updateProfile()
+                
+                if tokenManager.isTokenAvailable {
+                    userManager.updateUserInformation(authServiceType: UserManager.shared.user?.authServiceType ?? "")
+                }
             default:
                 // TODO: Show alert
                 return

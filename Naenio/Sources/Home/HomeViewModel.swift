@@ -12,23 +12,43 @@ class HomeViewModel: ObservableObject {
     // Published vars
     @Published var category: Category = .entire // ???: 마지막 선택 저장하는 것도 낫 배드 - using @SceneStorage
     @Published var posts: [Post]
-    @Published var currentPage: Int = 0
     @Published var status: Status = .waiting
+    let postRequestService: PostRequestService
     
     // vars and lets
     private let pagingValue = 10
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler.init(qos: .userInitiated)
     
-    func vote(index: Int, sequence: Int) {
-        self.posts[index].choices[sequence].isVoted = true
+    func vote(index: Int, sequence: Int) {  // TODO: sequence에 조금 더 견고한 제한이 필요할 듯(Int 말고 enum 같은 걸로)
+        var post = self.posts[index]
+        var choice = post.choices[sequence]
+        var otherChoice = post.choices[sequence == 0 ? 1 : 0]
+        
+        if choice.isVoted {
+            return
+        } else {
+            choice.isVoted = true
+            choice.voteCount += 1
+            
+            if otherChoice.isVoted {
+                otherChoice.isVoted = false
+                otherChoice.voteCount -= 1
+            } else { // voted first time
+                post.voteCount += 1
+            }
+        }
+        
+        post.choices[sequence == 0 ? 0 : 1] = choice
+        post.choices[sequence == 0 ? 1 : 0] = otherChoice
+        
+        self.posts[index] = post
     }
     
-    // !!!: postPost가 어색해서 일단은 이렇게 네이밍 해놨는데 요기 개선사항 있으면 알려주십셔
-    func register(post: PostRequest) {
+    func register(postRequesInformation: PostRequestInformation) {
         status = .loadingSameCategoryPosts
         
-        registerNewPost(post)
+        postRequestService.postPost(with: postRequesInformation)
             .subscribe(on: serialQueue)
             .observe(on: MainScheduler.instance)
             .subscribe(
@@ -36,7 +56,11 @@ class HomeViewModel: ObservableObject {
                     guard let self = self else { return }
                     
                     withAnimation {
-                        self.posts.insert(post, at: 0)
+                        let author = Post.Author(id: post.memberId, nickname: UserManager.shared.getNickName(), profileImageIndex: UserManager.shared.getProfileImagesIndex())
+                        let choices: [Post.Choice] = self.transferToPostChoiceModel(from: post.choices)
+                        let newPost = Post(id: post.id, author: author, voteCount: 0, title: post.title, content: post.content, choices: choices, commentCount: 0)
+                        
+                        self.posts.insert(newPost, at: 0)
                     }
                     self.status = .done
                 }, onFailure: { [weak self] error in
@@ -48,8 +72,17 @@ class HomeViewModel: ObservableObject {
             .disposed(by: bag)
     }
     
+    func transferToPostChoiceModel(from choices: [PostResponseModel.Choice]) -> [Post.Choice] {
+        var result: [Post.Choice] = []
+        choices .forEach { choice in
+            result.append( Post.Choice(id: choice.id, sequence: choice.sequence, name: choice.name, isVoted: false, voteCount: 0))
+        }
+        
+        return result
+    }
+    
     // !!!: 테스트용
-    func requestPosts() {
+    @objc func requestPosts() {
         bag = DisposeBag() // Cancel running tasks by initializing the bag
         status = .loadingDifferentCategoryPosts
                 
@@ -61,7 +94,14 @@ class HomeViewModel: ObservableObject {
                     guard let self = self else { return }
                     
                     print("Success requestPosts")
-                    self.posts = newPosts
+                    
+                    // For empty view test
+                    if self.category == .participated {
+                        self.posts = []
+                    } else {
+                        self.posts = newPosts
+                    }
+                    
                     self.status = .done
                 }, onFailure: { [weak self] error in
                     guard let self = self else { return }
@@ -97,7 +137,9 @@ class HomeViewModel: ObservableObject {
             .disposed(by: bag)
     }
 
-    init() {
+    init(_ postRequestService: PostRequestService = PostRequestService()) {
+        self.postRequestService = postRequestService
+        
         self.posts = []
         self.requestPosts()
     }
@@ -105,8 +147,8 @@ class HomeViewModel: ObservableObject {
 
 // !!!: 테스트용
 extension HomeViewModel {
-    private func registerNewPost(_ postRequest: PostRequest) -> Single<Post> {
-        var mockPost = MockPostGenerator.generate(with: postRequest)
+    private func registerNewPost(_ postRequest: PostRequestInformation) -> Single<Post> {
+        let mockPost = MockPostGenerator.generate(with: postRequest)
         let observable = Observable.just(mockPost)
         
         return observable.asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)

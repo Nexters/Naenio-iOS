@@ -30,7 +30,11 @@ struct VotesView: View {
         let numerator = sequence == 0 ? Double(first.voteCount) : Double(second.voteCount)
         let denominator = Double(first.voteCount + second.voteCount)
         
-        return (numerator / denominator) * 100
+        if denominator == 0 {
+            return 0
+        } else {
+            return (numerator / denominator) * 100
+        }
     }
 
     var body: some View {
@@ -53,12 +57,10 @@ struct VotesView: View {
                 }
             }
             
-            Text("VS")
-                .font(.engSemiBold(size: 16)) // ???: 제플린 따라서 18로 넣으면 잘 안맞음(https://zpl.io/dxjxvn7)
-                .background(
-                    Circle().fill(Color.white)
-                        .frame(width: 34, height: 34)
-                )
+            Image("vsIcon")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 34, height: 34)
         }
     }
     

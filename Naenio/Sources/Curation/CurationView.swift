@@ -9,7 +9,13 @@ import SwiftUI
 
 struct CurationView: View {
     var body: some View {
-        Text("큐레이션 화면")
+        ZStack {
+            Color.background.ignoresSafeArea()
+            
+            Text("큐레이션 화면")
+                .foregroundColor(.white)
+        }
+        
     }
 }
 

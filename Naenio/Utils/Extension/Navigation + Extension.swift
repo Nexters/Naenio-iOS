@@ -1,8 +1,8 @@
 //
-//  View + Exetension.swift
+//  Navigation + Extension.swift
 //  Naenio
 //
-//  Created by 이영빈 on 2022/08/06.
+//  Created by 이영빈 on 2022/08/10.
 //
 
 import SwiftUI

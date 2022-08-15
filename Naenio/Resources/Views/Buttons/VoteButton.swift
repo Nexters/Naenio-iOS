@@ -19,11 +19,11 @@ struct VoteButton: View {
             HStack(spacing: 6) {
                 Text(choice == nil ? "" : type.rawValue + ".")
                     .lineLimit(1)
-                    .font(.engBold(size: 16))
+                    .font(.engBold(size: 14))
 
                 Text(choice == nil ? "🤔 일시적인 오류가 발생했어요!" : choice!.name)
                     .lineLimit(1)
-                    .font(.semoBold(size: 16))
+                    .font(.semoBold(size: 14))
                 
                 Spacer()
                 
@@ -44,6 +44,14 @@ struct VoteButton: View {
                 alignment: .leading)
             .background(Color.black)
             .mask(RoundedRectangle(cornerRadius: 16))
+            .overlay(
+                RoundedRectangle(cornerRadius: 16)
+                    .stroke(Color.angularGradient,
+                            style: StrokeStyle(lineWidth: choice?.isVoted == true ? 1 : 0,
+                                               lineCap: .round,
+                                               lineJoin: .round)
+                           )
+            )
         }
     }
 }
