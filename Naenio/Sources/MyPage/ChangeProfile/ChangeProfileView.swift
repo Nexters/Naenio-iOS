@@ -10,6 +10,7 @@ import BottomSheet
 
 struct ChangeProfileView: View {
     @State var isDisabled: Bool = true
+    @State var text: String = ""
     
     var body: some View {
         CustomNavigationView(title: "프로필 변경",
@@ -22,8 +23,13 @@ struct ChangeProfileView: View {
                 
                 VStack {
                     Text("Something")
+                    
+                    TextField("이름을 입력하세요", text: $text)
+                        .background(Color.card)
+                    
                     Spacer()
                 }
+                .border(.red)
                 .foregroundColor(.white)
             }
         }

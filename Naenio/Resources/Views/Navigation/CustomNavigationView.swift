@@ -16,16 +16,14 @@ struct CustomNavigationView<V>: View where V: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            ZStack(alignment: .top) {
-                self.bgColor
-                    .ignoresSafeArea()
-                
-                CustomNavigationBar(title: self.title, button: trailingButton)
-                    .padding(.top, 17)
-                    .padding(.horizontal, 20)
-            }
+            CustomNavigationBar(title: self.title, button: trailingButton)
+                .padding(.vertical, 17)
+                .padding(.horizontal, 20)
+                .border(.red)
+                .background(self.bgColor.ignoresSafeArea())
             
             content
+                .fillScreen()
         }
     }
     
