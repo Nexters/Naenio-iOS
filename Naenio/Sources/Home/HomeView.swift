@@ -101,7 +101,7 @@ struct HomeView: View {
                                 break
                             }
                         }
-                        .onChange(of: viewModel.category) { _ in
+                        .onChange(of: viewModel.sortType) { _ in
                             viewModel.posts.removeAll()
                             viewModel.requestPosts()
                             DispatchQueue.main.async {
@@ -133,33 +133,33 @@ struct HomeView: View {
 extension HomeView {
     var categoryButtons: some View {
         HStack {
-            Button(action: { viewModel.category = .entire }) {
+            Button(action: { viewModel.sortType = nil }) {
                 Text("전체")
             }
             .buttonStyle(CapsuleButtonStyle(fontSize: 14,
-                                            bgColor: viewModel.category == .entire ? .naenioPink : .naenioBlue ,
+                                            bgColor: viewModel.sortType == nil ? .naenioPink : .naenioBlue ,
                                             textColor: .white))
             .background(
                 Capsule()
                     .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
             )
             
-            Button(action: { viewModel.category = .wrote }) {
+            Button(action: { viewModel.sortType = .wrote }) {
                 Text("📄 게시한 투표")
             }
             .buttonStyle(CapsuleButtonStyle(fontSize: 14,
-                                            bgColor: viewModel.category == .wrote ? .naenioPink : .naenioBlue ,
+                                            bgColor: viewModel.sortType == .wrote ? .naenioPink : .naenioBlue ,
                                             textColor: .white))
             .background(
                 Capsule()
                     .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
             )
             
-            Button(action: { viewModel.category = .participated }) {
+            Button(action: { viewModel.sortType = .participated }) {
                 Text("🗳 참여한 투표")
             }
             .buttonStyle(CapsuleButtonStyle(fontSize: 14,
-                                            bgColor: viewModel.category == .participated ? .naenioPink : .naenioBlue ,
+                                            bgColor: viewModel.sortType == .participated ? .naenioPink : .naenioBlue ,
                                             textColor: .white))
             .background(
                 Capsule()
