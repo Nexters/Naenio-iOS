@@ -20,4 +20,16 @@ extension Publishers {
         return MergeMany(willShow, willHide)
             .eraseToAnyPublisher()
     }
+    
+    static var scrollOffset: AnyPublisher<CGFloat, Never> {
+        return NotificationCenter.default.publisher(for: .scrollOffsetNotification)
+            .map { return $0.object as! CGFloat }
+            .eraseToAnyPublisher()
+    }
+    
+    static var scrollVelocity: AnyPublisher<CGFloat, Never> {
+        return NotificationCenter.default.publisher(for: .scrollVelocity)
+            .map { return $0.object as! CGFloat }
+            .eraseToAnyPublisher()
+    }
 }

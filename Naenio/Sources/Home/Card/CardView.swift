@@ -10,8 +10,10 @@ import SwiftUI
 struct CardView: View {
     @ObservedObject var viewModel: CardViewModel
     @EnvironmentObject var sourceObject: HomeViewModel
+    
     let index: Int
     let post: Post
+    let action: () -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -33,7 +35,6 @@ struct CardView: View {
                     }
                 }
                 .padding(.bottom, 24)
-                
                 
                 Text("🗳 \(post.voteCount)명 투표")
                     .font(.medium(size: 14))
@@ -63,7 +64,7 @@ struct CardView: View {
             .padding(.top, 27)
             .padding(.bottom, 16)
 
-            Button(action: {}) {
+            Button(action: self.action) {
                 HStack(spacing: 6) {
                     Text("💬 댓글")
                         .font(.semoBold(size: 16))
@@ -84,9 +85,11 @@ struct CardView: View {
         .mask(RoundedRectangle(cornerRadius: 16))
     }
     
-    init(index: Int, post: Post) {
+    init(index: Int, post: Post, action: @escaping () -> Void) {
         self.index = index
         self.post = post
+        self.action = action
+        
         self.viewModel = CardViewModel()
     }
 }

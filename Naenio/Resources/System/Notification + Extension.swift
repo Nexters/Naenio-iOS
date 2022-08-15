@@ -13,3 +13,9 @@ extension Notification {
         return (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect)?.height ?? 0
     }
 }
+
+extension Notification.Name {
+    static let scrollOffsetNotification = Notification.Name("scrollOffsetNotification")
+    
+    static let scrollVelocity = Notification.Name("scrollVelocity")
+}
