@@ -10,13 +10,15 @@ import RxSwift
 
 class HomeViewModel: ObservableObject {
     // Published vars
-    @Published var category: Category = .entire // ???: 마지막 선택 저장하는 것도 낫 배드 - using @SceneStorage
+    @Published var sortType: SortType?
     @Published var posts: [Post]
     @Published var status: Status = .waiting
+    @Published var lastPostId: Int?
     let postRequestService: PostRequestService
+    let feedRequestService: FeedRequestService
     
     // vars and lets
-    private let pagingValue = 10
+    private let pagingSize = 10
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler.init(qos: .userInitiated)
     
@@ -56,9 +58,8 @@ class HomeViewModel: ObservableObject {
                     guard let self = self else { return }
                     
                     withAnimation {
-                        let author = Post.Author(id: post.memberId, nickname: UserManager.shared.getNickName(), profileImageIndex: UserManager.shared.getProfileImagesIndex())
-                        let choices: [Post.Choice] = self.transferToPostChoiceModel(from: post.choices)
-                        let newPost = Post(id: post.id, author: author, voteCount: 0, title: post.title, content: post.content, choices: choices, commentCount: 0)
+                        let author = Author(id: post.memberId, nickname: UserManager.shared.getNickName(), profileImageIndex: UserManager.shared.getProfileImagesIndex())
+                        let newPost = Post(id: post.id, author: author, voteCount: 0, title: post.title, content: post.content, choices: post.choices, commentCount: 0)
                         
                         self.posts.insert(newPost, at: 0)
                     }
@@ -72,21 +73,94 @@ class HomeViewModel: ObservableObject {
             .disposed(by: bag)
     }
     
-    func transferToPostChoiceModel(from choices: [PostResponseModel.Choice]) -> [Post.Choice] {
-        var result: [Post.Choice] = []
-        choices .forEach { choice in
-            result.append( Post.Choice(id: choice.id, sequence: choice.sequence, name: choice.name, isVoted: false, voteCount: 0))
+    func voteTotalCount(choices: [Choice]) -> Int {
+        guard choices.count != 2 else { return 0 }
+        
+        return choices[0].voteCount + choices[1].voteCount
+    }
+    
+    func transferToPostModel(from feed: [FeedResponseModel]) -> [Post] {
+        var resultPosts: [Post] = [ ]
+        feed.forEach { post in
+            let voteTotalCount = voteTotalCount(choices: post.choices)
+            let newPost = Post(id: post.id, author: post.author, voteCount: voteTotalCount, title: post.title, content: post.content, choices: post.choices, commentCount: post.commentCount)
+            
+            resultPosts.append(newPost)
         }
         
-        return result
+        return resultPosts
+    }
+    
+    @objc func requestPosts() {
+        bag = DisposeBag()
+        status = .loadingDifferentCategoryPosts
+        let feedRequestInformation: FeedRequestInformation = FeedRequestInformation(size: pagingSize, lastPostId: nil, sortType: sortType?.rawValue)
+        
+        feedRequestService.getFeed(with: feedRequestInformation)
+            .subscribe(on: self.serialQueue)
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onSuccess: { [weak self] newFeed in
+                    guard let self = self else { return }
+                    
+                    print("Success requestPosts")
+                    let posts = self.transferToPostModel(from: newFeed)
+                    self.posts = posts
+                    self.changeLastPostId()
+                    
+                    self.status = .done
+                }, onFailure: { [weak self] error in
+                    guard let self = self else { return }
+                    
+                    self.status = .fail(with: error)
+                }, onDisposed: {
+                    print("Disposed requestPosts")
+                })
+            .disposed(by: bag)
+    }
+    
+    func requestMorePosts() {
+        bag = DisposeBag()
+        status = .loadingSameCategoryPosts
+        
+        let feedRequestInformation: FeedRequestInformation = FeedRequestInformation(size: pagingSize, lastPostId: 10, sortType: sortType?.rawValue)
+        
+        feedRequestService.getFeed(with: feedRequestInformation)
+            .subscribe(on: self.serialQueue)
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onSuccess: { [weak self] feed in
+                    guard let self = self else { return }
+                    
+                    print("Success requestPosts")
+                    let newPost = self.transferToPostModel(from: feed)
+                    self.posts.append(contentsOf: newPost)
+                    self.changeLastPostId()
+
+                    self.status = .done
+                }, onFailure: { [weak self] error in
+                    guard let self = self else { return }
+                    
+                    self.status = .fail(with: error)
+                }, onDisposed: {
+                    print("Disposed requestMorePosts")
+                })
+            .disposed(by: bag)
+
+    }
+    
+    func changeLastPostId() {
+        if !self.posts.isEmpty {
+            self.lastPostId = self.posts[self.posts.count - 1].id
+        }
     }
     
     // !!!: 테스트용
-    @objc func requestPosts() {
-        bag = DisposeBag() // Cancel running tasks by initializing the bag
+    @objc func testRequestPosts() {
+        bag = DisposeBag()
         status = .loadingDifferentCategoryPosts
                 
-        getPostDisposable(category: self.category)
+        getPostDisposable(sortType: self.sortType! )
             .subscribe(on: self.serialQueue)
             .observe(on: MainScheduler.instance)
             .subscribe(
@@ -96,7 +170,7 @@ class HomeViewModel: ObservableObject {
                     print("Success requestPosts")
                     
                     // For empty view test
-                    if self.category == .participated {
+                    if self.sortType == .wrote {
                         self.posts = []
                     } else {
                         self.posts = newPosts
@@ -114,11 +188,11 @@ class HomeViewModel: ObservableObject {
     }
     
     // !!!: 테스트용
-    func requestMorePosts() {
+    func testRequestMorePosts() {
         bag = DisposeBag() // Cancel running tasks by initializing the bag
         status = .loadingSameCategoryPosts
         
-        getPostDisposable(category: self.category)
+        getPostDisposable(sortType: self.sortType!)
             .subscribe(on: self.serialQueue)
             .observe(on: MainScheduler.instance)
             .subscribe(
@@ -137,8 +211,10 @@ class HomeViewModel: ObservableObject {
             .disposed(by: bag)
     }
 
-    init(_ postRequestService: PostRequestService = PostRequestService()) {
+    init(_ postRequestService: PostRequestService = PostRequestService(),
+         _ feedRequestService: FeedRequestService = FeedRequestService()) {
         self.postRequestService = postRequestService
+        self.feedRequestService = feedRequestService
         
         self.posts = []
         self.requestPosts()
@@ -174,7 +250,7 @@ extension HomeViewModel {
         return posts
     }
     
-    private func getPostDisposable(category: Category) -> Single<[Post]> {
+    private func getPostDisposable(sortType: SortType) -> Single<[Post]> {
         var posts = [Post]()
         
 //        var path: String?
@@ -202,7 +278,7 @@ extension HomeViewModel {
 //            print(error)
 //        }
         (0..<10).forEach { _ in
-            posts.append(MockPostGenerator.generate(category: category))
+            posts.append(MockPostGenerator.generate(sortType: sortType))
         }
         
         return Observable.of(posts).asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
@@ -237,10 +313,5 @@ extension HomeViewModel {
             }
         }
     }
-    
-    enum Category: Int {
-        case entire = 1
-        case participated = 2
-        case wrote = 3
-    }
+
 }
