@@ -10,5 +10,4 @@ import Foundation
 enum AuthServiceType: String {
     case kakao = "KAKAO"
     case apple = "APPLE"
-
 }
