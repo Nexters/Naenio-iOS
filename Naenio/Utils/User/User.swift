@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct User {
-    var profileImageIndex: Int
+    var profileImage: Image
     var nickname: String
-    var authServiceType: String
+    let authServiceType: String
 }

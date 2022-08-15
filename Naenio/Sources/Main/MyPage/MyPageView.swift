@@ -9,13 +9,7 @@ import SwiftUI
 
 struct MyPageView: View {
     var body: some View {
-        ZStack {
-            Color.background.ignoresSafeArea()
-            
-            Text("마이페이지 화면")
-                .foregroundColor(.white)
-        }
-        
+        Text("마이페이지 화면")
     }
 }
 

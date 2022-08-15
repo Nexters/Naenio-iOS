@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CapsuleButtonStyle: ButtonStyle {
-    var height: CGFloat = 37
+    var height: CGFloat = 43
     var fontSize: CGFloat
     var bgColor: Color
     var textColor: Color

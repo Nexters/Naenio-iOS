@@ -7,17 +7,15 @@
 
 import Foundation
 
-class HeaderInformation {
-    private static let tokenManager = TokenManager()
-    
+enum HeaderInformation {
     enum HeaderKey {
         static let contentType = "Content-Type"
         static let authorization = "Authorization"
-        static let accept = "accept"
     }
     
+    // TODO: tokenManager에서 값 뽑아서 삽입
     enum HeaderValue {
         static let json = "application/json"
-        static let authoization = "Bearer \(tokenManager.accessToken ?? "") "
+        static let authoization = "Bearer " + "token"
     }
 }

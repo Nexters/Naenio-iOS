@@ -7,6 +7,7 @@
 
 import Foundation
 
+// !!!: Temporary
 struct UserInformation: Codable {
     let token: String
 }

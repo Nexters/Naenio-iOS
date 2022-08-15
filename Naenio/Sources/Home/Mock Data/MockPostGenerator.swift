@@ -44,7 +44,7 @@ struct MockPostGenerator {
         )
     }
     
-    static func generate(with request: PostRequestInformation) -> Post {
+    static func generate(with request: PostRequest) -> Post {
         return Post(
             id: UUID().uuidString.hashValue,
             author: Post.Author(id: -1,

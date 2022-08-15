@@ -13,8 +13,6 @@ extension NaenioAPI {
         case .login: return "/app/login"
         case .signOut: return "/app/signOut"
         case .withDrawal: return "/app/withDrawal"
-            
-        case .postPost: return "/app/posts"
         }
     }
 }

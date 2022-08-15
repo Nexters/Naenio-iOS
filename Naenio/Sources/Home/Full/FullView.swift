@@ -23,7 +23,7 @@ struct FullView: View {
             VStack(alignment: .leading, spacing: 0) {
                 profile
                     .foregroundColor(.white)
-                    .padding(.bottom, 20)
+                    .padding(.bottom, 24)
                 
                 Text("🗳 \(post.voteCount)명 투표")
                     .font(.medium(size: 14))
@@ -34,7 +34,7 @@ struct FullView: View {
                     .lineLimit(4)
                     .fixedSize(horizontal: false, vertical: true)
                     .lineSpacing(7)
-                    .font(.semoBold(size: 20))
+                    .font(.semoBold(size: 22))
                     .foregroundColor(.white)
                     .padding(.bottom, 10)
                 
@@ -42,7 +42,7 @@ struct FullView: View {
                     .lineLimit(4)
                     .fixedSize(horizontal: false, vertical: true)
                     .lineSpacing(5)
-                    .font(.medium(size: 14))
+                    .font(.medium(size: 16))
                     .foregroundColor(.naenioGray)
                     .padding(.bottom, 18)
                 
@@ -55,6 +55,7 @@ struct FullView: View {
                 commentButton
                     .fillHorizontal()
                     .padding(.bottom, 160)
+                
             }
             .padding(.horizontal, 40)
             .padding(.top, 27)

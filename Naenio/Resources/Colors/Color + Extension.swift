@@ -23,11 +23,6 @@ extension Color {
         endPoint: .trailing
     )
     
-    static let angularGradient = AngularGradient(
-        gradient: Gradient(colors: [.linearGradStart, .linearGradMiddle, .linearGradEnd, .linearGradStart]),
-        center: .center
-    )
-    
     static let mono = Color("mono")
     static let card = Color("NCard")
     static let tabBarBackground = Color("NBottomBackground")

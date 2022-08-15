@@ -13,6 +13,7 @@ import KakaoSDKCommon
 struct NaenioApp: App {
     @ObservedObject var tokenManager = TokenManager()
     @ObservedObject var userManager = UserManager()
+    
     // !!!: DEBUG
     let isDebug = true
     
@@ -20,34 +21,41 @@ struct NaenioApp: App {
         // Kakao SDK 초기화
         KakaoSDK.initSDK(appKey: KeyValue.kakaoAPIkey)
         
-        UITextView.appearance().backgroundColor = .clear
-        
         if tokenManager.isTokenAvailable {
-            userManager.updateUserInformation(authServiceType: self.userManager.user?.authServiceType ?? "")
+            userManager.updateProfile()
         }
+        
+        UITextView.appearance().backgroundColor = .clear
     }
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                if tokenManager.accessToken == nil {
-                    LoginView()
-                        .environmentObject(tokenManager)
-                        .environmentObject(userManager)
-                } else if userManager.user == nil,
-                          userManager.status == .fetched {
-                    OnboardingView()
-                        .environmentObject(userManager)
-                } else if tokenManager.accessToken != nil,
-                          userManager.user != nil,
-                          userManager.status == .fetched {
+            NavigationView { // FIXME: Temporary position
+                if isDebug {
                     MainView()
                         .onOpenURL { url in
-                            // TODO: Add implementation of further handling later
                             handleUrl(url)
                         }
                 } else {
-                    ProgressView()
+                    if tokenManager.accessToken == nil {
+                        LoginView()
+                            .environmentObject(tokenManager)
+                            .environmentObject(userManager)
+                    } else if userManager.user == nil,
+                              userManager.status == .fetched {
+                        OnboardingView()
+                            .environmentObject(userManager)
+                    } else if tokenManager.accessToken != nil,
+                              userManager.user != nil,
+                              userManager.status == .fetched {
+                        MainView()
+                            .onOpenURL { url in
+                                // TODO: Add implementation of further handling later
+                                handleUrl(url)
+                            }
+                    } else {
+                        ProgressView()
+                    }
                 }
             }
         }

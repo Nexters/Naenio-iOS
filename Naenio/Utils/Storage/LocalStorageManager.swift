@@ -15,10 +15,6 @@ class LocalStorageManager {
     
     let storage: UserDefaults
     
-    func save(_ value: Int, key: String) {
-        storage.set(value, forKey: key)
-    }
-    
     func save(_ value: String, key: String) {
         storage.set(value, forKey: key)
     }
