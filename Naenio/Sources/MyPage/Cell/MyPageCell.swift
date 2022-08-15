@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// 마이페이지 셀의 디자인을 담당
 struct MyPageCell<Leading, Trailing>: View where Leading: View, Trailing: View {
     let leadingView: Leading
     let trailingView: Trailing

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// `VStack`에 라운드 코너를 줌
 struct MyPageSection<Content>: View where Content: View {
     let content: Content
     

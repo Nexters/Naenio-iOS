@@ -30,6 +30,10 @@ struct MyPageView: View {
             
             ScrollView {
                 VStack(spacing: 20) {
+                    headerWithUserInformation
+                        .padding(.top, 40)
+                        .padding(.bottom, 20)
+                    
                     MyPageAuthCell(authType: .kakao)
                         .cornerRadius(10)
                     
@@ -71,6 +75,30 @@ struct MyPageView: View {
     }
 }
 
+// Components
+extension MyPageView {
+    var headerWithUserInformation: some View {
+        HStack(spacing: 17) {
+            Circle()
+                .frame(width: 61, height: 61)
+            Text("김만두")
+                .font(.semoBold(size: 22))
+            
+            Spacer()
+            
+            NavigationLink(destination: ChangeProfileView()) {
+                Text("edit")
+                    .font(.semoBold(size: 15))
+                    .frame(width: 58, height: 31)
+                    .background(Color.card)
+            }
+            .cornerRadius(5)
+        }
+        .foregroundColor(.white)
+    }
+}
+
+// Data model
 extension MyPageView {
     struct CellData<V: View>: Identifiable {
         let id = UUID()
