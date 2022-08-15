@@ -63,6 +63,10 @@
 		9B86192F28A782990098AC8E /* CommentRepliesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86192E28A782990098AC8E /* CommentRepliesViewModel.swift */; };
 		9B89B9FB289E0CF900D0E205 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B89B9F9289E0CF900D0E205 /* KeyValue.swift */; };
 		9B8B98BA289948DA007336DE /* LocalStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B98B9289948DA007336DE /* LocalStorageKeys.swift */; };
+		9BE13FDC28AA1A83009ED95D /* MyPageAuthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE13FDB28AA1A83009ED95D /* MyPageAuthCell.swift */; };
+		9BE13FDE28AA1BAF009ED95D /* MyPageNavigationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE13FDD28AA1BAF009ED95D /* MyPageNavigationCell.swift */; };
+		9BE13FE028AA2187009ED95D /* MyPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE13FDF28AA2187009ED95D /* MyPageCell.swift */; };
+		9BE13FE428AA2FDC009ED95D /* MyPageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE13FE328AA2FDC009ED95D /* MyPageSection.swift */; };
 		9BE60293289541B6008F291C /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE60292289541B6008F291C /* Color + Extension.swift */; };
 		9BE602A0289548CF008F291C /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE60297289548CE008F291C /* Pretendard-Medium.ttf */; };
 		9BE602A3289548CF008F291C /* Pretendard-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE6029A289548CE008F291C /* Pretendard-SemiBold.ttf */; };
@@ -197,6 +201,10 @@
 		9B86192E28A782990098AC8E /* CommentRepliesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesViewModel.swift; sourceTree = "<group>"; };
 		9B89B9F9289E0CF900D0E205 /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
 		9B8B98B9289948DA007336DE /* LocalStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageKeys.swift; sourceTree = "<group>"; };
+		9BE13FDB28AA1A83009ED95D /* MyPageAuthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAuthCell.swift; sourceTree = "<group>"; };
+		9BE13FDD28AA1BAF009ED95D /* MyPageNavigationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageNavigationCell.swift; sourceTree = "<group>"; };
+		9BE13FDF28AA2187009ED95D /* MyPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCell.swift; sourceTree = "<group>"; };
+		9BE13FE328AA2FDC009ED95D /* MyPageSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSection.swift; sourceTree = "<group>"; };
 		9BE60292289541B6008F291C /* Color + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
 		9BE60297289548CE008F291C /* Pretendard-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.ttf"; sourceTree = "<group>"; };
 		9BE6029A289548CE008F291C /* Pretendard-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -357,6 +365,10 @@
 			isa = PBXGroup;
 			children = (
 				4CC4B73A2896BF2500774192 /* MyPageView.swift */,
+				9BE13FDF28AA2187009ED95D /* MyPageCell.swift */,
+				9BE13FDB28AA1A83009ED95D /* MyPageAuthCell.swift */,
+				9BE13FDD28AA1BAF009ED95D /* MyPageNavigationCell.swift */,
+				9BE13FE328AA2FDC009ED95D /* MyPageSection.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -1178,8 +1190,11 @@
 				4CC296D92880533C001950A2 /* DefaultSession.swift in Sources */,
 				9C95B991289A4AC100E0910C /* UserManager + Extension.swift in Sources */,
 				9C8D603928A373FD00632BCC /* Navigation + Extension.swift in Sources */,
+				9BE13FE428AA2FDC009ED95D /* MyPageSection.swift in Sources */,
 				4C4B13342883AAE0006044B0 /* NaenioAPI+Task.swift in Sources */,
+				9BE13FDC28AA1A83009ED95D /* MyPageAuthCell.swift in Sources */,
 				9C2D07B72897C683008BBD75 /* User.swift in Sources */,
+				9BE13FDE28AA1BAF009ED95D /* MyPageNavigationCell.swift in Sources */,
 				9C95B98D289A3AAB00E0910C /* HomeView.swift in Sources */,
 				9B03732428A5551B0089CC48 /* KeyboardAdaptive.swift in Sources */,
 				9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */,
@@ -1218,6 +1233,7 @@
 				9C68A29A2898F3A6006D36B1 /* LocalStorageManager.swift in Sources */,
 				9B478A5328A7127B007A4715 /* CloseButton.swift in Sources */,
 				4C4B133F2883CD32006044B0 /* ModelType.swift in Sources */,
+				9BE13FE028AA2187009ED95D /* MyPageCell.swift in Sources */,
 				9CA6DA8728A21CD10060610F /* NewPostView.swift in Sources */,
 				4C4B13372883B55F006044B0 /* Encodable+Extension.swift in Sources */,
 				9C95B9A5289A937100E0910C /* FillHorizontal.swift in Sources */,
