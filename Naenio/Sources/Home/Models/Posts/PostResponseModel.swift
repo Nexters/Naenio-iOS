@@ -19,10 +19,4 @@ struct PostResponseModel: ModelType {
     var choices: [Choice]
     var createdDateTime: String
     var lastModifiedDateTime: String
-    
-    struct Choice: Codable {
-        let id: Int
-        let sequence: Int
-        let name: String
-    }
 }
