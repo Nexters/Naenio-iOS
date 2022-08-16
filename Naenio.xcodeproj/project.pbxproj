@@ -44,6 +44,7 @@
 		9B244070289E8DC30060A244 /* View + Exetension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B24406F289E8DC30060A244 /* View + Exetension.swift */; };
 		9B244073289E9AA10060A244 /* VotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B244072289E9AA10060A244 /* VotesView.swift */; };
 		9B244075289E9AF10060A244 /* VotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B244074289E9AF10060A244 /* VotesViewModel.swift */; };
+		9B391A1928AB208E0007F4D6 /* HalfSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B391A1828AB208E0007F4D6 /* HalfSheet.swift */; };
 		9B3B6F10289BE3FA002A76A7 /* MockPostWroteList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B6F0E289BE1B4002A76A7 /* MockPostWroteList.json */; };
 		9B3B6F11289BE3FA002A76A7 /* MockPostParticipatedList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B6F0F289BE1B6002A76A7 /* MockPostParticipatedList.json */; };
 		9B425529289D0F9A00163327 /* FullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B425528289D0F9A00163327 /* FullView.swift */; };
@@ -55,7 +56,6 @@
 		9B61D0CB28A87BDC00F6DD0B /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0CA28A87BDC00F6DD0B /* BottomSheetView.swift */; };
 		9B61D0D128A88E7F00F6DD0B /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D028A88E7F00F6DD0B /* CustomSheet.swift */; };
 		9B61D0D328A88FB300F6DD0B /* CustomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D228A88FB200F6DD0B /* CustomSheetView.swift */; };
-		9B61D0D728A8DEF000F6DD0B /* CommentSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D628A8DEF000F6DD0B /* CommentSheet.swift */; };
 		9B61D0DC28A8EE4500F6DD0B /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0DB28A8EE4500F6DD0B /* RoundedCorner.swift */; };
 		9B61D0E428A9050600F6DD0B /* CommentRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0E328A9050600F6DD0B /* CommentRequestInformation.swift */; };
 		9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B687DE928954D4A0048AED0 /* Font + Extension.swift */; };
@@ -72,7 +72,6 @@
 		9BE13FED28AA5717009ED95D /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE13FEC28AA5717009ED95D /* CustomNavigationBar.swift */; };
 		9BE13FEF28AA58C7009ED95D /* CustomNavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE13FEE28AA58C7009ED95D /* CustomNavigationButton.swift */; };
 		9BE13FF128AA5CD1009ED95D /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE13FF028AA5CD1009ED95D /* CustomNavigationView.swift */; };
-		9BE13FF628AA63F6009ED95D /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 9BE13FF528AA63F6009ED95D /* BottomSheet */; };
 		9BE60293289541B6008F291C /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE60292289541B6008F291C /* Color + Extension.swift */; };
 		9BE602A0289548CF008F291C /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE60297289548CE008F291C /* Pretendard-Medium.ttf */; };
 		9BE602A3289548CF008F291C /* Pretendard-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE6029A289548CE008F291C /* Pretendard-SemiBold.ttf */; };
@@ -188,6 +187,7 @@
 		9B24406F289E8DC30060A244 /* View + Exetension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + Exetension.swift"; sourceTree = "<group>"; };
 		9B244072289E9AA10060A244 /* VotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotesView.swift; sourceTree = "<group>"; };
 		9B244074289E9AF10060A244 /* VotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotesViewModel.swift; sourceTree = "<group>"; };
+		9B391A1828AB208E0007F4D6 /* HalfSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfSheet.swift; sourceTree = "<group>"; };
 		9B3B6F0E289BE1B4002A76A7 /* MockPostWroteList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPostWroteList.json; sourceTree = "<group>"; };
 		9B3B6F0F289BE1B6002A76A7 /* MockPostParticipatedList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPostParticipatedList.json; sourceTree = "<group>"; };
 		9B425528289D0F9A00163327 /* FullView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullView.swift; sourceTree = "<group>"; };
@@ -199,7 +199,6 @@
 		9B61D0CA28A87BDC00F6DD0B /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		9B61D0D028A88E7F00F6DD0B /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
 		9B61D0D228A88FB200F6DD0B /* CustomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheetView.swift; sourceTree = "<group>"; };
-		9B61D0D628A8DEF000F6DD0B /* CommentSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentSheet.swift; sourceTree = "<group>"; };
 		9B61D0DB28A8EE4500F6DD0B /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		9B61D0E328A9050600F6DD0B /* CommentRequestInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRequestInformation.swift; sourceTree = "<group>"; };
 		9B687DE928954D4A0048AED0 /* Font + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font + Extension.swift"; sourceTree = "<group>"; };
@@ -279,7 +278,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				92D901F16488AB4A41D32F75 /* Pods_Naenio.framework in Frameworks */,
-				9BE13FF628AA63F6009ED95D /* BottomSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,7 +580,7 @@
 			children = (
 				9B61D0D028A88E7F00F6DD0B /* CustomSheet.swift */,
 				9B61D0D228A88FB200F6DD0B /* CustomSheetView.swift */,
-				9B61D0D628A8DEF000F6DD0B /* CommentSheet.swift */,
+				9B391A1828AB208E0007F4D6 /* HalfSheet.swift */,
 			);
 			path = Sheet;
 			sourceTree = "<group>";
@@ -959,7 +957,6 @@
 			);
 			name = Naenio;
 			packageProductDependencies = (
-				9BE13FF528AA63F6009ED95D /* BottomSheet */,
 			);
 			productName = Naenio;
 			productReference = 9B085EFF2879991400DE8E60 /* Naenio.app */;
@@ -1037,7 +1034,6 @@
 			);
 			mainGroup = 9B085EF62879991400DE8E60;
 			packageReferences = (
-				9BE13FF428AA63F5009ED95D /* XCRemoteSwiftPackageReference "BottomSheet" */,
 			);
 			productRefGroup = 9B085F002879991400DE8E60 /* Products */;
 			projectDirPath = "";
@@ -1252,6 +1248,7 @@
 				9C95B98A289A359700E0910C /* OnboardingView.swift in Sources */,
 				9C2D07C32897DA6F008BBD75 /* ProfileImages.swift in Sources */,
 				9C8D603B28A3746500632BCC /* UIApplication + Extension.swift in Sources */,
+				9B391A1928AB208E0007F4D6 /* HalfSheet.swift in Sources */,
 				9B244075289E9AF10060A244 /* VotesViewModel.swift in Sources */,
 				4C4B133D2883C5EB006044B0 /* NaenioAPI+Wrapper.swift in Sources */,
 				9C95B99E289A8BCB00E0910C /* CardViewModel.swift in Sources */,
@@ -1273,7 +1270,6 @@
 				9C2D07B92897C728008BBD75 /* UserManager.swift in Sources */,
 				9C10439D289B747200A45711 /* HomeViewModel.swift in Sources */,
 				9CAA174028A2468600EAAE40 /* WrappedTextView.swift in Sources */,
-				9B61D0D728A8DEF000F6DD0B /* CommentSheet.swift in Sources */,
 				4C4B133B2883C44C006044B0 /* TargetType+Extension.swift in Sources */,
 				9C68A29A2898F3A6006D36B1 /* LocalStorageManager.swift in Sources */,
 				9B478A5328A7127B007A4715 /* CloseButton.swift in Sources */,
@@ -1651,25 +1647,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		9BE13FF428AA63F5009ED95D /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/lucaszischka/BottomSheet";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		9BE13FF528AA63F6009ED95D /* BottomSheet */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9BE13FF428AA63F5009ED95D /* XCRemoteSwiftPackageReference "BottomSheet" */;
-			productName = BottomSheet;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9B085EF72879991400DE8E60 /* Project object */;
 }

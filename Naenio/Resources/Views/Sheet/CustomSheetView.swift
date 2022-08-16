@@ -1,4 +1,4 @@
-    //
+//
 //  CustomSheetView.swift
 //  Naenio
 //
@@ -23,7 +23,7 @@ struct CustomSheetView<V: View>: View {
 
     var body: some View {
         GeometryReader { geometry in
-            ZStack(alignment: .bottom) {                
+            ZStack(alignment: .bottom) {
                 if isPresented {
                     // Dismiss sheet
                     Color.black.opacity(0.3)
