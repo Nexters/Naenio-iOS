@@ -29,7 +29,7 @@ struct ChangeProfileView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 97, height: 97)
-                        .overlay(Image("pencil"), alignment: .bottomTrailing)
+                        .overlay(editProfileImageButton, alignment: .bottomTrailing)
                         .padding(.top, 60)
                         .padding(.bottom, 42)
                     
@@ -49,5 +49,17 @@ struct ChangeProfileView: View {
             Text("SS")
         }
         .navigationBarHidden(true)
+    }
+    
+    var editProfileImageButton: some View {
+        Button(action: {
+            isPresented = true
+            UIApplication.shared.endEditing()
+        }) {
+            Image("pencil")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 30, height: 30)
+        }
     }
 }
