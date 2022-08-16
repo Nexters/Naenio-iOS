@@ -18,6 +18,7 @@ enum NaenioAPI {
     
     case getFeed(FeedRequestInformation)
     case postPost(PostRequestInformation)
+    case postVote(VoteRequestModel)
 }
 
 extension NaenioAPI: TargetType {
