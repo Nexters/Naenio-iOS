@@ -45,6 +45,7 @@
 		9B244073289E9AA10060A244 /* VotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B244072289E9AA10060A244 /* VotesView.swift */; };
 		9B244075289E9AF10060A244 /* VotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B244074289E9AF10060A244 /* VotesViewModel.swift */; };
 		9B3644BC28AB3B2200EA1467 /* ProfileImageSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3644BB28AB3B2200EA1467 /* ProfileImageSelectionView.swift */; };
+		9B3644BF28AB3CC600EA1467 /* ProfileImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3644BE28AB3CC600EA1467 /* ProfileImages.swift */; };
 		9B391A1928AB208E0007F4D6 /* HalfSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B391A1828AB208E0007F4D6 /* HalfSheet.swift */; };
 		9B3B6F10289BE3FA002A76A7 /* MockPostWroteList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B6F0E289BE1B4002A76A7 /* MockPostWroteList.json */; };
 		9B3B6F11289BE3FA002A76A7 /* MockPostParticipatedList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B6F0F289BE1B6002A76A7 /* MockPostParticipatedList.json */; };
@@ -90,7 +91,6 @@
 		9C2D07BB2897CD0A008BBD75 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D07BA2897CD0A008BBD75 /* UserError.swift */; };
 		9C2D07BE2897D7D4008BBD75 /* UserManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D07BD2897D7D4008BBD75 /* UserManagerTests.swift */; };
 		9C2D07C12897D818008BBD75 /* MockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D07C02897D818008BBD75 /* MockUser.swift */; };
-		9C2D07C32897DA6F008BBD75 /* ProfileImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D07C22897DA6F008BBD75 /* ProfileImages.swift */; };
 		9C3309CD2888EC52000C592F /* KakaoLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309CC2888EC52000C592F /* KakaoLoginManager.swift */; };
 		9C3309CF2888ED08000C592F /* SignInWithKakaoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309CE2888ED08000C592F /* SignInWithKakaoButton.swift */; };
 		9C3309D12888ED16000C592F /* SignInWithKakaoButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309D02888ED16000C592F /* SignInWithKakaoButtonViewModel.swift */; };
@@ -189,6 +189,7 @@
 		9B244072289E9AA10060A244 /* VotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotesView.swift; sourceTree = "<group>"; };
 		9B244074289E9AF10060A244 /* VotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotesViewModel.swift; sourceTree = "<group>"; };
 		9B3644BB28AB3B2200EA1467 /* ProfileImageSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSelectionView.swift; sourceTree = "<group>"; };
+		9B3644BE28AB3CC600EA1467 /* ProfileImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImages.swift; sourceTree = "<group>"; };
 		9B391A1828AB208E0007F4D6 /* HalfSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfSheet.swift; sourceTree = "<group>"; };
 		9B3B6F0E289BE1B4002A76A7 /* MockPostWroteList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPostWroteList.json; sourceTree = "<group>"; };
 		9B3B6F0F289BE1B6002A76A7 /* MockPostParticipatedList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPostParticipatedList.json; sourceTree = "<group>"; };
@@ -235,7 +236,6 @@
 		9C2D07BA2897CD0A008BBD75 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserE\U0010rror.swift"; sourceTree = "<group>"; };
 		9C2D07BD2897D7D4008BBD75 /* UserManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagerTests.swift; sourceTree = "<group>"; };
 		9C2D07C02897D818008BBD75 /* MockUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUser.swift; sourceTree = "<group>"; };
-		9C2D07C22897DA6F008BBD75 /* ProfileImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImages.swift; sourceTree = "<group>"; };
 		9C3309CC2888EC52000C592F /* KakaoLoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginManager.swift; sourceTree = "<group>"; };
 		9C3309CE2888ED08000C592F /* SignInWithKakaoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithKakaoButton.swift; sourceTree = "<group>"; };
 		9C3309D02888ED16000C592F /* SignInWithKakaoButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithKakaoButtonViewModel.swift; sourceTree = "<group>"; };
@@ -514,6 +514,7 @@
 		9B085F2D287E353600DE8E60 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9B3644BD28AB3CBD00EA1467 /* Images */,
 				9B03732928A555B80089CC48 /* System */,
 				9C95B992289A650100E0910C /* Views */,
 				9BD6DE9C2895536E00051C3E /* Colors */,
@@ -550,6 +551,14 @@
 				9B244074289E9AF10060A244 /* VotesViewModel.swift */,
 			);
 			path = Vote;
+			sourceTree = "<group>";
+		};
+		9B3644BD28AB3CBD00EA1467 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9B3644BE28AB3CC600EA1467 /* ProfileImages.swift */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		9B425527289D0F7E00163327 /* Full */ = {
@@ -717,7 +726,6 @@
 		9C2D07C42897DE32008BBD75 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				9C2D07C22897DA6F008BBD75 /* ProfileImages.swift */,
 				9C2D07BA2897CD0A008BBD75 /* UserError.swift */,
 			);
 			path = Constants;
@@ -1249,7 +1257,6 @@
 				9B03732B28A555D60089CC48 /* Notification + Extension.swift in Sources */,
 				9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */,
 				9C95B98A289A359700E0910C /* OnboardingView.swift in Sources */,
-				9C2D07C32897DA6F008BBD75 /* ProfileImages.swift in Sources */,
 				9C8D603B28A3746500632BCC /* UIApplication + Extension.swift in Sources */,
 				9B391A1928AB208E0007F4D6 /* HalfSheet.swift in Sources */,
 				9B244075289E9AF10060A244 /* VotesViewModel.swift in Sources */,
@@ -1266,6 +1273,7 @@
 				9B425529289D0F9A00163327 /* FullView.swift in Sources */,
 				9B61D0CB28A87BDC00F6DD0B /* BottomSheetView.swift in Sources */,
 				4C43C8C42886FB8200A60372 /* String+Extension.swift in Sources */,
+				9B3644BF28AB3CC600EA1467 /* ProfileImages.swift in Sources */,
 				9C3309CF2888ED08000C592F /* SignInWithKakaoButton.swift in Sources */,
 				9C95B99C289A885900E0910C /* CardView.swift in Sources */,
 				9B03732728A555800089CC48 /* Publishers + Extension.swift in Sources */,

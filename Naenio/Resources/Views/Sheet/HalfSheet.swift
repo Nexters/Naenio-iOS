@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HalfSheet<Content: View>: View {
+struct HalfSheet<C: View>: View {
     private var grayBackgroundOpacity: Double { isPresented ? 0.01 : 0 }
     
     @State private var draggedOffset: CGFloat = 0
@@ -16,10 +16,12 @@ struct HalfSheet<Content: View>: View {
     @Binding var isPresented: Bool
     
     private let ratio: CGFloat
+    
     private let topBarHeight: CGFloat
     private let topBarCornerRadius: CGFloat
-    
-    private let content: Content
+    private let topBarTitle: String
+    private let content: C
+
     private let bgColor: Color
     
     init(
@@ -27,14 +29,17 @@ struct HalfSheet<Content: View>: View {
         ratio: CGFloat,
         topBarHeight: CGFloat = 64,
         topBarCornerRadius: CGFloat = 24,
+        topBarTitle: String,
         bgColor: Color = Color.card,
-        @ViewBuilder content: () -> Content
+        @ViewBuilder content: () -> C
     ) {
         self.bgColor = bgColor
         self._isPresented = isPresented
         self.ratio = ratio
         self.topBarHeight = topBarHeight
         self.topBarCornerRadius = topBarCornerRadius
+        self.topBarTitle = topBarTitle
+        
         self.content = content()
     }
     
@@ -46,8 +51,14 @@ struct HalfSheet<Content: View>: View {
                     
                     VStack(spacing: 0) {
                         self.topBar(geometry: geometry)
+                            .padding(.horizontal, 20)
+                            .padding(.top, 20)
+                        
+                        CustomDivider()
+                            .padding(.top, 10)
+                            .padding(.bottom, 30)
+                        
                         VStack(spacing: -8) {
-                            Spacer()
                             self.content.padding(.bottom, geometry.safeAreaInsets.bottom)
                             Spacer()
                         }
@@ -111,11 +122,17 @@ struct HalfSheet<Content: View>: View {
     }
     
     fileprivate func topBar(geometry: GeometryProxy) -> some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 6)
-                .opacity(0)
+        HStack(alignment: .center) {
+            Text(topBarTitle)
+                .font(.semoBold(size: 18))
+                .foregroundColor(.white)
+            
+            Spacer()
+            
+            CloseButton(action: { isPresented = false })
+                .frame(width: 14, height: 14)
         }
-        .frame(width: geometry.size.width, height: topBarHeight)
+//        .frame(height: topBarHeight)
         .background(bgColor)
     }
 }

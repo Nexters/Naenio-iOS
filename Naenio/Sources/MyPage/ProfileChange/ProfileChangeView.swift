@@ -44,9 +44,9 @@ struct ChangeProfileView: View {
                 .padding(.horizontal, 30)
                 .foregroundColor(.white)
             }
-        }
-        .halfSheet(isPresented: $isPresented, ratio: 0.55) {
-            Text("SS")
+            .halfSheet(isPresented: $isPresented, ratio: 0.67, topBarTitle: "이미지 선택") {
+                 ProfileImageSelectionView()
+             }
         }
         .navigationBarHidden(true)
     }

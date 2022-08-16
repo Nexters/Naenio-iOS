@@ -33,11 +33,14 @@ extension View {
     }
     
     /// 반시트
-    func halfSheet<C: View>(isPresented: Binding<Bool>, ratio: CGFloat, @ViewBuilder content: @escaping () -> C) -> some View {
+    func halfSheet<C: View>(isPresented: Binding<Bool>,
+                            ratio: CGFloat,
+                            topBarTitle: String,
+                            @ViewBuilder content: @escaping () -> C) -> some View {
         ZStack {
             self
             
-            HalfSheet(isPresented: isPresented, ratio: ratio, content: content)
+            HalfSheet(isPresented: isPresented, ratio: ratio, topBarTitle: topBarTitle , content: content)
         }
     }
     
