@@ -19,7 +19,6 @@ struct CustomNavigationView<V>: View where V: View {
             CustomNavigationBar(title: self.title, button: trailingButton)
                 .padding(.vertical, 17)
                 .padding(.horizontal, 20)
-                .border(.red)
                 .background(self.bgColor.ignoresSafeArea())
             
             content
@@ -27,9 +26,22 @@ struct CustomNavigationView<V>: View where V: View {
         }
     }
     
-    init(title: String, trailingButton: CustomNavigationButton? = nil, @ViewBuilder _ content: () -> V) {
+    init(title: String, button: ButtonType = .none, @ViewBuilder _ content: () -> V) {
         self.title = title
         self.content = content()
-        self.trailingButton = trailingButton
+        
+        switch button {
+        case .none:
+            trailingButton = nil
+        case .trailing(title: let title, disabled: let disabled, action: let action):
+            self.trailingButton = CustomNavigationButton(title: title, disabled: disabled, action: action)
+        }
+    }
+}
+
+extension CustomNavigationView {
+    enum ButtonType {
+        case trailing(title: String, disabled: Bool, action: () -> Void)
+        case none
     }
 }

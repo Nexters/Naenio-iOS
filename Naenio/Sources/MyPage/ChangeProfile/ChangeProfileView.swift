@@ -14,9 +14,7 @@ struct ChangeProfileView: View {
     
     var body: some View {
         CustomNavigationView(title: "프로필 변경",
-                             trailingButton: CustomNavigationButton(title: "등록",
-                                                                    disabled: isDisabled,
-                                                                    action: { isDisabled.toggle() })) {
+                             button: .trailing(title: "등록", disabled: self.isDisabled, action: { })) {
             ZStack {
                 Color.background
                     .ignoresSafeArea()
@@ -29,7 +27,6 @@ struct ChangeProfileView: View {
                     
                     Spacer()
                 }
-                .border(.red)
                 .foregroundColor(.white)
             }
         }
