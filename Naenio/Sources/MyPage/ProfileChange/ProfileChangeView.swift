@@ -8,7 +8,7 @@
 import SwiftUI
 import Introspect
 
-struct ChangeProfileView: View {
+struct ProfileChangeView: View {
     // @EnvironmentObject userManager: UserManager
     
     @State var isPresented: Bool = false
@@ -46,7 +46,7 @@ struct ChangeProfileView: View {
             }
             .halfSheet(isPresented: $isPresented, ratio: 0.67, topBarTitle: "이미지 선택") {
                  ProfileImageSelectionView()
-             }
+            }
         }
         .navigationBarHidden(true)
     }

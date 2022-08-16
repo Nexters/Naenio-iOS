@@ -86,7 +86,7 @@ extension MyPageView {
             
             Spacer()
             
-            NavigationLink(destination: ChangeProfileView()) {
+            NavigationLink(destination: ProfileChangeView()) {
                 Text("edit")
                     .font(.semoBold(size: 15))
                     .frame(width: 58, height: 31)

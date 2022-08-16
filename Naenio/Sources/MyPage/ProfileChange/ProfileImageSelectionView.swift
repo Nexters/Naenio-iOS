@@ -17,10 +17,13 @@ struct ProfileImageSelectionView: View {
     var body: some View {
         LazyVGrid(columns: columns, spacing: 35) {
             ForEach((0..<ProfileImages.count), id: \.self) { index in
-                ProfileImages.getImage(of: index)
+                ProfileImages.getImage(of: index) // Preset image
                     .resizable()
                     .scaledToFit()
                     .frame(width: 85, height: 85)
+                    .onTapGesture {
+                        
+                    }
             }
         }
         .padding(.bottom, 30)

@@ -132,7 +132,6 @@ struct HalfSheet<C: View>: View {
             CloseButton(action: { isPresented = false })
                 .frame(width: 14, height: 14)
         }
-//        .frame(height: topBarHeight)
         .background(bgColor)
     }
 }
