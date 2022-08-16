@@ -14,8 +14,7 @@ class PostRequestService {
             .map { response -> PostResponseModel in
                 let data = response.data
                 let decoded = try NaenioAPI.jsonDecoder.decode(PostResponseModel.self, from: data)
-                
-                
+
                 return decoded
             }
         

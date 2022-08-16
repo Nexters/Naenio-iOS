@@ -59,7 +59,8 @@ class HomeViewModel: ObservableObject {
                     
                     withAnimation {
                         let author = Author(id: post.memberId, nickname: UserManager.shared.getNickName(), profileImageIndex: UserManager.shared.getProfileImagesIndex())
-                        let newPost = Post(id: post.id, author: author, voteCount: 0, title: post.title, content: post.content, choices: post.choices, commentCount: 0)
+                        let nextChoices = self.transferToChoiceModel(from: post.choices)
+                        let newPost = Post(id: post.id, author: author, voteCount: 0, title: post.title, content: post.content ?? "", choices: nextChoices, commentCount: 0)
                         
                         self.posts.insert(newPost, at: 0)
                     }
@@ -89,6 +90,16 @@ class HomeViewModel: ObservableObject {
         }
         
         return resultPosts
+    }
+    
+    func transferToChoiceModel(from choices: [PostResponseModel.Choice]) -> [Choice] {
+        var resultChoices: [Choice] = [ ]
+        choices.forEach { choice in
+            let newChoice = Choice(id: choice.id, sequence: choice.sequence, name: choice.name, isVoted: false, voteCount: 0)
+            resultChoices.append(newChoice)
+        }
+        
+        return resultChoices
     }
     
     @objc func requestPosts() {
