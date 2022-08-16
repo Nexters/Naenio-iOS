@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// !!!: 네이밍 과연 최선인가?? storage나 manager 붙여도 ㄱㅊ할 듯
+// 근데 막상 붙이려니까 저장소 이상의 역할이 없어서 딱히,, 너무 신경쓰는 것 같기도
 class ProfileImages {
     static let shared = ProfileImages()
     

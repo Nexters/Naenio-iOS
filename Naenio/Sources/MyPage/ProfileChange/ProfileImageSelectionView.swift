@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProfileImageSelectionView: View {
+    @Binding var index: Int
+    
     let columns: [GridItem] = [
         GridItem(.flexible(maximum: 85), spacing: 35),
         GridItem(.flexible(maximum: 85), spacing: 35),
@@ -22,7 +24,7 @@ struct ProfileImageSelectionView: View {
                     .scaledToFit()
                     .frame(width: 85, height: 85)
                     .onTapGesture {
-                        
+                        self.index = index
                     }
             }
         }

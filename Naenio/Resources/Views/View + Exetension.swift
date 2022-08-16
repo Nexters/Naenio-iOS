@@ -40,7 +40,7 @@ extension View {
         ZStack {
             self
             
-            HalfSheet(isPresented: isPresented, ratio: ratio, topBarTitle: topBarTitle , content: content)
+            HalfSheet(isPresented: isPresented, ratio: ratio, topBarTitle: topBarTitle, content: content)
         }
     }
     

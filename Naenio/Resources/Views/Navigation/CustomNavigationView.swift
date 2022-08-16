@@ -11,12 +11,13 @@ struct CustomNavigationView<V>: View where V: View {
     let title: String
     let content: V
     
-    let trailingButton: CustomNavigationButton?
-    let bgColor: Color = .background
+    let configuration = CustomNavigationConfiguration()
+    private let trailingButton: CustomNavigationButton?
+    private let bgColor: Color = .background
     
     var body: some View {
         VStack(spacing: 0) {
-            CustomNavigationBar(title: self.title, button: trailingButton)
+            CustomNavigationBar(title: self.title, leading: configuration.leadingButton, trailing: configuration.trailingButton)
                 .padding(.vertical, 17)
                 .padding(.horizontal, 20)
                 .background(self.bgColor.ignoresSafeArea())
@@ -26,22 +27,12 @@ struct CustomNavigationView<V>: View where V: View {
         }
     }
     
-    init(title: String, button: ButtonType = .none, @ViewBuilder _ content: () -> V) {
+    init(title: String,
+         configuration: CustomNavigationConfiguration = CustomNavigationConfiguration(),
+         @ViewBuilder _ content: () -> V) {
         self.title = title
         self.content = content()
         
-        switch button {
-        case .none:
-            trailingButton = nil
-        case .trailing(title: let title, disabled: let disabled, action: let action):
-            self.trailingButton = CustomNavigationButton(title: title, disabled: disabled, action: action)
-        }
-    }
-}
-
-extension CustomNavigationView {
-    enum ButtonType {
-        case trailing(title: String, disabled: Bool, action: () -> Void)
-        case none
+        self.trailingButton = configuration.trailingButton
     }
 }

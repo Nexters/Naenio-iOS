@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct CustomNavigationBar: View {
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
     let title: String
+    var leadingButton: CustomNavigationBackButton?
     var trailingButton: CustomNavigationButton?
     
     var body: some View {
@@ -26,13 +25,7 @@ struct CustomNavigationBar: View {
     
     var buttons: some View {
         HStack {
-            Button(action: { presentationMode.wrappedValue.dismiss() }) {
-                Image(systemName: "chevron.left")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 24, height: 24)
-                    .foregroundColor(.white)
-            }
+            leadingButton
             
             Spacer()
             
@@ -40,8 +33,9 @@ struct CustomNavigationBar: View {
         }
     }
     
-    init(title: String, button: CustomNavigationButton? = nil) {
+    init(title: String, leading: CustomNavigationBackButton? = CustomNavigationBackButton(action: nil), trailing: CustomNavigationButton? = nil) {
         self.title = title
-        self.trailingButton = button
+        self.leadingButton = leading
+        self.trailingButton = trailing
     }
 }
