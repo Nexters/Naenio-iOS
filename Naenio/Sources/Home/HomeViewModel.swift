@@ -20,11 +20,12 @@ class HomeViewModel: ObservableObject {
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler.init(qos: .userInitiated)
     
-    func vote(index: Int, sequence: Int, postId: Int, choiceId: Int) {
+    func vote(index: Int, sequence: Int, postId: Int, choiceId: Int?) {
         var post = self.posts[index]
         var choice = post.choices[sequence]
         var otherChoice = post.choices[sequence == 0 ? 1 : 0]
         guard !choice.isVoted else { return }
+        guard let choiceId = choiceId else { return }
         
         status = .loading(reason: "postVote")
         
@@ -92,13 +93,13 @@ class HomeViewModel: ObservableObject {
             .disposed(by: bag)
     }
     
-    func voteTotalCount(choices: [Choice]) -> Int {
+    private func voteTotalCount(choices: [Choice]) -> Int {
         guard choices.count == 2 else { return 0 }
         
         return choices[0].voteCount + choices[1].voteCount
     }
     
-    func transferToPostModel(from feed: FeedResponseModel) -> [Post] {
+    private func transferToPostModel(from feed: FeedResponseModel) -> [Post] {
         var resultPosts: [Post] = [ ]
         feed.posts.forEach { post in
             let voteTotalCount = voteTotalCount(choices: post.choices)
@@ -110,7 +111,7 @@ class HomeViewModel: ObservableObject {
         return resultPosts
     }
     
-    func transferToChoiceModel(from choices: [PostResponseModel.Choice]) -> [Choice] {
+    private func transferToChoiceModel(from choices: [PostResponseModel.Choice]) -> [Choice] {
         var resultChoices: [Choice] = [ ]
         choices.forEach { choice in
             let newChoice = Choice(id: choice.id, sequence: choice.sequence, name: choice.name, isVoted: false, voteCount: 0)

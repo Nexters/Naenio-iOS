@@ -37,8 +37,8 @@ struct VotesView: View {
         }
     }
     
-    func choice(of sequence: Int) -> Choice {
-        guard choices.count == 2 else { return Choice(id: 0, sequence: 0, name: "", isVoted: false, voteCount: 0) }
+    private func choice(of sequence: Int) -> Choice? {
+        guard choices.count == 2 else { return nil }
         var resultChoice: Choice = Choice(id: 0, sequence: 0, name: "", isVoted: false, voteCount: 0)
         
         self.choices.forEach { choice in
@@ -56,7 +56,7 @@ struct VotesView: View {
                 VoteButton(type: .choiceA, isOpened: self.isOpened, choice: choice(of: 0), percent: percentage(ofSequence: 0, source: self.choices)) {
                     DispatchQueue.main.async {
 //                        withAnimation(.easeInOut(duration: 0.2)) {
-                        sourceObject.vote(index: self.index, sequence: 0, postId: self.sourceObject.posts[self.index].id, choiceId: choice(of: 0).id)
+                        sourceObject.vote(index: self.index, sequence: 0, postId: self.sourceObject.posts[self.index].id, choiceId: choice(of: 0)?.id)
 //                        }
                     }
                 }
@@ -64,7 +64,7 @@ struct VotesView: View {
                 VoteButton(type: .choiceB, isOpened: self.isOpened, choice: choice(of: 1), percent: percentage(ofSequence: 1, source: self.choices)) {
                     DispatchQueue.main.async {
 //                        withAnimation(.easeInOut(duration: 0.2)) {
-                        sourceObject.vote(index: self.index, sequence: 1, postId: self.sourceObject.posts[self.index].id, choiceId: choice(of: 1).id)
+                        sourceObject.vote(index: self.index, sequence: 1, postId: self.sourceObject.posts[self.index].id, choiceId: choice(of: 1)?.id)
 //                        }
                     }
                 }
