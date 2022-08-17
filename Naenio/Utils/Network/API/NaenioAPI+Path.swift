@@ -14,7 +14,7 @@ extension NaenioAPI {
         case .signOut: return "/app/signOut"
         case .withDrawal: return "/app/withDrawal"
             
-        case .postPost: return "/app/posts"
+        case .postPost, .getTheme: return "/app/posts"
         case .getFeed: return "/app/feed"
         case .postVote: return "/app/votes"
         }
