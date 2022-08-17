@@ -36,22 +36,35 @@ struct VotesView: View {
             return (numerator / denominator) * 100
         }
     }
+    
+    private func choice(of sequence: Int) -> Choice? {
+        guard choices.count == 2 else { return nil }
+        var resultChoice: Choice = Choice(id: 0, sequence: 0, name: "", isVoted: false, voteCount: 0)
+        
+        self.choices.forEach { choice in
+            if choice.sequence == sequence {
+                resultChoice = choice
+            }
+        }
+        
+        return resultChoice
+    }
 
     var body: some View {
         ZStack {
             VStack(spacing: 18) {
-                VoteButton(type: .choiceA, isOpened: self.isOpened, choice: choices.first, percent: percentage(ofSequence: 0, source: self.choices)) {
+                VoteButton(type: .choiceA, isOpened: self.isOpened, choice: choice(of: 0), percent: percentage(ofSequence: 0, source: self.choices)) {
                     DispatchQueue.main.async {
 //                        withAnimation(.easeInOut(duration: 0.2)) {
-                            sourceObject.vote(index: self.index, sequence: 0)
+                        sourceObject.vote(index: self.index, sequence: 0, postId: self.sourceObject.posts[self.index].id, choiceId: choice(of: 0)?.id)
 //                        }
                     }
                 }
                 
-                VoteButton(type: .choiceB, isOpened: self.isOpened, choice: choices.last, percent: percentage(ofSequence: 1, source: self.choices)) {
+                VoteButton(type: .choiceB, isOpened: self.isOpened, choice: choice(of: 1), percent: percentage(ofSequence: 1, source: self.choices)) {
                     DispatchQueue.main.async {
 //                        withAnimation(.easeInOut(duration: 0.2)) {
-                            sourceObject.vote(index: self.index, sequence: 1)
+                        sourceObject.vote(index: self.index, sequence: 1, postId: self.sourceObject.posts[self.index].id, choiceId: choice(of: 1)?.id)
 //                        }
                     }
                 }

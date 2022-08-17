@@ -10,47 +10,66 @@ import RxSwift
 
 class HomeViewModel: ObservableObject {
     // Published vars
-    @Published var sortType: SortType? = nil
+    @Published var sortType: SortType?
     @Published var posts: [Post]
     @Published var status: Status = .waiting
     @Published var lastPostId: Int?
-    let postRequestService: PostRequestService
-    let feedRequestService: FeedRequestService
     
     // vars and lets
     private let pagingSize = 10
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler.init(qos: .userInitiated)
     
-    func vote(index: Int, sequence: Int) {  // TODO: sequence에 조금 더 견고한 제한이 필요할 듯(Int 말고 enum 같은 걸로)
+    func vote(index: Int, sequence: Int, postId: Int, choiceId: Int?) {
         var post = self.posts[index]
         var choice = post.choices[sequence]
         var otherChoice = post.choices[sequence == 0 ? 1 : 0]
+        guard !choice.isVoted else { return }
+        guard let choiceId = choiceId else { return }
         
-        if choice.isVoted {
-            return
-        } else {
-            choice.isVoted = true
-            choice.voteCount += 1
-            
-            if otherChoice.isVoted {
-                otherChoice.isVoted = false
-                otherChoice.voteCount -= 1
-            } else { // voted first time
-                post.voteCount += 1
-            }
-        }
+        status = .loading(reason: "postVote")
         
-        post.choices[sequence == 0 ? 0 : 1] = choice
-        post.choices[sequence == 0 ? 1 : 0] = otherChoice
+        let voteRequestModel = VoteRequestModel(postId: postId, choiceId: choiceId)
+        RequestService<VoteResponseModel>.request(api: .postVote(voteRequestModel))
+            .subscribe(on: serialQueue)
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onSuccess: { [weak self] _ in
+                    guard let self = self else { return }
+                    
+                    withAnimation {
+                        choice.isVoted = true
+                        
+                        choice.voteCount += 1
+                        
+                        if otherChoice.isVoted {
+                            otherChoice.isVoted = false
+                            otherChoice.voteCount -= 1
+                        } else {
+                            post.voteCount += 1
+                        }
+                        
+                        post.choices[sequence == 0 ? 0 : 1] = choice
+                        post.choices[sequence == 0 ? 1 : 0] = otherChoice
+                        
+                        self.posts[index] = post
+                    }
+                    
+                    self.status = .done
+                }, onFailure: { [weak self] error in
+                    guard let self = self else { return }
+                    self.status = .fail(with: error)
+                }, onDisposed: {
+                    print("Disposed requestPosts")
+                })
+            .disposed(by: bag)
         
-        self.posts[index] = post
     }
     
     func register(postRequesInformation: PostRequestInformation) {
-        status = .loadingSameCategoryPosts
+        status = .loading(reason: "sameCategoryPosts")
         
-        postRequestService.postPost(with: postRequesInformation)
+        RequestService<PostResponseModel>.request(api: .postPost(postRequesInformation))
             .subscribe(on: serialQueue)
             .observe(on: MainScheduler.instance)
             .subscribe(
@@ -59,7 +78,8 @@ class HomeViewModel: ObservableObject {
                     
                     withAnimation {
                         let author = Author(id: post.memberId, nickname: UserManager.shared.getNickName(), profileImageIndex: UserManager.shared.getProfileImagesIndex())
-                        let newPost = Post(id: post.id, author: author, voteCount: 0, title: post.title, content: post.content, choices: post.choices, commentCount: 0)
+                        let nextChoices = self.transferToChoiceModel(from: post.choices)
+                        let newPost = Post(id: post.id, author: author, voteCount: 0, title: post.title, content: post.content ?? "", choices: nextChoices, commentCount: 0)
                         
                         self.posts.insert(newPost, at: 0)
                     }
@@ -73,13 +93,13 @@ class HomeViewModel: ObservableObject {
             .disposed(by: bag)
     }
     
-    func voteTotalCount(choices: [Choice]) -> Int {
-        guard choices.count != 2 else { return 0 }
+    private func voteTotalCount(choices: [Choice]) -> Int {
+        guard choices.count == 2 else { return 0 }
         
         return choices[0].voteCount + choices[1].voteCount
     }
     
-    func transferToPostModel(from feed: FeedResponseModel) -> [Post] {
+    private func transferToPostModel(from feed: FeedResponseModel) -> [Post] {
         var resultPosts: [Post] = [ ]
         feed.posts.forEach { post in
             let voteTotalCount = voteTotalCount(choices: post.choices)
@@ -91,13 +111,23 @@ class HomeViewModel: ObservableObject {
         return resultPosts
     }
     
+    private func transferToChoiceModel(from choices: [PostResponseModel.Choice]) -> [Choice] {
+        var resultChoices: [Choice] = [ ]
+        choices.forEach { choice in
+            let newChoice = Choice(id: choice.id, sequence: choice.sequence, name: choice.name, isVoted: false, voteCount: 0)
+            resultChoices.append(newChoice)
+        }
+        
+        return resultChoices
+    }
+    
     @objc func requestPosts() {
         bag = DisposeBag()
-        status = .loadingDifferentCategoryPosts
+        status = .loading(reason: "differentCategoryPosts")
         
         let feedRequestInformation: FeedRequestInformation = FeedRequestInformation(size: pagingSize, lastPostId: nil, sortType: sortType?.rawValue)
         
-        feedRequestService.getFeed(with: feedRequestInformation)
+        RequestService<FeedResponseModel>.request(api: .getFeed(feedRequestInformation))
             .subscribe(on: self.serialQueue)
             .observe(on: MainScheduler.instance)
             .subscribe(
@@ -122,11 +152,11 @@ class HomeViewModel: ObservableObject {
     
     func requestMorePosts() {
         bag = DisposeBag()
-        status = .loadingSameCategoryPosts
+        status = .loading(reason: "sameCategoryPosts")
         
         let feedRequestInformation: FeedRequestInformation = FeedRequestInformation(size: pagingSize, lastPostId: 10, sortType: sortType?.rawValue)
-        
-        feedRequestService.getFeed(with: feedRequestInformation)
+
+        RequestService<FeedResponseModel>.request(api: .getFeed(feedRequestInformation))
             .subscribe(on: self.serialQueue)
             .observe(on: MainScheduler.instance)
             .subscribe(
@@ -159,7 +189,7 @@ class HomeViewModel: ObservableObject {
     // !!!: 테스트용
     @objc func testRequestPosts() {
         bag = DisposeBag()
-        status = .loadingDifferentCategoryPosts
+        status = .loading(reason: "differentCategoryPosts")
                 
         getPostDisposable(sortType: self.sortType! )
             .subscribe(on: self.serialQueue)
@@ -191,7 +221,7 @@ class HomeViewModel: ObservableObject {
     // !!!: 테스트용
     func testRequestMorePosts() {
         bag = DisposeBag() // Cancel running tasks by initializing the bag
-        status = .loadingSameCategoryPosts
+        status = .loading(reason: "sameCategoryPosts")
         
         getPostDisposable(sortType: self.sortType!)
             .subscribe(on: self.serialQueue)
@@ -212,11 +242,7 @@ class HomeViewModel: ObservableObject {
             .disposed(by: bag)
     }
 
-    init(_ postRequestService: PostRequestService = PostRequestService(),
-         _ feedRequestService: FeedRequestService = FeedRequestService()) {
-        self.postRequestService = postRequestService
-        self.feedRequestService = feedRequestService
-        
+    init( ) {
         self.posts = []
         self.requestPosts()
     }
@@ -294,8 +320,7 @@ extension HomeViewModel {
         }
         
         case waiting
-        case loadingDifferentCategoryPosts
-        case loadingSameCategoryPosts
+        case loading(reason: String)
         case done
         case fail(with: Error)
         
@@ -303,10 +328,8 @@ extension HomeViewModel {
             switch self {
             case .waiting:
                 return "Waiting"
-            case .loadingDifferentCategoryPosts:
-                return "Loading differnt category's posts"
-            case .loadingSameCategoryPosts:
-                return "Loading same category's posts"
+            case .loading(let work):
+                return "Loading \(work)"
             case .done:
                 return "Successfully done"
             case .fail(let error):

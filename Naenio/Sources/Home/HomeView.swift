@@ -34,7 +34,7 @@ struct HomeView: View {
                     
                     // Card scroll view
                     ZStack(alignment: .bottom) {
-                        if viewModel.status == .loadingDifferentCategoryPosts {
+                        if viewModel.status == .loading(reason: "differentCategoryPosts") {
                             LoadingIndicator()
                                 .zIndex(1)
                         }
@@ -73,10 +73,9 @@ struct HomeView: View {
                                 }
                                 .buttonStyle(PlainButtonStyle())
                             }
-                            
-                            // TODO: 디자인 팀이랑 논의
+
                             // 하단 무한스크롤 중 생기는 버퍼링에 대한 로딩 인디케이터
-                            if viewModel.status == .loadingSameCategoryPosts {
+                            if viewModel.status == .loading(reason: "sameCategoryPosts") {
                                 LoadingIndicator()
                                     .zIndex(1)
                                     .padding(.vertical, 15)
