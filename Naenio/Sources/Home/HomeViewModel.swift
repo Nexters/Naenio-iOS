@@ -27,11 +27,12 @@ class HomeViewModel: ObservableObject {
         var post = self.posts[index]
         var choice = post.choices[sequence]
         var otherChoice = post.choices[sequence == 0 ? 1 : 0]
+        guard !choice.isVoted else { return }
         
         status = .loading(reason: "postVote")
         
         let voteRequestModel = VoteRequestModel(postId: postId, choiceId: choiceId)
-        voteRequestService.postVote(with: voteRequestModel)
+        RequestService<VoteResponseModel>.request(api: .postVote(voteRequestModel))
             .subscribe(on: serialQueue)
             .observe(on: MainScheduler.instance)
             .subscribe(
@@ -39,18 +40,15 @@ class HomeViewModel: ObservableObject {
                     guard let self = self else { return }
                     
                     withAnimation {
-                        if choice.isVoted {
-                            return
+                        choice.isVoted = true
+                        
+                        choice.voteCount += 1
+                        
+                        if otherChoice.isVoted {
+                            otherChoice.isVoted = false
+                            otherChoice.voteCount -= 1
                         } else {
-                            choice.isVoted = true
-                            choice.voteCount += 1
-                            
-                            if otherChoice.isVoted {
-                                otherChoice.isVoted = false
-                                otherChoice.voteCount -= 1
-                            } else { // voted first time
-                                post.voteCount += 1
-                            }
+                            post.voteCount += 1
                         }
                         
                         post.choices[sequence == 0 ? 0 : 1] = choice
@@ -98,7 +96,7 @@ class HomeViewModel: ObservableObject {
     }
     
     func voteTotalCount(choices: [Choice]) -> Int {
-        guard choices.count != 2 else { return 0 }
+        guard choices.count == 2 else { return 0 }
         
         return choices[0].voteCount + choices[1].voteCount
     }
