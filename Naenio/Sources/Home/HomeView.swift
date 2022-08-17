@@ -121,7 +121,7 @@ struct HomeView: View {
                 NewPostView(isPresented: $showNewPost)
                     .environmentObject(viewModel)
             }
-            .customSheet(isPresented: $showComments, height: 650) {
+            .sheet(isPresented: $showComments) {
                 CommentView(isPresented: $showComments)
             }
         }

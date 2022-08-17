@@ -27,6 +27,11 @@ struct CommentView: View {
                 
                 ScrollView {
                     LazyVStack(spacing: 18) {
+                        // placeholder
+                        Rectangle()
+                            .fill(Color.clear)
+                            .frame(height: 30)
+                        
                         // Sheet's header
                         HStack {
                             CommentCountComponent(count: viewModel.commentsCount ?? 0)

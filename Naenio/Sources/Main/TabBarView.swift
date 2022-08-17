@@ -22,18 +22,23 @@ struct TabBarView: View {
                     .tag(item.tag)
             }
         }
-        .introspectTabBarController { contoller in
-            contoller.tabBar.barTintColor = UIColor(Color.tabBarBackground)
-            contoller.tabBar.isTranslucent = true
-            
-            contoller.tabBar.layer.masksToBounds = true
-            contoller.tabBar.layer.cornerRadius = 14
-            contoller.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        .introspectTabBarController { controller in
+            controller.tabBar.layer.masksToBounds = true
+            controller.tabBar.layer.cornerRadius = 14
+            controller.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         }
     }
     
     init(pages: Binding<[TabBarPage]>) {
         self._pages = pages
+        
+        let appearance: UITabBarAppearance = UITabBarAppearance()
+        appearance.backgroundColor = UIColor(Color.tabBarBackground)
+        
+        if #available(iOS 15.0, *) {
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+        }
+        
     }
 }
 
