@@ -14,9 +14,6 @@ class HomeViewModel: ObservableObject {
     @Published var posts: [Post]
     @Published var status: Status = .waiting
     @Published var lastPostId: Int?
-    let postRequestService: PostRequestService
-    let feedRequestService: FeedRequestService
-    let voteRequestService: VoteRequestService
     
     // vars and lets
     private let pagingSize = 10
@@ -71,7 +68,7 @@ class HomeViewModel: ObservableObject {
     func register(postRequesInformation: PostRequestInformation) {
         status = .loading(reason: "sameCategoryPosts")
         
-        postRequestService.postPost(with: postRequesInformation)
+        RequestService<PostResponseModel>.request(api: .postPost(postRequesInformation))
             .subscribe(on: serialQueue)
             .observe(on: MainScheduler.instance)
             .subscribe(
@@ -129,7 +126,7 @@ class HomeViewModel: ObservableObject {
         
         let feedRequestInformation: FeedRequestInformation = FeedRequestInformation(size: pagingSize, lastPostId: nil, sortType: sortType?.rawValue)
         
-        feedRequestService.getFeed(with: feedRequestInformation)
+        RequestService<FeedResponseModel>.request(api: .getFeed(feedRequestInformation))
             .subscribe(on: self.serialQueue)
             .observe(on: MainScheduler.instance)
             .subscribe(
@@ -157,8 +154,8 @@ class HomeViewModel: ObservableObject {
         status = .loading(reason: "sameCategoryPosts")
         
         let feedRequestInformation: FeedRequestInformation = FeedRequestInformation(size: pagingSize, lastPostId: 10, sortType: sortType?.rawValue)
-        
-        feedRequestService.getFeed(with: feedRequestInformation)
+
+        RequestService<FeedResponseModel>.request(api: .getFeed(feedRequestInformation))
             .subscribe(on: self.serialQueue)
             .observe(on: MainScheduler.instance)
             .subscribe(
@@ -244,14 +241,7 @@ class HomeViewModel: ObservableObject {
             .disposed(by: bag)
     }
 
-    init(_ postRequestService: PostRequestService = PostRequestService(),
-         _ feedRequestService: FeedRequestService = FeedRequestService(),
-         _ voteRequestService: VoteRequestService = VoteRequestService()
-    ) {
-        self.postRequestService = postRequestService
-        self.feedRequestService = feedRequestService
-        self.voteRequestService = voteRequestService
-        
+    init( ) {
         self.posts = []
         self.requestPosts()
     }

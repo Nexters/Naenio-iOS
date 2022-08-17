@@ -19,7 +19,6 @@
 		4C4B133F2883CD32006044B0 /* ModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B133E2883CD32006044B0 /* ModelType.swift */; };
 		4C4B13432883D88A006044B0 /* HttpResponseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B13422883D88A006044B0 /* HttpResponseCode.swift */; };
 		4C4B134528847640006044B0 /* NaenioAPI+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B134428847640006044B0 /* NaenioAPI+Request.swift */; };
-		4CA47BC6288ED06A00D300A7 /* LoginRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA47BC5288ED06A00D300A7 /* LoginRequestService.swift */; };
 		4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4CA47BC92890344400D300A7 /* .swiftlint.yml */; };
 		4CB4196A28A29C2700EBB777 /* TabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB4196928A29C2700EBB777 /* TabContentView.swift */; };
 		4CB8944928A74A0200BE2ECF /* NaenioAPI+Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8944828A74A0200BE2ECF /* NaenioAPI+Method.swift */; };
@@ -159,7 +158,6 @@
 		4C4B133E2883CD32006044B0 /* ModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelType.swift; sourceTree = "<group>"; };
 		4C4B13422883D88A006044B0 /* HttpResponseCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponseCode.swift; sourceTree = "<group>"; };
 		4C4B134428847640006044B0 /* NaenioAPI+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Request.swift"; sourceTree = "<group>"; };
-		4CA47BC5288ED06A00D300A7 /* LoginRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestService.swift; sourceTree = "<group>"; };
 		4CA47BC92890344400D300A7 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		4CB4196928A29C2700EBB777 /* TabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContentView.swift; sourceTree = "<group>"; };
 		4CB8944828A74A0200BE2ECF /* NaenioAPI+Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Method.swift"; sourceTree = "<group>"; };
@@ -320,14 +318,6 @@
 				9C8D603A28A3746500632BCC /* UIApplication + Extension.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		4CA47BC7288ED3BE00D300A7 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				4CA47BC5288ED06A00D300A7 /* LoginRequestService.swift */,
-			);
-			path = Service;
 			sourceTree = "<group>";
 		};
 		4CC296D228804E88001950A2 /* Network */ = {
@@ -690,7 +680,6 @@
 		9BF00C05287ACCC500F08035 /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
-				4CA47BC7288ED3BE00D300A7 /* Service */,
 				9C3309C92888EC13000C592F /* Models */,
 				9C3309CA2888EC37000C592F /* Apple */,
 				9C3309CB2888EC3D000C592F /* Kakao */,
@@ -1291,7 +1280,6 @@
 				9C95B996289A672800E0910C /* FillScreen.swift in Sources */,
 				9C3309D92888EE20000C592F /* LoginViewModel.swift in Sources */,
 				9B61D0E428A9050600F6DD0B /* CommentRequestInformation.swift in Sources */,
-				4CA47BC6288ED06A00D300A7 /* LoginRequestService.swift in Sources */,
 				9B244073289E9AA10060A244 /* VotesView.swift in Sources */,
 				4CC4B73B2896BF2500774192 /* MyPageView.swift in Sources */,
 				9C3309D12888ED16000C592F /* SignInWithKakaoButtonViewModel.swift in Sources */,
