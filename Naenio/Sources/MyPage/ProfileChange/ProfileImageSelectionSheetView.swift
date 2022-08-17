@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProfileImageSelectionView: View {
+struct ProfileImageSelectionSheetView: View {
     @Binding var index: Int
     
     let columns: [GridItem] = [

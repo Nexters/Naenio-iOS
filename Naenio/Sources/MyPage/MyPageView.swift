@@ -51,7 +51,7 @@ struct MyPageView: View {
                     MyPageSection {
                         ForEach(Array(zip(businessCells.indices, businessCells)), id: \.1.id) { index, cell in
                             MyPageNavigationCell(name: cell.name, destination: cell.destination)
-
+                            
                             if businessCells.count != 1 && index != businessCells.count - 1 {
                                 CustomDivider()
                             }
@@ -86,7 +86,7 @@ extension MyPageView {
             
             Spacer()
             
-            NavigationLink(destination: ProfileChangeView()) {
+            NavigationLink(destination: LazyView(ProfileChangeView())) {
                 Text("edit")
                     .font(.semoBold(size: 15))
                     .frame(width: 58, height: 31)
@@ -99,13 +99,13 @@ extension MyPageView {
 }
 
 // Data model
-extension MyPageView {
-    struct CellData<V: View>: Identifiable {
-        let id = UUID()
-        let name: String
-        let destination: V
-    }
+
+fileprivate struct CellData<V: View>: Identifiable {
+    let id = UUID()
+    let name: String
+    let destination: V
 }
+
 
 struct MyPageView_Previews: PreviewProvider {
     static var previews: some View {

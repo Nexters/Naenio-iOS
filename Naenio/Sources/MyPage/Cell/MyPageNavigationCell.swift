@@ -12,7 +12,7 @@ struct MyPageNavigationCell<Destination>: View where Destination: View {
     let name: String
     
     var body: some View {
-        NavigationLink(destination: destination) {
+        NavigationLink(destination: LazyView(destination)) {
             MyPageCell(leading: {
                 Text(name)
                     .font(.semoBold(size: 16))

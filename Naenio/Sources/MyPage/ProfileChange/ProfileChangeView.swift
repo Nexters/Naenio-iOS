@@ -59,7 +59,7 @@ struct ProfileChangeView: View {
                 .foregroundColor(.white)
             }
             .halfSheet(isPresented: $showBottomSheet, ratio: 0.67, topBarTitle: "이미지 선택") {
-                ProfileImageSelectionView(index: $profileImageIndex)
+                ProfileImageSelectionSheetView(index: $profileImageIndex)
             }
         }
         .leadingButtonAction {
@@ -69,10 +69,12 @@ struct ProfileChangeView: View {
                 presentationMode.wrappedValue.dismiss()
             }
         }
-        .addTrailingButton(title: "등록", disabled: text.isEmpty) {
+        .addTrailingButton(title: "등록", disabled: text.isEmpty, action: {
+            print(viewModel.status)
             viewModel.submitUserRequest(nil)
-        }
-        .onChange(of: viewModel.status) { value in
+        })
+        .onChange(of: viewModel.status) { value in // Observe status of API request
+            print(value)
             switch value {
             case .done(_):
                 presentationMode.wrappedValue.dismiss()
@@ -82,7 +84,7 @@ struct ProfileChangeView: View {
                 break
             }
         }
-        .alert(isPresented: $showAlert) {
+        .alert(isPresented: $showAlert) {   // Show the alert popup depending on the alert's type
             switch alertType {
             case .warnBeforeExit:
                 return AlertType.getAlert(of: .warnBeforeExit, secondaryAction: { presentationMode.wrappedValue.dismiss() })

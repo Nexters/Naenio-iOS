@@ -18,7 +18,8 @@ struct CommentContentCell: View {
     
     var body: some View {
         HStack(alignment: .top, spacing: 8) {
-            NavigationLink( destination: CommentRepliesView(isPresented: $isPresented, comment: comment), isActive: $isNavigationActive) {
+            NavigationLink(destination: LazyView(CommentRepliesView(isPresented: $isPresented, comment: comment)),
+                           isActive: $isNavigationActive) {
                 EmptyView()
             }
 

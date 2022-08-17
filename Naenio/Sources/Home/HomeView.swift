@@ -46,7 +46,9 @@ struct HomeView: View {
                         ScrollView(.vertical, showsIndicators: true) {
                             LazyVStack(spacing: 20) {
                                 ForEach(Array(viewModel.posts.enumerated()), id: \.element.id) { (index, post) in
-                                    NavigationLink(destination: FullView(index: index, post: post).environmentObject(viewModel)) {
+                                    NavigationLink(destination: LazyView(
+                                        FullView(index: index,post: post).environmentObject(viewModel))
+                                    ) {
                                         CardView(index: index, post: post) {
                                             withAnimation(.spring()) {
                                                 showComments = true

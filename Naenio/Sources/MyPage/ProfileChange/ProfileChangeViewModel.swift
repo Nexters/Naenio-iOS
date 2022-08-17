@@ -13,4 +13,11 @@ class ProfileChangeViewModel: ObservableObject {
     func submitUserRequest(_ user: User?) { // TODO: 옵셔널 나중에 고치기
         self.status = .done(result: UserInformation(token: "")) // 임시
     }
+    
+    init() {
+        print("init")
+    }
+    deinit {
+        print("deinit")
+    }
 }
