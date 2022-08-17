@@ -176,7 +176,6 @@
 		4CC4B7382896BF1C00774192 /* CurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurationView.swift; sourceTree = "<group>"; };
 		4CC4B73A2896BF2500774192 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		8D95CCC0C2681997F36E4AFB /* Pods-Naenio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio.debug.xcconfig"; path = "Target Support Files/Pods-Naenio/Pods-Naenio.debug.xcconfig"; sourceTree = "<group>"; };
-		9B03732128A2B4280089CC48 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../../ignored/Info.plist; sourceTree = "<group>"; };
 		9B03732328A5551B0089CC48 /* KeyboardAdaptive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAdaptive.swift; sourceTree = "<group>"; };
 		9B03732628A555800089CC48 /* Publishers + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers + Extension.swift"; sourceTree = "<group>"; };
 		9B03732A28A555D60089CC48 /* Notification + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification + Extension.swift"; sourceTree = "<group>"; };
@@ -275,6 +274,7 @@
 		9CB1DFB128AB75A10048B313 /* CustomNavigationView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomNavigationView + Extension.swift"; sourceTree = "<group>"; };
 		9CB1DFB328AB765B0048B313 /* CustomNavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBackButton.swift; sourceTree = "<group>"; };
 		9CB1DFB828AB827E0048B313 /* AlertType + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertType + Extension.swift"; sourceTree = "<group>"; };
+		9CB1DFC428ABD0A00048B313 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CCA227E289B9EA900A2F9B0 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		9CCA228D289BA2EA00A2F9B0 /* MockPost.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPost.json; sourceTree = "<group>"; };
 		9CCA228F289BA4A900A2F9B0 /* MockPost.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPost.json; sourceTree = "<group>"; };
@@ -781,7 +781,7 @@
 		9C68A2942898EFE4006D36B1 /* ignored */ = {
 			isa = PBXGroup;
 			children = (
-				9B03732128A2B4280089CC48 /* Info.plist */,
+				9CB1DFC428ABD0A00048B313 /* Info.plist */,
 				9B89B9F9289E0CF900D0E205 /* KeyValue.swift */,
 			);
 			path = ignored;
