@@ -25,7 +25,9 @@ struct CardView: View {
                     Spacer()
                     
                     // 신고/공유
-                    Button(action: {}) {
+                    Button(action: {
+                        ShareManager.share(url: URL(string: "https://naenio.shop/posts/\(post.id)"))
+                    }) {
                         Image(systemName: "ellipsis")
                             .resizable()
                             .scaledToFit()
