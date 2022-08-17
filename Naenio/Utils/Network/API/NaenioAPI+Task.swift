@@ -19,6 +19,8 @@ extension NaenioAPI {
             return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
         case .getFeed(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
+        case .postVote(let request):
+            return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
         }
     }
 }
