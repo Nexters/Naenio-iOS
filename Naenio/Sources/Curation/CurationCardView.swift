@@ -8,13 +8,25 @@
 import SwiftUI
 
 struct CurationCardView: View {
+    let theme: Theme
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct CurationCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        CurationCardView()
+        ZStack(alignment: .topTrailing) {
+            VStack(alignment: .leading, spacing: 14) {
+                Text(theme.content)
+                    .font(.regular(size: 18))
+                    .foregroundColor(.white)
+                    .padding(.top, 14)
+                Spacer()
+                
+                Text(theme.title)
+                    .font(.regular(size: 22))
+                    .foregroundColor(.white)
+                    .padding(.bottom, 24)
+            }
+            .cornerRadius(20)
+            .fullBackground(imageName: theme.backgroundImage)
+        }
+        .frame(width: UIScreen.main.bounds.width / 2.35, height: UIScreen.main.bounds.width / 2.35 * 1.2)
     }
 }

@@ -20,6 +20,7 @@
 		4C4B13432883D88A006044B0 /* HttpResponseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B13422883D88A006044B0 /* HttpResponseCode.swift */; };
 		4C4B134528847640006044B0 /* NaenioAPI+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B134428847640006044B0 /* NaenioAPI+Request.swift */; };
 		4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4CA47BC92890344400D300A7 /* .swiftlint.yml */; };
+		4CA59E8F28AD4D70002C0FA9 /* CurationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA59E8E28AD4D70002C0FA9 /* CurationDetailView.swift */; };
 		4CB4196A28A29C2700EBB777 /* TabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB4196928A29C2700EBB777 /* TabContentView.swift */; };
 		4CB8944928A74A0200BE2ECF /* NaenioAPI+Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8944828A74A0200BE2ECF /* NaenioAPI+Method.swift */; };
 		4CB8945628A7A1E300BE2ECF /* AuthServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8945528A7A1E300BE2ECF /* AuthServiceType.swift */; };
@@ -37,6 +38,8 @@
 		4CC3CEAA28ABF94900458138 /* VoteRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEA928ABF94900458138 /* VoteRequestModel.swift */; };
 		4CC3CEAC28ABF95400458138 /* VoteResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEAB28ABF95400458138 /* VoteResponseModel.swift */; };
 		4CC3CEB428ACCF0C00458138 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEB328ACCF0C00458138 /* RequestService.swift */; };
+		4CC3CEB628ACF77200458138 /* CurationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEB528ACF77200458138 /* CurationCardView.swift */; };
+		4CC3CEB928ACFB4D00458138 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEB828ACFB4D00458138 /* Theme.swift */; };
 		4CC4B7342896BDE400774192 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4B7332896BDE400774192 /* MainView.swift */; };
 		4CC4B7392896BF1C00774192 /* CurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4B7382896BF1C00774192 /* CurationView.swift */; };
 		4CC4B73B2896BF2500774192 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4B73A2896BF2500774192 /* MyPageView.swift */; };
@@ -159,6 +162,7 @@
 		4C4B13422883D88A006044B0 /* HttpResponseCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponseCode.swift; sourceTree = "<group>"; };
 		4C4B134428847640006044B0 /* NaenioAPI+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Request.swift"; sourceTree = "<group>"; };
 		4CA47BC92890344400D300A7 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		4CA59E8E28AD4D70002C0FA9 /* CurationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurationDetailView.swift; sourceTree = "<group>"; };
 		4CB4196928A29C2700EBB777 /* TabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContentView.swift; sourceTree = "<group>"; };
 		4CB8944828A74A0200BE2ECF /* NaenioAPI+Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Method.swift"; sourceTree = "<group>"; };
 		4CB8945528A7A1E300BE2ECF /* AuthServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceType.swift; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 		4CC3CEA928ABF94900458138 /* VoteRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteRequestModel.swift; sourceTree = "<group>"; };
 		4CC3CEAB28ABF95400458138 /* VoteResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteResponseModel.swift; sourceTree = "<group>"; };
 		4CC3CEB328ACCF0C00458138 /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
+		4CC3CEB528ACF77200458138 /* CurationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurationCardView.swift; sourceTree = "<group>"; };
+		4CC3CEB828ACFB4D00458138 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		4CC4B7332896BDE400774192 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4CC4B7382896BF1C00774192 /* CurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurationView.swift; sourceTree = "<group>"; };
 		4CC4B73A2896BF2500774192 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
@@ -401,6 +407,15 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		4CC3CEB728ACFB3300458138 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4CC3CEB828ACFB4D00458138 /* Theme.swift */,
+				4CA59E8E28AD4D70002C0FA9 /* CurationDetailView.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4CC4B7322896BDD500774192 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,7 +437,9 @@
 		4CC4B7372896BE0D00774192 /* Curation */ = {
 			isa = PBXGroup;
 			children = (
+				4CC3CEB728ACFB3300458138 /* Model */,
 				4CC4B7382896BF1C00774192 /* CurationView.swift */,
+				4CC3CEB528ACF77200458138 /* CurationCardView.swift */,
 			);
 			path = Curation;
 			sourceTree = "<group>";
@@ -1206,6 +1223,7 @@
 				9B478A5728A71A48007A4715 /* CommentContentCell.swift in Sources */,
 				4CC3CEAA28ABF94900458138 /* VoteRequestModel.swift in Sources */,
 				4CB4196A28A29C2700EBB777 /* TabContentView.swift in Sources */,
+				4CA59E8F28AD4D70002C0FA9 /* CurationDetailView.swift in Sources */,
 				4C16915C289FF8DA000226BF /* TabBarView.swift in Sources */,
 				9CE311D228A63FB300EDB0F4 /* CommentInformation.swift in Sources */,
 				4CC296DB28805366001950A2 /* NaenioAPI.swift in Sources */,
@@ -1246,6 +1264,7 @@
 				9C8D604E28A3CAE000632BCC /* ScrollViewHelper.swift in Sources */,
 				4C4B13432883D88A006044B0 /* HttpResponseCode.swift in Sources */,
 				4CC3CE9128AA8A2C00458138 /* SortType.swift in Sources */,
+				4CC3CEB928ACFB4D00458138 /* Theme.swift in Sources */,
 				9C68A29D28990015006D36B1 /* TokenManager.swift in Sources */,
 				4CB8945628A7A1E300BE2ECF /* AuthServiceType.swift in Sources */,
 				9B244070289E8DC30060A244 /* View + Exetension.swift in Sources */,
@@ -1285,6 +1304,7 @@
 				9C3309D12888ED16000C592F /* SignInWithKakaoButtonViewModel.swift in Sources */,
 				9B86192F28A782990098AC8E /* CommentRepliesViewModel.swift in Sources */,
 				9CA7922D287BA90600600C32 /* UserInformation.swift in Sources */,
+				4CC3CEB628ACF77200458138 /* CurationCardView.swift in Sources */,
 				9CE311CF28A63E7200EDB0F4 /* MockCommentGenerator.swift in Sources */,
 				9B478A5028A70F89007A4715 /* CommentCountComponent.swift in Sources */,
 				4CC4B7342896BDE400774192 /* MainView.swift in Sources */,

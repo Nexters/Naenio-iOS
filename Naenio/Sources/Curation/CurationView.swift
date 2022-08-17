@@ -8,14 +8,30 @@
 import SwiftUI
 
 struct CurationView: View {
+    var columns = Array(repeating: GridItem(.flexible(), spacing: 20), count: 2)
+    var themeList: [ThemeType] = [ .todayVote, .hallFame, .randomPlay, .goldBalance, .noisy, .collapsedBalance]
+    
     var body: some View {
-        ZStack {
-            Color.background.ignoresSafeArea()
-            
-            Text("큐레이션 화면")
-                .foregroundColor(.white)
+        ZStack(alignment: .topLeading) {
+            Color.black
+                .ignoresSafeArea()
+            VStack(alignment: .leading, spacing: 20) {
+                Text("네니오들의 선택")
+                    .font(.regular(size: 20))
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 20)
+                    
+                LazyVGrid(columns: columns, spacing: 20) {
+                    ForEach(themeList) { theme in
+                        CurationCardView(theme: theme.data)
+                    }
+                }
+                .padding(14)
+            }
         }
-        
+        .fillScreen()
+        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarHidden(true)
     }
 }
 

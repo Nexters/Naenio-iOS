@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct CurationDetailView: View {
+    let theme: Theme
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text(theme.title)
+        }
+        .background(
+                LinearGradient(gradient: Gradient(colors: [.white, .black]), startPoint: .top, endPoint: .bottom)
+        )
     }
 }
 
-struct CurationDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        CurationDetailView()
-    }
-}
