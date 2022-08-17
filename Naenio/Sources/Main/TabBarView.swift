@@ -6,9 +6,12 @@
 //
 import SwiftUI
 import Introspect
+import Combine
 
 struct TabBarView: View {
     @State var selectedTab = 1
+    @State var tabBarLowSheetInfo = TabBarLowSheetInfo(isPresented: false, postId: 0)
+    
     @Binding var pages: [TabBarPage]
     
     var body: some View {
@@ -23,9 +26,21 @@ struct TabBarView: View {
             }
         }
         .introspectTabBarController { controller in
+            controller.tabBar.isTranslucent = false
             controller.tabBar.layer.masksToBounds = true
             controller.tabBar.layer.cornerRadius = 14
             controller.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        }
+        .onReceive(Publishers.lowSheetNotificationPublisher) { (value: LowSheetNotification) in
+            tabBarLowSheetInfo.isPresented = true
+            tabBarLowSheetInfo.postId = value.postId
+        }
+        .lowSheet(isPresented: $tabBarLowSheetInfo.isPresented) {
+            ReportAndShareSheetView(
+                isPresented: $tabBarLowSheetInfo.isPresented,
+                postID: tabBarLowSheetInfo.postId
+            )
+                .padding(.horizontal, 27)
         }
     }
     
@@ -38,7 +53,13 @@ struct TabBarView: View {
         if #available(iOS 15.0, *) {
             UITabBar.appearance().scrollEdgeAppearance = appearance
         }
-        
+    }
+}
+
+extension TabBarView {
+    struct TabBarLowSheetInfo {
+        var isPresented: Bool
+        var postId: Int
     }
 }
 

@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct HalfSheet<C: View>: View {
-    private var grayBackgroundOpacity: Double { isPresented ? 0.01 : 0 }
-    
     @State private var draggedOffset: CGFloat = 0
     @State private var previousDragValue: DragGesture.Value?
 
     @Binding var isPresented: Bool
     
     private let ratio: CGFloat
+    private let isLow: Bool
     
     private let topBarHeight: CGFloat
     private let topBarCornerRadius: CGFloat
@@ -24,21 +23,48 @@ struct HalfSheet<C: View>: View {
 
     private let bgColor: Color
     
+    
+    private var grayBackgroundOpacity: Double {
+        if !isPresented {
+            return 0
+        } else if isLow {
+            return 0.4
+        } else {
+            return 0.01
+        }
+    }
+    
     init(
         isPresented: Binding<Bool>,
         ratio: CGFloat,
         topBarHeight: CGFloat = 64,
-        topBarCornerRadius: CGFloat = 24,
+        topBarCornerRadius: CGFloat = 22,
         topBarTitle: String,
         bgColor: Color = Color.card,
         @ViewBuilder content: () -> C
     ) {
-        self.bgColor = bgColor
+        self.isLow = false
         self._isPresented = isPresented
+        self.bgColor = bgColor
         self.ratio = ratio
         self.topBarHeight = topBarHeight
         self.topBarCornerRadius = topBarCornerRadius
         self.topBarTitle = topBarTitle
+        
+        self.content = content()
+    }
+    
+    init(
+        isPresented: Binding<Bool>,
+        @ViewBuilder content: () -> C
+    ) {
+        self.isLow = true
+        self._isPresented = isPresented
+        self.bgColor = Color.card
+        self.ratio = 0.28
+        self.topBarHeight = 20
+        self.topBarTitle = ""
+        self.topBarCornerRadius = 22
         
         self.content = content()
     }
@@ -50,11 +76,18 @@ struct HalfSheet<C: View>: View {
                     fullScreenLightGrayOverlay()
                     
                     VStack(spacing: 0) {
-                        self.topBar(geometry: geometry)
-                            .padding(.horizontal, 20)
-                            .padding(.top, 20)
+                        if isLow {
+                            self.topIndicator
+                                .padding(.top, 20)
+
+                        } else {
+                            self.topBar
+                                .padding(.horizontal, 20)
+                                .padding(.top, 20)
+                        }
                         
                         CustomDivider()
+                            .opacity(isLow ? 0 : 1)
                             .padding(.top, 10)
                             .padding(.bottom, 30)
                         
@@ -121,7 +154,8 @@ struct HalfSheet<C: View>: View {
             .onTapGesture { self.isPresented = false }
     }
     
-    fileprivate func topBar(geometry: GeometryProxy) -> some View {
+    var topBar: some View {
+        
         HStack(alignment: .center) {
             Text(topBarTitle)
                 .font(.semoBold(size: 18))
@@ -133,5 +167,11 @@ struct HalfSheet<C: View>: View {
                 .frame(width: 14, height: 14)
         }
         .background(bgColor)
+    }
+    
+    var topIndicator: some View {
+        RoundedRectangle(cornerRadius: 6)
+            .fill(Color.subCard)
+            .frame(width: 46, height: 5)
     }
 }

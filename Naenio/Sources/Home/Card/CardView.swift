@@ -26,7 +26,8 @@ struct CardView: View {
                     
                     // 신고/공유
                     Button(action: {
-                        ShareManager.share(url: URL(string: "https://naenio.shop/posts/\(post.id)"))
+                        let notification = LowSheetNotification(postId: post.id)
+                        NotificationCenter.default.postLowSheetNotification(with: notification)
                     }) {
                         Image(systemName: "ellipsis")
                             .resizable()

@@ -93,7 +93,10 @@ extension FullView {
     }
     
     var moreInformationButton: some View {
-        Button(action: {}) {
+        Button(action: {
+            let notification = LowSheetNotification(postId: post.id)
+            NotificationCenter.default.postLowSheetNotification(with: notification)
+        }) {
             Image(systemName: "ellipsis")
                 .resizable()
                 .scaledToFit()
