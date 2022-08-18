@@ -10,6 +10,7 @@ import SwiftUI
 class UserManager: ObservableObject {
     static let shared = UserManager()
     private let localStorageManager: LocalStorageManager
+    
     let profileImageIndexKey = LocalStorageKeys.profileIamgeIndex.rawValue
     let nicknameKey = LocalStorageKeys.nickname.rawValue
     let authServiceTypeKey = LocalStorageKeys.authServiceType.rawValue
@@ -68,6 +69,8 @@ class UserManager: ObservableObject {
         }
         
         return ""
+    }
+    
     /// 프리셋에서 이미지를 하나 골라옵니다. 인덱스 에러로부터 안전합니다.
     ///
     ///  (8.16) 이미지 프리셋이 완성됨에 따라 `static`하게 선언된 이미지 프리셋에서
