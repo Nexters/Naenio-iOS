@@ -9,15 +9,13 @@ import SwiftUI
 import Combine
 
 struct FullView: View {
-    @EnvironmentObject var sourceObject: HomeViewModel
-    @ObservedObject var viewModel: FullViewModel
+    @Binding var post: Post
+
+    @ObservedObject var viewModel = FullViewModel()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-        
+    
     @State var didVote: Bool = false
     
-    let index: Int
-    let post: Post
-
     var body: some View {
         ZStack {
             Color.background
@@ -58,11 +56,10 @@ struct FullView: View {
                 
                 Spacer()
                 
-                VotesView(index: index, choices: post.choices)
-                    .environmentObject(sourceObject)
+                VotesView(post: $post)
                     .padding(.bottom, 32)
                     .zIndex(1)
-
+                
                 commentButton
                     .fillHorizontal()
                     .padding(.bottom, 160)
@@ -71,6 +68,14 @@ struct FullView: View {
             .padding(.top, 27)
             .padding(.bottom, 16)
         }
+        .onChange(of: post.choices) { _ in
+            didVote = true
+        }
+//        .onReceive(Publishers.didVoteHappen) { id in
+//            if id == post.id {
+//                didVote = true
+//            }
+//        }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -82,19 +87,6 @@ struct FullView: View {
                 moreInformationButton
             }
         }
-        .onReceive(Publishers.didVoteHappen) { value in
-            // 버튼을 누르면 퍼블리셔가 인덱스를 내려준다
-            // 리팩토링 시급함
-            if value == self.index {
-                didVote = true
-            }
-        }
-    }
-    
-    init(index: Int, post: Post) {
-        self.index = index
-        self.post = post
-        self.viewModel = FullViewModel()
     }
 }
 

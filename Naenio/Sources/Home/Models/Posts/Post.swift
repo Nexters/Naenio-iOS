@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Post: ModelType {
+struct Post: ModelType, Identifiable, Equatable {
     static func == (lhs: Post, rhs: Post) -> Bool {
         return lhs.id == rhs.id
     }

@@ -9,14 +9,11 @@ import SwiftUI
 import Combine
 
 struct CardView: View {
-    @ObservedObject var viewModel: CardViewModel
-    @EnvironmentObject var sourceObject: HomeViewModel
-    
-    let index: Int
-    let post: Post
-    let action: () -> Void
-    
+    @ObservedObject var viewModel = CardViewModel()
     @State var didVote = false
+    
+    @Binding var post: Post
+    let action: () -> Void
     
     var body: some View {
         ZStack {
@@ -38,7 +35,7 @@ struct CardView: View {
                         Spacer()
                         
                         // 신고/공유
-                        Button(action: { NotificationCenter.default.postLowSheetNotification(with: LowSheetNotification(postId: index)) }) {
+                        Button(action: { NotificationCenter.default.postLowSheetNotification(with: LowSheetNotification(postId: post.id)) }) {
                             Image(systemName: "ellipsis")
                                 .resizable()
                                 .scaledToFit()
@@ -70,13 +67,12 @@ struct CardView: View {
                         .foregroundColor(.naenioGray)
                         .padding(.bottom, 18)
                     
-                    VotesView(index: index, choices: post.choices)
-                        .environmentObject(sourceObject)
+                    VotesView(post: $post)
                 }
                 .padding(.horizontal, 20)
                 .padding(.top, 27)
                 .padding(.bottom, 16)
-
+                
                 Button(action: self.action) {
                     HStack(spacing: 6) {
                         Text("💬 댓글")
@@ -93,25 +89,18 @@ struct CardView: View {
                     .background(Color.subCard)
                 }
             }
-
+            
         }
+//        .onReceive(Publishers.didVoteHappen) { id in
+//            if id == post.id {
+//                didVote = true
+//            }
+//        }
         .fillScreen()
         .mask(RoundedRectangle(cornerRadius: 16))
-        .onReceive(Publishers.didVoteHappen) { value in
-            // 버튼을 누르면 퍼블리셔가 인덱스를 내려준다
-            // 리팩토링 시급함
-            if value == self.index {
-                didVote = true
-            }
+        .onChange(of: post.choices) { _ in
+            didVote = true
         }
-    }
-    
-    init(index: Int, post: Post, action: @escaping () -> Void) {
-        self.index = index
-        self.post = post
-        self.action = action
-        
-        self.viewModel = CardViewModel()
     }
 }
 
@@ -127,9 +116,3 @@ extension CardView {
         }
     }
 }
-
-// struct CardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CardView(viewModel: CardViewModel(post: emptyPosts[0]))
-//    }
-// }
