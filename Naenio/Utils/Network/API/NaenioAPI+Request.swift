@@ -22,7 +22,7 @@ extension NaenioAPI {
     ) -> Single<Response> {
         let endpoint = NaenioAPI.Wrapper(base: self)
         let requestString = "\(endpoint.method) \(endpoint.baseURL) \(endpoint.path)"
-        
+        print("endpoint: \(endpoint)")
         return Self.moyaProvider.rx.request(endpoint)
             .filterSuccessfulStatusCodes()
             .catch(self.handleInternetConnection)
