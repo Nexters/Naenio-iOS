@@ -34,11 +34,11 @@ struct LottieView: UIViewRepresentable {
         }
     }
     
-    init(isPlaying: Binding<Bool>, animation: Lottie.Animation?) {
+    init(isPlaying: Binding<Bool>, animation: Lottie.Animation?, loopMode: LottieLoopMode = .playOnce) {
         let animationView = AnimationView()
         animationView.animation = animation
         animationView.contentMode = .scaleAspectFit
-        animationView.loopMode = .playOnce
+        animationView.loopMode = loopMode
         animationView.animationSpeed = 1.3
         animationView.translatesAutoresizingMaskIntoConstraints = false
 

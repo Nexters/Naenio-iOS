@@ -26,7 +26,10 @@ struct TabBarView: View {
             }
         }
         .introspectTabBarController { controller in
-            controller.tabBar.isTranslucent = false
+            controller.tabBar.backgroundColor = UIColor(Color.tabBarBackground)
+            controller.tabBar.shadowImage = UIImage()
+            controller.tabBar.backgroundImage = UIImage()
+            
             controller.tabBar.layer.masksToBounds = true
             controller.tabBar.layer.cornerRadius = 14
             controller.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -46,13 +49,6 @@ struct TabBarView: View {
     
     init(pages: Binding<[TabBarPage]>) {
         self._pages = pages
-        
-        let appearance: UITabBarAppearance = UITabBarAppearance()
-        appearance.backgroundColor = UIColor(Color.tabBarBackground)
-        
-        if #available(iOS 15.0, *) {
-            UITabBar.appearance().scrollEdgeAppearance = appearance
-        }
     }
 }
 

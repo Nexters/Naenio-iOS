@@ -33,7 +33,7 @@ struct HomeView: View {
                         .padding(.horizontal, 20)
                     
                     // Card scroll view
-                    ZStack(alignment: .bottom) {
+                    ZStack(alignment: .center) {
                         if viewModel.status == .loading(reason: "differentCategoryPosts") {
                             LoadingIndicator()
                                 .zIndex(1)
@@ -47,7 +47,7 @@ struct HomeView: View {
                             LazyVStack(spacing: 20) {
                                 ForEach(Array(viewModel.posts.enumerated()), id: \.element.id) { (index, post) in
                                     NavigationLink(destination: LazyView(
-                                        FullView(index: index,post: post).environmentObject(viewModel))
+                                        FullView(index: index, post: post).environmentObject(viewModel))
                                     ) {
                                         CardView(index: index, post: post) {
                                             withAnimation(.spring()) {
@@ -72,6 +72,11 @@ struct HomeView: View {
                                     }
                                 }
                                 .buttonStyle(PlainButtonStyle())
+                                
+                                // placeholder
+                                Rectangle()
+                                    .fill(Color.clear)
+                                    .frame(height: 130)
                             }
 
                             // 하단 무한스크롤 중 생기는 버퍼링에 대한 로딩 인디케이터
@@ -115,7 +120,6 @@ struct HomeView: View {
                 
                 floatingButton
                     .padding(20)
-                    .ignoresSafeArea(.keyboard)
             }
             .navigationBarHidden(true)
             .fullScreenCover(isPresented: $showNewPost) {

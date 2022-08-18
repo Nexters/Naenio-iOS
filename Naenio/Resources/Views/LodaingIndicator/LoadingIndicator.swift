@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import Lottie
 
 struct LoadingIndicator: View {
     var body: some View {
-        ProgressView()
-            .progressViewStyle(CircularProgressViewStyle(tint: .yellow))
+        LottieView(isPlaying: .constant(true), animation: LottieAnimations.fullLoading, loopMode: .loop)
+            .frame(width: 50, height: 50)
     }
 }

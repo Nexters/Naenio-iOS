@@ -141,6 +141,7 @@
 		9CB1DFB928AB827E0048B313 /* AlertType + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1DFB828AB827E0048B313 /* AlertType + Extension.swift */; };
 		9CBCDCD928ADE77A00C4C577 /* PostRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE9628AA8A3900458138 /* PostRequestInformation.swift */; };
 		9CBCDCDB28AE070200C4C577 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCDCDA28AE070200C4C577 /* Launch Screen.storyboard */; };
+		9CBCDCDF28AE14B700C4C577 /* full_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCDCDE28AE14B700C4C577 /* full_loading.json */; };
 		9CCA228E289BA2EA00A2F9B0 /* MockPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA228D289BA2EA00A2F9B0 /* MockPost.json */; };
 		9CCA2293289BAB0F00A2F9B0 /* MockPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA228F289BA4A900A2F9B0 /* MockPost.json */; };
 		9CCA2295289BB3CF00A2F9B0 /* MockPostList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA2294289BB28500A2F9B0 /* MockPostList.json */; };
@@ -311,6 +312,7 @@
 		9CB1DFB328AB765B0048B313 /* CustomNavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBackButton.swift; sourceTree = "<group>"; };
 		9CB1DFB828AB827E0048B313 /* AlertType + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertType + Extension.swift"; sourceTree = "<group>"; };
 		9CBCDCDA28AE070200C4C577 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		9CBCDCDE28AE14B700C4C577 /* full_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = full_loading.json; sourceTree = "<group>"; };
 		9CCA228D289BA2EA00A2F9B0 /* MockPost.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPost.json; sourceTree = "<group>"; };
 		9CCA228F289BA4A900A2F9B0 /* MockPost.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPost.json; sourceTree = "<group>"; };
 		9CCA2294289BB28500A2F9B0 /* MockPostList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPostList.json; sourceTree = "<group>"; };
@@ -803,6 +805,7 @@
 			children = (
 				9BF513C428AD218200104CAB /* LottieView.swift */,
 				9B2B25E428ADCEA0009BDC9F /* LottieAnimations.swift */,
+				9CBCDCDE28AE14B700C4C577 /* full_loading.json */,
 				9BF513CE28AD265000104CAB /* confetti.json */,
 			);
 			path = Lottie;
@@ -1218,6 +1221,7 @@
 				4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */,
 				9BE602B82895491B008F291C /* Montserrat-Regular.ttf in Resources */,
 				4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */,
+				9CBCDCDF28AE14B700C4C577 /* full_loading.json in Resources */,
 				9B085F0A2879991600DE8E60 /* Preview Assets.xcassets in Resources */,
 				9B085F072879991600DE8E60 /* Assets.xcassets in Resources */,
 				9CBCDCDB28AE070200C4C577 /* Launch Screen.storyboard in Resources */,

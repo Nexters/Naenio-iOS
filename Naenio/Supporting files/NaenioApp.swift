@@ -47,7 +47,18 @@ struct NaenioApp: App {
                             handleUrl(url)
                         }
                 } else {
-                    ProgressView()
+                    ZStack(alignment: .center) {
+//                        Color.maskGradientVertical
+//                            .ignoresSafeArea()
+//                            .zIndex(0.1)
+//                        
+//                        Color.linearGradientVertical
+//                            .ignoresSafeArea()
+//                            .zIndex(0)
+//                        
+//                        LoadingIndicator()
+//                            .zIndex(1)
+                    }
                 }
             }
         }
