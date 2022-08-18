@@ -14,15 +14,16 @@ struct CommentModel: ModelType {
     struct Comment: ModelType {
         let id: Int
         let author: Author
-        let content, createdDatetime: String
+        let content: String
+        let createdDatetime: String
         let likeCount: Int
         let isLiked: Bool
         let repliesCount: Int
         
         struct Author: ModelType {
             let id: Int
-            let nickname: String
-            let profileImageIndex: Int
+            let nickname: String?
+            let profileImageIndex: Int?
         }
     }
     
