@@ -64,19 +64,6 @@ extension CustomSheetView {
                         translation = value
                     }
                 }
-                .onReceive(Publishers.scrollOffset) { value in
-                    // !!!: 매우 위험함. 하나의 스크롤뷰만 퍼블리싱 중임을 보장해야 함
-                    if value < 0 {
-                        self.scrollDownOffset = value
-                    }
-                }
-                .onReceive(Publishers.scrollVelocity) { value in
-                    // !!!: 매우 위험함. 하나의 스크롤뷰만 퍼블리싱 중임을 보장해야 함
-                    // 답도 없다 증말 😢😢😢
-                    if value < -3.0 && self.scrollDownOffset < 0 {
-                        isPresented = false
-                    }
-                }
                 .onAppear {
                     translation = 0
                     scrollDownOffset = 0

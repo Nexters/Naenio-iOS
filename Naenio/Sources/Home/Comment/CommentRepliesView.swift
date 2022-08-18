@@ -78,12 +78,6 @@ struct CommentRepliesView: View {
                 scrollView.keyboardDismissMode = .onDrag
                 scrollView.delegate = scrollViewHelper
             }
-            .onChange(of: scrollViewHelper.currentVerticalPosition) { newValue in
-                NotificationCenter.default.post(name: .scrollOffsetNotification, object: newValue)
-            }
-            .onChange(of: scrollViewHelper.scrollVelocity) { newValue in
-                NotificationCenter.default.post(name: .scrollVelocity, object: newValue)
-            }
             
             // Keyboard
             VStack {

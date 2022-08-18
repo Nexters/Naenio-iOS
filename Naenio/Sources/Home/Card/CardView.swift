@@ -25,7 +25,10 @@ struct CardView: View {
                     Spacer()
                     
                     // 신고/공유
-                    Button(action: {}) {
+                    Button(action: {
+                        let notification = LowSheetNotification(postId: post.id)
+                        NotificationCenter.default.postLowSheetNotification(with: notification)
+                    }) {
                         Image(systemName: "ellipsis")
                             .resizable()
                             .scaledToFit()

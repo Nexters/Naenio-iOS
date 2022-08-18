@@ -44,6 +44,16 @@ extension View {
         }
     }
     
+    // 로우시트 with options(인디케이터, 높이, bg)
+    func lowSheet<C: View>(isPresented: Binding<Bool>,
+                           @ViewBuilder content: @escaping () -> C) -> some View {
+        ZStack {
+            self
+            
+            HalfSheet(isPresented: isPresented, content: content)
+        }
+    }
+    
     /// 특정 코너만 라운드 주고 싶을 때 사용
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
         clipShape(RoundedCorner(radius: radius, corners: corners))
