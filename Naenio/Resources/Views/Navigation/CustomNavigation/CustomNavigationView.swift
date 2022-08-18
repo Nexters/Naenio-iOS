@@ -13,7 +13,7 @@ struct CustomNavigationView<V>: View where V: View {
     
     let configuration = CustomNavigationConfiguration()
     private let trailingButton: CustomNavigationButton?
-    private let bgColor: Color = .background
+    private let bgColor: Color
     
     var body: some View {
         VStack(spacing: 0) {
@@ -29,10 +29,12 @@ struct CustomNavigationView<V>: View where V: View {
     
     init(title: String,
          configuration: CustomNavigationConfiguration = CustomNavigationConfiguration(),
+         bgColor: Color = .background,
+         isClear: Bool = false,
          @ViewBuilder _ content: () -> V) {
         self.title = title
         self.content = content()
-        
+        self.bgColor = bgColor
         self.trailingButton = configuration.trailingButton
     }
 }

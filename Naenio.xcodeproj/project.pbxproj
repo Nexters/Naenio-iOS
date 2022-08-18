@@ -73,6 +73,9 @@
 		9B61D0D328A88FB300F6DD0B /* CustomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D228A88FB200F6DD0B /* CustomSheetView.swift */; };
 		9B61D0DC28A8EE4500F6DD0B /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0DB28A8EE4500F6DD0B /* RoundedCorner.swift */; };
 		9B61D0E428A9050600F6DD0B /* CommentRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0E328A9050600F6DD0B /* CommentRequestInformation.swift */; };
+		9B61D0F728AE92F700F6DD0B /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0F628AE92F700F6DD0B /* ThemeView.swift */; };
+		9B61D0F928AE931600F6DD0B /* ThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0F828AE931600F6DD0B /* ThemeViewModel.swift */; };
+		9B61D0FB28AE93EA00F6DD0B /* EmptyResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0FA28AE93EA00F6DD0B /* EmptyResultView.swift */; };
 		9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B687DE928954D4A0048AED0 /* Font + Extension.swift */; };
 		9B86192D28A77D920098AC8E /* CommentRepliesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86192C28A77D920098AC8E /* CommentRepliesView.swift */; };
 		9B86192F28A782990098AC8E /* CommentRepliesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86192E28A782990098AC8E /* CommentRepliesViewModel.swift */; };
@@ -251,6 +254,9 @@
 		9B61D0D228A88FB200F6DD0B /* CustomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheetView.swift; sourceTree = "<group>"; };
 		9B61D0DB28A8EE4500F6DD0B /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		9B61D0E328A9050600F6DD0B /* CommentRequestInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRequestInformation.swift; sourceTree = "<group>"; };
+		9B61D0F628AE92F700F6DD0B /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
+		9B61D0F828AE931600F6DD0B /* ThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewModel.swift; sourceTree = "<group>"; };
+		9B61D0FA28AE93EA00F6DD0B /* EmptyResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResultView.swift; sourceTree = "<group>"; };
 		9B687DE928954D4A0048AED0 /* Font + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font + Extension.swift"; sourceTree = "<group>"; };
 		9B86192C28A77D920098AC8E /* CommentRepliesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesView.swift; sourceTree = "<group>"; };
 		9B86192E28A782990098AC8E /* CommentRepliesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesViewModel.swift; sourceTree = "<group>"; };
@@ -512,6 +518,8 @@
 				4CC3CEB728ACFB3300458138 /* Model */,
 				4CC4B7382896BF1C00774192 /* CurationView.swift */,
 				4CC3CEB528ACF77200458138 /* CurationCardView.swift */,
+				9B61D0F628AE92F700F6DD0B /* ThemeView.swift */,
+				9B61D0F828AE931600F6DD0B /* ThemeViewModel.swift */,
 			);
 			path = Curation;
 			sourceTree = "<group>";
@@ -1022,6 +1030,7 @@
 				9C8D603C28A38AD900632BCC /* UITextView */,
 				9C95B998289A678F00E0910C /* ButtonStyles */,
 				9C95B997289A672E00E0910C /* ViewModifiers */,
+				9B61D0FA28AE93EA00F6DD0B /* EmptyResultView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1428,6 +1437,7 @@
 				9C3309D72888EE0D000C592F /* LoginView.swift in Sources */,
 				9BF513C028AD17C400104CAB /* LowSheetNotification.swift in Sources */,
 				9CB1DFB428AB765B0048B313 /* CustomNavigationBackButton.swift in Sources */,
+				9B61D0FB28AE93EA00F6DD0B /* EmptyResultView.swift in Sources */,
 				9BF513C928AD21F800104CAB /* KeyValue.swift in Sources */,
 				9CBCDCE728AE2D4F00C4C577 /* CardView.swift in Sources */,
 				9C95B99A289A679B00E0910C /* CapsuleButtonStyle.swift in Sources */,
@@ -1452,6 +1462,7 @@
 				9C95B98D289A3AAB00E0910C /* HomeView.swift in Sources */,
 				9B03732428A5551B0089CC48 /* KeyboardAdaptive.swift in Sources */,
 				9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */,
+				9B61D0F728AE92F700F6DD0B /* ThemeView.swift in Sources */,
 				9B03732D28A556020089CC48 /* UIResponder + Extension.swift in Sources */,
 				9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */,
 				4CC3CEAC28ABF95400458138 /* VoteResponseModel.swift in Sources */,
@@ -1519,6 +1530,7 @@
 				9B27A39828AD079700C63AB6 /* ShareManager.swift in Sources */,
 				4CC4B73B2896BF2500774192 /* MyPageView.swift in Sources */,
 				9C3309D12888ED16000C592F /* SignInWithKakaoButtonViewModel.swift in Sources */,
+				9B61D0F928AE931600F6DD0B /* ThemeViewModel.swift in Sources */,
 				9B86192F28A782990098AC8E /* CommentRepliesViewModel.swift in Sources */,
 				9CA7922D287BA90600600C32 /* UserInformation.swift in Sources */,
 				9CBCDCEB28AE3A7900C4C577 /* NewVoteButton.swift in Sources */,

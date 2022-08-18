@@ -40,7 +40,7 @@ struct HomeView: View {
                         }
                         
                         if viewModel.status == .done, viewModel.posts.isEmpty {
-                            emptyResultView
+                            EmptyResultView(description: "등록된 투표가 없어요!")
                         }
                         
                         ScrollView(.vertical, showsIndicators: true) {
@@ -168,19 +168,6 @@ extension HomeView {
                 Capsule()
                     .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
             )
-        }
-    }
-        
-    var emptyResultView: some View {
-        VStack(spacing: 14) {
-            Image("empty")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 59, height: 59)
-            
-            Text("아직 투표가 없어요!")
-                .font(.medium(size: 18))
-                .foregroundColor(.naenioGray)
         }
     }
     

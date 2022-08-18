@@ -1,0 +1,140 @@
+//
+//  HomeView.swift
+//  Naenio
+//
+//  Created by 이영빈 on 2022/08/03.
+//
+
+import SwiftUI
+import Combine
+import Introspect
+
+struct ThemeView: View {
+    @StateObject var viewModel = ThemeViewModel()
+    @ObservedObject var scrollViewHelper = ScrollViewHelper()
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    @State var showComments = false
+    private let theme: ThemeType
+    
+    var body: some View {
+        ZStack(alignment: .top) {
+            LinearGradient(gradient: Gradient(colors: theme.data.backgroundColorList),
+                           startPoint: .top,
+                           endPoint: .bottom)
+            .ignoresSafeArea()
+            
+            VStack(alignment: .leading) {
+                if scrollViewHelper.scrollDirection == .downward {
+                    // Nav bar
+                    navigationBar
+                        .padding(.horizontal, 25)
+                        .padding(.bottom, 20)
+                }
+                
+                // Card scroll view
+                ZStack(alignment: .center) {
+                    if viewModel.status == .loading(reason: "differentCategoryPosts") {
+                        LoadingIndicator()
+                            .zIndex(1)
+                    }
+                    
+                    if viewModel.status == .done, viewModel.posts.isEmpty {
+                        EmptyResultView(description: "등록된 투표가 없어요!")
+                    }
+                    
+                    ScrollView(.vertical, showsIndicators: true) {
+                        LazyVStack(spacing: 20) {
+                            ForEach($viewModel.posts) { index, post in
+                                NavigationLink(destination: LazyView(
+                                    FullView(post: post))
+                                ) {
+                                    CardView(post: post) {
+                                        withAnimation(.spring()) {
+                                            showComments = true
+                                        }
+                                    }
+                                    .environmentObject(viewModel)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 16)
+                                            .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
+                                    )
+                                    .padding(.horizontal, 20)
+                                }
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            
+                            // placeholder
+                            Rectangle()
+                                .fill(Color.clear)
+                                .frame(height: 130)
+                        }
+                        
+                        // 하단 무한스크롤 중 생기는 버퍼링에 대한 로딩 인디케이터
+                        if viewModel.status == .loading(reason: "sameCategoryPosts") {
+                            LoadingIndicator()
+                                .zIndex(1)
+                                .padding(.vertical, 15)
+                        }
+                    }
+                    .introspectScrollView { scrollView in
+                        let control = scrollViewHelper.refreshController
+                        control.addTarget(viewModel, action: #selector(viewModel.requestThemePosts), for: .valueChanged)
+                        control.tintColor = .yellow
+                        
+                        scrollView.keyboardDismissMode = .onDrag
+                        scrollView.refreshControl = control
+                        scrollView.delegate = scrollViewHelper
+                    }
+                    .onChange(of: viewModel.status) { status in
+                        switch status {
+                        case .done:
+                            scrollViewHelper.refreshController.endRefreshing()
+                        case .fail(with: _):
+                            scrollViewHelper.refreshController.endRefreshing()
+                        default:
+                            break
+                        }
+                    }
+                }
+            }
+            .padding(.top, 20)
+            .fillScreen()
+        }
+        .onAppear {
+            viewModel.theme = self.theme
+            viewModel.requestThemePosts()
+        }
+        .navigationBarHidden(true)
+        .sheet(isPresented: $showComments) {
+            CommentView(isPresented: $showComments)
+        }
+    }
+    
+    init(_ theme: ThemeType) {
+        self.theme = theme
+    }
+}
+
+extension ThemeView {
+    var navigationBar: some View {
+        ZStack(alignment: .center) {
+            HStack {
+                Button(action: { self.presentationMode.wrappedValue.dismiss() }) {
+                    Image(systemName: "chevron.left")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 18, height: 18)
+                        .foregroundColor(.white)
+                }
+                
+                Spacer()
+            }
+            
+            Text(theme.data.title)
+                .font(.engBold(size: 22))
+                .foregroundColor(.white)
+        }
+        .fillHorizontal()
+    }
+}
