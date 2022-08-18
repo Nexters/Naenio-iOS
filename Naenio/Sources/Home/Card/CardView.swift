@@ -20,7 +20,7 @@ struct CardView: View {
     
     var body: some View {
         ZStack {
-            Color.background
+            Color.card
             
             if didVote {
                 LottieView(isPlaying: $didVote, animation: LottieAnimations.confettiAnimation)
@@ -38,7 +38,7 @@ struct CardView: View {
                         Spacer()
                         
                         // 신고/공유
-                        Button(action: {}) {
+                        Button(action: { NotificationCenter.default.postLowSheetNotification(with: LowSheetNotification(postId: index)) }) {
                             Image(systemName: "ellipsis")
                                 .resizable()
                                 .scaledToFit()
