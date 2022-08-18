@@ -23,6 +23,7 @@ struct CardView: View {
             
             if didVote {
                 LottieView(isPlaying: $didVote, animation: LottieAnimations.confettiAnimation)
+                    .allowsHitTesting(false)
                     .fillScreen()
                     .zIndex(0)
             }

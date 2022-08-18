@@ -22,8 +22,12 @@ struct FullView: View {
             Color.background
                 .ignoresSafeArea()
             
-            LottieView(isPlaying: $didVote, animation: LottieAnimations.confettiAnimation)
-                .fillScreen()
+            if didVote {
+                LottieView(isPlaying: $didVote, animation: LottieAnimations.confettiAnimation)
+                    .allowsHitTesting(false)
+                    .fillScreen()
+                    .zIndex(0)
+            }
             
             VStack(alignment: .leading, spacing: 0) {
                 profile
@@ -78,6 +82,7 @@ struct FullView: View {
             }
         }
         .onChange(of: sourceObject.posts[index].choices) { _ in
+            print("RR")
             didVote = true
         }
     }
