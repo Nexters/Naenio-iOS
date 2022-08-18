@@ -14,13 +14,70 @@ struct LoginView: View {
     @ObservedObject var viewModel = LoginViewModel()
     
     var body: some View {
-        VStack(spacing: 35) {
-            Text(viewModel.status.description)
+        ZStack {
+            Color.maskGradientVertical
+                .ignoresSafeArea()
+                .zIndex(0.1)
             
+            Color.linearGradientVertical
+                .ignoresSafeArea()
+                .zIndex(0)
+            
+            VStack(spacing: 0) {
+                Spacer()
+                
+                Image("logo")
+                    .padding(.bottom, 14)
+                
+                Image("wordmark")
+                
+//                Text(viewModel.status.description)
+                Spacer()
+                
+                loginButtons
+                    .padding(.bottom, 23)
+                
+                Text("가입 시, 다음 사항에 동의하는 것으로 간주합니다.")
+                    .font(.regular(size: 12))
+                    .foregroundColor(.mono)
+                    .padding(.bottom, 1)
+
+                HStack(spacing: 4) {
+                    Text("서비스 이용 약관")
+                        .foregroundColor(.naenioGray)
+                    Text("및")
+                        .foregroundColor(.mono)
+                    Text("개인 정보 정책")
+                        .foregroundColor(.naenioGray)
+                }
+                .font(.regular(size: 12))
+                .padding(.bottom, 38)
+            }
+            .zIndex(1)
+            .onReceive(viewModel.$status) { result in
+                switch result {
+                case .done(result: let userInfo):
+                    tokenManager.saveToken(userInfo.token)
+                    
+                    if tokenManager.isTokenAvailable {
+                        userManager.updateUserInformation(authServiceType: UserManager.shared.user?.authServiceType ?? "")
+                    }
+                default:
+                    // TODO: Show alert
+                    return
+                }
+            }
+        }
+    }
+}
+
+extension LoginView {
+    var loginButtons: some View {
+        VStack(spacing: 7) {
             SignInWithKakaoButton { result in
                 viewModel.handleKakaoLoginResult(result: result)
             }
-            .frame(width: 280, height: 60)
+            .frame(width: 300, height: 45)
              
             SignInWithAppleButton(
                 .signIn,
@@ -31,20 +88,8 @@ struct LoginView: View {
                     viewModel.handleAppleLoginResult(result: result)
                 }
             )
-            .frame(width: 280, height: 60)
-        }
-        .onReceive(viewModel.$status) { result in
-            switch result {
-            case .done(result: let userInfo):
-                tokenManager.saveToken(userInfo.token)
-                
-                if tokenManager.isTokenAvailable {
-                    userManager.updateUserInformation(authServiceType: UserManager.shared.user?.authServiceType ?? "")
-                }
-            default:
-                // TODO: Show alert
-                return
-            }
+            .signInWithAppleButtonStyle(.white)
+            .frame(width: 300, height: 45)
         }
     }
 }

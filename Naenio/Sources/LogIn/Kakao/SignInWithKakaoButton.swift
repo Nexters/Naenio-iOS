@@ -20,14 +20,10 @@ struct SignInWithKakaoButton: View {
             viewModel.login(onCompletion)
         }) {
             HStack {
-                Text("카카오로 로그인")
+                Image("kakao_login")
+                    .resizable()
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .foregroundColor(.black)
-            .background(
-                RoundedRectangle(cornerRadius: 5)
-                    .fill(.yellow)
-            )
         }
         .onOpenURL { url in
             _ = AuthController.handleOpenUrl(url: url)
