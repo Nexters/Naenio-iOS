@@ -12,25 +12,39 @@ import Introspect
 struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
     @ObservedObject var scrollViewHelper = ScrollViewHelper()
-
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     @State var showNewPost = false
     @State var showComments = false
+    var backgroundColorList: [Color]
+    var title: String
+    var theme: String
+    var isHomeView: Bool
+    
+    init(backgroundColorList: [Color] = [Color.background], title: String = "Feed", theme: String = "", isHomeView: Bool = true) {
+        self.backgroundColorList = backgroundColorList
+        self.title = title
+        self.theme = theme
+        self.isHomeView = isHomeView
+    }
     
     var body: some View {
             ZStack(alignment: .bottomTrailing) {
-                Color.background
+                LinearGradient(gradient: Gradient(colors: backgroundColorList), startPoint: .top, endPoint: .bottom)
                     .ignoresSafeArea()
                 
                 VStack(alignment: .leading, spacing: 20) {
                     if scrollViewHelper.scrollDirection == .downward {
-                        Text("Feed")
+                        Text(title)
                             .font(.engBold(size: 24))
                             .foregroundColor(.white)
                             .padding(.horizontal, 20)
                     }
                     
-                    categoryButtons
-                        .padding(.horizontal, 20)
+                    if isHomeView {
+                        categoryButtons
+                            .padding(.horizontal, 20)
+                    }
                     
                     // Card scroll view
                     ZStack(alignment: .center) {
@@ -61,12 +75,10 @@ struct HomeView: View {
                                         )
                                         .padding(.horizontal, 20)
                                         .onAppear {
-                                            if index == viewModel.posts.count - 5 { // FIXME: Possible error
-                                                // 무한 스크롤을 위해 끝에서 5번째에서 로딩 -> 개수는 추후 협의
-    #if DEBUG
-                                                print("Loaded")
-    #endif
-                                                viewModel.requestMorePosts()
+                                            if isHomeView {
+                                                if index == viewModel.posts.count - 5 { // FIXME: Possible error
+                                                    viewModel.requestMorePosts()
+                                                }
                                             }
                                         }
                                     }
@@ -88,7 +100,12 @@ struct HomeView: View {
                         }
                         .introspectScrollView { scrollView in
                             let control = scrollViewHelper.refreshController
-                            control.addTarget(viewModel, action: #selector(viewModel.requestPosts), for: .valueChanged)
+                            if isHomeView {
+                                control.addTarget(viewModel, action: #selector(viewModel.requestPosts), for: .valueChanged)
+                            } else {
+                                viewModel.themeTitle = self.theme
+                                control.addTarget(viewModel, action: #selector(viewModel.requestThemePosts), for: .valueChanged)
+                            }
                             control.tintColor = .yellow
                             
                             scrollView.keyboardDismissMode = .onDrag
@@ -117,11 +134,18 @@ struct HomeView: View {
                     }
                 }
                 .fillScreen()
+                .onAppear {
+                    if self.isHomeView {
+                        self.viewModel.requestPosts()
+                    } else {
+                        self.viewModel.themeTitle = self.theme
+                        self.viewModel.requestThemePosts()
+                    }
+                }
                 
                 floatingButton
                     .padding(20)
             }
-            .navigationBarHidden(true)
             .fullScreenCover(isPresented: $showNewPost) {
                 NewPostView(isPresented: $showNewPost)
                     .environmentObject(viewModel)
@@ -129,8 +153,15 @@ struct HomeView: View {
             .sheet(isPresented: $showComments) {
                 CommentView(isPresented: $showComments)
             }
+            .navigationBarHidden(isHomeView ? true : false)
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    backButton
+                }
+            }
         }
-        
 }
 
 extension HomeView {
@@ -193,8 +224,19 @@ extension HomeView {
                 .shadow(radius: 3)
         }
     }
+    
+    var backButton: some View {
+        Button(action: { self.presentationMode.wrappedValue.dismiss() }) {
+            Image(systemName: "chevron.left")
+                .resizable()
+                .scaledToFit()
+                .font(.body.weight(.medium))
+                .foregroundColor(.white)
+                .frame(width: 18, height: 18)
+        }
+    }
 }
-
+    
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
