@@ -8,7 +8,6 @@
 import SwiftUI
 import Lottie
 
-
 struct LottieView: UIViewRepresentable {
     @Binding var isPlaying: Bool
     let animationView: AnimationView
@@ -35,11 +34,12 @@ struct LottieView: UIViewRepresentable {
         }
     }
     
-    init(isPlaying: Binding<Bool>, animation: Lottie.Animation) {
+    init(isPlaying: Binding<Bool>, animation: Lottie.Animation?) {
         let animationView = AnimationView()
-        animationView.animation = LottieAnimations.confettiAnimation
+        animationView.animation = animation
         animationView.contentMode = .scaleAspectFit
         animationView.loopMode = .playOnce
+        animationView.animationSpeed = 1.3
         animationView.translatesAutoresizingMaskIntoConstraints = false
 
         self._isPlaying = isPlaying
