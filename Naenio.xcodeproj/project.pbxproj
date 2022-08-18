@@ -51,8 +51,6 @@
 		9B085F1E2879991600DE8E60 /* NaenioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1D2879991600DE8E60 /* NaenioUITests.swift */; };
 		9B085F202879991600DE8E60 /* NaenioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */; };
 		9B244070289E8DC30060A244 /* View + Exetension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B24406F289E8DC30060A244 /* View + Exetension.swift */; };
-		9B244073289E9AA10060A244 /* VotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B244072289E9AA10060A244 /* VotesView.swift */; };
-		9B244075289E9AF10060A244 /* VotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B244074289E9AF10060A244 /* VotesViewModel.swift */; };
 		9B27A39828AD079700C63AB6 /* ShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27A39728AD079700C63AB6 /* ShareManager.swift */; };
 		9B2B25E528ADCEA0009BDC9F /* LottieAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2B25E428ADCEA0009BDC9F /* LottieAnimations.swift */; };
 		9B3644BC28AB3B2200EA1467 /* ProfileImageSelectionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3644BB28AB3B2200EA1467 /* ProfileImageSelectionSheetView.swift */; };
@@ -60,7 +58,6 @@
 		9B391A1928AB208E0007F4D6 /* HalfSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B391A1828AB208E0007F4D6 /* HalfSheet.swift */; };
 		9B3B6F10289BE3FA002A76A7 /* MockPostWroteList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B6F0E289BE1B4002A76A7 /* MockPostWroteList.json */; };
 		9B3B6F11289BE3FA002A76A7 /* MockPostParticipatedList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B6F0F289BE1B6002A76A7 /* MockPostParticipatedList.json */; };
-		9B425529289D0F9A00163327 /* FullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B425528289D0F9A00163327 /* FullView.swift */; };
 		9B42552B289D0FA200163327 /* FullViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42552A289D0FA200163327 /* FullViewModel.swift */; };
 		9B478A5028A70F89007A4715 /* CommentCountComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A4F28A70F89007A4715 /* CommentCountComponent.swift */; };
 		9B478A5328A7127B007A4715 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5228A7127B007A4715 /* CloseButton.swift */; };
@@ -125,7 +122,6 @@
 		9C95B991289A4AC100E0910C /* UserManager + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B990289A4AC100E0910C /* UserManager + Extension.swift */; };
 		9C95B996289A672800E0910C /* FillScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B995289A672800E0910C /* FillScreen.swift */; };
 		9C95B99A289A679B00E0910C /* CapsuleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B999289A679B00E0910C /* CapsuleButtonStyle.swift */; };
-		9C95B99C289A885900E0910C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B99B289A885900E0910C /* CardView.swift */; };
 		9C95B99E289A8BCB00E0910C /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B99D289A8BCB00E0910C /* CardViewModel.swift */; };
 		9C95B9A2289A8DDE00E0910C /* VoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B9A1289A8DDE00E0910C /* VoteButton.swift */; };
 		9C95B9A5289A937100E0910C /* FillHorizontal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B9A4289A937100E0910C /* FillHorizontal.swift */; };
@@ -140,6 +136,17 @@
 		9CB1DFB428AB765B0048B313 /* CustomNavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1DFB328AB765B0048B313 /* CustomNavigationBackButton.swift */; };
 		9CB1DFB928AB827E0048B313 /* AlertType + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1DFB828AB827E0048B313 /* AlertType + Extension.swift */; };
 		9CBCDCD928ADE77A00C4C577 /* PostRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE9628AA8A3900458138 /* PostRequestInformation.swift */; };
+		9CBCDCDB28AE070200C4C577 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCDCDA28AE070200C4C577 /* Launch Screen.storyboard */; };
+		9CBCDCDF28AE14B700C4C577 /* full_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCDCDE28AE14B700C4C577 /* full_loading.json */; };
+		9CBCDCE128AE24F200C4C577 /* OpenedByLinkFullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCE028AE24F200C4C577 /* OpenedByLinkFullView.swift */; };
+		9CBCDCE328AE2A3700C4C577 /* FullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCE228AE2A3700C4C577 /* FullView.swift */; };
+		9CBCDCE528AE2AB100C4C577 /* VotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCE428AE2AB100C4C577 /* VotesView.swift */; };
+		9CBCDCE728AE2D4F00C4C577 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCE628AE2D4F00C4C577 /* CardView.swift */; };
+		9CBCDCE928AE377C00C4C577 /* ForEach + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCE828AE377C00C4C577 /* ForEach + Extension.swift */; };
+		9CBCDCEB28AE3A7900C4C577 /* NewVoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCEA28AE3A7900C4C577 /* NewVoteButton.swift */; };
+		9CBCDCED28AE411700C4C577 /* VotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCEC28AE411700C4C577 /* VotesViewModel.swift */; };
+		9CBCDCEF28AE65B900C4C577 /* SinglePostRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCEE28AE65B900C4C577 /* SinglePostRequestInformation.swift */; };
+		9CBCDCF128AE6E9500C4C577 /* SinglePostResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCF028AE6E9500C4C577 /* SinglePostResponseModel.swift */; };
 		9CCA228E289BA2EA00A2F9B0 /* MockPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA228D289BA2EA00A2F9B0 /* MockPost.json */; };
 		9CCA2293289BAB0F00A2F9B0 /* MockPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA228F289BA4A900A2F9B0 /* MockPost.json */; };
 		9CCA2295289BB3CF00A2F9B0 /* MockPostList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA2294289BB28500A2F9B0 /* MockPostList.json */; };
@@ -219,8 +226,6 @@
 		9B085F1D2879991600DE8E60 /* NaenioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITests.swift; sourceTree = "<group>"; };
 		9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9B24406F289E8DC30060A244 /* View + Exetension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + Exetension.swift"; sourceTree = "<group>"; };
-		9B244072289E9AA10060A244 /* VotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotesView.swift; sourceTree = "<group>"; };
-		9B244074289E9AF10060A244 /* VotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotesViewModel.swift; sourceTree = "<group>"; };
 		9B27A39728AD079700C63AB6 /* ShareManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareManager.swift; sourceTree = "<group>"; };
 		9B2B25E428ADCEA0009BDC9F /* LottieAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimations.swift; sourceTree = "<group>"; };
 		9B3644BB28AB3B2200EA1467 /* ProfileImageSelectionSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSelectionSheetView.swift; sourceTree = "<group>"; };
@@ -228,7 +233,6 @@
 		9B391A1828AB208E0007F4D6 /* HalfSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfSheet.swift; sourceTree = "<group>"; };
 		9B3B6F0E289BE1B4002A76A7 /* MockPostWroteList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPostWroteList.json; sourceTree = "<group>"; };
 		9B3B6F0F289BE1B6002A76A7 /* MockPostParticipatedList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPostParticipatedList.json; sourceTree = "<group>"; };
-		9B425528289D0F9A00163327 /* FullView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullView.swift; sourceTree = "<group>"; };
 		9B42552A289D0FA200163327 /* FullViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullViewModel.swift; sourceTree = "<group>"; };
 		9B478A4F28A70F89007A4715 /* CommentCountComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCountComponent.swift; sourceTree = "<group>"; };
 		9B478A5228A7127B007A4715 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
@@ -295,7 +299,6 @@
 		9C95B990289A4AC100E0910C /* UserManager + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserManager + Extension.swift"; sourceTree = "<group>"; };
 		9C95B995289A672800E0910C /* FillScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillScreen.swift; sourceTree = "<group>"; };
 		9C95B999289A679B00E0910C /* CapsuleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleButtonStyle.swift; sourceTree = "<group>"; };
-		9C95B99B289A885900E0910C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		9C95B99D289A8BCB00E0910C /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		9C95B9A1289A8DDE00E0910C /* VoteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteButton.swift; sourceTree = "<group>"; };
 		9C95B9A4289A937100E0910C /* FillHorizontal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillHorizontal.swift; sourceTree = "<group>"; };
@@ -309,6 +312,17 @@
 		9CB1DFB128AB75A10048B313 /* CustomNavigationView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomNavigationView + Extension.swift"; sourceTree = "<group>"; };
 		9CB1DFB328AB765B0048B313 /* CustomNavigationBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBackButton.swift; sourceTree = "<group>"; };
 		9CB1DFB828AB827E0048B313 /* AlertType + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlertType + Extension.swift"; sourceTree = "<group>"; };
+		9CBCDCDA28AE070200C4C577 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		9CBCDCDE28AE14B700C4C577 /* full_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = full_loading.json; sourceTree = "<group>"; };
+		9CBCDCE028AE24F200C4C577 /* OpenedByLinkFullView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenedByLinkFullView.swift; sourceTree = "<group>"; };
+		9CBCDCE228AE2A3700C4C577 /* FullView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullView.swift; sourceTree = "<group>"; };
+		9CBCDCE428AE2AB100C4C577 /* VotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotesView.swift; sourceTree = "<group>"; };
+		9CBCDCE628AE2D4F00C4C577 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		9CBCDCE828AE377C00C4C577 /* ForEach + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ForEach + Extension.swift"; sourceTree = "<group>"; };
+		9CBCDCEA28AE3A7900C4C577 /* NewVoteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewVoteButton.swift; sourceTree = "<group>"; };
+		9CBCDCEC28AE411700C4C577 /* VotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VotesViewModel.swift; path = "/Users/youngbinlee/Documents/Github/Naenio-iOS/Naenio/Resources/Views/Buttons/VotesViewModel.swift"; sourceTree = "<absolute>"; };
+		9CBCDCEE28AE65B900C4C577 /* SinglePostRequestInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePostRequestInformation.swift; sourceTree = "<group>"; };
+		9CBCDCF028AE6E9500C4C577 /* SinglePostResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePostResponseModel.swift; sourceTree = "<group>"; };
 		9CCA228D289BA2EA00A2F9B0 /* MockPost.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPost.json; sourceTree = "<group>"; };
 		9CCA228F289BA4A900A2F9B0 /* MockPost.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPost.json; sourceTree = "<group>"; };
 		9CCA2294289BB28500A2F9B0 /* MockPostList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPostList.json; sourceTree = "<group>"; };
@@ -429,6 +443,8 @@
 			children = (
 				4CC3CE9528AA8A3900458138 /* Post.swift */,
 				4CC3CE9628AA8A3900458138 /* PostRequestInformation.swift */,
+				9CBCDCEE28AE65B900C4C577 /* SinglePostRequestInformation.swift */,
+				9CBCDCF028AE6E9500C4C577 /* SinglePostResponseModel.swift */,
 				4CC3CE9428AA8A3900458138 /* PostResponseModel.swift */,
 			);
 			path = Posts;
@@ -512,6 +528,7 @@
 				9B03732A28A555D60089CC48 /* Notification + Extension.swift */,
 				9B03732C28A556020089CC48 /* UIResponder + Extension.swift */,
 				9CB1DFAB28AB6D900048B313 /* NetworkStatus.swift */,
+				9CBCDCE828AE377C00C4C577 /* ForEach + Extension.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -618,6 +635,7 @@
 		9B085F2E287E353C00DE8E60 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				9CBCDCDA28AE070200C4C577 /* Launch Screen.storyboard */,
 				9B085F022879991400DE8E60 /* NaenioApp.swift */,
 			);
 			path = "Supporting files";
@@ -640,8 +658,8 @@
 			isa = PBXGroup;
 			children = (
 				4CC3CEA828ABF8E300458138 /* Models */,
-				9B244072289E9AA10060A244 /* VotesView.swift */,
-				9B244074289E9AF10060A244 /* VotesViewModel.swift */,
+				9CBCDCE428AE2AB100C4C577 /* VotesView.swift */,
+				9CBCDCEC28AE411700C4C577 /* VotesViewModel.swift */,
 			);
 			path = Vote;
 			sourceTree = "<group>";
@@ -665,7 +683,8 @@
 		9B425527289D0F7E00163327 /* Full */ = {
 			isa = PBXGroup;
 			children = (
-				9B425528289D0F9A00163327 /* FullView.swift */,
+				9CBCDCE028AE24F200C4C577 /* OpenedByLinkFullView.swift */,
+				9CBCDCE228AE2A3700C4C577 /* FullView.swift */,
 				9B42552A289D0FA200163327 /* FullViewModel.swift */,
 			);
 			path = Full;
@@ -800,6 +819,7 @@
 			children = (
 				9BF513C428AD218200104CAB /* LottieView.swift */,
 				9B2B25E428ADCEA0009BDC9F /* LottieAnimations.swift */,
+				9CBCDCDE28AE14B700C4C577 /* full_loading.json */,
 				9BF513CE28AD265000104CAB /* confetti.json */,
 			);
 			path = Lottie;
@@ -1018,6 +1038,7 @@
 			children = (
 				9C95B9A1289A8DDE00E0910C /* VoteButton.swift */,
 				9B478A5228A7127B007A4715 /* CloseButton.swift */,
+				9CBCDCEA28AE3A7900C4C577 /* NewVoteButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -1034,8 +1055,8 @@
 		9CCA2284289BA06100A2F9B0 /* Card */ = {
 			isa = PBXGroup;
 			children = (
-				9C95B99B289A885900E0910C /* CardView.swift */,
 				9C95B99D289A8BCB00E0910C /* CardViewModel.swift */,
+				9CBCDCE628AE2D4F00C4C577 /* CardView.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -1215,8 +1236,10 @@
 				4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */,
 				9BE602B82895491B008F291C /* Montserrat-Regular.ttf in Resources */,
 				4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */,
+				9CBCDCDF28AE14B700C4C577 /* full_loading.json in Resources */,
 				9B085F0A2879991600DE8E60 /* Preview Assets.xcassets in Resources */,
 				9B085F072879991600DE8E60 /* Assets.xcassets in Resources */,
+				9CBCDCDB28AE070200C4C577 /* Launch Screen.storyboard in Resources */,
 				9BE602B42895491B008F291C /* Montserrat-SemiBold.ttf in Resources */,
 				9BF513CF28AD265000104CAB /* confetti.json in Resources */,
 				9BE602B32895491B008F291C /* Montserrat-Medium.ttf in Resources */,
@@ -1386,10 +1409,13 @@
 				9BF513C028AD17C400104CAB /* LowSheetNotification.swift in Sources */,
 				9CB1DFB428AB765B0048B313 /* CustomNavigationBackButton.swift in Sources */,
 				9BF513C928AD21F800104CAB /* KeyValue.swift in Sources */,
+				9CBCDCE728AE2D4F00C4C577 /* CardView.swift in Sources */,
 				9C95B99A289A679B00E0910C /* CapsuleButtonStyle.swift in Sources */,
 				9B86192D28A77D920098AC8E /* CommentRepliesView.swift in Sources */,
 				4CB8944928A74A0200BE2ECF /* NaenioAPI+Method.swift in Sources */,
 				4CC296D92880533C001950A2 /* DefaultSession.swift in Sources */,
+				9CBCDCE128AE24F200C4C577 /* OpenedByLinkFullView.swift in Sources */,
+				9CBCDCE928AE377C00C4C577 /* ForEach + Extension.swift in Sources */,
 				9BF513C528AD218200104CAB /* LottieView.swift in Sources */,
 				9C95B991289A4AC100E0910C /* UserManager + Extension.swift in Sources */,
 				9C8D603928A373FD00632BCC /* Navigation + Extension.swift in Sources */,
@@ -1402,6 +1428,7 @@
 				9CB1DFAE28AB6E990048B313 /* AlertType.swift in Sources */,
 				9BE13FE628AA54C5009ED95D /* MyPageViewModel.swift in Sources */,
 				9BE13FDE28AA1BAF009ED95D /* MyPageNavigationCell.swift in Sources */,
+				9CBCDCF128AE6E9500C4C577 /* SinglePostResponseModel.swift in Sources */,
 				9C95B98D289A3AAB00E0910C /* HomeView.swift in Sources */,
 				9B03732428A5551B0089CC48 /* KeyboardAdaptive.swift in Sources */,
 				9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */,
@@ -1417,7 +1444,7 @@
 				9B391A1928AB208E0007F4D6 /* HalfSheet.swift in Sources */,
 				9CBCDCD928ADE77A00C4C577 /* PostRequestInformation.swift in Sources */,
 				4CC3CE9728AA8A3900458138 /* PostResponseModel.swift in Sources */,
-				9B244075289E9AF10060A244 /* VotesViewModel.swift in Sources */,
+				9CBCDCE328AE2A3700C4C577 /* FullView.swift in Sources */,
 				4C4B133D2883C5EB006044B0 /* NaenioAPI+Wrapper.swift in Sources */,
 				9B3644BC28AB3B2200EA1467 /* ProfileImageSelectionSheetView.swift in Sources */,
 				9C95B99E289A8BCB00E0910C /* CardViewModel.swift in Sources */,
@@ -1431,15 +1458,16 @@
 				9B61D0D128A88E7F00F6DD0B /* CustomSheet.swift in Sources */,
 				9BF00BF7287AC95A00F08035 /* AppleLoginManager.swift in Sources */,
 				9B03733228A6926D0089CC48 /* LoadingIndicator.swift in Sources */,
-				9B425529289D0F9A00163327 /* FullView.swift in Sources */,
+				9CBCDCE528AE2AB100C4C577 /* VotesView.swift in Sources */,
 				9B61D0CB28A87BDC00F6DD0B /* BottomSheetView.swift in Sources */,
 				4C43C8C42886FB8200A60372 /* String+Extension.swift in Sources */,
 				9B3644BF28AB3CC600EA1467 /* ProfileImages.swift in Sources */,
+				9CBCDCED28AE411700C4C577 /* VotesViewModel.swift in Sources */,
 				4CC3CE9828AA8A3900458138 /* Post.swift in Sources */,
 				9C3309CF2888ED08000C592F /* SignInWithKakaoButton.swift in Sources */,
-				9C95B99C289A885900E0910C /* CardView.swift in Sources */,
 				9B03732728A555800089CC48 /* Publishers + Extension.swift in Sources */,
 				9C90C1AB28A227AE00197B32 /* UITextViewRepresentable.swift in Sources */,
+				9CBCDCEF28AE65B900C4C577 /* SinglePostRequestInformation.swift in Sources */,
 				9B61D0DC28A8EE4500F6DD0B /* RoundedCorner.swift in Sources */,
 				9C2D07B92897C728008BBD75 /* UserManager.swift in Sources */,
 				9C10439D289B747200A45711 /* HomeViewModel.swift in Sources */,
@@ -1464,12 +1492,12 @@
 				9C95B996289A672800E0910C /* FillScreen.swift in Sources */,
 				9C3309D92888EE20000C592F /* LoginViewModel.swift in Sources */,
 				9B61D0E428A9050600F6DD0B /* CommentRequestInformation.swift in Sources */,
-				9B244073289E9AA10060A244 /* VotesView.swift in Sources */,
 				9B27A39828AD079700C63AB6 /* ShareManager.swift in Sources */,
 				4CC4B73B2896BF2500774192 /* MyPageView.swift in Sources */,
 				9C3309D12888ED16000C592F /* SignInWithKakaoButtonViewModel.swift in Sources */,
 				9B86192F28A782990098AC8E /* CommentRepliesViewModel.swift in Sources */,
 				9CA7922D287BA90600600C32 /* UserInformation.swift in Sources */,
+				9CBCDCEB28AE3A7900C4C577 /* NewVoteButton.swift in Sources */,
 				9CE311CF28A63E7200EDB0F4 /* MockCommentGenerator.swift in Sources */,
 				9B478A5028A70F89007A4715 /* CommentCountComponent.swift in Sources */,
 				9BE13FEA28AA5566009ED95D /* ProfileChangeView.swift in Sources */,
@@ -1653,6 +1681,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
@@ -1688,6 +1717,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;

@@ -17,6 +17,7 @@ extension NaenioAPI {
         case .postPost: return "/app/posts"
         case .getFeed: return "/app/feed"
         case .postVote: return "/app/votes"
+        case .getSinglePost(let info): return "/app/posts/\(info.id)"
         }
     }
 }

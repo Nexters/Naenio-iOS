@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct VoteButton: View {
+struct NewVoteButton: View {
     let type: ChoiceType
     let isOpened: Bool
     let choice: Choice?
@@ -43,8 +43,6 @@ struct VoteButton: View {
                     Rectangle()
                         .fill(Color.linearGradient)
                         .frame(width: geometry.size.width * CGFloat((isOpened ? (percent ?? 0) : 0) / 100))
-                        .transition(.move(edge: .leading))
-                        .animation(.interactiveSpring(), value: choice)
                 }),
                 alignment: .leading)
             .background(Color.black)
@@ -61,7 +59,7 @@ struct VoteButton: View {
     }
 }
 
-extension VoteButton {
+extension NewVoteButton {
     var voteCountsAndPercentage: some View {
         VStack(spacing: 4) {
             if let choice = choice, let percent = percent {

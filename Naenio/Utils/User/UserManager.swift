@@ -14,6 +14,7 @@ class UserManager: ObservableObject {
     let profileImageIndexKey = LocalStorageKeys.profileIamgeIndex.rawValue
     let nicknameKey = LocalStorageKeys.nickname.rawValue
     let authServiceTypeKey = LocalStorageKeys.authServiceType.rawValue
+    
     @Published private(set) var status: UserStatus = .waiting
     @Published private(set) var user: User?
     
