@@ -12,23 +12,31 @@ struct CurationCardView: View {
     @State var showNewPost = false
     
     var body: some View {
-        ZStack(alignment: .topTrailing) {
+        ZStack(alignment: .center) {
+            Image(theme.backgroundImageName)
+                .resizable()
+                .scaledToFit()
+                .fillScreen()
+                .zIndex(0)
+            
             VStack(alignment: .leading, spacing: 14) {
                 Text(theme.content)
                     .multilineTextAlignment(.leading)
-                    .font(.regular(size: 18))
+                    .font(.medium(size: 18))
                     .foregroundColor(.white)
                     .padding(.top, 14)
+                
                 Spacer()
                 
                 Text(theme.title)
-                    .font(.regular(size: 22))
+                    .font(.semoBold(size: 22))
                     .foregroundColor(.white)
                     .padding(.bottom, 24)
             }
+            .fillScreen()
             .cornerRadius(20)
-            .fullBackground(imageName: theme.backgroundImage)
+            .padding(.horizontal, 20)
+
         }
-        .frame(width: UIScreen.main.bounds.width / 2.35, height: UIScreen.main.bounds.width / 2.35 * 1.2)
     }
 }

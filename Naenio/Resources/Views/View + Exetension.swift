@@ -65,6 +65,6 @@ extension View {
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
-           )
-        }
+        )
+    }
 }

@@ -21,7 +21,6 @@
 		4C4B134528847640006044B0 /* NaenioAPI+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B134428847640006044B0 /* NaenioAPI+Request.swift */; };
 		4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4CA47BC92890344400D300A7 /* .swiftlint.yml */; };
 		4CA59E9128AD504F002C0FA9 /* ThemeRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA59E9028AD504F002C0FA9 /* ThemeRequestModel.swift */; };
-		4CA59E9528AE24F6002C0FA9 /* HomeViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA59E9428AE24F6002C0FA9 /* HomeViewModelTest.swift */; };
 		4CB4196A28A29C2700EBB777 /* TabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB4196928A29C2700EBB777 /* TabContentView.swift */; };
 		4CB8944928A74A0200BE2ECF /* NaenioAPI+Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8944828A74A0200BE2ECF /* NaenioAPI+Method.swift */; };
 		4CB8945628A7A1E300BE2ECF /* AuthServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8945528A7A1E300BE2ECF /* AuthServiceType.swift */; };
@@ -33,12 +32,8 @@
 		4CC3CE9328AA8A2C00458138 /* FeedResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE9028AA8A2C00458138 /* FeedResponseModel.swift */; };
 		4CC3CE9728AA8A3900458138 /* PostResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE9428AA8A3900458138 /* PostResponseModel.swift */; };
 		4CC3CE9828AA8A3900458138 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE9528AA8A3900458138 /* Post.swift */; };
-		4CC3CEAA28ABF94900458138 /* VoteRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEA928ABF94900458138 /* VoteRequestModel.swift */; };
-		4CC3CEAC28ABF95400458138 /* VoteResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEAB28ABF95400458138 /* VoteResponseModel.swift */; };
-		4CC3CEB428ACCF0C00458138 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEB328ACCF0C00458138 /* RequestService.swift */; };
 		4CC3CE9928AA8A3900458138 /* PostRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE9628AA8A3900458138 /* PostRequestInformation.swift */; };
 		4CC3CEA528AA8E3E00458138 /* ignored in Resources */ = {isa = PBXBuildFile; fileRef = 4CC3CEA428AA8E3E00458138 /* ignored */; };
-		4CC3CEA728AA8E9C00458138 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEA628AA8E9C00458138 /* KeyValue.swift */; };
 		4CC3CEAA28ABF94900458138 /* VoteRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEA928ABF94900458138 /* VoteRequestModel.swift */; };
 		4CC3CEAC28ABF95400458138 /* VoteResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEAB28ABF95400458138 /* VoteResponseModel.swift */; };
 		4CC3CEB428ACCF0C00458138 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEB328ACCF0C00458138 /* RequestService.swift */; };
@@ -201,7 +196,6 @@
 		4C4B134428847640006044B0 /* NaenioAPI+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Request.swift"; sourceTree = "<group>"; };
 		4CA47BC92890344400D300A7 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		4CA59E9028AD504F002C0FA9 /* ThemeRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeRequestModel.swift; sourceTree = "<group>"; };
-		4CA59E9428AE24F6002C0FA9 /* HomeViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTest.swift; sourceTree = "<group>"; };
 		4CB4196928A29C2700EBB777 /* TabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContentView.swift; sourceTree = "<group>"; };
 		4CB8944828A74A0200BE2ECF /* NaenioAPI+Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Method.swift"; sourceTree = "<group>"; };
 		4CB8945528A7A1E300BE2ECF /* AuthServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceType.swift; sourceTree = "<group>"; };
@@ -215,7 +209,6 @@
 		4CC3CE9528AA8A3900458138 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		4CC3CE9628AA8A3900458138 /* PostRequestInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRequestInformation.swift; sourceTree = "<group>"; };
 		4CC3CEA428AA8E3E00458138 /* ignored */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ignored; sourceTree = "<group>"; };
-		4CC3CEA628AA8E9C00458138 /* KeyValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
 		4CC3CEA928ABF94900458138 /* VoteRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteRequestModel.swift; sourceTree = "<group>"; };
 		4CC3CEAB28ABF95400458138 /* VoteResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteResponseModel.swift; sourceTree = "<group>"; };
 		4CC3CEB328ACCF0C00458138 /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
@@ -427,7 +420,6 @@
 		4CC296DC288054C0001950A2 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				4CC3CEA628AA8E9C00458138 /* KeyValue.swift */,
 				4CC296DF288055FD001950A2 /* HeaderInformation.swift */,
 				4C4B13422883D88A006044B0 /* HttpResponseCode.swift */,
 			);
@@ -686,9 +678,6 @@
 			children = (
 				4CC3CEA828ABF8E300458138 /* Models */,
 				9CBCDCE428AE2AB100C4C577 /* VotesView.swift */,
-				9CBCDCEC28AE411700C4C577 /* VotesViewModel.swift */,
-				9B244072289E9AA10060A244 /* VotesView.swift */,
-				9B244074289E9AF10060A244 /* VotesViewModel.swift */,
 				9B8D409B28AE86B90024E989 /* VotesViewModel.swift */,
 			);
 			path = Vote;
@@ -1013,7 +1002,6 @@
 				9C95B98C289A3AAB00E0910C /* HomeView.swift */,
 				9C10439C289B747200A45711 /* HomeViewModel.swift */,
 				9B61D0CA28A87BDC00F6DD0B /* BottomSheetView.swift */,
-				4CA59E9428AE24F6002C0FA9 /* HomeViewModelTest.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1466,7 +1454,6 @@
 				9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */,
 				9B03732D28A556020089CC48 /* UIResponder + Extension.swift in Sources */,
 				9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */,
-				4CA59E9528AE24F6002C0FA9 /* HomeViewModelTest.swift in Sources */,
 				4CC3CEAC28ABF95400458138 /* VoteResponseModel.swift in Sources */,
 				9BE60293289541B6008F291C /* Color + Extension.swift in Sources */,
 				9B03732F28A68A6B0089CC48 /* CommentViewModel.swift in Sources */,
@@ -1482,7 +1469,6 @@
 				9CBCDCE328AE2A3700C4C577 /* FullView.swift in Sources */,
 				4CC3CE9928AA8A3900458138 /* PostRequestInformation.swift in Sources */,
 				4CC3CE9728AA8A3900458138 /* PostResponseModel.swift in Sources */,
-				9B244075289E9AF10060A244 /* VotesViewModel.swift in Sources */,
 				4C4B133D2883C5EB006044B0 /* NaenioAPI+Wrapper.swift in Sources */,
 				9B3644BC28AB3B2200EA1467 /* ProfileImageSelectionSheetView.swift in Sources */,
 				9C95B99E289A8BCB00E0910C /* CardViewModel.swift in Sources */,
@@ -1531,7 +1517,6 @@
 				9C3309D92888EE20000C592F /* LoginViewModel.swift in Sources */,
 				9B61D0E428A9050600F6DD0B /* CommentRequestInformation.swift in Sources */,
 				9B27A39828AD079700C63AB6 /* ShareManager.swift in Sources */,
-				9B244073289E9AA10060A244 /* VotesView.swift in Sources */,
 				4CC4B73B2896BF2500774192 /* MyPageView.swift in Sources */,
 				9C3309D12888ED16000C592F /* SignInWithKakaoButtonViewModel.swift in Sources */,
 				9B86192F28A782990098AC8E /* CommentRepliesViewModel.swift in Sources */,
@@ -1551,7 +1536,6 @@
 				9C8B5E0A289CEF000029BB66 /* MockPostGenerator.swift in Sources */,
 				9CE311D428A6439900EDB0F4 /* CommentView.swift in Sources */,
 				4CC4B7392896BF1C00774192 /* CurationView.swift in Sources */,
-				4CC3CEA728AA8E9C00458138 /* KeyValue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1715,7 +1699,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
-				DEVELOPMENT_TEAM = KT2XM3Z9DZ;
+				DEVELOPMENT_TEAM = W6QHM4Y43Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Naenio/ignored/Info.plist;
@@ -1731,7 +1715,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yoonyoung.Naenio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.teamVS.Naenio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1751,7 +1735,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
-				DEVELOPMENT_TEAM = KT2XM3Z9DZ;
+				DEVELOPMENT_TEAM = W6QHM4Y43Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Naenio/ignored/Info.plist;
@@ -1767,7 +1751,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yoonyoung.Naenio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.teamVS.Naenio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

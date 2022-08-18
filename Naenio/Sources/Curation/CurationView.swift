@@ -15,24 +15,24 @@ struct CurationView: View {
         ZStack(alignment: .topLeading) {
             Color.black
                 .ignoresSafeArea()
-            VStack(alignment: .leading, spacing: 20) {
+            
+            VStack(alignment: .leading, spacing: 14) {
                 Text("네니오들의 선택")
-                    .font(.regular(size: 20))
+                    .font(.semoBold(size: 20))
                     .foregroundColor(.white)
-                    .padding(.horizontal, 20)
                     
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(themeList) { theme in
-                        NavigationLink(destination: HomeView(backgroundColorList: theme.data.backgroundColorList, title: theme.data.title, theme: theme.id, isHomeView: false)) {
+                        NavigationLink(destination: LazyView(HomeView())) {
                             CurationCardView(theme: theme.data)
                         }
+                        .frame(width: 165, height: 200)
                     }
                 }
-                .padding(14)
             }
+            .padding(.top, 30)
+            .padding(.horizontal, 20)
         }
-        .fillScreen()
-        .navigationBarTitle("", displayMode: .inline)
         .navigationBarHidden(true)
     }
 }

@@ -17,7 +17,7 @@ struct MainView: View {
     var body: some View {
         TabBarView(pages: $tabBarPages)
             .background(Color.background.ignoresSafeArea()
-)
+            )
     }
 }
 
