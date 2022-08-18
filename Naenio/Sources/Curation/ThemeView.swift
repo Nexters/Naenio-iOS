@@ -34,7 +34,7 @@ struct ThemeView: View {
                 
                 // Card scroll view
                 ZStack(alignment: .center) {
-                    if viewModel.status == .loading(reason: "differentCategoryPosts") {
+                    if viewModel.status == .loading {
                         LoadingIndicator()
                             .zIndex(1)
                     }
@@ -68,13 +68,6 @@ struct ThemeView: View {
                             Rectangle()
                                 .fill(Color.clear)
                                 .frame(height: 130)
-                        }
-                        
-                        // 하단 무한스크롤 중 생기는 버퍼링에 대한 로딩 인디케이터
-                        if viewModel.status == .loading(reason: "sameCategoryPosts") {
-                            LoadingIndicator()
-                                .zIndex(1)
-                                .padding(.vertical, 15)
                         }
                     }
                     .introspectScrollView { scrollView in

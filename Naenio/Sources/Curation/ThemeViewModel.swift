@@ -24,7 +24,7 @@ class ThemeViewModel: ObservableObject {
     
     @objc func requestThemePosts() {
         bag = DisposeBag()
-        status = .loading(reason: "requestPosts")
+        status = .loading
         
         let themeId = self.theme.id
 
@@ -39,6 +39,7 @@ class ThemeViewModel: ObservableObject {
                     print("Success requestPosts")
                     let posts = self.transferToPostModel(from: newFeed)
                     self.posts = posts
+                    self.status = .done
                 }, onFailure: { [weak self] error in
                     guard let self = self else { return }
                     
@@ -89,7 +90,7 @@ extension ThemeViewModel {
         }
         
         case waiting
-        case loading(reason: String)
+        case loading
         case done
         case fail(with: Error)
         
@@ -97,8 +98,8 @@ extension ThemeViewModel {
             switch self {
             case .waiting:
                 return "Waiting"
-            case .loading(let work):
-                return "Loading \(work)"
+            case .loading:
+                return "Loading..."
             case .done:
                 return "Successfully done"
             case .fail(let error):
