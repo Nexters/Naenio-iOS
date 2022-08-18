@@ -16,7 +16,6 @@ struct SinglePostResponseModel: ModelType {
     let choices: [ChoiceResponse]
     let commentCount: Int
 
-
     // MARK: - Author
     struct AuthorResponse: Codable {
         let id: Int
