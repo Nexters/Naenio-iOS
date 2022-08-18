@@ -11,6 +11,7 @@ import Combine
 struct BottomSheetView: View {
     @Binding var showComments: Bool
     @State var keyboardHeight: CGFloat = 0
+    let parentId: Int
     
     var body: some View {
         VStack(spacing: 0) {
@@ -18,7 +19,7 @@ struct BottomSheetView: View {
                 .fill(Color.red)
                 .frame(height: 30)
             
-            CommentView(isPresented: $showComments)
+            CommentView(isPresented: $showComments, parentId: parentId)
         }
         .onDisappear {
             UIApplication.shared.endEditing()

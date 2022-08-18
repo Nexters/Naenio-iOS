@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct CommentRepliesView: View {
-    typealias Comment = CommentInformation.Comment
+    typealias Comment = CommentModel.Comment
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Binding var isPresented: Bool
     
-    @ObservedObject var viewModel = CommentRepliesViewModel()
+    @ObservedObject var viewModel = CommentViewModel()
     @ObservedObject var scrollViewHelper = ScrollViewHelper()
     
     @State var text: String = ""
 
     let comment: Comment
+    var parentId: Int
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -48,7 +49,7 @@ struct CommentRepliesView: View {
                     
                     CustomDivider()
                     
-                    CommentContentCell(isPresented: $isPresented, comment: comment, isReply: true)
+                    CommentContentCell(isPresented: $isPresented, comment: comment, isReply: true, parentId: parentId)
                     
                     CustomDivider()
 
@@ -58,7 +59,7 @@ struct CommentRepliesView: View {
                                 .padding(3)
                                 .opacity(0)
                             
-                            CommentContentCell(isPresented: $isPresented, comment: reply, isReply: true)
+                            CommentContentCell(isPresented: $isPresented, comment: reply, isReply: true, parentId: parentId)
                         }
                     }
                     
@@ -92,7 +93,7 @@ struct CommentRepliesView: View {
                     WrappedTextView(placeholder: "댓글 추가", content: $text, characterLimit: 100, showLimit: false, isTight: true)
                     
                     Button(action: {
-                        viewModel.registerComment(self.text, parentID: UUID().uuidString.hashValue)
+                        viewModel.registerComment(self.text, parentID: self.parentId, type: .comment)
                     }) {
                         Text("게시")
                             .font(.semoBold(size: 14))

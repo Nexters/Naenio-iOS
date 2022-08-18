@@ -16,6 +16,8 @@ struct HomeView: View {
     
     @State var showNewPost = false
     @State var showComments = false
+    @State var selectedPostId = 0
+    
     var backgroundColorList: [Color]
     var title: String
     var theme: String
@@ -64,6 +66,7 @@ struct HomeView: View {
                                         CardView(index: index, post: post) {
                                             withAnimation(.spring()) {
                                                 showComments = true
+                                                selectedPostId = post.id
                                             }
                                         }
                                         .environmentObject(viewModel)
@@ -147,7 +150,7 @@ struct HomeView: View {
                     .environmentObject(viewModel)
             }
             .customSheet(isPresented: $showComments, height: 650) {
-                CommentView(isPresented: $showComments)
+                CommentView(isPresented: $showComments, parentId: selectedPostId)
             }
             .navigationBarHidden(isHomeView ? true : false)
             .navigationBarTitleDisplayMode(.inline)

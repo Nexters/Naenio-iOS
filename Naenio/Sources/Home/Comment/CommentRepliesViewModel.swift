@@ -10,8 +10,8 @@ import RxSwift
 
 class CommentRepliesViewModel: ObservableObject {
     
-    typealias Comment = CommentInformation.Comment
-    typealias Author = CommentInformation.Comment.Author
+    typealias Comment = CommentModel.Comment
+    typealias Author = CommentModel.Comment.Author
     
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler(qos: .utility)
@@ -24,11 +24,11 @@ class CommentRepliesViewModel: ObservableObject {
     // !!!: Test
     func registerComment(_ content: String, parentID: Int) {
         status = .loading
-        let request = CommentRequestInformation(parentID: parentID, parentType: "POST", content: content)
+        let commentRequestModel = CommentPostRequestModel(parentID: parentID, parentType: CommentType.comment.rawValue, content: content)
         
         print(content)
         
-        registerNewComment(request)
+        registerNewComment(commentRequestModel)
             .subscribe(on: serialQueue)
             .observe(on: MainScheduler.instance)
             .subscribe(
@@ -103,13 +103,13 @@ extension CommentRepliesViewModel {
 
 // !!!: Test
 extension CommentRepliesViewModel {
-    private func getCommentDisposable() -> Single<CommentInformation> {
+    private func getCommentDisposable() -> Single<CommentModel> {
         let commentInfo = MockCommentGenertor.generate()
         
         return Observable.of(commentInfo).asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
     }
     
-    private func registerNewComment(_ commentRequest: CommentRequestInformation) -> Single<Comment> {
+    private func registerNewComment(_ commentRequest: CommentPostRequestModel) -> Single<Comment> {
         let mockComment = MockCommentGenertor.generate(with: commentRequest)
         let observable = Observable.just(mockComment)
         

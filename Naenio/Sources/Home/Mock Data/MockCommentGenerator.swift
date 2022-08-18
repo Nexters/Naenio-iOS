@@ -8,11 +8,11 @@
 import Foundation
 
 struct MockCommentGenertor {
-    typealias Comment = CommentInformation.Comment
-    typealias Author = CommentInformation.Comment.Author
+    typealias Comment = CommentModel.Comment
+    typealias Author = CommentModel.Comment.Author
     
-    static func generate() -> CommentInformation {
-        return CommentInformation(totalCommentCount: 14, comments: [
+    static func generate() -> CommentModel {
+        return CommentModel(totalCommentCount: 14, comments: [
             Comment(id: UUID().uuidString.hashValue,
                     author: Author(id: UUID().uuidString.hashValue, nickname: "김만두", profileImageIndex: 1),
                     content: "사랑을 다해 사랑하였노라고 정작 할 말이 남아 있음을 알았을 때",
@@ -58,7 +58,7 @@ struct MockCommentGenertor {
         ])
     }
     
-    static func generate(with request: CommentRequestInformation) -> Comment {
+    static func generate(with request: CommentPostRequestModel) -> Comment {
         return Comment(id: UUID().uuidString.hashValue, author: Author(id: UUID().uuidString.hashValue, nickname: "곽만두", profileImageIndex: 1), content: request.content, createdDatetime: "22.02.04", likeCount: 14, isLiked: true, repliesCount: 2)
     }
 }

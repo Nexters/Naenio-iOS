@@ -14,6 +14,7 @@ struct CommentView: View {
     
     @State var text: String = ""
     @Binding var isPresented: Bool
+    let parentId: Int
     
     var body: some View {
         NavigationView {
@@ -41,7 +42,7 @@ struct CommentView: View {
                             CustomDivider()
                                 .frame(width: UIScreen.main.bounds.width)
                             
-                            CommentContentCell(isPresented: $isPresented, comment: comment, isReply: false)
+                            CommentContentCell(isPresented: $isPresented, comment: comment, isReply: false, parentId: parentId)
                         }
                         
                         Rectangle()
@@ -72,7 +73,7 @@ struct CommentView: View {
                         WrappedTextView(placeholder: "댓글 추가", content: $text, characterLimit: 100, showLimit: false, isTight: true)
                         
                         Button(action: {
-                            viewModel.registerComment(self.text, parentID: viewModel.parentID)
+                            viewModel.registerComment(self.text, parentID: self.parentId, type: .post)
                             UIApplication.shared.endEditing()
                             text = ""
                         }) {

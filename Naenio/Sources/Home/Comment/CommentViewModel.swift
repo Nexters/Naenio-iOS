@@ -9,23 +9,53 @@ import SwiftUI
 import RxSwift
 
 class CommentViewModel: ObservableObject {
-    typealias Comment = CommentInformation.Comment
-    typealias Author = CommentInformation.Comment.Author
+    typealias Comment = CommentModel.Comment
+    typealias Author = CommentModel.Comment.Author
     
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler(qos: .utility)
-    let parentID = UUID().uuidString.hashValue // TODO: 나중에 밖에서 받아와야 함
     
     @Published var commentsCount: Int?
     @Published var comments = [Comment]()
+    @Published var replies = [Comment]()
     @Published var status = Status.waiting
     
-    // !!!: Test
-    func registerComment(_ content: String, parentID: Int) {
+    func transferToCommentModel(_ comment: CommentPostResponseModel) -> Comment {
+        let author = Comment.Author(id: comment.memberId, nickname: UserManager.shared.getNickName(), profileImageIndex: UserManager.shared.getProfileImagesIndex())
+        return Comment(id: comment.id, author: author, content: comment.content, createdDatetime: comment.createdDateTime, likeCount: 0, isLiked: false, repliesCount: 0)
+    }
+
+    func registerComment(_ content: String, parentID: Int, type: CommentType) {
         status = .loading
-        let request = CommentRequestInformation(parentID: parentID, parentType: "POST", content: content)
+        let commentRequestModel = CommentPostRequestModel(parentID: parentID, parentType: type.rawValue, content: content)
         
-        registerNewComment(request)
+        RequestService<CommentPostResponseModel>.request(api: .postComment(commentRequestModel))
+            .subscribe(on: serialQueue)
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onSuccess: { [weak self] comment in
+                    guard let self = self else { return }
+                    
+                    withAnimation {
+                        let newComment = self.transferToCommentModel(comment)
+                        self.comments.insert(newComment, at: 0)
+                    }
+                    self.status = .done
+                }, onFailure: { [weak self] error in
+                    guard let self = self else { return }
+                    self.status = .fail(with: error)
+                }, onDisposed: {
+                    print("Disposed registerComment")
+                })
+            .disposed(by: bag)
+    }
+    
+    // !!!: Test
+    func testRegisterComment(_ content: String, parentID: Int) {
+        status = .loading
+        let commentPostRequestModel = CommentPostRequestModel(parentID: parentID, parentType: CommentType.post.rawValue, content: content)
+        
+        registerNewComment(commentPostRequestModel)
             .subscribe(on: serialQueue)
             .observe(on: MainScheduler.instance)
             .subscribe(
@@ -100,13 +130,13 @@ extension CommentViewModel {
 
 // !!!: Test
 extension CommentViewModel {
-    private func getCommentDisposable() -> Single<CommentInformation> {
+    private func getCommentDisposable() -> Single<CommentModel> {
         let commentInfo = MockCommentGenertor.generate()
         
         return Observable.of(commentInfo).asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
     }
     
-    private func registerNewComment(_ commentRequest: CommentRequestInformation) -> Single<Comment> {
+    private func registerNewComment(_ commentRequest: CommentPostRequestModel) -> Single<Comment> {
         let mockComment = MockCommentGenertor.generate(with: commentRequest)
         let observable = Observable.just(mockComment)
         
