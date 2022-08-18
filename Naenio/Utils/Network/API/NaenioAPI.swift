@@ -19,7 +19,10 @@ enum NaenioAPI {
     case getFeed(FeedRequestInformation)
     case postPost(PostRequestInformation)
     case postVote(VoteRequestModel)
+    case postComment(CommentPostRequestModel)
+    
     case getTheme(ThemeRequestModel)
+    
 }
 
 extension NaenioAPI: TargetType {

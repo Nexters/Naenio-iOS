@@ -23,6 +23,8 @@ extension NaenioAPI {
             return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
         case .getTheme(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
+        case .postComment(let request):
+            return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
         }
     }
 }
