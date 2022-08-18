@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct CommentInformation: Codable {
+struct CommentModel: ModelType {
     let totalCommentCount: Int
     let comments: [Comment]
     
-    struct Comment: Codable, Identifiable {
+    struct Comment: ModelType {
         let id: Int
         let author: Author
         let content, createdDatetime: String
@@ -19,7 +19,7 @@ struct CommentInformation: Codable {
         let isLiked: Bool
         let repliesCount: Int
         
-        struct Author: Codable, Identifiable {
+        struct Author: ModelType {
             let id: Int
             let nickname: String
             let profileImageIndex: Int

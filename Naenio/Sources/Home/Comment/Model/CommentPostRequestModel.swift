@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CommentRequestInformation: Encodable {
+struct CommentPostRequestModel: ModelType {
     let parentID: Int
     let parentType, content: String
 
