@@ -20,7 +20,7 @@ enum NaenioAPI {
     case postPost(PostRequestInformation)
     case postVote(VoteRequestModel)
     case postComment(CommentPostRequestModel)
-    
+    case getComment(postId: Int, model: CommentListRequestModel)
     case getTheme(ThemeRequestModel)
     
 }
