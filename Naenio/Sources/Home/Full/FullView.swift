@@ -22,7 +22,7 @@ struct FullView: View {
             Color.background
                 .ignoresSafeArea()
             
-            LottieView(isPlaying: $didVote, name: "confetti", loopMode: .playOnce)
+            LottieView(isPlaying: $didVote, animation: LottieAnimations.confettiAnimation)
                 .fillScreen()
             
             VStack(alignment: .leading, spacing: 0) {

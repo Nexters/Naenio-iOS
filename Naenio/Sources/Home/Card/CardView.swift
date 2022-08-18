@@ -21,9 +21,11 @@ struct CardView: View {
         ZStack {
             Color.background
             
-            LottieView(isPlaying: $didVote, name: "confetti", loopMode: .playOnce)
-                .fillScreen()
-                .zIndex(0)
+            if didVote {
+                LottieView(isPlaying: $didVote, animation: LottieAnimations.confettiAnimation)
+                    .fillScreen()
+                    .zIndex(0)
+            }
             
             VStack(alignment: .leading, spacing: 0) {
                 VStack(alignment: .leading, spacing: 0) {
@@ -99,6 +101,8 @@ struct CardView: View {
     }
     
     init(index: Int, post: Post, action: @escaping () -> Void) {
+        print("\(index)")
+        
         self.index = index
         self.post = post
         self.action = action
