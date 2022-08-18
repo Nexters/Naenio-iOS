@@ -27,6 +27,11 @@ struct CommentRepliesView: View {
             
             ScrollView {
                 LazyVStack(spacing: 18) {
+                    // placeholder
+                    Rectangle()
+                        .fill(Color.clear)
+                        .frame(height: 30)
+                    
                     HStack { // Sheet's header
                         Button(action: {
                             UIApplication.shared.endEditing()
@@ -72,12 +77,6 @@ struct CommentRepliesView: View {
             .introspectScrollView { scrollView in
                 scrollView.keyboardDismissMode = .onDrag
                 scrollView.delegate = scrollViewHelper
-            }
-            .onChange(of: scrollViewHelper.currentVerticalPosition) { newValue in
-                NotificationCenter.default.post(name: .scrollOffsetNotification, object: newValue)
-            }
-            .onChange(of: scrollViewHelper.scrollVelocity) { newValue in
-                NotificationCenter.default.post(name: .scrollVelocity, object: newValue)
             }
             
             // Keyboard

@@ -21,6 +21,10 @@ extension NaenioAPI {
             return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
         case .postVote(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
+        case .getSinglePost(let request):
+            return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
+        case .getTheme(let request):
+            return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
         }
     }
 }

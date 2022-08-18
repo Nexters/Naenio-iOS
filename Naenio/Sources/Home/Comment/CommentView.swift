@@ -27,6 +27,11 @@ struct CommentView: View {
                 
                 ScrollView {
                     LazyVStack(spacing: 18) {
+                        // placeholder
+                        Rectangle()
+                            .fill(Color.clear)
+                            .frame(height: 30)
+                        
                         // Sheet's header
                         HStack {
                             CommentCountComponent(count: viewModel.commentsCount ?? 0)
@@ -53,12 +58,6 @@ struct CommentView: View {
                 .introspectScrollView { scrollView in
                     scrollView.keyboardDismissMode = .onDrag
                     scrollView.delegate = scrollViewHelper
-                }
-                .onChange(of: scrollViewHelper.currentVerticalPosition) { newValue in
-                    NotificationCenter.default.post(name: .scrollOffsetNotification, object: newValue)
-                }
-                .onChange(of: scrollViewHelper.scrollVelocity) { newValue in
-                    NotificationCenter.default.post(name: .scrollVelocity, object: newValue)
                 }
                 
                 VStack {

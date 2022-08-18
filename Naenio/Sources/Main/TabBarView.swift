@@ -6,9 +6,12 @@
 //
 import SwiftUI
 import Introspect
+import Combine
 
 struct TabBarView: View {
     @State var selectedTab = 1
+    @State var tabBarLowSheetInfo = TabBarLowSheetInfo(isPresented: false, postId: 0)
+    
     @Binding var pages: [TabBarPage]
     
     var body: some View {
@@ -22,18 +25,37 @@ struct TabBarView: View {
                     .tag(item.tag)
             }
         }
-        .introspectTabBarController { contoller in
-            contoller.tabBar.barTintColor = UIColor(Color.tabBarBackground)
-            contoller.tabBar.isTranslucent = true
+        .introspectTabBarController { controller in
+            controller.tabBar.backgroundColor = UIColor(Color.tabBarBackground)
+            controller.tabBar.shadowImage = UIImage()
+            controller.tabBar.backgroundImage = UIImage()
             
-            contoller.tabBar.layer.masksToBounds = true
-            contoller.tabBar.layer.cornerRadius = 14
-            contoller.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+            controller.tabBar.layer.masksToBounds = true
+            controller.tabBar.layer.cornerRadius = 14
+            controller.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        }
+        .onReceive(Publishers.lowSheetNotificationPublisher) { (value: LowSheetNotification) in
+            tabBarLowSheetInfo.isPresented = true
+            tabBarLowSheetInfo.postId = value.postId
+        }
+        .lowSheet(isPresented: $tabBarLowSheetInfo.isPresented) {
+            ReportAndShareSheetView(
+                isPresented: $tabBarLowSheetInfo.isPresented,
+                postID: tabBarLowSheetInfo.postId
+            )
+                .padding(.horizontal, 27)
         }
     }
     
     init(pages: Binding<[TabBarPage]>) {
         self._pages = pages
+    }
+}
+
+extension TabBarView {
+    struct TabBarLowSheetInfo {
+        var isPresented: Bool
+        var postId: Int
     }
 }
 

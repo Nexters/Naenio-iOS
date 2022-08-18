@@ -22,7 +22,7 @@ extension NaenioAPI {
     ) -> Single<Response> {
         let endpoint = NaenioAPI.Wrapper(base: self)
         let requestString = "\(endpoint.method) \(endpoint.baseURL) \(endpoint.path)"
-        
+        print("endpoint: \(endpoint)")
         return Self.moyaProvider.rx.request(endpoint)
             .filterSuccessfulStatusCodes()
             .catch(self.handleInternetConnection)
@@ -40,6 +40,8 @@ extension NaenioAPI {
                     case NaenioAPIError.internetConnection:
                         print("TODO: alert MyAPIError.internetConnection")
                     case let NaenioAPIError.restError(error, _, _):
+                        print("🛰 FAILURE: \(error)")
+
                         guard let response = (error as? MoyaError)?.response else { break }
                         if let jsonObject = try? response.mapJSON(failsOnEmptyData: false) {
                             let errorDictionary = jsonObject as? [String: Any]
@@ -58,7 +60,6 @@ extension NaenioAPI {
                         }
                     default:
                         print("??")
-                        break
                     }
                 },
                 onSubscribe: {

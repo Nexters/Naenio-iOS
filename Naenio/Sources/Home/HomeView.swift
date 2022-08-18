@@ -33,21 +33,23 @@ struct HomeView: View {
                         .padding(.horizontal, 20)
                     
                     // Card scroll view
-                    ZStack(alignment: .bottom) {
+                    ZStack(alignment: .center) {
                         if viewModel.status == .loading(reason: "differentCategoryPosts") {
                             LoadingIndicator()
                                 .zIndex(1)
                         }
                         
                         if viewModel.status == .done, viewModel.posts.isEmpty {
-                            emptyResultView
+                            EmptyResultView(description: "등록된 투표가 없어요!")
                         }
                         
                         ScrollView(.vertical, showsIndicators: true) {
                             LazyVStack(spacing: 20) {
-                                ForEach(Array(viewModel.posts.enumerated()), id: \.element.id) { (index, post) in
-                                    NavigationLink(destination: FullView(index: index, post: post).environmentObject(viewModel)) {
-                                        CardView(index: index, post: post) {
+                                ForEach($viewModel.posts) { index, post in
+                                    NavigationLink(destination: LazyView(
+                                        FullView(post: post))
+                                    ) {
+                                        CardView(post: post) {
                                             withAnimation(.spring()) {
                                                 showComments = true
                                             }
@@ -70,6 +72,11 @@ struct HomeView: View {
                                     }
                                 }
                                 .buttonStyle(PlainButtonStyle())
+                                
+                                // placeholder
+                                Rectangle()
+                                    .fill(Color.clear)
+                                    .frame(height: 130)
                             }
 
                             // 하단 무한스크롤 중 생기는 버퍼링에 대한 로딩 인디케이터
@@ -113,14 +120,13 @@ struct HomeView: View {
                 
                 floatingButton
                     .padding(20)
-                    .ignoresSafeArea(.keyboard)
             }
             .navigationBarHidden(true)
             .fullScreenCover(isPresented: $showNewPost) {
                 NewPostView(isPresented: $showNewPost)
                     .environmentObject(viewModel)
             }
-            .customSheet(isPresented: $showComments, height: 650) {
+            .sheet(isPresented: $showComments) {
                 CommentView(isPresented: $showComments)
             }
         }
@@ -162,19 +168,6 @@ extension HomeView {
                 Capsule()
                     .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
             )
-        }
-    }
-        
-    var emptyResultView: some View {
-        VStack(spacing: 14) {
-            Image("empty")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 59, height: 59)
-            
-            Text("아직 투표가 없어요!")
-                .font(.medium(size: 18))
-                .foregroundColor(.naenioGray)
         }
     }
     
