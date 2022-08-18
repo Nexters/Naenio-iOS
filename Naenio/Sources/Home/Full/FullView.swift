@@ -12,6 +12,8 @@ struct FullView: View {
     @ObservedObject var viewModel: FullViewModel
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
         
+    @State var didVote: Bool = false
+    
     let index: Int
     let post: Post
 
@@ -19,6 +21,9 @@ struct FullView: View {
         ZStack {
             Color.background
                 .ignoresSafeArea()
+            
+            LottieView(isPlaying: $didVote, name: "confetti", loopMode: .playOnce)
+                .fillScreen()
             
             VStack(alignment: .leading, spacing: 0) {
                 profile
@@ -51,7 +56,8 @@ struct FullView: View {
                 VotesView(index: index, choices: post.choices)
                     .environmentObject(sourceObject)
                     .padding(.bottom, 32)
-                
+                    .zIndex(1)
+
                 commentButton
                     .fillHorizontal()
                     .padding(.bottom, 160)
@@ -70,6 +76,10 @@ struct FullView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 moreInformationButton
             }
+        }
+        .onChange(of: sourceObject.posts[index].choices) { _ in
+            print("SSSSS")
+            didVote = true
         }
     }
     

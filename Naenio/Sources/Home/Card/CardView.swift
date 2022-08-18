@@ -23,7 +23,7 @@ struct CardView: View {
             
             LottieView(isPlaying: $didVote, name: "confetti", loopMode: .playOnce)
                 .fillScreen()
-                .zIndex(didVote ? 1 : 0)
+                .zIndex(0)
             
             VStack(alignment: .leading, spacing: 0) {
                 VStack(alignment: .leading, spacing: 0) {
@@ -94,7 +94,6 @@ struct CardView: View {
         .fillScreen()
         .mask(RoundedRectangle(cornerRadius: 16))
         .onChange(of: sourceObject.posts[index].choices) { _ in
-            print("SSSSS")
             didVote = true
         }
     }
