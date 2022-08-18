@@ -23,7 +23,9 @@ struct CurationView: View {
                     
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(themeList) { theme in
-                        CurationCardView(theme: theme.data)
+                        NavigationLink(destination: HomeView(backgroundColorList: theme.data.backgroundColorList, title: theme.data.title, theme: theme.id, isHomeView: false)) {
+                            CurationCardView(theme: theme.data)
+                        }
                     }
                 }
                 .padding(14)

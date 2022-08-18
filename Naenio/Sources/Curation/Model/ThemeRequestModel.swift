@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct ThemeRequestModel {
+struct ThemeRequestModel: ModelType {
     var theme: String
 }

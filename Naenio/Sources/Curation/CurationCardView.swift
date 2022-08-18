@@ -9,11 +9,13 @@ import SwiftUI
 
 struct CurationCardView: View {
     let theme: Theme
+    @State var showNewPost = false
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
             VStack(alignment: .leading, spacing: 14) {
                 Text(theme.content)
+                    .multilineTextAlignment(.leading)
                     .font(.regular(size: 18))
                     .foregroundColor(.white)
                     .padding(.top, 14)
