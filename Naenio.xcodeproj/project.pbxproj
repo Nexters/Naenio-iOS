@@ -20,8 +20,8 @@
 		4C4B13432883D88A006044B0 /* HttpResponseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B13422883D88A006044B0 /* HttpResponseCode.swift */; };
 		4C4B134528847640006044B0 /* NaenioAPI+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B134428847640006044B0 /* NaenioAPI+Request.swift */; };
 		4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4CA47BC92890344400D300A7 /* .swiftlint.yml */; };
-		4CA59E8F28AD4D70002C0FA9 /* CurationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA59E8E28AD4D70002C0FA9 /* CurationDetailView.swift */; };
 		4CA59E9128AD504F002C0FA9 /* ThemeRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA59E9028AD504F002C0FA9 /* ThemeRequestModel.swift */; };
+		4CA59E9528AE24F6002C0FA9 /* HomeViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA59E9428AE24F6002C0FA9 /* HomeViewModelTest.swift */; };
 		4CB4196A28A29C2700EBB777 /* TabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB4196928A29C2700EBB777 /* TabContentView.swift */; };
 		4CB8944928A74A0200BE2ECF /* NaenioAPI+Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8944828A74A0200BE2ECF /* NaenioAPI+Method.swift */; };
 		4CB8945628A7A1E300BE2ECF /* AuthServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8945528A7A1E300BE2ECF /* AuthServiceType.swift */; };
@@ -163,8 +163,8 @@
 		4C4B13422883D88A006044B0 /* HttpResponseCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponseCode.swift; sourceTree = "<group>"; };
 		4C4B134428847640006044B0 /* NaenioAPI+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Request.swift"; sourceTree = "<group>"; };
 		4CA47BC92890344400D300A7 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		4CA59E8E28AD4D70002C0FA9 /* CurationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurationDetailView.swift; sourceTree = "<group>"; };
 		4CA59E9028AD504F002C0FA9 /* ThemeRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeRequestModel.swift; sourceTree = "<group>"; };
+		4CA59E9428AE24F6002C0FA9 /* HomeViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTest.swift; sourceTree = "<group>"; };
 		4CB4196928A29C2700EBB777 /* TabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContentView.swift; sourceTree = "<group>"; };
 		4CB8944828A74A0200BE2ECF /* NaenioAPI+Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Method.swift"; sourceTree = "<group>"; };
 		4CB8945528A7A1E300BE2ECF /* AuthServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceType.swift; sourceTree = "<group>"; };
@@ -413,7 +413,6 @@
 			isa = PBXGroup;
 			children = (
 				4CC3CEB828ACFB4D00458138 /* Theme.swift */,
-				4CA59E8E28AD4D70002C0FA9 /* CurationDetailView.swift */,
 				4CA59E9028AD504F002C0FA9 /* ThemeRequestModel.swift */,
 			);
 			path = Model;
@@ -830,6 +829,7 @@
 				9C95B98C289A3AAB00E0910C /* HomeView.swift */,
 				9C10439C289B747200A45711 /* HomeViewModel.swift */,
 				9B61D0CA28A87BDC00F6DD0B /* BottomSheetView.swift */,
+				4CA59E9428AE24F6002C0FA9 /* HomeViewModelTest.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1226,7 +1226,6 @@
 				9B478A5728A71A48007A4715 /* CommentContentCell.swift in Sources */,
 				4CC3CEAA28ABF94900458138 /* VoteRequestModel.swift in Sources */,
 				4CB4196A28A29C2700EBB777 /* TabContentView.swift in Sources */,
-				4CA59E8F28AD4D70002C0FA9 /* CurationDetailView.swift in Sources */,
 				4C16915C289FF8DA000226BF /* TabBarView.swift in Sources */,
 				9CE311D228A63FB300EDB0F4 /* CommentInformation.swift in Sources */,
 				4CC296DB28805366001950A2 /* NaenioAPI.swift in Sources */,
@@ -1250,6 +1249,7 @@
 				9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */,
 				9B03732D28A556020089CC48 /* UIResponder + Extension.swift in Sources */,
 				9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */,
+				4CA59E9528AE24F6002C0FA9 /* HomeViewModelTest.swift in Sources */,
 				4CC3CEAC28ABF95400458138 /* VoteResponseModel.swift in Sources */,
 				9BE60293289541B6008F291C /* Color + Extension.swift in Sources */,
 				9B03732F28A68A6B0089CC48 /* CommentViewModel.swift in Sources */,

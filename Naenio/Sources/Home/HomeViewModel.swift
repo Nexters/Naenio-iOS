@@ -14,11 +14,13 @@ class HomeViewModel: ObservableObject {
     @Published var posts: [Post]
     @Published var status: Status = .waiting
     @Published var lastPostId: Int?
+    @Published var isHomeView: Bool = true
+    @Published var themeTitle: String?
     
     // vars and lets
     private let pagingSize = 10
-    private var bag = DisposeBag()
-    private let serialQueue = SerialDispatchQueueScheduler.init(qos: .userInitiated)
+    var bag = DisposeBag()
+    let serialQueue = SerialDispatchQueueScheduler.init(qos: .userInitiated)
     
     func vote(index: Int, sequence: Int, postId: Int, choiceId: Int) {
         var post = self.posts[index]
@@ -185,26 +187,21 @@ class HomeViewModel: ObservableObject {
         }
     }
     
-    // !!!: 테스트용
-    @objc func testRequestPosts() {
+    @objc func requestThemePosts() {
         bag = DisposeBag()
-        status = .loading(reason: "differentCategoryPosts")
-                
-        getPostDisposable(sortType: self.sortType! )
+        status = .loading(reason: "requestPosts")
+        
+        let themeRequestModel: ThemeRequestModel = ThemeRequestModel(theme: themeTitle ?? "")
+        RequestService<FeedResponseModel>.request(api: .getTheme(themeRequestModel))
             .subscribe(on: self.serialQueue)
             .observe(on: MainScheduler.instance)
             .subscribe(
-                onSuccess: { [weak self] newPosts in
+                onSuccess: { [weak self] newFeed in
                     guard let self = self else { return }
                     
                     print("Success requestPosts")
-                    
-                    // For empty view test
-                    if self.sortType == .wrote {
-                        self.posts = []
-                    } else {
-                        self.posts = newPosts
-                    }
+                    let posts = self.transferToPostModel(from: newFeed)
+                    self.posts = posts
                     
                     self.status = .done
                 }, onFailure: { [weak self] error in
@@ -217,99 +214,9 @@ class HomeViewModel: ObservableObject {
             .disposed(by: bag)
     }
     
-    // !!!: 테스트용
-    func testRequestMorePosts() {
-        bag = DisposeBag() // Cancel running tasks by initializing the bag
-        status = .loading(reason: "sameCategoryPosts")
-        
-        getPostDisposable(sortType: self.sortType!)
-            .subscribe(on: self.serialQueue)
-            .observe(on: MainScheduler.instance)
-            .subscribe(
-                onSuccess: { [weak self] newPosts in
-                    guard let self = self else { return }
-                    print("Success requestMorePosts")
-                    
-                    self.posts.append(contentsOf: newPosts)
-                    self.status = .done
-                }, onFailure: { [weak self] error in
-                    guard let self = self else { return }
-                    self.status = .fail(with: error)
-                }, onDisposed: {
-                    print("Disposed requestMorePosts")
-                })
-            .disposed(by: bag)
-    }
-
     init( ) {
         self.posts = []
-        self.requestPosts()
     }
-}
-
-// !!!: 테스트용
-extension HomeViewModel {
-    private func registerNewPost(_ postRequest: PostRequestInformation) -> Single<Post> {
-        let mockPost = MockPostGenerator.generate(with: postRequest)
-        let observable = Observable.just(mockPost)
-        
-        return observable.asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
-    }
-    
-    private func getPost() -> [Post] {
-        let posts = [Post]()
-        
-        guard let path = Bundle.main.path(forResource: "MockPostList", ofType: "json") else {
-            print("Invalid path")
-            return posts
-        }
-        
-        do {
-            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-            let decoded = try JSONDecoder().decode([Post].self, from: data)
-            
-            return decoded
-        } catch let error {
-            print(error)
-        }
-        
-        return posts
-    }
-    
-    private func getPostDisposable(sortType: SortType) -> Single<[Post]> {
-        var posts = [Post]()
-        
-//        var path: String?
-//        switch category {
-//        case .entire:
-//            path = Bundle.main.path(forResource: "MockPostList", ofType: "json")
-//        case .participated:
-//            path = Bundle.main.path(forResource: "MockPostParticipatedList", ofType: "json")
-//        case .wrote:
-//            path = Bundle.main.path(forResource: "MockPostWroteList", ofType: "json")
-//        }
-//
-//        guard let path = path else {
-//            print("Invalid path")
-//            return Observable.of(posts).asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
-//        }
-//
-//        do {
-//            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-//            let decoded = try JSONDecoder().decode([Post].self, from: data)
-//
-//
-//            return Observable.of(posts).asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
-//        } catch let error {
-//            print(error)
-//        }
-        (0..<10).forEach { _ in
-            posts.append(MockPostGenerator.generate(sortType: sortType))
-        }
-        
-        return Observable.of(posts).asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
-    }
-    
 }
 
 extension HomeViewModel {
