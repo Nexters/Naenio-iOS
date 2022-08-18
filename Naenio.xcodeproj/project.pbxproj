@@ -32,8 +32,6 @@
 		4CC3CE9728AA8A3900458138 /* PostResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE9428AA8A3900458138 /* PostResponseModel.swift */; };
 		4CC3CE9828AA8A3900458138 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE9528AA8A3900458138 /* Post.swift */; };
 		4CC3CE9928AA8A3900458138 /* PostRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE9628AA8A3900458138 /* PostRequestInformation.swift */; };
-		4CC3CEA528AA8E3E00458138 /* ignored in Resources */ = {isa = PBXBuildFile; fileRef = 4CC3CEA428AA8E3E00458138 /* ignored */; };
-		4CC3CEA728AA8E9C00458138 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEA628AA8E9C00458138 /* KeyValue.swift */; };
 		4CC3CEAA28ABF94900458138 /* VoteRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEA928ABF94900458138 /* VoteRequestModel.swift */; };
 		4CC3CEAC28ABF95400458138 /* VoteResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEAB28ABF95400458138 /* VoteResponseModel.swift */; };
 		4CC3CEB428ACCF0C00458138 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEB328ACCF0C00458138 /* RequestService.swift */; };
@@ -99,6 +97,10 @@
 		9BF00C0B287ACFA900F08035 /* LoginRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00C0A287ACFA900F08035 /* LoginRequestInformation.swift */; };
 		9BF513C028AD17C400104CAB /* LowSheetNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF513BF28AD17C400104CAB /* LowSheetNotification.swift */; };
 		9BF513C228AD1AF900104CAB /* ReportAndShareSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF513C128AD1AF900104CAB /* ReportAndShareSheetView.swift */; };
+		9BF513C528AD218200104CAB /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF513C428AD218200104CAB /* LottieView.swift */; };
+		9BF513C928AD21F800104CAB /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF513C728AD21F800104CAB /* KeyValue.swift */; };
+		9BF513CF28AD265000104CAB /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 9BF513CE28AD265000104CAB /* confetti.json */; };
+		9BF513D228AD27FA00104CAB /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF513D128AD27FA00104CAB /* HapticManager.swift */; };
 		9C10439D289B747200A45711 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C10439C289B747200A45711 /* HomeViewModel.swift */; };
 		9C2D07B72897C683008BBD75 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D07B62897C683008BBD75 /* User.swift */; };
 		9C2D07B92897C728008BBD75 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D07B82897C728008BBD75 /* UserManager.swift */; };
@@ -194,7 +196,6 @@
 		4CC3CE9428AA8A3900458138 /* PostResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostResponseModel.swift; sourceTree = "<group>"; };
 		4CC3CE9528AA8A3900458138 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		4CC3CE9628AA8A3900458138 /* PostRequestInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRequestInformation.swift; sourceTree = "<group>"; };
-		4CC3CEA428AA8E3E00458138 /* ignored */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ignored; sourceTree = "<group>"; };
 		4CC3CEA628AA8E9C00458138 /* KeyValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
 		4CC3CEA928ABF94900458138 /* VoteRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteRequestModel.swift; sourceTree = "<group>"; };
 		4CC3CEAB28ABF95400458138 /* VoteResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteResponseModel.swift; sourceTree = "<group>"; };
@@ -265,6 +266,11 @@
 		9BF00C0A287ACFA900F08035 /* LoginRequestInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequestInformation.swift; sourceTree = "<group>"; };
 		9BF513BF28AD17C400104CAB /* LowSheetNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowSheetNotification.swift; sourceTree = "<group>"; };
 		9BF513C128AD1AF900104CAB /* ReportAndShareSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAndShareSheetView.swift; sourceTree = "<group>"; };
+		9BF513C428AD218200104CAB /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		9BF513C728AD21F800104CAB /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
+		9BF513C828AD21F800104CAB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BF513CE28AD265000104CAB /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
+		9BF513D128AD27FA00104CAB /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		9C10439C289B747200A45711 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		9C2D07B62897C683008BBD75 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9C2D07B82897C728008BBD75 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
@@ -547,7 +553,7 @@
 		9B085F012879991400DE8E60 /* Naenio */ = {
 			isa = PBXGroup;
 			children = (
-				4CC3CEA428AA8E3E00458138 /* ignored */,
+				9BF513C628AD21F800104CAB /* ignored */,
 				9BF00BF2287AC72800F08035 /* Naenio.entitlements */,
 				9B085F082879991600DE8E60 /* Preview Content */,
 				9B085F2D287E353600DE8E60 /* Resources */,
@@ -625,6 +631,7 @@
 			children = (
 				9B27A39628AD078F00C63AB6 /* Share */,
 				9CCA227D289B9E9400A2F9B0 /* Posts */,
+				9BF513D028AD27F100104CAB /* Haptic */,
 				9C68A29B2898FFF5006D36B1 /* Storage */,
 				4C4B13352883B543006044B0 /* Extension */,
 				9C2D07B52897C66C008BBD75 /* User */,
@@ -792,6 +799,32 @@
 			path = LogIn;
 			sourceTree = "<group>";
 		};
+		9BF513C328AD217600104CAB /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				9BF513C428AD218200104CAB /* LottieView.swift */,
+				9BF513CE28AD265000104CAB /* confetti.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
+		9BF513C628AD21F800104CAB /* ignored */ = {
+			isa = PBXGroup;
+			children = (
+				9BF513C728AD21F800104CAB /* KeyValue.swift */,
+				9BF513C828AD21F800104CAB /* Info.plist */,
+			);
+			path = ignored;
+			sourceTree = "<group>";
+		};
+		9BF513D028AD27F100104CAB /* Haptic */ = {
+			isa = PBXGroup;
+			children = (
+				9BF513D128AD27FA00104CAB /* HapticManager.swift */,
+			);
+			path = Haptic;
+			sourceTree = "<group>";
+		};
 		9C2D07B52897C66C008BBD75 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -951,6 +984,7 @@
 			children = (
 				9B24406F289E8DC30060A244 /* View + Exetension.swift */,
 				9BE13FEB28AA570C009ED95D /* Navigation */,
+				9BF513C328AD217600104CAB /* Lottie */,
 				9B61D0DA28A8EE3A00F6DD0B /* Shape */,
 				9B61D0CF28A88E6E00F6DD0B /* Sheet */,
 				9B478A5828A720EC007A4715 /* Divider */,
@@ -1200,13 +1234,13 @@
 				9BE602A3289548CF008F291C /* Pretendard-SemiBold.ttf in Resources */,
 				9BE602A5289548CF008F291C /* Pretendard-Regular.ttf in Resources */,
 				9BE602A0289548CF008F291C /* Pretendard-Medium.ttf in Resources */,
-				4CC3CEA528AA8E3E00458138 /* ignored in Resources */,
 				4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */,
 				9BE602B82895491B008F291C /* Montserrat-Regular.ttf in Resources */,
 				4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */,
 				9B085F0A2879991600DE8E60 /* Preview Assets.xcassets in Resources */,
 				9B085F072879991600DE8E60 /* Assets.xcassets in Resources */,
 				9BE602B42895491B008F291C /* Montserrat-SemiBold.ttf in Resources */,
+				9BF513CF28AD265000104CAB /* confetti.json in Resources */,
 				9BE602B32895491B008F291C /* Montserrat-Medium.ttf in Resources */,
 				9BE602B52895491B008F291C /* Montserrat-Bold.ttf in Resources */,
 				9BE602A7289548CF008F291C /* Pretendard-Bold.ttf in Resources */,
@@ -1374,10 +1408,12 @@
 				9C3309D72888EE0D000C592F /* LoginView.swift in Sources */,
 				9BF513C028AD17C400104CAB /* LowSheetNotification.swift in Sources */,
 				9CB1DFB428AB765B0048B313 /* CustomNavigationBackButton.swift in Sources */,
+				9BF513C928AD21F800104CAB /* KeyValue.swift in Sources */,
 				9C95B99A289A679B00E0910C /* CapsuleButtonStyle.swift in Sources */,
 				9B86192D28A77D920098AC8E /* CommentRepliesView.swift in Sources */,
 				4CB8944928A74A0200BE2ECF /* NaenioAPI+Method.swift in Sources */,
 				4CC296D92880533C001950A2 /* DefaultSession.swift in Sources */,
+				9BF513C528AD218200104CAB /* LottieView.swift in Sources */,
 				9C95B991289A4AC100E0910C /* UserManager + Extension.swift in Sources */,
 				9C8D603928A373FD00632BCC /* Navigation + Extension.swift in Sources */,
 				9BE13FE428AA2FDC009ED95D /* MyPageSection.swift in Sources */,
@@ -1449,6 +1485,7 @@
 				4CC296E0288055FD001950A2 /* HeaderInformation.swift in Sources */,
 				4C4B134528847640006044B0 /* NaenioAPI+Request.swift in Sources */,
 				9B61D0D328A88FB300F6DD0B /* CustomSheetView.swift in Sources */,
+				9BF513D228AD27FA00104CAB /* HapticManager.swift in Sources */,
 				9C95B996289A672800E0910C /* FillScreen.swift in Sources */,
 				9C3309D92888EE20000C592F /* LoginViewModel.swift in Sources */,
 				9B61D0E428A9050600F6DD0B /* CommentRequestInformation.swift in Sources */,
@@ -1471,7 +1508,6 @@
 				9C8B5E0A289CEF000029BB66 /* MockPostGenerator.swift in Sources */,
 				9CE311D428A6439900EDB0F4 /* CommentView.swift in Sources */,
 				4CC4B7392896BF1C00774192 /* CurationView.swift in Sources */,
-				4CC3CEA728AA8E9C00458138 /* KeyValue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1635,7 +1671,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
-				DEVELOPMENT_TEAM = KT2XM3Z9DZ;
+				DEVELOPMENT_TEAM = W6QHM4Y43Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Naenio/ignored/Info.plist;
@@ -1650,7 +1686,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yoonyoung.Naenio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.teamVS.Naenio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1670,7 +1706,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
-				DEVELOPMENT_TEAM = KT2XM3Z9DZ;
+				DEVELOPMENT_TEAM = W6QHM4Y43Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Naenio/ignored/Info.plist;
@@ -1685,7 +1721,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yoonyoung.Naenio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.teamVS.Naenio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

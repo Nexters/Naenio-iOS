@@ -15,7 +15,10 @@ struct VoteButton: View {
     let action: () -> Void
 
     var body: some View {
-        Button(action: choice == nil ? {} : self.action) {
+        Button(action: choice == nil ? {} : {
+            self.action()
+            HapticManager.shared.impact(style: .medium)
+        }) {
             HStack(spacing: 6) {
                 Text(choice == nil ? "" : type.rawValue + ".")
                     .lineLimit(1)
