@@ -78,7 +78,6 @@ struct FullView: View {
             }
         }
         .onChange(of: sourceObject.posts[index].choices) { _ in
-            print("SSSSS")
             didVote = true
         }
     }

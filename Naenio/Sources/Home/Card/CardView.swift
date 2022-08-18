@@ -100,9 +100,7 @@ struct CardView: View {
         }
     }
     
-    init(index: Int, post: Post, action: @escaping () -> Void) {
-        print("\(index)")
-        
+    init(index: Int, post: Post, action: @escaping () -> Void) {        
         self.index = index
         self.post = post
         self.action = action
