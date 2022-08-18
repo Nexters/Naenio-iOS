@@ -8,13 +8,20 @@
 import SwiftUI
 
 struct OpenedByLinkFullView: View {
-    init(postId: Int) {
-        
-    }
+    @ObservedObject var viewModel = FullViewModel()
+    private let postId: Int
     
     var body: some View {
         ZStack {
-//            FullView(index: <#T##Int#>, post: <#T##Post#>)
+            FullView(post: $viewModel.post)
+                .redacted(reason: viewModel.status == .inProgress || viewModel.status == .waiting ? .placeholder : [])
         }
+        .onAppear {
+            viewModel.getOnePost(with: postId)
+        }
+    }
+    
+    init(postId: Int) {
+        self.postId = postId
     }
 }

@@ -15,7 +15,7 @@ struct NaenioApp: App {
     @ObservedObject var userManager = UserManager()
     
     @State var isLinkOpened = false
-    @State var arrivedLink: Int = 0 {
+    @State var arrivedPostId: Int = 0 {
         didSet {
             isLinkOpened = true
         }
@@ -48,15 +48,14 @@ struct NaenioApp: App {
                           userManager.status == .fetched {
                     MainView()
                         .onOpenURL { url in
-                            // TODO: Add implementation of further handling later
                             guard let postId = handleUrl(url) else {
                                 return
                             }
                             
-                            self.arrivedLink = postId
+                            self.arrivedPostId = postId
                         }
                         .background(
-                            NavigationLink(destination: Text(String(self.arrivedLink)), isActive: $isLinkOpened) {
+                            NavigationLink(destination: OpenedByLinkFullView(postId: arrivedPostId), isActive: $isLinkOpened) {
                                 EmptyView()
                             }
                         )

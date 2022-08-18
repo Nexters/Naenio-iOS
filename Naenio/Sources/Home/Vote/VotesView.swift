@@ -113,13 +113,8 @@ extension VotesView {
               var targetChoice = sequence == 0 ? choiceA : choiceB,
               var otherChoice = sequence == 0 ? choiceB : choiceA
         else {
-            print("returned")
             return
         }
-        
-        print(targetChoice, "\n\n")
-        print(otherChoice)
-        print(post)
         
         // 처음 투표신가요?
         if !(targetChoice.isVoted || otherChoice.isVoted) {
@@ -127,7 +122,6 @@ extension VotesView {
         }
         
         if targetChoice.isVoted { // 재투표 금지
-            print("Duplicated")
             return
         }
         
