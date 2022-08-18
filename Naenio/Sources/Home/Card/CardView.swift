@@ -101,7 +101,7 @@ extension CardView {
                 .padding(3)
                 .background(Circle().fill(Color.green.opacity(0.2)))
             
-            Text("\(post.author.nickname ?? "")")
+            Text("\(post.author.nickname ?? "(알 수 없음)")")
                 .font(.medium(size: 16))
         }
     }

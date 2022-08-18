@@ -29,7 +29,7 @@ struct CommentContentCell: View {
             
             VStack(alignment: .leading, spacing: 9) {
                 HStack {
-                    Text(comment.author.nickname)
+                    Text(comment.author.nickname ?? "(알 수 없음)")
                         .font(.medium(size: 16))
                         .foregroundColor(.white)
 

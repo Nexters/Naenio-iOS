@@ -109,7 +109,7 @@ struct CommentRepliesView: View {
         .navigationBarHidden(true)
         .redacted(reason: viewModel.status == .loading ? .placeholder : [])
         .onAppear {
-            viewModel.requestComments()
+            viewModel.requestComments(postId: parentId, isFirstRequest: true)
         }
     }
 }

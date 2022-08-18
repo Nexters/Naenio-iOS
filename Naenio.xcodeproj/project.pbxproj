@@ -26,6 +26,7 @@
 		4CA59EA328AE8888002C0FA9 /* CommentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA59EA228AE8888002C0FA9 /* CommentType.swift */; };
 		4CA59EAC28AE8D4E002C0FA9 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA59EAB28AE8D4E002C0FA9 /* KeyValue.swift */; };
 		4CA59EAE28AE9044002C0FA9 /* ignored in Resources */ = {isa = PBXBuildFile; fileRef = 4CA59EAD28AE9044002C0FA9 /* ignored */; };
+		4CA59EB028AEA3DF002C0FA9 /* CommentListRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA59EAF28AEA3DF002C0FA9 /* CommentListRequestModel.swift */; };
 		4CB4196A28A29C2700EBB777 /* TabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB4196928A29C2700EBB777 /* TabContentView.swift */; };
 		4CB8944928A74A0200BE2ECF /* NaenioAPI+Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8944828A74A0200BE2ECF /* NaenioAPI+Method.swift */; };
 		4CB8945628A7A1E300BE2ECF /* AuthServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8945528A7A1E300BE2ECF /* AuthServiceType.swift */; };
@@ -171,6 +172,7 @@
 		4CA59EA228AE8888002C0FA9 /* CommentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentType.swift; sourceTree = "<group>"; };
 		4CA59EAB28AE8D4E002C0FA9 /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
 		4CA59EAD28AE9044002C0FA9 /* ignored */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ignored; sourceTree = "<group>"; };
+		4CA59EAF28AEA3DF002C0FA9 /* CommentListRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListRequestModel.swift; sourceTree = "<group>"; };
 		4CB4196928A29C2700EBB777 /* TabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContentView.swift; sourceTree = "<group>"; };
 		4CB8944828A74A0200BE2ECF /* NaenioAPI+Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Method.swift"; sourceTree = "<group>"; };
 		4CB8945528A7A1E300BE2ECF /* AuthServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceType.swift; sourceTree = "<group>"; };
@@ -949,6 +951,7 @@
 				9B61D0E328A9050600F6DD0B /* CommentPostRequestModel.swift */,
 				4CA59EA028AE884E002C0FA9 /* CommentPostResponseModel.swift */,
 				4CA59EA228AE8888002C0FA9 /* CommentType.swift */,
+				4CA59EAF28AEA3DF002C0FA9 /* CommentListRequestModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1270,6 +1273,7 @@
 				4CC3CE9728AA8A3900458138 /* PostResponseModel.swift in Sources */,
 				9B244075289E9AF10060A244 /* VotesViewModel.swift in Sources */,
 				4C4B133D2883C5EB006044B0 /* NaenioAPI+Wrapper.swift in Sources */,
+				4CA59EB028AEA3DF002C0FA9 /* CommentListRequestModel.swift in Sources */,
 				9C95B99E289A8BCB00E0910C /* CardViewModel.swift in Sources */,
 				4CC3CE9328AA8A2C00458138 /* FeedResponseModel.swift in Sources */,
 				9C8D604E28A3CAE000632BCC /* ScrollViewHelper.swift in Sources */,

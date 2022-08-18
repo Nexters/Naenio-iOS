@@ -37,8 +37,7 @@ struct CommentView: View {
                             CloseButton(action: { isPresented = false })
                                 .frame(width: 12, height: 12)
                         }
-                        
-                        ForEach(viewModel.comments, id: \.id) { comment in
+                        ForEach(Array(viewModel.comments.enumerated()), id: \.element.id) { (index, comment) in
                             CustomDivider()
                                 .frame(width: UIScreen.main.bounds.width)
                             
@@ -52,14 +51,26 @@ struct CommentView: View {
                     .padding(.horizontal, 20)
                 }
                 .introspectScrollView { scrollView in
+                    let control = scrollViewHelper.refreshController
+                    viewModel.isFirstRequest = true
+                    viewModel.postId = self.parentId
+                    
+                    control.addTarget(viewModel, action: #selector(viewModel.requestcommentAction), for: .valueChanged)
+                    control.tintColor = .yellow
+                    
                     scrollView.keyboardDismissMode = .onDrag
+                    scrollView.refreshControl = control
                     scrollView.delegate = scrollViewHelper
                 }
-                .onChange(of: scrollViewHelper.currentVerticalPosition) { newValue in
-                    NotificationCenter.default.post(name: .scrollOffsetNotification, object: newValue)
-                }
-                .onChange(of: scrollViewHelper.scrollVelocity) { newValue in
-                    NotificationCenter.default.post(name: .scrollVelocity, object: newValue)
+                .onChange(of: viewModel.status) { status in
+                    switch status {
+                    case .done:
+                        scrollViewHelper.refreshController.endRefreshing()
+                    case .fail(with: _):
+                        scrollViewHelper.refreshController.endRefreshing()
+                    default:
+                        break
+                    }
                 }
                 
                 VStack {
@@ -94,7 +105,7 @@ struct CommentView: View {
         }
         .redacted(reason: viewModel.status == .loading ? .placeholder : [])
         .onAppear {
-            viewModel.requestComments()
+            viewModel.requestComments(postId: parentId, isFirstRequest: true)
         }
     }
 }
