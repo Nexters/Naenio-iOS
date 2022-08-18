@@ -82,6 +82,7 @@
 		9B86192D28A77D920098AC8E /* CommentRepliesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86192C28A77D920098AC8E /* CommentRepliesView.swift */; };
 		9B86192F28A782990098AC8E /* CommentRepliesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86192E28A782990098AC8E /* CommentRepliesViewModel.swift */; };
 		9B8B98BA289948DA007336DE /* LocalStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B98B9289948DA007336DE /* LocalStorageKeys.swift */; };
+		9B8D409C28AE86B90024E989 /* VotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8D409B28AE86B90024E989 /* VotesViewModel.swift */; };
 		9BE13FDC28AA1A83009ED95D /* MyPageAuthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE13FDB28AA1A83009ED95D /* MyPageAuthCell.swift */; };
 		9BE13FDE28AA1BAF009ED95D /* MyPageNavigationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE13FDD28AA1BAF009ED95D /* MyPageNavigationCell.swift */; };
 		9BE13FE028AA2187009ED95D /* MyPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE13FDF28AA2187009ED95D /* MyPageCell.swift */; };
@@ -154,7 +155,6 @@
 		9CBCDCE728AE2D4F00C4C577 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCE628AE2D4F00C4C577 /* CardView.swift */; };
 		9CBCDCE928AE377C00C4C577 /* ForEach + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCE828AE377C00C4C577 /* ForEach + Extension.swift */; };
 		9CBCDCEB28AE3A7900C4C577 /* NewVoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCEA28AE3A7900C4C577 /* NewVoteButton.swift */; };
-		9CBCDCED28AE411700C4C577 /* VotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCEC28AE411700C4C577 /* VotesViewModel.swift */; };
 		9CBCDCEF28AE65B900C4C577 /* SinglePostRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCEE28AE65B900C4C577 /* SinglePostRequestInformation.swift */; };
 		9CBCDCF128AE6E9500C4C577 /* SinglePostResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCF028AE6E9500C4C577 /* SinglePostResponseModel.swift */; };
 		9CCA228E289BA2EA00A2F9B0 /* MockPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA228D289BA2EA00A2F9B0 /* MockPost.json */; };
@@ -262,6 +262,7 @@
 		9B86192C28A77D920098AC8E /* CommentRepliesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesView.swift; sourceTree = "<group>"; };
 		9B86192E28A782990098AC8E /* CommentRepliesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesViewModel.swift; sourceTree = "<group>"; };
 		9B8B98B9289948DA007336DE /* LocalStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageKeys.swift; sourceTree = "<group>"; };
+		9B8D409B28AE86B90024E989 /* VotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotesViewModel.swift; sourceTree = "<group>"; };
 		9BE13FDB28AA1A83009ED95D /* MyPageAuthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAuthCell.swift; sourceTree = "<group>"; };
 		9BE13FDD28AA1BAF009ED95D /* MyPageNavigationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageNavigationCell.swift; sourceTree = "<group>"; };
 		9BE13FDF28AA2187009ED95D /* MyPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCell.swift; sourceTree = "<group>"; };
@@ -335,7 +336,6 @@
 		9CBCDCE628AE2D4F00C4C577 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		9CBCDCE828AE377C00C4C577 /* ForEach + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ForEach + Extension.swift"; sourceTree = "<group>"; };
 		9CBCDCEA28AE3A7900C4C577 /* NewVoteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewVoteButton.swift; sourceTree = "<group>"; };
-		9CBCDCEC28AE411700C4C577 /* VotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VotesViewModel.swift; path = "/Users/youngbinlee/Documents/Github/Naenio-iOS/Naenio/Resources/Views/Buttons/VotesViewModel.swift"; sourceTree = "<absolute>"; };
 		9CBCDCEE28AE65B900C4C577 /* SinglePostRequestInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePostRequestInformation.swift; sourceTree = "<group>"; };
 		9CBCDCF028AE6E9500C4C577 /* SinglePostResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePostResponseModel.swift; sourceTree = "<group>"; };
 		9CCA228D289BA2EA00A2F9B0 /* MockPost.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPost.json; sourceTree = "<group>"; };
@@ -689,6 +689,7 @@
 				9CBCDCEC28AE411700C4C577 /* VotesViewModel.swift */,
 				9B244072289E9AA10060A244 /* VotesView.swift */,
 				9B244074289E9AF10060A244 /* VotesViewModel.swift */,
+				9B8D409B28AE86B90024E989 /* VotesViewModel.swift */,
 			);
 			path = Vote;
 			sourceTree = "<group>";
@@ -1477,6 +1478,7 @@
 				9B391A1928AB208E0007F4D6 /* HalfSheet.swift in Sources */,
 				9CBCDCD928ADE77A00C4C577 /* PostRequestInformation.swift in Sources */,
 				4CC3CE9728AA8A3900458138 /* PostResponseModel.swift in Sources */,
+				9B8D409C28AE86B90024E989 /* VotesViewModel.swift in Sources */,
 				9CBCDCE328AE2A3700C4C577 /* FullView.swift in Sources */,
 				4CC3CE9928AA8A3900458138 /* PostRequestInformation.swift in Sources */,
 				4CC3CE9728AA8A3900458138 /* PostResponseModel.swift in Sources */,
@@ -1499,7 +1501,6 @@
 				9B61D0CB28A87BDC00F6DD0B /* BottomSheetView.swift in Sources */,
 				4C43C8C42886FB8200A60372 /* String+Extension.swift in Sources */,
 				9B3644BF28AB3CC600EA1467 /* ProfileImages.swift in Sources */,
-				9CBCDCED28AE411700C4C577 /* VotesViewModel.swift in Sources */,
 				4CC3CE9828AA8A3900458138 /* Post.swift in Sources */,
 				9C3309CF2888ED08000C592F /* SignInWithKakaoButton.swift in Sources */,
 				9B03732728A555800089CC48 /* Publishers + Extension.swift in Sources */,
