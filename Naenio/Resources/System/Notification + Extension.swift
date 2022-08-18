@@ -19,8 +19,13 @@ extension NotificationCenter {
     func postLowSheetNotification(with notification: LowSheetNotification) {
         NotificationCenter.default.post(name: .lowSheetNotification, object: notification)
     }
+    
+    func postDidVoteHappen(at index: Int) {
+        NotificationCenter.default.post(name: .didVoteHappen, object: index)
+    }
 }
 
 extension Notification.Name {
     static let lowSheetNotification = Notification.Name("lowSheetNotification")
+    static let didVoteHappen = Notification.Name("didVoteHappen")
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct CardView: View {
     @ObservedObject var viewModel: CardViewModel
@@ -96,12 +97,16 @@ struct CardView: View {
         }
         .fillScreen()
         .mask(RoundedRectangle(cornerRadius: 16))
-        .onChange(of: sourceObject.posts[index].choices) { _ in
-            didVote = true
+        .onReceive(Publishers.didVoteHappen) { value in
+            // 버튼을 누르면 퍼블리셔가 인덱스를 내려준다
+            // 리팩토링 시급함
+            if value == self.index {
+                didVote = true
+            }
         }
     }
     
-    init(index: Int, post: Post, action: @escaping () -> Void) {        
+    init(index: Int, post: Post, action: @escaping () -> Void) {
         self.index = index
         self.post = post
         self.action = action

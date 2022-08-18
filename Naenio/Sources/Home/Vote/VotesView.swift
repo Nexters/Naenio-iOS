@@ -39,7 +39,7 @@ struct VotesView: View {
     
     private func choice(of sequence: Int) -> Choice? {
         guard choices.count == 2 else { return nil }
-        var resultChoice: Choice = Choice(id: 0, sequence: 0, name: "", isVoted: false, voteCount: 0)
+        var resultChoice: Choice?
         
         self.choices.forEach { choice in
             if choice.sequence == sequence {
@@ -57,6 +57,7 @@ struct VotesView: View {
                     DispatchQueue.main.async {
 //                        withAnimation(.easeInOut(duration: 0.2)) {
                         sourceObject.vote(index: self.index, sequence: 0, postId: self.sourceObject.posts[self.index].id, choiceId: choice(of: 0)?.id)
+                        NotificationCenter.default.postDidVoteHappen(at: index)
 //                        }
                     }
                 }
@@ -65,6 +66,7 @@ struct VotesView: View {
                     DispatchQueue.main.async {
 //                        withAnimation(.easeInOut(duration: 0.2)) {
                         sourceObject.vote(index: self.index, sequence: 1, postId: self.sourceObject.posts[self.index].id, choiceId: choice(of: 1)?.id)
+                        NotificationCenter.default.postDidVoteHappen(at: index)
 //                        }
                     }
                 }

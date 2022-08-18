@@ -26,4 +26,10 @@ extension Publishers {
             .map { return $0.object as! LowSheetNotification }
             .eraseToAnyPublisher()
     }
+    
+    static var didVoteHappen: AnyPublisher<Int, Never> {
+        return NotificationCenter.default.publisher(for: .didVoteHappen)
+            .map { return $0.object as! Int }
+            .eraseToAnyPublisher()
+    }
 }

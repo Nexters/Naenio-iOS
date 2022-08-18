@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct FullView: View {
     @EnvironmentObject var sourceObject: HomeViewModel
@@ -81,9 +82,12 @@ struct FullView: View {
                 moreInformationButton
             }
         }
-        .onChange(of: sourceObject.posts[index].choices) { _ in
-            print("RR")
-            didVote = true
+        .onReceive(Publishers.didVoteHappen) { value in
+            // 버튼을 누르면 퍼블리셔가 인덱스를 내려준다
+            // 리팩토링 시급함
+            if value == self.index {
+                didVote = true
+            }
         }
     }
     
