@@ -1,10 +1,4 @@
 //
-//  HomeViewModel.swift
-//  Naenio
-//
-//  Created by 이영빈 on 2022/08/04.
-//
-
 import SwiftUI
 import RxSwift
 

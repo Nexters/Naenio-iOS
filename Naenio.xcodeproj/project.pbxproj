@@ -20,6 +20,7 @@
 		4C4B13432883D88A006044B0 /* HttpResponseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B13422883D88A006044B0 /* HttpResponseCode.swift */; };
 		4C4B134528847640006044B0 /* NaenioAPI+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B134428847640006044B0 /* NaenioAPI+Request.swift */; };
 		4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4CA47BC92890344400D300A7 /* .swiftlint.yml */; };
+		4CA59E9128AD504F002C0FA9 /* ThemeRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA59E9028AD504F002C0FA9 /* ThemeRequestModel.swift */; };
 		4CB4196A28A29C2700EBB777 /* TabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB4196928A29C2700EBB777 /* TabContentView.swift */; };
 		4CB8944928A74A0200BE2ECF /* NaenioAPI+Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8944828A74A0200BE2ECF /* NaenioAPI+Method.swift */; };
 		4CB8945628A7A1E300BE2ECF /* AuthServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8945528A7A1E300BE2ECF /* AuthServiceType.swift */; };
@@ -31,9 +32,13 @@
 		4CC3CE9328AA8A2C00458138 /* FeedResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE9028AA8A2C00458138 /* FeedResponseModel.swift */; };
 		4CC3CE9728AA8A3900458138 /* PostResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE9428AA8A3900458138 /* PostResponseModel.swift */; };
 		4CC3CE9828AA8A3900458138 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE9528AA8A3900458138 /* Post.swift */; };
+		4CC3CE9928AA8A3900458138 /* PostRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE9628AA8A3900458138 /* PostRequestInformation.swift */; };
+		4CC3CEA528AA8E3E00458138 /* ignored in Resources */ = {isa = PBXBuildFile; fileRef = 4CC3CEA428AA8E3E00458138 /* ignored */; };
 		4CC3CEAA28ABF94900458138 /* VoteRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEA928ABF94900458138 /* VoteRequestModel.swift */; };
 		4CC3CEAC28ABF95400458138 /* VoteResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEAB28ABF95400458138 /* VoteResponseModel.swift */; };
 		4CC3CEB428ACCF0C00458138 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEB328ACCF0C00458138 /* RequestService.swift */; };
+		4CC3CEB628ACF77200458138 /* CurationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEB528ACF77200458138 /* CurationCardView.swift */; };
+		4CC3CEB928ACFB4D00458138 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEB828ACFB4D00458138 /* Theme.swift */; };
 		4CC4B7342896BDE400774192 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4B7332896BDE400774192 /* MainView.swift */; };
 		4CC4B7392896BF1C00774192 /* CurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4B7382896BF1C00774192 /* CurationView.swift */; };
 		4CC4B73B2896BF2500774192 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4B73A2896BF2500774192 /* MyPageView.swift */; };
@@ -68,6 +73,9 @@
 		9B61D0D328A88FB300F6DD0B /* CustomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D228A88FB200F6DD0B /* CustomSheetView.swift */; };
 		9B61D0DC28A8EE4500F6DD0B /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0DB28A8EE4500F6DD0B /* RoundedCorner.swift */; };
 		9B61D0E428A9050600F6DD0B /* CommentRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0E328A9050600F6DD0B /* CommentRequestInformation.swift */; };
+		9B61D0F728AE92F700F6DD0B /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0F628AE92F700F6DD0B /* ThemeView.swift */; };
+		9B61D0F928AE931600F6DD0B /* ThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0F828AE931600F6DD0B /* ThemeViewModel.swift */; };
+		9B61D0FB28AE93EA00F6DD0B /* EmptyResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0FA28AE93EA00F6DD0B /* EmptyResultView.swift */; };
 		9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B687DE928954D4A0048AED0 /* Font + Extension.swift */; };
 		9B86192D28A77D920098AC8E /* CommentRepliesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86192C28A77D920098AC8E /* CommentRepliesView.swift */; };
 		9B86192F28A782990098AC8E /* CommentRepliesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86192E28A782990098AC8E /* CommentRepliesViewModel.swift */; };
@@ -190,6 +198,7 @@
 		4C4B13422883D88A006044B0 /* HttpResponseCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponseCode.swift; sourceTree = "<group>"; };
 		4C4B134428847640006044B0 /* NaenioAPI+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Request.swift"; sourceTree = "<group>"; };
 		4CA47BC92890344400D300A7 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		4CA59E9028AD504F002C0FA9 /* ThemeRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeRequestModel.swift; sourceTree = "<group>"; };
 		4CB4196928A29C2700EBB777 /* TabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContentView.swift; sourceTree = "<group>"; };
 		4CB8944828A74A0200BE2ECF /* NaenioAPI+Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Method.swift"; sourceTree = "<group>"; };
 		4CB8945528A7A1E300BE2ECF /* AuthServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceType.swift; sourceTree = "<group>"; };
@@ -202,10 +211,12 @@
 		4CC3CE9428AA8A3900458138 /* PostResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostResponseModel.swift; sourceTree = "<group>"; };
 		4CC3CE9528AA8A3900458138 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		4CC3CE9628AA8A3900458138 /* PostRequestInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRequestInformation.swift; sourceTree = "<group>"; };
-		4CC3CEA628AA8E9C00458138 /* KeyValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
+		4CC3CEA428AA8E3E00458138 /* ignored */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ignored; sourceTree = "<group>"; };
 		4CC3CEA928ABF94900458138 /* VoteRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteRequestModel.swift; sourceTree = "<group>"; };
 		4CC3CEAB28ABF95400458138 /* VoteResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteResponseModel.swift; sourceTree = "<group>"; };
 		4CC3CEB328ACCF0C00458138 /* RequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestService.swift; sourceTree = "<group>"; };
+		4CC3CEB528ACF77200458138 /* CurationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurationCardView.swift; sourceTree = "<group>"; };
+		4CC3CEB828ACFB4D00458138 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		4CC4B7332896BDE400774192 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4CC4B7382896BF1C00774192 /* CurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurationView.swift; sourceTree = "<group>"; };
 		4CC4B73A2896BF2500774192 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
@@ -243,6 +254,9 @@
 		9B61D0D228A88FB200F6DD0B /* CustomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheetView.swift; sourceTree = "<group>"; };
 		9B61D0DB28A8EE4500F6DD0B /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		9B61D0E328A9050600F6DD0B /* CommentRequestInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRequestInformation.swift; sourceTree = "<group>"; };
+		9B61D0F628AE92F700F6DD0B /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
+		9B61D0F828AE931600F6DD0B /* ThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewModel.swift; sourceTree = "<group>"; };
+		9B61D0FA28AE93EA00F6DD0B /* EmptyResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResultView.swift; sourceTree = "<group>"; };
 		9B687DE928954D4A0048AED0 /* Font + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font + Extension.swift"; sourceTree = "<group>"; };
 		9B86192C28A77D920098AC8E /* CommentRepliesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesView.swift; sourceTree = "<group>"; };
 		9B86192E28A782990098AC8E /* CommentRepliesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesViewModel.swift; sourceTree = "<group>"; };
@@ -412,7 +426,6 @@
 		4CC296DC288054C0001950A2 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				4CC3CEA628AA8E9C00458138 /* KeyValue.swift */,
 				4CC296DF288055FD001950A2 /* HeaderInformation.swift */,
 				4C4B13422883D88A006044B0 /* HttpResponseCode.swift */,
 			);
@@ -467,6 +480,15 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		4CC3CEB728ACFB3300458138 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4CC3CEB828ACFB4D00458138 /* Theme.swift */,
+				4CA59E9028AD504F002C0FA9 /* ThemeRequestModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4CC4B7322896BDD500774192 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,7 +515,11 @@
 		4CC4B7372896BE0D00774192 /* Curation */ = {
 			isa = PBXGroup;
 			children = (
+				4CC3CEB728ACFB3300458138 /* Model */,
 				4CC4B7382896BF1C00774192 /* CurationView.swift */,
+				4CC3CEB528ACF77200458138 /* CurationCardView.swift */,
+				9B61D0F628AE92F700F6DD0B /* ThemeView.swift */,
+				9B61D0F828AE931600F6DD0B /* ThemeViewModel.swift */,
 			);
 			path = Curation;
 			sourceTree = "<group>";
@@ -568,6 +594,7 @@
 			isa = PBXGroup;
 			children = (
 				9BF513C628AD21F800104CAB /* ignored */,
+				4CC3CEA428AA8E3E00458138 /* ignored */,
 				9BF00BF2287AC72800F08035 /* Naenio.entitlements */,
 				9B085F082879991600DE8E60 /* Preview Content */,
 				9B085F2D287E353600DE8E60 /* Resources */,
@@ -1003,6 +1030,7 @@
 				9C8D603C28A38AD900632BCC /* UITextView */,
 				9C95B998289A678F00E0910C /* ButtonStyles */,
 				9C95B997289A672E00E0910C /* ViewModifiers */,
+				9B61D0FA28AE93EA00F6DD0B /* EmptyResultView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1233,6 +1261,7 @@
 				9BE602A3289548CF008F291C /* Pretendard-SemiBold.ttf in Resources */,
 				9BE602A5289548CF008F291C /* Pretendard-Regular.ttf in Resources */,
 				9BE602A0289548CF008F291C /* Pretendard-Medium.ttf in Resources */,
+				4CC3CEA528AA8E3E00458138 /* ignored in Resources */,
 				4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */,
 				9BE602B82895491B008F291C /* Montserrat-Regular.ttf in Resources */,
 				4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */,
@@ -1408,6 +1437,7 @@
 				9C3309D72888EE0D000C592F /* LoginView.swift in Sources */,
 				9BF513C028AD17C400104CAB /* LowSheetNotification.swift in Sources */,
 				9CB1DFB428AB765B0048B313 /* CustomNavigationBackButton.swift in Sources */,
+				9B61D0FB28AE93EA00F6DD0B /* EmptyResultView.swift in Sources */,
 				9BF513C928AD21F800104CAB /* KeyValue.swift in Sources */,
 				9CBCDCE728AE2D4F00C4C577 /* CardView.swift in Sources */,
 				9C95B99A289A679B00E0910C /* CapsuleButtonStyle.swift in Sources */,
@@ -1432,12 +1462,14 @@
 				9C95B98D289A3AAB00E0910C /* HomeView.swift in Sources */,
 				9B03732428A5551B0089CC48 /* KeyboardAdaptive.swift in Sources */,
 				9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */,
+				9B61D0F728AE92F700F6DD0B /* ThemeView.swift in Sources */,
 				9B03732D28A556020089CC48 /* UIResponder + Extension.swift in Sources */,
 				9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */,
 				4CC3CEAC28ABF95400458138 /* VoteResponseModel.swift in Sources */,
 				9BE60293289541B6008F291C /* Color + Extension.swift in Sources */,
 				9B03732F28A68A6B0089CC48 /* CommentViewModel.swift in Sources */,
 				9B03732B28A555D60089CC48 /* Notification + Extension.swift in Sources */,
+				4CA59E9128AD504F002C0FA9 /* ThemeRequestModel.swift in Sources */,
 				9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */,
 				9C95B98A289A359700E0910C /* OnboardingView.swift in Sources */,
 				9C8D603B28A3746500632BCC /* UIApplication + Extension.swift in Sources */,
@@ -1446,6 +1478,8 @@
 				4CC3CE9728AA8A3900458138 /* PostResponseModel.swift in Sources */,
 				9B8D409C28AE86B90024E989 /* VotesViewModel.swift in Sources */,
 				9CBCDCE328AE2A3700C4C577 /* FullView.swift in Sources */,
+				4CC3CE9928AA8A3900458138 /* PostRequestInformation.swift in Sources */,
+				4CC3CE9728AA8A3900458138 /* PostResponseModel.swift in Sources */,
 				4C4B133D2883C5EB006044B0 /* NaenioAPI+Wrapper.swift in Sources */,
 				9B3644BC28AB3B2200EA1467 /* ProfileImageSelectionSheetView.swift in Sources */,
 				9C95B99E289A8BCB00E0910C /* CardViewModel.swift in Sources */,
@@ -1453,6 +1487,7 @@
 				9C8D604E28A3CAE000632BCC /* ScrollViewHelper.swift in Sources */,
 				4C4B13432883D88A006044B0 /* HttpResponseCode.swift in Sources */,
 				4CC3CE9128AA8A2C00458138 /* SortType.swift in Sources */,
+				4CC3CEB928ACFB4D00458138 /* Theme.swift in Sources */,
 				9C68A29D28990015006D36B1 /* TokenManager.swift in Sources */,
 				4CB8945628A7A1E300BE2ECF /* AuthServiceType.swift in Sources */,
 				9B244070289E8DC30060A244 /* View + Exetension.swift in Sources */,
@@ -1495,9 +1530,11 @@
 				9B27A39828AD079700C63AB6 /* ShareManager.swift in Sources */,
 				4CC4B73B2896BF2500774192 /* MyPageView.swift in Sources */,
 				9C3309D12888ED16000C592F /* SignInWithKakaoButtonViewModel.swift in Sources */,
+				9B61D0F928AE931600F6DD0B /* ThemeViewModel.swift in Sources */,
 				9B86192F28A782990098AC8E /* CommentRepliesViewModel.swift in Sources */,
 				9CA7922D287BA90600600C32 /* UserInformation.swift in Sources */,
 				9CBCDCEB28AE3A7900C4C577 /* NewVoteButton.swift in Sources */,
+				4CC3CEB628ACF77200458138 /* CurationCardView.swift in Sources */,
 				9CE311CF28A63E7200EDB0F4 /* MockCommentGenerator.swift in Sources */,
 				9B478A5028A70F89007A4715 /* CommentCountComponent.swift in Sources */,
 				9BE13FEA28AA5566009ED95D /* ProfileChangeView.swift in Sources */,
