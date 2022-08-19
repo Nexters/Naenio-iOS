@@ -26,6 +26,17 @@ struct CommentRepliesView: View {
             Color.card
                 .ignoresSafeArea()
             
+            if viewModel.status == .loading {
+                VStack {
+                    Spacer()
+                    
+                    LoadingIndicator()
+                        .zIndex(1)
+                    
+                    Spacer()
+                }
+            }
+            
             ScrollView {
                 LazyVStack(spacing: 18) {
                     // placeholder

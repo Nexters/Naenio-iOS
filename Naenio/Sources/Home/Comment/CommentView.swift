@@ -30,7 +30,14 @@ struct CommentView: View {
                     .ignoresSafeArea()
                 
                 if viewModel.status == .loading {
-                    LoadingIndicator()
+                    VStack {
+                        Spacer()
+                        
+                        LoadingIndicator()
+                            .zIndex(1)
+                        
+                        Spacer()
+                    }
                 }
                 
                 ScrollView {
@@ -90,6 +97,7 @@ struct CommentView: View {
                     }
                 }
                 
+                // 키보드
                 VStack {
                     Spacer()
                     
