@@ -731,6 +731,7 @@
 			);
 			name = ignored;
 			path = ../../ignored;
+		};
 		9B27A39628AD078F00C63AB6 /* Share */ = {
 			isa = PBXGroup;
 			children = (
