@@ -16,11 +16,7 @@ struct HomeView: View {
     @State var showNewPost = false
     
     @State var showComments = false
-    @State var selectedPostId: Int? = nil {
-        didSet {
-            self.showComments = true
-        }
-    }
+    @State var selectedPostId: Int? = nil
     
     var body: some View {
             ZStack(alignment: .bottomTrailing) {
@@ -56,8 +52,10 @@ struct HomeView: View {
                                         FullView(post: post))
                                     ) {
                                         CardView(post: post) {
-                                            withAnimation(.spring()) {
-                                                selectedPostId = post.wrappedValue.id
+                                            DispatchQueue.main.async {
+                                                self.selectedPostId = post.wrappedValue.id
+                                                self.showComments = true
+
                                                 print(selectedPostId)
                                             }
                                         }
@@ -134,7 +132,7 @@ struct HomeView: View {
                     .environmentObject(viewModel)
             }
             .sheet(isPresented: $showComments) {
-                CommentView(isPresented: $showComments, parentId: self.selectedPostId)
+                CommentView(isPresented: $showComments, parentId: $selectedPostId)
             }
         }
         

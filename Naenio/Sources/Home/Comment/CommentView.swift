@@ -15,11 +15,11 @@ struct CommentView: View {
     @State var text: String = "" // 메시지 작성용
     
     @Binding var isPresented: Bool
-    let parentId: Int?
+    @Binding var parentId: Int?
     
-    init(isPresented: Binding<Bool>, parentId: Int?) {
+    init(isPresented: Binding<Bool>, parentId: Binding<Int?>) {
         self._isPresented = isPresented
-        self.parentId = parentId
+        self._parentId = parentId
         print("init", parentId)
     }
     
@@ -49,7 +49,8 @@ struct CommentView: View {
                             CloseButton(action: { isPresented = false })
                                 .frame(width: 12, height: 12)
                         }
-                        ForEach(Array(viewModel.comments.enumerated()), id: \.element.id) { (index, comment) in
+                        
+                        ForEach(viewModel.comments, id: \.id) { comment in
                             CustomDivider()
                                 .fillHorizontal()
                             

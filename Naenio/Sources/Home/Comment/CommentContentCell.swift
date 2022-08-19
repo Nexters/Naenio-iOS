@@ -19,7 +19,8 @@ struct CommentContentCell: View {
     
     var body: some View {
         HStack(alignment: .top, spacing: 8) {
-            NavigationLink(destination: CommentRepliesView(isPresented: $isPresented, comment: comment, parentId: parentId), isActive: $isNavigationActive) {
+            NavigationLink(destination: CommentRepliesView(isPresented: $isPresented, comment: comment, parentId: parentId),
+                           isActive: $isNavigationActive) {
                 EmptyView()
             }
 
