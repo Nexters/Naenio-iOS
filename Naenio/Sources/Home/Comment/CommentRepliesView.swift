@@ -92,7 +92,7 @@ struct CommentRepliesView: View {
                     WrappedTextView(placeholder: "댓글 추가", content: $text, characterLimit: 100, showLimit: false, isTight: true)
                     
                     Button(action: {
-                        viewModel.registerComment(self.text, parentID: self.parentId, type: .comment)
+                        viewModel.registerComment(self.text, postId: self.parentId, type: .comment)
                     }) {
                         Text("게시")
                             .font(.semoBold(size: 14))
@@ -108,7 +108,7 @@ struct CommentRepliesView: View {
         .navigationBarHidden(true)
         .redacted(reason: viewModel.status == .loading ? .placeholder : [])
         .onAppear {
-            viewModel.requestComments(postId: parentId, isFirstRequest: true)
+            viewModel.requestComments(isFirstRequest: true)
         }
     }
 }

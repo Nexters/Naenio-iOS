@@ -22,7 +22,7 @@ class CommentViewModel: ObservableObject {
     @Published var status = Status.waiting
     @Published var lastCommentId: Int?
     
-    @Published var postId: Int = 0
+    @Published var postId: Int?
     @Published var isFirstRequest: Bool = true
     
     func transferToCommentModel(_ comment: CommentPostResponseModel) -> Comment {
@@ -30,9 +30,13 @@ class CommentViewModel: ObservableObject {
         return Comment(id: comment.id, author: author, content: comment.content, createdDatetime: comment.createdDateTime, likeCount: 0, isLiked: false, repliesCount: 0)
     }
 
-    func registerComment(_ content: String, parentID: Int, type: CommentType) {
+    func registerComment(_ content: String, postId: Int?, type: CommentType) {
+        guard let postId = postId else {
+            return
+        }
+        
         status = .loading
-        let commentRequestModel = CommentPostRequestModel(parentID: parentID, parentType: type.rawValue, content: content)
+        let commentRequestModel = CommentPostRequestModel(parentID: postId, parentType: type.rawValue, content: content)
         
         RequestService<CommentPostResponseModel>.request(api: .postComment(commentRequestModel))
             .subscribe(on: serialQueue)
@@ -56,11 +60,11 @@ class CommentViewModel: ObservableObject {
             .disposed(by: bag)
     }
     
-    @objc func requestcommentAction() {
-        self.requestComments(postId: postId, isFirstRequest: isFirstRequest)
-    }
-    func requestComments(postId: Int, isFirstRequest: Bool) {
+    @objc func requestComments(isFirstRequest: Bool = true) {        
         status = .loading
+        guard let postId = self.postId else {
+            return
+        }
         
         let commentListRequestModel = CommentListRequestModel(size: pageSize, lastCommentId: isFirstRequest ? nil : lastCommentId)
         RequestService<CommentModel>.request(api: .getComment(postId: postId, model: commentListRequestModel))

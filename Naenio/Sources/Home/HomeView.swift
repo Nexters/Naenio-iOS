@@ -14,7 +14,13 @@ struct HomeView: View {
     @ObservedObject var scrollViewHelper = ScrollViewHelper()
 
     @State var showNewPost = false
+    
     @State var showComments = false
+    @State var selectedPostId: Int? = nil {
+        didSet {
+            self.showComments = true
+        }
+    }
     
     var body: some View {
             ZStack(alignment: .bottomTrailing) {
@@ -51,8 +57,8 @@ struct HomeView: View {
                                     ) {
                                         CardView(post: post) {
                                             withAnimation(.spring()) {
-                                                showComments = true
-                                                selectedPostId = post.id
+                                                selectedPostId = post.wrappedValue.id
+                                                print(selectedPostId)
                                             }
                                         }
                                         .environmentObject(viewModel)
@@ -128,7 +134,7 @@ struct HomeView: View {
                     .environmentObject(viewModel)
             }
             .sheet(isPresented: $showComments) {
-                CommentView(isPresented: $showComments)
+                CommentView(isPresented: $showComments, parentId: self.selectedPostId)
             }
         }
         

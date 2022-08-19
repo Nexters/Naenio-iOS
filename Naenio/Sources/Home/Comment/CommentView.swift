@@ -12,9 +12,16 @@ struct CommentView: View {
     @StateObject var viewModel = CommentViewModel()
     @ObservedObject var scrollViewHelper = ScrollViewHelper()
     
-    @State var text: String = ""
+    @State var text: String = "" // 메시지 작성용
+    
     @Binding var isPresented: Bool
-    let parentId: Int
+    let parentId: Int?
+    
+    init(isPresented: Binding<Bool>, parentId: Int?) {
+        self._isPresented = isPresented
+        self.parentId = parentId
+        print("init", parentId)
+    }
     
     var body: some View {
         NavigationView {
@@ -22,9 +29,9 @@ struct CommentView: View {
                 Color.card
                     .ignoresSafeArea()
                 
-                //            if viewModel.status == .loading {
-                //                LoadingIndicator()
-                //            }
+                if viewModel.status == .loading {
+                    LoadingIndicator()
+                }
                 
                 ScrollView {
                     LazyVStack(spacing: 18) {
@@ -44,11 +51,23 @@ struct CommentView: View {
                         }
                         ForEach(Array(viewModel.comments.enumerated()), id: \.element.id) { (index, comment) in
                             CustomDivider()
-                                .frame(width: UIScreen.main.bounds.width)
+                                .fillHorizontal()
                             
-                            CommentContentCell(isPresented: $isPresented, comment: comment, isReply: false, parentId: parentId)
+                            if let parentId = parentId {
+                                CommentContentCell(isPresented: $isPresented, comment: comment, isReply: false, parentId: parentId)
+                            } else {
+                                ZStack {
+                                    Text("⚠️ 일시적인 오류가 발생했습니다")
+                                        .font(.semoBold(size: 16))
+                                        .foregroundColor(.white)
+                                    
+                                    CommentContentCell(isPresented: $isPresented, comment: comment, isReply: false, parentId: -1)
+                                        .blur(radius: 2)
+                                }
+                            }
                         }
                         
+                        // Bottom place holder
                         Rectangle()
                             .fill(.clear)
                             .frame(height: 80)
@@ -56,15 +75,7 @@ struct CommentView: View {
                     .padding(.horizontal, 20)
                 }
                 .introspectScrollView { scrollView in
-                    let control = scrollViewHelper.refreshController
-                    viewModel.isFirstRequest = true
-                    viewModel.postId = self.parentId
-                    
-                    control.addTarget(viewModel, action: #selector(viewModel.requestcommentAction), for: .valueChanged)
-                    control.tintColor = .yellow
-                    
                     scrollView.keyboardDismissMode = .onDrag
-                    scrollView.refreshControl = control
                     scrollView.delegate = scrollViewHelper
                 }
                 .onChange(of: viewModel.status) { status in
@@ -89,7 +100,7 @@ struct CommentView: View {
                         WrappedTextView(placeholder: "댓글 추가", content: $text, characterLimit: 100, showLimit: false, isTight: true)
                         
                         Button(action: {
-                            viewModel.registerComment(self.text, parentID: self.parentId, type: .post)
+                            viewModel.registerComment(self.text, postId: self.parentId, type: .post)
                             UIApplication.shared.endEditing()
                             text = ""
                         }) {
@@ -108,9 +119,11 @@ struct CommentView: View {
             }
             .navigationBarHidden(true)
         }
-        .redacted(reason: viewModel.status == .loading ? .placeholder : [])
         .onAppear {
-            viewModel.requestComments(postId: parentId, isFirstRequest: true)
+            viewModel.postId = self.parentId
+            viewModel.requestComments(isFirstRequest: true)
+
+            viewModel.isFirstRequest = true
         }
     }
 }

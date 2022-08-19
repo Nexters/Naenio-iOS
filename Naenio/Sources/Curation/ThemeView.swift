@@ -15,6 +15,7 @@ struct ThemeView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State var showComments = false
+    @State var selectedPostId: Int?
     private let theme: ThemeType
     
     var body: some View {
@@ -52,6 +53,7 @@ struct ThemeView: View {
                                     CardView(post: post) {
                                         withAnimation(.spring()) {
                                             showComments = true
+                                            selectedPostId = post.wrappedValue.id
                                         }
                                     }
                                     .environmentObject(viewModel)
@@ -100,7 +102,7 @@ struct ThemeView: View {
         }
         .navigationBarHidden(true)
         .sheet(isPresented: $showComments) {
-            CommentView(isPresented: $showComments)
+            CommentView(isPresented: $showComments, parentId: selectedPostId)
         }
     }
     
