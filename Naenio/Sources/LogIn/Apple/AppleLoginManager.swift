@@ -25,7 +25,6 @@ class AppleLoginManager {
            let stringToken = String(data: token, encoding: .utf8) {
             let loginInfo = LoginRequestInformation(authToken: stringToken, authServiceType: AuthServiceType.apple.rawValue)
             
-            UserManager.shared.updateAuthServiceType(AuthServiceType.apple.rawValue)
             return RequestService<UserInformation>.request(api: .login(loginInfo))
         } else {
             return Single<UserInformation>.error(URLError(.badServerResponse))

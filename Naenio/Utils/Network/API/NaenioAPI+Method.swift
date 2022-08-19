@@ -9,7 +9,8 @@ extension NaenioAPI {
     func getMehod() -> Moya.Method {
         switch self {
         case .signOut, .withDrawal, .login, .postPost, .postVote, .postComment: return .post
-        case .getFeed, .getTheme, .getComment, .getSinglePost: return .get
+        case .getUser, .getFeed, .getTheme, .getComment, .getSinglePost, .getIsNicknameAvailable: return .get
+        case .putNickname, .putProfileIndex: return .put
         }
     }
 }

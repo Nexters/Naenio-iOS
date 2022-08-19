@@ -28,8 +28,6 @@ extension MyPageAuthCell {
     }
 }
 
-
-
 struct MyPageCell_Previews: PreviewProvider {
     static var previews: some View {
         MyPageAuthCell(authType: .kakao)

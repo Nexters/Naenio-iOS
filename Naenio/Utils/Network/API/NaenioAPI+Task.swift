@@ -15,20 +15,30 @@ extension NaenioAPI {
             
         case .login(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
+            
         case .postPost(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
-        case .getFeed(let request):
-            return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
         case .postVote(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
+        case .postComment(let request):
+            return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
+            
+        case .getUser(let request):
+            return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
+        case .getFeed(let request):
+            return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
         case .getSinglePost(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
         case .getTheme(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
-        case .postComment(let request):
-            return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
         case .getComment(let _, let model):
             return .requestParameters(parameters: model.toDictionary(), encoding: URLEncoding.default)
+        case .getIsNicknameAvailable(let request):
+            return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
+        case .putNickname(let request):
+            return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
+        case .putProfileIndex(let request):
+            return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
         }
     }
 }

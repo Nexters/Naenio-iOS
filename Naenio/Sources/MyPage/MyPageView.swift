@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MyPageView: View {
+    @ObservedObject var viewModel = MyPageViewModel()
+    
     private let personalCells: [CellData] = [
         CellData(name: "✏️ 작성한 댓글", destination: Text("dest"))
     ]
@@ -79,9 +81,12 @@ struct MyPageView: View {
 extension MyPageView {
     var headerWithUserInformation: some View {
         HStack(spacing: 17) {
-            Circle()
+            viewModel.profileImage
+                .resizable()
+                .scaledToFit()
                 .frame(width: 61, height: 61)
-            Text("김만두")
+            
+            Text(viewModel.nickname)
                 .font(.semoBold(size: 22))
             
             Spacer()
@@ -99,13 +104,11 @@ extension MyPageView {
 }
 
 // Data model
-
 fileprivate struct CellData<V: View>: Identifiable {
     let id = UUID()
     let name: String
     let destination: V
 }
-
 
 struct MyPageView_Previews: PreviewProvider {
     static var previews: some View {

@@ -14,12 +14,18 @@ extension NaenioAPI {
         case .signOut: return "/app/signOut"
         case .withDrawal: return "/app/withDrawal"
             
-        case .postPost, .getTheme: return "/app/posts"
-        case .getFeed: return "/app/feed"
         case .postVote: return "/app/votes"
         case .postComment: return "/app/comments"
+        case .postPost, .getTheme: return "/app/posts"
+            
+        case .getUser: return "app/members/me"
+        case .getFeed: return "/app/feed"
         case .getComment(let postId, _): return "/app/posts/\(postId)/comments"
         case .getSinglePost(let info): return "/app/posts/\(info.id)"
+        case .getIsNicknameAvailable(let nickname): return "/app/members/exist?nickname=\(nickname)"
+            
+        case .putNickname(let nickname): return "/app/members/nickname"
+        case .putProfileIndex(let index): return "/app/members/profile-image"
         }
     }
 }

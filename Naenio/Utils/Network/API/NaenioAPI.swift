@@ -16,13 +16,19 @@ enum NaenioAPI {
     case signOut(token: String)
     case withDrawal(token: String)
     
-    case getFeed(FeedRequestInformation)
     case postPost(PostRequestInformation)
     case postVote(VoteRequestModel)
     case postComment(CommentPostRequestModel)
+    
+    case getUser(String)
+    case getFeed(FeedRequestInformation)
     case getComment(postId: Int, model: CommentListRequestModel)
     case getTheme(ThemeRequestModel)
     case getSinglePost(SinglePostRequestInformation)
+    case getIsNicknameAvailable(String)
+    
+    case putNickname(String)
+    case putProfileIndex(Int)
 }
 
 extension NaenioAPI: TargetType {

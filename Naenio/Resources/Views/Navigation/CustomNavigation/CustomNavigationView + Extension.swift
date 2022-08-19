@@ -13,8 +13,16 @@ extension CustomNavigationView {
         case none
     }
     
-    func addLeadingButton(title: String, disabled: Bool, action: @escaping () -> Void) -> CustomNavigationView {
-        self.configuration.trailingButton = CustomNavigationButton(title: title, disabled: disabled, action: action)
+    func hideLeadingButton(_ value: Bool) -> CustomNavigationView {
+        if value {
+            self.configuration.leadingButton = nil
+        }
+
+        return self
+    }
+    
+    func addLeadingButton(title: String, action: @escaping () -> Void) -> CustomNavigationView {
+        self.configuration.leadingButton = CustomNavigationBackButton(action: action)
         
         return self
     }

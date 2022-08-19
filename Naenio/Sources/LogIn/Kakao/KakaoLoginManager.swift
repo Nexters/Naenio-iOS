@@ -15,9 +15,7 @@ class KakaoLoginManager {
     func requestLoginToServer(with result: OAuthToken) -> Single<UserInformation> {
         let token = result.accessToken
         let loginInfo = LoginRequestInformation(authToken: token, authServiceType: AuthServiceType.kakao.rawValue)
-        UserManager.shared.updateAuthServiceType(AuthServiceType.kakao.rawValue)
         
         return RequestService<UserInformation>.request(api: .login(loginInfo))
-
     }
 }

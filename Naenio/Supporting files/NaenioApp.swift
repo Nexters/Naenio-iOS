@@ -12,7 +12,7 @@ import KakaoSDKCommon
 @main
 struct NaenioApp: App {
     @ObservedObject var tokenManager = TokenManager()
-    @ObservedObject var userManager = UserManager()
+    @ObservedObject var userManager = UserManager.shared
     
     @State var isLinkOpened = false
     @State var arrivedPostId: Int = 0 {
@@ -25,10 +25,8 @@ struct NaenioApp: App {
         // Kakao SDK 초기화
         KakaoSDK.initSDK(appKey: KeyValue.kakaoAPIkey)
         
-        UITextView.appearance().backgroundColor = .clear
-        
-        if tokenManager.isTokenAvailable {
-            userManager.updateUserInformation(authServiceType: self.userManager.user?.authServiceType ?? "")
+        if tokenManager.isTokenAvailable, let token = tokenManager.accessToken {
+            userManager.updateUserData(with: token)
         }
     }
     
@@ -39,7 +37,7 @@ struct NaenioApp: App {
                     LoginView()
                         .environmentObject(tokenManager)
                         .environmentObject(userManager)
-                } else if userManager.user == nil,
+                } else if userManager.user?.nickname == nil,
                           userManager.status == .fetched {
                     OnboardingView()
                         .environmentObject(userManager)
@@ -47,6 +45,7 @@ struct NaenioApp: App {
                           userManager.user != nil,
                           userManager.status == .fetched {
                     MainView()
+                        .environmentObject(userManager)
                         .onOpenURL { url in
                             guard let postId = handleUrl(url) else {
                                 return
@@ -61,6 +60,8 @@ struct NaenioApp: App {
                         )
                 } else {
                     ZStack(alignment: .center) {
+                        Color.background
+                            .ignoresSafeArea()
 //                        Color.maskGradientVertical
 //                            .ignoresSafeArea()
 //                            .zIndex(0.1)

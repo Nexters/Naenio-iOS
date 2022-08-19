@@ -6,12 +6,60 @@
 //
 
 import SwiftUI
+import RxSwift
 
 class ProfileChangeViewModel: ObservableObject {
-    @Published var status: NetworkStatus<UserInformation> = .waiting
+    // Dependencies
+    let userManager: UserManager = UserManager.shared
     
-    func submitUserRequest(_ user: User?) { // TODO: 옵셔널 나중에 고치기
-        self.status = .done(result: UserInformation(token: "")) // 임시
+    private var bag = DisposeBag()
+    private let serialQueue = SerialDispatchQueueScheduler.init(qos: .userInitiated)
+    
+    @Published var status: NetworkStatus<Bool> = .waiting
+    
+    func getIsNicknameDuplicated(nickname: String) {
+        RequestService<AvailableNicknameResponseModel>.request(api: .getIsNicknameAvailable(nickname))
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onSuccess: { [weak self] response in
+                    guard let self = self else { return }
+                    let isAvailable = response.exist
+                    
+                    print("Success getIsNicknameDuplicated")
+                    
+                    self.status = .done(result: isAvailable)
+                }, onFailure: { [weak self] error in
+                    guard let self = self else { return }
+                    
+                    self.status = .fail(with: error)
+                })
+            .disposed(by: bag)
+    }
+    
+    func submitChangeNicknameRequest(_ nickname: String) {
+        if nickname.isEmpty {
+            return
+        }
+        
+        // TODO: 서버 API 붙여야 함!!!
+        // if networkingSuccessed {
+        userManager.updateNickName(nickname)
+        self.status = .done(result: true) // 임시
+        // }
+        
+    }
+    
+    func submitChangeProfileRequest(_ index: Int) {
+        if index < 0 || index >= ProfileImages.count {
+            return
+        }
+        
+        // TODO: 서버 API 붙여야 함!!!
+        // if networkingSuccessed {
+        userManager.updateProfileImageIndex(index)
+        self.status = .done(result: true) // 임시
+        // }
+        
     }
     
     init() {

@@ -31,7 +31,6 @@ struct LoginView: View {
                 
                 Image("wordmark")
                 
-//                Text(viewModel.status.description)
                 Spacer()
                 
                 loginButtons
@@ -58,10 +57,7 @@ struct LoginView: View {
                 switch result {
                 case .done(result: let userInfo):
                     tokenManager.saveToken(userInfo.token)
-                    
-                    if tokenManager.isTokenAvailable {
-                        userManager.updateUserInformation(authServiceType: UserManager.shared.user?.authServiceType ?? "")
-                    }
+                    userManager.updateUserData(with: userInfo.token)
                 default:
                     // TODO: Show alert
                     return
@@ -95,10 +91,8 @@ extension LoginView {
             switch result {
             case .done(result: let userInfo):
                 tokenManager.saveToken(userInfo.token)
-                
-                if tokenManager.isTokenAvailable {
-                    userManager.updateUserInformation(authServiceType: UserManager.shared.user?.authServiceType ?? "")
-                }
+                userManager.updateUserData(with: userInfo.token)
+
             default:
                 // TODO: Show alert
                 return
