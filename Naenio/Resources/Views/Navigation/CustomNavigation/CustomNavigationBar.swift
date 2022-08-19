@@ -33,9 +33,12 @@ struct CustomNavigationBar: View {
         }
     }
     
-    init(title: String, leading: CustomNavigationBackButton? = CustomNavigationBackButton(action: nil), trailing: CustomNavigationButton? = nil) {
+    init(title: String,
+         leading: CustomNavigationBackButton?,
+         trailing: CustomNavigationButton?) {
         self.title = title
         self.leadingButton = leading
         self.trailingButton = trailing
+        print(leading)
     }
 }

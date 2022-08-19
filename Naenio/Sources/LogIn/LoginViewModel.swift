@@ -14,6 +14,8 @@ class LoginViewModel: ObservableObject {
     // Dependencies
     let appleLoginManager: AppleLoginManager
     let kakaoLoginManager: KakaoLoginManager
+    let userManager: UserManager
+    
     let concurrentQueue = ConcurrentDispatchQueueScheduler(qos: .userInitiated)
     
     // Published vars
@@ -42,6 +44,7 @@ class LoginViewModel: ObservableObject {
                     DispatchQueue.main.async {
                         self.status = .done(result: userInfo)
                     }
+                    self.userManager.updateAuth(.apple)
                 },
                 onFailure: { [weak self] error in
                     guard let self = self else { return }
@@ -76,6 +79,7 @@ class LoginViewModel: ObservableObject {
                     DispatchQueue.main.async {
                         self.status = .done(result: userInfo)
                     }
+                    self.userManager.updateAuth(.kakao)
                 },
                 onFailure: { [weak self] error in
                     guard let self = self else { return }
@@ -93,9 +97,12 @@ class LoginViewModel: ObservableObject {
     }
     
     init(_ appleLoginManager: AppleLoginManager = AppleLoginManager(),
-         _ kakaoLoginManager: KakaoLoginManager = KakaoLoginManager()) {
+         _ kakaoLoginManager: KakaoLoginManager = KakaoLoginManager(),
+         _ userManager: UserManager = UserManager.shared)
+    {
         self.appleLoginManager = appleLoginManager
         self.kakaoLoginManager = kakaoLoginManager
+        self.userManager = userManager
     }
     
 #if DEBUG

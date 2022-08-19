@@ -8,6 +8,7 @@
 import Foundation
 
 enum LocalStorageKeys: String {
+    case id
     case accessToken
     case nickname
     case profileIamgeIndex

@@ -31,6 +31,8 @@ struct ProfileChangeView: View {
     @State var profileImageIndex: Int = 0 // !!!: 나중에 유저 모델의 인덱스로 바뀌어야 함
     @State var text: String = ""
     
+    private let showBackButton: Bool
+    
     var body: some View {
         CustomNavigationView(title: "프로필 변경") {
             ZStack {
@@ -70,9 +72,9 @@ struct ProfileChangeView: View {
             }
         }
         .addTrailingButton(title: "등록", disabled: text.isEmpty, action: {
-            print(viewModel.status)
             viewModel.submitUserRequest(nil)
         })
+        .hideLeadingButton(showBackButton == false)
         .onChange(of: viewModel.status) { value in // Observe status of API request
             print(value)
             switch value {
@@ -105,5 +107,9 @@ struct ProfileChangeView: View {
                 .scaledToFit()
                 .frame(width: 30, height: 30)
         }
+    }
+    
+    init(showBackButton: Bool = true) {
+        self.showBackButton = showBackButton
     }
 }

@@ -10,32 +10,32 @@ import Moya
 import Alamofire
 
 extension NaenioAPI {
-  func handleInternetConnection<T: Any>(error: Error) throws -> Single<T> {
-    guard
-      let urlError = Self.convertToURLError(error),
-      Self.isNotConnected(error: error)
-    else { throw error }
-    throw NaenioAPIError.internetConnection(urlError)
-  }
+    func handleInternetConnection<T: Any>(error: Error) throws -> Single<T> {
+        guard
+            let urlError = Self.convertToURLError(error),
+            Self.isNotConnected(error: error)
+        else { throw error }
+        throw NaenioAPIError.internetConnection(urlError)
+    }
     
     func handleTimeOut<T: Any>(error: Error) throws -> Single<T> {
-      guard
-        let urlError = Self.convertToURLError(error),
-        urlError.code == .timedOut
-      else { throw error }
-      throw NaenioAPIError.requestTimeout(urlError)
+        guard
+            let urlError = Self.convertToURLError(error),
+            urlError.code == .timedOut
+        else { throw error }
+        throw NaenioAPIError.requestTimeout(urlError)
     }
-  
-  func handleREST<T: Any>(error: Error) throws -> Single<T> {
-    guard error is NaenioAPIError else {
-      throw NaenioAPIError.restError(
-        error,
-        statusCode: (error as? MoyaError)?.response?.statusCode,
-        errorCode: (try? (error as? MoyaError)?.response?.mapJSON() as? [String: Any])?["code"] as? String
-      )
+    
+    func handleREST<T: Any>(error: Error) throws -> Single<T> {
+        guard error is NaenioAPIError else {
+            throw NaenioAPIError.restError(
+                error,
+                statusCode: (error as? MoyaError)?.response?.statusCode,
+                errorCode: (try? (error as? MoyaError)?.response?.mapJSON() as? [String: Any])?["code"] as? String
+            )
+        }
+        throw error
     }
-    throw error
-  }
 }
 
 enum NaenioAPIError: Error {
