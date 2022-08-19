@@ -9,7 +9,7 @@ import SwiftUI
 import RxSwift
 
 class UserManager: ObservableObject {
-    static let shared = UserManager()
+    static let shared = UserManager() // FIXME: 흑마법이라 나중에 고쳐야 될 듯..(전역적으로 공유되는 observedobject)
     private let localStorageManager: LocalStorageManager
     
     @Published private(set) var status: UserStatus = .waiting
@@ -38,7 +38,7 @@ class UserManager: ObservableObject {
 
                     self.user = user
                     self.updateLocalUserData(with: user)
-                    print("RX \(user)")
+                    print("RX \(user) \(self.getNickName())")
                     self.status = .fetched
                 }, onFailure: { [weak self] error in
                     guard let self = self else { return }

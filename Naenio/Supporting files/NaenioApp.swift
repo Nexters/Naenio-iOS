@@ -12,7 +12,7 @@ import KakaoSDKCommon
 @main
 struct NaenioApp: App {
     @ObservedObject var tokenManager = TokenManager()
-    @ObservedObject var userManager = UserManager()
+    @ObservedObject var userManager = UserManager.shared
     
     @State var isLinkOpened = false
     @State var arrivedPostId: Int = 0 {

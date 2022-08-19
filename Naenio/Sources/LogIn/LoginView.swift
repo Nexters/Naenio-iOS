@@ -31,7 +31,6 @@ struct LoginView: View {
                 
                 Image("wordmark")
                 
-//                Text(viewModel.status.description)
                 Spacer()
                 
                 loginButtons

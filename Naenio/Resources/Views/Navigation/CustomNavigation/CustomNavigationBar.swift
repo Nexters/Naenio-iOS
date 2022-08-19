@@ -39,6 +39,5 @@ struct CustomNavigationBar: View {
         self.title = title
         self.leadingButton = leading
         self.trailingButton = trailing
-        print(leading)
     }
 }

@@ -72,10 +72,10 @@ struct ProfileChangeView: View {
         }
         .addTrailingButton(title: "등록", disabled: text.isEmpty, action: {
             viewModel.submitChangeNicknameRequest(text)
+            print(viewModel.userManager.user)
         })
         .hideLeadingButton(showBackButton == false)
         .onChange(of: viewModel.status) { value in // Observe status of API request
-            print(value)
             switch value {
             case .done(_):
                 presentationMode.wrappedValue.dismiss()

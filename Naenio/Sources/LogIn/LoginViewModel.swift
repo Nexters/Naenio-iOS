@@ -41,17 +41,12 @@ class LoginViewModel: ObservableObject {
                 onSuccess: { [weak self] userInfo in
                     guard let self = self else { return }
                     
-                    DispatchQueue.main.async {
-                        self.status = .done(result: userInfo)
-                    }
+                    self.status = .done(result: userInfo)
                     self.userManager.updateAuth(.apple)
                 },
                 onFailure: { [weak self] error in
                     guard let self = self else { return }
-                    
-                    DispatchQueue.main.async {
-                        self.status = .fail(with: error)
-                    }
+                    self.status = .fail(with: error)
                 },
                 onDisposed: {
                 }
@@ -75,17 +70,13 @@ class LoginViewModel: ObservableObject {
             .subscribe(
                 onSuccess: { [weak self] userInfo in
                     guard let self = self else { return }
-                    // Save(userInfo)
-                    DispatchQueue.main.async {
-                        self.status = .done(result: userInfo)
-                    }
+                    
+                    self.status = .done(result: userInfo)
                     self.userManager.updateAuth(.kakao)
                 },
                 onFailure: { [weak self] error in
                     guard let self = self else { return }
-                    DispatchQueue.main.async {
-                        self.status = .fail(with: error)
-                    }
+                    self.status = .fail(with: error)
                 },
                 onDisposed: {
 #if DEBUG
