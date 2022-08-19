@@ -8,8 +8,8 @@ import Moya
 extension NaenioAPI {
     func getMehod() -> Moya.Method {
         switch self {
-        case .signOut, .withDrawal, .login, .postPost, .postVote: return .post
-        case .getFeed, .getSinglePost, .getTheme: return .get
+        case .signOut, .withDrawal, .login, .postPost, .postVote, .postComment: return .post
+        case .getFeed, .getTheme, .getComment: return .get
         }
     }
 }

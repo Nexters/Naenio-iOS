@@ -14,6 +14,7 @@ struct CommentView: View {
     
     @State var text: String = ""
     @Binding var isPresented: Bool
+    let parentId: Int
     
     var body: some View {
         NavigationView {
@@ -41,12 +42,11 @@ struct CommentView: View {
                             CloseButton(action: { isPresented = false })
                                 .frame(width: 12, height: 12)
                         }
-                        
-                        ForEach(viewModel.comments, id: \.id) { comment in
+                        ForEach(Array(viewModel.comments.enumerated()), id: \.element.id) { (index, comment) in
                             CustomDivider()
                                 .frame(width: UIScreen.main.bounds.width)
                             
-                            CommentContentCell(isPresented: $isPresented, comment: comment, isReply: false)
+                            CommentContentCell(isPresented: $isPresented, comment: comment, isReply: false, parentId: parentId)
                         }
                         
                         Rectangle()
@@ -56,8 +56,26 @@ struct CommentView: View {
                     .padding(.horizontal, 20)
                 }
                 .introspectScrollView { scrollView in
+                    let control = scrollViewHelper.refreshController
+                    viewModel.isFirstRequest = true
+                    viewModel.postId = self.parentId
+                    
+                    control.addTarget(viewModel, action: #selector(viewModel.requestcommentAction), for: .valueChanged)
+                    control.tintColor = .yellow
+                    
                     scrollView.keyboardDismissMode = .onDrag
+                    scrollView.refreshControl = control
                     scrollView.delegate = scrollViewHelper
+                }
+                .onChange(of: viewModel.status) { status in
+                    switch status {
+                    case .done:
+                        scrollViewHelper.refreshController.endRefreshing()
+                    case .fail(with: _):
+                        scrollViewHelper.refreshController.endRefreshing()
+                    default:
+                        break
+                    }
                 }
                 
                 VStack {
@@ -71,7 +89,7 @@ struct CommentView: View {
                         WrappedTextView(placeholder: "댓글 추가", content: $text, characterLimit: 100, showLimit: false, isTight: true)
                         
                         Button(action: {
-                            viewModel.registerComment(self.text, parentID: viewModel.parentID)
+                            viewModel.registerComment(self.text, parentID: self.parentId, type: .post)
                             UIApplication.shared.endEditing()
                             text = ""
                         }) {
@@ -92,7 +110,7 @@ struct CommentView: View {
         }
         .redacted(reason: viewModel.status == .loading ? .placeholder : [])
         .onAppear {
-            viewModel.requestComments()
+            viewModel.requestComments(postId: parentId, isFirstRequest: true)
         }
     }
 }

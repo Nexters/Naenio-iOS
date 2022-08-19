@@ -21,6 +21,12 @@
 		4C4B134528847640006044B0 /* NaenioAPI+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B134428847640006044B0 /* NaenioAPI+Request.swift */; };
 		4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4CA47BC92890344400D300A7 /* .swiftlint.yml */; };
 		4CA59E9128AD504F002C0FA9 /* ThemeRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA59E9028AD504F002C0FA9 /* ThemeRequestModel.swift */; };
+		4CA59E9528AE24F6002C0FA9 /* HomeViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA59E9428AE24F6002C0FA9 /* HomeViewModelTest.swift */; };
+		4CA59EA128AE884E002C0FA9 /* CommentPostResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA59EA028AE884E002C0FA9 /* CommentPostResponseModel.swift */; };
+		4CA59EA328AE8888002C0FA9 /* CommentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA59EA228AE8888002C0FA9 /* CommentType.swift */; };
+		4CA59EAC28AE8D4E002C0FA9 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA59EAB28AE8D4E002C0FA9 /* KeyValue.swift */; };
+		4CA59EAE28AE9044002C0FA9 /* ignored in Resources */ = {isa = PBXBuildFile; fileRef = 4CA59EAD28AE9044002C0FA9 /* ignored */; };
+		4CA59EB028AEA3DF002C0FA9 /* CommentListRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA59EAF28AEA3DF002C0FA9 /* CommentListRequestModel.swift */; };
 		4CB4196A28A29C2700EBB777 /* TabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB4196928A29C2700EBB777 /* TabContentView.swift */; };
 		4CB8944928A74A0200BE2ECF /* NaenioAPI+Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8944828A74A0200BE2ECF /* NaenioAPI+Method.swift */; };
 		4CB8945628A7A1E300BE2ECF /* AuthServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8945528A7A1E300BE2ECF /* AuthServiceType.swift */; };
@@ -82,6 +88,7 @@
 		9B61D0F728AE92F700F6DD0B /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0F628AE92F700F6DD0B /* ThemeView.swift */; };
 		9B61D0F928AE931600F6DD0B /* ThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0F828AE931600F6DD0B /* ThemeViewModel.swift */; };
 		9B61D0FB28AE93EA00F6DD0B /* EmptyResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0FA28AE93EA00F6DD0B /* EmptyResultView.swift */; };
+		9B61D0E428A9050600F6DD0B /* CommentPostRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0E328A9050600F6DD0B /* CommentPostRequestModel.swift */; };
 		9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B687DE928954D4A0048AED0 /* Font + Extension.swift */; };
 		9B86192D28A77D920098AC8E /* CommentRepliesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86192C28A77D920098AC8E /* CommentRepliesView.swift */; };
 		9B86192F28A782990098AC8E /* CommentRepliesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86192E28A782990098AC8E /* CommentRepliesViewModel.swift */; };
@@ -165,7 +172,7 @@
 		9CCA2293289BAB0F00A2F9B0 /* MockPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA228F289BA4A900A2F9B0 /* MockPost.json */; };
 		9CCA2295289BB3CF00A2F9B0 /* MockPostList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA2294289BB28500A2F9B0 /* MockPostList.json */; };
 		9CE311CF28A63E7200EDB0F4 /* MockCommentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE311CE28A63E7200EDB0F4 /* MockCommentGenerator.swift */; };
-		9CE311D228A63FB300EDB0F4 /* CommentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE311D128A63FB300EDB0F4 /* CommentInformation.swift */; };
+		9CE311D228A63FB300EDB0F4 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE311D128A63FB300EDB0F4 /* CommentModel.swift */; };
 		9CE311D428A6439900EDB0F4 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE311D328A6439900EDB0F4 /* CommentView.swift */; };
 		D377232EF7564B4D94602233 /* Pods_Naenio_NaenioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AF541D3D8763AF8CB32F473 /* Pods_Naenio_NaenioUITests.framework */; };
 /* End PBXBuildFile section */
@@ -205,6 +212,12 @@
 		4C4B134428847640006044B0 /* NaenioAPI+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Request.swift"; sourceTree = "<group>"; };
 		4CA47BC92890344400D300A7 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		4CA59E9028AD504F002C0FA9 /* ThemeRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeRequestModel.swift; sourceTree = "<group>"; };
+		4CA59E9428AE24F6002C0FA9 /* HomeViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTest.swift; sourceTree = "<group>"; };
+		4CA59EA028AE884E002C0FA9 /* CommentPostResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentPostResponseModel.swift; sourceTree = "<group>"; };
+		4CA59EA228AE8888002C0FA9 /* CommentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentType.swift; sourceTree = "<group>"; };
+		4CA59EAB28AE8D4E002C0FA9 /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
+		4CA59EAD28AE9044002C0FA9 /* ignored */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ignored; sourceTree = "<group>"; };
+		4CA59EAF28AEA3DF002C0FA9 /* CommentListRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListRequestModel.swift; sourceTree = "<group>"; };
 		4CB4196928A29C2700EBB777 /* TabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContentView.swift; sourceTree = "<group>"; };
 		4CB8944828A74A0200BE2ECF /* NaenioAPI+Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Method.swift"; sourceTree = "<group>"; };
 		4CB8945528A7A1E300BE2ECF /* AuthServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceType.swift; sourceTree = "<group>"; };
@@ -270,6 +283,7 @@
 		9B61D0F628AE92F700F6DD0B /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
 		9B61D0F828AE931600F6DD0B /* ThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewModel.swift; sourceTree = "<group>"; };
 		9B61D0FA28AE93EA00F6DD0B /* EmptyResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResultView.swift; sourceTree = "<group>"; };
+		9B61D0E328A9050600F6DD0B /* CommentPostRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentPostRequestModel.swift; sourceTree = "<group>"; };
 		9B687DE928954D4A0048AED0 /* Font + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font + Extension.swift"; sourceTree = "<group>"; };
 		9B86192C28A77D920098AC8E /* CommentRepliesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesView.swift; sourceTree = "<group>"; };
 		9B86192E28A782990098AC8E /* CommentRepliesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesViewModel.swift; sourceTree = "<group>"; };
@@ -354,7 +368,7 @@
 		9CCA228F289BA4A900A2F9B0 /* MockPost.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPost.json; sourceTree = "<group>"; };
 		9CCA2294289BB28500A2F9B0 /* MockPostList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPostList.json; sourceTree = "<group>"; };
 		9CE311CE28A63E7200EDB0F4 /* MockCommentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCommentGenerator.swift; sourceTree = "<group>"; };
-		9CE311D128A63FB300EDB0F4 /* CommentInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInformation.swift; sourceTree = "<group>"; };
+		9CE311D128A63FB300EDB0F4 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
 		9CE311D328A6439900EDB0F4 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		A23C6C1FBD1AFD04C21BFC37 /* Pods-NaenioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaenioTests.debug.xcconfig"; path = "Target Support Files/Pods-NaenioTests/Pods-NaenioTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B546567C3E3421F07641077D /* Pods_Naenio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naenio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -440,6 +454,7 @@
 			isa = PBXGroup;
 			children = (
 				4CC296DF288055FD001950A2 /* HeaderInformation.swift */,
+				4CA59EAB28AE8D4E002C0FA9 /* KeyValue.swift */,
 				4C4B13422883D88A006044B0 /* HttpResponseCode.swift */,
 			);
 			path = Constants;
@@ -609,6 +624,7 @@
 				9B2B25DD28ADC54D009BDC9F /* ignored */,
 				9BF513C628AD21F800104CAB /* ignored */,
 				4CC3CEA428AA8E3E00458138 /* ignored */,
+				4CA59EAD28AE9044002C0FA9 /* ignored */,
 				9BF00BF2287AC72800F08035 /* Naenio.entitlements */,
 				9B085F082879991600DE8E60 /* Preview Content */,
 				9B085F2D287E353600DE8E60 /* Resources */,
@@ -1158,8 +1174,11 @@
 		9CE311D028A63FA300EDB0F4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9CE311D128A63FB300EDB0F4 /* CommentInformation.swift */,
-				9B61D0E328A9050600F6DD0B /* CommentRequestInformation.swift */,
+				9CE311D128A63FB300EDB0F4 /* CommentModel.swift */,
+				9B61D0E328A9050600F6DD0B /* CommentPostRequestModel.swift */,
+				4CA59EA028AE884E002C0FA9 /* CommentPostResponseModel.swift */,
+				4CA59EA228AE8888002C0FA9 /* CommentType.swift */,
+				4CA59EAF28AEA3DF002C0FA9 /* CommentListRequestModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1285,6 +1304,7 @@
 				9BE602A3289548CF008F291C /* Pretendard-SemiBold.ttf in Resources */,
 				9BE602A5289548CF008F291C /* Pretendard-Regular.ttf in Resources */,
 				9BE602A0289548CF008F291C /* Pretendard-Medium.ttf in Resources */,
+				4CA59EAE28AE9044002C0FA9 /* ignored in Resources */,
 				4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */,
 				9BE602B82895491B008F291C /* Montserrat-Regular.ttf in Resources */,
 				4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */,
@@ -1446,7 +1466,7 @@
 				4CC3CEAA28ABF94900458138 /* VoteRequestModel.swift in Sources */,
 				4CB4196A28A29C2700EBB777 /* TabContentView.swift in Sources */,
 				4C16915C289FF8DA000226BF /* TabBarView.swift in Sources */,
-				9CE311D228A63FB300EDB0F4 /* CommentInformation.swift in Sources */,
+				9CE311D228A63FB300EDB0F4 /* CommentModel.swift in Sources */,
 				4CC296DB28805366001950A2 /* NaenioAPI.swift in Sources */,
 				9CB1DFB028AB732B0048B313 /* CustomNavigationCongifuration.swift in Sources */,
 				9B478A5A28A72100007A4715 /* CustomDivider.swift in Sources */,
@@ -1465,6 +1485,7 @@
 				9CBCDCE728AE2D4F00C4C577 /* CardView.swift in Sources */,
 				9C95B99A289A679B00E0910C /* CapsuleButtonStyle.swift in Sources */,
 				9B86192D28A77D920098AC8E /* CommentRepliesView.swift in Sources */,
+				4CA59EA128AE884E002C0FA9 /* CommentPostResponseModel.swift in Sources */,
 				4CB8944928A74A0200BE2ECF /* NaenioAPI+Method.swift in Sources */,
 				4CC296D92880533C001950A2 /* DefaultSession.swift in Sources */,
 				9CBCDCE128AE24F200C4C577 /* OpenedByLinkFullView.swift in Sources */,
@@ -1506,6 +1527,7 @@
 				9B244075289E9AF10060A244 /* VotesViewModel.swift in Sources */,
 				4C4B133D2883C5EB006044B0 /* NaenioAPI+Wrapper.swift in Sources */,
 				9B3644BC28AB3B2200EA1467 /* ProfileImageSelectionSheetView.swift in Sources */,
+				4CA59EB028AEA3DF002C0FA9 /* CommentListRequestModel.swift in Sources */,
 				9C95B99E289A8BCB00E0910C /* CardViewModel.swift in Sources */,
 				4CC3CE9328AA8A2C00458138 /* FeedResponseModel.swift in Sources */,
 				9C8D604E28A3CAE000632BCC /* ScrollViewHelper.swift in Sources */,
@@ -1536,6 +1558,7 @@
 				4C4B133B2883C44C006044B0 /* TargetType+Extension.swift in Sources */,
 				9C68A29A2898F3A6006D36B1 /* LocalStorageManager.swift in Sources */,
 				9B478A5328A7127B007A4715 /* CloseButton.swift in Sources */,
+				4CA59EAC28AE8D4E002C0FA9 /* KeyValue.swift in Sources */,
 				4C4B133F2883CD32006044B0 /* ModelType.swift in Sources */,
 				9BE13FE028AA2187009ED95D /* MyPageCell.swift in Sources */,
 				9CA6DA8728A21CD10060610F /* NewPostView.swift in Sources */,
@@ -1551,7 +1574,7 @@
 				9BF513D228AD27FA00104CAB /* HapticManager.swift in Sources */,
 				9C95B996289A672800E0910C /* FillScreen.swift in Sources */,
 				9C3309D92888EE20000C592F /* LoginViewModel.swift in Sources */,
-				9B61D0E428A9050600F6DD0B /* CommentRequestInformation.swift in Sources */,
+				9B61D0E428A9050600F6DD0B /* CommentPostRequestModel.swift in Sources */,
 				9B244073289E9AA10060A244 /* VotesView.swift in Sources */,
 				9B27A39828AD079700C63AB6 /* ShareManager.swift in Sources */,
 				4CC4B73B2896BF2500774192 /* MyPageView.swift in Sources */,
@@ -1569,6 +1592,7 @@
 				4CC4B7342896BDE400774192 /* MainView.swift in Sources */,
 				9C69153628AC90EE00317489 /* LazyView.swift in Sources */,
 				9BF00C0B287ACFA900F08035 /* LoginRequestInformation.swift in Sources */,
+				4CA59EA328AE8888002C0FA9 /* CommentType.swift in Sources */,
 				9B8B98BA289948DA007336DE /* LocalStorageKeys.swift in Sources */,
 				9C3309CD2888EC52000C592F /* KakaoLoginManager.swift in Sources */,
 				9C8B5E0A289CEF000029BB66 /* MockPostGenerator.swift in Sources */,

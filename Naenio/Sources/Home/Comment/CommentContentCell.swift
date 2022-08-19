@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct CommentContentCell: View {
-    typealias Comment = CommentInformation.Comment
+    typealias Comment = CommentModel.Comment
     
     @Binding var isPresented: Bool
     @State var isNavigationActive: Bool = false
     
     let comment: Comment
     let isReply: Bool
+    let parentId: Int
     
     var body: some View {
         HStack(alignment: .top, spacing: 8) {
-            NavigationLink(destination: LazyView(CommentRepliesView(isPresented: $isPresented, comment: comment)),
-                           isActive: $isNavigationActive) {
+            NavigationLink( destination: CommentRepliesView(isPresented: $isPresented, comment: comment, parentId: parentId), isActive: $isNavigationActive) {
                 EmptyView()
             }
 
@@ -29,7 +29,7 @@ struct CommentContentCell: View {
             
             VStack(alignment: .leading, spacing: 9) {
                 HStack {
-                    Text(comment.author.nickname)
+                    Text(comment.author.nickname ?? "(알 수 없음)")
                         .font(.medium(size: 16))
                         .foregroundColor(.white)
 

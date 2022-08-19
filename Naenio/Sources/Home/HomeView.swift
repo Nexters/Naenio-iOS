@@ -52,6 +52,7 @@ struct HomeView: View {
                                         CardView(post: post) {
                                             withAnimation(.spring()) {
                                                 showComments = true
+                                                selectedPostId = post.id
                                             }
                                         }
                                         .environmentObject(viewModel)
