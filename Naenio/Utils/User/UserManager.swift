@@ -35,13 +35,10 @@ class UserManager: ObservableObject {
             .subscribe(
                 onSuccess: { [weak self] user in
                     guard let self = self else { return }
-                    print("RX \(user)")
 
                     self.user = user
                     self.updateLocalUserData(with: user)
-
                     print("RX \(user)")
-
                     self.status = .fetched
                 }, onFailure: { [weak self] error in
                     guard let self = self else { return }
@@ -52,7 +49,9 @@ class UserManager: ObservableObject {
     
     // MARK: - Updates
     
-    /// 로컬 스토리지 업데이트
+    /// 로컬 스토리지 한번에 업데이트
+    ///
+    /// 밖에서 쓸 일이 있을까 싶어서 일단 `private`
     private func updateLocalUserData(with user: User) {
         self.localStorageManager.save(user.id, key: self.idKey)
         self.localStorageManager.save(user.profileImageIndex, key: self.profileImageIndexKey)

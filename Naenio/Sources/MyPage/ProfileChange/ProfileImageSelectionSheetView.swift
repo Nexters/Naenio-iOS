@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ProfileImageSelectionSheetView: View {
+    // Dependencies
+    private let userManager: UserManager = UserManager.shared
+    
+    @Binding var isPresented: Bool
     @Binding var index: Int
     
     let columns: [GridItem] = [
@@ -24,7 +28,12 @@ struct ProfileImageSelectionSheetView: View {
                     .scaledToFit()
                     .frame(width: 85, height: 85)
                     .onTapGesture {
-                        self.index = index
+                        self.index = index // is needed?
+                        
+                        userManager.updateProfileImageIndex(index)
+                        HapticManager.shared.impact(style: .light)
+                        
+                        self.isPresented = false
                     }
             }
         }

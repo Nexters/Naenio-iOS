@@ -11,7 +11,6 @@ import Introspect
 struct ProfileChangeView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    // @EnvironmentObject userManager: UserManager
     @ObservedObject var viewModel = ProfileChangeViewModel()
     
     @State var showBottomSheet: Bool = false
@@ -61,7 +60,7 @@ struct ProfileChangeView: View {
                 .foregroundColor(.white)
             }
             .halfSheet(isPresented: $showBottomSheet, ratio: 0.67, topBarTitle: "이미지 선택") {
-                ProfileImageSelectionSheetView(index: $profileImageIndex)
+                ProfileImageSelectionSheetView(isPresented: $showBottomSheet, index: $profileImageIndex)
             }
         }
         .leadingButtonAction {
@@ -72,7 +71,7 @@ struct ProfileChangeView: View {
             }
         }
         .addTrailingButton(title: "등록", disabled: text.isEmpty, action: {
-            viewModel.submitUserRequest(nil)
+            viewModel.submitChangeNicknameRequest(text)
         })
         .hideLeadingButton(showBackButton == false)
         .onChange(of: viewModel.status) { value in // Observe status of API request

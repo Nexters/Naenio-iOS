@@ -25,6 +25,10 @@ enum NaenioAPI {
     case getComment(postId: Int, model: CommentListRequestModel)
     case getTheme(ThemeRequestModel)
     case getSinglePost(SinglePostRequestInformation)
+    case getIsNicknameAvailable(String)
+    
+    case putNickname(String)
+    case putProfileIndex(Int)
 }
 
 extension NaenioAPI: TargetType {
