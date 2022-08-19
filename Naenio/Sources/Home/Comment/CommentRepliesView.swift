@@ -26,6 +26,17 @@ struct CommentRepliesView: View {
             Color.card
                 .ignoresSafeArea()
             
+            if viewModel.status == .loading {
+                VStack {
+                    Spacer()
+                    
+                    LoadingIndicator()
+                        .zIndex(1)
+                    
+                    Spacer()
+                }
+            }
+            
             ScrollView {
                 LazyVStack(spacing: 18) {
                     // placeholder
@@ -106,7 +117,6 @@ struct CommentRepliesView: View {
             }
         }
         .navigationBarHidden(true)
-        .redacted(reason: viewModel.status == .loading ? .placeholder : [])
         .onAppear {
             viewModel.requestComments(isFirstRequest: true)
         }

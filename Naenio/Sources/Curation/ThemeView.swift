@@ -102,7 +102,7 @@ struct ThemeView: View {
         }
         .navigationBarHidden(true)
         .sheet(isPresented: $showComments) {
-            CommentView(isPresented: $showComments, parentId: selectedPostId)
+            CommentView(isPresented: $showComments, parentId: $selectedPostId)
         }
     }
     
