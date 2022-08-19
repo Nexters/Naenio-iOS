@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icon-empty.png",
+      "filename" : "logo_kako.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icon-empty@2x.png",
+      "filename" : "logo_kako@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icon-empty@3x.png",
+      "filename" : "logo_kako@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -44,7 +44,6 @@ class ProfileChangeViewModel: ObservableObject {
         // TODO: 서버 API 붙여야 함!!!
         // if networkingSuccessed {
         userManager.updateNickName(nickname)
-        print("viewmodel", userManager.getNickName())
         self.status = .done(result: true) // 임시
         // }
         
