@@ -83,7 +83,7 @@ class HomeViewModel: ObservableObject {
         bag = DisposeBag()
         status = .loading(reason: "sameCategoryPosts")
         
-        let feedRequestInformation: FeedRequestInformation = FeedRequestInformation(size: pagingSize, lastPostId: 10, sortType: sortType?.rawValue)
+        let feedRequestInformation: FeedRequestInformation = FeedRequestInformation(size: pagingSize, lastPostId: self.lastPostId, sortType: sortType?.rawValue)
 
         RequestService<FeedResponseModel>.request(api: .getFeed(feedRequestInformation))
             .subscribe(on: self.serialQueue)
