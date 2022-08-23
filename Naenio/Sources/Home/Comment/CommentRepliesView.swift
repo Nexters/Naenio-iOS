@@ -13,7 +13,7 @@ struct CommentRepliesView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Binding var isPresented: Bool
     
-    @ObservedObject var viewModel = CommentViewModel()
+    @ObservedObject var viewModel = CommentRepliesViewModel()
     @ObservedObject var scrollViewHelper = ScrollViewHelper()
     
     @State var text: String = ""
@@ -103,7 +103,7 @@ struct CommentRepliesView: View {
                     WrappedTextView(placeholder: "댓글 추가", content: $text, characterLimit: 100, showLimit: false, isTight: true)
                     
                     Button(action: {
-                        viewModel.registerComment(self.text, postId: self.parentId, type: .comment)
+                        viewModel.registerReply(self.text, postId: self.parentId)
                     }) {
                         Text("게시")
                             .font(.semoBold(size: 14))
@@ -118,7 +118,7 @@ struct CommentRepliesView: View {
         }
         .navigationBarHidden(true)
         .onAppear {
-            viewModel.requestComments(isFirstRequest: true)
+            viewModel.requestCommentReplies(postId: self.parentId)
         }
     }
 }
