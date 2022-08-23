@@ -6,7 +6,6 @@
 //
 /*
  API endpoint 케이스 정의
- //TODO: API 명세서 확정될 시,URI 및 request 형식 변경
  */
 
 import Moya
@@ -23,6 +22,7 @@ enum NaenioAPI {
     case getUser(String)
     case getFeed(FeedRequestInformation)
     case getComment(postId: Int, model: CommentListRequestModel)
+    case getCommentReplies(postId: Int, model: CommentRepliesRequestModel)
     case getTheme(ThemeRequestModel)
     case getSinglePost(SinglePostRequestInformation)
     case getIsNicknameAvailable(String)

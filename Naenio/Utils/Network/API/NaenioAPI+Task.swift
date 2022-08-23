@@ -31,7 +31,9 @@ extension NaenioAPI {
             return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
         case .getTheme(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
-        case .getComment(let _, let model):
+        case .getComment( _, let model):
+            return .requestParameters(parameters: model.toDictionary(), encoding: URLEncoding.default)
+        case .getCommentReplies(_, let model):
             return .requestParameters(parameters: model.toDictionary(), encoding: URLEncoding.default)
         case .getIsNicknameAvailable(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
