@@ -34,6 +34,7 @@ struct CurationView: View {
             .padding(.horizontal, 20)
         }
         .navigationBarHidden(true)
+        .navigationBarTitle("", displayMode: .inline)
     }
 }
 
