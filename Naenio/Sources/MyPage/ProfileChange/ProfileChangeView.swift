@@ -11,6 +11,7 @@ import Introspect
 struct ProfileChangeView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    @EnvironmentObject var userManager: UserManager
     @ObservedObject var viewModel = ProfileChangeViewModel()
     
     @State var showBottomSheet: Bool = false
@@ -27,8 +28,8 @@ struct ProfileChangeView: View {
         }
     }
     
-    @State var profileImageIndex: Int = 0 // !!!: 나중에 유저 모델의 인덱스로 바뀌어야 함
     @State var text: String = ""
+    @State var profileImageIndex: Int = 0
     
     private let showBackButton: Bool
     
@@ -60,7 +61,7 @@ struct ProfileChangeView: View {
                 .foregroundColor(.white)
             }
             .halfSheet(isPresented: $showBottomSheet, ratio: 0.67, topBarTitle: "이미지 선택") {
-                ProfileImageSelectionSheetView(isPresented: $showBottomSheet, index: $profileImageIndex)
+                ProfileImageSelectionSheetView(isPresented: $showBottomSheet, profileImageIndex: $profileImageIndex)
             }
         }
         .leadingButtonAction {
@@ -71,13 +72,15 @@ struct ProfileChangeView: View {
             }
         }
         .addTrailingButton(title: "등록", disabled: text.isEmpty, action: {
-            viewModel.submitChangeNicknameRequest(text)
-            print(viewModel.userManager.user)
+            viewModel.submitProfileChangeRequest(nickname: text, index: profileImageIndex)
         })
         .hideLeadingButton(showBackButton == false)
         .onChange(of: viewModel.status) { value in // Observe status of API request
             switch value {
             case .done(_):
+                userManager.updateNickName(text)
+                userManager.updateProfileImageIndex(profileImageIndex)
+                
                 presentationMode.wrappedValue.dismiss()
             case .fail(with: let error):
                 alertType = .errorHappend(error: error)
@@ -92,6 +95,9 @@ struct ProfileChangeView: View {
             default:
                 return AlertType.getAlert(of: .none, secondaryAction: { presentationMode.wrappedValue.dismiss() })
             }
+        }
+        .onAppear {
+            self.profileImageIndex = userManager.getProfileImagesIndex()
         }
         .navigationBarHidden(true)
     }

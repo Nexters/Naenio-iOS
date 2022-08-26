@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MyPageView: View {
+    @EnvironmentObject var userManger: UserManager
     @ObservedObject var viewModel = MyPageViewModel()
     
     private let personalCells: [CellData] = [
@@ -91,7 +92,9 @@ extension MyPageView {
             
             Spacer()
             
-            NavigationLink(destination: LazyView(ProfileChangeView())) {
+            NavigationLink(destination: LazyView(
+                ProfileChangeView().environmentObject(userManger)
+            )) {
                 Text("edit")
                     .font(.semoBold(size: 15))
                     .frame(width: 58, height: 31)

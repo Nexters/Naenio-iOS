@@ -9,6 +9,7 @@ import SwiftUI
 import Combine
 
 struct CardView: View {
+    @EnvironmentObject var userManager: UserManager
     @ObservedObject var viewModel = CardViewModel()
     @State var didVote = false
     
@@ -101,7 +102,7 @@ struct CardView: View {
 extension CardView {
     var profile: some View {
         HStack {
-            if let profileImageIndex = post.author.profileImageIndex { // FIXME: 
+            if let profileImageIndex = post.author.profileImageIndex { // FIXME:
                 viewModel.getImage(of: profileImageIndex)
                     .resizable()
                     .scaledToFit()
