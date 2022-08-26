@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CommentRepliesView: View {
-    typealias Comment = CommentInformation.Comment
+    typealias Comment = CommentModel.Comment
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Binding var isPresented: Bool
@@ -19,14 +19,31 @@ struct CommentRepliesView: View {
     @State var text: String = ""
 
     let comment: Comment
+    var parentId: Int
     
     var body: some View {
         ZStack(alignment: .bottom) {
             Color.card
                 .ignoresSafeArea()
             
+            if viewModel.status == .loading {
+                VStack {
+                    Spacer()
+                    
+                    LoadingIndicator()
+                        .zIndex(1)
+                    
+                    Spacer()
+                }
+            }
+            
             ScrollView {
                 LazyVStack(spacing: 18) {
+                    // placeholder
+                    Rectangle()
+                        .fill(Color.clear)
+                        .frame(height: 30)
+                    
                     HStack { // Sheet's header
                         Button(action: {
                             UIApplication.shared.endEditing()
@@ -48,7 +65,7 @@ struct CommentRepliesView: View {
                     
                     CustomDivider()
                     
-                    CommentContentCell(isPresented: $isPresented, comment: comment, isReply: true)
+                    CommentContentCell(isPresented: $isPresented, comment: comment, isReply: true, parentId: parentId)
                     
                     CustomDivider()
 
@@ -58,7 +75,7 @@ struct CommentRepliesView: View {
                                 .padding(3)
                                 .opacity(0)
                             
-                            CommentContentCell(isPresented: $isPresented, comment: reply, isReply: true)
+                            CommentContentCell(isPresented: $isPresented, comment: reply, isReply: true, parentId: parentId)
                         }
                     }
                     
@@ -73,12 +90,6 @@ struct CommentRepliesView: View {
                 scrollView.keyboardDismissMode = .onDrag
                 scrollView.delegate = scrollViewHelper
             }
-            .onChange(of: scrollViewHelper.currentVerticalPosition) { newValue in
-                NotificationCenter.default.post(name: .scrollOffsetNotification, object: newValue)
-            }
-            .onChange(of: scrollViewHelper.scrollVelocity) { newValue in
-                NotificationCenter.default.post(name: .scrollVelocity, object: newValue)
-            }
             
             // Keyboard
             VStack {
@@ -92,7 +103,7 @@ struct CommentRepliesView: View {
                     WrappedTextView(placeholder: "댓글 추가", content: $text, characterLimit: 100, showLimit: false, isTight: true)
                     
                     Button(action: {
-                        viewModel.registerComment(self.text, parentID: UUID().uuidString.hashValue)
+                        viewModel.registerReply(self.text, postId: self.parentId)
                     }) {
                         Text("게시")
                             .font(.semoBold(size: 14))
@@ -106,9 +117,8 @@ struct CommentRepliesView: View {
             }
         }
         .navigationBarHidden(true)
-        .redacted(reason: viewModel.status == .loading ? .placeholder : [])
         .onAppear {
-            viewModel.requestComments()
+            viewModel.requestCommentReplies(postId: self.parentId)
         }
     }
 }

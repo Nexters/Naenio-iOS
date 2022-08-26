@@ -28,6 +28,18 @@ extension Color {
         center: .center
     )
     
+    static let linearGradientVertical = LinearGradient(
+        colors: [.linearGradStart, linearGradMiddle, .linearGradEnd],
+        startPoint: .top,
+        endPoint: .bottom
+    )
+    
+    static let maskGradientVertical = LinearGradient(
+        colors: [.black.opacity(0), .black.opacity(1), .black.opacity(1)],
+        startPoint: .top,
+        endPoint: .bottom
+    )
+    
     static let mono = Color("mono")
     static let card = Color("NCard")
     static let tabBarBackground = Color("NBottomBackground")

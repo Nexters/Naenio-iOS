@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct User {
-    var profileImageIndex: Int
-    var nickname: String
+struct User: Codable {
+    let id: Int
     var authServiceType: String
+    var profileImageIndex: Int?
+    var nickname: String?
 }

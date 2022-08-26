@@ -14,8 +14,18 @@ extension Notification {
     }
 }
 
-extension Notification.Name {
-    static let scrollOffsetNotification = Notification.Name("scrollOffsetNotification")
+extension NotificationCenter {
+    /// 안전한 noti center 이용을 위한 래퍼 함수입니다. 여전히 안전하진 않지만
+    func postLowSheetNotification(with notification: LowSheetNotification) {
+        NotificationCenter.default.post(name: .lowSheetNotification, object: notification)
+    }
     
-    static let scrollVelocity = Notification.Name("scrollVelocity")
+    func postDidVoteHappen(id value: Int) {
+        NotificationCenter.default.post(name: .didVoteHappen, object: value)
+    }
+}
+
+extension Notification.Name {
+    static let lowSheetNotification = Notification.Name("lowSheetNotification")
+    static let didVoteHappen = Notification.Name("didVoteHappen")
 }

@@ -6,19 +6,27 @@
 //
 
 import SwiftUI
+import Combine
 
 struct FullView: View {
-    @EnvironmentObject var sourceObject: HomeViewModel
-    @ObservedObject var viewModel: FullViewModel
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-        
-    let index: Int
-    let post: Post
+    @Binding var post: Post
 
+    @ObservedObject var viewModel = FullViewModel()
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    @State var didVote: Bool = false
+    
     var body: some View {
         ZStack {
             Color.background
                 .ignoresSafeArea()
+            
+            if didVote {
+                LottieView(isPlaying: $didVote, animation: LottieAnimations.confettiAnimation)
+                    .allowsHitTesting(false)
+                    .fillScreen()
+                    .zIndex(0)
+            }
             
             VStack(alignment: .leading, spacing: 0) {
                 profile
@@ -48,9 +56,9 @@ struct FullView: View {
                 
                 Spacer()
                 
-                VotesView(index: index, choices: post.choices)
-                    .environmentObject(sourceObject)
+                VotesView(post: $post)
                     .padding(.bottom, 32)
+                    .zIndex(1)
                 
                 commentButton
                     .fillHorizontal()
@@ -60,6 +68,14 @@ struct FullView: View {
             .padding(.top, 27)
             .padding(.bottom, 16)
         }
+        .onChange(of: post.choices) { _ in
+            didVote = true
+        }
+//        .onReceive(Publishers.didVoteHappen) { id in
+//            if id == post.id {
+//                didVote = true
+//            }
+//        }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -71,12 +87,6 @@ struct FullView: View {
                 moreInformationButton
             }
         }
-    }
-    
-    init(index: Int, post: Post) {
-        self.index = index
-        self.post = post
-        self.viewModel = FullViewModel()
     }
 }
 
@@ -93,7 +103,10 @@ extension FullView {
     }
     
     var moreInformationButton: some View {
-        Button(action: {}) {
+        Button(action: {
+            let notification = LowSheetNotification(postId: post.id)
+            NotificationCenter.default.postLowSheetNotification(with: notification)
+        }) {
             Image(systemName: "ellipsis")
                 .resizable()
                 .scaledToFit()
@@ -106,11 +119,18 @@ extension FullView {
     
     var profile: some View {
         HStack {
-            Text("😀")
-                .padding(3)
-                .background(Circle().fill(Color.green.opacity(0.2)))
+            if let profileImageIndex = post.author.profileImageIndex {
+                viewModel.getImage(of: profileImageIndex)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 24, height: 24)
+            } else {
+                Circle()
+                    .fill(Color.gray)
+                    .frame(width: 24, height: 24)
+            }
             
-            Text("\(post.author.nickname ?? "")")
+            Text("\(post.author.nickname ?? "(알 수 없음)")")
                 .font(.medium(size: 16))
         }
     }

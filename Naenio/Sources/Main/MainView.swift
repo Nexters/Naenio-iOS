@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject var userManager: UserManager
+    
     @State var tabBarPages: [TabBarPage] = [
         TabBarPage(pageName: .curation, selectedIcon: "tab_curation_selected", deselectedIcon: "tab_curation_deselected", tag: 0),
         TabBarPage(pageName: .home, selectedIcon: "tab_home_selected", deselectedIcon: "tab_home_deselected", tag: 1),
@@ -16,8 +18,7 @@ struct MainView: View {
     
     var body: some View {
         TabBarView(pages: $tabBarPages)
-            .background(Color.background)
-            .ignoresSafeArea()
+            .background(Color.background.ignoresSafeArea())
     }
 }
 

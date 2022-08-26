@@ -1,4 +1,4 @@
-    //
+//
 //  CustomSheetView.swift
 //  Naenio
 //
@@ -23,7 +23,7 @@ struct CustomSheetView<V: View>: View {
 
     var body: some View {
         GeometryReader { geometry in
-            ZStack(alignment: .bottom) {                
+            ZStack(alignment: .bottom) {
                 if isPresented {
                     // Dismiss sheet
                     Color.black.opacity(0.3)
@@ -62,19 +62,6 @@ extension CustomSheetView {
                 .onReceive(Publishers.keyboardHeight) { value in
                     withAnimation(.easeInOut) {
                         translation = value
-                    }
-                }
-                .onReceive(Publishers.scrollOffset) { value in
-                    // !!!: 매우 위험함. 하나의 스크롤뷰만 퍼블리싱 중임을 보장해야 함
-                    if value < 0 {
-                        self.scrollDownOffset = value
-                    }
-                }
-                .onReceive(Publishers.scrollVelocity) { value in
-                    // !!!: 매우 위험함. 하나의 스크롤뷰만 퍼블리싱 중임을 보장해야 함
-                    // 답도 없다 증말 😢😢😢
-                    if value < -3.0 && self.scrollDownOffset < 0 {
-                        isPresented = false
                     }
                 }
                 .onAppear {

@@ -15,8 +15,14 @@ struct PostResponseModel: ModelType {
     let id: Int
     let memberId: Int
     let title: String
-    let content: String
-    var choices: [Choice]
+    let content: String?
+    var choices: [PostResponseModel.Choice]
     var createdDateTime: String
     var lastModifiedDateTime: String
+    
+    struct Choice: ModelType {
+        let id: Int
+        let sequence: Int
+        let name: String
+    }
 }

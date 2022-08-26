@@ -8,27 +8,27 @@
 import SwiftUI
 
 struct CommentContentCell: View {
-    typealias Comment = CommentInformation.Comment
+    typealias Comment = CommentModel.Comment
     
     @Binding var isPresented: Bool
     @State var isNavigationActive: Bool = false
     
     let comment: Comment
     let isReply: Bool
+    let parentId: Int
     
     var body: some View {
         HStack(alignment: .top, spacing: 8) {
-            NavigationLink( destination: CommentRepliesView(isPresented: $isPresented, comment: comment), isActive: $isNavigationActive) {
+            NavigationLink(destination: CommentRepliesView(isPresented: $isPresented, comment: comment, parentId: comment.id),
+                           isActive: $isNavigationActive) {
                 EmptyView()
             }
 
-            Text("😀")
-                .padding(3)
-                .background(Circle().fill(Color.green.opacity(0.2)))
+            profileImage
             
             VStack(alignment: .leading, spacing: 9) {
                 HStack {
-                    Text(comment.author.nickname)
+                    Text(comment.author.nickname ?? "(알 수 없음)")
                         .font(.medium(size: 16))
                         .foregroundColor(.white)
 
@@ -65,6 +65,21 @@ struct CommentContentCell: View {
 }
 
 extension CommentContentCell {
+    var profileImage: some View {
+        Group {
+            if let profileImageIndex = comment.author.profileImageIndex { // FIXME:
+                ProfileImages.getImage(of: profileImageIndex)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 24, height: 24)
+            } else {
+                Circle()
+                    .fill(Color.gray)
+                    .frame(width: 24, height: 24)
+            }
+        }
+    }
+    
     var responsiveButtons: some View {
         HStack(spacing: 17) {
             Button(action: {}) {

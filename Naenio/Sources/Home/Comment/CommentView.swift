@@ -12,8 +12,16 @@ struct CommentView: View {
     @StateObject var viewModel = CommentViewModel()
     @ObservedObject var scrollViewHelper = ScrollViewHelper()
     
-    @State var text: String = ""
+    @State var text: String = "" // 메시지 작성용
+    
     @Binding var isPresented: Bool
+    @Binding var parentId: Int?
+    
+    init(isPresented: Binding<Bool>, parentId: Binding<Int?>) {
+        self._isPresented = isPresented
+        self._parentId = parentId
+        print("init", parentId)
+    }
     
     var body: some View {
         NavigationView {
@@ -21,15 +29,27 @@ struct CommentView: View {
                 Color.card
                     .ignoresSafeArea()
                 
-                //            if viewModel.status == .loading {
-                //                LoadingIndicator()
-                //            }
+                if viewModel.status == .loading {
+                    VStack {
+                        Spacer()
+                        
+                        LoadingIndicator()
+                            .zIndex(1)
+                        
+                        Spacer()
+                    }
+                }
                 
                 ScrollView {
                     LazyVStack(spacing: 18) {
+                        // placeholder
+                        Rectangle()
+                            .fill(Color.clear)
+                            .frame(height: 30)
+                        
                         // Sheet's header
                         HStack {
-                            CommentCountComponent(count: viewModel.commentsCount ?? 0)
+                            CommentCountComponent(count: viewModel.comments.count)
                             
                             Spacer()
                             
@@ -39,11 +59,23 @@ struct CommentView: View {
                         
                         ForEach(viewModel.comments, id: \.id) { comment in
                             CustomDivider()
-                                .frame(width: UIScreen.main.bounds.width)
+                                .fillHorizontal()
                             
-                            CommentContentCell(isPresented: $isPresented, comment: comment, isReply: false)
+                            if let parentId = parentId {
+                                CommentContentCell(isPresented: $isPresented, comment: comment, isReply: false, parentId: parentId)
+                            } else {
+                                ZStack {
+                                    Text("⚠️ 일시적인 오류가 발생했습니다")
+                                        .font(.semoBold(size: 16))
+                                        .foregroundColor(.white)
+                                    
+                                    CommentContentCell(isPresented: $isPresented, comment: comment, isReply: false, parentId: -1)
+                                        .blur(radius: 2)
+                                }
+                            }
                         }
                         
+                        // Bottom place holder
                         Rectangle()
                             .fill(.clear)
                             .frame(height: 80)
@@ -54,25 +86,28 @@ struct CommentView: View {
                     scrollView.keyboardDismissMode = .onDrag
                     scrollView.delegate = scrollViewHelper
                 }
-                .onChange(of: scrollViewHelper.currentVerticalPosition) { newValue in
-                    NotificationCenter.default.post(name: .scrollOffsetNotification, object: newValue)
-                }
-                .onChange(of: scrollViewHelper.scrollVelocity) { newValue in
-                    NotificationCenter.default.post(name: .scrollVelocity, object: newValue)
+                .onChange(of: viewModel.status) { status in
+                    switch status {
+                    case .done:
+                        scrollViewHelper.refreshController.endRefreshing()
+                    case .fail(with: _):
+                        scrollViewHelper.refreshController.endRefreshing()
+                    default:
+                        break
+                    }
                 }
                 
+                // 키보드
                 VStack {
                     Spacer()
                     
                     HStack(spacing: 12) {
-                        Text("😀")
-                            .padding(3)
-                            .background(Circle().fill(Color.green.opacity(0.2)))
+                        profileImage
                         
                         WrappedTextView(placeholder: "댓글 추가", content: $text, characterLimit: 100, showLimit: false, isTight: true)
                         
                         Button(action: {
-                            viewModel.registerComment(self.text, parentID: viewModel.parentID)
+                            viewModel.registerComment(self.text, postId: self.parentId)
                             UIApplication.shared.endEditing()
                             text = ""
                         }) {
@@ -91,9 +126,18 @@ struct CommentView: View {
             }
             .navigationBarHidden(true)
         }
-        .redacted(reason: viewModel.status == .loading ? .placeholder : [])
         .onAppear {
-            viewModel.requestComments()
+            viewModel.requestComments(postId: self.parentId, isFirstRequest: true)
+
+            viewModel.isFirstRequest = true
         }
+    }
+    
+    var profileImage: some View {
+        let profileImageIndex = UserManager.shared.getProfileImagesIndex()  // FIXME:
+        return ProfileImages.getImage(of: profileImageIndex)
+            .resizable()
+            .scaledToFit()
+            .frame(width: 24, height: 24)
     }
 }

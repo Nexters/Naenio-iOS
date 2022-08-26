@@ -8,13 +8,13 @@
 struct FeedResponseModel: ModelType {
     let posts: [Post]
     
-    struct Post: ModelType {
-        let commentCount: Int
+    struct Post: ModelType, Identifiable {
         let id: Int
+        let commentCount: Int
         let author: Author
         let title: String
         let content: String
-        let choices: [Choice]
+        var choices: [Choice]
     }
 }
 

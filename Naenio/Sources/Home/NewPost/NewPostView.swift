@@ -145,13 +145,6 @@ extension NewPostView {
             .disabled(postContent.isAllContentEmpty)
         }
     }
-    
-    // !!!: 일단 시스템 기본 alert로 기능 구현만
-    enum AlertType {
-        case warnBeforeExit
-        case errorHappend
-        case none
-    }
 }
 
 fileprivate struct PostContent {
@@ -170,7 +163,7 @@ fileprivate struct PostContent {
     
     func toPostRequestInformation() -> PostRequestInformation {
         let wrappedA = PostRequestInformation.Choice(name: choiceA)
-        let wrappedB = PostRequestInformation.Choice(name: choiceA)
+        let wrappedB = PostRequestInformation.Choice(name: choiceB)
         let post = PostRequestInformation(title: title, content: details, choices: [wrappedA, wrappedB])
         
         return post
