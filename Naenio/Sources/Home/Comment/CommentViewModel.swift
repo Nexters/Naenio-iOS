@@ -21,7 +21,6 @@ class CommentViewModel: ObservableObject {
     @Published var status = Status.waiting
     @Published var lastCommentId: Int?
     
-    @Published var postId: Int?
     @Published var isFirstRequest: Bool = true
     
     func transferToCommentModel(_ comment: CommentPostResponseModel) -> Comment { // FIXME: to extension later
@@ -29,13 +28,13 @@ class CommentViewModel: ObservableObject {
         return Comment(id: comment.id, author: author, content: comment.content, createdDatetime: comment.createdDateTime, likeCount: 0, isLiked: false, repliesCount: 0)
     }
 
-    func registerComment(_ content: String, postId: Int?, type: CommentType) {
+    func registerComment(_ content: String, postId: Int?) {
         guard let postId = postId else {
             return
         }
         
         status = .loading
-        let commentRequestModel = CommentPostRequestModel(parentID: postId, parentType: type.rawValue, content: content)
+        let commentRequestModel = CommentPostRequestModel(parentID: postId, parentType: CommentType.post.rawValue, content: content)
         
         RequestService<CommentPostResponseModel>.request(api: .postComment(commentRequestModel))
             .subscribe(on: serialQueue)
@@ -60,14 +59,14 @@ class CommentViewModel: ObservableObject {
             .disposed(by: bag)
     }
     
-    func requestComments(isFirstRequest: Bool = true) {
+    func requestComments(postId: Int?, isFirstRequest: Bool = true) {
         status = .loading
-        guard let postId = self.postId else {
+        guard let postID = postId else {
             return
         }
         
         let commentListRequestModel = CommentListRequestModel(size: pageSize, lastCommentId: isFirstRequest ? nil : lastCommentId)
-        RequestService<CommentModel>.request(api: .getComment(postId: postId, model: commentListRequestModel))
+        RequestService<CommentModel>.request(api: .getComment(postId: postID, model: commentListRequestModel))
             .subscribe(on: self.serialQueue)
             .observe(on: MainScheduler.instance)
             .subscribe(
