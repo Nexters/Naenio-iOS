@@ -109,7 +109,7 @@ struct CommentView: View {
                         WrappedTextView(placeholder: "댓글 추가", content: $text, characterLimit: 100, showLimit: false, isTight: true)
                         
                         Button(action: {
-                            viewModel.registerComment(self.text, postId: self.parentId, type: .post)
+                            viewModel.registerComment(self.text, postId: self.parentId)
                             UIApplication.shared.endEditing()
                             text = ""
                         }) {
@@ -129,8 +129,7 @@ struct CommentView: View {
             .navigationBarHidden(true)
         }
         .onAppear {
-            viewModel.postId = self.parentId
-            viewModel.requestComments(isFirstRequest: true)
+            viewModel.requestComments(postId: self.parentId, isFirstRequest: true)
 
             viewModel.isFirstRequest = true
         }

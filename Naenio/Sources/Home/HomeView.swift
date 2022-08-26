@@ -127,6 +127,7 @@ struct HomeView: View {
                     .padding(20)
             }
             .navigationBarHidden(true)
+            .navigationBarTitle("", displayMode: .inline)
             .fullScreenCover(isPresented: $showNewPost) {
                 NewPostView(isPresented: $showNewPost)
                     .environmentObject(viewModel)

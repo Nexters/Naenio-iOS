@@ -19,6 +19,10 @@
 		4C4B133F2883CD32006044B0 /* ModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B133E2883CD32006044B0 /* ModelType.swift */; };
 		4C4B13432883D88A006044B0 /* HttpResponseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B13422883D88A006044B0 /* HttpResponseCode.swift */; };
 		4C4B134528847640006044B0 /* NaenioAPI+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B134428847640006044B0 /* NaenioAPI+Request.swift */; };
+		4C7ECFEC28B50FDA006C1763 /* ignored in Resources */ = {isa = PBXBuildFile; fileRef = 4C7ECFEB28B50FDA006C1763 /* ignored */; };
+		4C7ECFEE28B5100B006C1763 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7ECFED28B5100B006C1763 /* KeyValue.swift */; };
+		4C7ECFF028B51755006C1763 /* CommentRepliesRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7ECFEF28B51755006C1763 /* CommentRepliesRequestModel.swift */; };
+		4C7ECFF228B518FE006C1763 /* CommentRepliesResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7ECFF128B518FE006C1763 /* CommentRepliesResponseModel.swift */; };
 		4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4CA47BC92890344400D300A7 /* .swiftlint.yml */; };
 		4CA59E9128AD504F002C0FA9 /* ThemeRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA59E9028AD504F002C0FA9 /* ThemeRequestModel.swift */; };
 		4CA59EA128AE884E002C0FA9 /* CommentPostResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA59EA028AE884E002C0FA9 /* CommentPostResponseModel.swift */; };
@@ -57,7 +61,6 @@
 		9B085F142879991600DE8E60 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F132879991600DE8E60 /* LoginTests.swift */; };
 		9B085F1E2879991600DE8E60 /* NaenioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1D2879991600DE8E60 /* NaenioUITests.swift */; };
 		9B085F202879991600DE8E60 /* NaenioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */; };
-		9B19A1D528AF1E330072DEDA /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B19A1D328AF1E330072DEDA /* KeyValue.swift */; };
 		9B19A1DD28AF7B1E0072DEDA /* AvailableNicknameResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B19A1DC28AF7B1E0072DEDA /* AvailableNicknameResponseModel.swift */; };
 		9B244070289E8DC30060A244 /* View + Exetension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B24406F289E8DC30060A244 /* View + Exetension.swift */; };
 		9B244073289E9AA10060A244 /* VotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B244072289E9AA10060A244 /* VotesView.swift */; };
@@ -201,6 +204,10 @@
 		4C4B133E2883CD32006044B0 /* ModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelType.swift; sourceTree = "<group>"; };
 		4C4B13422883D88A006044B0 /* HttpResponseCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponseCode.swift; sourceTree = "<group>"; };
 		4C4B134428847640006044B0 /* NaenioAPI+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Request.swift"; sourceTree = "<group>"; };
+		4C7ECFEB28B50FDA006C1763 /* ignored */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ignored; sourceTree = "<group>"; };
+		4C7ECFED28B5100B006C1763 /* KeyValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
+		4C7ECFEF28B51755006C1763 /* CommentRepliesRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesRequestModel.swift; sourceTree = "<group>"; };
+		4C7ECFF128B518FE006C1763 /* CommentRepliesResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesResponseModel.swift; sourceTree = "<group>"; };
 		4CA47BC92890344400D300A7 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		4CA59E9028AD504F002C0FA9 /* ThemeRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeRequestModel.swift; sourceTree = "<group>"; };
 		4CA59EA028AE884E002C0FA9 /* CommentPostResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentPostResponseModel.swift; sourceTree = "<group>"; };
@@ -242,8 +249,6 @@
 		9B085F192879991600DE8E60 /* NaenioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NaenioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B085F1D2879991600DE8E60 /* NaenioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITests.swift; sourceTree = "<group>"; };
 		9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		9B19A1D328AF1E330072DEDA /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
-		9B19A1D428AF1E330072DEDA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B19A1DC28AF7B1E0072DEDA /* AvailableNicknameResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNicknameResponseModel.swift; sourceTree = "<group>"; };
 		9B24406F289E8DC30060A244 /* View + Exetension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + Exetension.swift"; sourceTree = "<group>"; };
 		9B244072289E9AA10060A244 /* VotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotesView.swift; sourceTree = "<group>"; };
@@ -434,6 +439,7 @@
 		4CC296DC288054C0001950A2 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				4C7ECFED28B5100B006C1763 /* KeyValue.swift */,
 				4CC296DF288055FD001950A2 /* HeaderInformation.swift */,
 				4C4B13422883D88A006044B0 /* HttpResponseCode.swift */,
 			);
@@ -601,7 +607,7 @@
 		9B085F012879991400DE8E60 /* Naenio */ = {
 			isa = PBXGroup;
 			children = (
-				9B19A1D228AF1E330072DEDA /* ignored */,
+				4C7ECFEB28B50FDA006C1763 /* ignored */,
 				9BF00BF2287AC72800F08035 /* Naenio.entitlements */,
 				9B085F082879991600DE8E60 /* Preview Content */,
 				9B085F2D287E353600DE8E60 /* Resources */,
@@ -686,16 +692,6 @@
 				4CC296D228804E88001950A2 /* Network */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		9B19A1D228AF1E330072DEDA /* ignored */ = {
-			isa = PBXGroup;
-			children = (
-				9B19A1D328AF1E330072DEDA /* KeyValue.swift */,
-				9B19A1D428AF1E330072DEDA /* Info.plist */,
-			);
-			name = ignored;
-			path = ../../ignored;
 			sourceTree = "<group>";
 		};
 		9B19A1DB28AF7AFA0072DEDA /* Models */ = {
@@ -1157,6 +1153,8 @@
 				4CA59EA028AE884E002C0FA9 /* CommentPostResponseModel.swift */,
 				4CA59EA228AE8888002C0FA9 /* CommentType.swift */,
 				4CA59EAF28AEA3DF002C0FA9 /* CommentListRequestModel.swift */,
+				4C7ECFEF28B51755006C1763 /* CommentRepliesRequestModel.swift */,
+				4C7ECFF128B518FE006C1763 /* CommentRepliesResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1278,6 +1276,7 @@
 				9B3B6F10289BE3FA002A76A7 /* MockPostWroteList.json in Resources */,
 				9B3B6F11289BE3FA002A76A7 /* MockPostParticipatedList.json in Resources */,
 				9CCA2295289BB3CF00A2F9B0 /* MockPostList.json in Resources */,
+				4C7ECFEC28B50FDA006C1763 /* ignored in Resources */,
 				9CCA2293289BAB0F00A2F9B0 /* MockPost.json in Resources */,
 				9BE602A3289548CF008F291C /* Pretendard-SemiBold.ttf in Resources */,
 				9BE602A5289548CF008F291C /* Pretendard-Regular.ttf in Resources */,
@@ -1485,7 +1484,6 @@
 				9B61D0F728AE92F700F6DD0B /* ThemeView.swift in Sources */,
 				9B03732D28A556020089CC48 /* UIResponder + Extension.swift in Sources */,
 				9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */,
-				9B19A1D528AF1E330072DEDA /* KeyValue.swift in Sources */,
 				4CC3CEAC28ABF95400458138 /* VoteResponseModel.swift in Sources */,
 				9BE60293289541B6008F291C /* Color + Extension.swift in Sources */,
 				9B19A1DD28AF7B1E0072DEDA /* AvailableNicknameResponseModel.swift in Sources */,
@@ -1497,6 +1495,7 @@
 				9C8D603B28A3746500632BCC /* UIApplication + Extension.swift in Sources */,
 				9B391A1928AB208E0007F4D6 /* HalfSheet.swift in Sources */,
 				9CBCDCD928ADE77A00C4C577 /* PostRequestInformation.swift in Sources */,
+				4C7ECFF228B518FE006C1763 /* CommentRepliesResponseModel.swift in Sources */,
 				4CC3CE9728AA8A3900458138 /* PostResponseModel.swift in Sources */,
 				9B8D409C28AE86B90024E989 /* VotesViewModel.swift in Sources */,
 				9CBCDCE328AE2A3700C4C577 /* FullView.swift in Sources */,
@@ -1565,12 +1564,14 @@
 				9BE13FF128AA5CD1009ED95D /* CustomNavigationView.swift in Sources */,
 				9BE13FED28AA5717009ED95D /* CustomNavigationBar.swift in Sources */,
 				4CC4B7342896BDE400774192 /* MainView.swift in Sources */,
+				4C7ECFF028B51755006C1763 /* CommentRepliesRequestModel.swift in Sources */,
 				9C69153628AC90EE00317489 /* LazyView.swift in Sources */,
 				9BF00C0B287ACFA900F08035 /* LoginRequestInformation.swift in Sources */,
 				4CA59EA328AE8888002C0FA9 /* CommentType.swift in Sources */,
 				9B8B98BA289948DA007336DE /* LocalStorageKeys.swift in Sources */,
 				9C3309CD2888EC52000C592F /* KakaoLoginManager.swift in Sources */,
 				9C8B5E0A289CEF000029BB66 /* MockPostGenerator.swift in Sources */,
+				4C7ECFEE28B5100B006C1763 /* KeyValue.swift in Sources */,
 				9CE311D428A6439900EDB0F4 /* CommentView.swift in Sources */,
 				4CC4B7392896BF1C00774192 /* CurationView.swift in Sources */,
 			);
@@ -1736,7 +1737,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
-				DEVELOPMENT_TEAM = W6QHM4Y43Z;
+				DEVELOPMENT_TEAM = KT2XM3Z9DZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Naenio/ignored/Info.plist;
@@ -1744,15 +1745,15 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamVS.Naenio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yoonyoung.Naenio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1772,7 +1773,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
-				DEVELOPMENT_TEAM = W6QHM4Y43Z;
+				DEVELOPMENT_TEAM = KT2XM3Z9DZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Naenio/ignored/Info.plist;
@@ -1780,15 +1781,15 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamVS.Naenio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yoonyoung.Naenio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
