@@ -99,59 +99,6 @@ class CommentRepliesViewModel: ObservableObject {
                 })
             .disposed(by: bag)
     }
-    
-    // !!!: Test
-    func testRegisterReply(_ content: String, parentID: Int) {
-        status = .loading
-        let commentRequestModel = CommentPostRequestModel(parentID: parentID, parentType: CommentType.comment.rawValue, content: content)
-        
-        print(content)
-        
-        registerNewComment(commentRequestModel)
-            .subscribe(on: serialQueue)
-            .observe(on: MainScheduler.instance)
-            .subscribe(
-                onSuccess: { [weak self] newComment in
-                    guard let self = self else { return }
-                    print(newComment)
-                    withAnimation {
-                        self.replies.insert(newComment, at: 0)
-                    }
-                    self.status = .done
-                }, onFailure: { [weak self] error in
-                    guard let self = self else { return }
-                    self.status = .fail(with: error)
-                }, onDisposed: {
-                    print("Disposed registerComment")
-                })
-            .disposed(by: bag)
-    }
-    
-    // !!!: Test
-    func testRequestCommentReplies() {
-        status = .loading
-        
-        // ???: 얘는 잘 하면 추상화 가능할 수도(HomeViewModel이랑 똑같음 구조는)
-        getCommentDisposable()
-            .subscribe(on: self.serialQueue)
-            .observe(on: MainScheduler.instance)
-            .subscribe(
-                onSuccess: { [weak self] commentInfo in
-                    guard let self = self else { return }
-                    print("Success requestComments")
-                    
-                    self.commentRepliesCount = commentInfo.totalCommentCount
-                    self.replies.append(contentsOf: commentInfo.comments)
-                    
-                    self.status = .done
-                }, onFailure: { [weak self] error in
-                    guard let self = self else { return }
-                    self.status = .fail(with: error)
-                }, onDisposed: {
-                    print("Disposed requestComments")
-                })
-            .disposed(by: bag)
-    }
 }
 
 extension CommentRepliesViewModel {
@@ -177,21 +124,5 @@ extension CommentRepliesViewModel {
                 return "Failed with error: \(error.localizedDescription)"
             }
         }
-    }
-}
-
-// !!!: Test
-extension CommentRepliesViewModel {
-    private func getCommentDisposable() -> Single<CommentModel> {
-        let commentInfo = MockCommentGenertor.generate()
-        
-        return Observable.of(commentInfo).asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
-    }
-    
-    private func registerNewComment(_ commentRequest: CommentPostRequestModel) -> Single<Comment> {
-        let mockComment = MockCommentGenertor.generate(with: commentRequest)
-        let observable = Observable.just(mockComment)
-        
-        return observable.asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
     }
 }
