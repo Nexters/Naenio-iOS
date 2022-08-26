@@ -9,6 +9,7 @@ import SwiftUI
 import Introspect
 
 struct CommentView: View {
+    @EnvironmentObject var userManager: UserManager
     @StateObject var viewModel = CommentViewModel()
     @ObservedObject var scrollViewHelper = ScrollViewHelper()
     
@@ -134,7 +135,7 @@ struct CommentView: View {
     }
     
     var profileImage: some View {
-        let profileImageIndex = UserManager.shared.getProfileImagesIndex()  // FIXME:
+        let profileImageIndex = userManager.getProfileImagesIndex()
         return ProfileImages.getImage(of: profileImageIndex)
             .resizable()
             .scaledToFit()

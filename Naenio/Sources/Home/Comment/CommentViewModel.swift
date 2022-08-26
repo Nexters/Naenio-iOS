@@ -45,9 +45,7 @@ class CommentViewModel: ObservableObject {
                     let newComment = self.transferToCommentModel(comment)
                     
                     print("new comment",newComment)
-//                    withAnimation {
-                        self.comments.insert(newComment, at: 0)
-//                    }
+                    self.comments.insert(newComment, at: 0)
                     
                     self.status = .done
                 }, onFailure: { [weak self] error in
@@ -114,21 +112,5 @@ extension CommentViewModel {
                 return "Failed with error: \(error.localizedDescription)"
             }
         }
-    }
-}
-
-// !!!: Test
-extension CommentViewModel {
-    private func getCommentDisposable() -> Single<CommentModel> {
-        let commentInfo = MockCommentGenertor.generate()
-        
-        return Observable.of(commentInfo).asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
-    }
-    
-    private func registerNewComment(_ commentRequest: CommentPostRequestModel) -> Single<Comment> {
-        let mockComment = MockCommentGenertor.generate(with: commentRequest)
-        let observable = Observable.just(mockComment)
-        
-        return observable.asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
     }
 }

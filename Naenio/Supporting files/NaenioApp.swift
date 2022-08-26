@@ -28,8 +28,6 @@ struct NaenioApp: App {
         if tokenManager.isTokenAvailable, let token = tokenManager.accessToken {
             userManager.updateUserData(with: token)
         }
-        
-        print(tokenManager.accessToken)
     }
     
     var body: some Scene {

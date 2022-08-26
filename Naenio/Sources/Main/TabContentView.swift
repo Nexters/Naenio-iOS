@@ -9,9 +9,11 @@ import Foundation
 import SwiftUI
 
 struct TabContentView: View {
-    let pageName: PageName
+    @EnvironmentObject var userManager: UserManager
     
-    init(pageName: PageName = .home) {
+    let pageName: TabBarPage.PageType
+    
+    init(pageName: TabBarPage.PageType = .home) {
         self.pageName = pageName
     }
     
@@ -20,12 +22,11 @@ struct TabContentView: View {
             CurationView()
         } else if pageName == .home {
             HomeView()
+                .environmentObject(userManager)
         } else if pageName == .myPage {
             MyPageView()
+                .environmentObject(userManager)
         }
     }
 }
 
-enum PageName {
-    case curation, home, myPage
-}

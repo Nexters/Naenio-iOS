@@ -10,11 +10,15 @@ import RxSwift
 
 class UserManager: ObservableObject {
     static let shared = UserManager() // FIXME: 흑마법이라 나중에 고쳐야 될 듯..(전역적으로 공유되는 observedobject)
+    
+    // Dependencies
     private let localStorageManager: LocalStorageManager
     
+    // Publihsed vars
     @Published private(set) var status: UserStatus = .waiting
     @Published private(set) var user: User?
     
+    // Private vars and lets
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler.init(qos: .userInitiated)
     
@@ -69,7 +73,7 @@ class UserManager: ObservableObject {
         localStorageManager.save(nickname, key: self.nicknameKey)
     }
     
-    func updateAuth(_ type: AuthServiceType) {
+    func updateAuthServiceType(_ type: AuthServiceType) {
         self.user?.authServiceType = type.rawValue
         localStorageManager.save(type.rawValue, key: self.authServiceTypeKey)
     }
