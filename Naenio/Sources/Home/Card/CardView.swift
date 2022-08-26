@@ -89,13 +89,7 @@ struct CardView: View {
                     .background(Color.subCard)
                 }
             }
-            
         }
-//        .onReceive(Publishers.didVoteHappen) { id in
-//            if id == post.id {
-//                didVote = true
-//            }
-//        }
         .fillScreen()
         .mask(RoundedRectangle(cornerRadius: 16))
         .onChange(of: post.choices) { _ in
@@ -107,9 +101,16 @@ struct CardView: View {
 extension CardView {
     var profile: some View {
         HStack {
-            Text("😀")
-                .padding(3)
-                .background(Circle().fill(Color.green.opacity(0.2)))
+            if let profileImageIndex = post.author.profileImageIndex { // FIXME: 
+                viewModel.getImage(of: profileImageIndex)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 24, height: 24)
+            } else {
+                Circle()
+                    .fill(Color.gray)
+                    .frame(width: 24, height: 24)
+            }
             
             Text("\(post.author.nickname ?? "(알 수 없음)")")
                 .font(.medium(size: 16))

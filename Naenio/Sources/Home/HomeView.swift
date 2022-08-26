@@ -55,8 +55,6 @@ struct HomeView: View {
                                             DispatchQueue.main.async {
                                                 self.selectedPostId = post.wrappedValue.id
                                                 self.showComments = true
-
-                                                print(selectedPostId)
                                             }
                                         }
                                         .environmentObject(viewModel)

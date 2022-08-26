@@ -49,7 +49,7 @@ struct CommentView: View {
                         
                         // Sheet's header
                         HStack {
-                            CommentCountComponent(count: viewModel.commentsCount ?? 0)
+                            CommentCountComponent(count: viewModel.comments.count)
                             
                             Spacer()
                             
@@ -102,14 +102,12 @@ struct CommentView: View {
                     Spacer()
                     
                     HStack(spacing: 12) {
-                        Text("😀")
-                            .padding(3)
-                            .background(Circle().fill(Color.green.opacity(0.2)))
+                        profileImage
                         
                         WrappedTextView(placeholder: "댓글 추가", content: $text, characterLimit: 100, showLimit: false, isTight: true)
                         
                         Button(action: {
-                            viewModel.registerComment(self.text, postId: self.parentId, type: .post)
+                            viewModel.registerComment(text, postId: parentId, type: .post)
                             UIApplication.shared.endEditing()
                             text = ""
                         }) {
@@ -131,8 +129,16 @@ struct CommentView: View {
         .onAppear {
             viewModel.postId = self.parentId
             viewModel.requestComments(isFirstRequest: true)
-
+            
             viewModel.isFirstRequest = true
         }
+    }
+    
+    var profileImage: some View {
+        let profileImageIndex = UserManager.shared.getProfileImagesIndex()  // FIXME:
+        return ProfileImages.getImage(of: profileImageIndex)
+            .resizable()
+            .scaledToFit()
+            .frame(width: 24, height: 24)
     }
 }

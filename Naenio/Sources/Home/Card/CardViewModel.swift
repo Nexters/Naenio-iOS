@@ -5,13 +5,10 @@
 //  Created by 이영빈 on 2022/08/03.
 //
 
-import Foundation
+import SwiftUI
 
 class CardViewModel: ObservableObject {
-//    @Published var post: Post
-//    Saved for future API implementations
-    
-    init() {
-//        self.post = post
+    func getImage(of index: Int) -> Image {
+        return ProfileImages.getImage(of: index)
     }
 }

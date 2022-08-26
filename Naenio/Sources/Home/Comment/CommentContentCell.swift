@@ -24,9 +24,7 @@ struct CommentContentCell: View {
                 EmptyView()
             }
 
-            Text("😀")
-                .padding(3)
-                .background(Circle().fill(Color.green.opacity(0.2)))
+            profileImage
             
             VStack(alignment: .leading, spacing: 9) {
                 HStack {
@@ -67,6 +65,21 @@ struct CommentContentCell: View {
 }
 
 extension CommentContentCell {
+    var profileImage: some View {
+        Group {
+            if let profileImageIndex = comment.author.profileImageIndex { // FIXME:
+                ProfileImages.getImage(of: profileImageIndex)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 24, height: 24)
+            } else {
+                Circle()
+                    .fill(Color.gray)
+                    .frame(width: 24, height: 24)
+            }
+        }
+    }
+    
     var responsiveButtons: some View {
         HStack(spacing: 17) {
             Button(action: {}) {

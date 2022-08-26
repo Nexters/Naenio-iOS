@@ -81,6 +81,8 @@
 		9B61D0F728AE92F700F6DD0B /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0F628AE92F700F6DD0B /* ThemeView.swift */; };
 		9B61D0F928AE931600F6DD0B /* ThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0F828AE931600F6DD0B /* ThemeViewModel.swift */; };
 		9B61D0FB28AE93EA00F6DD0B /* EmptyResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0FA28AE93EA00F6DD0B /* EmptyResultView.swift */; };
+		9B61D6AD28B0855700F116CD /* NicknameResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D6AC28B0855700F116CD /* NicknameResponseModel.swift */; };
+		9B61D6AF28B0857700F116CD /* IndexResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D6AE28B0857700F116CD /* IndexResponseModel.swift */; };
 		9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B687DE928954D4A0048AED0 /* Font + Extension.swift */; };
 		9B86192D28A77D920098AC8E /* CommentRepliesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86192C28A77D920098AC8E /* CommentRepliesView.swift */; };
 		9B86192F28A782990098AC8E /* CommentRepliesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86192E28A782990098AC8E /* CommentRepliesViewModel.swift */; };
@@ -267,6 +269,8 @@
 		9B61D0F628AE92F700F6DD0B /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
 		9B61D0F828AE931600F6DD0B /* ThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewModel.swift; sourceTree = "<group>"; };
 		9B61D0FA28AE93EA00F6DD0B /* EmptyResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResultView.swift; sourceTree = "<group>"; };
+		9B61D6AC28B0855700F116CD /* NicknameResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameResponseModel.swift; sourceTree = "<group>"; };
+		9B61D6AE28B0857700F116CD /* IndexResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexResponseModel.swift; sourceTree = "<group>"; };
 		9B687DE928954D4A0048AED0 /* Font + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font + Extension.swift"; sourceTree = "<group>"; };
 		9B86192C28A77D920098AC8E /* CommentRepliesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesView.swift; sourceTree = "<group>"; };
 		9B86192E28A782990098AC8E /* CommentRepliesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesViewModel.swift; sourceTree = "<group>"; };
@@ -702,6 +706,8 @@
 			isa = PBXGroup;
 			children = (
 				9B19A1DC28AF7B1E0072DEDA /* AvailableNicknameResponseModel.swift */,
+				9B61D6AC28B0855700F116CD /* NicknameResponseModel.swift */,
+				9B61D6AE28B0857700F116CD /* IndexResponseModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1461,6 +1467,7 @@
 				9CBCDCE728AE2D4F00C4C577 /* CardView.swift in Sources */,
 				9C95B99A289A679B00E0910C /* CapsuleButtonStyle.swift in Sources */,
 				9B86192D28A77D920098AC8E /* CommentRepliesView.swift in Sources */,
+				9B61D6AD28B0855700F116CD /* NicknameResponseModel.swift in Sources */,
 				4CA59EA128AE884E002C0FA9 /* CommentPostResponseModel.swift in Sources */,
 				4CB8944928A74A0200BE2ECF /* NaenioAPI+Method.swift in Sources */,
 				4CC296D92880533C001950A2 /* DefaultSession.swift in Sources */,
@@ -1569,6 +1576,7 @@
 				9BF00C0B287ACFA900F08035 /* LoginRequestInformation.swift in Sources */,
 				4CA59EA328AE8888002C0FA9 /* CommentType.swift in Sources */,
 				9B8B98BA289948DA007336DE /* LocalStorageKeys.swift in Sources */,
+				9B61D6AF28B0857700F116CD /* IndexResponseModel.swift in Sources */,
 				9C3309CD2888EC52000C592F /* KakaoLoginManager.swift in Sources */,
 				9C8B5E0A289CEF000029BB66 /* MockPostGenerator.swift in Sources */,
 				9CE311D428A6439900EDB0F4 /* CommentView.swift in Sources */,

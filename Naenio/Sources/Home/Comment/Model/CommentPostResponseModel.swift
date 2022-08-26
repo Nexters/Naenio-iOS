@@ -10,7 +10,7 @@ struct CommentPostResponseModel: ModelType {
     var id: Int
     var memberId: Int
     var parentId: Int
-    var parentType: Int
+    var parentType: String
     var content: String
     var createdDateTime: String
     var lastModifiedDateTime: String

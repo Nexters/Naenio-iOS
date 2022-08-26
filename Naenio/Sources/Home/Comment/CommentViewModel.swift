@@ -16,7 +16,6 @@ class CommentViewModel: ObservableObject {
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler(qos: .utility)
     
-    @Published var commentsCount: Int?
     @Published var comments = [Comment]()
     @Published var replies = [Comment]()
     @Published var status = Status.waiting
@@ -25,7 +24,7 @@ class CommentViewModel: ObservableObject {
     @Published var postId: Int?
     @Published var isFirstRequest: Bool = true
     
-    func transferToCommentModel(_ comment: CommentPostResponseModel) -> Comment {
+    func transferToCommentModel(_ comment: CommentPostResponseModel) -> Comment { // FIXME: to extension later
         let author = Comment.Author(id: comment.memberId, nickname: UserManager.shared.getNickName(), profileImageIndex: UserManager.shared.getProfileImagesIndex())
         return Comment(id: comment.id, author: author, content: comment.content, createdDatetime: comment.createdDateTime, likeCount: 0, isLiked: false, repliesCount: 0)
     }
@@ -44,11 +43,12 @@ class CommentViewModel: ObservableObject {
             .subscribe(
                 onSuccess: { [weak self] comment in
                     guard let self = self else { return }
+                    let newComment = self.transferToCommentModel(comment)
                     
-                    withAnimation {
-                        let newComment = self.transferToCommentModel(comment)
+                    print("new comment",newComment)
+//                    withAnimation {
                         self.comments.insert(newComment, at: 0)
-                    }
+//                    }
                     
                     self.status = .done
                 }, onFailure: { [weak self] error in
@@ -74,8 +74,6 @@ class CommentViewModel: ObservableObject {
                 onSuccess: { [weak self] commentInfo in
                     guard let self = self else { return }
                     print("Success requestComments")
-                    
-                    self.commentsCount = commentInfo.totalCommentCount
                     
                     if isFirstRequest {
                         self.comments = commentInfo.comments

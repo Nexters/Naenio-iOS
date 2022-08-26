@@ -41,9 +41,23 @@ class ProfileChangeViewModel: ObservableObject {
             return
         }
         
+        RequestService<NicknameResponseModel>.request(api: .putNickname(nickname))
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onSuccess: { [weak self] response in
+                    guard let self = self else { return }
+                    print(nickname)
+                    self.userManager.updateNickName(response.nickname)
+                    self.status = .done(result: true)
+                }, onFailure: { [weak self] error in
+                    guard let self = self else { return }
+                    
+                    self.status = .fail(with: error)
+                })
+            .disposed(by: bag)
+        
         // TODO: 서버 API 붙여야 함!!!
         // if networkingSuccessed {
-        userManager.updateNickName(nickname)
         self.status = .done(result: true) // 임시
         // }
         
@@ -54,9 +68,23 @@ class ProfileChangeViewModel: ObservableObject {
             return
         }
         
+        RequestService<IndexResponseModel>.request(api: .putProfileIndex(index))
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onSuccess: { [weak self] response in
+                    guard let self = self else { return }
+                    
+                    self.userManager.updateProfileImageIndex(response.profileImageIndex)
+                    self.status = .done(result: true)
+                }, onFailure: { [weak self] error in
+                    guard let self = self else { return }
+                    
+                    self.status = .fail(with: error)
+                })
+            .disposed(by: bag)
+        
         // TODO: 서버 API 붙여야 함!!!
         // if networkingSuccessed {
-        userManager.updateProfileImageIndex(index)
         self.status = .done(result: true) // 임시
         // }
         
