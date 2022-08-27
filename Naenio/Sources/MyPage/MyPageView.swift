@@ -11,20 +11,19 @@ struct MyPageView: View {
     @EnvironmentObject var userManger: UserManager
     @ObservedObject var viewModel = MyPageViewModel()
     
-    private let personalCells: [CellData] = [
-        CellData(name: "✏️ 작성한 댓글", destination: Text("dest"))
+    private let personalCells: [NavigateCellData] = [
+        NavigateCellData(name: "✏️ 작성한 댓글", destination: Text("dest"))
     ]
     
-    private let businessCells: [CellData] = [
-        CellData(name: "📢 공지사항", destination: NoticeView()),
-        CellData(name: "⁉️ 문의하기", destination: NoticeView()),
-        CellData(name: "👤 개발자 정보", destination: NoticeView()),
-        CellData(name: "📱 버전 정보", destination: NoticeView())
+    private let businessCells: [NavigateCellData] = [
+        NavigateCellData(name: "📢 공지사항", destination: NoticeView()),
+        NavigateCellData(name: "👤 개발자 정보", destination: NoticeView()),
+        NavigateCellData(name: "📱 버전 정보", destination: NoticeView())
     ]
     
-    private let userCells: [CellData] = [
-        CellData(name: "🔓 로그아웃", destination: Text("dest")),
-        CellData(name: "️️🚪 회원탈퇴", destination: Text("dest"))
+    private let userCells: [NavigateCellData] = [
+        NavigateCellData(name: "🔓 로그아웃", destination: Text("dest")),
+        NavigateCellData(name: "️️🚪 회원탈퇴", destination: Text("dest"))
     ]
     
     var body: some View {
@@ -59,6 +58,10 @@ struct MyPageView: View {
                                 CustomDivider()
                             }
                         }
+                        
+                        CustomDivider()
+
+                        MyPageLinkCell(name: "⁉️ 문의하기", url: URL(string: "https://forms.gle/KncRPJXwg69F5GpV7")!)
                     }
                     
                     MyPageSection {
@@ -107,7 +110,7 @@ extension MyPageView {
 }
 
 // Data model
-fileprivate struct CellData<V: View>: Identifiable {
+fileprivate struct NavigateCellData<V: View>: Identifiable {
     let id = UUID()
     let name: String
     let destination: V
