@@ -11,21 +11,6 @@ struct MyPageView: View {
     @EnvironmentObject var userManger: UserManager
     @ObservedObject var viewModel = MyPageViewModel()
     
-    private let personalCells: [NavigateCellData] = [
-        NavigateCellData(name: "✏️ 작성한 댓글", destination: Text("dest"))
-    ]
-    
-    private let businessCells: [NavigateCellData] = [
-        NavigateCellData(name: "📢 공지사항", destination: NoticeView()),
-        NavigateCellData(name: "👤 개발자 정보", destination: NoticeView()),
-        NavigateCellData(name: "📱 버전 정보", destination: NoticeView())
-    ]
-    
-    private let userCells: [NavigateCellData] = [
-        NavigateCellData(name: "🔓 로그아웃", destination: Text("dest")),
-        NavigateCellData(name: "️️🚪 회원탈퇴", destination: Text("dest"))
-    ]
-    
     var body: some View {
         ZStack {
             Color.background.ignoresSafeArea()
@@ -40,35 +25,30 @@ struct MyPageView: View {
                         .cornerRadius(10)
                     
                     MyPageSection {
-                        ForEach(Array(zip(personalCells.indices, personalCells)), id: \.1.id) { index, cell in
-                            MyPageNavigationCell(name: cell.name, destination: cell.destination)
+                        ForEach(PersonalCell.allCases, id:\.title) { cell in
+                            MyPageNavigationCell(name: cell.title, destination: cell.view)
                             
-                            if personalCells.count != 1 && index != personalCells.count - 1 {
+                            if cell.title != PersonalCell.allCases.last?.title {
                                 CustomDivider()
-                                    .padding(.horizontal, 12)
                             }
                         }
                     }
                     
                     MyPageSection {
-                        ForEach(Array(zip(businessCells.indices, businessCells)), id: \.1.id) { index, cell in
-                            MyPageNavigationCell(name: cell.name, destination: cell.destination)
+                        ForEach(BusinessCell.allCases, id:\.title) { cell in
+                            MyPageNavigationCell(name: cell.title, destination: cell.view)
                             
-                            if businessCells.count != 1 && index != businessCells.count - 1 {
-                                CustomDivider()
-                            }
+                            CustomDivider()
                         }
                         
-                        CustomDivider()
-
                         MyPageLinkCell(name: "⁉️ 문의하기", url: URL(string: "https://forms.gle/KncRPJXwg69F5GpV7")!)
                     }
                     
                     MyPageSection {
-                        ForEach(Array(zip(userCells.indices, userCells)), id: \.1.id) { index, cell in
-                            MyPageNavigationCell(name: cell.name, destination: cell.destination)
+                        ForEach(AccountCell.allCases, id:\.title) { cell in
+                            MyPageNavigationCell(name: cell.title, destination: cell.view)
                             
-                            if userCells.count != 1 && index != userCells.count - 1 {
+                            if cell.title != AccountCell.allCases.last?.title {
                                 CustomDivider()
                             }
                         }
@@ -83,7 +63,7 @@ struct MyPageView: View {
 
 // Components
 extension MyPageView {
-    var headerWithUserInformation: some View {
+    private var headerWithUserInformation: some View {
         HStack(spacing: 17) {
             viewModel.profileImage
                 .resizable()
@@ -107,13 +87,79 @@ extension MyPageView {
         }
         .foregroundColor(.white)
     }
+    
+    private enum BusinessCell: CaseIterable, NavigatableCell {
+        case notice, developers, version
+        
+        var title: String {
+            switch self {
+            case .notice:
+                return "📢 공지사항"
+            case .developers:
+                return "👤 개발자 정보"
+            case .version:
+                return "📱 버전 정보"
+            }
+        }
+        
+        @ViewBuilder func view() -> some View {
+            switch self {
+            case .notice:
+                NoticeView()
+            case .developers:
+                DevelopersView()
+            case .version:
+                Text("Text")
+            }
+        }
+    }
+    
+    private enum PersonalCell: CaseIterable, NavigatableCell {
+        case comment
+        
+        var title: String {
+            switch self {
+            case .comment:
+                return "✏️ 작성한 댓글"
+            }
+        }
+        
+        @ViewBuilder func view() -> some View {
+            switch self {
+            case .comment:
+                Text("SS")
+            }
+        }
+    }
+    
+    private enum AccountCell: CaseIterable, NavigatableCell {
+        case logout, withdrawal
+        
+        var title: String {
+            switch self {
+            case .logout:
+                return "🔓 로그아웃"
+            case .withdrawal:
+                return "🚪 회원탈퇴"
+            }
+        }
+        
+        @ViewBuilder func view() -> some View {
+            switch self {
+            case .logout:
+                Text("logout")
+            case .withdrawal:
+                Text("witherawal")
+            }
+        }
+    }
 }
 
-// Data model
-fileprivate struct NavigateCellData<V: View>: Identifiable {
-    let id = UUID()
-    let name: String
-    let destination: V
+protocol NavigatableCell {
+    associatedtype V: View
+
+    var title: String { get }
+    func view() -> V
 }
 
 struct MyPageView_Previews: PreviewProvider {

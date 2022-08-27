@@ -26,14 +26,9 @@ struct MyPageNavigationCell<Destination>: View where Destination: View {
         .buttonStyle(PlainButtonStyle())
     }
     
-    init(name: String, destination: Destination) {
+    init(name: String, @ViewBuilder destination: () -> Destination) {
         self.name = name
-        self.destination = destination
+        self.destination = destination()
     }
 }
 
-struct MyPageNavigationCell_Previews: PreviewProvider {
-    static var previews: some View {
-        MyPageNavigationCell(name: "S", destination: Text("SS"))
-    }
-}

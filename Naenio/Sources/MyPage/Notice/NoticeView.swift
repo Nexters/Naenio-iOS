@@ -25,7 +25,9 @@ struct NoticeView: View {
                         
                         VStack(spacing: 11) {
                             ForEach(viewModel.notices, id: \.id) { notice in
-                                MyPageNavigationCell(name: notice.title, destination: NoticeDetailView(notice: notice))
+                                MyPageNavigationCell(name: notice.title) {
+                                    NoticeDetailView(notice: notice)
+                                }
                             }
                             .cornerRadius(10)
                             .padding(.horizontal, 20)
