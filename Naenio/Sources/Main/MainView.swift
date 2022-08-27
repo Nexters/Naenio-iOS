@@ -45,13 +45,7 @@ struct MainView: View {
             tabBarLowSheetInfo.isPresented = true
             tabBarLowSheetInfo.postId = value.postId
         }
-        .lowSheet(isPresented: $tabBarLowSheetInfo.isPresented) {
-            ReportAndShareSheetView(
-                isPresented: $tabBarLowSheetInfo.isPresented,
-                postID: tabBarLowSheetInfo.postId
-            )
-                .padding(.horizontal, 27)
-        }
+        .toast(isPresented: $tabBarLowSheetInfo.isPresented, title: "삭제하기", action: {})
     }
 }
 

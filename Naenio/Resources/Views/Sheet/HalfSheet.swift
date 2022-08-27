@@ -23,7 +23,6 @@ struct HalfSheet<C: View>: View {
 
     private let bgColor: Color
     
-    
     private var grayBackgroundOpacity: Double {
         if !isPresented {
             return 0
