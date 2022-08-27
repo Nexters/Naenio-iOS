@@ -33,7 +33,7 @@
 - SwiftLint
 - Lottie
 
-## How to build?
+## 💾 How to build?
 #### 1. 종속성 설치
 터미널 내에서 프로젝트 폴더로 이동해 다음 명령어를 실행해 종속성을 설치해주세요.
 ``` Bash
@@ -50,3 +50,11 @@ git clone naenio-ios-ignored
 #### 3. match 인증서 불러오기
 - 프로젝트에서 배포용으로 관리되는 인증서는 `naenio-fastlane-match`라는 이름으로 @enebin(repo author)의 개인 레포로 관리되고 있습니다. 해당 레포에 대한 권한은 직접 문의 바랍니다.
 - 안 필요할 수도 있으므로 일단 생략합니다,, 나중에 쓰겟음
+
+## 👩‍👩‍👧‍👦 Family repos
+- [네니오 안드로이드](https://github.com/Nexters/naenio-android)
+- [네니오 서버](https://github.com/Nexters/naenio-server)
+- [네니오 웹페이지](https://github.com/Nexters/naenio-web)
+
+
+
