@@ -69,6 +69,7 @@
 		9B2A4ACC28B9DEC600349AEC /* NoticeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4ACB28B9DEC600349AEC /* NoticeDetailView.swift */; };
 		9B2A4ACF28B9E57300349AEC /* MyPageLinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4ACE28B9E57300349AEC /* MyPageLinkCell.swift */; };
 		9B2A4AD228B9EA6400349AEC /* DevelopersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4AD128B9EA6400349AEC /* DevelopersView.swift */; };
+		9B2A4AD528BA01DD00349AEC /* VersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4AD428BA01DD00349AEC /* VersionView.swift */; };
 		9B2B25E528ADCEA0009BDC9F /* LottieAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2B25E428ADCEA0009BDC9F /* LottieAnimations.swift */; };
 		9B3644BC28AB3B2200EA1467 /* ProfileImageSelectionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3644BB28AB3B2200EA1467 /* ProfileImageSelectionSheetView.swift */; };
 		9B3644BF28AB3CC600EA1467 /* ProfileImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3644BE28AB3CC600EA1467 /* ProfileImages.swift */; };
@@ -264,6 +265,7 @@
 		9B2A4ACB28B9DEC600349AEC /* NoticeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailView.swift; sourceTree = "<group>"; };
 		9B2A4ACE28B9E57300349AEC /* MyPageLinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageLinkCell.swift; sourceTree = "<group>"; };
 		9B2A4AD128B9EA6400349AEC /* DevelopersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopersView.swift; sourceTree = "<group>"; };
+		9B2A4AD428BA01DD00349AEC /* VersionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionView.swift; sourceTree = "<group>"; };
 		9B2B25E428ADCEA0009BDC9F /* LottieAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimations.swift; sourceTree = "<group>"; };
 		9B3644BB28AB3B2200EA1467 /* ProfileImageSelectionSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSelectionSheetView.swift; sourceTree = "<group>"; };
 		9B3644BE28AB3CC600EA1467 /* ProfileImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImages.swift; sourceTree = "<group>"; };
@@ -531,6 +533,7 @@
 		4CC4B7362896BE0300774192 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				9B2A4AD328BA01CA00349AEC /* Version */,
 				9B2A4AD028B9EA5A00349AEC /* Developers */,
 				9B2A4ACD28B9E4E900349AEC /* Support */,
 				9B2A4AC628B9D5EC00349AEC /* Notice */,
@@ -764,6 +767,14 @@
 				9B2A4AD128B9EA6400349AEC /* DevelopersView.swift */,
 			);
 			path = Developers;
+			sourceTree = "<group>";
+		};
+		9B2A4AD328BA01CA00349AEC /* Version */ = {
+			isa = PBXGroup;
+			children = (
+				9B2A4AD428BA01DD00349AEC /* VersionView.swift */,
+			);
+			path = Version;
 			sourceTree = "<group>";
 		};
 		9B3644BD28AB3CBD00EA1467 /* Images */ = {
@@ -1552,6 +1563,7 @@
 				4C7ECFF228B518FE006C1763 /* CommentRepliesResponseModel.swift in Sources */,
 				4CC3CE9728AA8A3900458138 /* PostResponseModel.swift in Sources */,
 				9B8D409C28AE86B90024E989 /* VotesViewModel.swift in Sources */,
+				9B2A4AD528BA01DD00349AEC /* VersionView.swift in Sources */,
 				9CBCDCE328AE2A3700C4C577 /* FullView.swift in Sources */,
 				4CC3CE9928AA8A3900458138 /* PostRequestInformation.swift in Sources */,
 				4CC3CE9728AA8A3900458138 /* PostResponseModel.swift in Sources */,
@@ -1801,6 +1813,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Naenio/ignored/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "네니오";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1837,6 +1850,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Naenio/ignored/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "네니오";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -109,7 +109,7 @@ extension MyPageView {
             case .developers:
                 DevelopersView()
             case .version:
-                Text("Text")
+                VersionView()
             }
         }
     }
