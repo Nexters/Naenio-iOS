@@ -16,10 +16,10 @@ struct MyPageView: View {
     ]
     
     private let businessCells: [CellData] = [
-        CellData(name: "📢 공지사항", destination: Text("dest")),
-        CellData(name: "⁉️ 문의하기", destination: Text("dest")),
-        CellData(name: "👤 개발자 정보", destination: Text("dest")),
-        CellData(name: "📱 버전 정보", destination: Text("dest"))
+        CellData(name: "📢 공지사항", destination: NoticeView()),
+        CellData(name: "⁉️ 문의하기", destination: NoticeView()),
+        CellData(name: "👤 개발자 정보", destination: NoticeView()),
+        CellData(name: "📱 버전 정보", destination: NoticeView())
     ]
     
     private let userCells: [CellData] = [
