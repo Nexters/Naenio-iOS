@@ -127,7 +127,7 @@ extension MyPageView {
         @ViewBuilder func view() -> some View {
             switch self {
             case .comment:
-                Text("SS")
+                MyCommentView()
             }
         }
     }
