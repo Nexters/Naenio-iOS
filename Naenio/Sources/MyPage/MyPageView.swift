@@ -25,7 +25,7 @@ struct MyPageView: View {
                         .cornerRadius(10)
                     
                     MyPageSection {
-                        ForEach(PersonalCell.allCases, id:\.title) { cell in
+                        ForEach(PersonalCell.allCases, id: \.title) { cell in
                             MyPageNavigationCell(name: cell.title, destination: cell.view)
                             
                             if cell.title != PersonalCell.allCases.last?.title {
@@ -35,7 +35,7 @@ struct MyPageView: View {
                     }
                     
                     MyPageSection {
-                        ForEach(BusinessCell.allCases, id:\.title) { cell in
+                        ForEach(BusinessCell.allCases, id: \.title) { cell in
                             MyPageNavigationCell(name: cell.title, destination: cell.view)
                             
                             CustomDivider()
@@ -45,7 +45,7 @@ struct MyPageView: View {
                     }
                     
                     MyPageSection {
-                        ForEach(AccountCell.allCases, id:\.title) { cell in
+                        ForEach(AccountCell.allCases, id: \.title) { cell in
                             MyPageNavigationCell(name: cell.title, destination: cell.view)
                             
                             if cell.title != AccountCell.allCases.last?.title {
