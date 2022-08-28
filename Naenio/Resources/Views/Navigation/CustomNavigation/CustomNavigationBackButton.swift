@@ -23,8 +23,12 @@ struct CustomNavigationBackButton: View {
             Image(systemName: "chevron.left")
                 .resizable()
                 .scaledToFit()
-                .frame(width: 24, height: 24)
+                .frame(height: 24)
                 .foregroundColor(.white)
         }
+    }
+    
+    init(action: (() -> Void)? = nil) {
+        self.action = action
     }
 }

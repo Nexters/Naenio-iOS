@@ -24,20 +24,19 @@ class HomeViewModel: ObservableObject {
                 onSuccess: { [weak self] post in
                     guard let self = self else { return }
                     
+                    let author = Author(
+                        id: post.memberId,
+                        nickname: UserManager.shared.getNickName(),
+                        profileImageIndex: UserManager.shared.getProfileImagesIndex()
+                    )
+                    let nextChoices = self.transferToChoiceModel(from: post.choices)
+                    let newPost = Post(id: post.id,
+                                       author: author,
+                                       voteCount: 0,
+                                       title: post.title,
+                                       content: post.content ?? "",
+                                       choices: nextChoices, commentCount: 0)
                     withAnimation {
-                        let author = Author(
-                            id: post.memberId,
-                            nickname: UserManager.shared.getNickName(),
-                            profileImageIndex: UserManager.shared.getProfileImagesIndex()
-                        )
-                        let nextChoices = self.transferToChoiceModel(from: post.choices)
-                        let newPost = Post(id: post.id,
-                                           author: author,
-                                           voteCount: 0,
-                                           title: post.title,
-                                           content: post.content ?? "",
-                                           choices: nextChoices, commentCount: 0)
-                        
                         self.posts.insert(newPost, at: 0)
                     }
                     self.status = .done

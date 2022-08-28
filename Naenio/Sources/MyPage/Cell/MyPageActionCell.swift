@@ -1,18 +1,18 @@
 //
-//  MyPageNavigationCell.swift
+//  MyPageLinkCell.swift
 //  Naenio
 //
-//  Created by YoungBin Lee on 2022/08/15.
+//  Created by YoungBin Lee on 2022/08/27.
 //
 
 import SwiftUI
 
-struct MyPageNavigationCell<Destination>: View where Destination: View {
-    let destination: Destination
+struct MyPageActionCell: View {
     let name: String
+    let action: () -> Void
     
     var body: some View {
-        NavigationLink(destination: LazyView(destination)) {
+        Button(action: action) {
             MyPageCell(leading: {
                 Text(name)
                     .font(.semoBold(size: 16))
@@ -23,11 +23,10 @@ struct MyPageNavigationCell<Destination>: View where Destination: View {
                     .frame(width: 12, height: 12)
             })
         }
-        .buttonStyle(PlainButtonStyle())
     }
     
-    init(name: String, @ViewBuilder destination: () -> Destination) {
+    init(name: String, action: @escaping () -> Void) {
         self.name = name
-        self.destination = destination()
+        self.action = action
     }
 }

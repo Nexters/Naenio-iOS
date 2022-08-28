@@ -29,6 +29,8 @@ enum NaenioAPI {
     
     case putNickname(String)
     case putProfileIndex(Int)
+    
+    case deleteAccount
 }
 
 extension NaenioAPI: TargetType {
@@ -45,12 +47,12 @@ extension NaenioAPI: TargetType {
     var headers: [String: String]? {
         switch self {
         case .login:
-            return [HeaderInformation.HeaderKey.contentType: HeaderInformation.HeaderValue.json]
+            return [NaenioAPIHeaderKey.contentType: NaenioAPIHeaderValue.json]
         default:
             return [
-                HeaderInformation.HeaderKey.accept: HeaderInformation.HeaderValue.json,
-                HeaderInformation.HeaderKey.contentType: HeaderInformation.HeaderValue.json,
-                HeaderInformation.HeaderKey.authorization: HeaderInformation.HeaderValue.authoization
+                NaenioAPIHeaderKey.accept: NaenioAPIHeaderValue.json,
+                NaenioAPIHeaderKey.contentType: NaenioAPIHeaderValue.json,
+                NaenioAPIHeaderKey.authorization: NaenioAPIHeaderValue.authoization
             ]
         }
     }

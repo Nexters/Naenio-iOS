@@ -13,6 +13,7 @@ struct CommentRepliesView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Binding var isPresented: Bool
     
+    @EnvironmentObject var userManager: UserManager
     @ObservedObject var viewModel = CommentRepliesViewModel()
     @ObservedObject var scrollViewHelper = ScrollViewHelper()
     
@@ -122,7 +123,7 @@ struct CommentRepliesView: View {
     }
     
     var profileImage: some View {
-        let profileImageIndex = UserManager.shared.getProfileImagesIndex()  // FIXME:
+        let profileImageIndex = userManager.getProfileImagesIndex()
         return ProfileImages.getImage(of: profileImageIndex)
             .resizable()
             .scaledToFit()

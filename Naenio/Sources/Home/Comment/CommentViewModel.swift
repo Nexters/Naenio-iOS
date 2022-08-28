@@ -24,7 +24,7 @@ class CommentViewModel: ObservableObject {
     @Published var isFirstRequest: Bool = true
     
     func transferToCommentModel(_ comment: CommentPostResponseModel) -> Comment { // FIXME: to extension later
-        let author = Comment.Author(id: comment.memberId, nickname: UserManager.shared.getNickName(), profileImageIndex: UserManager.shared.getProfileImagesIndex())
+        let author = Comment.Author(id: comment.memberId, nickname: "익스텐션으로 수정하기", profileImageIndex: 0)
         return Comment(id: comment.id, author: author, content: comment.content, createdDatetime: comment.createdDateTime, likeCount: 0, isLiked: false, repliesCount: 0)
     }
 
@@ -44,10 +44,8 @@ class CommentViewModel: ObservableObject {
                     guard let self = self else { return }
                     let newComment = self.transferToCommentModel(comment)
                     
-                    print("new comment",newComment)
-//                    withAnimation {
-                        self.comments.insert(newComment, at: 0)
-//                    }
+                    print("new comment", newComment)
+                    self.comments.insert(newComment, at: 0)
                     
                     self.status = .done
                 }, onFailure: { [weak self] error in
@@ -114,21 +112,5 @@ extension CommentViewModel {
                 return "Failed with error: \(error.localizedDescription)"
             }
         }
-    }
-}
-
-// !!!: Test
-extension CommentViewModel {
-    private func getCommentDisposable() -> Single<CommentModel> {
-        let commentInfo = MockCommentGenertor.generate()
-        
-        return Observable.of(commentInfo).asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
-    }
-    
-    private func registerNewComment(_ commentRequest: CommentPostRequestModel) -> Single<Comment> {
-        let mockComment = MockCommentGenertor.generate(with: commentRequest)
-        let observable = Observable.just(mockComment)
-        
-        return observable.asSingle().delay(.seconds(1), scheduler: MainScheduler.instance)
     }
 }

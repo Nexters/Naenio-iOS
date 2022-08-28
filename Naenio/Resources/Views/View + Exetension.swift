@@ -45,12 +45,23 @@ extension View {
     }
     
     // 로우시트 with options(인디케이터, 높이, bg)
+    @available(*, deprecated)
     func lowSheet<C: View>(isPresented: Binding<Bool>,
                            @ViewBuilder content: @escaping () -> C) -> some View {
         ZStack {
             self
             
             HalfSheet(isPresented: isPresented, content: content)
+        }
+    }
+    
+    func toast(isPresented: Binding<Bool>,
+               title: String,
+               action: @escaping () -> Void) -> some View {
+        ZStack {
+            self
+            
+            Toast(isPresented: isPresented, title: title, action: action)
         }
     }
     

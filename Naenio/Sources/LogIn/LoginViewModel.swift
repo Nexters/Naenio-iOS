@@ -42,7 +42,7 @@ class LoginViewModel: ObservableObject {
                     guard let self = self else { return }
                     
                     self.status = .done(result: userInfo)
-                    self.userManager.updateAuth(.apple)
+                    self.userManager.updateAuthServiceType(.apple)
                 },
                 onFailure: { [weak self] error in
                     guard let self = self else { return }
@@ -72,7 +72,7 @@ class LoginViewModel: ObservableObject {
                     guard let self = self else { return }
                     
                     self.status = .done(result: userInfo)
-                    self.userManager.updateAuth(.kakao)
+                    self.userManager.updateAuthServiceType(.kakao)
                 },
                 onFailure: { [weak self] error in
                     guard let self = self else { return }

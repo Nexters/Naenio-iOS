@@ -11,6 +11,7 @@ extension NaenioAPI {
         case .signOut, .withDrawal, .login, .postPost, .postVote, .postComment: return .post
         case .getUser, .getFeed, .getTheme, .getComment, .getCommentReplies, .getSinglePost, .getIsNicknameAvailable: return .get
         case .putNickname, .putProfileIndex: return .put
+        case .deleteAccount: return .delete
         }
     }
 }

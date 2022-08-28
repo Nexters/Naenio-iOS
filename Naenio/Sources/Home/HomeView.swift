@@ -10,13 +10,14 @@ import Combine
 import Introspect
 
 struct HomeView: View {
+    @EnvironmentObject var userManager: UserManager
     @StateObject var viewModel = HomeViewModel()
     @ObservedObject var scrollViewHelper = ScrollViewHelper()
 
     @State var showNewPost = false
     
     @State var showComments = false
-    @State var selectedPostId: Int? = nil
+    @State var selectedPostId: Int?
     
     var body: some View {
             ZStack(alignment: .bottomTrailing) {
@@ -132,6 +133,7 @@ struct HomeView: View {
             }
             .sheet(isPresented: $showComments) {
                 CommentView(isPresented: $showComments, parentId: $selectedPostId)
+                    .environmentObject(userManager)
             }
         }
         

@@ -61,4 +61,3 @@ extension IdentifiableIndices: RandomAccessCollection {
         base.index(after: index)
     }
 }
-

@@ -37,7 +37,6 @@ class FullViewModel: ObservableObject {
             .disposed(by: bag)
     }
     
-    
     func getImage(of index: Int) -> Image {
         return ProfileImages.getImage(of: index)
     }
