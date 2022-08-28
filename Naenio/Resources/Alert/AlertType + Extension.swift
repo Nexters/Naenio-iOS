@@ -8,28 +8,28 @@
 import SwiftUI
 
 extension AlertType {
-    static func getAlert(of type: AlertType, primaryAction: (() -> Void)? = nil, secondaryAction: @escaping () -> Void) -> Alert {
-        switch type {
-        case .warnBeforeExit:
+    func getAlert() -> Alert {
+        switch self {
+        case .warnBeforeExit(let primaryAction, let secondaryAction):
             return Alert(title: Text("정말 나가시겠어요?"),
                          message: Text("작성 중인 글은 저장되지 않습니다"),
                          primaryButton: .cancel(Text("cancel"), action: primaryAction ?? {}),
                          secondaryButton: .default(Text("Ok"), action: secondaryAction))
-        case .errorHappend(let error):
+        case .errorHappend(let error, let primaryAction, let secondaryAction):
             return Alert(title: Text("알 수 없는 에러"),
                          message: Text(error.localizedDescription),
                          primaryButton: .cancel(Text("cancel"), action: primaryAction ?? {}),
                          secondaryButton: .default(Text("Ok"), action: secondaryAction))
-        case .logout:
+        case .logout(let primaryAction, let secondaryAction):
             return Alert(title: Text("로그아웃"),
                          message: Text("정말로 로그아웃하시겠어요?"),
-                         primaryButton: .cancel(Text("닫기"), action: primaryAction ?? {}),
+                         primaryButton: .destructive(Text("닫기"), action: primaryAction ?? {}),
                          secondaryButton: .default(Text("로그아웃"), action: secondaryAction))
         case .none:
             return Alert(title: Text("알 수 없는 에러"), // FIXME: 어차피 나중에 얼러트 바꿀거라 임시로 아무거나 넣어 놓음
                          message: Text(""),
-                         primaryButton: .cancel(Text("cancel"), action: primaryAction ?? {}),
-                         secondaryButton: .default(Text("Ok"), action: secondaryAction))
+                         primaryButton: .cancel(Text("cancel"), action: {}),
+                         secondaryButton: .default(Text("Ok"), action: {}))
         }
     }
 }
