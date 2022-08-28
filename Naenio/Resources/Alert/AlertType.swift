@@ -14,5 +14,6 @@ enum AlertType {
     case warnBeforeExit(primaryAction: Action? = nil, secondaryAction: Action? = nil)
     case errorHappend(error: Error, primaryAction: Action? = nil, secondaryAction: Action? = nil)
     case logout(primaryAction: Action? = nil, secondaryAction: Action? = nil)
+    case withdrawal(primaryAction: Action? = nil, secondaryAction: Action? = nil)
     case none
 }

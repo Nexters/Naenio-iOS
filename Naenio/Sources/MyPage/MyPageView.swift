@@ -57,11 +57,10 @@ struct MyPageView: View {
                             case .logout:
                                 MyPageActionCell(name: cell.title, action: {
                                     alertVariable = .logout(secondaryAction: { viewModel.signOut() })
-//                                    viewModel.signOut()
                                 })
                             case .withdrawal:
                                 MyPageActionCell(name: cell.title, action: {
-                                    viewModel.signOut()
+                                    alertVariable = .withdrawal(secondaryAction: { print("done") })
                                 })
                             }
                             
