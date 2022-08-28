@@ -172,7 +172,6 @@
 		9CBCDCEB28AE3A7900C4C577 /* NewVoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCEA28AE3A7900C4C577 /* NewVoteButton.swift */; };
 		9CBCDCEF28AE65B900C4C577 /* SinglePostRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCEE28AE65B900C4C577 /* SinglePostRequestInformation.swift */; };
 		9CBCDCF128AE6E9500C4C577 /* SinglePostResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCF028AE6E9500C4C577 /* SinglePostResponseModel.swift */; };
-		9CC044F728B8521D004164F7 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC044F528B8521D004164F7 /* KeyValue.swift */; };
 		9CC044FC28B88F77004164F7 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC044FA28B88F77004164F7 /* KeyValue.swift */; };
 		9CCA228E289BA2EA00A2F9B0 /* MockPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA228D289BA2EA00A2F9B0 /* MockPost.json */; };
 		9CCA2293289BAB0F00A2F9B0 /* MockPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA228F289BA4A900A2F9B0 /* MockPost.json */; };
@@ -638,7 +637,7 @@
 		9B085F012879991400DE8E60 /* Naenio */ = {
 			isa = PBXGroup;
 			children = (
-				9CC044F428B8521D004164F7 /* ignored */,
+				9CC044F428B8521D004164F7,
 				9CC044F928B88F77004164F7 /* ignored */,
 				9BF00BF2287AC72800F08035 /* Naenio.entitlements */,
 				9B085F082879991600DE8E60 /* Preview Content */,
@@ -1182,12 +1181,13 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
-		9CC044F428B8521D004164F7 /* ignored */ = {
+		9CC044F428B8521D004164F7 = {
 			isa = PBXGroup;
 			children = (
 				9CC044F528B8521D004164F7 /* KeyValue.swift */,
 				9CC044F628B8521D004164F7 /* Info.plist */,
 			);
+			sourceTree = "<unknown>";
 		};
 		9CC044F928B88F77004164F7 /* ignored */ = {
 			isa = PBXGroup;
@@ -1637,7 +1637,6 @@
 				9B61D0DC28A8EE4500F6DD0B /* RoundedCorner.swift in Sources */,
 				9C2D07B92897C728008BBD75 /* UserManager.swift in Sources */,
 				9C10439D289B747200A45711 /* HomeViewModel.swift in Sources */,
-				9CC044F728B8521D004164F7 /* KeyValue.swift in Sources */,
 				9CC044FC28B88F77004164F7 /* KeyValue.swift in Sources */,
 				9CB1DFB228AB75A10048B313 /* CustomNavigationView + Extension.swift in Sources */,
 				9CAA174028A2468600EAAE40 /* WrappedTextView.swift in Sources */,
