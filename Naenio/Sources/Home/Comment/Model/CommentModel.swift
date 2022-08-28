@@ -26,5 +26,4 @@ struct CommentModel: ModelType {
             let profileImageIndex: Int?
         }
     }
-    
 }
