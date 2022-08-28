@@ -14,14 +14,14 @@ struct CommentView: View {
     @ObservedObject var scrollViewHelper = ScrollViewHelper()
     
     @State var text: String = "" // 메시지 작성용
-    
+    @State var toastInfo = ToastInformation(isPresented: false, title: "", action: {}) // 리팩토링 시급, 토스트 시트 용 정보 스트럭트
+
     @Binding var isPresented: Bool
     @Binding var parentId: Int?
-    
+        
     init(isPresented: Binding<Bool>, parentId: Binding<Int?>) {
         self._isPresented = isPresented
         self._parentId = parentId
-        print("init", parentId)
     }
     
     var body: some View {
@@ -63,14 +63,24 @@ struct CommentView: View {
                                 .fillHorizontal()
                             
                             if let parentId = parentId {
-                                CommentContentCell(isPresented: $isPresented, comment: comment, isReply: false, parentId: parentId)
+                                CommentContentCell(isPresented: $isPresented,
+                                                   toastInfo: $toastInfo,
+                                                   comment: comment,
+                                                   isReply: false,
+                                                   isMine: userManager.getUserId() == comment.author.id,
+                                                   parentId: parentId)
                             } else {
                                 ZStack {
                                     Text("⚠️ 일시적인 오류가 발생했습니다")
                                         .font(.semoBold(size: 16))
                                         .foregroundColor(.white)
                                     
-                                    CommentContentCell(isPresented: $isPresented, comment: comment, isReply: false, parentId: -1)
+                                    CommentContentCell(isPresented: $isPresented,
+                                                       toastInfo: $toastInfo,
+                                                       comment: comment,
+                                                       isReply: false,
+                                                       isMine: userManager.getUserId() == comment.author.id,
+                                                       parentId: -1)
                                         .blur(radius: 2)
                                 }
                             }
@@ -125,11 +135,11 @@ struct CommentView: View {
                 }
                 .frame(height: 60)
             }
+            .toast(isPresented: $toastInfo.isPresented, title: toastInfo.title, action: toastInfo.action)
             .navigationBarHidden(true)
         }
         .onAppear {
             viewModel.requestComments(postId: self.parentId, isFirstRequest: true)
-
             viewModel.isFirstRequest = true
         }
     }

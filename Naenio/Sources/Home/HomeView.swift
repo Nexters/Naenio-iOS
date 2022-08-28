@@ -50,7 +50,7 @@ struct HomeView: View {
                             LazyVStack(spacing: 20) {
                                 ForEach($viewModel.posts) { index, post in
                                     NavigationLink(destination: LazyView(
-                                        FullView(post: post))
+                                        FullView(post: post).environmentObject(userManager))
                                     ) {
                                         CardView(post: post) {
                                             DispatchQueue.main.async {

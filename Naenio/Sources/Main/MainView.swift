@@ -12,7 +12,7 @@ struct MainView: View {
     @EnvironmentObject var userManager: UserManager
     
     @State var selectedTab = 1
-    @State fileprivate var tabBarLowSheetInfo = TabBarLowSheetInfo(isPresented: false, postId: 0)
+    @State fileprivate var tabBarLowSheetInfo = TabBarLowSheetInfo(isPresented: false, title: "", action: {})
     
     @State var pages: [TabBarPage] = [
         TabBarPage(pageName: .curation, selectedIcon: "tab_curation_selected", deselectedIcon: "tab_curation_deselected", tag: 0),
@@ -41,17 +41,23 @@ struct MainView: View {
             controller.tabBar.layer.cornerRadius = 14
             controller.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         }
-        .onReceive(Publishers.lowSheetNotificationPublisher) { (value: LowSheetNotification) in
+        .onReceive(Publishers.lowSheetNotificationPublisher) { (info: LowSheetNotification) in
             tabBarLowSheetInfo.isPresented = true
-            tabBarLowSheetInfo.postId = value.postId
-        }
-        .toast(isPresented: $tabBarLowSheetInfo.isPresented, title: "삭제하기", action: {})
+            tabBarLowSheetInfo.title = info.title
+            tabBarLowSheetInfo.action = info.action
+        } // 어우 더러워
+        .toast(
+            isPresented: $tabBarLowSheetInfo.isPresented,
+            title: tabBarLowSheetInfo.title,
+            action: tabBarLowSheetInfo.action
+        )
     }
 }
 
 fileprivate struct TabBarLowSheetInfo {
     var isPresented: Bool
-    var postId: Int
+    var title: String
+    var action: () -> Void
 }
 
 struct TabBarPage: Identifiable {

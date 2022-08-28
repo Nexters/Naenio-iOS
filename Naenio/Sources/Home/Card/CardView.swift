@@ -35,15 +35,11 @@ struct CardView: View {
                         
                         Spacer()
                         
-                        // 신고/공유
-                        Button(action: { NotificationCenter.default.postLowSheetNotification(with: LowSheetNotification(postId: post.id)) }) {
-                            Image(systemName: "ellipsis")
-                                .resizable()
-                                .scaledToFit()
-                                .rotationEffect(Angle(degrees: 90))
-                                .foregroundColor(.white)
-                                .frame(width: 14, height: 14)
-                        }
+                        // MARK: 공유버튼
+                        shareButton
+                        
+                        // MARK: 신고 / 삭제 버튼
+                        reportOrDeleteButton
                     }
                     .padding(.bottom, 24)
                     
@@ -102,7 +98,7 @@ struct CardView: View {
 extension CardView {
     var profile: some View {
         HStack {
-            if let profileImageIndex = post.author.profileImageIndex { // FIXME:
+            if let profileImageIndex = post.author.profileImageIndex {
                 viewModel.getImage(of: profileImageIndex)
                     .resizable()
                     .scaledToFit()
@@ -115,6 +111,42 @@ extension CardView {
             
             Text("\(post.author.nickname ?? "(알 수 없음)")")
                 .font(.medium(size: 16))
+        }
+    }
+    
+    var shareButton: some View {
+        Button(action: {
+            ShareManager.share(url: URL(string: "https://naenio.shop/posts/\(post.id)"))
+        }) {
+            Image("icon_share")
+                .resizable()
+                .scaledToFit()
+                .foregroundColor(.white)
+                .frame(width: 14, height: 14)
+        }
+    }
+    
+    var reportOrDeleteButton: some View {
+        Button(action: {
+            let notificationInfo: LowSheetNotification
+            if post.author.id == userManager.getUserId() {
+                notificationInfo = LowSheetNotification(title: "삭제하기", action: {
+                    // MARK: 여기에 게시글 삭제
+                })
+            } else {
+                notificationInfo = LowSheetNotification(title: "신고하기", action: {
+                    // MARK: 여기에 게시글 신고
+                })
+            }
+            
+            NotificationCenter.default.postLowSheetNotification(with: notificationInfo)
+        }) {
+            Image(systemName: "ellipsis")
+                .resizable()
+                .scaledToFit()
+                .rotationEffect(Angle(degrees: 90))
+                .foregroundColor(.white)
+                .frame(width: 14, height: 14)
         }
     }
 }
