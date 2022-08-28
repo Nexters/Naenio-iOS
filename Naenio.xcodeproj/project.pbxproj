@@ -31,7 +31,7 @@
 		4CB8945628A7A1E300BE2ECF /* AuthServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8945528A7A1E300BE2ECF /* AuthServiceType.swift */; };
 		4CC296D92880533C001950A2 /* DefaultSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC296D82880533C001950A2 /* DefaultSession.swift */; };
 		4CC296DB28805366001950A2 /* NaenioAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC296DA28805366001950A2 /* NaenioAPI.swift */; };
-		4CC296E0288055FD001950A2 /* HeaderInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC296DF288055FD001950A2 /* HeaderInformation.swift */; };
+		4CC296E0288055FD001950A2 /* NaenioAPIHeaderInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC296DF288055FD001950A2 /* NaenioAPIHeaderInformation.swift */; };
 		4CC3CE9128AA8A2C00458138 /* SortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE8E28AA8A2C00458138 /* SortType.swift */; };
 		4CC3CE9228AA8A2C00458138 /* FeedRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE8F28AA8A2C00458138 /* FeedRequestInformation.swift */; };
 		4CC3CE9328AA8A2C00458138 /* FeedResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE9028AA8A2C00458138 /* FeedResponseModel.swift */; };
@@ -228,7 +228,7 @@
 		4CB8945528A7A1E300BE2ECF /* AuthServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceType.swift; sourceTree = "<group>"; };
 		4CC296D82880533C001950A2 /* DefaultSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSession.swift; sourceTree = "<group>"; };
 		4CC296DA28805366001950A2 /* NaenioAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioAPI.swift; sourceTree = "<group>"; };
-		4CC296DF288055FD001950A2 /* HeaderInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderInformation.swift; sourceTree = "<group>"; };
+		4CC296DF288055FD001950A2 /* NaenioAPIHeaderInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioAPIHeaderInformation.swift; sourceTree = "<group>"; };
 		4CC3CE8E28AA8A2C00458138 /* SortType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortType.swift; sourceTree = "<group>"; };
 		4CC3CE8F28AA8A2C00458138 /* FeedRequestInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedRequestInformation.swift; sourceTree = "<group>"; };
 		4CC3CE9028AA8A2C00458138 /* FeedResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedResponseModel.swift; sourceTree = "<group>"; };
@@ -464,7 +464,7 @@
 			isa = PBXGroup;
 			children = (
 				4C7ECFED28B5100B006C1763 /* KeyValue.swift */,
-				4CC296DF288055FD001950A2 /* HeaderInformation.swift */,
+				4CC296DF288055FD001950A2 /* NaenioAPIHeaderInformation.swift */,
 				4C4B13422883D88A006044B0 /* HttpResponseCode.swift */,
 			);
 			path = Constants;
@@ -1643,7 +1643,7 @@
 				9CB1DFAA28AB656C0048B313 /* ProfileChangeViewModel.swift in Sources */,
 				4CC3CEB428ACCF0C00458138 /* RequestService.swift in Sources */,
 				9B2A4AC828B9D61E00349AEC /* NoticeView.swift in Sources */,
-				4CC296E0288055FD001950A2 /* HeaderInformation.swift in Sources */,
+				4CC296E0288055FD001950A2 /* NaenioAPIHeaderInformation.swift in Sources */,
 				4C4B134528847640006044B0 /* NaenioAPI+Request.swift in Sources */,
 				9B61D0D328A88FB300F6DD0B /* CustomSheetView.swift in Sources */,
 				9B2B25E528ADCEA0009BDC9F /* LottieAnimations.swift in Sources */,
