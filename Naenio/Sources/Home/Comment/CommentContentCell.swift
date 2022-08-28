@@ -11,10 +11,12 @@ struct CommentContentCell: View {
     typealias Comment = CommentModel.Comment
     
     @Binding var isPresented: Bool
+    @Binding var toastInfo: ToastInformation
     @State var isNavigationActive: Bool = false
     
     let comment: Comment
     let isReply: Bool
+    let isMine: Bool
     let parentId: Int
     
     var body: some View {
@@ -67,7 +69,7 @@ struct CommentContentCell: View {
 extension CommentContentCell {
     var profileImage: some View {
         Group {
-            if let profileImageIndex = comment.author.profileImageIndex { // FIXME:
+            if let profileImageIndex = comment.author.profileImageIndex {
                 ProfileImages.getImage(of: profileImageIndex)
                     .resizable()
                     .scaledToFit()
@@ -104,7 +106,28 @@ extension CommentContentCell {
     }
     
     var moreInformationButton: some View {
-        Button(action: {}) {
+        Button(action: {
+            let toastInfo: ToastInformation
+            if isMine {
+                toastInfo = ToastInformation(isPresented: true, title: "삭제하기", action: {
+                    if isReply {
+                        // 대댓 삭제
+                    } else {
+                        // 그냥댓 삭제
+                    }
+                })
+            } else {
+                toastInfo = ToastInformation(isPresented: true, title: "신고하기", action: {
+                    if isReply {
+                        // 대댓 신고
+                    } else {
+                        // 그냥댓 신고
+                    }
+                })
+            }
+            
+            self.toastInfo = toastInfo
+        }) {
             Image(systemName: "ellipsis")
                 .resizable()
                 .scaledToFit()

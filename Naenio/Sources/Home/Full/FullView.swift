@@ -11,6 +11,7 @@ import Combine
 struct FullView: View {
     @Binding var post: Post
 
+    @EnvironmentObject var userManager: UserManager
     @ObservedObject var viewModel = FullViewModel()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -73,6 +74,7 @@ struct FullView: View {
         }
         .sheet(isPresented: $showComments) {
             CommentView(isPresented: $showComments, parentId: $selectedPostId)
+                .environmentObject(userManager)
         }
         .lowSheet(isPresented: $showMoreInfoSheet) {
             ReportAndShareSheetView(

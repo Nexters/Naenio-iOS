@@ -40,7 +40,6 @@ struct CardView: View {
                         
                         // MARK: 신고 / 삭제 버튼
                         reportOrDeleteButton
-                
                     }
                     .padding(.bottom, 24)
                     

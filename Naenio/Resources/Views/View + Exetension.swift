@@ -45,7 +45,7 @@ extension View {
     }
     
     // 로우시트 with options(인디케이터, 높이, bg)
-    @available(*, deprecated)
+    @available(*, deprecated, message: "Use .toast instead.")
     func lowSheet<C: View>(isPresented: Binding<Bool>,
                            @ViewBuilder content: @escaping () -> C) -> some View {
         ZStack {

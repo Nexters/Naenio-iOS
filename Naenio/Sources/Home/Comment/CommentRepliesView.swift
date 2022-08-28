@@ -18,6 +18,7 @@ struct CommentRepliesView: View {
     @ObservedObject var scrollViewHelper = ScrollViewHelper()
     
     @State var text: String = ""
+    @State var toastInfo = ToastInformation(isPresented: false, title: "", action: {}) // 리팩토링 시급, 토스트 시트 용 정보 스트럭트
 
     let comment: Comment
     var parentId: Int
@@ -66,7 +67,12 @@ struct CommentRepliesView: View {
                     
                     CustomDivider()
                     
-                    CommentContentCell(isPresented: $isPresented, comment: comment, isReply: true, parentId: parentId)
+                    CommentContentCell(isPresented: $isPresented,
+                                       toastInfo: $toastInfo,
+                                       comment: comment,
+                                       isReply: true,
+                                       isMine: userManager.getUserId() == comment.author.id,
+                                       parentId: parentId)
                     
                     CustomDivider()
 
@@ -76,7 +82,12 @@ struct CommentRepliesView: View {
                                 .padding(3)
                                 .opacity(0)
                             
-                            CommentContentCell(isPresented: $isPresented, comment: reply, isReply: true, parentId: parentId)
+                            CommentContentCell(isPresented: $isPresented,
+                                               toastInfo: $toastInfo,
+                                               comment: reply,
+                                               isReply: true,
+                                               isMine: userManager.getUserId() == reply.author.id,
+                                               parentId: parentId)
                         }
                     }
                     
@@ -116,6 +127,7 @@ struct CommentRepliesView: View {
                 .background(Color.background.ignoresSafeArea())
             }
         }
+        .toast(isPresented: $toastInfo.isPresented, title: toastInfo.title, action: toastInfo.action)
         .navigationBarHidden(true)
         .onAppear {
             viewModel.requestCommentReplies(postId: parentId)
