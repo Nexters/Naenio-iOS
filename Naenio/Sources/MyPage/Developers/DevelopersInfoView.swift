@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DevelopersView: View {
+struct DevelopersInfoView: View {
     @State var kimEasterEggCount = 5
     
     var body: some View {
@@ -49,7 +49,7 @@ struct DevelopersView: View {
     }
 }
 
-extension DevelopersView {
+extension DevelopersInfoView {
     private struct Description: View {
         let division: String
         let names: [String]
