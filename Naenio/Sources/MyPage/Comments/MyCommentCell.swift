@@ -32,15 +32,14 @@ struct MyCommentCell: View {
                                 .frame(width: 14, height: 14)
                         }
                     }
-                    .padding(.bottom, 24)
                     
+                    Spacer()
+                    
+                    // 게시글 내용
                     Text("\(myComment.post.title)")
                         .lineLimit(2)
-                        .lineSpacing(4)
-                        .font(.semoBold(size: 20))
+                        .font(.medium(size: 16))
                         .foregroundColor(.white)
-                        .padding(.vertical, 4)
-                        .padding(.bottom, 10)
                 }
                 .padding(.horizontal, 20)
                 .padding(.top, 27)
@@ -48,13 +47,14 @@ struct MyCommentCell: View {
                 
                 Spacer()
                 
+                // 내 댓글 내용
                 Button(action: {
                     print("SS")
                 }) {
                     Text(myComment.content)
                         .multilineTextAlignment(.leading)
                         .lineLimit(1)
-                        .font(.semoBold(size: 16))
+                        .font(.medium(size: 16))
                         .foregroundColor(.white)
                         .padding(.horizontal, 20)
                         .padding(.vertical, 14)
@@ -71,7 +71,7 @@ struct MyCommentCell: View {
 extension MyCommentCell {
     var profile: some View {
         HStack {
-            if let profileImageIndex = myComment.post.author.profileImageIndex { // FIXME:
+            if let profileImageIndex = myComment.post.author.profileImageIndex {
                 ProfileImages.getImage(of: profileImageIndex)
                     .resizable()
                     .scaledToFit()
