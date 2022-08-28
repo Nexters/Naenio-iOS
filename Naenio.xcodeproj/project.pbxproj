@@ -67,7 +67,7 @@
 		9B2A4AC828B9D61E00349AEC /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4AC728B9D61E00349AEC /* NoticeView.swift */; };
 		9B2A4ACA28B9DA7F00349AEC /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4AC928B9DA7F00349AEC /* NoticeViewModel.swift */; };
 		9B2A4ACC28B9DEC600349AEC /* NoticeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4ACB28B9DEC600349AEC /* NoticeDetailView.swift */; };
-		9B2A4ACF28B9E57300349AEC /* MyPageLinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4ACE28B9E57300349AEC /* MyPageLinkCell.swift */; };
+		9B2A4ACF28B9E57300349AEC /* MyPageActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4ACE28B9E57300349AEC /* MyPageActionCell.swift */; };
 		9B2A4AD228B9EA6400349AEC /* DevelopersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4AD128B9EA6400349AEC /* DevelopersView.swift */; };
 		9B2A4AD528BA01DD00349AEC /* VersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4AD428BA01DD00349AEC /* VersionView.swift */; };
 		9B2A4AD828BA04BB00349AEC /* MyCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4AD728BA04BB00349AEC /* MyCommentCell.swift */; };
@@ -267,7 +267,7 @@
 		9B2A4AC728B9D61E00349AEC /* NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
 		9B2A4AC928B9DA7F00349AEC /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
 		9B2A4ACB28B9DEC600349AEC /* NoticeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailView.swift; sourceTree = "<group>"; };
-		9B2A4ACE28B9E57300349AEC /* MyPageLinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageLinkCell.swift; sourceTree = "<group>"; };
+		9B2A4ACE28B9E57300349AEC /* MyPageActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageActionCell.swift; sourceTree = "<group>"; };
 		9B2A4AD128B9EA6400349AEC /* DevelopersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopersView.swift; sourceTree = "<group>"; };
 		9B2A4AD428BA01DD00349AEC /* VersionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionView.swift; sourceTree = "<group>"; };
 		9B2A4AD728BA04BB00349AEC /* MyCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommentCell.swift; sourceTree = "<group>"; };
@@ -879,7 +879,7 @@
 				9BE13FDF28AA2187009ED95D /* MyPageCell.swift */,
 				9BE13FDB28AA1A83009ED95D /* MyPageAuthCell.swift */,
 				9BE13FDD28AA1BAF009ED95D /* MyPageNavigationCell.swift */,
-				9B2A4ACE28B9E57300349AEC /* MyPageLinkCell.swift */,
+				9B2A4ACE28B9E57300349AEC /* MyPageActionCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1668,7 +1668,7 @@
 				4CC4B7342896BDE400774192 /* MainView.swift in Sources */,
 				4C7ECFF028B51755006C1763 /* CommentRepliesRequestModel.swift in Sources */,
 				9B2A4ACA28B9DA7F00349AEC /* NoticeViewModel.swift in Sources */,
-				9B2A4ACF28B9E57300349AEC /* MyPageLinkCell.swift in Sources */,
+				9B2A4ACF28B9E57300349AEC /* MyPageActionCell.swift in Sources */,
 				9C69153628AC90EE00317489 /* LazyView.swift in Sources */,
 				9BF00C0B287ACFA900F08035 /* LoginRequestInformation.swift in Sources */,
 				4CA59EA328AE8888002C0FA9 /* CommentType.swift in Sources */,

@@ -7,16 +7,12 @@
 
 import SwiftUI
 
-struct MyPageLinkCell: View {
+struct MyPageActionCell: View {
     let name: String
-    let url: URL
+    let action: () -> Void
     
     var body: some View {
-        Button(action: {
-            if UIApplication.shared.canOpenURL(url) {
-                UIApplication.shared.open(url)
-            }
-        }) {
+        Button(action: action) {
             MyPageCell(leading: {
                 Text(name)
                     .font(.semoBold(size: 16))
@@ -29,10 +25,8 @@ struct MyPageLinkCell: View {
         }
     }
     
-    
-    
-    init(name: String, url: URL) {
+    init(name: String, action: @escaping () -> Void) {
         self.name = name
-        self.url = url
+        self.action = action
     }
 }

@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct MyPageView: View {
-    @EnvironmentObject var userManger: UserManager
+    @EnvironmentObject var userManager: UserManager
     @ObservedObject var viewModel = MyPageViewModel()
+    
+    @State var alertType: AlertType = .none
+    @State var showAlert: Bool = false
     
     var body: some View {
         ZStack {
@@ -41,12 +44,17 @@ struct MyPageView: View {
                             CustomDivider()
                         }
                         
-                        MyPageLinkCell(name: "⁉️ 문의하기", url: URL(string: "https://forms.gle/KncRPJXwg69F5GpV7")!)
+                        MyPageActionCell(name: "⁉️ 문의하기", action: {
+                            let url = URL(string: "https://forms.gle/KncRPJXwg69F5GpV7")!
+                            if UIApplication.shared.canOpenURL(url) {
+                                UIApplication.shared.open(url)
+                            }
+                        })
                     }
                     
                     MyPageSection {
                         ForEach(AccountCell.allCases, id: \.title) { cell in
-                            MyPageNavigationCell(name: cell.title, destination: cell.view)
+                            MyPageActionCell(name: cell.title, action: cell.action)
                             
                             if cell.title != AccountCell.allCases.last?.title {
                                 CustomDivider()
@@ -56,27 +64,26 @@ struct MyPageView: View {
                 }
                 .padding(.horizontal, 20)
             }
-            
+        }
+        .alert(isPresented: $showAlert) {
+            AlertType.getAlert(of: self.alertType, secondaryAction: {})
         }
     }
-}
-
-// Components
-extension MyPageView {
-    private var headerWithUserInformation: some View {
+    
+    var headerWithUserInformation: some View {
         HStack(spacing: 17) {
-            viewModel.profileImage
+            ProfileImages.getImage(of: userManager.getProfileImagesIndex())
                 .resizable()
                 .scaledToFit()
                 .frame(width: 61, height: 61)
             
-            Text(viewModel.nickname)
+            Text(userManager.getNickName())
                 .font(.semoBold(size: 22))
             
             Spacer()
             
             NavigationLink(destination: LazyView(
-                ProfileChangeView().environmentObject(userManger)
+                ProfileChangeView().environmentObject(userManager)
             )) {
                 Text("edit")
                     .font(.semoBold(size: 15))
@@ -87,7 +94,9 @@ extension MyPageView {
         }
         .foregroundColor(.white)
     }
-    
+}
+
+extension MyPageView {
     private enum BusinessCell: CaseIterable, NavigatableCell {
         case notice, developers, version
         
@@ -132,7 +141,7 @@ extension MyPageView {
         }
     }
     
-    private enum AccountCell: CaseIterable, NavigatableCell {
+    private enum AccountCell: CaseIterable {
         case logout, withdrawal
         
         var title: String {
@@ -144,12 +153,14 @@ extension MyPageView {
             }
         }
         
-        @ViewBuilder func view() -> some View {
+        var action: () -> Void {
             switch self {
             case .logout:
-                Text("logout")
+                return {
+                    
+                }
             case .withdrawal:
-                Text("witherawal")
+                return {}
             }
         }
     }

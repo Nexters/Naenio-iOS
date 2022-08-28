@@ -16,10 +16,15 @@ extension AlertType {
                          primaryButton: .cancel(Text("cancel"), action: primaryAction ?? {}),
                          secondaryButton: .default(Text("Ok"), action: secondaryAction))
         case .errorHappend(let error):
-            return Alert(title: Text("알 수 없는 에러"), 
+            return Alert(title: Text("알 수 없는 에러"),
                          message: Text(error.localizedDescription),
                          primaryButton: .cancel(Text("cancel"), action: primaryAction ?? {}),
                          secondaryButton: .default(Text("Ok"), action: secondaryAction))
+        case .logout:
+            return Alert(title: Text("로그아웃"),
+                         message: Text("정말로 로그아웃하시겠어요?"),
+                         primaryButton: .cancel(Text("닫기"), action: primaryAction ?? {}),
+                         secondaryButton: .default(Text("로그아웃"), action: secondaryAction))
         case .none:
             return Alert(title: Text("알 수 없는 에러"), // FIXME: 어차피 나중에 얼러트 바꿀거라 임시로 아무거나 넣어 놓음
                          message: Text(""),

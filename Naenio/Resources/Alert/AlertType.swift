@@ -11,5 +11,6 @@ import SwiftUI
 enum AlertType {
     case warnBeforeExit
     case errorHappend(error: Error)
+    case logout
     case none
 }

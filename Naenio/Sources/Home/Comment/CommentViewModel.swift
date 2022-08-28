@@ -24,7 +24,7 @@ class CommentViewModel: ObservableObject {
     @Published var isFirstRequest: Bool = true
     
     func transferToCommentModel(_ comment: CommentPostResponseModel) -> Comment { // FIXME: to extension later
-        let author = Comment.Author(id: comment.memberId, nickname: UserManager.shared.getNickName(), profileImageIndex: UserManager.shared.getProfileImagesIndex())
+        let author = Comment.Author(id: comment.memberId, nickname: "익스텐션으로 수정하기", profileImageIndex: 0)
         return Comment(id: comment.id, author: author, content: comment.content, createdDatetime: comment.createdDateTime, likeCount: 0, isLiked: false, repliesCount: 0)
     }
 
