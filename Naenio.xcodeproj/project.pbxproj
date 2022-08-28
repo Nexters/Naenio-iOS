@@ -1187,6 +1187,8 @@
 			children = (
 				9CC044F528B8521D004164F7 /* KeyValue.swift */,
 				9CC044F628B8521D004164F7 /* Info.plist */,
+			);
+		};
 		9CC044F928B88F77004164F7 /* ignored */ = {
 			isa = PBXGroup;
 			children = (
