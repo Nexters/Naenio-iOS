@@ -10,7 +10,7 @@ import Combine
 
 struct CardView: View {
     @ObservedObject var viewModel = CardViewModel()
-    @State var didVote = false
+    @State var voteHappened = false
     
     @Binding var post: Post
     let action: () -> Void
@@ -19,8 +19,8 @@ struct CardView: View {
         ZStack {
             Color.card
             
-            if didVote {
-                LottieView(isPlaying: $didVote, animation: LottieAnimations.confettiAnimation)
+            if voteHappened {
+                LottieView(isPlaying: $voteHappened, animation: LottieAnimations.confettiAnimation)
                     .allowsHitTesting(false)
                     .fillScreen()
                     .zIndex(0)
@@ -93,7 +93,7 @@ struct CardView: View {
         .fillScreen()
         .mask(RoundedRectangle(cornerRadius: 16))
         .onChange(of: post.choices) { _ in
-            didVote = true
+            voteHappened = true
         }
     }
 }

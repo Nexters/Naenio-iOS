@@ -29,7 +29,6 @@ struct VotesView: View {
                     lastChoice = 0
                     viewModel.requestVote(postId: post.id,
                                           choiceId: choiceA?.id)
-//                    NotificationCenter.default.postDidVoteHappen(id: post.id)
                 })
                 
                 VoteButton(type: .choiceB,
@@ -40,7 +39,6 @@ struct VotesView: View {
                     lastChoice = 1
                     viewModel.requestVote(postId: post.id,
                                           choiceId: choiceB?.id)
-//                    NotificationCenter.default.postDidVoteHappen(id: post.id)
                 })
             }
             .onChange(of: viewModel.status) { status in

@@ -14,15 +14,18 @@ struct FullView: View {
     @ObservedObject var viewModel = FullViewModel()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
-    @State var didVote: Bool = false
-    
+    @State var voteHappened: Bool = false
+    @State var showComments: Bool = false
+    @State var showMoreInfoSheet: Bool = false
+    @State var selectedPostId: Int? = nil // 코멘트뷰에 전달할 포스트 아이디, 시트 들어가기 직전에 변경됨. 수정 필요함
+
     var body: some View {
         ZStack {
             Color.background
                 .ignoresSafeArea()
             
-            if didVote {
-                LottieView(isPlaying: $didVote, animation: LottieAnimations.confettiAnimation)
+            if voteHappened {
+                LottieView(isPlaying: $voteHappened, animation: LottieAnimations.confettiAnimation)
                     .allowsHitTesting(false)
                     .fillScreen()
                     .zIndex(0)
@@ -68,14 +71,19 @@ struct FullView: View {
             .padding(.top, 27)
             .padding(.bottom, 16)
         }
-        .onChange(of: post.choices) { _ in
-            didVote = true
+        .sheet(isPresented: $showComments) {
+            CommentView(isPresented: $showComments, parentId: $selectedPostId)
         }
-//        .onReceive(Publishers.didVoteHappen) { id in
-//            if id == post.id {
-//                didVote = true
-//            }
-//        }
+        .lowSheet(isPresented: $showMoreInfoSheet) {
+            ReportAndShareSheetView(
+                isPresented: $showMoreInfoSheet,
+                postID: post.id
+            )
+            .padding(.horizontal, 27)
+        }
+        .onChange(of: post.choices) { _ in
+            voteHappened = true
+        }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -104,8 +112,7 @@ extension FullView {
     
     var moreInformationButton: some View {
         Button(action: {
-            let notification = LowSheetNotification(postId: post.id)
-            NotificationCenter.default.postLowSheetNotification(with: notification)
+            showMoreInfoSheet = true
         }) {
             Image(systemName: "ellipsis")
                 .resizable()
@@ -136,7 +143,10 @@ extension FullView {
     }
     
     var commentButton: some View {
-        Button(action: {}) {
+        Button(action: {
+            selectedPostId = post.id
+            showComments = true
+        }) {
             HStack(spacing: 6) {
                 Text("💬 댓글")
                     .font(.semoBold(size: 16))

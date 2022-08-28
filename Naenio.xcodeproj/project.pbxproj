@@ -19,8 +19,6 @@
 		4C4B133F2883CD32006044B0 /* ModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B133E2883CD32006044B0 /* ModelType.swift */; };
 		4C4B13432883D88A006044B0 /* HttpResponseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B13422883D88A006044B0 /* HttpResponseCode.swift */; };
 		4C4B134528847640006044B0 /* NaenioAPI+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B134428847640006044B0 /* NaenioAPI+Request.swift */; };
-		4C7ECFEC28B50FDA006C1763 /* ignored in Resources */ = {isa = PBXBuildFile; fileRef = 4C7ECFEB28B50FDA006C1763 /* ignored */; };
-		4C7ECFEE28B5100B006C1763 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7ECFED28B5100B006C1763 /* KeyValue.swift */; };
 		4C7ECFF028B51755006C1763 /* CommentRepliesRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7ECFEF28B51755006C1763 /* CommentRepliesRequestModel.swift */; };
 		4C7ECFF228B518FE006C1763 /* CommentRepliesResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7ECFF128B518FE006C1763 /* CommentRepliesResponseModel.swift */; };
 		4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4CA47BC92890344400D300A7 /* .swiftlint.yml */; };
@@ -164,6 +162,7 @@
 		9CBCDCEB28AE3A7900C4C577 /* NewVoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCEA28AE3A7900C4C577 /* NewVoteButton.swift */; };
 		9CBCDCEF28AE65B900C4C577 /* SinglePostRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCEE28AE65B900C4C577 /* SinglePostRequestInformation.swift */; };
 		9CBCDCF128AE6E9500C4C577 /* SinglePostResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCF028AE6E9500C4C577 /* SinglePostResponseModel.swift */; };
+		9CC044F728B8521D004164F7 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC044F528B8521D004164F7 /* KeyValue.swift */; };
 		9CCA228E289BA2EA00A2F9B0 /* MockPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA228D289BA2EA00A2F9B0 /* MockPost.json */; };
 		9CCA2293289BAB0F00A2F9B0 /* MockPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA228F289BA4A900A2F9B0 /* MockPost.json */; };
 		9CCA2295289BB3CF00A2F9B0 /* MockPostList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA2294289BB28500A2F9B0 /* MockPostList.json */; };
@@ -206,7 +205,6 @@
 		4C4B133E2883CD32006044B0 /* ModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelType.swift; sourceTree = "<group>"; };
 		4C4B13422883D88A006044B0 /* HttpResponseCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponseCode.swift; sourceTree = "<group>"; };
 		4C4B134428847640006044B0 /* NaenioAPI+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Request.swift"; sourceTree = "<group>"; };
-		4C7ECFEB28B50FDA006C1763 /* ignored */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ignored; sourceTree = "<group>"; };
 		4C7ECFED28B5100B006C1763 /* KeyValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
 		4C7ECFEF28B51755006C1763 /* CommentRepliesRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesRequestModel.swift; sourceTree = "<group>"; };
 		4C7ECFF128B518FE006C1763 /* CommentRepliesResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesResponseModel.swift; sourceTree = "<group>"; };
@@ -354,6 +352,8 @@
 		9CBCDCEA28AE3A7900C4C577 /* NewVoteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewVoteButton.swift; sourceTree = "<group>"; };
 		9CBCDCEE28AE65B900C4C577 /* SinglePostRequestInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePostRequestInformation.swift; sourceTree = "<group>"; };
 		9CBCDCF028AE6E9500C4C577 /* SinglePostResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePostResponseModel.swift; sourceTree = "<group>"; };
+		9CC044F528B8521D004164F7 /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
+		9CC044F628B8521D004164F7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CCA228D289BA2EA00A2F9B0 /* MockPost.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPost.json; sourceTree = "<group>"; };
 		9CCA228F289BA4A900A2F9B0 /* MockPost.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPost.json; sourceTree = "<group>"; };
 		9CCA2294289BB28500A2F9B0 /* MockPostList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPostList.json; sourceTree = "<group>"; };
@@ -611,7 +611,7 @@
 		9B085F012879991400DE8E60 /* Naenio */ = {
 			isa = PBXGroup;
 			children = (
-				4C7ECFEB28B50FDA006C1763 /* ignored */,
+				9CC044F428B8521D004164F7 /* ignored */,
 				9BF00BF2287AC72800F08035 /* Naenio.entitlements */,
 				9B085F082879991600DE8E60 /* Preview Content */,
 				9B085F2D287E353600DE8E60 /* Resources */,
@@ -1100,6 +1100,15 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
+		9CC044F428B8521D004164F7 /* ignored */ = {
+			isa = PBXGroup;
+			children = (
+				9CC044F528B8521D004164F7 /* KeyValue.swift */,
+				9CC044F628B8521D004164F7 /* Info.plist */,
+			);
+			path = ignored;
+			sourceTree = "<group>";
+		};
 		9CCA2284289BA06100A2F9B0 /* Card */ = {
 			isa = PBXGroup;
 			children = (
@@ -1282,7 +1291,6 @@
 				9B3B6F10289BE3FA002A76A7 /* MockPostWroteList.json in Resources */,
 				9B3B6F11289BE3FA002A76A7 /* MockPostParticipatedList.json in Resources */,
 				9CCA2295289BB3CF00A2F9B0 /* MockPostList.json in Resources */,
-				4C7ECFEC28B50FDA006C1763 /* ignored in Resources */,
 				9CCA2293289BAB0F00A2F9B0 /* MockPost.json in Resources */,
 				9BE602A3289548CF008F291C /* Pretendard-SemiBold.ttf in Resources */,
 				9BE602A5289548CF008F291C /* Pretendard-Regular.ttf in Resources */,
@@ -1535,6 +1543,7 @@
 				9B61D0DC28A8EE4500F6DD0B /* RoundedCorner.swift in Sources */,
 				9C2D07B92897C728008BBD75 /* UserManager.swift in Sources */,
 				9C10439D289B747200A45711 /* HomeViewModel.swift in Sources */,
+				9CC044F728B8521D004164F7 /* KeyValue.swift in Sources */,
 				9CB1DFB228AB75A10048B313 /* CustomNavigationView + Extension.swift in Sources */,
 				9CAA174028A2468600EAAE40 /* WrappedTextView.swift in Sources */,
 				4C4B133B2883C44C006044B0 /* TargetType+Extension.swift in Sources */,
@@ -1579,7 +1588,6 @@
 				9B61D6AF28B0857700F116CD /* IndexResponseModel.swift in Sources */,
 				9C3309CD2888EC52000C592F /* KakaoLoginManager.swift in Sources */,
 				9C8B5E0A289CEF000029BB66 /* MockPostGenerator.swift in Sources */,
-				4C7ECFEE28B5100B006C1763 /* KeyValue.swift in Sources */,
 				9CE311D428A6439900EDB0F4 /* CommentView.swift in Sources */,
 				4CC4B7392896BF1C00774192 /* CurationView.swift in Sources */,
 			);
@@ -1745,7 +1753,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
-				DEVELOPMENT_TEAM = KT2XM3Z9DZ;
+				DEVELOPMENT_TEAM = W6QHM4Y43Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Naenio/ignored/Info.plist;
@@ -1761,7 +1769,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yoonyoung.Naenio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.teamVS.Naenio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1781,7 +1789,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
-				DEVELOPMENT_TEAM = KT2XM3Z9DZ;
+				DEVELOPMENT_TEAM = W6QHM4Y43Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Naenio/ignored/Info.plist;
@@ -1797,7 +1805,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yoonyoung.Naenio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.teamVS.Naenio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

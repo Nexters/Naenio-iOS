@@ -71,7 +71,7 @@ struct CommentRepliesView: View {
 
                     ForEach(viewModel.replies, id: \.id) { reply in
                         HStack {
-                            Text("😀")
+                            Text("▬")   // place holder for inset
                                 .padding(3)
                                 .opacity(0)
                             
@@ -96,14 +96,13 @@ struct CommentRepliesView: View {
                 Spacer()
                 
                 HStack(spacing: 12) {
-                    Text("😀")
-                        .padding(3)
-                        .background(Circle().fill(Color.green.opacity(0.2)))
+                    profileImage
                     
                     WrappedTextView(placeholder: "댓글 추가", content: $text, characterLimit: 100, showLimit: false, isTight: true)
                     
                     Button(action: {
-                        viewModel.registerReply(self.text, postId: self.parentId)
+                        viewModel.registerReply(text, postId: parentId)
+                        UIApplication.shared.endEditing()
                     }) {
                         Text("게시")
                             .font(.semoBold(size: 14))
@@ -118,7 +117,15 @@ struct CommentRepliesView: View {
         }
         .navigationBarHidden(true)
         .onAppear {
-            viewModel.requestCommentReplies(postId: self.parentId)
+            viewModel.requestCommentReplies(postId: parentId)
         }
+    }
+    
+    var profileImage: some View {
+        let profileImageIndex = UserManager.shared.getProfileImagesIndex()  // FIXME:
+        return ProfileImages.getImage(of: profileImageIndex)
+            .resizable()
+            .scaledToFit()
+            .frame(width: 24, height: 24)
     }
 }
