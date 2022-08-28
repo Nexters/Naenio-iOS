@@ -11,12 +11,15 @@ struct MyPageView: View {
     @EnvironmentObject var userManager: UserManager
     @ObservedObject var viewModel = MyPageViewModel()
     
-    @State var alertType: AlertType = .none
-    @State var showAlert: Bool = false
+    @AlertVariable var alertVariable: AlertType
     
     var body: some View {
         ZStack {
             Color.background.ignoresSafeArea()
+            
+            if viewModel.status == .inProgress {
+                LoadingIndicator()
+            }
             
             ScrollView {
                 VStack(spacing: 20) {
@@ -54,7 +57,16 @@ struct MyPageView: View {
                     
                     MyPageSection {
                         ForEach(AccountCell.allCases, id: \.title) { cell in
-                            MyPageActionCell(name: cell.title, action: cell.action)
+                            switch cell {
+                            case .logout:
+                                MyPageActionCell(name: cell.title, action: {
+                                    alertVariable = .logout(secondaryAction: { viewModel.signOut() })
+                                })
+                            case .withdrawal:
+                                MyPageActionCell(name: cell.title, action: {
+                                    alertVariable = .withdrawal(secondaryAction: { viewModel.withdrawal() })
+                                })
+                            }
                             
                             if cell.title != AccountCell.allCases.last?.title {
                                 CustomDivider()
@@ -65,8 +77,20 @@ struct MyPageView: View {
                 .padding(.horizontal, 20)
             }
         }
-        .alert(isPresented: $showAlert) {
-            AlertType.getAlert(of: self.alertType, secondaryAction: {})
+        .alert(isPresented: $alertVariable) {
+            alertVariable.getAlert()
+        }
+        .onChange(of: viewModel.status) { status in
+            switch status {
+            case .fail(let error):
+                self.alertVariable = .errorHappend(error: error)
+            case .done(let type):
+                if type == .withdrawal {
+                    viewModel.signOut()
+                }
+            default:
+                break
+            }
         }
     }
     
@@ -93,6 +117,20 @@ struct MyPageView: View {
             .cornerRadius(5)
         }
         .foregroundColor(.white)
+    }
+    
+    private enum AccountCell: CaseIterable {
+        case logout
+        case withdrawal
+        
+        var title: String {
+            switch self {
+            case .logout:
+                return "🔓 로그아웃"
+            case .withdrawal:
+                return "🚪 회원탈퇴"
+            }
+        }
     }
 }
 
@@ -141,29 +179,6 @@ extension MyPageView {
         }
     }
     
-    private enum AccountCell: CaseIterable {
-        case logout, withdrawal
-        
-        var title: String {
-            switch self {
-            case .logout:
-                return "🔓 로그아웃"
-            case .withdrawal:
-                return "🚪 회원탈퇴"
-            }
-        }
-        
-        var action: () -> Void {
-            switch self {
-            case .logout:
-                return {
-                    
-                }
-            case .withdrawal:
-                return {}
-            }
-        }
-    }
 }
 
 protocol NavigatableCell {

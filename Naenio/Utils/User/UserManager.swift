@@ -8,6 +8,10 @@
 import SwiftUI
 import RxSwift
 
+/// 프로필과 관련된 정보를 수정합니다
+///
+/// Get and set`profileImageIndex`, `nickname`,
+/// Get `AuthServiceType`
 class UserManager: ObservableObject {
     static let shared = UserManager() // FIXME: 흑마법이라 나중에 고쳐야 될 듯..(전역적으로 공유되는 observedobject)
     

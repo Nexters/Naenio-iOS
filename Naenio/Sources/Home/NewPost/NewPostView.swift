@@ -117,7 +117,7 @@ extension NewPostView {
         HStack {
             Button(action: {
                 if !postContent.isAnyContentEmtpy {
-                    alertType = .warnBeforeExit
+                    alertType = .warnBeforeExit()
                     showAlert = true
                 } else {
                     isPresented = false

@@ -11,7 +11,7 @@ import KakaoSDKCommon
 
 @main
 struct NaenioApp: App {
-    @ObservedObject var tokenManager = TokenManager()
+    @ObservedObject var tokenManager = TokenManager.shared
     @ObservedObject var userManager = UserManager.shared
     
     @State var isLinkOpened = false

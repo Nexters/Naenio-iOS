@@ -16,17 +16,7 @@ struct ProfileChangeView: View {
     
     @State var showBottomSheet: Bool = false
     
-    @State var showAlert: Bool = false
-    @State var alertType: AlertType = .none {
-        didSet {
-            switch alertType {
-            case .none:
-                showAlert = false
-            default:
-                showAlert = true
-            }
-        }
-    }
+    @AlertVariable var alertType: AlertType
     
     @State var text: String = ""
     @State var profileImageIndex: Int = 0
@@ -66,7 +56,7 @@ struct ProfileChangeView: View {
         }
         .leadingButtonAction {
             if text.isEmpty == false {
-                alertType = .warnBeforeExit
+                alertType = .warnBeforeExit(secondaryAction: { presentationMode.wrappedValue.dismiss() })
             } else {
                 presentationMode.wrappedValue.dismiss()
             }
@@ -88,12 +78,12 @@ struct ProfileChangeView: View {
                 break
             }
         }
-        .alert(isPresented: $showAlert) {   // Show the alert popup depending on the alert's type
+        .alert(isPresented: $alertType) {   // Show the alert popup depending on the alert's type
             switch alertType {
             case .warnBeforeExit:
-                return AlertType.getAlert(of: .warnBeforeExit, secondaryAction: { presentationMode.wrappedValue.dismiss() })
+                return alertType.getAlert()
             default:
-                return AlertType.getAlert(of: .none, secondaryAction: { presentationMode.wrappedValue.dismiss() })
+                return alertType.getAlert()
             }
         }
         .onAppear {

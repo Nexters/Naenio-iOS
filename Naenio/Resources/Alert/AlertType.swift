@@ -9,8 +9,11 @@ import SwiftUI
 
 // !!!: 일단 시스템 기본 alert로 기능 구현만
 enum AlertType {
-    case warnBeforeExit
-    case errorHappend(error: Error)
-    case logout
+    typealias Action = () -> Void
+    
+    case warnBeforeExit(primaryAction: Action? = nil, secondaryAction: Action? = nil)
+    case errorHappend(error: Error, primaryAction: Action? = nil, secondaryAction: Action? = nil)
+    case logout(primaryAction: Action? = nil, secondaryAction: Action? = nil)
+    case withdrawal(primaryAction: Action? = nil, secondaryAction: Action? = nil)
     case none
 }

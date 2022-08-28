@@ -8,6 +8,8 @@
 import Foundation
 
 class TokenManager: ObservableObject {
+    static let shared = TokenManager()
+    
     // Dependencies
     private let localStorageManager: LocalStorageManager
     let key = LocalStorageKeys.accessToken.rawValue
