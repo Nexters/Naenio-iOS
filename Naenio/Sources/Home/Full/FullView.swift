@@ -17,8 +17,9 @@ struct FullView: View {
     
     @State var voteHappened: Bool = false
     @State var showComments: Bool = false
-    @State var showMoreInfoSheet: Bool = false
-    @State var selectedPostId: Int? = nil // 코멘트뷰에 전달할 포스트 아이디, 시트 들어가기 직전에 변경됨. 수정 필요함
+    @State var selectedPostId: Int? // 코멘트뷰에 전달할 포스트 아이디, 시트 들어가기 직전에 변경됨. 수정 필요함
+    
+    @State var toastInfo = ToastInformation(isPresented: false, title: "", action: {}) // 리팩토링 시급, 토스트 시트 용 정보 스트럭트
 
     var body: some View {
         ZStack {
@@ -76,13 +77,7 @@ struct FullView: View {
             CommentView(isPresented: $showComments, parentId: $selectedPostId)
                 .environmentObject(userManager)
         }
-        .lowSheet(isPresented: $showMoreInfoSheet) {
-            ReportAndShareSheetView(
-                isPresented: $showMoreInfoSheet,
-                postID: post.id
-            )
-            .padding(.horizontal, 27)
-        }
+        .toast(isPresented: $toastInfo.isPresented, title: toastInfo.title, action: toastInfo.action)
         .onChange(of: post.choices) { _ in
             voteHappened = true
         }
@@ -114,7 +109,18 @@ extension FullView {
     
     var moreInformationButton: some View {
         Button(action: {
-            showMoreInfoSheet = true
+            let toastInfo: ToastInformation
+            if post.author.id == userManager.getUserId() {
+                toastInfo = ToastInformation(isPresented: true, title: "삭제하기", action: {
+                    // 포스트 삭제하기
+                })
+            } else {
+                toastInfo = ToastInformation(isPresented: true, title: "신고하기", action: {
+                    // 포스트 신고하기
+                })
+            }
+            
+            self.toastInfo = toastInfo
         }) {
             Image(systemName: "ellipsis")
                 .resizable()
