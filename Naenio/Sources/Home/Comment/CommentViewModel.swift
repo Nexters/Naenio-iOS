@@ -44,7 +44,7 @@ class CommentViewModel: ObservableObject {
                     guard let self = self else { return }
                     let newComment = self.transferToCommentModel(comment)
                     
-                    print("new comment",newComment)
+                    print("new comment", newComment)
                     self.comments.insert(newComment, at: 0)
                     
                     self.status = .done

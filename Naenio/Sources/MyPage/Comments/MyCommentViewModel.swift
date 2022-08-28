@@ -31,5 +31,3 @@ struct MyComment: Codable {
         let profileImageIndex: Int
     }
 }
-
-

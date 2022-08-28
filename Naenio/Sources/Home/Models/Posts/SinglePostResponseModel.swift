@@ -36,7 +36,6 @@ struct SinglePostResponseModel: ModelType {
     }
 }
 
-
 extension SinglePostResponseModel {
     func toPost() -> Post {
         let author = Author(

@@ -31,4 +31,3 @@ struct MyPageNavigationCell<Destination>: View where Destination: View {
         self.destination = destination()
     }
 }
-

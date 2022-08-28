@@ -154,7 +154,7 @@ extension MyPageView {
             case .notice:
                 NoticeView()
             case .developers:
-                DevelopersView()
+                DevelopersInfoView()
             case .version:
                 VersionView()
             }

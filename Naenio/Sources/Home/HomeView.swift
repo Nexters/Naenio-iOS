@@ -17,7 +17,7 @@ struct HomeView: View {
     @State var showNewPost = false
     
     @State var showComments = false
-    @State var selectedPostId: Int? = nil
+    @State var selectedPostId: Int?
     
     var body: some View {
             ZStack(alignment: .bottomTrailing) {

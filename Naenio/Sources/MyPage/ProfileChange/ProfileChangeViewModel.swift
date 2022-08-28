@@ -40,7 +40,7 @@ class ProfileChangeViewModel: ObservableObject {
         Single.zip(nicknameSequence, profileImageSequence)
             .subscribe(on: serialQueue)
             .observe(on: MainScheduler.instance)
-            .subscribe (
+            .subscribe(
                 onSuccess: { [weak self] _, _ in // Would not use response data
                     guard let self = self else { return }
                     

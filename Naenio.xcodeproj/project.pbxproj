@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2B566C3472D0CDFF3EB3954C /* Pods_NaenioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF5B262F1FD67B00E8EA61CF /* Pods_NaenioTests.framework */; };
-		4C16915C289FF8DA000226BF /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16915B289FF8D9000226BF /* TabBarView.swift */; };
 		4C43C8C42886FB8200A60372 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43C8C32886FB8200A60372 /* String+Extension.swift */; };
 		4C4B13322883AAC3006044B0 /* NaenioAPI+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B13312883AAC3006044B0 /* NaenioAPI+Path.swift */; };
 		4C4B13342883AAE0006044B0 /* NaenioAPI+Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B13332883AAE0006044B0 /* NaenioAPI+Task.swift */; };
@@ -68,7 +67,7 @@
 		9B2A4ACA28B9DA7F00349AEC /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4AC928B9DA7F00349AEC /* NoticeViewModel.swift */; };
 		9B2A4ACC28B9DEC600349AEC /* NoticeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4ACB28B9DEC600349AEC /* NoticeDetailView.swift */; };
 		9B2A4ACF28B9E57300349AEC /* MyPageActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4ACE28B9E57300349AEC /* MyPageActionCell.swift */; };
-		9B2A4AD228B9EA6400349AEC /* DevelopersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4AD128B9EA6400349AEC /* DevelopersView.swift */; };
+		9B2A4AD228B9EA6400349AEC /* DevelopersInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4AD128B9EA6400349AEC /* DevelopersInfoView.swift */; };
 		9B2A4AD528BA01DD00349AEC /* VersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4AD428BA01DD00349AEC /* VersionView.swift */; };
 		9B2A4AD828BA04BB00349AEC /* MyCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4AD728BA04BB00349AEC /* MyCommentCell.swift */; };
 		9B2A4ADB28BA07B700349AEC /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4ADA28BA07B700349AEC /* Toast.swift */; };
@@ -205,7 +204,6 @@
 		26820D9098DAF923BCEB8A65 /* Pods-Naenio-NaenioUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio-NaenioUITests.release.xcconfig"; path = "Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests.release.xcconfig"; sourceTree = "<group>"; };
 		2AF541D3D8763AF8CB32F473 /* Pods_Naenio_NaenioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naenio_NaenioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DCCFBE6A5BBC18157338577 /* Pods-Naenio-NaenioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio-NaenioUITests.debug.xcconfig"; path = "Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		4C16915B289FF8D9000226BF /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		4C43C8C32886FB8200A60372 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		4C4B13312883AAC3006044B0 /* NaenioAPI+Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Path.swift"; sourceTree = "<group>"; };
 		4C4B13332883AAE0006044B0 /* NaenioAPI+Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Task.swift"; sourceTree = "<group>"; };
@@ -269,7 +267,7 @@
 		9B2A4AC928B9DA7F00349AEC /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
 		9B2A4ACB28B9DEC600349AEC /* NoticeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeDetailView.swift; sourceTree = "<group>"; };
 		9B2A4ACE28B9E57300349AEC /* MyPageActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageActionCell.swift; sourceTree = "<group>"; };
-		9B2A4AD128B9EA6400349AEC /* DevelopersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopersView.swift; sourceTree = "<group>"; };
+		9B2A4AD128B9EA6400349AEC /* DevelopersInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopersInfoView.swift; sourceTree = "<group>"; };
 		9B2A4AD428BA01DD00349AEC /* VersionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionView.swift; sourceTree = "<group>"; };
 		9B2A4AD728BA04BB00349AEC /* MyCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommentCell.swift; sourceTree = "<group>"; };
 		9B2A4ADA28BA07B700349AEC /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
@@ -533,7 +531,6 @@
 			isa = PBXGroup;
 			children = (
 				4CC4B7332896BDE400774192 /* MainView.swift */,
-				4C16915B289FF8D9000226BF /* TabBarView.swift */,
 				4CB4196928A29C2700EBB777 /* TabContentView.swift */,
 				9BF513C128AD1AF900104CAB /* ReportAndShareSheetView.swift */,
 			);
@@ -775,7 +772,7 @@
 		9B2A4AD028B9EA5A00349AEC /* Developers */ = {
 			isa = PBXGroup;
 			children = (
-				9B2A4AD128B9EA6400349AEC /* DevelopersView.swift */,
+				9B2A4AD128B9EA6400349AEC /* DevelopersInfoView.swift */,
 			);
 			path = Developers;
 			sourceTree = "<group>";
@@ -1536,7 +1533,6 @@
 				9B478A5728A71A48007A4715 /* CommentContentCell.swift in Sources */,
 				4CC3CEAA28ABF94900458138 /* VoteRequestModel.swift in Sources */,
 				4CB4196A28A29C2700EBB777 /* TabContentView.swift in Sources */,
-				4C16915C289FF8DA000226BF /* TabBarView.swift in Sources */,
 				9CE311D228A63FB300EDB0F4 /* CommentModel.swift in Sources */,
 				4CC296DB28805366001950A2 /* NaenioAPI.swift in Sources */,
 				9CB1DFB028AB732B0048B313 /* CustomNavigationCongifuration.swift in Sources */,
@@ -1619,7 +1615,7 @@
 				9BF00BF7287AC95A00F08035 /* AppleLoginManager.swift in Sources */,
 				9B03733228A6926D0089CC48 /* LoadingIndicator.swift in Sources */,
 				9CBCDCE528AE2AB100C4C577 /* VotesView.swift in Sources */,
-				9B2A4AD228B9EA6400349AEC /* DevelopersView.swift in Sources */,
+				9B2A4AD228B9EA6400349AEC /* DevelopersInfoView.swift in Sources */,
 				4C43C8C42886FB8200A60372 /* String+Extension.swift in Sources */,
 				9B3644BF28AB3CC600EA1467 /* ProfileImages.swift in Sources */,
 				4CC3CE9828AA8A3900458138 /* Post.swift in Sources */,
