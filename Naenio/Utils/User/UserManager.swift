@@ -83,6 +83,15 @@ class UserManager: ObservableObject {
     }
     
     // MARK: - Gets
+    func getUserId() -> Int {
+        if let loadedUserId = localStorageManager.load(key: self.idKey),
+           let userId = loadedUserId as? Int {
+            return userId
+        }
+        
+        return 0
+    }
+    
     func getProfileImagesIndex() -> Int {
         if let loadedProfileImageIndex = localStorageManager.load(key: self.profileImageIndexKey),
            let profileImageIndex = loadedProfileImageIndex as? Int {

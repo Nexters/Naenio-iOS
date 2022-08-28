@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(*, deprecated)
 struct ReportAndShareSheetView: View {
     @Binding var isPresented: Bool
     
@@ -36,7 +37,7 @@ struct ReportAndShareSheetView: View {
             Spacer()
             
             Button(action: {
-                isPresented = false  
+                isPresented = false
                 ShareManager.share(url: URL(string: "https://naenio.shop/posts/\(postID)"))
             }) {
                 VStack(spacing: 8) {
