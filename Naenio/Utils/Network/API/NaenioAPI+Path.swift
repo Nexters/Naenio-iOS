@@ -27,6 +27,8 @@ extension NaenioAPI {
             
         case .putNickname: return "/app/members/nickname"
         case .putProfileIndex: return "/app/members/profile-image"
+            
+        case .deleteAccount: return "/app/members/me"
         }
     }
 }

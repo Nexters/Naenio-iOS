@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum NetworkStatus<T>: Equatable where T: Decodable {
+enum NetworkStatus<T>: Equatable {
     static func == (lhs: NetworkStatus<T>, rhs: NetworkStatus<T>) -> Bool {
         return lhs.description == rhs.description
     }

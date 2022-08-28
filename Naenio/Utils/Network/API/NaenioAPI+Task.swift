@@ -39,9 +39,12 @@ extension NaenioAPI {
             return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
             
         case .putNickname(let request):
-            return .requestParameters(parameters: ["nickname" : request], encoding: JSONEncoding.default)
+            return .requestParameters(parameters: ["nickname": request], encoding: JSONEncoding.default)
         case .putProfileIndex(let request):
-            return .requestParameters(parameters: ["profileImageIndex" : request], encoding: JSONEncoding.default)
+            return .requestParameters(parameters: ["profileImageIndex": request], encoding: JSONEncoding.default)
+            
+        case .deleteAccount:
+            return .requestPlain
         }
     }
 }

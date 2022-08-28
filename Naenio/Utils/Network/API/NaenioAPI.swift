@@ -29,6 +29,8 @@ enum NaenioAPI {
     
     case putNickname(String)
     case putProfileIndex(Int)
+    
+    case deleteAccount
 }
 
 extension NaenioAPI: TargetType {

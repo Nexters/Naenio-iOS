@@ -17,6 +17,10 @@ struct MyPageView: View {
         ZStack {
             Color.background.ignoresSafeArea()
             
+            if viewModel.status == .inProgress {
+                LoadingIndicator()
+            }
+            
             ScrollView {
                 VStack(spacing: 20) {
                     headerWithUserInformation
@@ -60,7 +64,7 @@ struct MyPageView: View {
                                 })
                             case .withdrawal:
                                 MyPageActionCell(name: cell.title, action: {
-                                    alertVariable = .withdrawal(secondaryAction: { print("done") })
+                                    alertVariable = .withdrawal(secondaryAction: { viewModel.withdrawal() })
                                 })
                             }
                             
@@ -75,6 +79,18 @@ struct MyPageView: View {
         }
         .alert(isPresented: $alertVariable) {
             alertVariable.getAlert()
+        }
+        .onChange(of: viewModel.status) { status in
+            switch status {
+            case .fail(let error):
+                self.alertVariable = .errorHappend(error: error)
+            case .done(let type):
+                if type == .withdrawal {
+                    viewModel.signOut()
+                }
+            default:
+                break
+            }
         }
     }
     
