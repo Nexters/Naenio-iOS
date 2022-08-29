@@ -20,6 +20,7 @@ struct TabContentView: View {
     var body: some View {
         if pageName == .curation {
             CurationView()
+                .environmentObject(userManager)
         } else if pageName == .home {
             HomeView()
                 .environmentObject(userManager)

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CurationView: View {
+    @EnvironmentObject var userManager: UserManager
+    
     var columns = Array(repeating: GridItem(.flexible(), spacing: 20), count: 2)
     var themeList: [ThemeType] = [ .todayVote, .hallFame, .randomPlay, .goldBalance, .noisy, .collapsedBalance]
     
@@ -23,7 +25,8 @@ struct CurationView: View {
                     
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(themeList) { theme in
-                        NavigationLink(destination: LazyView( ThemeView(theme) )) {
+                        NavigationLink(destination: LazyView(
+                            ThemeView(theme).environmentObject(userManager))) {
                             CurationCardView(theme: theme.data)
                         }
                         .frame(width: 165, height: 200)
