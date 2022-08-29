@@ -19,6 +19,10 @@ struct CommentContentCell: View {
     let isMine: Bool
     let parentId: Int
     
+    var parseDate: (_ date: String) -> String = { date in
+        return CustomDateFormatter.convert(from: date)
+    }
+    
     var body: some View {
         HStack(alignment: .top, spacing: 8) {
             NavigationLink(destination: CommentRepliesView(isPresented: $isPresented, comment: comment, parentId: comment.id),
@@ -36,7 +40,7 @@ struct CommentContentCell: View {
 
                     Spacer()
                     
-                    Text(comment.createdDatetime)
+                    Text(parseDate(comment.createdDatetime))
                         .font(.medium(size: 14))
                         .foregroundColor(.naenioGray)
                 }
