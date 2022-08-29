@@ -88,9 +88,15 @@ extension CommentContentCell {
     
     var responsiveButtons: some View {
         HStack(spacing: 17) {
-            Button(action: {}) {
+            Button(action: {
+                if comment.isLiked {
+                    // TODO: 좋아요 취소
+                } else {
+                    // TODO: 좋아요
+                }
+            }) {
                 HStack(spacing: 5) {
-                    Image(systemName: "heart")
+                    comment.isLiked ? Image(systemName: "heart.fill") : Image(systemName: "heart")
                     Text("\(comment.likeCount)")
                 }
             }
