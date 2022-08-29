@@ -24,6 +24,10 @@ struct CommentContentCell: View {
         return CustomDateFormatter.convert(from: date)
     }
     
+    var parseDate: (_ date: String) -> String = { date in
+        return CustomDateFormatter.convert(from: date)
+    }
+    
     var body: some View {
         HStack(alignment: .top, spacing: 8) {
             NavigationLink(destination: CommentRepliesView(isPresented: $isPresented, comment: $comment),
