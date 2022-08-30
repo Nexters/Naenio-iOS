@@ -22,6 +22,8 @@ extension NaenioAPI {
             return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
         case .postComment(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
+        case .postReport(let request):
+            return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
             
         case .getUser(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
