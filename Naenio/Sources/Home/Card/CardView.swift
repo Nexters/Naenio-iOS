@@ -95,9 +95,11 @@ struct CardView: View {
         .onChange(of: viewModel.status) { status in
             switch status {
             case .done(let workType):
-                if workType == .report { // FIXME: .
-                    
+                if workType == .report {
+                    // FIXME: 신고하기 성공 피드백
                 }
+            default:
+                break
             }
         }
     }
