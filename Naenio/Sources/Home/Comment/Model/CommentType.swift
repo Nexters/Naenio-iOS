@@ -6,7 +6,7 @@
 //
 
 import Foundation
-enum CommentType: String {
+enum CommentType: String, Codable {
     case post = "POST"
     case comment = "COMMENT"
 }
