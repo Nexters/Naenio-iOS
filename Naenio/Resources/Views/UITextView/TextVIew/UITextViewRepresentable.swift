@@ -9,11 +9,13 @@ import SwiftUI
 
 struct RepresentedUITextView: UIViewRepresentable {
     let limit: Int?
+    let isTight: Bool
     @Binding var text: String
     
-    init(text: Binding<String>, limit: Int? = nil) {
+    init(text: Binding<String>, limit: Int? = nil, isTight: Bool) {
         self._text = text
         self.limit = limit
+        self.isTight = isTight
     }
 
     func makeCoordinator() -> Coordinator {
@@ -31,7 +33,10 @@ struct RepresentedUITextView: UIViewRepresentable {
         textView.backgroundColor = UIColor(Color.card)
         
         textView.textColor = UIColor(Color.white)
-        textView.textContainerInset = UIEdgeInsets(top: 7, left: 16, bottom: 7, right: 16)
+        textView.textContainerInset = UIEdgeInsets(top: isTight ? 8 : 16,
+                                                   left: 16,
+                                                   bottom: isTight ? 8 : 16,
+                                                   right: 16)
         textView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
 
         return textView
