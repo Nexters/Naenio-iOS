@@ -48,7 +48,7 @@ struct MyPageView: View {
                         }
                         
                         MyPageActionCell(name: "⁉️ 문의하기", action: {
-                            let url = URL(string: "https://forms.gle/KncRPJXwg69F5GpV7")!
+                            let url = URL(string: "https://www.instagram.com/_naenio_/")!
                             if UIApplication.shared.canOpenURL(url) {
                                 UIApplication.shared.open(url)
                             }
