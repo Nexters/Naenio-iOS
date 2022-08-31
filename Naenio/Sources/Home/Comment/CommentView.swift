@@ -30,7 +30,7 @@ struct CommentView: View {
                 Color.card
                     .ignoresSafeArea()
                 
-                if viewModel.status == .loading {
+                if viewModel.status == .inProgress {
                     VStack {
                         Spacer()
                         
@@ -58,7 +58,7 @@ struct CommentView: View {
                                 .frame(width: 12, height: 12)
                         }
                         
-                        ForEach($viewModel.comments) { index, comment in
+                        ForEach($viewModel.comments) { _, comment in
                             CustomDivider()
                                 .fillHorizontal()
                             
