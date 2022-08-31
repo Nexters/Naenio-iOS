@@ -8,7 +8,7 @@ import Moya
 extension NaenioAPI {
     func getMehod() -> Moya.Method {
         switch self {
-        case .signOut, .withDrawal, .login, .postPost, .postVote, .postComment: return .post
+        case .signOut, .withDrawal, .login, .postPost, .postVote, .postComment, .postReport: return .post
         case .getUser, .getFeed, .getTheme, .getComment, .getCommentReplies, .getSinglePost, .getIsNicknameAvailable: return .get
         case .putNickname, .putProfileIndex: return .put
         case .deleteAccount: return .delete

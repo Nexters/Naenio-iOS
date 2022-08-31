@@ -116,7 +116,7 @@ extension FullView {
                 })
             } else {
                 toastInfo = ToastInformation(isPresented: true, title: "신고하기", action: {
-                    // 포스트 신고하기
+                    viewModel.report(authorId: post.author.id, type: .post)
                 })
             }
             

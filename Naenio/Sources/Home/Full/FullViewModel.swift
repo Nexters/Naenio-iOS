@@ -9,7 +9,7 @@ import SwiftUI
 import RxSwift
 
 class FullViewModel: ObservableObject {
-    @Published var status: NetworkStatus<SinglePostResponseModel> = .waiting
+    @Published var status: NetworkStatus<WorkType> = .waiting
     @Published var post: Post = MockPostGenerator.generate(sortType: .wrote)
     
     private var bag = DisposeBag()
@@ -27,7 +27,7 @@ class FullViewModel: ObservableObject {
                     guard let self = self else { return }
                     
                     self.post = postResponse.toPost()
-                    self.status = .done(result: postResponse)
+                    self.status = .done(result: .singlePost)
                 }, onFailure: { [weak self] error in
                     guard let self = self else { return }
                     
@@ -40,8 +40,34 @@ class FullViewModel: ObservableObject {
     func getImage(of index: Int) -> Image {
         return ProfileImages.getImage(of: index)
     }
+    
+    func report(authorId: Int, type: CommentType) {
+        status = .inProgress
+        
+        ReportManager.report(authorId: authorId, type: type)
+            .subscribe(on: self.serialQueue)
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onSuccess: { [weak self] _ in
+                    guard let self = self else { return }
+                    
+                    self.status = .done(result: .report)
+                }, onFailure: { [weak self] error in
+                    guard let self = self else { return }
+                    
+                    self.status = .fail(with: error)
+                })
+            .disposed(by: bag)
+    }
 
     init() {
 //        print(TokenManager().loadToken())
+    }
+}
+
+extension FullViewModel {
+    enum WorkType { // FIXME:
+        case report
+        case singlePost
     }
 }

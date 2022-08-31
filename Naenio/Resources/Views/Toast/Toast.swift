@@ -25,7 +25,10 @@ struct Toast: View {
                 VStack(alignment: .center) {
                     Spacer()
                     
-                    Button(action: action) {
+                    Button(action: {
+                        action()
+                        isPresented = false
+                    }) {
                         Text(title)
                             .frame(maxWidth: .infinity, alignment: .center)
                             .frame(height: 62)

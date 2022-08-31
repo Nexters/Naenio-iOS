@@ -92,6 +92,16 @@ struct CardView: View {
         .onChange(of: post.choices) { _ in
             voteHappened = true
         }
+        .onChange(of: viewModel.status) { status in
+            switch status {
+            case .done(let workType):
+                if workType == .report {
+                    // FIXME: 신고하기 성공 피드백
+                }
+            default:
+                break
+            }
+        }
     }
 }
 
@@ -135,10 +145,11 @@ extension CardView {
                 })
             } else {
                 notificationInfo = LowSheetNotification(title: "신고하기", action: {
-                    // MARK: 여기에 게시글 신고
+                    viewModel.report(authorId: post.author.id, type: .post)
                 })
             }
             
+            // 메인 뷰에 하단시트 신호 보내기
             NotificationCenter.default.postLowSheetNotification(with: notificationInfo)
         }) {
             Image(systemName: "ellipsis")

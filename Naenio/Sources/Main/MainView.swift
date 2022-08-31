@@ -45,7 +45,7 @@ struct MainView: View {
             tabBarLowSheetInfo.isPresented = true
             tabBarLowSheetInfo.title = info.title
             tabBarLowSheetInfo.action = info.action
-        } // 어우 더러워
+        } // FIXME: 어우 더러워
         .toast(
             isPresented: $tabBarLowSheetInfo.isPresented,
             title: tabBarLowSheetInfo.title,
