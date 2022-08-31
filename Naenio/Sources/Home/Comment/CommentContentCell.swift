@@ -112,10 +112,11 @@ extension CommentContentCell {
     var responsiveButtons: some View {
         HStack(spacing: 17) {
             Button(action: {
-                HapticManager.shared.impact(style: .light)
                 if comment.isLiked {
+                    HapticManager.shared.impact(style: .light)
                     viewModel.requestLike(isCancel: true, commentId: comment.id)
                 } else {
+                    HapticManager.shared.notification(type: .success)
                     viewModel.requestLike(isCancel: false, commentId: comment.id)
                 }
             }) {
