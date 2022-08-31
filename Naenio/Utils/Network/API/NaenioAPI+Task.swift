@@ -24,6 +24,8 @@ extension NaenioAPI {
             return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
         case .postReport(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
+        case .postCommentLike(let request):
+            return .requestParameters(parameters: ["commentId": request], encoding: JSONEncoding.default)
             
         case .getUser(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
@@ -44,6 +46,8 @@ extension NaenioAPI {
             return .requestParameters(parameters: ["nickname": request], encoding: JSONEncoding.default)
         case .putProfileIndex(let request):
             return .requestParameters(parameters: ["profileImageIndex": request], encoding: JSONEncoding.default)
+        case .deleteCommentLike(let request):
+            return .requestParameters(parameters: ["commentId": request], encoding: JSONEncoding.default)
         }
     }
 }

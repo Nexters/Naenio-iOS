@@ -17,6 +17,7 @@ extension NaenioAPI {
         case .postVote: return "/app/votes"
         case .postComment: return "/app/comments"
         case .postPost, .getTheme: return "/app/posts"
+        case .postCommentLike: return "/app/comment-likes"
         case .postReport: return "/app/reports"
             
         case .getUser: return "/app/members/me"
@@ -31,6 +32,7 @@ extension NaenioAPI {
         case .putProfileIndex: return "/app/members/profile-image"
             
         case .deleteAccount: return "/app/members/me"
+        case .deleteCommentLike: return "/app/comment-likes"
         }
     }
 }
