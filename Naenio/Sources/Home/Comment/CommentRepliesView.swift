@@ -76,7 +76,7 @@ struct CommentRepliesView: View {
                     
                     CustomDivider()
 
-                    ForEach($viewModel.replies) { index, reply in
+                    ForEach($viewModel.replies) { _, reply in
                         HStack {
                             Text("▬")   // place holder for inset
                                 .padding(3)

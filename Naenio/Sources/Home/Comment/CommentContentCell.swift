@@ -9,7 +9,8 @@ import SwiftUI
 
 struct CommentContentCell: View {
     typealias Comment = CommentModel.Comment
-
+    @ObservedObject var viewModel = CommentContentCellViewModel()
+    
     @State var isNavigationActive: Bool = false
     
     @Binding var isPresented: Bool
@@ -68,6 +69,27 @@ struct CommentContentCell: View {
             
             moreInformationButton
         }
+        .onChange(of: viewModel.status) { status in
+            switch status {
+            case .done(let type):
+                switch type {
+                case .like:
+                    if comment.isLiked { // 좋아요 상태였다면 취소니까 빼고
+                        comment.likeCount -= 1
+                    } else { // 안 좋아요 였다면 좋아요니까 더하고
+                        comment.likeCount += 1
+                    }
+                    
+                    comment.isLiked.toggle()
+                default:
+                    break
+                }
+            case .fail(with: let error):
+                print(error.localizedDescription)
+            default:
+                break
+            }
+        }
     }
 }
 
@@ -90,10 +112,11 @@ extension CommentContentCell {
     var responsiveButtons: some View {
         HStack(spacing: 17) {
             Button(action: {
+                HapticManager.shared.impact(style: .light)
                 if comment.isLiked {
-                    // TODO: 좋아요 취소
+                    viewModel.requestLike(isCancel: true, commentId: comment.id)
                 } else {
-                    // TODO: 좋아요
+                    viewModel.requestLike(isCancel: false, commentId: comment.id)
                 }
             }) {
                 HStack(spacing: 5) {

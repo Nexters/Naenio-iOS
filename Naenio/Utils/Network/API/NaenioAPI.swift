@@ -18,7 +18,7 @@ enum NaenioAPI {
     case postPost(PostRequestInformation)
     case postVote(VoteRequestModel)
     case postComment(CommentPostRequestModel)
-    case postCommentLike(String)
+    case postCommentLike(Int)
     case postReport(ReportRequestModel)
     
     case getUser(String)
@@ -33,7 +33,7 @@ enum NaenioAPI {
     case putProfileIndex(Int)
     
     case deleteAccount
-    case deleteCommentLike(String)
+    case deleteCommentLike(Int)
 }
 
 extension NaenioAPI: TargetType {
