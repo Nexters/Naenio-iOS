@@ -10,8 +10,10 @@ import Combine
 import Introspect
 
 struct ThemeView: View {
+    @EnvironmentObject var userManager: UserManager
     @StateObject var viewModel = ThemeViewModel()
     @ObservedObject var scrollViewHelper = ScrollViewHelper()
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State var showComments = false
@@ -48,7 +50,7 @@ struct ThemeView: View {
                         LazyVStack(spacing: 20) {
                             ForEach($viewModel.posts) { index, post in
                                 NavigationLink(destination: LazyView(
-                                    FullView(post: post))
+                                    FullView(post: post)).environmentObject(userManager)
                                 ) {
                                     CardView(post: post) {
                                         withAnimation(.spring()) {
@@ -56,7 +58,7 @@ struct ThemeView: View {
                                             selectedPostId = post.wrappedValue.id
                                         }
                                     }
-                                    .environmentObject(viewModel)
+                                    .environmentObject(userManager)
                                     .background(
                                         RoundedRectangle(cornerRadius: 16)
                                             .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
