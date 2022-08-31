@@ -9,12 +9,13 @@ import SwiftUI
 
 struct CommentContentCell: View {
     typealias Comment = CommentModel.Comment
+
+    @State var isNavigationActive: Bool = false
     
     @Binding var isPresented: Bool
     @Binding var toastInfo: ToastInformation
-    @State var isNavigationActive: Bool = false
+    @Binding var comment: Comment
     
-    let comment: Comment
     let isReply: Bool
     let isMine: Bool
     let parentId: Int
@@ -25,7 +26,7 @@ struct CommentContentCell: View {
     
     var body: some View {
         HStack(alignment: .top, spacing: 8) {
-            NavigationLink(destination: CommentRepliesView(isPresented: $isPresented, comment: comment, parentId: comment.id),
+            NavigationLink(destination: CommentRepliesView(isPresented: $isPresented, comment: $comment, parentId: comment.id),
                            isActive: $isNavigationActive) {
                 EmptyView()
             }
