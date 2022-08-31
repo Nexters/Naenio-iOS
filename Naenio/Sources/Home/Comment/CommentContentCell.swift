@@ -19,6 +19,10 @@ struct CommentContentCell: View {
     let isMine: Bool
     let parentId: Int
     
+    var parseDate: (_ date: String) -> String = { date in
+        return CustomDateFormatter.convert(from: date)
+    }
+    
     var body: some View {
         HStack(alignment: .top, spacing: 8) {
             NavigationLink(destination: CommentRepliesView(isPresented: $isPresented, comment: comment, parentId: comment.id),
@@ -36,7 +40,7 @@ struct CommentContentCell: View {
 
                     Spacer()
                     
-                    Text(comment.createdDatetime)
+                    Text(parseDate(comment.createdDatetime))
                         .font(.medium(size: 14))
                         .foregroundColor(.naenioGray)
                 }
@@ -84,9 +88,15 @@ extension CommentContentCell {
     
     var responsiveButtons: some View {
         HStack(spacing: 17) {
-            Button(action: {}) {
+            Button(action: {
+                if comment.isLiked {
+                    // TODO: 좋아요 취소
+                } else {
+                    // TODO: 좋아요
+                }
+            }) {
                 HStack(spacing: 5) {
-                    Image(systemName: "heart")
+                    comment.isLiked ? Image(systemName: "heart.fill") : Image(systemName: "heart")
                     Text("\(comment.likeCount)")
                 }
             }
