@@ -32,7 +32,9 @@ struct MyPageView: View {
                     
                     MyPageSection {
                         ForEach(PersonalCell.allCases, id: \.title) { cell in
-                            MyPageNavigationCell(name: cell.title, destination: cell.view)
+                            MyPageNavigationCell(name: cell.title) {
+                                cell.view().environmentObject(userManager)
+                            }
                             
                             if cell.title != PersonalCell.allCases.last?.title {
                                 CustomDivider()
@@ -118,7 +120,9 @@ struct MyPageView: View {
         }
         .foregroundColor(.white)
     }
-    
+}
+
+extension MyPageView {
     private enum AccountCell: CaseIterable {
         case logout
         case withdrawal
@@ -132,9 +136,7 @@ struct MyPageView: View {
             }
         }
     }
-}
-
-extension MyPageView {
+    
     private enum BusinessCell: CaseIterable, NavigatableCell {
         case notice, developers, version
         

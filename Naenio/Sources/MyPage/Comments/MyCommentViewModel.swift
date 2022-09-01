@@ -15,6 +15,7 @@ class MyCommentViewModel: ObservableObject {
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler(qos: .utility)
     
+    // TODO: Paging
     func getMyComments(lastCommentId: Int? = nil) {
         status = .inProgress
         

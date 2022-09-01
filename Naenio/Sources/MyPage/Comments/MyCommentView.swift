@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MyCommentView: View {
+    @EnvironmentObject var userManager: UserManager
     @ObservedObject var viewModel = MyCommentViewModel()
     
     var body: some View {
@@ -22,16 +23,21 @@ struct MyCommentView: View {
                 }
                 
                 if viewModel.comments == nil {
-                    Text("nil").foregroundColor(.white)
+                    EmptyView()
                 } else if viewModel.comments!.isEmpty {
                     EmptyResultView(description: "아직 작성한 댓글이 없습니다!")
                 } else {
                     ScrollView {
                         LazyVStack {
                             ForEach(viewModel.comments!) { comment in
-                                MyCommentCell(myComment: comment)
-                                    .frame(height: 184)
-                                    .padding(.horizontal, 20)
+                                NavigationLink(destination: LazyView(
+                                    OpenedByLinkFullView(postId: comment.post.id))
+                                    .environmentObject(userManager)
+                                ) {
+                                    MyCommentCell(myComment: comment)
+                                        .frame(height: 184)
+                                        .padding(.horizontal, 20)
+                                }
                             }
                         }
                         
