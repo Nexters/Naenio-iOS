@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MyCommentCell: View {
     let myComment: MyComment
+    @Binding var toastInformation: ToastInformation
     
     var body: some View {
         ZStack {
@@ -22,8 +23,9 @@ struct MyCommentCell: View {
                         
                         Spacer()
                         
-                        // 신고/공유
-                        Button(action: { }) {
+                        Button(action: {
+                            toastInformation.isPresented = true
+                        }) {
                             Image(systemName: "ellipsis")
                                 .resizable()
                                 .scaledToFit()

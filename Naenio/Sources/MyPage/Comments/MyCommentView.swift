@@ -11,6 +11,8 @@ struct MyCommentView: View {
     @EnvironmentObject var userManager: UserManager
     @ObservedObject var viewModel = MyCommentViewModel()
     
+    @State var toastInformation = ToastInformation(isPresented: false, title: "댓글 삭제하기", action: { /*TODO: 댓글 삭제*/ })
+    
     var body: some View {
         
         CustomNavigationView(title: "작성한 댓글") {
@@ -34,7 +36,7 @@ struct MyCommentView: View {
                                     OpenedByLinkFullView(postId: comment.post.id))
                                     .environmentObject(userManager)
                                 ) {
-                                    MyCommentCell(myComment: comment)
+                                    MyCommentCell(myComment: comment, toastInformation: self.$toastInformation)
                                         .frame(height: 184)
                                         .padding(.horizontal, 20)
                                 }
@@ -44,6 +46,7 @@ struct MyCommentView: View {
                     }
                 }
             }
+            .toast($toastInformation)
             .onAppear {
                 viewModel.getMyComments()
             }
