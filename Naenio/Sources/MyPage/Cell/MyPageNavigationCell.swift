@@ -16,6 +16,7 @@ struct MyPageNavigationCell<Destination>: View where Destination: View {
             MyPageCell(leading: {
                 Text(name)
                     .font(.semoBold(size: 16))
+                    .lineLimit(1)
             }, trailing: {
                 Image(systemName: "chevron.right")
                     .resizable()

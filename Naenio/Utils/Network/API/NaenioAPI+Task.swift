@@ -39,6 +39,8 @@ extension NaenioAPI {
             return .requestParameters(parameters: model.toDictionary(), encoding: URLEncoding.default)
         case .getIsNicknameAvailable(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
+        case .getNotice:
+            return .requestPlain
             
         case .putNickname(let request):
             return .requestParameters(parameters: ["nickname": request], encoding: JSONEncoding.default)

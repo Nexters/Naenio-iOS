@@ -27,6 +27,7 @@ enum NaenioAPI {
     case getTheme(ThemeRequestModel)
     case getSinglePost(SinglePostRequestInformation)
     case getIsNicknameAvailable(String)
+    case getNotice
     
     case putNickname(String)
     case putProfileIndex(Int)
