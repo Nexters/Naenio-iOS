@@ -30,7 +30,7 @@ struct CommentView: View {
                 Color.card
                     .ignoresSafeArea()
                 
-                if viewModel.status == .loading {
+                if viewModel.status == .inProgress {
                     VStack {
                         Spacer()
                         
@@ -58,7 +58,7 @@ struct CommentView: View {
                                 .frame(width: 12, height: 12)
                         }
                         
-                        ForEach(viewModel.comments, id: \.id) { comment in
+                        ForEach($viewModel.comments) { _, comment in
                             CustomDivider()
                                 .fillHorizontal()
                             
@@ -67,19 +67,19 @@ struct CommentView: View {
                                                    toastInfo: $toastInfo,
                                                    comment: comment,
                                                    isReply: false,
-                                                   isMine: userManager.getUserId() == comment.author.id,
+                                                   isMine: userManager.getUserId() == comment.wrappedValue.author.id,
                                                    parentId: parentId)
                             } else {
                                 ZStack {
                                     Text("⚠️ 일시적인 오류가 발생했습니다")
                                         .font(.semoBold(size: 16))
                                         .foregroundColor(.white)
-                                    
+
                                     CommentContentCell(isPresented: $isPresented,
                                                        toastInfo: $toastInfo,
                                                        comment: comment,
                                                        isReply: false,
-                                                       isMine: userManager.getUserId() == comment.author.id,
+                                                       isMine: userManager.getUserId() == comment.wrappedValue.author.id,
                                                        parentId: -1)
                                         .blur(radius: 2)
                                 }

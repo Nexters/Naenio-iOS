@@ -20,7 +20,7 @@ struct CommentRepliesView: View {
     @State var text: String = ""
     @State var toastInfo = ToastInformation(isPresented: false, title: "", action: {}) // 리팩토링 시급, 토스트 시트 용 정보 스트럭트
 
-    let comment: Comment
+    @Binding var comment: Comment
     var parentId: Int
     
     var body: some View {
@@ -69,14 +69,14 @@ struct CommentRepliesView: View {
                     
                     CommentContentCell(isPresented: $isPresented,
                                        toastInfo: $toastInfo,
-                                       comment: comment,
+                                       comment: $comment,
                                        isReply: true,
                                        isMine: userManager.getUserId() == comment.author.id,
                                        parentId: parentId)
                     
                     CustomDivider()
 
-                    ForEach(viewModel.replies, id: \.id) { reply in
+                    ForEach($viewModel.replies) { _, reply in
                         HStack {
                             Text("▬")   // place holder for inset
                                 .padding(3)
@@ -86,7 +86,7 @@ struct CommentRepliesView: View {
                                                toastInfo: $toastInfo,
                                                comment: reply,
                                                isReply: true,
-                                               isMine: userManager.getUserId() == reply.author.id,
+                                               isMine: userManager.getUserId() == reply.wrappedValue.author.id,
                                                parentId: parentId)
                         }
                     }

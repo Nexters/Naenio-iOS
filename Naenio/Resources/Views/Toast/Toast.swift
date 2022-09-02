@@ -17,6 +17,7 @@ struct Toast: View {
         ZStack {
             if isPresented {
                 Color.black.opacity(0.3)
+                    .ignoresSafeArea()
                     .transition(.opacity)
                     .onTapGesture {
                         isPresented = false

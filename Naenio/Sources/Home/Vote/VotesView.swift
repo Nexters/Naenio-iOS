@@ -34,7 +34,7 @@ struct VotesView: View {
                 VoteButton(type: .choiceB,
                            isOpened: self.isVoteOpened,
                            choice: self.choiceB,
-                           percent: self.getPercentage(ofSequence: 1),
+                           percent: getPercentage(ofSequence: 1),
                            action: {
                     lastChoice = 1
                     viewModel.requestVote(postId: post.id,
@@ -43,7 +43,7 @@ struct VotesView: View {
             }
             .onChange(of: viewModel.status) { status in
                 switch status {
-                case .done(_):
+                case .done:
                     DispatchQueue.main.async {
                         vote(sequence: lastChoice)
                         viewModel.status = .waiting

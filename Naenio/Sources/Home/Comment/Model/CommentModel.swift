@@ -11,14 +11,14 @@ struct CommentModel: ModelType {
     let totalCommentCount: Int
     let comments: [Comment]
     
-    struct Comment: ModelType {
+    struct Comment: ModelType, Identifiable {
         let id: Int
-        let author: Author
+        var author: Author
         let content: String
         let createdDatetime: String
-        let likeCount: Int
-        let isLiked: Bool
-        let repliesCount: Int
+        var likeCount: Int
+        var isLiked: Bool
+        var repliesCount: Int
         
         struct Author: ModelType {
             let id: Int

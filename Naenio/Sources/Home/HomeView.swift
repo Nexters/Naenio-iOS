@@ -142,7 +142,10 @@ struct HomeView: View {
 extension HomeView {
     var categoryButtons: some View {
         HStack {
-            Button(action: { viewModel.sortType = nil }) {
+            Button(action: {
+                viewModel.sortType = nil
+                HapticManager.shared.impact(style: .rigid)
+            }) {
                 Text("전체")
             }
             .buttonStyle(CapsuleButtonStyle(fontSize: 14,
@@ -153,7 +156,10 @@ extension HomeView {
                     .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
             )
             
-            Button(action: { viewModel.sortType = .wrote }) {
+            Button(action: {
+                viewModel.sortType = .wrote
+                HapticManager.shared.impact(style: .rigid)
+            }) {
                 Text("📄 게시한 투표")
             }
             .buttonStyle(CapsuleButtonStyle(fontSize: 14,
@@ -164,7 +170,10 @@ extension HomeView {
                     .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
             )
             
-            Button(action: { viewModel.sortType = .participated }) {
+            Button(action: {
+                viewModel.sortType = .participated
+                HapticManager.shared.impact(style: .rigid)
+            }) {
                 Text("🗳 참여한 투표")
             }
             .buttonStyle(CapsuleButtonStyle(fontSize: 14,
