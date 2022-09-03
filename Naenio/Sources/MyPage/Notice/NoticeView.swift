@@ -15,6 +15,11 @@ struct NoticeView: View {
             ZStack {
                 Color.background.ignoresSafeArea()
                 
+                if viewModel.status == .inProgress {
+                    LoadingIndicator()
+                        .zIndex(1)
+                }
+                
                 if viewModel.notices.isEmpty {
                     EmptyResultView(description: "아직 공지사항이 없어요!")
                 } else {
@@ -34,6 +39,9 @@ struct NoticeView: View {
                         }
                     }
                 }
+            }
+            .onAppear {
+                viewModel.getNotices()
             }
         }
         .navigationBarHidden(true)

@@ -6,18 +6,33 @@
 //
 
 import SwiftUI
+import RxSwift
 
 class NoticeViewModel: ObservableObject {
-    @Published var notices: [Notice] = [
-        Notice(title: "아이폰 14를 드립니다!", content: "와우와우"),
-        Notice(title: "맥북 16인치를 드립니다!", content: "와우와우")
-    ]
+    @Published var notices: [Notice] = []
+    @Published var status: NetworkStatus<Bool> = .waiting
     
-}
-
-// !!!: Temporary model, API가 아직 안 나옴
-struct Notice: Identifiable {
-    let id = UUID()
-    let title: String
-    let content: String
+    // lets and vars
+    private var bag = DisposeBag()
+    private let serialQueue = SerialDispatchQueueScheduler(qos: .utility)
+    
+    func getNotices() {
+        self.status = .inProgress
+        
+        RequestService<NoticeResponseModel>.request(api: .getNotice)
+            .subscribe(on: serialQueue)
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onSuccess: { [weak self] response in
+                    guard let self = self else { return }
+                    
+                    self.notices = response.notices
+                    self.status = .done(result: true)
+                }, onFailure: { [weak self] error in
+                    guard let self = self else { return }
+                    
+                    self.status = .fail(with: error)
+                })
+            .disposed(by: bag)
+    }
 }

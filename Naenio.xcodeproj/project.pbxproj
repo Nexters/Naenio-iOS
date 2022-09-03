@@ -62,6 +62,8 @@
 		9B085F142879991600DE8E60 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F132879991600DE8E60 /* LoginTests.swift */; };
 		9B085F1E2879991600DE8E60 /* NaenioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1D2879991600DE8E60 /* NaenioUITests.swift */; };
 		9B085F202879991600DE8E60 /* NaenioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */; };
+		9B1128AE28C0D23D004C238D /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1128AD28C0D23D004C238D /* Notice.swift */; };
+		9B1128B028C0D6CF004C238D /* NoticeResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1128AF28C0D6CF004C238D /* NoticeResponseModel.swift */; };
 		9B19A1DD28AF7B1E0072DEDA /* AvailableNicknameResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B19A1DC28AF7B1E0072DEDA /* AvailableNicknameResponseModel.swift */; };
 		9B244070289E8DC30060A244 /* View + Exetension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B24406F289E8DC30060A244 /* View + Exetension.swift */; };
 		9B244073289E9AA10060A244 /* VotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B244072289E9AA10060A244 /* VotesView.swift */; };
@@ -270,6 +272,8 @@
 		9B085F192879991600DE8E60 /* NaenioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NaenioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B085F1D2879991600DE8E60 /* NaenioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITests.swift; sourceTree = "<group>"; };
 		9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9B1128AD28C0D23D004C238D /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
+		9B1128AF28C0D6CF004C238D /* NoticeResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeResponseModel.swift; sourceTree = "<group>"; };
 		9B19A1DC28AF7B1E0072DEDA /* AvailableNicknameResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNicknameResponseModel.swift; sourceTree = "<group>"; };
 		9B24406F289E8DC30060A244 /* View + Exetension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + Exetension.swift"; sourceTree = "<group>"; };
 		9B244072289E9AA10060A244 /* VotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotesView.swift; sourceTree = "<group>"; };
@@ -750,6 +754,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		9B1128AC28C0D22E004C238D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9B1128AD28C0D23D004C238D /* Notice.swift */,
+				9B1128AF28C0D6CF004C238D /* NoticeResponseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9B19A1DB28AF7AFA0072DEDA /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -783,6 +796,7 @@
 		9B2A4AC628B9D5EC00349AEC /* Notice */ = {
 			isa = PBXGroup;
 			children = (
+				9B1128AC28C0D22E004C238D /* Model */,
 				9B2A4AC728B9D61E00349AEC /* NoticeView.swift */,
 				9B2A4ACB28B9DEC600349AEC /* NoticeDetailView.swift */,
 				9B2A4AC928B9DA7F00349AEC /* NoticeViewModel.swift */,
@@ -1667,12 +1681,14 @@
 				9CAA174028A2468600EAAE40 /* WrappedTextView.swift in Sources */,
 				4C4B133B2883C44C006044B0 /* TargetType+Extension.swift in Sources */,
 				9C68A29A2898F3A6006D36B1 /* LocalStorageManager.swift in Sources */,
+				9B1128B028C0D6CF004C238D /* NoticeResponseModel.swift in Sources */,
 				9B478A5328A7127B007A4715 /* CloseButton.swift in Sources */,
 				4C4B133F2883CD32006044B0 /* ModelType.swift in Sources */,
 				9BE13FE028AA2187009ED95D /* MyPageCell.swift in Sources */,
 				9CA6DA8728A21CD10060610F /* NewPostView.swift in Sources */,
 				9B2A4ADF28BA14A900349AEC /* MyCommentView.swift in Sources */,
 				4C4B13372883B55F006044B0 /* Encodable+Extension.swift in Sources */,
+				9B1128AE28C0D23D004C238D /* Notice.swift in Sources */,
 				9C95B9A5289A937100E0910C /* FillHorizontal.swift in Sources */,
 				9C95B9A2289A8DDE00E0910C /* VoteButton.swift in Sources */,
 				9CB1DFAA28AB656C0048B313 /* ProfileChangeViewModel.swift in Sources */,

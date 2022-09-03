@@ -25,7 +25,6 @@ struct NoticeDetailView: View {
                             .font(.medium(size: 20))
                             .foregroundColor(.white)
                         
-                        
                         Text(notice.content)
                             .font(.medium(size: 20))
                             .foregroundColor(.gray)
