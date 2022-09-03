@@ -17,11 +17,11 @@ struct CommentView: View {
     @State var toastInfo = ToastInformation(isPresented: false, title: "", action: {}) // 리팩토링 시급, 토스트 시트 용 정보 스트럭트
 
     @Binding var isPresented: Bool
-    @Binding var parentId: Int?
+    @Binding var parentPost: Post
         
-    init(isPresented: Binding<Bool>, parentId: Binding<Int?>) {
+    init(isPresented: Binding<Bool>, parentPost: Binding<Post>) {
         self._isPresented = isPresented
-        self._parentId = parentId
+        self._parentPost = parentPost
     }
     
     var body: some View {
@@ -62,26 +62,17 @@ struct CommentView: View {
                             CustomDivider()
                                 .fillHorizontal()
                             
-                            if let parentId = parentId {
+                            if let parentPost = parentPost {
                                 CommentContentCell(isPresented: $isPresented,
                                                    toastInfo: $toastInfo,
                                                    comment: comment,
                                                    isReply: false,
-                                                   isMine: userManager.getUserId() == comment.wrappedValue.author.id,
-                                                   parentId: parentId)
+                                                   isMine: userManager.getUserId() == comment.wrappedValue.author.id)
                             } else {
                                 ZStack {
                                     Text("⚠️ 일시적인 오류가 발생했습니다")
                                         .font(.semoBold(size: 16))
                                         .foregroundColor(.white)
-
-                                    CommentContentCell(isPresented: $isPresented,
-                                                       toastInfo: $toastInfo,
-                                                       comment: comment,
-                                                       isReply: false,
-                                                       isMine: userManager.getUserId() == comment.wrappedValue.author.id,
-                                                       parentId: -1)
-                                        .blur(radius: 2)
                                 }
                             }
                         }
@@ -99,7 +90,13 @@ struct CommentView: View {
                 }
                 .onChange(of: viewModel.status) { status in
                     switch status {
-                    case .done:
+                    case .done(let task):
+                        switch task {
+                        case .requestComments:
+                            break
+                        case .register:
+                            self.parentPost.commentCount = viewModel.comments.count
+                        }
                         scrollViewHelper.refreshController.endRefreshing()
                     case .fail(with: _):
                         scrollViewHelper.refreshController.endRefreshing()
@@ -118,7 +115,7 @@ struct CommentView: View {
                         WrappedTextView(placeholder: "댓글 추가", content: $text, characterLimit: 100, showLimit: false, isTight: true)
                         
                         Button(action: {
-                            viewModel.registerComment(self.text, postId: self.parentId)
+                            viewModel.registerComment(self.text, postId: self.parentPost.id)
                             UIApplication.shared.endEditing()
                             text = ""
                         }) {
@@ -139,7 +136,7 @@ struct CommentView: View {
             .navigationBarHidden(true)
         }
         .onAppear {
-            viewModel.requestComments(postId: self.parentId, isFirstRequest: true)
+            viewModel.requestComments(postId: self.parentPost.id, isFirstRequest: true)
             viewModel.isFirstRequest = true
         }
     }

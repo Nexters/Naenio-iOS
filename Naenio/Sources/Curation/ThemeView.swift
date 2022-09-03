@@ -59,6 +59,9 @@ struct ThemeView: View {
                                         }
                                     }
                                     .environmentObject(userManager)
+                                    .sheet(isPresented: $showComments) {
+                                        CommentView(isPresented: $showComments, parentPost: post)
+                                    }
                                     .background(
                                         RoundedRectangle(cornerRadius: 16)
                                             .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
@@ -103,9 +106,6 @@ struct ThemeView: View {
             viewModel.requestThemePosts()
         }
         .navigationBarHidden(true)
-        .sheet(isPresented: $showComments) {
-            CommentView(isPresented: $showComments, parentId: $selectedPostId)
-        }
     }
     
     init(_ theme: ThemeType) {
