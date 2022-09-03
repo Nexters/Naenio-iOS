@@ -9,15 +9,16 @@ import SwiftUI
 
 struct CommentContentCell: View {
     typealias Comment = CommentModel.Comment
+    @ObservedObject var viewModel = CommentContentCellViewModel()
+    
+    @State var isNavigationActive: Bool = false
     
     @Binding var isPresented: Bool
     @Binding var toastInfo: ToastInformation
-    @State var isNavigationActive: Bool = false
+    @Binding var comment: Comment
     
-    let comment: Comment
     let isReply: Bool
     let isMine: Bool
-    let parentId: Int
     
     var parseDate: (_ date: String) -> String = { date in
         return CustomDateFormatter.convert(from: date)
@@ -25,7 +26,7 @@ struct CommentContentCell: View {
     
     var body: some View {
         HStack(alignment: .top, spacing: 8) {
-            NavigationLink(destination: CommentRepliesView(isPresented: $isPresented, comment: comment, parentId: comment.id),
+            NavigationLink(destination: CommentRepliesView(isPresented: $isPresented, comment: $comment),
                            isActive: $isNavigationActive) {
                 EmptyView()
             }
@@ -67,6 +68,27 @@ struct CommentContentCell: View {
             
             moreInformationButton
         }
+        .onChange(of: viewModel.status) { status in
+            switch status {
+            case .done(let type):
+                switch type {
+                case .like:
+                    if comment.isLiked { // 좋아요 상태였다면 취소니까 빼고
+                        comment.likeCount -= 1
+                    } else { // 안 좋아요 였다면 좋아요니까 더하고
+                        comment.likeCount += 1
+                    }
+                    
+                    comment.isLiked.toggle()
+                default:
+                    break
+                }
+            case .fail(with: let error):
+                print(error.localizedDescription)
+            default:
+                break
+            }
+        }
     }
 }
 
@@ -90,9 +112,11 @@ extension CommentContentCell {
         HStack(spacing: 17) {
             Button(action: {
                 if comment.isLiked {
-                    // TODO: 좋아요 취소
+                    HapticManager.shared.impact(style: .light)
+                    viewModel.requestLike(isCancel: true, commentId: comment.id)
                 } else {
-                    // TODO: 좋아요
+                    HapticManager.shared.notification(type: .success)
+                    viewModel.requestLike(isCancel: false, commentId: comment.id)
                 }
             }) {
                 HStack(spacing: 5) {

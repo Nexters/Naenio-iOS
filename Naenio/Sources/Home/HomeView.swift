@@ -17,7 +17,7 @@ struct HomeView: View {
     @State var showNewPost = false
     
     @State var showComments = false
-    @State var selectedPostId: Int?
+    @State var selectedPostIndex: Int?
     
     var body: some View {
             ZStack(alignment: .bottomTrailing) {
@@ -54,7 +54,7 @@ struct HomeView: View {
                                     ) {
                                         CardView(post: post) {
                                             DispatchQueue.main.async {
-                                                self.selectedPostId = post.wrappedValue.id
+                                                self.selectedPostIndex = index
                                                 self.showComments = true
                                             }
                                         }
@@ -132,7 +132,8 @@ struct HomeView: View {
                     .environmentObject(viewModel)
             }
             .sheet(isPresented: $showComments) {
-                CommentView(isPresented: $showComments, parentId: $selectedPostId)
+                CommentView(isPresented: $showComments,
+                            parentPost: $viewModel.posts[selectedPostIndex ?? 0])
                     .environmentObject(userManager)
             }
         }
@@ -142,7 +143,10 @@ struct HomeView: View {
 extension HomeView {
     var categoryButtons: some View {
         HStack {
-            Button(action: { viewModel.sortType = nil }) {
+            Button(action: {
+                viewModel.sortType = nil
+                HapticManager.shared.impact(style: .rigid)
+            }) {
                 Text("전체")
             }
             .buttonStyle(CapsuleButtonStyle(fontSize: 14,
@@ -153,7 +157,10 @@ extension HomeView {
                     .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
             )
             
-            Button(action: { viewModel.sortType = .wrote }) {
+            Button(action: {
+                viewModel.sortType = .wrote
+                HapticManager.shared.impact(style: .rigid)
+            }) {
                 Text("📄 게시한 투표")
             }
             .buttonStyle(CapsuleButtonStyle(fontSize: 14,
@@ -164,7 +171,10 @@ extension HomeView {
                     .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
             )
             
-            Button(action: { viewModel.sortType = .participated }) {
+            Button(action: {
+                viewModel.sortType = .participated
+                HapticManager.shared.impact(style: .rigid)
+            }) {
                 Text("🗳 참여한 투표")
             }
             .buttonStyle(CapsuleButtonStyle(fontSize: 14,
