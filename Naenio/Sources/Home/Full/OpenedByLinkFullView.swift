@@ -9,12 +9,12 @@ import SwiftUI
 
 struct OpenedByLinkFullView: View {
     @EnvironmentObject var userManager: UserManager
-    @ObservedObject var viewModel = FullViewModel() // FIXME: 두번 만드는 중
+    @ObservedObject var viewModel = FullViewModel()
     private let postId: Int
     
     var body: some View {
         ZStack {
-            FullView(post: $viewModel.post)
+            FullView(post: $viewModel.post, viewModel: self.viewModel, showComments: true)
                 .redacted(reason: viewModel.status == .inProgress || viewModel.status == .waiting ? .placeholder : [])
                 .environmentObject(userManager)
         }
