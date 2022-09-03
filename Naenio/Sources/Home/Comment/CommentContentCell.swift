@@ -19,7 +19,6 @@ struct CommentContentCell: View {
     
     let isReply: Bool
     let isMine: Bool
-    let parentId: Int
     
     var parseDate: (_ date: String) -> String = { date in
         return CustomDateFormatter.convert(from: date)
@@ -27,7 +26,7 @@ struct CommentContentCell: View {
     
     var body: some View {
         HStack(alignment: .top, spacing: 8) {
-            NavigationLink(destination: CommentRepliesView(isPresented: $isPresented, comment: $comment, parentId: comment.id),
+            NavigationLink(destination: CommentRepliesView(isPresented: $isPresented, comment: $comment),
                            isActive: $isNavigationActive) {
                 EmptyView()
             }

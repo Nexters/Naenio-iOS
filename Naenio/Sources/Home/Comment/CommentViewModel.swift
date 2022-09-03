@@ -17,7 +17,7 @@ class CommentViewModel: ObservableObject {
     private let serialQueue = SerialDispatchQueueScheduler(qos: .utility)
     
     @Published var comments = [Comment]()
-    @Published var replies = [Comment]()
+    @Published var totalCommentCount = 0
     @Published var status: NetworkStatus<WorkType> = .waiting
     @Published var lastCommentId: Int?
     
@@ -39,8 +39,10 @@ class CommentViewModel: ObservableObject {
                     guard let self = self else { return }
                     let newComment = self.transferToCommentModel(comment)
                     
-                    print("new comment", newComment)
-                    self.comments.insert(newComment, at: 0)
+                    self.totalCommentCount += 1
+                    withAnimation {
+                        self.comments.insert(newComment, at: 0)
+                    }
                     
                     self.status = .done(result: .register)
                 }, onFailure: { [weak self] error in
@@ -63,8 +65,9 @@ class CommentViewModel: ObservableObject {
             .subscribe(
                 onSuccess: { [weak self] commentInfo in
                     guard let self = self else { return }
-                    print("Success requestComments")
                     
+                    self.totalCommentCount = commentInfo.totalCommentCount
+
                     if isFirstRequest {
                         self.comments = commentInfo.comments
                     } else {

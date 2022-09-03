@@ -17,7 +17,6 @@ struct FullView: View {
     
     @State var voteHappened: Bool = false
     @State var showComments: Bool = false
-    @State var selectedPostId: Int? // 코멘트뷰에 전달할 포스트 아이디, 시트 들어가기 직전에 변경됨. 수정 필요함
     
     @State var toastInfo = ToastInformation(isPresented: false, title: "", action: {}) // 리팩토링 시급, 토스트 시트 용 정보 스트럭트
 
@@ -74,7 +73,7 @@ struct FullView: View {
             .padding(.bottom, 16)
         }
         .sheet(isPresented: $showComments) {
-            CommentView(isPresented: $showComments, parentId: $selectedPostId)
+            CommentView(isPresented: $showComments, parentPost: $post)
                 .environmentObject(userManager)
         }
         .toast(isPresented: $toastInfo.isPresented, title: toastInfo.title, action: toastInfo.action)
@@ -152,7 +151,6 @@ extension FullView {
     
     var commentButton: some View {
         Button(action: {
-            selectedPostId = post.id
             showComments = true
         }) {
             HStack(spacing: 6) {
