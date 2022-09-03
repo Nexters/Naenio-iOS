@@ -10,7 +10,7 @@ import Moya
 extension NaenioAPI {
     func getTask() -> Task {
         switch self {
-        case .signOut, .withDrawal:
+        case .signOut, .withDrawal, .deleteAccount, .getRandomPost:
             return .requestPlain
             
         case .login(let request):
@@ -42,9 +42,6 @@ extension NaenioAPI {
             return .requestParameters(parameters: ["nickname": request], encoding: JSONEncoding.default)
         case .putProfileIndex(let request):
             return .requestParameters(parameters: ["profileImageIndex": request], encoding: JSONEncoding.default)
-            
-        case .deleteAccount:
-            return .requestPlain
         }
     }
 }

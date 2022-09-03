@@ -24,6 +24,7 @@ enum NaenioAPI {
     case getComment(postId: Int, model: CommentListRequestModel)
     case getCommentReplies(postId: Int, model: CommentRepliesRequestModel)
     case getTheme(ThemeRequestModel)
+    case getRandomPost
     case getSinglePost(SinglePostRequestInformation)
     case getIsNicknameAvailable(String)
     
