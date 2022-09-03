@@ -10,12 +10,10 @@ import Moya
 extension NaenioAPI {
     func getTask() -> Task {
         switch self {
-        case .signOut, .withDrawal, .deleteAccount, .getRandomPost:
+        case .signOut, .withDrawal, .deleteAccount, .getRandomPost, .getNotice:
             return .requestPlain
-            
         case .login(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
-            
         case .postPost(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
         case .postVote(let request):
@@ -26,7 +24,6 @@ extension NaenioAPI {
             return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
         case .postCommentLike(let request):
             return .requestParameters(parameters: ["commentId": request], encoding: JSONEncoding.default)
-            
         case .getUser(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
         case .getFeed(let request):
@@ -41,9 +38,6 @@ extension NaenioAPI {
             return .requestParameters(parameters: model.toDictionary(), encoding: URLEncoding.default)
         case .getIsNicknameAvailable(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
-        case .getNotice:
-            return .requestPlain
-            
         case .putNickname(let request):
             return .requestParameters(parameters: ["nickname": request], encoding: JSONEncoding.default)
         case .putProfileIndex(let request):
