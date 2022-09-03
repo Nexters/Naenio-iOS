@@ -23,10 +23,17 @@ struct CurationView: View {
                     
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(themeList) { theme in
-                        NavigationLink(destination: LazyView( ThemeView(theme) )) {
-                            CurationCardView(theme: theme.data)
+                        if theme == .randomPlay {
+                            NavigationLink(destination: LazyView( RandomThemeView(theme))) {
+                                CurationCardView(theme: theme.data)
+                            }
+                            .frame(width: 165, height: 200)
+                        } else {
+                            NavigationLink(destination: LazyView( ThemeView(theme) )) {
+                                CurationCardView(theme: theme.data)
+                            }
+                            .frame(width: 165, height: 200)
                         }
-                        .frame(width: 165, height: 200)
                     }
                 }
             }
