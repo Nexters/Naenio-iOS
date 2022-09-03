@@ -26,6 +26,7 @@ extension NaenioAPI {
         case .getCommentReplies(let postId, _): return "/app/comments/\(postId)/comment-replies"
         case .getSinglePost(let info): return "/app/posts/\(info.id)"
         case .getIsNicknameAvailable(let nickname): return "/app/members/exist?nickname=\(nickname)"
+        case .getNotice: return "/app/notices"
             
         case .putNickname: return "/app/members/nickname"
         case .putProfileIndex: return "/app/members/profile-image"

@@ -12,6 +12,8 @@ class RequestService<Response: Decodable> {
             .map { response -> Response in
                 let data = response.data
                 
+//                print(String(data: data, encoding: .utf8) as Any)
+                
                 let decoded = try NaenioAPI.jsonDecoder.decode(Response.self, from: data)
                 return decoded
             }
