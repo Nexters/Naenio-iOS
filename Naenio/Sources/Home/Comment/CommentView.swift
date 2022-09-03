@@ -50,7 +50,7 @@ struct CommentView: View {
                         
                         // Sheet's header
                         HStack {
-                            CommentCountComponent(count: viewModel.comments.count)
+                            CommentCountComponent(count: viewModel.totalCommentCount)
                             
                             Spacer()
                             
@@ -62,19 +62,11 @@ struct CommentView: View {
                             CustomDivider()
                                 .fillHorizontal()
                             
-                            if let parentPost = parentPost {
-                                CommentContentCell(isPresented: $isPresented,
-                                                   toastInfo: $toastInfo,
-                                                   comment: comment,
-                                                   isReply: false,
-                                                   isMine: userManager.getUserId() == comment.wrappedValue.author.id)
-                            } else {
-                                ZStack {
-                                    Text("⚠️ 일시적인 오류가 발생했습니다")
-                                        .font(.semoBold(size: 16))
-                                        .foregroundColor(.white)
-                                }
-                            }
+                            CommentContentCell(isPresented: $isPresented,
+                                               toastInfo: $toastInfo,
+                                               comment: comment,
+                                               isReply: false,
+                                               isMine: userManager.getUserId() == comment.wrappedValue.author.id)
                         }
                         
                         // Bottom place holder
@@ -95,7 +87,7 @@ struct CommentView: View {
                         case .requestComments:
                             break
                         case .register:
-                            self.parentPost.commentCount = viewModel.comments.count
+                            self.parentPost.commentCount = viewModel.totalCommentCount
                         }
                         scrollViewHelper.refreshController.endRefreshing()
                     case .fail(with: _):
