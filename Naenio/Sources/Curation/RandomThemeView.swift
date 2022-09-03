@@ -11,6 +11,7 @@ import Combine
 struct RandomThemeView: View {
     private let theme: ThemeType
     
+    @EnvironmentObject var userManager: UserManager
     @ObservedObject var viewModel = RandomThemeViewModel()
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -87,7 +88,7 @@ struct RandomThemeView: View {
             .padding(.bottom, 16)
         }
         .sheet(isPresented: $showComments) {
-            CommentView(isPresented: $showComments, parentId: $selectedPostId)
+            CommentView(isPresented: $showComments, parentPost: $viewModel.post)
         }
         .lowSheet(isPresented: $showMoreInfoSheet) {
             ReportAndShareSheetView(

@@ -48,7 +48,7 @@ struct ThemeView: View {
                     
                     ScrollView(.vertical, showsIndicators: true) {
                         LazyVStack(spacing: 20) {
-                            ForEach($viewModel.posts) { index, post in
+                            ForEach($viewModel.posts) { post in
                                 NavigationLink(destination: LazyView(
                                     FullView(post: post)).environmentObject(userManager)
                                 ) {
