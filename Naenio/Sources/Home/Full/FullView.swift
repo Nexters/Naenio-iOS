@@ -27,13 +27,11 @@ struct FullView: View {
     init(
         _ viewModel: FullViewModel = FullViewModel(),
         post: Binding<Post>,
-        showComments: Bool = false,
-        deletedAction: Action? = nil
+        deletedAction: Action? = nil,
         showCommentFirst: Bool = false
     ) {
         self.viewModel = viewModel
         self._post = post
-        self.showComments = showComments
         self.deletedAction = deletedAction
         self.showCommentFirst = showCommentFirst
     }

@@ -14,8 +14,8 @@ struct OpenedByLinkFullView: View {
     
     var body: some View {
         ZStack {
-            FullView(post: $viewModel.post,
-                     viewModel: self.viewModel,
+            FullView(self.viewModel,
+                     post: $viewModel.post,
                      showCommentFirst: true)
             .redacted(reason: viewModel.status == .inProgress || viewModel.status == .waiting ? .placeholder : [])
             .environmentObject(userManager)
