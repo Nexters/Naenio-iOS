@@ -10,8 +10,7 @@ import Moya
 extension NaenioAPI {
     func getTask() -> Task {
         switch self {
-        case .signOut, .withDrawal, .deleteAccount, .getRandomPost, .getNotice:
-        case .signOut, .withDrawal, .deleteAccount, .getRandomPost, .getNotice, .deletePost, .deleteComment:
+        case .signOut, .withDrawal, .deleteAccount, .getNotice, .deletePost, .deleteComment:
             return .requestPlain
         case .login(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
