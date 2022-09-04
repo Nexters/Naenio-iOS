@@ -17,11 +17,13 @@ struct CommentView: View {
     @State var toastInfo = ToastInformation(isPresented: false, title: "", action: {}) // 리팩토링 시급, 토스트 시트 용 정보 스트럭트
     
     @Binding var isPresented: Bool
+    @Binding var parentPostId: Int? // sheet가 SwiftUI에서 버그가 있기 땜에 이걸 같이 넘겨줘야 됨..
     @Binding var parentPost: Post
     
-    init(isPresented: Binding<Bool>, parentPost: Binding<Post>) {
+    init(isPresented: Binding<Bool>, parentPost: Binding<Post>, parentPostId: Binding<Int?>) {
         self._isPresented = isPresented
         self._parentPost = parentPost
+        self._parentPostId = parentPostId
     }
     
     var body: some View {
@@ -72,8 +74,13 @@ struct CommentView: View {
                             })
                             .onAppear {
                                 if viewModel.totalCommentCount > viewModel.comments.count && index == viewModel.comments.count - 3 {
-                                    guard let lastCommentId = viewModel.comments.last?.id else { return }
-                                    viewModel.requestComments(postId: self.parentPost.id, lastCommentId: lastCommentId)
+                                    guard let lastCommentId = viewModel.comments.last?.id,
+                                          let parentPostId = parentPostId
+                                    else {
+                                        // TODO: 에러 표기
+                                        return
+                                    }
+                                    viewModel.requestComments(postId: parentPostId, lastCommentId: lastCommentId)
                                 }
                             }
                         }
@@ -116,7 +123,7 @@ struct CommentView: View {
                         WrappedTextView(placeholder: "댓글 추가", content: $text, characterLimit: 100, showLimit: false, isTight: true)
                         
                         Button(action: {
-                            viewModel.registerComment(self.text, postId: self.parentPost.id)
+                            viewModel.registerComment(self.text, postId: self.parentPostId)
                             UIApplication.shared.endEditing()
                             text = ""
                         }) {
@@ -137,7 +144,11 @@ struct CommentView: View {
             .navigationBarHidden(true)
         }
         .onAppear {
-            viewModel.requestComments(postId: parentPost.id, lastCommentId: nil)
+            guard let parentPostId = parentPostId else {
+                // TODO: 에러 표기
+                return
+            }
+            viewModel.requestComments(postId: parentPostId, lastCommentId: nil)
         }
     }
     

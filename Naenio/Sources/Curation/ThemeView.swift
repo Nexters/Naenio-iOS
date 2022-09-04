@@ -60,7 +60,7 @@ struct ThemeView: View {
                                     }
                                     .environmentObject(userManager)
                                     .sheet(isPresented: $showComments) {
-                                        CommentView(isPresented: $showComments, parentPost: post)
+                                        CommentView(isPresented: $showComments, parentPost: post, parentPostId: $selectedPostId)
                                     }
                                     .background(
                                         RoundedRectangle(cornerRadius: 16)

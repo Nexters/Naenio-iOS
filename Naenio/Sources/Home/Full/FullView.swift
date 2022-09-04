@@ -14,6 +14,7 @@ struct FullView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var toastInfo = ToastInformation(isPresented: false, title: "", action: {}) // 리팩토링 시급, 토스트 시트 용 정보 스트럭트
     @State private var voteHappened: Bool = false
+    @State private var selectedPostId: Int?
     
     // Injected values
     @EnvironmentObject var userManager: UserManager
@@ -93,7 +94,7 @@ struct FullView: View {
             .padding(.bottom, 16)
         }
         .sheet(isPresented: $showComments) {
-            CommentView(isPresented: $showComments, parentPost: $post)
+            CommentView(isPresented: $showComments, parentPost: $post, parentPostId: $selectedPostId)
                 .environmentObject(userManager)
         }
         .toast(isPresented: $toastInfo.isPresented, title: toastInfo.title, action: toastInfo.action)
@@ -104,6 +105,7 @@ struct FullView: View {
                 case .delete:
                     (deletedAction ?? {})()
                 case .singlePost:
+                    selectedPostId = post.id
                     self.showComments = true
                 default:
                     break
@@ -118,6 +120,7 @@ struct FullView: View {
             if showCommentFirst {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                     if case NetworkStatus.done = viewModel.status {
+                        selectedPostId = post.id
                         self.showComments = true
                     }
                 }
@@ -197,6 +200,7 @@ extension FullView {
     
     var commentButton: some View {
         Button(action: {
+            selectedPostId = post.id
             showComments = true
         }) {
             HStack(spacing: 6) {

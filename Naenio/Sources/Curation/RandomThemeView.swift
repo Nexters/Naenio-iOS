@@ -88,14 +88,7 @@ struct RandomThemeView: View {
             .padding(.bottom, 16)
         }
         .sheet(isPresented: $showComments) {
-            CommentView(isPresented: $showComments, parentPost: $viewModel.post)
-        }
-        .lowSheet(isPresented: $showMoreInfoSheet) {
-            ReportAndShareSheetView(
-                isPresented: $showMoreInfoSheet,
-                postID: viewModel.post.id
-            )
-            .padding(.horizontal, 27)
+            CommentView(isPresented: $showComments, parentPost: $viewModel.post, parentPostId: $selectedPostId)
         }
         .onChange(of: viewModel.post.choices) { _ in
             voteHappened = true
