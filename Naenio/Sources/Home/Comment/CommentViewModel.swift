@@ -12,17 +12,21 @@ class CommentViewModel: ObservableObject {
     typealias Comment = CommentModel.Comment
     typealias Author = CommentModel.Comment.Author
     
-    private var pageSize = 10
+    @Published var pageSize = 10
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler(qos: .utility)
     
-    @Published var comments = [Comment]()
+    @Published var comments: [Comment]
     @Published var totalCommentCount = 0
     @Published var status: NetworkStatus<WorkType> = .waiting
     @Published var lastCommentId: Int?
     
     @Published var isFirstRequest: Bool = true
 
+    init() {
+        self.comments = []
+    }
+    
     func registerComment(_ content: String, postId: Int?) {
         guard let postId = postId else {
             return
@@ -59,6 +63,7 @@ class CommentViewModel: ObservableObject {
         }
         
         let commentListRequestModel = CommentListRequestModel(size: pageSize, lastCommentId: isFirstRequest ? nil : lastCommentId)
+        
         RequestService<CommentModel>.request(api: .getComment(postId: postID, model: commentListRequestModel))
             .subscribe(on: self.serialQueue)
             .observe(on: MainScheduler.instance)
@@ -67,15 +72,20 @@ class CommentViewModel: ObservableObject {
                     guard let self = self else { return }
                     
                     self.totalCommentCount = commentInfo.totalCommentCount
-
+                    
                     if isFirstRequest {
                         self.comments = commentInfo.comments
                     } else {
                         self.comments.append(contentsOf: commentInfo.comments)
                     }
                     
+                    if !commentInfo.comments.isEmpty {
+                        self.lastCommentId = commentInfo.comments[commentInfo.comments.count - 1].id
+                    }
+                    
                     self.status = .done(result: .requestComments)
                 }, onFailure: { [weak self] error in
+                    
                     guard let self = self else { return }
                     self.status = .fail(with: error)
                 })

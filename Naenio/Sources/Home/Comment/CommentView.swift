@@ -58,15 +58,22 @@ struct CommentView: View {
                                 .frame(width: 12, height: 12)
                         }
                         
-                        ForEach($viewModel.comments) { _, comment in
-                            CustomDivider()
-                                .fillHorizontal()
-                            
-                            CommentContentCell(isPresented: $isPresented,
-                                               toastInfo: $toastInfo,
-                                               comment: comment,
-                                               isReply: false,
-                                               isMine: userManager.getUserId() == comment.wrappedValue.author.id)
+                        ForEach($viewModel.comments) { index, comment in
+                            VStack {
+                                CustomDivider()
+                                    .fillHorizontal()
+                                
+                                CommentContentCell(isPresented: $isPresented,
+                                                   toastInfo: $toastInfo,
+                                                   comment: comment,
+                                                   isReply: false,
+                                                   isMine: userManager.getUserId() == comment.wrappedValue.author.id)
+                                }
+                                .onAppear {
+                                    if viewModel.totalCommentCount > viewModel.pageSize && index == viewModel.comments.count - 5 {
+                                        viewModel.requestComments(postId: self.parentPost.id, isFirstRequest: false)
+                                    }
+                                }
                         }
                         
                         // Bottom place holder
