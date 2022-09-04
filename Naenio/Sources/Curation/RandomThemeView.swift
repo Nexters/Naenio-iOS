@@ -169,6 +169,8 @@ extension RandomThemeView {
     
     var updateRandomPostButton: some View {
         Button(action: {
+            // MARK: 굴러가는 느낌의 haptic 적용을 위해 error type 채택. 실제 기능 상의 error를 뜻하는 바는 아님.
+            // TODO: Custom haptic 적용이 가능한지 확인 필요
             HapticManager.shared.notification(type: .error)
             viewModel.requestRandomThemePosts()
             withAnimation(.default) {
