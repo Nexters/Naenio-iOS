@@ -52,12 +52,14 @@ struct HomeView: View {
                                     NavigationLink(destination: LazyView(
                                         FullView(post: post).environmentObject(userManager))
                                     ) {
-                                        CardView(post: post) {
+                                        CardView(post: post, action: {
                                             DispatchQueue.main.async {
                                                 self.selectedPostIndex = index
                                                 self.showComments = true
                                             }
-                                        }
+                                        }, deletedAction: {
+                                            viewModel.delete(at: index)
+                                        })
                                         .environmentObject(viewModel)
                                         .background(
                                             RoundedRectangle(cornerRadius: 16)

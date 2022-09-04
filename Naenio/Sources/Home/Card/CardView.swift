@@ -9,12 +9,16 @@ import SwiftUI
 import Combine
 
 struct CardView: View {
-    @EnvironmentObject var userManager: UserManager
-    @ObservedObject var viewModel = CardViewModel()
+    typealias Action = () -> Void
+    
     @State var voteHappened = false
     
+    // Injected values
+    @EnvironmentObject var userManager: UserManager
+    @ObservedObject var viewModel: CardViewModel
     @Binding var post: Post
-    let action: () -> Void
+    let action: Action // 시트 보여주기 용
+    let deletedAction: Action?
     
     var body: some View {
         ZStack {
@@ -90,18 +94,39 @@ struct CardView: View {
         .fillScreen()
         .mask(RoundedRectangle(cornerRadius: 16))
         .onChange(of: post.choices) { _ in
-            voteHappened = true
+            voteHappened = true 
         }
         .onChange(of: viewModel.status) { status in
             switch status {
             case .done(let workType):
-                if workType == .report {
-                    // FIXME: 신고하기 성공 피드백
+                switch workType {
+                case .report:
+                    // TODO: 신고하기 성공 피드백
+                    break
+                case .delete:
+                    // MARK: 삭제하기 성공 피드백
+                    withAnimation {
+                        (deletedAction ?? {})()
+                    }
+                    // TODO: Alert
                 }
+            case .fail:
+                // TODO: 실패 alert
+                break
             default:
                 break
             }
         }
+    }
+    
+    init(_ viewModel: CardViewModel = CardViewModel(),
+         post: Binding<Post>,
+         action: @escaping Action,
+         deletedAction: Action? = nil) {
+        self.viewModel = viewModel
+        self._post = post
+        self.action = action
+        self.deletedAction = deletedAction
     }
 }
 
@@ -141,7 +166,7 @@ extension CardView {
             let notificationInfo: LowSheetNotification
             if post.author.id == userManager.getUserId() {
                 notificationInfo = LowSheetNotification(title: "삭제하기", action: {
-                    // MARK: 여기에 게시글 삭제
+                    viewModel.delete(postId: post.id)
                 })
             } else {
                 notificationInfo = LowSheetNotification(title: "신고하기", action: {

@@ -14,7 +14,7 @@ class HomeViewModel: ObservableObject {
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler.init(qos: .userInitiated)
     
-    func register(postRequesInformation: PostRequestInformation) {
+    func register(_ postRequesInformation: PostRequestInformation) {
         status = .loading(reason: "sameCategoryPosts")
         
         RequestService<PostResponseModel>.request(api: .postPost(postRequesInformation))
@@ -47,6 +47,14 @@ class HomeViewModel: ObservableObject {
                     print("Disposed requestPosts")
                 })
             .disposed(by: bag)
+    }
+    
+    func delete(at index: Int) {
+        // MARK: 정책적으로 API 콜을 불러서 새로고침을 할지, 그냥 해당 포스트만 삭제할 지는 결정해야함
+        // 새로고침 하면 스크롤이 초기화 되는 문제가 있음
+        // 그런데 여기서는 그냥 새로고침 하겠음. 몇 십개씩 삭제 하는 것도 아니고.
+        // 그러므로 아직 인덱스는 받지 않을 것임
+        self.posts.remove(at: index)
     }
     
     @objc func requestPosts() {
@@ -107,12 +115,6 @@ class HomeViewModel: ObservableObject {
             .disposed(by: bag)
 
     }
-    
-    func changeLastPostId() {
-        if !self.posts.isEmpty {
-            self.lastPostId = self.posts[self.posts.count - 1].id
-        }
-    }
 
     init( ) {
         self.posts = []
@@ -121,6 +123,12 @@ class HomeViewModel: ObservableObject {
 }
 
 extension HomeViewModel {
+    private func changeLastPostId() {
+        if !self.posts.isEmpty {
+            self.lastPostId = self.posts[self.posts.count - 1].id
+        }
+    }
+    
     private func voteTotalCount(choices: [Choice]) -> Int {
         guard choices.count == 2 else { return 0 }
         

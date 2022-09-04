@@ -135,7 +135,7 @@ extension NewPostView {
             
             Button(action: {
                 let postRequest = postContent.toPostRequestInformation()
-                sourceObject.register(postRequesInformation: postRequest)
+                sourceObject.register(postRequest)
                 isPresented = false
             }) {
                 Text("등록")
