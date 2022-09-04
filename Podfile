@@ -7,7 +7,6 @@ target 'Naenio' do
   # Pods for Naenio
   pod 'Moya', '~> 15.0'
   pod 'Moya/RxSwift', '~> 15.0'
-  pod 'Kingfisher', '~> 7.0'
   pod 'KakaoSDKAuth', '~> 2.11.1'
   pod 'KakaoSDKUser', '~> 2.11.1'
   pod 'Alamofire'
