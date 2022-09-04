@@ -112,6 +112,7 @@ struct CommentRepliesView: View {
                     Button(action: {
                         viewModel.registerReply(text, postId: comment.id)
                         UIApplication.shared.endEditing()
+                        text = ""
                     }) {
                         Text("게시")
                             .font(.semoBold(size: 14))
