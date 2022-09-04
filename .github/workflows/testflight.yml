@@ -16,6 +16,13 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           known_hosts: ${{ secrets.KNOWN_HOSTS }}
           
+      - name: Bring ignored files
+        uses: actions/checkout@v3
+        with:
+          path: Naenio/ignored
+          repository: enebin/naenio-ios-ignored
+          token: ${{ secrets.ACTION_TOKEN }}
+          
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: 2.7
@@ -28,3 +35,4 @@ jobs:
           APP_STORE_CONNECT_API_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ID }}
           APP_STORE_CONNECT_API_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_ISSUER_ID }}
           APP_STORE_CONNECT_API_KEY_CONTENT: ${{ secrets.APP_STORE_CONNECT_API_KEY_CONTENT }}
+
