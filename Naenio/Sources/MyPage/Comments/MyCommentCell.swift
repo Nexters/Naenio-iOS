@@ -48,17 +48,16 @@ struct MyCommentCell: View {
                 Spacer()
                 
                 // 내 댓글 내용
-                Button(action: {}) {
-                    Text(myComment.content)
-                        .multilineTextAlignment(.leading)
-                        .lineLimit(1)
-                        .font(.medium(size: 16))
-                        .foregroundColor(.white)
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 14)
-                        .fillHorizontal()
-                        .background(Color.subCard)
-                }
+                Text(myComment.content)
+                    .multilineTextAlignment(.leading)
+                    .lineLimit(1)
+                    .font(.medium(size: 16))
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 14)
+                    .fillHorizontal()
+                    .background(Color.subCard)
+                
             }
         }
         .fillScreen()
