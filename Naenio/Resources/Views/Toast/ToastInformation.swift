@@ -5,8 +5,10 @@
 //  Created by YoungBin Lee on 2022/08/28.
 //
 
+import SwiftUI
+
 struct ToastInformation {
     var isPresented: Bool
-    let title: String
-    let action: () -> Void
+    var title: String
+    var action: () -> Void
 }

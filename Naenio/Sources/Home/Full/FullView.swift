@@ -21,17 +21,19 @@ struct FullView: View {
     @Binding var post: Post
     @State var showComments: Bool = false
     var deletedAction: Action?
+        
+    private let showCommentFirst: Bool
     
     init(
         _ viewModel: FullViewModel = FullViewModel(),
         post: Binding<Post>,
-        showComments: Bool = false,
-        deletedAction: Action? = nil
+        deletedAction: Action? = nil,
+        showCommentFirst: Bool = false
     ) {
         self.viewModel = viewModel
         self._post = post
-        self.showComments = showComments
         self.deletedAction = deletedAction
+        self.showCommentFirst = showCommentFirst
     }
 
     var body: some View {
@@ -101,6 +103,8 @@ struct FullView: View {
                 switch result {
                 case .delete:
                     (deletedAction ?? {})()
+                case .singlePost:
+                    self.showComments = true
                 default:
                     break
                 }
@@ -108,6 +112,15 @@ struct FullView: View {
                 break
             default:
                 break
+            }
+        }
+        .onAppear {
+            if showCommentFirst {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    if case NetworkStatus.done = viewModel.status {
+                        self.showComments = true
+                    }
+                }
             }
         }
         .onChange(of: post.choices) { _ in

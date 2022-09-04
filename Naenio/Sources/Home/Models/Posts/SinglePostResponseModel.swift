@@ -19,8 +19,8 @@ struct SinglePostResponseModel: ModelType {
     // MARK: - Author
     struct AuthorResponse: Codable {
         let id: Int
-        let nickname: String
-        let profileImageIndex: Int
+        let nickname: String?
+        let profileImageIndex: Int?
     }
 
     // MARK: - Choice

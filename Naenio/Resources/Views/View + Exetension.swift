@@ -55,6 +55,7 @@ extension View {
         }
     }
     
+    /// 토스트 보여주는 함수
     func toast(isPresented: Binding<Bool>,
                title: String,
                action: @escaping () -> Void) -> some View {
@@ -62,6 +63,14 @@ extension View {
             self
             
             Toast(isPresented: isPresented, title: title, action: action)
+        }
+    }
+    
+    func toast(_ info: Binding<ToastInformation>) -> some View {
+        ZStack {
+            self
+            
+            Toast(isPresented: info.isPresented, title: info.title.wrappedValue, action: info.action.wrappedValue)
         }
     }
     

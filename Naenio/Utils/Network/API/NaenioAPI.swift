@@ -29,6 +29,7 @@ enum NaenioAPI {
     case getRandomPost
     case getSinglePost(SinglePostRequestInformation)
     case getIsNicknameAvailable(String)
+    case getMyComment(MyCommentRequest)
     case getNotice
     
     case putNickname(String)

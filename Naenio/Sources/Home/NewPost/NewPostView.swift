@@ -50,7 +50,7 @@ struct NewPostView: View {
                         .foregroundColor(.white)
                         .font(.medium(size: 16))
                     
-                    WrappedTextView(placeholder: "무슨 주제를 담아볼까요?", content: $postContent.title, characterLimit: 72)
+                    WrappedTextView(placeholder: "무슨 주제를 담아볼까요?", content: $postContent.title, characterLimit: 70)
                         .frame(height: 108)
                         .padding(.bottom, 20)
                     

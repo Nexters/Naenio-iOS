@@ -9,7 +9,8 @@ import SwiftUI
 
 struct MyCommentCell: View {
     let myComment: MyComment
-    
+    let action: () -> Void
+
     var body: some View {
         ZStack {
             Color.card
@@ -22,8 +23,7 @@ struct MyCommentCell: View {
                         
                         Spacer()
                         
-                        // 신고/공유
-                        Button(action: { }) {
+                        Button(action: action) {
                             Image(systemName: "ellipsis")
                                 .resizable()
                                 .scaledToFit()
@@ -48,19 +48,16 @@ struct MyCommentCell: View {
                 Spacer()
                 
                 // 내 댓글 내용
-                Button(action: {
-                    print("SS")
-                }) {
-                    Text(myComment.content)
-                        .multilineTextAlignment(.leading)
-                        .lineLimit(1)
-                        .font(.medium(size: 16))
-                        .foregroundColor(.white)
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 14)
-                        .fillHorizontal()
-                        .background(Color.subCard)
-                }
+                Text(myComment.content)
+                    .multilineTextAlignment(.leading)
+                    .lineLimit(1)
+                    .font(.medium(size: 16))
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 14)
+                    .fillHorizontal()
+                    .background(Color.subCard)
+                
             }
         }
         .fillScreen()
