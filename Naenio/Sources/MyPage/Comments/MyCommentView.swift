@@ -40,8 +40,15 @@ struct MyCommentView: View {
                                         self.toastInformation.action = { viewModel.delete(at: index) }
                                         self.toastInformation.isPresented = true
                                     })
-                                        .frame(height: 184)
-                                        .padding(.horizontal, 20)
+                                    .frame(height: 184)
+                                    .padding(.horizontal, 20)
+                                }
+                                .onAppear {
+                                    if viewModel.comments!.count == viewModel.pageSize,
+                                        index == viewModel.comments!.count - 3 {
+                                        let lastCommentId = viewModel.comments!.last!.id
+                                        viewModel.getMyComments(lastCommentId: lastCommentId)
+                                    }
                                 }
                             }
                         }
@@ -54,6 +61,6 @@ struct MyCommentView: View {
             }
         }
         .navigationBarHidden(true)
-    
+        
     }
 }
