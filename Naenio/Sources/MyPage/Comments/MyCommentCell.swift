@@ -9,8 +9,8 @@ import SwiftUI
 
 struct MyCommentCell: View {
     let myComment: MyComment
-    @Binding var toastInformation: ToastInformation
-    
+    let action: () -> Void
+
     var body: some View {
         ZStack {
             Color.card
@@ -23,9 +23,7 @@ struct MyCommentCell: View {
                         
                         Spacer()
                         
-                        Button(action: {
-                            toastInformation.isPresented = true
-                        }) {
+                        Button(action: action) {
                             Image(systemName: "ellipsis")
                                 .resizable()
                                 .scaledToFit()
@@ -50,9 +48,7 @@ struct MyCommentCell: View {
                 Spacer()
                 
                 // 내 댓글 내용
-                Button(action: {
-                    print("SS")
-                }) {
+                Button(action: {}) {
                     Text(myComment.content)
                         .multilineTextAlignment(.leading)
                         .lineLimit(1)

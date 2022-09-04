@@ -103,6 +103,8 @@ struct FullView: View {
                 switch result {
                 case .delete:
                     (deletedAction ?? {})()
+                case .singlePost:
+                    self.showComments = true
                 default:
                     break
                 }
@@ -115,8 +117,10 @@ struct FullView: View {
         .onAppear {
             if showCommentFirst {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                    self.showComments = true
-                }                
+                    if case NetworkStatus.done = viewModel.status {
+                        self.showComments = true
+                    }
+                }
             }
         }
         .onChange(of: post.choices) { _ in

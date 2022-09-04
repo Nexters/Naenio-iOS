@@ -11,9 +11,7 @@ struct MyCommentView: View {
     @EnvironmentObject var userManager: UserManager
     @ObservedObject var viewModel = MyCommentViewModel()
     
-    @State var toastInformation = ToastInformation(isPresented: false, title: "댓글 삭제하기", action: {
-        /*TODO: 댓글 삭제*/
-    })
+    @State var toastInformation = ToastInformation(isPresented: false, title: "댓글 삭제하기", action: {})
     
     var body: some View {
         
@@ -33,18 +31,20 @@ struct MyCommentView: View {
                 } else {
                     ScrollView {
                         LazyVStack {
-                            ForEach(viewModel.comments!) { comment in
+                            ForEach(Array(viewModel.comments!.enumerated()), id: \.element.id) { index, comment in
                                 NavigationLink(destination: LazyView(
                                     OpenedByLinkFullView(postId: comment.post.id))
                                     .environmentObject(userManager)
                                 ) {
-                                    MyCommentCell(myComment: comment, toastInformation: self.$toastInformation)
+                                    MyCommentCell(myComment: comment, action: {
+                                        self.toastInformation.action = { viewModel.delete(at: index) }
+                                        self.toastInformation.isPresented = true
+                                    })
                                         .frame(height: 184)
                                         .padding(.horizontal, 20)
                                 }
                             }
                         }
-                        
                     }
                 }
             }

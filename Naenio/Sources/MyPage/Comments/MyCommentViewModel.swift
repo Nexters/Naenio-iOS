@@ -37,4 +37,29 @@ class MyCommentViewModel: ObservableObject {
                 })
             .disposed(by: bag)
     }
+    
+    func delete(at index: Int) {
+        status = .inProgress
+        
+        guard let comments = comments else {
+            return
+        }
+        
+        let comment = comments[index]
+        NaenioAPI.deleteComment(comment.id).request()
+            .subscribe(on: self.serialQueue)
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onSuccess: { [weak self] _ in
+                    guard let self = self else { return }
+                    
+                    self.comments?.remove(at: index)
+                    self.status = .done(result: true)
+                }, onFailure: { [weak self] error in
+                    guard let self = self else { return }
+                    
+                    self.status = .fail(with: error)
+                })
+            .disposed(by: bag)
+    }
 }
