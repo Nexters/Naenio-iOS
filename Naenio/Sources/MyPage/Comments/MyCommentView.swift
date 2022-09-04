@@ -11,7 +11,9 @@ struct MyCommentView: View {
     @EnvironmentObject var userManager: UserManager
     @ObservedObject var viewModel = MyCommentViewModel()
     
-    @State var toastInformation = ToastInformation(isPresented: false, title: "댓글 삭제하기", action: { /*TODO: 댓글 삭제*/ })
+    @State var toastInformation = ToastInformation(isPresented: false, title: "댓글 삭제하기", action: {
+        /*TODO: 댓글 삭제*/
+    })
     
     var body: some View {
         
