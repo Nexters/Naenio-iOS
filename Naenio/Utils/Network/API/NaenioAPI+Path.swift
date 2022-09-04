@@ -33,6 +33,8 @@ extension NaenioAPI {
             
         case .deleteAccount: return "/app/members/me"
         case .deleteCommentLike: return "/app/comment-likes"
+        case .deletePost(let postId): return "/app/posts/\(postId)"
+        case .deleteComment(let commentId): return "/app/comments/\(commentId)"
         }
     }
 }

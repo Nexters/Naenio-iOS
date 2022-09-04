@@ -35,6 +35,8 @@ enum NaenioAPI {
     
     case deleteAccount
     case deleteCommentLike(Int)
+    case deletePost(Int)
+    case deleteComment(Int)
 }
 
 extension NaenioAPI: TargetType {
