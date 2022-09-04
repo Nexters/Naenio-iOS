@@ -15,7 +15,7 @@ class HomeViewModel: ObservableObject {
     private let serialQueue = SerialDispatchQueueScheduler.init(qos: .userInitiated)
     
     func register(_ postRequesInformation: PostRequestInformation) {
-        status = .loading(reason: "sameCategoryPosts")
+        status = .loading(reason: .register)
         
         RequestService<PostResponseModel>.request(api: .postPost(postRequesInformation))
             .subscribe(on: serialQueue)
@@ -39,7 +39,7 @@ class HomeViewModel: ObservableObject {
                     withAnimation {
                         self.posts.insert(newPost, at: 0)
                     }
-                    self.status = .done
+                    self.status = .done(type: .register)
                 }, onFailure: { [weak self] error in
                     guard let self = self else { return }
                     self.status = .fail(with: error)
@@ -57,9 +57,9 @@ class HomeViewModel: ObservableObject {
         self.posts.remove(at: index)
     }
     
-    @objc func requestPosts() {
+    @objc func requestPosts(isPulled: Bool = true) {
         bag = DisposeBag()
-        status = .loading(reason: "differentCategoryPosts")
+        status = .loading(reason: isPulled ? .requestPosts : .morePosts)
         
         let feedRequestInformation: FeedRequestInformation = FeedRequestInformation(size: pagingSize, lastPostId: nil, sortType: sortType?.rawValue)
         
@@ -75,7 +75,7 @@ class HomeViewModel: ObservableObject {
                     self.posts = posts
                     self.changeLastPostId()
                     
-                    self.status = .done
+                    self.status = .done(type: .requestPosts)
                 }, onFailure: { [weak self] error in
                     guard let self = self else { return }
                     
@@ -88,7 +88,7 @@ class HomeViewModel: ObservableObject {
     
     func requestMorePosts() {
         bag = DisposeBag()
-        status = .loading(reason: "sameCategoryPosts")
+        status = .loading(reason: .morePosts)
         
         let feedRequestInformation: FeedRequestInformation = FeedRequestInformation(size: pagingSize, lastPostId: self.lastPostId, sortType: sortType?.rawValue)
 
@@ -104,7 +104,7 @@ class HomeViewModel: ObservableObject {
                     self.posts.append(contentsOf: newPost)
                     self.changeLastPostId()
 
-                    self.status = .done
+                    self.status = .done(type: .morePosts)
                 }, onFailure: { [weak self] error in
                     guard let self = self else { return }
                     
@@ -165,8 +165,8 @@ extension HomeViewModel {
         }
         
         case waiting
-        case loading(reason: String)
-        case done
+        case loading(reason: WorkType)
+        case done(type: WorkType)
         case fail(with: Error)
         
         var description: String {
@@ -181,6 +181,12 @@ extension HomeViewModel {
                 return "Failed with error: \(error.localizedDescription)"
             }
         }
+    }
+    
+    enum WorkType {
+        case register
+        case requestPosts
+        case morePosts
     }
 
 }
