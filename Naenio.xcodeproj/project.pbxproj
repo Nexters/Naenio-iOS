@@ -900,6 +900,15 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		9B7BA95E28C47B5800F1FA7F /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				9C93077D28BE06A4001A8E08 /* ReportManager.swift */,
+				9C93077928BDD27E001A8E08 /* ReportRequestModel.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
 		9BD520C528BCCC1D0036F5CF /* Date */ = {
 			isa = PBXGroup;
 			children = (
@@ -1132,18 +1141,9 @@
 		9C93077728BDD26F001A8E08 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				9C93077828BDD274001A8E08 /* Model */,
+				9B7BA95E28C47B5800F1FA7F /* Report */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		9C93077828BDD274001A8E08 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				9C93077928BDD27E001A8E08 /* ReportRequestModel.swift */,
-				9C93077D28BE06A4001A8E08 /* ReportManager.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		9C95B988289A358B00E0910C /* Onboarding */ = {

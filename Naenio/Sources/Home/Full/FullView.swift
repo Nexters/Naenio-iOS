@@ -9,21 +9,39 @@ import SwiftUI
 import Combine
 
 struct FullView: View {
-    @Binding var post: Post
-
-    @EnvironmentObject var userManager: UserManager
-    @ObservedObject var viewModel = FullViewModel()
+    typealias Action = () -> Void
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State private var toastInfo = ToastInformation(isPresented: false, title: "", action: {}) // 리팩토링 시급, 토스트 시트 용 정보 스트럭트
+    @State private var voteHappened: Bool = false
     
-    @State var voteHappened: Bool = false
+    // Injected values
+    @EnvironmentObject var userManager: UserManager
+    @ObservedObject var viewModel: FullViewModel
+    @Binding var post: Post
     @State var showComments: Bool = false
+    var deletedAction: Action?
     
-    @State var toastInfo = ToastInformation(isPresented: false, title: "", action: {}) // 리팩토링 시급, 토스트 시트 용 정보 스트럭트
+    init(
+        _ viewModel: FullViewModel = FullViewModel(),
+        post: Binding<Post>,
+        showComments: Bool = false,
+        deletedAction: Action? = nil
+    ) {
+        self.viewModel = viewModel
+        self._post = post
+        self.showComments = showComments
+        self.deletedAction = deletedAction
+    }
 
     var body: some View {
         ZStack {
             Color.background
                 .ignoresSafeArea()
+            
+            if viewModel.status == .inProgress {
+                LoadingIndicator().zIndex(1)
+            }
             
             if voteHappened {
                 LottieView(isPlaying: $voteHappened, animation: LottieAnimations.confettiAnimation)
@@ -77,6 +95,21 @@ struct FullView: View {
                 .environmentObject(userManager)
         }
         .toast(isPresented: $toastInfo.isPresented, title: toastInfo.title, action: toastInfo.action)
+        .onChange(of: viewModel.status) { status in
+            switch status {
+            case .done(let result):
+                switch result {
+                case .delete:
+                    (deletedAction ?? {})()
+                default:
+                    break
+                }
+            case .fail:
+                break
+            default:
+                break
+            }
+        }
         .onChange(of: post.choices) { _ in
             voteHappened = true
         }
@@ -111,7 +144,7 @@ extension FullView {
             let toastInfo: ToastInformation
             if post.author.id == userManager.getUserId() {
                 toastInfo = ToastInformation(isPresented: true, title: "삭제하기", action: {
-                    // 포스트 삭제하기
+                    viewModel.delete(postId: post.id)
                 })
             } else {
                 toastInfo = ToastInformation(isPresented: true, title: "신고하기", action: {
