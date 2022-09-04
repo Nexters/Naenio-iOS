@@ -3,7 +3,7 @@ name: Testflight
 on:
   push:
     branches: 
-      - '**'
+      - 'develop'
 
 jobs:
   Ready-for-flying:
