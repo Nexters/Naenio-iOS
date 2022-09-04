@@ -1,0 +1,96 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Upload the app to Testflight"
+  
+  before_all do
+    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+  end
+  
+  lane :testFlight do
+    # keychain 초기화 
+    create_keychain(
+      name: ENV["KEYCHAIN_NAME"],
+      password: ENV["KEYCHAIN_PASSWORD"],
+      timeout: 1800,
+      default_keychain: true,
+      unlock: true,
+      lock_when_sleeps: false
+    )
+
+    app_store_connect_api_key(
+      key_id: ENV["APP_STORE_CONNECT_API_KEY_ID"],
+      issuer_id: ENV["APP_STORE_CONNECT_API_ISSUER_ID"],
+      key_content: ENV["APP_STORE_CONNECT_API_KEY_CONTENT"]
+      )
+
+    # match를 실행하여 인증서 및 프로파일 불러오기 
+    match(
+      git_url: "git@github.com:enebin/naenio-iOS-match.git",
+      storage_mode: "git",
+      type: "appstore",
+      readonly: true,
+      keychain_name: ENV["KEYCHAIN_NAME"],
+      keychain_password: ENV["KEYCHAIN_PASSWORD"]
+      )
+
+    xcversion(version: "~> 13.0")
+
+    cocoapods(
+        clean: true,
+        podfile: "./Podfile",
+        try_repo_update_on_error: true,
+        use_bundle_exec: false
+    )
+
+    # 빌드 및 내보내기 
+    gym(
+      workspace: "Naenio.xcworkspace",
+      scheme: "Testflight",
+      configuration: "Release",
+      export_options: {
+        method: "app-store",
+        signingStyle: "manual"
+      }
+    )	
+    
+    increment_build_number({
+      build_number: latest_testflight_build_number + 1
+    })
+    
+    upload_to_testflight
+
+  end
+  
+  # lane이 모두 완료된 뒤 호출됨
+  after_all do |lane|
+    # 9. 배포 결과 슬랙 노티 🚨
+    slack(
+      message: "Testflight에 새로운 버전이 업데이트 되었습니다.",
+      channel: "#네니오-개발팀",
+      success: true,
+      payload: {
+        "Version" => lane_context[SharedValues::VERSION_NUMBER],
+        "Build number" => lane_context[SharedValues::BUILD_NUMBER],
+        "Date" => Time.new.to_s
+      },
+      slack_url: ENV["SLACK_URL"]
+    )
+  end
+
+  # 에러 발생 시 호출 됨
+  error do |lane, exception|
+    slack(
+      message: "빌드 실패",
+      channel: "#네니오-개발팀",
+      success: false,
+      payload: {
+        "Version" => lane_context[SharedValues::VERSION_NUMBER],
+        "Build number" => lane_context[SharedValues::BUILD_NUMBER],
+        "Date" => Time.new.to_s,
+        "Error Info" => exception.message
+        },
+        slack_url: ENV["SLACK_URL"]
+      )
+  end
+end
