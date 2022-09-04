@@ -94,6 +94,8 @@
 		9B53382F28C4B409006DECFC /* MyComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382C28C4B408006DECFC /* MyComment.swift */; };
 		9B53383028C4B409006DECFC /* MyCommentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382D28C4B408006DECFC /* MyCommentRequest.swift */; };
 		9B53383128C4B409006DECFC /* MyCommentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382E28C4B408006DECFC /* MyCommentResponseModel.swift */; };
+		9B53383B28C4F460006DECFC /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC044FA28B88F77004164F7 /* KeyValue.swift */; };
+		9B53383E28C4F5F8006DECFC /* libswift_Concurrency.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B53383C28C4F5CA006DECFC /* libswift_Concurrency.tbd */; };
 		9B61D0D128A88E7F00F6DD0B /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D028A88E7F00F6DD0B /* CustomSheet.swift */; };
 		9B61D0D328A88FB300F6DD0B /* CustomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D228A88FB200F6DD0B /* CustomSheetView.swift */; };
 		9B61D0DC28A8EE4500F6DD0B /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0DB28A8EE4500F6DD0B /* RoundedCorner.swift */; };
@@ -186,7 +188,6 @@
 		9CBCDCEB28AE3A7900C4C577 /* NewVoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCEA28AE3A7900C4C577 /* NewVoteButton.swift */; };
 		9CBCDCEF28AE65B900C4C577 /* SinglePostRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCEE28AE65B900C4C577 /* SinglePostRequestInformation.swift */; };
 		9CBCDCF128AE6E9500C4C577 /* SinglePostResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCF028AE6E9500C4C577 /* SinglePostResponseModel.swift */; };
-		9CC044FC28B88F77004164F7 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC044FA28B88F77004164F7 /* KeyValue.swift */; };
 		9CCA2293289BAB0F00A2F9B0 /* MockPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA228F289BA4A900A2F9B0 /* MockPost.json */; };
 		9CCA2295289BB3CF00A2F9B0 /* MockPostList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA2294289BB28500A2F9B0 /* MockPostList.json */; };
 		9CE311CF28A63E7200EDB0F4 /* MockCommentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE311CE28A63E7200EDB0F4 /* MockCommentGenerator.swift */; };
@@ -309,6 +310,8 @@
 		9B53382C28C4B408006DECFC /* MyComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyComment.swift; sourceTree = "<group>"; };
 		9B53382D28C4B408006DECFC /* MyCommentRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCommentRequest.swift; sourceTree = "<group>"; };
 		9B53382E28C4B408006DECFC /* MyCommentResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCommentResponseModel.swift; sourceTree = "<group>"; };
+		9B53383728C4F445006DECFC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B53383C28C4F5CA006DECFC /* libswift_Concurrency.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswift_Concurrency.tbd; path = usr/lib/swift/libswift_Concurrency.tbd; sourceTree = SDKROOT; };
 		9B61D0D028A88E7F00F6DD0B /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
 		9B61D0D228A88FB200F6DD0B /* CustomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheetView.swift; sourceTree = "<group>"; };
 		9B61D0DB28A8EE4500F6DD0B /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
@@ -402,7 +405,6 @@
 		9CBCDCEE28AE65B900C4C577 /* SinglePostRequestInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePostRequestInformation.swift; sourceTree = "<group>"; };
 		9CBCDCF028AE6E9500C4C577 /* SinglePostResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePostResponseModel.swift; sourceTree = "<group>"; };
 		9CC044FA28B88F77004164F7 /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
-		9CC044FB28B88F77004164F7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CCA228F289BA4A900A2F9B0 /* MockPost.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPost.json; sourceTree = "<group>"; };
 		9CCA2294289BB28500A2F9B0 /* MockPostList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPostList.json; sourceTree = "<group>"; };
 		9CE311CE28A63E7200EDB0F4 /* MockCommentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCommentGenerator.swift; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B53383E28C4F5F8006DECFC /* libswift_Concurrency.tbd in Frameworks */,
 				92D901F16488AB4A41D32F75 /* Pods_Naenio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -620,6 +623,7 @@
 		5A5E2382BAF75B50B64733A4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B53383C28C4F5CA006DECFC /* libswift_Concurrency.tbd */,
 				B546567C3E3421F07641077D /* Pods_Naenio.framework */,
 				2AF541D3D8763AF8CB32F473 /* Pods_Naenio_NaenioUITests.framework */,
 				BF5B262F1FD67B00E8EA61CF /* Pods_NaenioTests.framework */,
@@ -1270,8 +1274,8 @@
 		9CC044F928B88F77004164F7 /* ignored */ = {
 			isa = PBXGroup;
 			children = (
+				9B53383728C4F445006DECFC /* Info.plist */,
 				9CC044FA28B88F77004164F7 /* KeyValue.swift */,
-				9CC044FB28B88F77004164F7 /* Info.plist */,
 			);
 			path = ignored;
 			sourceTree = "<group>";
@@ -1707,7 +1711,6 @@
 				9B61D0DC28A8EE4500F6DD0B /* RoundedCorner.swift in Sources */,
 				9C2D07B92897C728008BBD75 /* UserManager.swift in Sources */,
 				9C10439D289B747200A45711 /* HomeViewModel.swift in Sources */,
-				9CC044FC28B88F77004164F7 /* KeyValue.swift in Sources */,
 				9CB1DFB228AB75A10048B313 /* CustomNavigationView + Extension.swift in Sources */,
 				9CAA174028A2468600EAAE40 /* WrappedTextView.swift in Sources */,
 				4C4B133B2883C44C006044B0 /* TargetType+Extension.swift in Sources */,
@@ -1728,6 +1731,7 @@
 				9BD520C728BCCC240036F5CF /* CustomDateFormatter.swift in Sources */,
 				9B53382F28C4B409006DECFC /* MyComment.swift in Sources */,
 				4CC296E0288055FD001950A2 /* NaenioAPIHeaderInformation.swift in Sources */,
+				9B53383B28C4F460006DECFC /* KeyValue.swift in Sources */,
 				4CD3554A28BB970A00BD6FB5 /* RandomPostResponseModel.swift in Sources */,
 				4C4B134528847640006044B0 /* NaenioAPI+Request.swift in Sources */,
 				9B61D0D328A88FB300F6DD0B /* CustomSheetView.swift in Sources */,
@@ -1938,15 +1942,17 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.teamVS.Naenio;
@@ -1965,9 +1971,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Naenio/Naenio.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1981,20 +1984,21 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.teamVS.Naenio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.teamVS.Naenio";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
