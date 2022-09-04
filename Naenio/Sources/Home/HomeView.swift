@@ -37,76 +37,96 @@ struct HomeView: View {
                     
                     // Card scroll view
                     ZStack(alignment: .center) {
-                        if viewModel.status == .loading(reason: "differentCategoryPosts") {
+                        if viewModel.status == .loading(reason: .requestPosts) {
                             LoadingIndicator()
                                 .zIndex(1)
                         }
                         
-                        if viewModel.status == .done, viewModel.posts.isEmpty {
+                        if case HomeViewModel.Status.done(_) = viewModel.status, viewModel.posts.isEmpty {
                             EmptyResultView(description: "등록된 투표가 없어요!")
                         }
                         
-                        ScrollView(.vertical, showsIndicators: true) {
-                            LazyVStack(spacing: 20) {
-                                ForEach($viewModel.posts) { index, post in
-                                    NavigationLink(destination: LazyView(
-                                        FullView(post: post).environmentObject(userManager))
-                                    ) {
-                                        CardView(post: post) {
-                                            DispatchQueue.main.async {
-                                                self.selectedPostIndex = index
-                                                self.showComments = true
-                                            }
-                                        }
-                                        .environmentObject(viewModel)
-                                        .background(
-                                            RoundedRectangle(cornerRadius: 16)
-                                                .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
-                                        )
-                                        .padding(.horizontal, 20)
-                                        .onAppear {
-                                            if index == viewModel.posts.count - 5 { // FIXME: Possible error
-                                                // 무한 스크롤을 위해 끝에서 5번째에서 로딩 -> 개수는 추후 협의
-    #if DEBUG
-                                                print("Loaded")
-    #endif
-                                                viewModel.requestMorePosts()
+                        ScrollViewReader { proxy in
+                            ScrollView(.vertical, showsIndicators: true) {
+                                Rectangle()
+                                    .fill(Color.clear)
+                                    .frame(height: 5)
+                                    .id("top")
+                                
+                                LazyVStack(spacing: 20) {
+                                    ForEach($viewModel.posts) { index, post in
+                                        NavigationLink(destination: LazyView(
+                                            FullView(post: post, deletedAction: {
+                                                viewModel.delete(at: index)
+                                            }).environmentObject(userManager))
+                                        ) {
+                                            CardView(post: post, action: {
+                                                DispatchQueue.main.async {
+                                                    self.selectedPostIndex = index
+                                                    self.showComments = true
+                                                }
+                                            }, deletedAction: {
+                                                viewModel.delete(at: index)
+                                            })
+                                            .environmentObject(viewModel)
+                                            .background(
+                                                RoundedRectangle(cornerRadius: 16)
+                                                    .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
+                                            )
+                                            .padding(.horizontal, 20)
+                                            .onAppear {
+                                                if index == viewModel.posts.count - 5 { // FIXME: Possible error
+                                                    // 무한 스크롤을 위해 끝에서 5번째에서 로딩 -> 개수는 추후 협의
+        #if DEBUG
+                                                    print("Loaded")
+        #endif
+                                                    viewModel.requestMorePosts()
+                                                }
                                             }
                                         }
                                     }
+                                    .buttonStyle(PlainButtonStyle())
+                                    
+                                    // placeholder
+                                    Rectangle()
+                                        .fill(Color.clear)
+                                        .frame(height: 130)
                                 }
-                                .buttonStyle(PlainButtonStyle())
-                                
-                                // placeholder
-                                Rectangle()
-                                    .fill(Color.clear)
-                                    .frame(height: 130)
-                            }
 
-                            // 하단 무한스크롤 중 생기는 버퍼링에 대한 로딩 인디케이터
-                            if viewModel.status == .loading(reason: "sameCategoryPosts") {
-                                LoadingIndicator()
-                                    .zIndex(1)
-                                    .padding(.vertical, 15)
+                                // 하단 무한스크롤 중 생기는 버퍼링에 대한 로딩 인디케이터
+                                // 렉이 생기는 문제가 있어서 일단 가려놓음
+//                                if viewModel.status == .loading(reason: .morePosts) {
+//                                    LoadingIndicator()
+//                                        .zIndex(1)
+//                                        .padding(.vertical, 15)
+//                                }
                             }
-                        }
-                        .introspectScrollView { scrollView in
-                            let control = scrollViewHelper.refreshController
-                            control.addTarget(viewModel, action: #selector(viewModel.requestPosts), for: .valueChanged)
-                            control.tintColor = .yellow
-                            
-                            scrollView.keyboardDismissMode = .onDrag
-                            scrollView.refreshControl = control
-                            scrollView.delegate = scrollViewHelper
-                        }
-                        .onChange(of: viewModel.status) { status in
-                            switch status {
-                            case .done:
-                                scrollViewHelper.refreshController.endRefreshing()
-                            case .fail(with: _):
-                                scrollViewHelper.refreshController.endRefreshing()
-                            default:
-                                break
+                            .introspectScrollView { scrollView in
+                                let control = scrollViewHelper.refreshController
+                                control.addTarget(viewModel, action: #selector(viewModel.requestPosts), for: .valueChanged)
+                                control.tintColor = .yellow
+                                
+                                scrollView.keyboardDismissMode = .onDrag
+                                scrollView.refreshControl = control
+                                scrollView.delegate = scrollViewHelper
+                            }
+                            .onChange(of: viewModel.status) { status in
+                                switch status {
+                                case .done(let type):
+                                    switch type {
+                                    case .register:
+                                        withAnimation {
+                                            proxy.scrollTo("top")
+                                        }
+                                    default:
+                                        break
+                                    }
+                                    scrollViewHelper.refreshController.endRefreshing()
+                                case .fail(with: _):
+                                    scrollViewHelper.refreshController.endRefreshing()
+                                default:
+                                    break
+                                }
                             }
                         }
                         .onChange(of: viewModel.sortType) { _ in

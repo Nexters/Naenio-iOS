@@ -742,7 +742,6 @@
 		9B085F2F287E356300DE8E60 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				4CD3555128C3986000BD6FB5 /* Motion */,
 				9BD520C528BCCC1D0036F5CF /* Date */,
 				4CD3555128C3986000BD6FB5 /* Motion */,
 				9B27A39628AD078F00C63AB6 /* Share */,
@@ -899,6 +898,15 @@
 				9B61D6B128C36A4200F116CD /* Commentable.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		9B7BA95E28C47B5800F1FA7F /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				9C93077D28BE06A4001A8E08 /* ReportManager.swift */,
+				9C93077928BDD27E001A8E08 /* ReportRequestModel.swift */,
+			);
+			path = Report;
 			sourceTree = "<group>";
 		};
 		9BD520C528BCCC1D0036F5CF /* Date */ = {
@@ -1133,18 +1141,9 @@
 		9C93077728BDD26F001A8E08 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				9C93077828BDD274001A8E08 /* Model */,
+				9B7BA95E28C47B5800F1FA7F /* Report */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		9C93077828BDD274001A8E08 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				9C93077928BDD27E001A8E08 /* ReportRequestModel.swift */,
-				9C93077D28BE06A4001A8E08 /* ReportManager.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		9C95B988289A358B00E0910C /* Onboarding */ = {
@@ -1898,7 +1897,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
-				DEVELOPMENT_TEAM = KT2XM3Z9DZ;
+				DEVELOPMENT_TEAM = W6QHM4Y43Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Naenio/ignored/Info.plist;
@@ -1915,7 +1914,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yoonyoung.Naenio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.teamVS.Naenio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1935,7 +1934,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
-				DEVELOPMENT_TEAM = KT2XM3Z9DZ;
+				DEVELOPMENT_TEAM = W6QHM4Y43Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Naenio/ignored/Info.plist;
@@ -1952,7 +1951,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yoonyoung.Naenio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.teamVS.Naenio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

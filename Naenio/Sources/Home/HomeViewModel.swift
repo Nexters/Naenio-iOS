@@ -14,8 +14,8 @@ class HomeViewModel: ObservableObject {
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler.init(qos: .userInitiated)
     
-    func register(postRequesInformation: PostRequestInformation) {
-        status = .loading(reason: "sameCategoryPosts")
+    func register(_ postRequesInformation: PostRequestInformation) {
+        status = .loading(reason: .register)
         
         RequestService<PostResponseModel>.request(api: .postPost(postRequesInformation))
             .subscribe(on: serialQueue)
@@ -39,7 +39,7 @@ class HomeViewModel: ObservableObject {
                     withAnimation {
                         self.posts.insert(newPost, at: 0)
                     }
-                    self.status = .done
+                    self.status = .done(type: .register)
                 }, onFailure: { [weak self] error in
                     guard let self = self else { return }
                     self.status = .fail(with: error)
@@ -49,9 +49,17 @@ class HomeViewModel: ObservableObject {
             .disposed(by: bag)
     }
     
-    @objc func requestPosts() {
+    func delete(at index: Int) {
+        // MARK: 정책적으로 API 콜을 불러서 새로고침을 할지, 그냥 해당 포스트만 삭제할 지는 결정해야함
+        // 새로고침 하면 스크롤이 초기화 되는 문제가 있음
+        // 그런데 여기서는 그냥 새로고침 하겠음. 몇 십개씩 삭제 하는 것도 아니고.
+        // 그러므로 아직 인덱스는 받지 않을 것임
+        self.posts.remove(at: index)
+    }
+    
+    @objc func requestPosts(isPulled: Bool = true) {
         bag = DisposeBag()
-        status = .loading(reason: "differentCategoryPosts")
+        status = .loading(reason: isPulled ? .requestPosts : .morePosts)
         
         let feedRequestInformation: FeedRequestInformation = FeedRequestInformation(size: pagingSize, lastPostId: nil, sortType: sortType?.rawValue)
         
@@ -67,7 +75,7 @@ class HomeViewModel: ObservableObject {
                     self.posts = posts
                     self.changeLastPostId()
                     
-                    self.status = .done
+                    self.status = .done(type: .requestPosts)
                 }, onFailure: { [weak self] error in
                     guard let self = self else { return }
                     
@@ -80,7 +88,7 @@ class HomeViewModel: ObservableObject {
     
     func requestMorePosts() {
         bag = DisposeBag()
-        status = .loading(reason: "sameCategoryPosts")
+        status = .loading(reason: .morePosts)
         
         let feedRequestInformation: FeedRequestInformation = FeedRequestInformation(size: pagingSize, lastPostId: self.lastPostId, sortType: sortType?.rawValue)
 
@@ -96,7 +104,7 @@ class HomeViewModel: ObservableObject {
                     self.posts.append(contentsOf: newPost)
                     self.changeLastPostId()
 
-                    self.status = .done
+                    self.status = .done(type: .morePosts)
                 }, onFailure: { [weak self] error in
                     guard let self = self else { return }
                     
@@ -107,12 +115,6 @@ class HomeViewModel: ObservableObject {
             .disposed(by: bag)
 
     }
-    
-    func changeLastPostId() {
-        if !self.posts.isEmpty {
-            self.lastPostId = self.posts[self.posts.count - 1].id
-        }
-    }
 
     init( ) {
         self.posts = []
@@ -121,6 +123,12 @@ class HomeViewModel: ObservableObject {
 }
 
 extension HomeViewModel {
+    private func changeLastPostId() {
+        if !self.posts.isEmpty {
+            self.lastPostId = self.posts[self.posts.count - 1].id
+        }
+    }
+    
     private func voteTotalCount(choices: [Choice]) -> Int {
         guard choices.count == 2 else { return 0 }
         
@@ -157,8 +165,8 @@ extension HomeViewModel {
         }
         
         case waiting
-        case loading(reason: String)
-        case done
+        case loading(reason: WorkType)
+        case done(type: WorkType)
         case fail(with: Error)
         
         var description: String {
@@ -173,6 +181,12 @@ extension HomeViewModel {
                 return "Failed with error: \(error.localizedDescription)"
             }
         }
+    }
+    
+    enum WorkType {
+        case register
+        case requestPosts
+        case morePosts
     }
 
 }
