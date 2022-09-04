@@ -48,6 +48,11 @@ struct HomeView: View {
                         
                         ScrollViewReader { proxy in
                             ScrollView(.vertical, showsIndicators: true) {
+                                Rectangle()
+                                    .fill(Color.clear)
+                                    .frame(height: 5)
+                                    .id("top")
+                                
                                 LazyVStack(spacing: 20) {
                                     ForEach($viewModel.posts) { index, post in
                                         NavigationLink(destination: LazyView(
@@ -107,7 +112,15 @@ struct HomeView: View {
                             }
                             .onChange(of: viewModel.status) { status in
                                 switch status {
-                                case .done:
+                                case .done(let type):
+                                    switch type {
+                                    case .register:
+                                        withAnimation {
+                                            proxy.scrollTo("top")
+                                        }
+                                    default:
+                                        break
+                                    }
                                     scrollViewHelper.refreshController.endRefreshing()
                                 case .fail(with: _):
                                     scrollViewHelper.refreshController.endRefreshing()
