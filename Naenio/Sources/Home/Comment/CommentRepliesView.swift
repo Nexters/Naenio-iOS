@@ -74,7 +74,7 @@ struct CommentRepliesView: View {
                     
                     CustomDivider()
 
-                    ForEach($viewModel.replies) { _, reply in
+                    ForEach($viewModel.replies) { index, reply in
                         HStack {
                             Text("▬")   // place holder for inset
                                 .padding(3)
@@ -85,6 +85,11 @@ struct CommentRepliesView: View {
                                                comment: reply,
                                                isReply: true,
                                                isMine: userManager.getUserId() == reply.wrappedValue.author.id)
+                        }
+                        .onAppear {
+                            if index == viewModel.replies.count - 5 {
+                                viewModel.requestCommentReplies(postId: comment.id, isFirstRequest: false)
+                            }
                         }
                     }
                     
