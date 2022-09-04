@@ -9,10 +9,12 @@ import SwiftUI
 
 struct CommentContentCell: View {
     typealias Comment = CommentModel.Comment
-    @ObservedObject var viewModel = CommentContentCellViewModel()
+    typealias Action = () -> Void
     
     @State var isNavigationActive: Bool = false
     
+    // Injected values
+    @StateObject var viewModel = CommentContentCellViewModel()
     @Binding var isPresented: Bool
     @Binding var toastInfo: ToastInformation
     @Binding var comment: Comment
@@ -20,6 +22,9 @@ struct CommentContentCell: View {
     let isReply: Bool
     let isMine: Bool
     
+    var deletedAction: Action?
+    
+    // Computed values
     var parseDate: (_ date: String) -> String = { date in
         return CustomDateFormatter.convert(from: date)
     }
@@ -80,9 +85,14 @@ struct CommentContentCell: View {
                     }
                     
                     comment.isLiked.toggle()
-                default:
+                case .report:
                     break
+                case .delete:
+                    print("DELETED")
+                    (deletedAction ?? {})()
                 }
+                
+                viewModel.status = .waiting
             case .fail(with: let error):
                 print(error.localizedDescription)
             default:
@@ -144,19 +154,11 @@ extension CommentContentCell {
             let toastInfo: ToastInformation
             if isMine {
                 toastInfo = ToastInformation(isPresented: true, title: "삭제하기", action: {
-                    if isReply {
-                        // 대댓 삭제
-                    } else {
-                        // 그냥댓 삭제
-                    }
+                    viewModel.delete(commentId: comment.id)
                 })
             } else {
                 toastInfo = ToastInformation(isPresented: true, title: "신고하기", action: {
-                    if isReply {
-                        // 대댓 신고
-                    } else {
-                        // 그냥댓 신고
-                    }
+                    viewModel.report(authorId: comment.author.id, type: .comment)
                 })
             }
             
