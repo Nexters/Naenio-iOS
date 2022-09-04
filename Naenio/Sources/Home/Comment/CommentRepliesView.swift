@@ -89,6 +89,11 @@ struct CommentRepliesView: View {
                                 viewModel.delete(at: index)
                             })
                         }
+                        .onAppear {
+                            if index == viewModel.replies.count - 5 {
+                                viewModel.requestCommentReplies(postId: comment.id, isFirstRequest: false)
+                            }
+                        }
                     }
                     
                     // placeholder

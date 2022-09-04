@@ -70,6 +70,11 @@ struct CommentView: View {
                                                deletedAction: {
                                 viewModel.delete(at: index)
                             })
+                                .onAppear {
+                                    if viewModel.totalCommentCount > viewModel.pageSize && index == viewModel.comments.count - 5 {
+                                        viewModel.requestComments(postId: self.parentPost.id, isFirstRequest: false)
+                                    }
+                                }
                         }
                         
                         // Bottom place holder

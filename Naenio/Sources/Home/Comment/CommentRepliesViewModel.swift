@@ -15,8 +15,8 @@ class CommentRepliesViewModel: ObservableObject {
     
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler(qos: .utility)
-    
-    private let pagingSize = 10
+    @Published var pageSize = 10
+    @Published var lastCommentId: Int?
     @Published var replies = [Comment]()
     @Published var status: NetworkStatus<WorkType> = .waiting
     
@@ -54,7 +54,8 @@ class CommentRepliesViewModel: ObservableObject {
             return
         }
         
-        let commentRepliesRequestModel = CommentRepliesRequestModel(size: pagingSize, lastCommentId: nil)
+        let commentRepliesRequestModel = CommentRepliesRequestModel(size: pageSize, lastCommentId: isFirstRequest ? nil : lastCommentId)
+        
         RequestService<CommentRepliesResponseModel>.request(api: .getCommentReplies(postId: postId, model: commentRepliesRequestModel))
             .subscribe(on: self.serialQueue)
             .observe(on: MainScheduler.instance)
@@ -67,6 +68,15 @@ class CommentRepliesViewModel: ObservableObject {
                     } else {
                         self.replies.append(contentsOf: self.transferToCommentModel(from: replies.commentReplies))
                     }
+                    
+                    if !replies.commentReplies.isEmpty {
+                        self.lastCommentId = replies.commentReplies[replies.commentReplies.count - 1].id
+                    }
+                    
+                    print("================")
+                    print("count: \(self.replies.count)")
+                    print(self.replies)
+                    print("================")
                     
                     self.status = .done(result: .requestComments)
                 }, onFailure: { [weak self] error in
