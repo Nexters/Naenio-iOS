@@ -33,10 +33,46 @@ class CommentContentCellViewModel: ObservableObject {
                 })
             .disposed(by: bag)
     }
+    
+    func delete(commentId: Int) {
+        NaenioAPI.deleteComment(commentId).request()
+            .subscribe(on: self.serialQueue)
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onSuccess: { [weak self] _ in
+                    guard let self = self else { return }
+                    
+                    self.status = .done(result: .delete)
+                }, onFailure: { [weak self] error in
+                    guard let self = self else { return }
+                    
+                    self.status = .fail(with: error)
+                })
+            .disposed(by: bag)
+    }
+    
+    func report(authorId: Int, type: CommentType) {
+        status = .inProgress
+        
+        ReportManager.report(authorId: authorId, type: type)
+            .subscribe(on: self.serialQueue)
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onSuccess: { [weak self] _ in
+                    guard let self = self else { return }
+                    self.status = .done(result: .report)
+                }, onFailure: { [weak self] error in
+                    guard let self = self else { return }
+                    self.status = .fail(with: error)
+                })
+            .disposed(by: bag)
+    }
 }
 
 extension CommentContentCellViewModel {
     enum WorkType {
         case like
+        case report
+        case delete
     }
 }

@@ -70,11 +70,12 @@ struct CommentRepliesView: View {
                                        toastInfo: $toastInfo,
                                        comment: $comment,
                                        isReply: true,
-                                       isMine: userManager.getUserId() == comment.author.id)
+                                       isMine: userManager.getUserId() == comment.author.id,
+                                       isMoreInfoDisabled: true)
                     
                     CustomDivider()
 
-                    ForEach($viewModel.replies) { _, reply in
+                    ForEach($viewModel.replies) { index, reply in
                         HStack {
                             Text("▬")   // place holder for inset
                                 .padding(3)
@@ -84,7 +85,9 @@ struct CommentRepliesView: View {
                                                toastInfo: $toastInfo,
                                                comment: reply,
                                                isReply: true,
-                                               isMine: userManager.getUserId() == reply.wrappedValue.author.id)
+                                               isMine: userManager.getUserId() == reply.wrappedValue.author.id, deletedAction: {
+                                viewModel.delete(at: index)
+                            })
                         }
                     }
                     
@@ -112,6 +115,7 @@ struct CommentRepliesView: View {
                     Button(action: {
                         viewModel.registerReply(text, postId: comment.id)
                         UIApplication.shared.endEditing()
+                        text = ""
                     }) {
                         Text("게시")
                             .font(.semoBold(size: 14))

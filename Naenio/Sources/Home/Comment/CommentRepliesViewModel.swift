@@ -15,7 +15,7 @@ class CommentRepliesViewModel: ObservableObject {
     
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler(qos: .utility)
-
+    
     private let pagingSize = 10
     @Published var replies = [Comment]()
     @Published var status: NetworkStatus<WorkType> = .waiting
@@ -75,7 +75,15 @@ class CommentRepliesViewModel: ObservableObject {
                 })
             .disposed(by: bag)
     }
-    
+        
+    func delete(at index: Int) {
+        _ = withAnimation {
+            replies.remove(at: index)
+        }
+    }
+}
+
+extension CommentRepliesViewModel {
     private func transferToCommentModel(from comment: CommentPostResponseModel) -> Comment {
         let author = Comment.Author(id: comment.memberId, nickname: UserManager.shared.getNickName(), profileImageIndex: UserManager.shared.getProfileImagesIndex())
         return Comment(id: comment.id, author: author, content: comment.content, createdDatetime: comment.createdDateTime, likeCount: 0, isLiked: false, repliesCount: 0)
@@ -91,9 +99,7 @@ class CommentRepliesViewModel: ObservableObject {
         
         return result
     }
-}
-
-extension CommentRepliesViewModel {
+    
     enum WorkType {
         case requestComments
         case registerComment

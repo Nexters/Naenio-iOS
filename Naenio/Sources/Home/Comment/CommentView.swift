@@ -58,7 +58,7 @@ struct CommentView: View {
                                 .frame(width: 12, height: 12)
                         }
                         
-                        ForEach($viewModel.comments) { _, comment in
+                        ForEach($viewModel.comments) { index, comment in
                             CustomDivider()
                                 .fillHorizontal()
                             
@@ -66,7 +66,10 @@ struct CommentView: View {
                                                toastInfo: $toastInfo,
                                                comment: comment,
                                                isReply: false,
-                                               isMine: userManager.getUserId() == comment.wrappedValue.author.id)
+                                               isMine: userManager.getUserId() == comment.wrappedValue.author.id,
+                                               deletedAction: {
+                                viewModel.delete(at: index)
+                            })
                         }
                         
                         // Bottom place holder

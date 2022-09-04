@@ -81,14 +81,20 @@ class CommentViewModel: ObservableObject {
                 })
             .disposed(by: bag)
     }
-        
-    func transferToCommentModel(_ comment: CommentPostResponseModel) -> Comment {
-        let author = Comment.Author(id: comment.memberId, nickname: UserManager.shared.getNickName(), profileImageIndex: UserManager.shared.getProfileImagesIndex()) // FIXME: to extension later
-        return Comment(id: comment.id, author: author, content: comment.content, createdDatetime: comment.createdDateTime, likeCount: 0, isLiked: false, repliesCount: 0)
+    
+    func delete(at index: Int) {
+        _ = withAnimation {
+            comments.remove(at: index)
+        }
     }
 }
 
 extension CommentViewModel {
+    func transferToCommentModel(_ comment: CommentPostResponseModel) -> Comment {
+        let author = Comment.Author(id: comment.memberId, nickname: UserManager.shared.getNickName(), profileImageIndex: UserManager.shared.getProfileImagesIndex()) // FIXME: to extension later
+        return Comment(id: comment.id, author: author, content: comment.content, createdDatetime: comment.createdDateTime, likeCount: 0, isLiked: false, repliesCount: 0)
+    }
+    
     enum WorkType {
         case register
         case requestComments
