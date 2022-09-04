@@ -15,10 +15,10 @@ struct CommentView: View {
     
     @State var text: String = "" // 메시지 작성용
     @State var toastInfo = ToastInformation(isPresented: false, title: "", action: {}) // 리팩토링 시급, 토스트 시트 용 정보 스트럭트
-
+    
     @Binding var isPresented: Bool
     @Binding var parentPost: Post
-        
+    
     init(isPresented: Binding<Bool>, parentPost: Binding<Post>) {
         self._isPresented = isPresented
         self._parentPost = parentPost
@@ -70,11 +70,12 @@ struct CommentView: View {
                                                deletedAction: {
                                 viewModel.delete(at: index)
                             })
-                                .onAppear {
-                                    if viewModel.totalCommentCount > viewModel.pageSize && index == viewModel.comments.count - 5 {
-                                        viewModel.requestComments(postId: self.parentPost.id, isFirstRequest: false)
-                                    }
+                            .onAppear {
+                                if viewModel.totalCommentCount > viewModel.comments.count && index == viewModel.comments.count - 3 {
+                                    guard let lastCommentId = viewModel.comments.last?.id else { return }
+                                    viewModel.requestComments(postId: self.parentPost.id, lastCommentId: lastCommentId)
                                 }
+                            }
                         }
                         
                         // Bottom place holder
@@ -136,8 +137,7 @@ struct CommentView: View {
             .navigationBarHidden(true)
         }
         .onAppear {
-            viewModel.requestComments(postId: self.parentPost.id, isFirstRequest: true)
-            viewModel.isFirstRequest = true
+            viewModel.requestComments(postId: parentPost.id, lastCommentId: nil)
         }
     }
     

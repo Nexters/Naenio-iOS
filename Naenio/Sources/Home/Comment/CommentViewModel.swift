@@ -12,14 +12,14 @@ class CommentViewModel: ObservableObject {
     typealias Comment = CommentModel.Comment
     typealias Author = CommentModel.Comment.Author
     
-    @Published var pageSize = 10
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler(qos: .utility)
     
     @Published var comments: [Comment]
     @Published var totalCommentCount = 0
     @Published var status: NetworkStatus<WorkType> = .waiting
-    @Published var lastCommentId: Int?
+    
+    var pageSize = 10
     
     @Published var isFirstRequest: Bool = true
 
@@ -56,15 +56,13 @@ class CommentViewModel: ObservableObject {
             .disposed(by: bag)
     }
     
-    func requestComments(postId: Int?, isFirstRequest: Bool = true) {
-        status = .inProgress
-        guard let postID = postId else {
-            return
+    func requestComments(postId: Int, lastCommentId: Int?) {
+        if lastCommentId == nil {
+            status = .inProgress
         }
         
-        let commentListRequestModel = CommentListRequestModel(size: pageSize, lastCommentId: isFirstRequest ? nil : lastCommentId)
-        
-        RequestService<CommentModel>.request(api: .getComment(postId: postID, model: commentListRequestModel))
+        let commentListRequestModel = CommentListRequestModel(size: self.pageSize, lastCommentId: lastCommentId)
+        RequestService<CommentModel>.request(api: .getComment(postId: postId, model: commentListRequestModel)) // FIXME: 두 변수 한 모델로 합칠 것
             .subscribe(on: self.serialQueue)
             .observe(on: MainScheduler.instance)
             .subscribe(
@@ -73,16 +71,12 @@ class CommentViewModel: ObservableObject {
                     
                     self.totalCommentCount = commentInfo.totalCommentCount
                     
-                    if isFirstRequest {
+                    if lastCommentId == nil {
                         self.comments = commentInfo.comments
                     } else {
                         self.comments.append(contentsOf: commentInfo.comments)
                     }
-                    
-                    if !commentInfo.comments.isEmpty {
-                        self.lastCommentId = commentInfo.comments[commentInfo.comments.count - 1].id
-                    }
-                    
+                
                     self.status = .done(result: .requestComments)
                 }, onFailure: { [weak self] error in
                     

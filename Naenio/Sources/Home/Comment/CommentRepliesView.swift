@@ -90,8 +90,9 @@ struct CommentRepliesView: View {
                             })
                         }
                         .onAppear {
-                            if index == viewModel.replies.count - 5 {
-                                viewModel.requestCommentReplies(postId: comment.id, isFirstRequest: false)
+                            if index == viewModel.replies.count - 3 {
+                                guard let lastCommentId = viewModel.replies.last?.id else { return }
+                                viewModel.requestCommentReplies(postId: comment.id, lastCommentId: lastCommentId)
                             }
                         }
                     }
@@ -152,7 +153,7 @@ struct CommentRepliesView: View {
             }
         }
         .onAppear {
-            viewModel.requestCommentReplies(postId: comment.id)
+            viewModel.requestCommentReplies(postId: comment.id, lastCommentId: nil)
         }
     }
     

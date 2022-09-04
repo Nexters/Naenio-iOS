@@ -15,8 +15,8 @@ class CommentRepliesViewModel: ObservableObject {
     
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler(qos: .utility)
-    @Published var pageSize = 10
-    @Published var lastCommentId: Int?
+    private let pageSize = 10
+    
     @Published var replies = [Comment]()
     @Published var status: NetworkStatus<WorkType> = .waiting
     
@@ -48,14 +48,12 @@ class CommentRepliesViewModel: ObservableObject {
             .disposed(by: bag)
     }
     
-    func requestCommentReplies(postId: Int?, isFirstRequest: Bool = true) {
-        status = .inProgress
-        guard let postId = postId else {
-            return
+    func requestCommentReplies(postId: Int, lastCommentId: Int?) {
+        if lastCommentId == nil {
+            status = .inProgress
         }
         
-        let commentRepliesRequestModel = CommentRepliesRequestModel(size: pageSize, lastCommentId: isFirstRequest ? nil : lastCommentId)
-        
+        let commentRepliesRequestModel = CommentRepliesRequestModel(size: pageSize, lastCommentId: lastCommentId)
         RequestService<CommentRepliesResponseModel>.request(api: .getCommentReplies(postId: postId, model: commentRepliesRequestModel))
             .subscribe(on: self.serialQueue)
             .observe(on: MainScheduler.instance)
@@ -63,20 +61,12 @@ class CommentRepliesViewModel: ObservableObject {
                 onSuccess: { [weak self] replies in
                     guard let self = self else { return }
                     
-                    if isFirstRequest {
-                        self.replies = self.transferToCommentModel(from: replies.commentReplies)
+                    let newReplies = self.transferToCommentModel(from: replies.commentReplies)
+                    if lastCommentId == nil {
+                        self.replies = newReplies
                     } else {
-                        self.replies.append(contentsOf: self.transferToCommentModel(from: replies.commentReplies))
+                        self.replies.append(contentsOf: newReplies)
                     }
-                    
-                    if !replies.commentReplies.isEmpty {
-                        self.lastCommentId = replies.commentReplies[replies.commentReplies.count - 1].id
-                    }
-                    
-                    print("================")
-                    print("count: \(self.replies.count)")
-                    print(self.replies)
-                    print("================")
                     
                     self.status = .done(result: .requestComments)
                 }, onFailure: { [weak self] error in
