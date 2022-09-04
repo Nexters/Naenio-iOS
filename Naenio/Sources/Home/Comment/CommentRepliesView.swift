@@ -70,7 +70,8 @@ struct CommentRepliesView: View {
                                        toastInfo: $toastInfo,
                                        comment: $comment,
                                        isReply: true,
-                                       isMine: userManager.getUserId() == comment.author.id)
+                                       isMine: userManager.getUserId() == comment.author.id,
+                                       isMoreInfoDisabled: true)
                     
                     CustomDivider()
 

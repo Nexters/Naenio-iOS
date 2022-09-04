@@ -21,6 +21,7 @@ struct CommentContentCell: View {
     
     let isReply: Bool
     let isMine: Bool
+    var isMoreInfoDisabled: Bool = false
     
     var deletedAction: Action?
     
@@ -71,7 +72,9 @@ struct CommentContentCell: View {
                 }
             }
             
-            moreInformationButton
+            if !isMoreInfoDisabled {
+                moreInformationButton
+            }
         }
         .onChange(of: viewModel.status) { status in
             switch status {
