@@ -763,11 +763,6 @@
 		9B1128AC28C0D22E004C238D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9B1128AD28C0D23D004C238D /* Notice.swift */,
-				9B1128AF28C0D6CF004C238D /* NoticeResponseModel.swift */,
-		9B1128B128C0D943004C238D /* Model */ = {
-			isa = PBXGroup;
-			children = (
 				9B1128B228C0D94E004C238D /* MyComment.swift */,
 				9B1128B628C0D9C4004C238D /* MyCommentRequest.swift */,
 				9B1128B428C0D96C004C238D /* MyCommentResponseModel.swift */,
