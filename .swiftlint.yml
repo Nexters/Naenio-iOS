@@ -8,7 +8,10 @@ disabled_rules:
 
 trailing_whitespace:
     ignores_empty_lines: true
-    
+
+cyclomatic_complexity:
+    ignores_case_statements: true
+  
 force_cast: # From https://realm.github.io/SwiftLint/force_cast.html
     warning
 

@@ -33,11 +33,11 @@ class ThemeViewModel: ObservableObject {
             .subscribe(on: self.serialQueue)
             .observe(on: MainScheduler.instance)
             .subscribe(
-                onSuccess: { [weak self] newFeed in
+                onSuccess: { [weak self] post in
                     guard let self = self else { return }
                     
-                    print("Success requestPosts")
-                    let posts = self.transferToPostModel(from: newFeed)
+                    print("Success requestThemePosts")
+                    let posts = self.transferToPostModel(from: post)
                     self.posts = posts
                     self.status = .done
                 }, onFailure: { [weak self] error in
@@ -47,7 +47,7 @@ class ThemeViewModel: ObservableObject {
                 })
             .disposed(by: bag)
     }
-
+    
     init() {
         self.posts = []
     }
@@ -107,5 +107,4 @@ extension ThemeViewModel {
             }
         }
     }
-
 }

@@ -22,6 +22,7 @@ extension NaenioAPI {
             
         case .getUser: return "/app/members/me"
         case .getFeed: return "/app/feed"
+        case .getRandomPost: return "/app/posts-random"
         case .getComment(let postId, _): return "/app/posts/\(postId)/comments"
         case .getCommentReplies(let postId, _): return "/app/comments/\(postId)/comment-replies"
         case .getSinglePost(let info): return "/app/posts/\(info.id)"
