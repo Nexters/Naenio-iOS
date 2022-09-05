@@ -228,7 +228,6 @@
 		4C4B133E2883CD32006044B0 /* ModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelType.swift; sourceTree = "<group>"; };
 		4C4B13422883D88A006044B0 /* HttpResponseCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponseCode.swift; sourceTree = "<group>"; };
 		4C4B134428847640006044B0 /* NaenioAPI+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Request.swift"; sourceTree = "<group>"; };
-		4C7ECFED28B5100B006C1763 /* KeyValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
 		4C7ECFEF28B51755006C1763 /* CommentRepliesRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesRequestModel.swift; sourceTree = "<group>"; };
 		4C7ECFF128B518FE006C1763 /* CommentRepliesResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRepliesResponseModel.swift; sourceTree = "<group>"; };
 		4CA47BC92890344400D300A7 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -494,7 +493,6 @@
 		4CC296DC288054C0001950A2 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				4C7ECFED28B5100B006C1763 /* KeyValue.swift */,
 				4CC296DF288055FD001950A2 /* NaenioAPIHeaderInformation.swift */,
 				4C4B13422883D88A006044B0 /* HttpResponseCode.swift */,
 			);
