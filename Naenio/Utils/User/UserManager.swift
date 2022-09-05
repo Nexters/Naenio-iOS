@@ -35,7 +35,7 @@ class UserManager: ObservableObject {
     /// 서버 데이터를 받아 옴
     func updateUserData(with token: String) {
         status = .fetching
-        
+                
         // 여기가 API 업데이트여야 하는데 로컬 업데이트 였음
         RequestService<User>.request(api: .getUser(token))
             .subscribe(on: self.serialQueue)
@@ -46,7 +46,6 @@ class UserManager: ObservableObject {
 
                     self.user = user
                     self.updateLocalUserData(with: user)
-                    print("RX \(user) \(self.getNickName())")
                     self.status = .fetched
                 }, onFailure: { [weak self] error in
                     guard let self = self else { return }

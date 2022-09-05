@@ -92,7 +92,6 @@ extension LoginView {
             case .done(result: let userInfo):
                 tokenManager.saveToken(userInfo.token)
                 userManager.updateUserData(with: userInfo.token)
-
             default:
                 // TODO: Show alert
                 return
