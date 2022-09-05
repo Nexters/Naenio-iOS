@@ -24,7 +24,6 @@ extension NaenioAPI {
         let requestString = "\(endpoint.method) \(endpoint.baseURL) \(endpoint.path)"
         
         print("endpoint: \(endpoint)")
-        print("RX req", endpoint.headers?["Authorization"], endpoint.path)
         
         return Self.moyaProvider.rx.request(endpoint)
             .filterSuccessfulStatusCodes()

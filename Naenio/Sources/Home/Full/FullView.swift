@@ -106,7 +106,6 @@ struct FullView: View {
                     (deletedAction ?? {})()
                 case .singlePost:
                     selectedPostId = post.id
-                    self.showComments = true
                 default:
                     break
                 }

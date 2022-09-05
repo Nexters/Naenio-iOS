@@ -56,7 +56,10 @@ struct NaenioApp: App {
                             self.arrivedPostId = postId
                         }
                         .background(
-                            NavigationLink(destination: OpenedByLinkFullView(postId: arrivedPostId), isActive: $isLinkOpened) {
+                            NavigationLink(destination:
+                                            OpenedByLinkFullView(postId: arrivedPostId, showCommentFirst: false)
+                                                .environmentObject(userManager),
+                                           isActive: $isLinkOpened) {
                                 EmptyView()
                             }
                         )

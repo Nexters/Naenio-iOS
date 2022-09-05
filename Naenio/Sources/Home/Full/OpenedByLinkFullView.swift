@@ -11,12 +11,13 @@ struct OpenedByLinkFullView: View {
     @EnvironmentObject var userManager: UserManager
     @ObservedObject var viewModel = FullViewModel()
     private let postId: Int
+    var showCommentFirst: Bool
     
     var body: some View {
         ZStack {
             FullView(self.viewModel,
                      post: $viewModel.post,
-                     showCommentFirst: true)
+                     showCommentFirst: self.showCommentFirst)
             .redacted(reason: viewModel.status == .inProgress || viewModel.status == .waiting ? .placeholder : [])
             .environmentObject(userManager)
         }
@@ -25,7 +26,8 @@ struct OpenedByLinkFullView: View {
         }
     }
     
-    init(postId: Int) {
+    init(postId: Int, showCommentFirst: Bool) {
         self.postId = postId
+        self.showCommentFirst = showCommentFirst
     }
 }

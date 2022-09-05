@@ -33,7 +33,7 @@ struct MyCommentView: View {
                         LazyVStack {
                             ForEach(Array(viewModel.comments!.enumerated()), id: \.element.id) { index, comment in
                                 NavigationLink(destination: LazyView(
-                                    OpenedByLinkFullView(postId: comment.post.id))
+                                    OpenedByLinkFullView(postId: comment.post.id, showCommentFirst: true))
                                     .environmentObject(userManager)
                                 ) {
                                     MyCommentCell(myComment: comment, action: {
