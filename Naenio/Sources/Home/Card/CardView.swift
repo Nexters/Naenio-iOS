@@ -93,8 +93,8 @@ struct CardView: View {
         }
         .fillScreen()
         .mask(RoundedRectangle(cornerRadius: 16))
-        .onChange(of: post.choices) { _ in
-            voteHappened = true 
+        .onChange(of: post.choices) { [oldValue = post.choices] newValue in
+            voteHappened = didVoteChange(oldValue, newValue)
         }
         .onChange(of: viewModel.status) { status in
             switch status {
@@ -131,6 +131,21 @@ struct CardView: View {
 }
 
 extension CardView {
+    private func didVoteChange(_ lhs: [Choice], _ rhs: [Choice]) -> Bool {
+        let firstArr = lhs.sorted{ $0.sequence < $1.sequence }
+        let secondArr = rhs.sorted{ $0.sequence < $1.sequence }
+        
+        var isVoteChanged: Bool
+        if firstArr.first?.isVoted == secondArr.first?.isVoted,
+           firstArr.last?.isVoted == secondArr.last?.isVoted {
+            isVoteChanged = false
+        } else {
+            isVoteChanged = true
+        }
+        
+        return isVoteChanged
+    }
+    
     var profile: some View {
         HStack {
             if let profileImageIndex = post.author.profileImageIndex {
