@@ -56,6 +56,12 @@ extension NaenioAPI: TargetType {
         switch self {
         case .login:
             return [NaenioAPIHeaderKey.contentType: NaenioAPIHeaderValue.json]
+        case .getUser(let token):
+            return [
+                NaenioAPIHeaderKey.accept: NaenioAPIHeaderValue.json,
+                NaenioAPIHeaderKey.contentType: NaenioAPIHeaderValue.json,
+                NaenioAPIHeaderKey.authorization: "Bearer \(token)"
+            ]
         default:
             return [
                 NaenioAPIHeaderKey.accept: NaenioAPIHeaderValue.json,

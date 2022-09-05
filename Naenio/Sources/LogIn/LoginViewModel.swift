@@ -40,7 +40,7 @@ class LoginViewModel: ObservableObject {
             .subscribe(
                 onSuccess: { [weak self] userInfo in
                     guard let self = self else { return }
-                    
+
                     self.status = .done(result: userInfo)
                     self.userManager.updateAuthServiceType(.apple)
                 },
@@ -70,7 +70,7 @@ class LoginViewModel: ObservableObject {
             .subscribe(
                 onSuccess: { [weak self] userInfo in
                     guard let self = self else { return }
-                    
+
                     self.status = .done(result: userInfo)
                     self.userManager.updateAuthServiceType(.kakao)
                 },

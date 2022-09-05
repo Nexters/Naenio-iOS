@@ -27,7 +27,7 @@ struct MyPageView: View {
                         .padding(.top, 40)
                         .padding(.bottom, 20)
                     
-                    MyPageAuthCell(authType: .kakao)
+                    MyPageAuthCell(userManager.user?.authServiceType)
                         .cornerRadius(10)
                     
                     MyPageSection {

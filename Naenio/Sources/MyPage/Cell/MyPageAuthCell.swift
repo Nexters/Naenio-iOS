@@ -26,6 +26,16 @@ struct MyPageAuthCell: View {
             }
         })
     }
+    
+    init(_ authTypeString: String?) {
+        if authTypeString == "KAKAO" {
+            authType = .kakao
+        } else if authTypeString == "APPLE" {
+            authType = .apple
+        } else {
+            authType = .kakao
+        }
+    }
 }
 
 extension MyPageAuthCell {
@@ -41,11 +51,5 @@ extension MyPageAuthCell {
                 return Image("btn_login_kakao")
             }
         }
-    }
-}
-
-struct MyPageCell_Previews: PreviewProvider {
-    static var previews: some View {
-        MyPageAuthCell(authType: .kakao)
     }
 }
