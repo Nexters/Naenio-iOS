@@ -15,5 +15,5 @@ enum NaenioAPIHeaderKey {
 
 enum NaenioAPIHeaderValue {
     static let json = "application/json"
-    static let authoization = "Bearer \(TokenManager.shared.accessToken ?? "")" // FIXME: 이게 여기에 있으면 안될 것 같음
+    static var authoization: String { "Bearer \(TokenManager.shared.accessToken ?? "")" }
 }

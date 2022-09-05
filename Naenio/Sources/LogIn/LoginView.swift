@@ -57,6 +57,7 @@ struct LoginView: View {
                 switch result {
                 case .done(result: let userInfo):
                     tokenManager.saveToken(userInfo.token)
+                    print("RX token", tokenManager.accessToken)
                     userManager.updateUserData(with: userInfo.token)
                 default:
                     // TODO: Show alert
