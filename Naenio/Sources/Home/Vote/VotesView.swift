@@ -27,8 +27,7 @@ struct VotesView: View {
                            choice: self.choiceA,
                            percent: getPercentage(ofSequence: 0), action: {
                     lastChoice = 0
-                    viewModel.requestVote(postId: post.id,
-                                          choiceId: choiceA?.id)
+                    viewModel.requestVote(postId: post.id, choiceId: choiceA?.id)
                 })
                 
                 VoteButton(type: .choiceB,
@@ -37,8 +36,7 @@ struct VotesView: View {
                            percent: getPercentage(ofSequence: 1),
                            action: {
                     lastChoice = 1
-                    viewModel.requestVote(postId: post.id,
-                                          choiceId: choiceB?.id)
+                    viewModel.requestVote(postId: post.id, choiceId: choiceB?.id)
                 })
             }
             .onChange(of: viewModel.status) { status in
