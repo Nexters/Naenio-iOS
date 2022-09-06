@@ -112,6 +112,7 @@
 		9B8B98BA289948DA007336DE /* LocalStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B98B9289948DA007336DE /* LocalStorageKeys.swift */; };
 		9B8D409C28AE86B90024E989 /* VotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8D409B28AE86B90024E989 /* VotesViewModel.swift */; };
 		9B91D80D28BF835D008D9E9E /* CommentContentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B91D80C28BF835D008D9E9E /* CommentContentCellViewModel.swift */; };
+		9B95222828C7683100FA2F01 /* AlertState in Frameworks */ = {isa = PBXBuildFile; productRef = 9B95222728C7683100FA2F01 /* AlertState */; };
 		9BD5208728BB8B110036F5CF /* ToastInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5208628BB8B110036F5CF /* ToastInformation.swift */; };
 		9BD520C728BCCC240036F5CF /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD520C628BCCC240036F5CF /* CustomDateFormatter.swift */; };
 		9BD520CA28BCCD840036F5CF /* CustomDateFormatterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD520C928BCCD840036F5CF /* CustomDateFormatterTest.swift */; };
@@ -421,6 +422,7 @@
 			files = (
 				9B53383E28C4F5F8006DECFC /* libswift_Concurrency.tbd in Frameworks */,
 				9B6D1D4228C8D0180099D4AF /* AlertState in Frameworks */,
+				9B95222828C7683100FA2F01 /* AlertState in Frameworks */,
 				92D901F16488AB4A41D32F75 /* Pods_Naenio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1349,6 +1351,7 @@
 			name = Naenio;
 			packageProductDependencies = (
 				9B6D1D4128C8D0180099D4AF /* AlertState */,
+				9B95222728C7683100FA2F01 /* AlertState */,
 			);
 			productName = Naenio;
 			productReference = 9B085EFF2879991400DE8E60 /* Naenio.app */;
@@ -1427,6 +1430,7 @@
 			mainGroup = 9B085EF62879991400DE8E60;
 			packageReferences = (
 				9B6D1D4028C8D0180099D4AF /* XCRemoteSwiftPackageReference "AlertState" */,
+				9B95222628C7683100FA2F01 /* XCRemoteSwiftPackageReference "AlertState" */,
 			);
 			productRefGroup = 9B085F002879991400DE8E60 /* Products */;
 			projectDirPath = "";
@@ -2127,6 +2131,7 @@
 
 /* Begin XCRemoteSwiftPackageReference section */
 		9B6D1D4028C8D0180099D4AF /* XCRemoteSwiftPackageReference "AlertState" */ = {
+		9B95222628C7683100FA2F01 /* XCRemoteSwiftPackageReference "AlertState" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/enebin/AlertState";
 			requirement = {
@@ -2140,6 +2145,9 @@
 		9B6D1D4128C8D0180099D4AF /* AlertState */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9B6D1D4028C8D0180099D4AF /* XCRemoteSwiftPackageReference "AlertState" */;
+		9B95222728C7683100FA2F01 /* AlertState */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9B95222628C7683100FA2F01 /* XCRemoteSwiftPackageReference "AlertState" */;
 			productName = AlertState;
 		};
 /* End XCSwiftPackageProductDependency section */
