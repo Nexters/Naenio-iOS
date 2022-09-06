@@ -6,14 +6,37 @@
 //
 
 import SwiftUI
+import AlertState
 
-// !!!: 일단 시스템 기본 alert로 기능 구현만
-enum AlertType {
+enum SystemAlert {
     typealias Action = () -> Void
     
     case warnBeforeExit(primaryAction: Action? = nil, secondaryAction: Action? = nil)
     case errorHappend(error: Error, primaryAction: Action? = nil, secondaryAction: Action? = nil)
     case logout(primaryAction: Action? = nil, secondaryAction: Action? = nil)
     case withdrawal(primaryAction: Action? = nil, secondaryAction: Action? = nil)
-    case none
+}
+
+extension SystemAlert: Identifiable {
+    var id: String {
+        return title
+    }
+}
+
+extension SystemAlert: SimpleAlertType {
+    var title: String {
+        self.getTitle()
+    }
+    
+    var message: String? {
+        self.getMessage()
+    }
+    
+    var primaryButton: AlertButton? {
+        self.getPrimaryButton()
+    }
+    
+    var secondaryButton: AlertButton? {
+        self.getSecondaryButton()
+    }
 }

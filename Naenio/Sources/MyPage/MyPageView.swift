@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import AlertState
 
 struct MyPageView: View {
     @EnvironmentObject var userManager: UserManager
     @ObservedObject var viewModel = MyPageViewModel()
     
-    @AlertVariable var alertVariable: AlertType
+    @AlertState<SystemAlert> var alertState
     
     var body: some View {
         ZStack {
@@ -62,11 +63,11 @@ struct MyPageView: View {
                             switch cell {
                             case .logout:
                                 MyPageActionCell(name: cell.title, action: {
-                                    alertVariable = .logout(secondaryAction: { viewModel.signOut() })
+                                    alertState = .logout(secondaryAction: { viewModel.signOut() })
                                 })
                             case .withdrawal:
                                 MyPageActionCell(name: cell.title, action: {
-                                    alertVariable = .withdrawal(secondaryAction: { viewModel.withdrawal() })
+                                    alertState = .withdrawal(secondaryAction: { viewModel.withdrawal() })
                                 })
                             }
                             
@@ -79,13 +80,11 @@ struct MyPageView: View {
                 .padding(.horizontal, 20)
             }
         }
-        .alert(isPresented: $alertVariable) {
-            alertVariable.getAlert()
-        }
+        .showAlert(with: $alertState)
         .onChange(of: viewModel.status) { status in
             switch status {
             case .fail(let error):
-                self.alertVariable = .errorHappend(error: error)
+                self.alertState = .errorHappend(error: error)
             case .done(let type):
                 if type == .withdrawal {
                     viewModel.signOut()

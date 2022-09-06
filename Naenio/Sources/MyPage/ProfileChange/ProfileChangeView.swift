@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Introspect
+import AlertState
 
 struct ProfileChangeView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -16,7 +17,7 @@ struct ProfileChangeView: View {
     
     @State var showBottomSheet: Bool = false
     
-    @AlertVariable var alertType: AlertType
+    @AlertState<SystemAlert> var alertState
     
     @State var text: String = ""
     @State var profileImageIndex: Int = 0
@@ -56,7 +57,7 @@ struct ProfileChangeView: View {
         }
         .leadingButtonAction {
             if text.isEmpty == false {
-                alertType = .warnBeforeExit(secondaryAction: { presentationMode.wrappedValue.dismiss() })
+                alertState = .warnBeforeExit(secondaryAction: { presentationMode.wrappedValue.dismiss() })
             } else {
                 presentationMode.wrappedValue.dismiss()
             }
@@ -73,19 +74,12 @@ struct ProfileChangeView: View {
                 
                 presentationMode.wrappedValue.dismiss()
             case .fail(with: let error):
-                alertType = .errorHappend(error: error)
+                alertState = .errorHappend(error: error)
             default:
                 break
             }
         }
-        .alert(isPresented: $alertType) {   // Show the alert popup depending on the alert's type
-            switch alertType {
-            case .warnBeforeExit:
-                return alertType.getAlert()
-            default:
-                return alertType.getAlert()
-            }
-        }
+        .showAlert(with: $alertState)
         .onAppear {
             self.profileImageIndex = userManager.getProfileImagesIndex()
         }
