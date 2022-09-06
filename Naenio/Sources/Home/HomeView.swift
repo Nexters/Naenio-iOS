@@ -211,7 +211,10 @@ extension HomeView {
     }
     
     var floatingButton: some View {
-        Button(action: { showNewPost = true }) {
+        Button(action: {
+            showNewPost = true
+            HapticManager.shared.impact(style: .rigid)
+        }) {
             Image("floatingButton")
                 .resizable()
                 .scaledToFit()
