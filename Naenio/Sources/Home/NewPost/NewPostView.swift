@@ -49,7 +49,10 @@ struct NewPostView: View {
                         .foregroundColor(.white)
                         .font(.medium(size: 16))
                     
-                    WrappedTextView(placeholder: "무슨 주제를 담아볼까요?", content: $postContent.title, characterLimit: 70)
+                    WrappedTextView(placeholder: "무슨 주제를 담아볼까요?",
+                                    content: $postContent.title,
+                                    characterLimit: 70,
+                                    allowNewline: false)
                         .frame(height: 108)
                         .padding(.bottom, 20)
                     
@@ -66,10 +69,16 @@ struct NewPostView: View {
                             .zIndex(1)
                         
                         VStack(spacing: 20) {
-                            WrappedTextView(placeholder: "A의 선택지를 입력해 주세요", content: $postContent.choiceA, characterLimit: 32)
+                            WrappedTextView(placeholder: "A의 선택지를 입력해 주세요",
+                                            content: $postContent.choiceA,
+                                            characterLimit: 32,
+                                            allowNewline: false)
                                 .frame(height: 70)
                             
-                            WrappedTextView(placeholder: "B의 선택지를 입력해 주세요", content: $postContent.choiceB, characterLimit: 32)
+                            WrappedTextView(placeholder: "B의 선택지를 입력해 주세요",
+                                            content: $postContent.choiceB,
+                                            characterLimit: 32,
+                                            allowNewline: false)
                                 .frame(height: 70)
                         }
                     }
@@ -80,7 +89,10 @@ struct NewPostView: View {
                         .foregroundColor(.white)
                         .font(.medium(size: 16))
                     
-                    WrappedTextView(placeholder: "어떤 내용을 추가로 담을까요?", content: $postContent.details, characterLimit: 100)
+                    WrappedTextView(placeholder: "어떤 내용을 추가로 담을까요?",
+                                    content: $postContent.details,
+                                    characterLimit: 100,
+                                    allowNewline: false)
                         .frame(height: 108)
                     
                     Spacer()
@@ -103,7 +115,11 @@ extension NewPostView {
         HStack {
             Button(action: {
                 if !postContent.isAnyContentEmtpy {
-                    alertState = .warnBeforeExit(secondaryAction: { isPresented = false }) // MARK: Alert
+                    alertState = .warnBeforeExit(
+                        secondaryAction: {
+                            UIApplication.shared.endEditing()
+                            isPresented = false
+                        }) // MARK: Alert
                 } else {
                     isPresented = false
                 }
@@ -119,6 +135,7 @@ extension NewPostView {
             Spacer()
             
             Button(action: {
+                postContent.removeNewlineInContents()
                 let postRequest = postContent.toPostRequestInformation()
                 sourceObject.register(postRequest)
                 isPresented = false
@@ -144,6 +161,27 @@ fileprivate struct PostContent {
     
     var isAnyContentEmtpy: Bool {
         title.isEmpty && choiceA.isEmpty && choiceB.isEmpty && details.isEmpty
+    }
+    
+    var hasNewlineInContents: Bool {
+        title.contains("\n") && choiceA.contains("\n") && choiceB.contains("\n") && details.contains("\n")
+    }
+    
+    mutating func removeNewlineInContents() {
+        title = removeNewline(title)
+        choiceA = removeNewline(choiceA)
+        choiceB = removeNewline(choiceB)
+        details = removeNewline(details)
+    }
+    
+    private func removeNewline(_ content: String) -> String {
+        content.reduce("") { partialResult, character in
+            if !character.isNewline {
+                return partialResult + String(character)
+            } else {
+                return partialResult + " "
+            }
+        }
     }
     
     func toPostRequestInformation() -> PostRequestInformation {

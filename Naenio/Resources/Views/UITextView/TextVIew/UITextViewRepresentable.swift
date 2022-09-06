@@ -10,16 +10,18 @@ import SwiftUI
 struct RepresentedUITextView: UIViewRepresentable {
     let limit: Int?
     let isTight: Bool
+    let allowNewline: Bool
     @Binding var text: String
     
-    init(text: Binding<String>, limit: Int? = nil, isTight: Bool) {
+    init(text: Binding<String>, limit: Int? = nil, isTight: Bool, allowNewline: Bool = true) {
         self._text = text
         self.limit = limit
         self.isTight = isTight
+        self.allowNewline = allowNewline
     }
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(self, limit)
+        Coordinator(self, limit, allowNewline)
     }
 
     func makeUIView(context: Context) -> UITextView {
@@ -49,10 +51,12 @@ struct RepresentedUITextView: UIViewRepresentable {
     class Coordinator: NSObject, UITextViewDelegate {
         var parent: RepresentedUITextView
         let limit: Int?
+        let allowNewline: Bool
 
-        init(_ uiTextView: RepresentedUITextView, _ limit: Int?) {
+        init(_ uiTextView: RepresentedUITextView, _ limit: Int?, _ allowNewline: Bool) {
             self.parent = uiTextView
             self.limit = limit
+            self.allowNewline = allowNewline
         }
 
         func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -63,6 +67,12 @@ struct RepresentedUITextView: UIViewRepresentable {
             guard let limit = limit else {
                 self.parent.text = textView.text
                 return
+            }
+            
+            // Possible overheadds
+            if allowNewline == false,
+               let newlineLocation = textView.text.firstIndex(where: { $0.isNewline }) {
+                   textView.text.remove(at: newlineLocation)
             }
             
             if textView.text.count > limit {
