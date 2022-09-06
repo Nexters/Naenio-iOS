@@ -63,6 +63,7 @@
 		9B085F1E2879991600DE8E60 /* NaenioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1D2879991600DE8E60 /* NaenioUITests.swift */; };
 		9B085F202879991600DE8E60 /* NaenioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */; };
 		9B19A1DD28AF7B1E0072DEDA /* AvailableNicknameResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B19A1DC28AF7B1E0072DEDA /* AvailableNicknameResponseModel.swift */; };
+		9B1D6F9E28C74BD2002A9BCC /* AlertState in Frameworks */ = {isa = PBXBuildFile; productRef = 9B1D6F9D28C74BD2002A9BCC /* AlertState */; };
 		9B244070289E8DC30060A244 /* View + Exetension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B24406F289E8DC30060A244 /* View + Exetension.swift */; };
 		9B244073289E9AA10060A244 /* VotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B244072289E9AA10060A244 /* VotesView.swift */; };
 		9B244075289E9AF10060A244 /* VotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B244074289E9AF10060A244 /* VotesViewModel.swift */; };
@@ -421,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B53383E28C4F5F8006DECFC /* libswift_Concurrency.tbd in Frameworks */,
+				9B1D6F9E28C74BD2002A9BCC /* AlertState in Frameworks */,
 				92D901F16488AB4A41D32F75 /* Pods_Naenio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1349,6 +1351,7 @@
 			);
 			name = Naenio;
 			packageProductDependencies = (
+				9B1D6F9D28C74BD2002A9BCC /* AlertState */,
 			);
 			productName = Naenio;
 			productReference = 9B085EFF2879991400DE8E60 /* Naenio.app */;
@@ -1426,6 +1429,7 @@
 			);
 			mainGroup = 9B085EF62879991400DE8E60;
 			packageReferences = (
+				9B1D6F9C28C74BD2002A9BCC /* XCRemoteSwiftPackageReference "AlertState" */,
 			);
 			productRefGroup = 9B085F002879991400DE8E60 /* Products */;
 			projectDirPath = "";
@@ -2124,6 +2128,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9B1D6F9C28C74BD2002A9BCC /* XCRemoteSwiftPackageReference "AlertState" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/enebin/AlertState";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9B1D6F9D28C74BD2002A9BCC /* AlertState */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9B1D6F9C28C74BD2002A9BCC /* XCRemoteSwiftPackageReference "AlertState" */;
+			productName = AlertState;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9B085EF72879991400DE8E60 /* Project object */;
 }
