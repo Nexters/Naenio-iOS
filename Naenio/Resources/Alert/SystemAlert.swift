@@ -23,20 +23,16 @@ extension SystemAlert: Identifiable {
     }
 }
 
-extension SystemAlert: SimpleAlertType {
+extension SystemAlert: AlertType {
+    var alertButtons: [AlertButton] {
+        self.getButtons()
+    }
+    
     var title: String {
         self.getTitle()
     }
     
     var message: String? {
         self.getMessage()
-    }
-    
-    var primaryButton: AlertButton? {
-        self.getPrimaryButton()
-    }
-    
-    var secondaryButton: AlertButton? {
-        self.getSecondaryButton()
     }
 }

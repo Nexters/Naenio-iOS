@@ -35,29 +35,28 @@ extension SystemAlert {
         }
     }
     
-    func getPrimaryButton() -> AlertButton? {
+    func getButtons() -> [AlertButton] {
         switch self {
-        case .warnBeforeExit(let primaryAction, _):
-            return AlertButton("Cancel", role: .cancel, action: primaryAction ?? {})
-        case .errorHappend(_, let primaryAction, _):
-            return AlertButton("Cancel", role: .cancel, action: primaryAction ?? {})
-        case .logout(let primaryAction, _):
-            return AlertButton("닫기", role: .cancel, action: primaryAction ?? {})
-        case .withdrawal(let primaryAction, _):
-            return AlertButton("닫기", role: .cancel, action: primaryAction ?? {})
-        }
-    }
-    
-    func getSecondaryButton() -> AlertButton? {
-        switch self {
-        case .warnBeforeExit(_, let secondaryAction):
-            return AlertButton("OK", action: secondaryAction ?? {})
-        case .errorHappend(_, _, let secondaryAction):
-            return AlertButton("OK", action: secondaryAction ?? {})
-        case .logout(_, let secondaryAction):
-            return AlertButton("로그아웃", role: .destructive, action: secondaryAction ?? {})
-        case .withdrawal(_, let secondaryAction):
-            return AlertButton("회원탈퇴", role: .destructive, action: secondaryAction ?? {})
+        case .warnBeforeExit(let primaryAction, let secondaryAction):
+            return [
+                AlertButton("Cancel", role: .cancel, action: primaryAction ?? {}),
+                AlertButton("OK", action: secondaryAction ?? {})
+            ]
+        case .errorHappend(_, let primaryAction, let secondaryAction):
+            return [
+                AlertButton("Cancel", role: .cancel, action: primaryAction ?? {}),
+                AlertButton("OK", action: secondaryAction ?? {})
+            ]
+        case .logout(let primaryAction, let secondaryAction):
+            return [
+                AlertButton("닫기", role: .cancel, action: primaryAction ?? {}),
+                AlertButton("로그아웃", role: .destructive, action: secondaryAction ?? {})
+            ]
+        case .withdrawal(let primaryAction, let secondaryAction):
+            return [
+                AlertButton("닫기", role: .cancel, action: primaryAction ?? {}),
+                AlertButton("회원탈퇴", role: .destructive, action: secondaryAction ?? {})
+            ]
         }
     }
 }

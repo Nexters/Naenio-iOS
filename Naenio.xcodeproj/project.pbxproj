@@ -63,7 +63,6 @@
 		9B085F1E2879991600DE8E60 /* NaenioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1D2879991600DE8E60 /* NaenioUITests.swift */; };
 		9B085F202879991600DE8E60 /* NaenioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */; };
 		9B19A1DD28AF7B1E0072DEDA /* AvailableNicknameResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B19A1DC28AF7B1E0072DEDA /* AvailableNicknameResponseModel.swift */; };
-		9B1D6F9E28C74BD2002A9BCC /* AlertState in Frameworks */ = {isa = PBXBuildFile; productRef = 9B1D6F9D28C74BD2002A9BCC /* AlertState */; };
 		9B244070289E8DC30060A244 /* View + Exetension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B24406F289E8DC30060A244 /* View + Exetension.swift */; };
 		9B244073289E9AA10060A244 /* VotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B244072289E9AA10060A244 /* VotesView.swift */; };
 		9B244075289E9AF10060A244 /* VotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B244074289E9AF10060A244 /* VotesViewModel.swift */; };
@@ -107,6 +106,7 @@
 		9B61D6AF28B0857700F116CD /* IndexResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D6AE28B0857700F116CD /* IndexResponseModel.swift */; };
 		9B61D6B228C36A4200F116CD /* Commentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D6B128C36A4200F116CD /* Commentable.swift */; };
 		9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B687DE928954D4A0048AED0 /* Font + Extension.swift */; };
+		9B6D1D4228C8D0180099D4AF /* AlertState in Frameworks */ = {isa = PBXBuildFile; productRef = 9B6D1D4128C8D0180099D4AF /* AlertState */; };
 		9B86192D28A77D920098AC8E /* CommentRepliesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86192C28A77D920098AC8E /* CommentRepliesView.swift */; };
 		9B86192F28A782990098AC8E /* CommentRepliesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86192E28A782990098AC8E /* CommentRepliesViewModel.swift */; };
 		9B8B98BA289948DA007336DE /* LocalStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B98B9289948DA007336DE /* LocalStorageKeys.swift */; };
@@ -420,7 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B53383E28C4F5F8006DECFC /* libswift_Concurrency.tbd in Frameworks */,
-				9B1D6F9E28C74BD2002A9BCC /* AlertState in Frameworks */,
+				9B6D1D4228C8D0180099D4AF /* AlertState in Frameworks */,
 				92D901F16488AB4A41D32F75 /* Pods_Naenio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1348,7 +1348,7 @@
 			);
 			name = Naenio;
 			packageProductDependencies = (
-				9B1D6F9D28C74BD2002A9BCC /* AlertState */,
+				9B6D1D4128C8D0180099D4AF /* AlertState */,
 			);
 			productName = Naenio;
 			productReference = 9B085EFF2879991400DE8E60 /* Naenio.app */;
@@ -1426,7 +1426,7 @@
 			);
 			mainGroup = 9B085EF62879991400DE8E60;
 			packageReferences = (
-				9B1D6F9C28C74BD2002A9BCC /* XCRemoteSwiftPackageReference "AlertState" */,
+				9B6D1D4028C8D0180099D4AF /* XCRemoteSwiftPackageReference "AlertState" */,
 			);
 			productRefGroup = 9B085F002879991400DE8E60 /* Products */;
 			projectDirPath = "";
@@ -2126,7 +2126,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		9B1D6F9C28C74BD2002A9BCC /* XCRemoteSwiftPackageReference "AlertState" */ = {
+		9B6D1D4028C8D0180099D4AF /* XCRemoteSwiftPackageReference "AlertState" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/enebin/AlertState";
 			requirement = {
@@ -2137,9 +2137,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		9B1D6F9D28C74BD2002A9BCC /* AlertState */ = {
+		9B6D1D4128C8D0180099D4AF /* AlertState */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9B1D6F9C28C74BD2002A9BCC /* XCRemoteSwiftPackageReference "AlertState" */;
+			package = 9B6D1D4028C8D0180099D4AF /* XCRemoteSwiftPackageReference "AlertState" */;
 			productName = AlertState;
 		};
 /* End XCSwiftPackageProductDependency section */
