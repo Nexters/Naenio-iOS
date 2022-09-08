@@ -14,33 +14,37 @@ struct CurationView: View {
     var themeList: [ThemeType] = [ .todayVote, .hallFame, .randomPlay, .goldBalance, .noisy, .collapsedBalance]
     
     var body: some View {
-        ZStack(alignment: .topLeading) {
-            Color.black
-                .ignoresSafeArea()
-            
-            VStack(alignment: .leading, spacing: 14) {
-                Text("네니오들의 선택")
-                    .font(.semoBold(size: 20))
-                    .foregroundColor(.white)
+        NavigationView {
+            ZStack(alignment: .topLeading) {
+                Color.black
+                    .ignoresSafeArea()
+                
+                VStack(alignment: .leading, spacing: 14) {
+                    Text("네니오들의 선택")
+                        .font(.semoBold(size: 20))
+                        .foregroundColor(.white)
                     
-                LazyVGrid(columns: columns, spacing: 20) {
-                    ForEach(themeList) { theme in
-                        if theme == .randomPlay {
-                            NavigationLink(destination: LazyView( RandomThemeView(theme).environmentObject(userManager))) {
-                                CurationCardView(theme: theme.data)
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(themeList) { theme in
+                            if theme == .randomPlay {
+                                NavigationLink(destination: LazyView( RandomThemeView(theme).environmentObject(userManager))) {
+                                    CurationCardView(theme: theme.data)
+                                }
+                                .frame(width: 165, height: 200)
+                            } else {
+                                NavigationLink(destination: LazyView( ThemeView(theme).environmentObject(userManager))) {
+                                    CurationCardView(theme: theme.data)
+                                }
+                                .frame(width: 165, height: 200)
                             }
-                            .frame(width: 165, height: 200)
-                        } else {
-                            NavigationLink(destination: LazyView( ThemeView(theme).environmentObject(userManager))) {
-                                CurationCardView(theme: theme.data)
-                            }
-                            .frame(width: 165, height: 200)
                         }
                     }
                 }
+                .padding(.top, 30)
+                .padding(.horizontal, 20)
             }
-            .padding(.top, 30)
-            .padding(.horizontal, 20)
+            .navigationBarHidden(true)
+            .navigationBarTitle("", displayMode: .inline)
         }
         .navigationBarHidden(true)
         .navigationBarTitle("", displayMode: .inline)

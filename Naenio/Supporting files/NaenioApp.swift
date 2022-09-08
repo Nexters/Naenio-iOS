@@ -34,18 +34,18 @@ struct NaenioApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                if tokenManager.accessToken == nil {
-                    LoginView()
-                        .environmentObject(tokenManager)
-                        .environmentObject(userManager)
-                } else if userManager.user?.nickname == nil,
-                          userManager.status == .fetched {
-                    OnboardingView()
-                        .environmentObject(userManager)
-                } else if tokenManager.accessToken != nil,
-                          userManager.user != nil,
-                          userManager.status == .fetched {
+            if tokenManager.accessToken == nil {
+                LoginView()
+                    .environmentObject(tokenManager)
+                    .environmentObject(userManager)
+            } else if userManager.user?.nickname == nil,
+                      userManager.status == .fetched {
+                OnboardingView()
+                    .environmentObject(userManager)
+            } else if tokenManager.accessToken != nil,
+                      userManager.user != nil,
+                      userManager.status == .fetched {
+                NavigationView {
                     MainView()
                         .environmentObject(userManager)
                         .onOpenURL { url in
@@ -58,41 +58,31 @@ struct NaenioApp: App {
                         .background(
                             NavigationLink(destination:
                                             OpenedByLinkFullView(postId: arrivedPostId, showCommentFirst: false)
-                                                .environmentObject(userManager),
+                                .environmentObject(userManager),
                                            isActive: $isLinkOpened) {
-                                EmptyView()
-                            }
+                                               EmptyView()
+                                           }
                         )
-                } else {
-                    ZStack(alignment: .center) {
-                        Color.background
-                            .ignoresSafeArea()
-//                        Color.maskGradientVertical
-//                            .ignoresSafeArea()
-//                            .zIndex(0.1)
-//
-//                        Color.linearGradientVertical
-//                            .ignoresSafeArea()
-//                            .zIndex(0)
-//
-//                        LoadingIndicator()
-//                            .zIndex(1)
-                    }
+                }
+            } else {
+                ZStack(alignment: .center) {
+                    Color.background
+                        .ignoresSafeArea()
                 }
             }
         }
     }
-    
-    // Maybe replaced later by URL handler class
-    func handleUrl(_ url: URL) -> Int? {
-        print("URL received: \(url)")
-        guard let link = URLComponents(url: url, resolvingAgainstBaseURL: false),
-              let linkItem = link.queryItems?.filter({ $0.name == "link" }).last?.value,
-              let postId = linkItem.components(separatedBy: "//").last
-        else {
-            return nil
-        }
-        
-        return Int(postId)
+}
+
+// Maybe replaced later by URL handler class
+func handleUrl(_ url: URL) -> Int? {
+    print("URL received: \(url)")
+    guard let link = URLComponents(url: url, resolvingAgainstBaseURL: false),
+          let linkItem = link.queryItems?.filter({ $0.name == "link" }).last?.value,
+          let postId = linkItem.components(separatedBy: "//").last
+    else {
+        return nil
     }
+    
+    return Int(postId)
 }
