@@ -48,7 +48,7 @@ struct CommentView: View {
                         // placeholder
                         Rectangle()
                             .fill(Color.clear)
-                            .frame(height: 30)
+                            .frame(height: 8)
                         
                         // Sheet's header
                         HStack {
