@@ -43,7 +43,7 @@ struct CommentRepliesView: View {
                     // placeholder
                     Rectangle()
                         .fill(Color.clear)
-                        .frame(height: 30)
+                        .frame(height: 8)
                     
                     HStack { // Sheet's header
                         Button(action: {

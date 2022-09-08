@@ -40,11 +40,14 @@ struct ProfileChangeView: View {
                         .padding(.top, 60)
                         .padding(.bottom, 42)
                     
-                    TextField("", text: $text)
+                    TextField(userManager.getNickName(), text: $text)
                         .foregroundColor(.white)
                         .padding(.vertical, 7)
                         .padding(.horizontal, 20)
                         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.white))
+                        .introspectTextField { textField in
+                            textField.becomeFirstResponder()
+                        }
                     
                     Spacer()
                 }
