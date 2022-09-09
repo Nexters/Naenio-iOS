@@ -270,7 +270,6 @@
 		9B478A5728A71A48007A4715 /* CommentContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5628A71A48007A4715 /* CommentContentCell.swift */; };
 		9B478A5A28A72100007A4715 /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5928A72100007A4715 /* CustomDivider.swift */; };
 		9B51B54928CB327C0070913C /* Pods_Naenio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B51B54828CB327C0070913C /* Pods_Naenio.framework */; };
-		9B51B54A28CB327C0070913C /* Pods_Naenio.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B51B54828CB327C0070913C /* Pods_Naenio.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9B53382928C4B32F006DECFC /* NoticeResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382728C4B32F006DECFC /* NoticeResponseModel.swift */; };
 		9B53382A28C4B32F006DECFC /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382828C4B32F006DECFC /* Notice.swift */; };
 		9B53382F28C4B409006DECFC /* MyComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382C28C4B408006DECFC /* MyComment.swift */; };
@@ -395,20 +394,6 @@
 			remoteInfo = Naenio;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		9B51B54B28CB327C0070913C /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				9B51B54A28CB327C0070913C /* Pods_Naenio.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4C43C8C32886FB8200A60372 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -1620,7 +1605,6 @@
 				9B1FED8E28CAE17E00340F27 /* Resources */,
 				9B1FEDA128CAE17E00340F27 /* ShellScript */,
 				0D6C16815034BEFFAB8AEAE5 /* [CP] Embed Pods Frameworks */,
-				9B51B54B28CB327C0070913C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
