@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9B5613F128CAD01A00160271"
+               BlueprintIdentifier = "9B1FEB5528CADF1A00340F27"
                BuildableName = "Naenio-deploy.app"
                BlueprintName = "Naenio-deploy"
                ReferencedContainer = "container:Naenio.xcodeproj">
@@ -44,7 +44,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9B5613F128CAD01A00160271"
+            BlueprintIdentifier = "9B1FEB5528CADF1A00340F27"
             BuildableName = "Naenio-deploy.app"
             BlueprintName = "Naenio-deploy"
             ReferencedContainer = "container:Naenio.xcodeproj">
@@ -61,7 +61,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9B5613F128CAD01A00160271"
+            BlueprintIdentifier = "9B1FEB5528CADF1A00340F27"
             BuildableName = "Naenio-deploy.app"
             BlueprintName = "Naenio-deploy"
             ReferencedContainer = "container:Naenio.xcodeproj">
