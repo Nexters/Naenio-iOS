@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3976712267331063EAC7A84E /* Pods_Naenio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5F6CBF99D23F14ED7A57316 /* Pods_Naenio.framework */; };
+		079F97590C1004A7421B4197 /* Pods_Naenio_NaenioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27C6C895BBEAE5C3FD2264F0 /* Pods_Naenio_NaenioUITests.framework */; };
+		36C94A555D5C023D6E85A770 /* Pods_Naenio_deploy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24CAA901F7B22B02B9913FE0 /* Pods_Naenio_deploy.framework */; };
 		4C43C8C42886FB8200A60372 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43C8C32886FB8200A60372 /* String+Extension.swift */; };
 		4C4B13322883AAC3006044B0 /* NaenioAPI+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B13312883AAC3006044B0 /* NaenioAPI+Path.swift */; };
 		4C4B13342883AAE0006044B0 /* NaenioAPI+Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B13332883AAE0006044B0 /* NaenioAPI+Task.swift */; };
@@ -50,7 +51,6 @@
 		4CD3555028BBA04F00BD6FB5 /* RandomThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3554F28BBA04F00BD6FB5 /* RandomThemeViewModel.swift */; };
 		4CD3555328C3987000BD6FB5 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3555228C3987000BD6FB5 /* MotionManager.swift */; };
 		4CE1C4F128CB563600F096B3 /* splash_view.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CE1C4F028CB563600F096B3 /* splash_view.png */; };
-		9614B621D4CC0B2C73F7DEC7 /* Pods_NaenioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4D2CB931A5CBFEC9EEC19DB /* Pods_NaenioTests.framework */; };
 		9B03732428A5551B0089CC48 /* KeyboardAdaptive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732328A5551B0089CC48 /* KeyboardAdaptive.swift */; };
 		9B03732728A555800089CC48 /* Publishers + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732628A555800089CC48 /* Publishers + Extension.swift */; };
 		9B03732B28A555D60089CC48 /* Notification + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732A28A555D60089CC48 /* Notification + Extension.swift */; };
@@ -63,6 +63,7 @@
 		9B085F142879991600DE8E60 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F132879991600DE8E60 /* LoginTests.swift */; };
 		9B085F1E2879991600DE8E60 /* NaenioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1D2879991600DE8E60 /* NaenioUITests.swift */; };
 		9B085F202879991600DE8E60 /* NaenioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */; };
+		9B12A1E228CC02BF006CCE37 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B53383728C4F445006DECFC /* Info.plist */; };
 		9B19A1DD28AF7B1E0072DEDA /* AvailableNicknameResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B19A1DC28AF7B1E0072DEDA /* AvailableNicknameResponseModel.swift */; };
 		9B1FECEA28CAE17E00340F27 /* CommentContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5628A71A48007A4715 /* CommentContentCell.swift */; };
 		9B1FECEB28CAE17E00340F27 /* VoteRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEA928ABF94900458138 /* VoteRequestModel.swift */; };
@@ -224,7 +225,6 @@
 		9B1FED8728CAE17E00340F27 /* MockPostGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8B5E09289CEF000029BB66 /* MockPostGenerator.swift */; };
 		9B1FED8828CAE17E00340F27 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE311D328A6439900EDB0F4 /* CommentView.swift */; };
 		9B1FED8928CAE17E00340F27 /* CurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4B7382896BF1C00774192 /* CurationView.swift */; };
-		9B1FED8B28CAE17E00340F27 /* libswift_Concurrency.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B53383C28C4F5CA006DECFC /* libswift_Concurrency.tbd */; };
 		9B1FED8C28CAE17E00340F27 /* AlertState in Frameworks */ = {isa = PBXBuildFile; productRef = 9B1FECE628CAE17E00340F27 /* AlertState */; };
 		9B1FED8F28CAE17E00340F27 /* MockPostWroteList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B6F0E289BE1B4002A76A7 /* MockPostWroteList.json */; };
 		9B1FED9028CAE17E00340F27 /* MockPostParticipatedList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B6F0F289BE1B6002A76A7 /* MockPostParticipatedList.json */; };
@@ -244,7 +244,6 @@
 		9B1FED9E28CAE17E00340F27 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE602AA2895491B008F291C /* Montserrat-Medium.ttf */; };
 		9B1FED9F28CAE17E00340F27 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE602AC2895491B008F291C /* Montserrat-Bold.ttf */; };
 		9B1FEDA028CAE17E00340F27 /* Pretendard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE6029E289548CF008F291C /* Pretendard-Bold.ttf */; };
-		9B1FEDA828CAEBFF00340F27 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B53383728C4F445006DECFC /* Info.plist */; };
 		9B244070289E8DC30060A244 /* View + Exetension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B24406F289E8DC30060A244 /* View + Exetension.swift */; };
 		9B244073289E9AA10060A244 /* VotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B244072289E9AA10060A244 /* VotesView.swift */; };
 		9B244075289E9AF10060A244 /* VotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B244074289E9AF10060A244 /* VotesViewModel.swift */; };
@@ -270,7 +269,6 @@
 		9B478A5328A7127B007A4715 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5228A7127B007A4715 /* CloseButton.swift */; };
 		9B478A5728A71A48007A4715 /* CommentContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5628A71A48007A4715 /* CommentContentCell.swift */; };
 		9B478A5A28A72100007A4715 /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5928A72100007A4715 /* CustomDivider.swift */; };
-		9B51B54928CB327C0070913C /* Pods_Naenio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B51B54828CB327C0070913C /* Pods_Naenio.framework */; };
 		9B51B55A28CB66B00070913C /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B51B55928CB66AF0070913C /* KeyValue.swift */; };
 		9B51B55B28CB66B00070913C /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B51B55928CB66AF0070913C /* KeyValue.swift */; };
 		9B53382928C4B32F006DECFC /* NoticeResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382728C4B32F006DECFC /* NoticeResponseModel.swift */; };
@@ -278,7 +276,6 @@
 		9B53382F28C4B409006DECFC /* MyComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382C28C4B408006DECFC /* MyComment.swift */; };
 		9B53383028C4B409006DECFC /* MyCommentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382D28C4B408006DECFC /* MyCommentRequest.swift */; };
 		9B53383128C4B409006DECFC /* MyCommentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382E28C4B408006DECFC /* MyCommentResponseModel.swift */; };
-		9B53383E28C4F5F8006DECFC /* libswift_Concurrency.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B53383C28C4F5CA006DECFC /* libswift_Concurrency.tbd */; };
 		9B61D0D128A88E7F00F6DD0B /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D028A88E7F00F6DD0B /* CustomSheet.swift */; };
 		9B61D0D328A88FB300F6DD0B /* CustomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D228A88FB200F6DD0B /* CustomSheetView.swift */; };
 		9B61D0DC28A8EE4500F6DD0B /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0DB28A8EE4500F6DD0B /* RoundedCorner.swift */; };
@@ -292,6 +289,7 @@
 		9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B687DE928954D4A0048AED0 /* Font + Extension.swift */; };
 		9B86192D28A77D920098AC8E /* CommentRepliesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86192C28A77D920098AC8E /* CommentRepliesView.swift */; };
 		9B86192F28A782990098AC8E /* CommentRepliesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86192E28A782990098AC8E /* CommentRepliesViewModel.swift */; };
+		9B8860E728CC0205005873D6 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9B8B98BA289948DA007336DE /* LocalStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B98B9289948DA007336DE /* LocalStorageKeys.swift */; };
 		9B8D409C28AE86B90024E989 /* VotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8D409B28AE86B90024E989 /* VotesViewModel.swift */; };
 		9B91D80D28BF835D008D9E9E /* CommentContentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B91D80C28BF835D008D9E9E /* CommentContentCellViewModel.swift */; };
@@ -377,7 +375,8 @@
 		9CE311CF28A63E7200EDB0F4 /* MockCommentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE311CE28A63E7200EDB0F4 /* MockCommentGenerator.swift */; };
 		9CE311D228A63FB300EDB0F4 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE311D128A63FB300EDB0F4 /* CommentModel.swift */; };
 		9CE311D428A6439900EDB0F4 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE311D328A6439900EDB0F4 /* CommentView.swift */; };
-		A5D7D7EC284C8B40D6922435 /* Pods_Naenio_NaenioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D738E0B29727ABCFC89BA9 /* Pods_Naenio_NaenioUITests.framework */; };
+		D4F150B72DDDF39CECADED6A /* Pods_NaenioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BFB76D0988BF947DAED37C6 /* Pods_NaenioTests.framework */; };
+		E659579AC17CD185F1518A55 /* Pods_Naenio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F90AE7C66B6F401694AE25 /* Pods_Naenio.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -397,7 +396,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		9B8860E828CC0205005873D6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9B8860E728CC0205005873D6 /* (null) in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		24CAA901F7B22B02B9913FE0 /* Pods_Naenio_deploy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naenio_deploy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		27C6C895BBEAE5C3FD2264F0 /* Pods_Naenio_NaenioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naenio_NaenioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A16018FC1AAF6152F0D6364 /* Pods-Naenio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio.debug.xcconfig"; path = "Target Support Files/Pods-Naenio/Pods-Naenio.debug.xcconfig"; sourceTree = "<group>"; };
+		3BFB76D0988BF947DAED37C6 /* Pods_NaenioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NaenioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C43C8C32886FB8200A60372 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		4C4B13312883AAC3006044B0 /* NaenioAPI+Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Path.swift"; sourceTree = "<group>"; };
 		4C4B13332883AAE0006044B0 /* NaenioAPI+Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Task.swift"; sourceTree = "<group>"; };
@@ -441,10 +458,8 @@
 		4CD3555228C3987000BD6FB5 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		4CE1C4EE28CB561500F096B3 /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyValue.swift; path = ../../../../../Desktop/ignored/KeyValue.swift; sourceTree = "<group>"; };
 		4CE1C4F028CB563600F096B3 /* splash_view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_view.png; sourceTree = "<group>"; };
-		4F13DE7D0F82968D021E7D5A /* Pods-Naenio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio.debug.xcconfig"; path = "Target Support Files/Pods-Naenio/Pods-Naenio.debug.xcconfig"; sourceTree = "<group>"; };
-		6EEC7A3CEE7F134622B2883A /* Pods-NaenioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaenioTests.debug.xcconfig"; path = "Target Support Files/Pods-NaenioTests/Pods-NaenioTests.debug.xcconfig"; sourceTree = "<group>"; };
-		87B72A758E4D3D139659E6B5 /* Pods-Naenio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio.release.xcconfig"; path = "Target Support Files/Pods-Naenio/Pods-Naenio.release.xcconfig"; sourceTree = "<group>"; };
-		9558DF8B39ED510996E84BF3 /* Pods-NaenioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaenioTests.release.xcconfig"; path = "Target Support Files/Pods-NaenioTests/Pods-NaenioTests.release.xcconfig"; sourceTree = "<group>"; };
+		63F90AE7C66B6F401694AE25 /* Pods_Naenio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naenio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		755B6298DD0A8BCEE124CA99 /* Pods-Naenio-NaenioUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio-NaenioUITests.release.xcconfig"; path = "Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9B03732328A5551B0089CC48 /* KeyboardAdaptive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAdaptive.swift; sourceTree = "<group>"; };
 		9B03732628A555800089CC48 /* Publishers + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers + Extension.swift"; sourceTree = "<group>"; };
 		9B03732A28A555D60089CC48 /* Notification + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification + Extension.swift"; sourceTree = "<group>"; };
@@ -489,7 +504,6 @@
 		9B478A5228A7127B007A4715 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		9B478A5628A71A48007A4715 /* CommentContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentContentCell.swift; sourceTree = "<group>"; };
 		9B478A5928A72100007A4715 /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
-		9B51B54828CB327C0070913C /* Pods_Naenio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Naenio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B51B55928CB66AF0070913C /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
 		9B53382728C4B32F006DECFC /* NoticeResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeResponseModel.swift; sourceTree = "<group>"; };
 		9B53382828C4B32F006DECFC /* Notice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
@@ -595,14 +609,12 @@
 		9CE311CE28A63E7200EDB0F4 /* MockCommentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCommentGenerator.swift; sourceTree = "<group>"; };
 		9CE311D128A63FB300EDB0F4 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
 		9CE311D328A6439900EDB0F4 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
-		AC3DDF8E079D1EF7BAE7E89B /* Pods-Naenio-NaenioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio-NaenioUITests.debug.xcconfig"; path = "Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		D1D738E0B29727ABCFC89BA9 /* Pods_Naenio_NaenioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naenio_NaenioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D46D94746AE73DEB02B7AC50 /* Pods-Naenio-NaenioUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio-NaenioUITests.release.xcconfig"; path = "Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests.release.xcconfig"; sourceTree = "<group>"; };
-		D4D2CB931A5CBFEC9EEC19DB /* Pods_NaenioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NaenioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D5F6CBF99D23F14ED7A57316 /* Pods_Naenio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naenio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E327C4C9D494152B9FF285CD /* Pods-Naenio-Naenio-deploy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio-Naenio-deploy.debug.xcconfig"; path = "Target Support Files/Pods-Naenio-Naenio-deploy/Pods-Naenio-Naenio-deploy.debug.xcconfig"; sourceTree = "<group>"; };
-		E94E207EB3BEA8D5013F4D94 /* Pods-Naenio-Naenio-deploy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio-Naenio-deploy.release.xcconfig"; path = "Target Support Files/Pods-Naenio-Naenio-deploy/Pods-Naenio-Naenio-deploy.release.xcconfig"; sourceTree = "<group>"; };
-		F55B5D753E7FE49F42D41843 /* Pods_Naenio_Naenio_deploy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naenio_Naenio_deploy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD84BBBE32FAD20019C396EA /* Pods-Naenio-deploy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio-deploy.release.xcconfig"; path = "Target Support Files/Pods-Naenio-deploy/Pods-Naenio-deploy.release.xcconfig"; sourceTree = "<group>"; };
+		AE467BF6CA74FA79C3BE202D /* Pods-NaenioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaenioTests.release.xcconfig"; path = "Target Support Files/Pods-NaenioTests/Pods-NaenioTests.release.xcconfig"; sourceTree = "<group>"; };
+		AE6066B56980C778941C8CE8 /* Pods-NaenioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaenioTests.debug.xcconfig"; path = "Target Support Files/Pods-NaenioTests/Pods-NaenioTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DB7A824D046CE27170A006EE /* Pods-Naenio-NaenioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio-NaenioUITests.debug.xcconfig"; path = "Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DD877B63358DA69A05657BBF /* Pods-Naenio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio.release.xcconfig"; path = "Target Support Files/Pods-Naenio/Pods-Naenio.release.xcconfig"; sourceTree = "<group>"; };
+		FCB7670036A606F8AEAC0E80 /* Pods-Naenio-deploy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio-deploy.debug.xcconfig"; path = "Target Support Files/Pods-Naenio-deploy/Pods-Naenio-deploy.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -610,9 +622,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B53383E28C4F5F8006DECFC /* libswift_Concurrency.tbd in Frameworks */,
 				9B95222828C7683100FA2F01 /* AlertState in Frameworks */,
-				3976712267331063EAC7A84E /* Pods_Naenio.framework in Frameworks */,
+				E659579AC17CD185F1518A55 /* Pods_Naenio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,7 +631,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9614B621D4CC0B2C73F7DEC7 /* Pods_NaenioTests.framework in Frameworks */,
+				D4F150B72DDDF39CECADED6A /* Pods_NaenioTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,7 +639,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5D7D7EC284C8B40D6922435 /* Pods_Naenio_NaenioUITests.framework in Frameworks */,
+				079F97590C1004A7421B4197 /* Pods_Naenio_NaenioUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,9 +647,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B1FED8B28CAE17E00340F27 /* libswift_Concurrency.tbd in Frameworks */,
 				9B1FED8C28CAE17E00340F27 /* AlertState in Frameworks */,
-				9B51B54928CB327C0070913C /* Pods_Naenio.framework in Frameworks */,
+				36C94A555D5C023D6E85A770 /* Pods_Naenio_deploy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -810,14 +820,14 @@
 		5384CA9EFAD91A1B81B34F6B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4F13DE7D0F82968D021E7D5A /* Pods-Naenio.debug.xcconfig */,
-				87B72A758E4D3D139659E6B5 /* Pods-Naenio.release.xcconfig */,
-				AC3DDF8E079D1EF7BAE7E89B /* Pods-Naenio-NaenioUITests.debug.xcconfig */,
-				D46D94746AE73DEB02B7AC50 /* Pods-Naenio-NaenioUITests.release.xcconfig */,
-				6EEC7A3CEE7F134622B2883A /* Pods-NaenioTests.debug.xcconfig */,
-				9558DF8B39ED510996E84BF3 /* Pods-NaenioTests.release.xcconfig */,
-				E327C4C9D494152B9FF285CD /* Pods-Naenio-Naenio-deploy.debug.xcconfig */,
-				E94E207EB3BEA8D5013F4D94 /* Pods-Naenio-Naenio-deploy.release.xcconfig */,
+				2A16018FC1AAF6152F0D6364 /* Pods-Naenio.debug.xcconfig */,
+				DD877B63358DA69A05657BBF /* Pods-Naenio.release.xcconfig */,
+				DB7A824D046CE27170A006EE /* Pods-Naenio-NaenioUITests.debug.xcconfig */,
+				755B6298DD0A8BCEE124CA99 /* Pods-Naenio-NaenioUITests.release.xcconfig */,
+				FCB7670036A606F8AEAC0E80 /* Pods-Naenio-deploy.debug.xcconfig */,
+				AD84BBBE32FAD20019C396EA /* Pods-Naenio-deploy.release.xcconfig */,
+				AE6066B56980C778941C8CE8 /* Pods-NaenioTests.debug.xcconfig */,
+				AE467BF6CA74FA79C3BE202D /* Pods-NaenioTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -825,12 +835,11 @@
 		5A5E2382BAF75B50B64733A4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9B51B54828CB327C0070913C /* Pods_Naenio.framework */,
 				9B53383C28C4F5CA006DECFC /* libswift_Concurrency.tbd */,
-				D5F6CBF99D23F14ED7A57316 /* Pods_Naenio.framework */,
-				D1D738E0B29727ABCFC89BA9 /* Pods_Naenio_NaenioUITests.framework */,
-				D4D2CB931A5CBFEC9EEC19DB /* Pods_NaenioTests.framework */,
-				F55B5D753E7FE49F42D41843 /* Pods_Naenio_Naenio_deploy.framework */,
+				63F90AE7C66B6F401694AE25 /* Pods_Naenio.framework */,
+				27C6C895BBEAE5C3FD2264F0 /* Pods_Naenio_NaenioUITests.framework */,
+				24CAA901F7B22B02B9913FE0 /* Pods_Naenio_deploy.framework */,
+				3BFB76D0988BF947DAED37C6 /* Pods_NaenioTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1543,12 +1552,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B085F232879991600DE8E60 /* Build configuration list for PBXNativeTarget "Naenio" */;
 			buildPhases = (
-				7D4F60C65C36D470C4A0ECC0 /* [CP] Check Pods Manifest.lock */,
+				04D5D5CA073C5D8C1CBE62D8 /* [CP] Check Pods Manifest.lock */,
 				9B085EFB2879991400DE8E60 /* Sources */,
 				9B085EFC2879991400DE8E60 /* Frameworks */,
 				9B085EFD2879991400DE8E60 /* Resources */,
 				4CA47BC82890336A00D300A7 /* ShellScript */,
-				B36DF76D4348F47A5D7EF034 /* [CP] Embed Pods Frameworks */,
+				7F848A78DAABE5A6A70796C1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1566,7 +1575,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B085F262879991600DE8E60 /* Build configuration list for PBXNativeTarget "NaenioTests" */;
 			buildPhases = (
-				6442F7E35951FC1D5BA891BD /* [CP] Check Pods Manifest.lock */,
+				5EC235772C024F84C6353078 /* [CP] Check Pods Manifest.lock */,
 				9B085F0B2879991600DE8E60 /* Sources */,
 				9B085F0C2879991600DE8E60 /* Frameworks */,
 				9B085F0D2879991600DE8E60 /* Resources */,
@@ -1585,11 +1594,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B085F292879991600DE8E60 /* Build configuration list for PBXNativeTarget "NaenioUITests" */;
 			buildPhases = (
-				63530A99C87CE383D848B49F /* [CP] Check Pods Manifest.lock */,
+				70B6959AEB67C977B103B9FA /* [CP] Check Pods Manifest.lock */,
 				9B085F152879991600DE8E60 /* Sources */,
 				9B085F162879991600DE8E60 /* Frameworks */,
 				9B085F172879991600DE8E60 /* Resources */,
-				3854AF9CD0B30A334FB6BEDB /* [CP] Embed Pods Frameworks */,
+				B0AD000654DCCAF8858E82C7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1605,12 +1614,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B1FEDA328CAE17E00340F27 /* Build configuration list for PBXNativeTarget "Naenio-deploy" */;
 			buildPhases = (
-				48F36DFA367D40CB0669BB2A /* [CP] Check Pods Manifest.lock */,
+				373AFC0D1AEDBEE976437110 /* [CP] Check Pods Manifest.lock */,
 				9B1FECE928CAE17E00340F27 /* Sources */,
 				9B1FED8A28CAE17E00340F27 /* Frameworks */,
 				9B1FED8E28CAE17E00340F27 /* Resources */,
 				9B1FEDA128CAE17E00340F27 /* ShellScript */,
-				0D6C16815034BEFFAB8AEAE5 /* [CP] Embed Pods Frameworks */,
+				9B8860E828CC0205005873D6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1685,7 +1694,6 @@
 				9BE602A0289548CF008F291C /* Pretendard-Medium.ttf in Resources */,
 				4CE1C4F128CB563600F096B3 /* splash_view.png in Resources */,
 				4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */,
-				9B1FEDA828CAEBFF00340F27 /* Info.plist in Resources */,
 				9BE602B82895491B008F291C /* Montserrat-Regular.ttf in Resources */,
 				4CA47BCA2890344400D300A7 /* .swiftlint.yml in Resources */,
 				9CBCDCDF28AE14B700C4C577 /* full_loading.json in Resources */,
@@ -1726,6 +1734,7 @@
 				9B1FED9428CAE17E00340F27 /* Pretendard-Regular.ttf in Resources */,
 				9B1FED9528CAE17E00340F27 /* Pretendard-Medium.ttf in Resources */,
 				9B1FED9628CAE17E00340F27 /* .swiftlint.yml in Resources */,
+				9B12A1E228CC02BF006CCE37 /* Info.plist in Resources */,
 				9B1FED9728CAE17E00340F27 /* Montserrat-Regular.ttf in Resources */,
 				9B1FED9628CAE17E00340F27 /* .swiftlint.yml in Resources */,
 				9B1FED9828CAE17E00340F27 /* full_loading.json in Resources */,
@@ -1743,41 +1752,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0D6C16815034BEFFAB8AEAE5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Naenio-Naenio-deploy/Pods-Naenio-Naenio-deploy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Naenio-Naenio-deploy/Pods-Naenio-Naenio-deploy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Naenio-Naenio-deploy/Pods-Naenio-Naenio-deploy-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3854AF9CD0B30A334FB6BEDB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		48F36DFA367D40CB0669BB2A /* [CP] Check Pods Manifest.lock */ = {
+		04D5D5CA073C5D8C1CBE62D8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1792,7 +1767,29 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Naenio-Naenio-deploy-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Naenio-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		373AFC0D1AEDBEE976437110 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Naenio-deploy-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1816,29 +1813,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
-		63530A99C87CE383D848B49F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Naenio-NaenioUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6442F7E35951FC1D5BA891BD /* [CP] Check Pods Manifest.lock */ = {
+		5EC235772C024F84C6353078 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1860,7 +1835,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7D4F60C65C36D470C4A0ECC0 /* [CP] Check Pods Manifest.lock */ = {
+		70B6959AEB67C977B103B9FA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1875,11 +1850,28 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Naenio-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Naenio-NaenioUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F848A78DAABE5A6A70796C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Naenio/Pods-Naenio-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Naenio/Pods-Naenio-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Naenio/Pods-Naenio-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9B1FEDA128CAE17E00340F27 /* ShellScript */ = {
@@ -1899,21 +1891,21 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
-		B36DF76D4348F47A5D7EF034 /* [CP] Embed Pods Frameworks */ = {
+		B0AD000654DCCAF8858E82C7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Naenio/Pods-Naenio-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Naenio/Pods-Naenio-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Naenio/Pods-Naenio-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2408,9 +2400,8 @@
 		};
 		9B085F242879991600DE8E60 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F13DE7D0F82968D021E7D5A /* Pods-Naenio.debug.xcconfig */;
+			baseConfigurationReference = 2A16018FC1AAF6152F0D6364 /* Pods-Naenio.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Naenio/Naenio.entitlements;
@@ -2451,9 +2442,8 @@
 		};
 		9B085F252879991600DE8E60 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 87B72A758E4D3D139659E6B5 /* Pods-Naenio.release.xcconfig */;
+			baseConfigurationReference = DD877B63358DA69A05657BBF /* Pods-Naenio.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Naenio/Naenio.entitlements;
@@ -2494,7 +2484,7 @@
 		};
 		9B085F272879991600DE8E60 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6EEC7A3CEE7F134622B2883A /* Pods-NaenioTests.debug.xcconfig */;
+			baseConfigurationReference = AE6066B56980C778941C8CE8 /* Pods-NaenioTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2515,7 +2505,7 @@
 		};
 		9B085F282879991600DE8E60 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9558DF8B39ED510996E84BF3 /* Pods-NaenioTests.release.xcconfig */;
+			baseConfigurationReference = AE467BF6CA74FA79C3BE202D /* Pods-NaenioTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2536,7 +2526,7 @@
 		};
 		9B085F2A2879991600DE8E60 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC3DDF8E079D1EF7BAE7E89B /* Pods-Naenio-NaenioUITests.debug.xcconfig */;
+			baseConfigurationReference = DB7A824D046CE27170A006EE /* Pods-Naenio-NaenioUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
@@ -2555,7 +2545,7 @@
 		};
 		9B085F2B2879991600DE8E60 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D46D94746AE73DEB02B7AC50 /* Pods-Naenio-NaenioUITests.release.xcconfig */;
+			baseConfigurationReference = 755B6298DD0A8BCEE124CA99 /* Pods-Naenio-NaenioUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
@@ -2574,7 +2564,7 @@
 		};
 		9B1FEDA428CAE17E00340F27 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E327C4C9D494152B9FF285CD /* Pods-Naenio-Naenio-deploy.debug.xcconfig */;
+			baseConfigurationReference = FCB7670036A606F8AEAC0E80 /* Pods-Naenio-deploy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2616,7 +2606,7 @@
 		};
 		9B1FEDA528CAE17E00340F27 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E94E207EB3BEA8D5013F4D94 /* Pods-Naenio-Naenio-deploy.release.xcconfig */;
+			baseConfigurationReference = AD84BBBE32FAD20019C396EA /* Pods-Naenio-deploy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
