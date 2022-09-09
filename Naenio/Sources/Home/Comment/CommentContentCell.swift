@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import AlertState
 
 struct CommentContentCell: View {
     typealias Comment = CommentModel.Comment
     typealias Action = () -> Void
     
     @State var isNavigationActive: Bool = false
+    
+    @AlertState<SystemAlert> var alertState
     
     // Injected values
     @StateObject var viewModel = CommentContentCellViewModel()
@@ -97,11 +100,12 @@ struct CommentContentCell: View {
                 
                 viewModel.status = .waiting
             case .fail(with: let error):
-                print(error.localizedDescription)
+                alertState = .errorHappend(error: error)
             default:
                 break
             }
         }
+        .showAlert(with: $alertState)
     }
 }
 

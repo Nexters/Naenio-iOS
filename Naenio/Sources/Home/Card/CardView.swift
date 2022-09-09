@@ -7,11 +7,14 @@
 
 import SwiftUI
 import Combine
+import AlertState
 
 struct CardView: View {
     typealias Action = () -> Void
     
     @State var voteHappened = false
+    
+    @AlertState<SystemAlert> var alertState
     
     // Injected values
     @EnvironmentObject var userManager: UserManager
@@ -110,13 +113,14 @@ struct CardView: View {
                     }
                     // TODO: Alert
                 }
-            case .fail:
-                // TODO: 실패 alert
+            case .fail(with: let error):
+                alertState = .errorHappend(error: error)
                 break
             default:
                 break
             }
         }
+        .showAlert(with: $alertState)
     }
     
     init(_ viewModel: CardViewModel = CardViewModel(),

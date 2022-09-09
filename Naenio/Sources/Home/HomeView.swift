@@ -8,12 +8,15 @@
 import SwiftUI
 import Combine
 import Introspect
+import AlertState
 
 struct HomeView: View {
     @EnvironmentObject var userManager: UserManager
     @StateObject var viewModel = HomeViewModel()
     @ObservedObject var scrollViewHelper = ScrollViewHelper()
 
+    @AlertState<SystemAlert> var alertState
+    
     @State var showNewPost = false
     @State var showComments = false
     
@@ -120,8 +123,10 @@ struct HomeView: View {
                                         break
                                     }
                                     scrollViewHelper.refreshController.endRefreshing()
-                                case .fail(with: _):
+                                case .fail(with: let error):
                                     scrollViewHelper.refreshController.endRefreshing()
+                                    alertState = .errorHappend(error: error)
+                                    print(error.localizedDescription)
                                 default:
                                     break
                                 }
@@ -143,6 +148,7 @@ struct HomeView: View {
                 floatingButton
                     .padding(20)
             }
+            .showAlert(with: $alertState)
             .navigationBarHidden(true)
             .navigationBarTitle("", displayMode: .inline)
             .fullScreenCover(isPresented: $showNewPost) {

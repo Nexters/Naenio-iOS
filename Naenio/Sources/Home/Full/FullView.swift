@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import AlertState
 
 struct FullView: View {
     typealias Action = () -> Void
@@ -15,6 +16,8 @@ struct FullView: View {
     @State private var toastInfo = ToastInformation(isPresented: false, title: "", action: {}) // 리팩토링 시급, 토스트 시트 용 정보 스트럭트
     @State private var voteHappened: Bool = false
     @State private var selectedPostId: Int?
+    
+    @AlertState<SystemAlert> var alertState
     
     // Injected values
     @EnvironmentObject var userManager: UserManager
@@ -128,6 +131,15 @@ struct FullView: View {
         .onChange(of: post.choices) { _ in
             voteHappened = true
         }
+        .onChange(of: viewModel.status) { status in
+            switch status {
+            case .fail(with: let error):
+                alertState = .errorHappend(error: error)
+            default:
+                break
+            }
+        }
+        .showAlert(with: $alertState)
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {

@@ -8,11 +8,14 @@
 import SwiftUI
 import Combine
 import Introspect
+import AlertState
 
 struct ThemeView: View {
     @EnvironmentObject var userManager: UserManager
     @StateObject var viewModel = ThemeViewModel()
     @ObservedObject var scrollViewHelper = ScrollViewHelper()
+    
+    @AlertState<SystemAlert> var alertState
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -90,8 +93,9 @@ struct ThemeView: View {
                         switch status {
                         case .done:
                             scrollViewHelper.refreshController.endRefreshing()
-                        case .fail(with: _):
+                        case .fail(with: let error):
                             scrollViewHelper.refreshController.endRefreshing()
+                            alertState = .errorHappend(error: error)
                         default:
                             break
                         }
@@ -101,6 +105,7 @@ struct ThemeView: View {
             .padding(.top, 20)
             .fillScreen()
         }
+        .showAlert(with: $alertState)
         .onAppear {
             viewModel.theme = self.theme
             viewModel.requestThemePosts()
