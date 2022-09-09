@@ -79,7 +79,8 @@ func handleUrl(_ url: URL) -> Int? {
     print("URL received: \(url)")
     guard let link = URLComponents(url: url, resolvingAgainstBaseURL: false),
           let linkItem = link.queryItems?.filter({ $0.name == "link" }).last?.value,
-          let postId = linkItem.components(separatedBy: "//").last
+          let postQuery = linkItem.components(separatedBy: "//").last,
+          let postId = postQuery.split(separator: "=").last
     else {
         return nil
     }
