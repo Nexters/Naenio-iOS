@@ -2524,7 +2524,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2DCCFBE6A5BBC18157338577 /* Pods-Naenio-NaenioUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W6QHM4Y43Z;
@@ -2543,7 +2543,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 26820D9098DAF923BCEB8A65 /* Pods-Naenio-NaenioUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W6QHM4Y43Z;
