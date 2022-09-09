@@ -11,7 +11,7 @@ import Introspect
 
 struct ThemeView: View {
     @EnvironmentObject var userManager: UserManager
-    @StateObject var viewModel = ThemeViewModel()
+    @StateObject var viewModel: ThemeViewModel
     @ObservedObject var scrollViewHelper = ScrollViewHelper()
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -37,7 +37,7 @@ struct ThemeView: View {
                 
                 // Card scroll view
                 ZStack(alignment: .center) {
-                    if viewModel.status == .loading {
+                    if viewModel.status == .loading(.requestPost) {
                         LoadingIndicator()
                             .zIndex(1)
                     }
@@ -103,13 +103,14 @@ struct ThemeView: View {
         }
         .onAppear {
             viewModel.theme = self.theme
-            viewModel.requestThemePosts()
+            viewModel.requestThemePosts(isPulled: false)
         }
         .navigationBarHidden(true)
     }
     
     init(_ theme: ThemeType) {
         self.theme = theme
+        self._viewModel = StateObject(wrappedValue: ThemeViewModel(theme: theme))
     }
 }
 
