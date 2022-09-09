@@ -22,7 +22,8 @@
 - Alamofire
 
 ### Dependency management
-- CocoaPods
+- CocoaPods(mainly)
+- SPM(partially)
 
 ### Deploy management
 - Fastlane
