@@ -49,7 +49,6 @@
 		4CD3554E28BB9CCD00BD6FB5 /* RandomThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3554D28BB9CCD00BD6FB5 /* RandomThemeView.swift */; };
 		4CD3555028BBA04F00BD6FB5 /* RandomThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3554F28BBA04F00BD6FB5 /* RandomThemeViewModel.swift */; };
 		4CD3555328C3987000BD6FB5 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3555228C3987000BD6FB5 /* MotionManager.swift */; };
-		4CE1C4EF28CB561500F096B3 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1C4EE28CB561500F096B3 /* KeyValue.swift */; };
 		4CE1C4F128CB563600F096B3 /* splash_view.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CE1C4F028CB563600F096B3 /* splash_view.png */; };
 		92D901F16488AB4A41D32F75 /* Pods_Naenio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B546567C3E3421F07641077D /* Pods_Naenio.framework */; };
 		9B03732428A5551B0089CC48 /* KeyboardAdaptive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732328A5551B0089CC48 /* KeyboardAdaptive.swift */; };
@@ -90,6 +89,7 @@
 		9B478A5328A7127B007A4715 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5228A7127B007A4715 /* CloseButton.swift */; };
 		9B478A5728A71A48007A4715 /* CommentContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5628A71A48007A4715 /* CommentContentCell.swift */; };
 		9B478A5A28A72100007A4715 /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5928A72100007A4715 /* CustomDivider.swift */; };
+		9B51B55028CB5E480070913C /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B51B54F28CB5E480070913C /* KeyValue.swift */; };
 		9B53382928C4B32F006DECFC /* NoticeResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382728C4B32F006DECFC /* NoticeResponseModel.swift */; };
 		9B53382A28C4B32F006DECFC /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382828C4B32F006DECFC /* Notice.swift */; };
 		9B53382F28C4B409006DECFC /* MyComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382C28C4B408006DECFC /* MyComment.swift */; };
@@ -306,6 +306,7 @@
 		9B478A5228A7127B007A4715 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		9B478A5628A71A48007A4715 /* CommentContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentContentCell.swift; sourceTree = "<group>"; };
 		9B478A5928A72100007A4715 /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
+		9B51B54F28CB5E480070913C /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyValue.swift; path = "../../../naenio-ios-ignored/KeyValue.swift"; sourceTree = "<group>"; };
 		9B53382728C4B32F006DECFC /* NoticeResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeResponseModel.swift; sourceTree = "<group>"; };
 		9B53382828C4B32F006DECFC /* Notice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
 		9B53382C28C4B408006DECFC /* MyComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyComment.swift; sourceTree = "<group>"; };
@@ -1276,6 +1277,7 @@
 			isa = PBXGroup;
 			children = (
 				9B53383728C4F445006DECFC /* Info.plist */,
+				9B51B54F28CB5E480070913C /* KeyValue.swift */,
 			);
 			path = ignored;
 			sourceTree = "<group>";
@@ -1733,7 +1735,7 @@
 				9BD520C728BCCC240036F5CF /* CustomDateFormatter.swift in Sources */,
 				9B53382F28C4B409006DECFC /* MyComment.swift in Sources */,
 				4CC296E0288055FD001950A2 /* NaenioAPIHeaderInformation.swift in Sources */,
-				4CE1C4EF28CB561500F096B3 /* KeyValue.swift in Sources */,
+				9B51B55028CB5E480070913C /* KeyValue.swift in Sources */,
 				4CD3554A28BB970A00BD6FB5 /* RandomPostResponseModel.swift in Sources */,
 				4C4B134528847640006044B0 /* NaenioAPI+Request.swift in Sources */,
 				9B61D0D328A88FB300F6DD0B /* CustomSheetView.swift in Sources */,
