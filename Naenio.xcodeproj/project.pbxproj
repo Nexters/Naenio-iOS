@@ -269,6 +269,8 @@
 		9B478A5328A7127B007A4715 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5228A7127B007A4715 /* CloseButton.swift */; };
 		9B478A5728A71A48007A4715 /* CommentContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5628A71A48007A4715 /* CommentContentCell.swift */; };
 		9B478A5A28A72100007A4715 /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5928A72100007A4715 /* CustomDivider.swift */; };
+		9B51B54928CB327C0070913C /* Pods_Naenio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B51B54828CB327C0070913C /* Pods_Naenio.framework */; };
+		9B51B54A28CB327C0070913C /* Pods_Naenio.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B51B54828CB327C0070913C /* Pods_Naenio.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9B53382928C4B32F006DECFC /* NoticeResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382728C4B32F006DECFC /* NoticeResponseModel.swift */; };
 		9B53382A28C4B32F006DECFC /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382828C4B32F006DECFC /* Notice.swift */; };
 		9B53382F28C4B409006DECFC /* MyComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382C28C4B408006DECFC /* MyComment.swift */; };
@@ -394,6 +396,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		9B51B54B28CB327C0070913C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9B51B54A28CB327C0070913C /* Pods_Naenio.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4C43C8C32886FB8200A60372 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		4C4B13312883AAC3006044B0 /* NaenioAPI+Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Path.swift"; sourceTree = "<group>"; };
@@ -484,6 +500,7 @@
 		9B478A5228A7127B007A4715 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		9B478A5628A71A48007A4715 /* CommentContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentContentCell.swift; sourceTree = "<group>"; };
 		9B478A5928A72100007A4715 /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
+		9B51B54828CB327C0070913C /* Pods_Naenio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Naenio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B53382728C4B32F006DECFC /* NoticeResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoticeResponseModel.swift; sourceTree = "<group>"; };
 		9B53382828C4B32F006DECFC /* Notice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
 		9B53382C28C4B408006DECFC /* MyComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyComment.swift; sourceTree = "<group>"; };
@@ -632,6 +649,7 @@
 			files = (
 				9B1FED8B28CAE17E00340F27 /* libswift_Concurrency.tbd in Frameworks */,
 				9B1FED8C28CAE17E00340F27 /* AlertState in Frameworks */,
+				9B51B54928CB327C0070913C /* Pods_Naenio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -817,6 +835,7 @@
 		5A5E2382BAF75B50B64733A4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B51B54828CB327C0070913C /* Pods_Naenio.framework */,
 				9B53383C28C4F5CA006DECFC /* libswift_Concurrency.tbd */,
 				D5F6CBF99D23F14ED7A57316 /* Pods_Naenio.framework */,
 				D1D738E0B29727ABCFC89BA9 /* Pods_Naenio_NaenioUITests.framework */,
@@ -1601,6 +1620,7 @@
 				9B1FED8E28CAE17E00340F27 /* Resources */,
 				9B1FEDA128CAE17E00340F27 /* ShellScript */,
 				0D6C16815034BEFFAB8AEAE5 /* [CP] Embed Pods Frameworks */,
+				9B51B54B28CB327C0070913C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
