@@ -64,7 +64,6 @@
 		9B085F202879991600DE8E60 /* NaenioUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F1F2879991600DE8E60 /* NaenioUITestsLaunchTests.swift */; };
 		9B19A1DD28AF7B1E0072DEDA /* AvailableNicknameResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B19A1DC28AF7B1E0072DEDA /* AvailableNicknameResponseModel.swift */; };
 		9B1FEB5228CADC2800340F27 /* Pods_Naenio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B1FEB5128CADC2800340F27 /* Pods_Naenio.framework */; };
-		9B1FEB5328CADC2800340F27 /* Pods_Naenio.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9B1FEB5128CADC2800340F27 /* Pods_Naenio.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9B244070289E8DC30060A244 /* View + Exetension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B24406F289E8DC30060A244 /* View + Exetension.swift */; };
 		9B244073289E9AA10060A244 /* VotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B244072289E9AA10060A244 /* VotesView.swift */; };
 		9B244075289E9AF10060A244 /* VotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B244074289E9AF10060A244 /* VotesViewModel.swift */; };
@@ -396,20 +395,6 @@
 			remoteInfo = Naenio;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		9B1FEB5428CADC2800340F27 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				9B1FEB5328CADC2800340F27 /* Pods_Naenio.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0E880C56CE07539CE9472387 /* Pods-NaenioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaenioTests.release.xcconfig"; path = "Target Support Files/Pods-NaenioTests/Pods-NaenioTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1617,7 +1602,6 @@
 				9B56149628CAD01A00160271 /* Frameworks */,
 				9B56149B28CAD01A00160271 /* Resources */,
 				9B5614AF28CAD01A00160271 /* ShellScript */,
-				9B1FEB5428CADC2800340F27 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
