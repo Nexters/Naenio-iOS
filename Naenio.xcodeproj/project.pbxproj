@@ -49,7 +49,6 @@
 		4CD3554E28BB9CCD00BD6FB5 /* RandomThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3554D28BB9CCD00BD6FB5 /* RandomThemeView.swift */; };
 		4CD3555028BBA04F00BD6FB5 /* RandomThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3554F28BBA04F00BD6FB5 /* RandomThemeViewModel.swift */; };
 		4CD3555328C3987000BD6FB5 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3555228C3987000BD6FB5 /* MotionManager.swift */; };
-		771A7D052C37109190CD0ED3 /* Pods_Naenio_Naenio_deploy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55B5D753E7FE49F42D41843 /* Pods_Naenio_Naenio_deploy.framework */; };
 		9614B621D4CC0B2C73F7DEC7 /* Pods_NaenioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4D2CB931A5CBFEC9EEC19DB /* Pods_NaenioTests.framework */; };
 		9B03732428A5551B0089CC48 /* KeyboardAdaptive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732328A5551B0089CC48 /* KeyboardAdaptive.swift */; };
 		9B03732728A555800089CC48 /* Publishers + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732628A555800089CC48 /* Publishers + Extension.swift */; };
@@ -636,7 +635,6 @@
 			files = (
 				9B1FED8B28CAE17E00340F27 /* libswift_Concurrency.tbd in Frameworks */,
 				9B1FED8C28CAE17E00340F27 /* AlertState in Frameworks */,
-				771A7D052C37109190CD0ED3 /* Pods_Naenio_Naenio_deploy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
