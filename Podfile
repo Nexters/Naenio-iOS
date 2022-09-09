@@ -15,7 +15,12 @@ target 'Naenio' do
 
   pod 'RxSwift'
   pod 'SwiftLint'
-  
+
+  # Pods for Naenio-deploy
+  target 'Naenio-deploy' do
+    inherit! :search_paths
+  end
+
   target 'NaenioTests' do
     inherit! :search_paths
     # Pods for testing

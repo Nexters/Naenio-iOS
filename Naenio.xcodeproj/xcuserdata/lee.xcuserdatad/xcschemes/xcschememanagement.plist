@@ -4,10 +4,48 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Naenio-deploy.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Naenio.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>14</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>9B085EFE2879991400DE8E60</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9B085F0E2879991600DE8E60</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9B085F182879991600DE8E60</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9B1FEB5528CADF1A00340F27</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9B1FECE528CAE17E00340F27</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9B5613F128CAD01A00160271</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
