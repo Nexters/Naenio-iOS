@@ -33,6 +33,9 @@ platform :ios do
       )
 
     xcversion(version: "~> 13.0")
+    increment_build_number({
+      build_number: latest_testflight_build_number + 1,
+    })
 
     gym(
       workspace: "Naenio.xcworkspace",
@@ -43,11 +46,6 @@ platform :ios do
         signingStyle: "manual"
       }
     )	
-    
-    increment_build_number({
-      xcodeproj: "../Naenio.xcodeproj",
-      build_number: latest_testflight_build_number + 1
-    })
     
     upload_to_testflight
 
