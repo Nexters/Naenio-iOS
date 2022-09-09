@@ -14,7 +14,6 @@ target 'Naenio' do
   pod 'lottie-ios' 
 
   pod 'RxSwift'
-  pod 'SwiftLint'
 
   # Pods for Naenio-deploy
   target 'Naenio-deploy' do
