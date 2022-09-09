@@ -2402,6 +2402,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4F13DE7D0F82968D021E7D5A /* Pods-Naenio.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Naenio/Naenio.entitlements;
@@ -2444,6 +2445,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 87B72A758E4D3D139659E6B5 /* Pods-Naenio.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Naenio/Naenio.entitlements;
