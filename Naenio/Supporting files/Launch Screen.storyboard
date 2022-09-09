@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21219" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21200"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,29 +16,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="obG-Y5-kRd">
-                                <rect key="frame" x="0.0" y="824" width="390" height="0.0"/>
+                            <imageView clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_view.png" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Fv-b3-ejm">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1pp-XF-RDr">
+                                <rect key="frame" x="224" y="221" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Gom-Lp-IOS">
-                                <rect key="frame" x="154" y="385" width="82" height="74"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="smc-dk-FKZ" userLabel="GradientView">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="5cz-MP-9tL"/>
-                            <constraint firstItem="Gom-Lp-IOS" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="9Fd-sh-G0z"/>
-                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="20" symbolic="YES" id="SfN-ll-jLj"/>
-                            <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="Y44-ml-fuU"/>
-                            <constraint firstItem="Gom-Lp-IOS" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="oPR-RC-TUm"/>
+                            <constraint firstItem="5Fv-b3-ejm" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" id="2rz-xr-kSu"/>
+                            <constraint firstAttribute="bottom" secondItem="5Fv-b3-ejm" secondAttribute="bottom" id="8aQ-my-HbA"/>
+                            <constraint firstItem="1pp-XF-RDr" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="224" id="IZi-IM-0W8"/>
+                            <constraint firstItem="5Fv-b3-ejm" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="KUb-d4-80O"/>
+                            <constraint firstItem="1pp-XF-RDr" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="177" id="SZ3-yR-KY9"/>
+                            <constraint firstItem="5Fv-b3-ejm" firstAttribute="trailing" secondItem="Bcu-3y-fUS" secondAttribute="trailing" id="WI2-cF-TfD"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="1pp-XF-RDr" secondAttribute="trailing" constant="124" id="lHI-YF-efk"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="1pp-XF-RDr" secondAttribute="bottom" constant="568" id="qMl-nE-0CE"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -49,9 +46,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="82" height="74"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="splash_view.png" width="390" height="844"/>
     </resources>
 </document>
