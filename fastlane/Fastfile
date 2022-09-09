@@ -8,7 +8,6 @@ platform :ios do
   end
   
   lane :testFlight do
-    # keychain 초기화 
     create_keychain(
       name: ENV["KEYCHAIN_NAME"],
       password: ENV["KEYCHAIN_PASSWORD"],
@@ -24,7 +23,6 @@ platform :ios do
       key_content: ENV["APP_STORE_CONNECT_API_KEY_CONTENT"]
       )
 
-    # match를 실행하여 인증서 및 프로파일 불러오기 
     match(
       git_url: "git@github.com:enebin/naenio-iOS-match.git",
       storage_mode: "git",
@@ -43,10 +41,9 @@ platform :ios do
         use_bundle_exec: false
     )
 
-    # 빌드 및 내보내기 
     gym(
       workspace: "Naenio.xcworkspace",
-      scheme: "Testflight",
+      scheme: "Naenio-deploy",
       configuration: "Release",
       export_options: {
         method: "app-store",
@@ -60,37 +57,5 @@ platform :ios do
     
     upload_to_testflight
 
-  end
-  
-  # lane이 모두 완료된 뒤 호출됨
-  after_all do |lane|
-    # 9. 배포 결과 슬랙 노티 🚨
-    slack(
-      message: "Testflight에 새로운 버전이 업데이트 되었습니다.",
-      channel: "#네니오-개발팀",
-      success: true,
-      payload: {
-        "Version" => lane_context[SharedValues::VERSION_NUMBER],
-        "Build number" => lane_context[SharedValues::BUILD_NUMBER],
-        "Date" => Time.new.to_s
-      },
-      slack_url: ENV["SLACK_URL"]
-    )
-  end
-
-  # 에러 발생 시 호출 됨
-  error do |lane, exception|
-    slack(
-      message: "빌드 실패",
-      channel: "#네니오-개발팀",
-      success: false,
-      payload: {
-        "Version" => lane_context[SharedValues::VERSION_NUMBER],
-        "Build number" => lane_context[SharedValues::BUILD_NUMBER],
-        "Date" => Time.new.to_s,
-        "Error Info" => exception.message
-        },
-        slack_url: ENV["SLACK_URL"]
-      )
   end
 end
