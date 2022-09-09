@@ -112,12 +112,14 @@ struct FullView: View {
                 default:
                     break
                 }
-            case .fail:
+            case .fail(let error):
+                alertState = .errorHappend(error: error)
                 break
             default:
                 break
             }
         }
+        .showAlert(with: $alertState)
         .onAppear {
             if showCommentFirst {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
@@ -131,15 +133,6 @@ struct FullView: View {
         .onChange(of: post.choices) { _ in
             voteHappened = true
         }
-        .onChange(of: viewModel.status) { status in
-            switch status {
-            case .fail(with: let error):
-                alertState = .errorHappend(error: error)
-            default:
-                break
-            }
-        }
-        .showAlert(with: $alertState)
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {

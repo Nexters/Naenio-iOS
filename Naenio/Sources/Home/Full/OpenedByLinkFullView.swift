@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import AlertState
 
 struct OpenedByLinkFullView: View {
     @EnvironmentObject var userManager: UserManager
     @ObservedObject var viewModel = FullViewModel()
+    
+    @AlertState<SystemAlert> var alertState
+    
     private let postId: Int
     var showCommentFirst: Bool
     
@@ -24,6 +28,15 @@ struct OpenedByLinkFullView: View {
         .onAppear {
             viewModel.getOnePost(with: postId)
         }
+        .onChange(of: viewModel.status) { status in
+            switch status {
+            case .fail(with: let error):
+                alertState = .errorHappend(error: error)
+            default:
+                break
+            }
+        }
+        .showAlert(with: $alertState)
     }
     
     init(postId: Int, showCommentFirst: Bool) {

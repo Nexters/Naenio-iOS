@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import AlertState
 
 struct NoticeView: View {
     @ObservedObject var viewModel = NoticeViewModel()
     
+    @AlertState<SystemAlert> var alertState
     var body: some View {
         CustomNavigationView(title: "공지사항") {
             ZStack {
@@ -43,6 +45,15 @@ struct NoticeView: View {
             .onAppear {
                 viewModel.getNotices()
             }
+            .onChange(of: viewModel.status) { status in
+                switch status {
+                case .fail(with: let error):
+                    alertState = .errorHappend(error: error)
+                default:
+                    break
+                }
+            }
+            .showAlert(with: $alertState)
         }
         .navigationBarHidden(true)
     }

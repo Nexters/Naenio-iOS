@@ -115,7 +115,6 @@ struct CardView: View {
                 }
             case .fail(with: let error):
                 alertState = .errorHappend(error: error)
-                break
             default:
                 break
             }
