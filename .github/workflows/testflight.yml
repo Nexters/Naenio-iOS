@@ -28,6 +28,9 @@ jobs:
           path: Naenio/ignored
           repository: enebin/naenio-ios-ignored
           token: ${{ secrets.ACTION_TOKEN }}
+        
+      - name: Install dependencies
+        run: pod install
           
       - uses: actions/setup-ruby@v1
         with:

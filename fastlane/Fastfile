@@ -34,13 +34,6 @@ platform :ios do
 
     xcversion(version: "~> 13.0")
 
-    cocoapods(
-        clean: true,
-        podfile: "./Podfile",
-        try_repo_update_on_error: true,
-        use_bundle_exec: false
-    )
-
     gym(
       workspace: "Naenio.xcworkspace",
       scheme: "Naenio-deploy",
