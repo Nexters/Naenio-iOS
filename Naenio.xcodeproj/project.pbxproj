@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3976712267331063EAC7A84E /* Pods_Naenio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5F6CBF99D23F14ED7A57316 /* Pods_Naenio.framework */; };
 		4C43C8C42886FB8200A60372 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43C8C32886FB8200A60372 /* String+Extension.swift */; };
 		4C4B13322883AAC3006044B0 /* NaenioAPI+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B13312883AAC3006044B0 /* NaenioAPI+Path.swift */; };
 		4C4B13342883AAE0006044B0 /* NaenioAPI+Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B13332883AAE0006044B0 /* NaenioAPI+Task.swift */; };
@@ -48,6 +49,8 @@
 		4CD3554E28BB9CCD00BD6FB5 /* RandomThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3554D28BB9CCD00BD6FB5 /* RandomThemeView.swift */; };
 		4CD3555028BBA04F00BD6FB5 /* RandomThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3554F28BBA04F00BD6FB5 /* RandomThemeViewModel.swift */; };
 		4CD3555328C3987000BD6FB5 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3555228C3987000BD6FB5 /* MotionManager.swift */; };
+		771A7D052C37109190CD0ED3 /* Pods_Naenio_Naenio_deploy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55B5D753E7FE49F42D41843 /* Pods_Naenio_Naenio_deploy.framework */; };
+		9614B621D4CC0B2C73F7DEC7 /* Pods_NaenioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4D2CB931A5CBFEC9EEC19DB /* Pods_NaenioTests.framework */; };
 		9B03732428A5551B0089CC48 /* KeyboardAdaptive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732328A5551B0089CC48 /* KeyboardAdaptive.swift */; };
 		9B03732728A555800089CC48 /* Publishers + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732628A555800089CC48 /* Publishers + Extension.swift */; };
 		9B03732B28A555D60089CC48 /* Notification + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732A28A555D60089CC48 /* Notification + Extension.swift */; };
@@ -223,7 +226,6 @@
 		9B1FED8928CAE17E00340F27 /* CurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4B7382896BF1C00774192 /* CurationView.swift */; };
 		9B1FED8B28CAE17E00340F27 /* libswift_Concurrency.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B53383C28C4F5CA006DECFC /* libswift_Concurrency.tbd */; };
 		9B1FED8C28CAE17E00340F27 /* AlertState in Frameworks */ = {isa = PBXBuildFile; productRef = 9B1FECE628CAE17E00340F27 /* AlertState */; };
-		9B1FED8D28CAE17E00340F27 /* Pods_Naenio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FB7A626FB0CFA54D3D1772 /* Pods_Naenio.framework */; };
 		9B1FED8F28CAE17E00340F27 /* MockPostWroteList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B6F0E289BE1B4002A76A7 /* MockPostWroteList.json */; };
 		9B1FED9028CAE17E00340F27 /* MockPostParticipatedList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B6F0F289BE1B6002A76A7 /* MockPostParticipatedList.json */; };
 		9B1FED9128CAE17E00340F27 /* MockPostList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA2294289BB28500A2F9B0 /* MockPostList.json */; };
@@ -372,9 +374,7 @@
 		9CE311CF28A63E7200EDB0F4 /* MockCommentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE311CE28A63E7200EDB0F4 /* MockCommentGenerator.swift */; };
 		9CE311D228A63FB300EDB0F4 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE311D128A63FB300EDB0F4 /* CommentModel.swift */; };
 		9CE311D428A6439900EDB0F4 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE311D328A6439900EDB0F4 /* CommentView.swift */; };
-		A807EE6D9585CEB65310D05B /* Pods_Naenio_NaenioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6283DC43C3478C5611B5C14E /* Pods_Naenio_NaenioUITests.framework */; };
-		B01DEAB27FA4CB377EE42168 /* Pods_NaenioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D33E7147039B7EBC0B198F /* Pods_NaenioTests.framework */; };
-		C5FCE804E254FF1224085AAF /* Pods_Naenio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66FB7A626FB0CFA54D3D1772 /* Pods_Naenio.framework */; };
+		A5D7D7EC284C8B40D6922435 /* Pods_Naenio_NaenioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D738E0B29727ABCFC89BA9 /* Pods_Naenio_NaenioUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -395,8 +395,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		029DC0B19598AA74E5F08142 /* Pods-NaenioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaenioTests.release.xcconfig"; path = "Target Support Files/Pods-NaenioTests/Pods-NaenioTests.release.xcconfig"; sourceTree = "<group>"; };
-		10D33E7147039B7EBC0B198F /* Pods_NaenioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NaenioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C43C8C32886FB8200A60372 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		4C4B13312883AAC3006044B0 /* NaenioAPI+Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Path.swift"; sourceTree = "<group>"; };
 		4C4B13332883AAE0006044B0 /* NaenioAPI+Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Task.swift"; sourceTree = "<group>"; };
@@ -417,7 +415,6 @@
 		4CB4196928A29C2700EBB777 /* TabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContentView.swift; sourceTree = "<group>"; };
 		4CB8944828A74A0200BE2ECF /* NaenioAPI+Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NaenioAPI+Method.swift"; sourceTree = "<group>"; };
 		4CB8945528A7A1E300BE2ECF /* AuthServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceType.swift; sourceTree = "<group>"; };
-		4CC07D5A3BD607D1C032EC7C /* Pods-Naenio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio.debug.xcconfig"; path = "Target Support Files/Pods-Naenio/Pods-Naenio.debug.xcconfig"; sourceTree = "<group>"; };
 		4CC296D82880533C001950A2 /* DefaultSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSession.swift; sourceTree = "<group>"; };
 		4CC296DA28805366001950A2 /* NaenioAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioAPI.swift; sourceTree = "<group>"; };
 		4CC296DF288055FD001950A2 /* NaenioAPIHeaderInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioAPIHeaderInformation.swift; sourceTree = "<group>"; };
@@ -439,9 +436,10 @@
 		4CD3554D28BB9CCD00BD6FB5 /* RandomThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomThemeView.swift; sourceTree = "<group>"; };
 		4CD3554F28BBA04F00BD6FB5 /* RandomThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomThemeViewModel.swift; sourceTree = "<group>"; };
 		4CD3555228C3987000BD6FB5 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
-		6283DC43C3478C5611B5C14E /* Pods_Naenio_NaenioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naenio_NaenioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		66FB7A626FB0CFA54D3D1772 /* Pods_Naenio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naenio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6BA8D7DBEC90B00F3B1D9C1B /* Pods-NaenioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaenioTests.debug.xcconfig"; path = "Target Support Files/Pods-NaenioTests/Pods-NaenioTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4F13DE7D0F82968D021E7D5A /* Pods-Naenio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio.debug.xcconfig"; path = "Target Support Files/Pods-Naenio/Pods-Naenio.debug.xcconfig"; sourceTree = "<group>"; };
+		6EEC7A3CEE7F134622B2883A /* Pods-NaenioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaenioTests.debug.xcconfig"; path = "Target Support Files/Pods-NaenioTests/Pods-NaenioTests.debug.xcconfig"; sourceTree = "<group>"; };
+		87B72A758E4D3D139659E6B5 /* Pods-Naenio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio.release.xcconfig"; path = "Target Support Files/Pods-Naenio/Pods-Naenio.release.xcconfig"; sourceTree = "<group>"; };
+		9558DF8B39ED510996E84BF3 /* Pods-NaenioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NaenioTests.release.xcconfig"; path = "Target Support Files/Pods-NaenioTests/Pods-NaenioTests.release.xcconfig"; sourceTree = "<group>"; };
 		9B03732328A5551B0089CC48 /* KeyboardAdaptive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAdaptive.swift; sourceTree = "<group>"; };
 		9B03732628A555800089CC48 /* Publishers + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers + Extension.swift"; sourceTree = "<group>"; };
 		9B03732A28A555D60089CC48 /* Notification + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification + Extension.swift"; sourceTree = "<group>"; };
@@ -461,7 +459,6 @@
 		9B1128AF28C0D6CF004C238D /* NoticeResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeResponseModel.swift; sourceTree = "<group>"; };
 		9B19A1DC28AF7B1E0072DEDA /* AvailableNicknameResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableNicknameResponseModel.swift; sourceTree = "<group>"; };
 		9B1FEC1928CADF1A00340F27 /* Naenio copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Naenio copy2-Info.plist"; path = "/Users/lee/Documents/GitHub/Naenio-iOS/Naenio copy2-Info.plist"; sourceTree = "<absolute>"; };
-		9B1FEC1E28CAE16000340F27 /* Pods_Naenio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Naenio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B1FECE428CAE16E00340F27 /* Naenio copy3-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Naenio copy3-Info.plist"; path = "/Users/lee/Documents/GitHub/Naenio-iOS/Naenio copy3-Info.plist"; sourceTree = "<absolute>"; };
 		9B1FEDA628CAE17E00340F27 /* Naenio-deploy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Naenio-deploy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B1FEDA728CAE17E00340F27 /* Naenio copy4-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Naenio copy4-Info.plist"; path = "/Users/lee/Documents/GitHub/Naenio-iOS/Naenio copy4-Info.plist"; sourceTree = "<absolute>"; };
@@ -596,9 +593,14 @@
 		9CE311CE28A63E7200EDB0F4 /* MockCommentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCommentGenerator.swift; sourceTree = "<group>"; };
 		9CE311D128A63FB300EDB0F4 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
 		9CE311D328A6439900EDB0F4 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
-		A3A9E0464604CB28C45084F7 /* Pods-Naenio-NaenioUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio-NaenioUITests.release.xcconfig"; path = "Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests.release.xcconfig"; sourceTree = "<group>"; };
-		AB3C125F01F778EA9A68138F /* Pods-Naenio-NaenioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio-NaenioUITests.debug.xcconfig"; path = "Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		F280C014CA43EECC2F6209A4 /* Pods-Naenio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio.release.xcconfig"; path = "Target Support Files/Pods-Naenio/Pods-Naenio.release.xcconfig"; sourceTree = "<group>"; };
+		AC3DDF8E079D1EF7BAE7E89B /* Pods-Naenio-NaenioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio-NaenioUITests.debug.xcconfig"; path = "Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D1D738E0B29727ABCFC89BA9 /* Pods_Naenio_NaenioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naenio_NaenioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D46D94746AE73DEB02B7AC50 /* Pods-Naenio-NaenioUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio-NaenioUITests.release.xcconfig"; path = "Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D4D2CB931A5CBFEC9EEC19DB /* Pods_NaenioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NaenioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D5F6CBF99D23F14ED7A57316 /* Pods_Naenio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naenio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E327C4C9D494152B9FF285CD /* Pods-Naenio-Naenio-deploy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio-Naenio-deploy.debug.xcconfig"; path = "Target Support Files/Pods-Naenio-Naenio-deploy/Pods-Naenio-Naenio-deploy.debug.xcconfig"; sourceTree = "<group>"; };
+		E94E207EB3BEA8D5013F4D94 /* Pods-Naenio-Naenio-deploy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio-Naenio-deploy.release.xcconfig"; path = "Target Support Files/Pods-Naenio-Naenio-deploy/Pods-Naenio-Naenio-deploy.release.xcconfig"; sourceTree = "<group>"; };
+		F55B5D753E7FE49F42D41843 /* Pods_Naenio_Naenio_deploy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naenio_Naenio_deploy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -608,7 +610,7 @@
 			files = (
 				9B53383E28C4F5F8006DECFC /* libswift_Concurrency.tbd in Frameworks */,
 				9B95222828C7683100FA2F01 /* AlertState in Frameworks */,
-				C5FCE804E254FF1224085AAF /* Pods_Naenio.framework in Frameworks */,
+				3976712267331063EAC7A84E /* Pods_Naenio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,7 +618,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B01DEAB27FA4CB377EE42168 /* Pods_NaenioTests.framework in Frameworks */,
+				9614B621D4CC0B2C73F7DEC7 /* Pods_NaenioTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,7 +626,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A807EE6D9585CEB65310D05B /* Pods_Naenio_NaenioUITests.framework in Frameworks */,
+				A5D7D7EC284C8B40D6922435 /* Pods_Naenio_NaenioUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,7 +636,7 @@
 			files = (
 				9B1FED8B28CAE17E00340F27 /* libswift_Concurrency.tbd in Frameworks */,
 				9B1FED8C28CAE17E00340F27 /* AlertState in Frameworks */,
-				9B1FED8D28CAE17E00340F27 /* Pods_Naenio.framework in Frameworks */,
+				771A7D052C37109190CD0ED3 /* Pods_Naenio_Naenio_deploy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -805,12 +807,14 @@
 		5384CA9EFAD91A1B81B34F6B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4CC07D5A3BD607D1C032EC7C /* Pods-Naenio.debug.xcconfig */,
-				F280C014CA43EECC2F6209A4 /* Pods-Naenio.release.xcconfig */,
-				AB3C125F01F778EA9A68138F /* Pods-Naenio-NaenioUITests.debug.xcconfig */,
-				A3A9E0464604CB28C45084F7 /* Pods-Naenio-NaenioUITests.release.xcconfig */,
-				6BA8D7DBEC90B00F3B1D9C1B /* Pods-NaenioTests.debug.xcconfig */,
-				029DC0B19598AA74E5F08142 /* Pods-NaenioTests.release.xcconfig */,
+				4F13DE7D0F82968D021E7D5A /* Pods-Naenio.debug.xcconfig */,
+				87B72A758E4D3D139659E6B5 /* Pods-Naenio.release.xcconfig */,
+				AC3DDF8E079D1EF7BAE7E89B /* Pods-Naenio-NaenioUITests.debug.xcconfig */,
+				D46D94746AE73DEB02B7AC50 /* Pods-Naenio-NaenioUITests.release.xcconfig */,
+				6EEC7A3CEE7F134622B2883A /* Pods-NaenioTests.debug.xcconfig */,
+				9558DF8B39ED510996E84BF3 /* Pods-NaenioTests.release.xcconfig */,
+				E327C4C9D494152B9FF285CD /* Pods-Naenio-Naenio-deploy.debug.xcconfig */,
+				E94E207EB3BEA8D5013F4D94 /* Pods-Naenio-Naenio-deploy.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -818,11 +822,11 @@
 		5A5E2382BAF75B50B64733A4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9B1FEC1E28CAE16000340F27 /* Pods_Naenio.framework */,
 				9B53383C28C4F5CA006DECFC /* libswift_Concurrency.tbd */,
-				66FB7A626FB0CFA54D3D1772 /* Pods_Naenio.framework */,
-				6283DC43C3478C5611B5C14E /* Pods_Naenio_NaenioUITests.framework */,
-				10D33E7147039B7EBC0B198F /* Pods_NaenioTests.framework */,
+				D5F6CBF99D23F14ED7A57316 /* Pods_Naenio.framework */,
+				D1D738E0B29727ABCFC89BA9 /* Pods_Naenio_NaenioUITests.framework */,
+				D4D2CB931A5CBFEC9EEC19DB /* Pods_NaenioTests.framework */,
+				F55B5D753E7FE49F42D41843 /* Pods_Naenio_Naenio_deploy.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1538,12 +1542,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B085F232879991600DE8E60 /* Build configuration list for PBXNativeTarget "Naenio" */;
 			buildPhases = (
-				02DBC15DCC2366119AA6AE41 /* [CP] Check Pods Manifest.lock */,
+				7D4F60C65C36D470C4A0ECC0 /* [CP] Check Pods Manifest.lock */,
 				9B085EFB2879991400DE8E60 /* Sources */,
 				9B085EFC2879991400DE8E60 /* Frameworks */,
 				9B085EFD2879991400DE8E60 /* Resources */,
 				4CA47BC82890336A00D300A7 /* ShellScript */,
-				FE4D5D33EA5D997D107C96D1 /* [CP] Embed Pods Frameworks */,
+				B36DF76D4348F47A5D7EF034 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1561,7 +1565,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B085F262879991600DE8E60 /* Build configuration list for PBXNativeTarget "NaenioTests" */;
 			buildPhases = (
-				0615D8009DB2622B5A91DD2A /* [CP] Check Pods Manifest.lock */,
+				6442F7E35951FC1D5BA891BD /* [CP] Check Pods Manifest.lock */,
 				9B085F0B2879991600DE8E60 /* Sources */,
 				9B085F0C2879991600DE8E60 /* Frameworks */,
 				9B085F0D2879991600DE8E60 /* Resources */,
@@ -1580,11 +1584,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B085F292879991600DE8E60 /* Build configuration list for PBXNativeTarget "NaenioUITests" */;
 			buildPhases = (
-				28D4559A6018E27C1D3D47BD /* [CP] Check Pods Manifest.lock */,
+				63530A99C87CE383D848B49F /* [CP] Check Pods Manifest.lock */,
 				9B085F152879991600DE8E60 /* Sources */,
 				9B085F162879991600DE8E60 /* Frameworks */,
 				9B085F172879991600DE8E60 /* Resources */,
-				556BD2A0C75703500CD62143 /* [CP] Embed Pods Frameworks */,
+				3854AF9CD0B30A334FB6BEDB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1600,12 +1604,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B1FEDA328CAE17E00340F27 /* Build configuration list for PBXNativeTarget "Naenio-deploy" */;
 			buildPhases = (
-				9B1FECE828CAE17E00340F27 /* [CP] Check Pods Manifest.lock */,
+				48F36DFA367D40CB0669BB2A /* [CP] Check Pods Manifest.lock */,
 				9B1FECE928CAE17E00340F27 /* Sources */,
 				9B1FED8A28CAE17E00340F27 /* Frameworks */,
 				9B1FED8E28CAE17E00340F27 /* Resources */,
 				9B1FEDA128CAE17E00340F27 /* ShellScript */,
-				9B1FEDA228CAE17E00340F27 /* [CP] Embed Pods Frameworks */,
+				0D6C16815034BEFFAB8AEAE5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1659,9 +1663,9 @@
 			projectRoot = "";
 			targets = (
 				9B085EFE2879991400DE8E60 /* Naenio */,
+				9B1FECE528CAE17E00340F27 /* Naenio-deploy */,
 				9B085F0E2879991600DE8E60 /* NaenioTests */,
 				9B085F182879991600DE8E60 /* NaenioUITests */,
-				9B1FECE528CAE17E00340F27 /* Naenio-deploy */,
 			);
 		};
 /* End PBXProject section */
@@ -1736,51 +1740,41 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		02DBC15DCC2366119AA6AE41 /* [CP] Check Pods Manifest.lock */ = {
+		0D6C16815034BEFFAB8AEAE5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Naenio-Naenio-deploy/Pods-Naenio-Naenio-deploy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Naenio-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-Naenio-Naenio-deploy/Pods-Naenio-Naenio-deploy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Naenio-Naenio-deploy/Pods-Naenio-Naenio-deploy-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		0615D8009DB2622B5A91DD2A /* [CP] Check Pods Manifest.lock */ = {
+		3854AF9CD0B30A334FB6BEDB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-NaenioTests-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		28D4559A6018E27C1D3D47BD /* [CP] Check Pods Manifest.lock */ = {
+		48F36DFA367D40CB0669BB2A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1795,7 +1789,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Naenio-NaenioUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Naenio-Naenio-deploy-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1819,24 +1813,51 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
-		556BD2A0C75703500CD62143 /* [CP] Embed Pods Frameworks */ = {
+		63530A99C87CE383D848B49F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Naenio-NaenioUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Naenio-NaenioUITests/Pods-Naenio-NaenioUITests-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9B1FECE828CAE17E00340F27 /* [CP] Check Pods Manifest.lock */ = {
+		6442F7E35951FC1D5BA891BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NaenioTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D4F60C65C36D470C4A0ECC0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1875,24 +1896,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
-		9B1FEDA228CAE17E00340F27 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Naenio/Pods-Naenio-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Naenio/Pods-Naenio-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Naenio/Pods-Naenio-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FE4D5D33EA5D997D107C96D1 /* [CP] Embed Pods Frameworks */ = {
+		B36DF76D4348F47A5D7EF034 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2400,7 +2404,7 @@
 		};
 		9B085F242879991600DE8E60 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4CC07D5A3BD607D1C032EC7C /* Pods-Naenio.debug.xcconfig */;
+			baseConfigurationReference = 4F13DE7D0F82968D021E7D5A /* Pods-Naenio.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2442,7 +2446,7 @@
 		};
 		9B085F252879991600DE8E60 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F280C014CA43EECC2F6209A4 /* Pods-Naenio.release.xcconfig */;
+			baseConfigurationReference = 87B72A758E4D3D139659E6B5 /* Pods-Naenio.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2484,7 +2488,7 @@
 		};
 		9B085F272879991600DE8E60 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6BA8D7DBEC90B00F3B1D9C1B /* Pods-NaenioTests.debug.xcconfig */;
+			baseConfigurationReference = 6EEC7A3CEE7F134622B2883A /* Pods-NaenioTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2505,7 +2509,7 @@
 		};
 		9B085F282879991600DE8E60 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 029DC0B19598AA74E5F08142 /* Pods-NaenioTests.release.xcconfig */;
+			baseConfigurationReference = 9558DF8B39ED510996E84BF3 /* Pods-NaenioTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -2526,7 +2530,7 @@
 		};
 		9B085F2A2879991600DE8E60 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AB3C125F01F778EA9A68138F /* Pods-Naenio-NaenioUITests.debug.xcconfig */;
+			baseConfigurationReference = AC3DDF8E079D1EF7BAE7E89B /* Pods-Naenio-NaenioUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
@@ -2545,7 +2549,7 @@
 		};
 		9B085F2B2879991600DE8E60 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A3A9E0464604CB28C45084F7 /* Pods-Naenio-NaenioUITests.release.xcconfig */;
+			baseConfigurationReference = D46D94746AE73DEB02B7AC50 /* Pods-Naenio-NaenioUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
@@ -2564,7 +2568,7 @@
 		};
 		9B1FEDA428CAE17E00340F27 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4CC07D5A3BD607D1C032EC7C /* Pods-Naenio.debug.xcconfig */;
+			baseConfigurationReference = E327C4C9D494152B9FF285CD /* Pods-Naenio-Naenio-deploy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -2606,7 +2610,7 @@
 		};
 		9B1FEDA528CAE17E00340F27 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F280C014CA43EECC2F6209A4 /* Pods-Naenio.release.xcconfig */;
+			baseConfigurationReference = E94E207EB3BEA8D5013F4D94 /* Pods-Naenio-Naenio-deploy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

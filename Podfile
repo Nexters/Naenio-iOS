@@ -15,7 +15,20 @@ target 'Naenio' do
 
   pod 'RxSwift'
   pod 'SwiftLint'
-  
+
+  # Pods for Naenio-deploy
+  target 'Naenio-deploy' do
+    pod 'Moya', '~> 15.0'
+    pod 'Moya/RxSwift', '~> 15.0'
+    pod 'KakaoSDKAuth', '~> 2.11.1'
+    pod 'KakaoSDKUser', '~> 2.11.1'
+    pod 'Alamofire'
+    pod 'Introspect'
+    pod 'lottie-ios' 
+
+    pod 'RxSwift'
+    pod 'SwiftLint'
+  end
   target 'NaenioTests' do
     inherit! :search_paths
     # Pods for testing
