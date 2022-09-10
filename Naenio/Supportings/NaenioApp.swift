@@ -63,6 +63,8 @@ struct NaenioApp: App {
                                                EmptyView()
                                            }
                         )
+                        .navigationBarHidden(true)
+                        .navigationBarTitle("", displayMode: .inline)
                 }
             } else {
                 ZStack(alignment: .center) {
