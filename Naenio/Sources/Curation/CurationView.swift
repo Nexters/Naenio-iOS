@@ -22,7 +22,7 @@ struct CurationView: View {
                 Text("네니오들의 선택")
                     .font(.semoBold(size: 20))
                     .foregroundColor(.white)
-                    
+                
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(themeList) { theme in
                         if theme == .randomPlay {

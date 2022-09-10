@@ -5,8 +5,8 @@
 //  Created by 조윤영 on 2022/08/09.
 //
 
-import Foundation
 import SwiftUI
+import Introspect
 
 struct TabContentView: View {
     @EnvironmentObject var userManager: UserManager
@@ -19,11 +19,15 @@ struct TabContentView: View {
     
     var body: some View {
         if pageName == .curation {
-            CurationView()
-                .environmentObject(userManager)
+            NavigationView {   
+                CurationView()
+                    .environmentObject(userManager)
+            }
         } else if pageName == .home {
-            HomeView()
-                .environmentObject(userManager)
+            NavigationView {
+                HomeView()
+                    .environmentObject(userManager)
+            }
         } else if pageName == .myPage {
             MyPageView()
                 .environmentObject(userManager)
