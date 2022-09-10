@@ -293,187 +293,6 @@
 		9B8D409C28AE86B90024E989 /* VotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8D409B28AE86B90024E989 /* VotesViewModel.swift */; };
 		9B91D80D28BF835D008D9E9E /* CommentContentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B91D80C28BF835D008D9E9E /* CommentContentCellViewModel.swift */; };
 		9B95222828C7683100FA2F01 /* AlertState in Frameworks */ = {isa = PBXBuildFile; productRef = 9B95222728C7683100FA2F01 /* AlertState */; };
-		9B9F876F28CC2D5B00177D29 /* CommentContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5628A71A48007A4715 /* CommentContentCell.swift */; };
-		9B9F877028CC2D5B00177D29 /* VoteRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEA928ABF94900458138 /* VoteRequestModel.swift */; };
-		9B9F877128CC2D5B00177D29 /* TabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB4196928A29C2700EBB777 /* TabContentView.swift */; };
-		9B9F877228CC2D5B00177D29 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE311D128A63FB300EDB0F4 /* CommentModel.swift */; };
-		9B9F877328CC2D5B00177D29 /* NaenioAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC296DA28805366001950A2 /* NaenioAPI.swift */; };
-		9B9F877428CC2D5B00177D29 /* RandomThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3554D28BB9CCD00BD6FB5 /* RandomThemeView.swift */; };
-		9B9F877528CC2D5B00177D29 /* CustomNavigationCongifuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1DFAF28AB732B0048B313 /* CustomNavigationCongifuration.swift */; };
-		9B9F877628CC2D5B00177D29 /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5928A72100007A4715 /* CustomDivider.swift */; };
-		9B9F877728CC2D5B00177D29 /* MyCommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4ADC28BA10F000349AEC /* MyCommentViewModel.swift */; };
-		9B9F877828CC2D5B00177D29 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D07BA2897CD0A008BBD75 /* UserError.swift */; };
-		9B9F877928CC2D5B00177D29 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4ADA28BA07B700349AEC /* Toast.swift */; };
-		9B9F877A28CC2D5B00177D29 /* ReportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C93077D28BE06A4001A8E08 /* ReportManager.swift */; };
-		9B9F877B28CC2D5B00177D29 /* NaenioAPI+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B13382883B709006044B0 /* NaenioAPI+Error.swift */; };
-		9B9F877C28CC2D5B00177D29 /* NaenioAPI+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B13312883AAC3006044B0 /* NaenioAPI+Path.swift */; };
-		9B9F877D28CC2D5B00177D29 /* SystemAlert + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1DFB828AB827E0048B313 /* SystemAlert + Extension.swift */; };
-		9B9F877E28CC2D5B00177D29 /* FullViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42552A289D0FA200163327 /* FullViewModel.swift */; };
-		9B9F877F28CC2D5B00177D29 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1DFAB28AB6D900048B313 /* NetworkStatus.swift */; };
-		9B9F878028CC2D5B00177D29 /* FeedRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE8F28AA8A2C00458138 /* FeedRequestInformation.swift */; };
-		9B9F878128CC2D5B00177D29 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309D62888EE0D000C592F /* LoginView.swift */; };
-		9B9F878228CC2D5B00177D29 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B51B55928CB66AF0070913C /* KeyValue.swift */; };
-		9B9F878328CC2D5B00177D29 /* ToastInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5208628BB8B110036F5CF /* ToastInformation.swift */; };
-		9B9F878428CC2D5B00177D29 /* LowSheetNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF513BF28AD17C400104CAB /* LowSheetNotification.swift */; };
-		9B9F878528CC2D5B00177D29 /* CustomNavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1DFB328AB765B0048B313 /* CustomNavigationBackButton.swift */; };
-		9B9F878628CC2D5B00177D29 /* EmptyResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0FA28AE93EA00F6DD0B /* EmptyResultView.swift */; };
-		9B9F878728CC2D5B00177D29 /* MyCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4AD728BA04BB00349AEC /* MyCommentCell.swift */; };
-		9B9F878828CC2D5B00177D29 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCE628AE2D4F00C4C577 /* CardView.swift */; };
-		9B9F878928CC2D5B00177D29 /* CapsuleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B999289A679B00E0910C /* CapsuleButtonStyle.swift */; };
-		9B9F878A28CC2D5B00177D29 /* CommentRepliesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86192C28A77D920098AC8E /* CommentRepliesView.swift */; };
-		9B9F878B28CC2D5B00177D29 /* NicknameResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D6AC28B0855700F116CD /* NicknameResponseModel.swift */; };
-		9B9F878C28CC2D5B00177D29 /* CommentPostResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA59EA028AE884E002C0FA9 /* CommentPostResponseModel.swift */; };
-		9B9F878D28CC2D5B00177D29 /* ReportRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C93077928BDD27E001A8E08 /* ReportRequestModel.swift */; };
-		9B9F878E28CC2D5B00177D29 /* NaenioAPI+Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8944828A74A0200BE2ECF /* NaenioAPI+Method.swift */; };
-		9B9F878F28CC2D5B00177D29 /* DefaultSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC296D82880533C001950A2 /* DefaultSession.swift */; };
-		9B9F879028CC2D5B00177D29 /* OpenedByLinkFullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCE028AE24F200C4C577 /* OpenedByLinkFullView.swift */; };
-		9B9F879128CC2D5B00177D29 /* ForEach + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCE828AE377C00C4C577 /* ForEach + Extension.swift */; };
-		9B9F879228CC2D5B00177D29 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF513C428AD218200104CAB /* LottieView.swift */; };
-		9B9F879328CC2D5B00177D29 /* UserManager + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B990289A4AC100E0910C /* UserManager + Extension.swift */; };
-		9B9F879428CC2D5B00177D29 /* Navigation + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D603828A373FD00632BCC /* Navigation + Extension.swift */; };
-		9B9F879528CC2D5B00177D29 /* MyPageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE13FE328AA2FDC009ED95D /* MyPageSection.swift */; };
-		9B9F879628CC2D5B00177D29 /* CustomNavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE13FEE28AA58C7009ED95D /* CustomNavigationButton.swift */; };
-		9B9F879728CC2D5B00177D29 /* NaenioAPI+Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B13332883AAE0006044B0 /* NaenioAPI+Task.swift */; };
-		9B9F879828CC2D5B00177D29 /* ReportAndShareSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF513C128AD1AF900104CAB /* ReportAndShareSheetView.swift */; };
-		9B9F879928CC2D5B00177D29 /* MyPageAuthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE13FDB28AA1A83009ED95D /* MyPageAuthCell.swift */; };
-		9B9F879A28CC2D5B00177D29 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D07B62897C683008BBD75 /* User.swift */; };
-		9B9F879B28CC2D5B00177D29 /* SystemAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1DFAD28AB6E990048B313 /* SystemAlert.swift */; };
-		9B9F879C28CC2D5B00177D29 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE13FE528AA54C5009ED95D /* MyPageViewModel.swift */; };
-		9B9F879D28CC2D5B00177D29 /* MyPageNavigationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE13FDD28AA1BAF009ED95D /* MyPageNavigationCell.swift */; };
-		9B9F879E28CC2D5B00177D29 /* SinglePostResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCF028AE6E9500C4C577 /* SinglePostResponseModel.swift */; };
-		9B9F879F28CC2D5B00177D29 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B98C289A3AAB00E0910C /* HomeView.swift */; };
-		9B9F87A028CC2D5B00177D29 /* KeyboardAdaptive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732328A5551B0089CC48 /* KeyboardAdaptive.swift */; };
-		9B9F87A128CC2D5B00177D29 /* Font + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B687DE928954D4A0048AED0 /* Font + Extension.swift */; };
-		9B9F87A228CC2D5B00177D29 /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0F628AE92F700F6DD0B /* ThemeView.swift */; };
-		9B9F87A328CC2D5B00177D29 /* UIResponder + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732C28A556020089CC48 /* UIResponder + Extension.swift */; };
-		9B9F87A428CC2D5B00177D29 /* NaenioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F022879991400DE8E60 /* NaenioApp.swift */; };
-		9B9F87A528CC2D5B00177D29 /* VoteResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEAB28ABF95400458138 /* VoteResponseModel.swift */; };
-		9B9F87A628CC2D5B00177D29 /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE60292289541B6008F291C /* Color + Extension.swift */; };
-		9B9F87A728CC2D5B00177D29 /* MyCommentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382E28C4B408006DECFC /* MyCommentResponseModel.swift */; };
-		9B9F87A828CC2D5B00177D29 /* AvailableNicknameResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B19A1DC28AF7B1E0072DEDA /* AvailableNicknameResponseModel.swift */; };
-		9B9F87A928CC2D5B00177D29 /* Commentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D6B128C36A4200F116CD /* Commentable.swift */; };
-		9B9F87AA28CC2D5B00177D29 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732E28A68A6B0089CC48 /* CommentViewModel.swift */; };
-		9B9F87AB28CC2D5B00177D29 /* Notification + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732A28A555D60089CC48 /* Notification + Extension.swift */; };
-		9B9F87AC28CC2D5B00177D29 /* ThemeRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA59E9028AD504F002C0FA9 /* ThemeRequestModel.swift */; };
-		9B9F87AD28CC2D5B00177D29 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B989289A359700E0910C /* OnboardingView.swift */; };
-		9B9F87AE28CC2D5B00177D29 /* UIApplication + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D603A28A3746500632BCC /* UIApplication + Extension.swift */; };
-		9B9F87AF28CC2D5B00177D29 /* HalfSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B391A1828AB208E0007F4D6 /* HalfSheet.swift */; };
-		9B9F87B028CC2D5B00177D29 /* PostRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE9628AA8A3900458138 /* PostRequestInformation.swift */; };
-		9B9F87B128CC2D5B00177D29 /* CommentRepliesResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7ECFF128B518FE006C1763 /* CommentRepliesResponseModel.swift */; };
-		9B9F87B228CC2D5B00177D29 /* PostResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE9428AA8A3900458138 /* PostResponseModel.swift */; };
-		9B9F87B328CC2D5B00177D29 /* VotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8D409B28AE86B90024E989 /* VotesViewModel.swift */; };
-		9B9F87B428CC2D5B00177D29 /* VersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4AD428BA01DD00349AEC /* VersionView.swift */; };
-		9B9F87B528CC2D5B00177D29 /* FullView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCE228AE2A3700C4C577 /* FullView.swift */; };
-		9B9F87B628CC2D5B00177D29 /* PostRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE9628AA8A3900458138 /* PostRequestInformation.swift */; };
-		9B9F87B728CC2D5B00177D29 /* VotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B244074289E9AF10060A244 /* VotesViewModel.swift */; };
-		9B9F87B828CC2D5B00177D29 /* NoticeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4ACB28B9DEC600349AEC /* NoticeDetailView.swift */; };
-		9B9F87B928CC2D5B00177D29 /* NaenioAPI+Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B133C2883C5EB006044B0 /* NaenioAPI+Wrapper.swift */; };
-		9B9F87BA28CC2D5B00177D29 /* ProfileImageSelectionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3644BB28AB3B2200EA1467 /* ProfileImageSelectionSheetView.swift */; };
-		9B9F87BB28CC2D5B00177D29 /* CommentListRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA59EAF28AEA3DF002C0FA9 /* CommentListRequestModel.swift */; };
-		9B9F87BC28CC2D5B00177D29 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B99D289A8BCB00E0910C /* CardViewModel.swift */; };
-		9B9F87BD28CC2D5B00177D29 /* FeedResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE9028AA8A2C00458138 /* FeedResponseModel.swift */; };
-		9B9F87BE28CC2D5B00177D29 /* MyCommentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382D28C4B408006DECFC /* MyCommentRequest.swift */; };
-		9B9F87BF28CC2D5B00177D29 /* ScrollViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D604D28A3CAE000632BCC /* ScrollViewHelper.swift */; };
-		9B9F87C028CC2D5B00177D29 /* HttpResponseCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B13422883D88A006044B0 /* HttpResponseCode.swift */; };
-		9B9F87C128CC2D5B00177D29 /* SortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE8E28AA8A2C00458138 /* SortType.swift */; };
-		9B9F87C228CC2D5B00177D29 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEB828ACFB4D00458138 /* Theme.swift */; };
-		9B9F87C328CC2D5B00177D29 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C68A29C28990015006D36B1 /* TokenManager.swift */; };
-		9B9F87C428CC2D5B00177D29 /* AuthServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8945528A7A1E300BE2ECF /* AuthServiceType.swift */; };
-		9B9F87C528CC2D5B00177D29 /* View + Exetension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B24406F289E8DC30060A244 /* View + Exetension.swift */; };
-		9B9F87C628CC2D5B00177D29 /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D028A88E7F00F6DD0B /* CustomSheet.swift */; };
-		9B9F87C728CC2D5B00177D29 /* AppleLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00BF6287AC95A00F08035 /* AppleLoginManager.swift */; };
-		9B9F87C828CC2D5B00177D29 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03733128A6926D0089CC48 /* LoadingIndicator.swift */; };
-		9B9F87C928CC2D5B00177D29 /* VotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCE428AE2AB100C4C577 /* VotesView.swift */; };
-		9B9F87CA28CC2D5B00177D29 /* DevelopersInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4AD128B9EA6400349AEC /* DevelopersInfoView.swift */; };
-		9B9F87CB28CC2D5B00177D29 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C43C8C32886FB8200A60372 /* String+Extension.swift */; };
-		9B9F87CC28CC2D5B00177D29 /* ProfileImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3644BE28AB3CC600EA1467 /* ProfileImages.swift */; };
-		9B9F87CD28CC2D5B00177D29 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE9528AA8A3900458138 /* Post.swift */; };
-		9B9F87CE28CC2D5B00177D29 /* SignInWithKakaoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309CE2888ED08000C592F /* SignInWithKakaoButton.swift */; };
-		9B9F87CF28CC2D5B00177D29 /* Publishers + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732628A555800089CC48 /* Publishers + Extension.swift */; };
-		9B9F87D028CC2D5B00177D29 /* UITextViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C90C1AA28A227AE00197B32 /* UITextViewRepresentable.swift */; };
-		9B9F87D128CC2D5B00177D29 /* SinglePostRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCEE28AE65B900C4C577 /* SinglePostRequestInformation.swift */; };
-		9B9F87D228CC2D5B00177D29 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0DB28A8EE4500F6DD0B /* RoundedCorner.swift */; };
-		9B9F87D328CC2D5B00177D29 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D07B82897C728008BBD75 /* UserManager.swift */; };
-		9B9F87D428CC2D5B00177D29 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C10439C289B747200A45711 /* HomeViewModel.swift */; };
-		9B9F87D528CC2D5B00177D29 /* CustomNavigationView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1DFB128AB75A10048B313 /* CustomNavigationView + Extension.swift */; };
-		9B9F87D628CC2D5B00177D29 /* WrappedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAA173F28A2468600EAAE40 /* WrappedTextView.swift */; };
-		9B9F87D728CC2D5B00177D29 /* TargetType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B133A2883C44C006044B0 /* TargetType+Extension.swift */; };
-		9B9F87D828CC2D5B00177D29 /* LocalStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C68A2992898F3A6006D36B1 /* LocalStorageManager.swift */; };
-		9B9F87D928CC2D5B00177D29 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5228A7127B007A4715 /* CloseButton.swift */; };
-		9B9F87DA28CC2D5B00177D29 /* ModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B133E2883CD32006044B0 /* ModelType.swift */; };
-		9B9F87DB28CC2D5B00177D29 /* MyPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE13FDF28AA2187009ED95D /* MyPageCell.swift */; };
-		9B9F87DC28CC2D5B00177D29 /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6DA8628A21CD10060610F /* NewPostView.swift */; };
-		9B9F87DD28CC2D5B00177D29 /* MyCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4ADE28BA14A900349AEC /* MyCommentView.swift */; };
-		9B9F87DE28CC2D5B00177D29 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B13362883B55F006044B0 /* Encodable+Extension.swift */; };
-		9B9F87DF28CC2D5B00177D29 /* FillHorizontal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B9A4289A937100E0910C /* FillHorizontal.swift */; };
-		9B9F87E028CC2D5B00177D29 /* VoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B9A1289A8DDE00E0910C /* VoteButton.swift */; };
-		9B9F87E128CC2D5B00177D29 /* ProfileChangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1DFA928AB656C0048B313 /* ProfileChangeViewModel.swift */; };
-		9B9F87E228CC2D5B00177D29 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3555228C3987000BD6FB5 /* MotionManager.swift */; };
-		9B9F87E328CC2D5B00177D29 /* RequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEB328ACCF0C00458138 /* RequestService.swift */; };
-		9B9F87E428CC2D5B00177D29 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4AC728B9D61E00349AEC /* NoticeView.swift */; };
-		9B9F87E528CC2D5B00177D29 /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD520C628BCCC240036F5CF /* CustomDateFormatter.swift */; };
-		9B9F87E628CC2D5B00177D29 /* MyComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382C28C4B408006DECFC /* MyComment.swift */; };
-		9B9F87E728CC2D5B00177D29 /* NaenioAPIHeaderInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC296DF288055FD001950A2 /* NaenioAPIHeaderInformation.swift */; };
-		9B9F87E828CC2D5B00177D29 /* RandomPostResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3554928BB970A00BD6FB5 /* RandomPostResponseModel.swift */; };
-		9B9F87E928CC2D5B00177D29 /* NaenioAPI+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B134428847640006044B0 /* NaenioAPI+Request.swift */; };
-		9B9F87EA28CC2D5B00177D29 /* CustomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D228A88FB200F6DD0B /* CustomSheetView.swift */; };
-		9B9F87EB28CC2D5B00177D29 /* LottieAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2B25E428ADCEA0009BDC9F /* LottieAnimations.swift */; };
-		9B9F87EC28CC2D5B00177D29 /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF513D128AD27FA00104CAB /* HapticManager.swift */; };
-		9B9F87ED28CC2D5B00177D29 /* FillScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C95B995289A672800E0910C /* FillScreen.swift */; };
-		9B9F87EE28CC2D5B00177D29 /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382828C4B32F006DECFC /* Notice.swift */; };
-		9B9F87EF28CC2D5B00177D29 /* CommentContentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B91D80C28BF835D008D9E9E /* CommentContentCellViewModel.swift */; };
-		9B9F87F028CC2D5B00177D29 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309D82888EE20000C592F /* LoginViewModel.swift */; };
-		9B9F87F128CC2D5B00177D29 /* CommentPostRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0E328A9050600F6DD0B /* CommentPostRequestModel.swift */; };
-		9B9F87F228CC2D5B00177D29 /* VotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B244072289E9AA10060A244 /* VotesView.swift */; };
-		9B9F87F328CC2D5B00177D29 /* ShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27A39728AD079700C63AB6 /* ShareManager.swift */; };
-		9B9F87F428CC2D5B00177D29 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4B73A2896BF2500774192 /* MyPageView.swift */; };
-		9B9F87F528CC2D5B00177D29 /* SignInWithKakaoButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309D02888ED16000C592F /* SignInWithKakaoButtonViewModel.swift */; };
-		9B9F87F628CC2D5B00177D29 /* ThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0F828AE931600F6DD0B /* ThemeViewModel.swift */; };
-		9B9F87F728CC2D5B00177D29 /* CommentRepliesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86192E28A782990098AC8E /* CommentRepliesViewModel.swift */; };
-		9B9F87F828CC2D5B00177D29 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7922C287BA90600600C32 /* UserInformation.swift */; };
-		9B9F87F928CC2D5B00177D29 /* NoticeResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382728C4B32F006DECFC /* NoticeResponseModel.swift */; };
-		9B9F87FA28CC2D5B00177D29 /* NewVoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCEA28AE3A7900C4C577 /* NewVoteButton.swift */; };
-		9B9F87FB28CC2D5B00177D29 /* CurationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CEB528ACF77200458138 /* CurationCardView.swift */; };
-		9B9F87FC28CC2D5B00177D29 /* MockCommentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE311CE28A63E7200EDB0F4 /* MockCommentGenerator.swift */; };
-		9B9F87FD28CC2D5B00177D29 /* CommentCountComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A4F28A70F89007A4715 /* CommentCountComponent.swift */; };
-		9B9F87FE28CC2D5B00177D29 /* ProfileChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE13FE928AA5566009ED95D /* ProfileChangeView.swift */; };
-		9B9F87FF28CC2D5B00177D29 /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE13FF028AA5CD1009ED95D /* CustomNavigationView.swift */; };
-		9B9F880028CC2D5B00177D29 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE13FEC28AA5717009ED95D /* CustomNavigationBar.swift */; };
-		9B9F880128CC2D5B00177D29 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4B7332896BDE400774192 /* MainView.swift */; };
-		9B9F880228CC2D5B00177D29 /* CommentRepliesRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7ECFEF28B51755006C1763 /* CommentRepliesRequestModel.swift */; };
-		9B9F880328CC2D5B00177D29 /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4AC928B9DA7F00349AEC /* NoticeViewModel.swift */; };
-		9B9F880428CC2D5B00177D29 /* MyPageActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4ACE28B9E57300349AEC /* MyPageActionCell.swift */; };
-		9B9F880528CC2D5B00177D29 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C69153528AC90EE00317489 /* LazyView.swift */; };
-		9B9F880628CC2D5B00177D29 /* LoginRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF00C0A287ACFA900F08035 /* LoginRequestInformation.swift */; };
-		9B9F880728CC2D5B00177D29 /* CommentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA59EA228AE8888002C0FA9 /* CommentType.swift */; };
-		9B9F880828CC2D5B00177D29 /* LocalStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B98B9289948DA007336DE /* LocalStorageKeys.swift */; };
-		9B9F880928CC2D5B00177D29 /* RandomThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3554F28BBA04F00BD6FB5 /* RandomThemeViewModel.swift */; };
-		9B9F880A28CC2D5B00177D29 /* IndexResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D6AE28B0857700F116CD /* IndexResponseModel.swift */; };
-		9B9F880B28CC2D5B00177D29 /* KakaoLoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309CC2888EC52000C592F /* KakaoLoginManager.swift */; };
-		9B9F880C28CC2D5B00177D29 /* MockPostGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8B5E09289CEF000029BB66 /* MockPostGenerator.swift */; };
-		9B9F880D28CC2D5B00177D29 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE311D328A6439900EDB0F4 /* CommentView.swift */; };
-		9B9F880E28CC2D5B00177D29 /* CurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4B7382896BF1C00774192 /* CurationView.swift */; };
-		9B9F881028CC2D5B00177D29 /* AlertState in Frameworks */ = {isa = PBXBuildFile; productRef = 9B9F876B28CC2D5B00177D29 /* AlertState */; };
-		9B9F881128CC2D5B00177D29 /* Pods_Naenio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F90AE7C66B6F401694AE25 /* Pods_Naenio.framework */; };
-		9B9F881328CC2D5B00177D29 /* MockPostWroteList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B6F0E289BE1B4002A76A7 /* MockPostWroteList.json */; };
-		9B9F881428CC2D5B00177D29 /* MockPostParticipatedList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B6F0F289BE1B6002A76A7 /* MockPostParticipatedList.json */; };
-		9B9F881528CC2D5B00177D29 /* MockPostList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA2294289BB28500A2F9B0 /* MockPostList.json */; };
-		9B9F881628CC2D5B00177D29 /* MockPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA228F289BA4A900A2F9B0 /* MockPost.json */; };
-		9B9F881728CC2D5B00177D29 /* Pretendard-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE6029A289548CE008F291C /* Pretendard-SemiBold.ttf */; };
-		9B9F881828CC2D5B00177D29 /* Pretendard-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE6029C289548CE008F291C /* Pretendard-Regular.ttf */; };
-		9B9F881928CC2D5B00177D29 /* Pretendard-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE60297289548CE008F291C /* Pretendard-Medium.ttf */; };
-		9B9F881A28CC2D5B00177D29 /* splash_view.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CE1C4F028CB563600F096B3 /* splash_view.png */; };
-		9B9F881B28CC2D5B00177D29 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 4CA47BC92890344400D300A7 /* .swiftlint.yml */; };
-		9B9F881C28CC2D5B00177D29 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE602AF2895491B008F291C /* Montserrat-Regular.ttf */; };
-		9B9F881D28CC2D5B00177D29 /* full_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCDCDE28AE14B700C4C577 /* full_loading.json */; };
-		9B9F881E28CC2D5B00177D29 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B085F092879991600DE8E60 /* Preview Assets.xcassets */; };
-		9B9F881F28CC2D5B00177D29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B085F062879991600DE8E60 /* Assets.xcassets */; };
-		9B9F882028CC2D5B00177D29 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CBCDCDA28AE070200C4C577 /* Launch Screen.storyboard */; };
-		9B9F882128CC2D5B00177D29 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE602AB2895491B008F291C /* Montserrat-SemiBold.ttf */; };
-		9B9F882228CC2D5B00177D29 /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 9BF513CE28AD265000104CAB /* confetti.json */; };
-		9B9F882328CC2D5B00177D29 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE602AA2895491B008F291C /* Montserrat-Medium.ttf */; };
-		9B9F882428CC2D5B00177D29 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE602AC2895491B008F291C /* Montserrat-Bold.ttf */; };
-		9B9F882528CC2D5B00177D29 /* Pretendard-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9BE6029E289548CF008F291C /* Pretendard-Bold.ttf */; };
 		9BD5208728BB8B110036F5CF /* ToastInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5208628BB8B110036F5CF /* ToastInformation.swift */; };
 		9BD520C728BCCC240036F5CF /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD520C628BCCC240036F5CF /* CustomDateFormatter.swift */; };
 		9BD520CA28BCCD840036F5CF /* CustomDateFormatterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD520C928BCCD840036F5CF /* CustomDateFormatterTest.swift */; };
@@ -709,8 +528,6 @@
 		9B8B98B9289948DA007336DE /* LocalStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageKeys.swift; sourceTree = "<group>"; };
 		9B8D409B28AE86B90024E989 /* VotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotesViewModel.swift; sourceTree = "<group>"; };
 		9B91D80C28BF835D008D9E9E /* CommentContentCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentContentCellViewModel.swift; sourceTree = "<group>"; };
-		9B9F882B28CC2D5B00177D29 /* Naenio copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Naenio copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B9F882C28CC2D5B00177D29 /* Naenio copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Naenio copy-Info.plist"; path = "/Users/lee/Documents/GitHub/Naenio-iOS/Naenio copy-Info.plist"; sourceTree = "<absolute>"; };
 		9BD5208628BB8B110036F5CF /* ToastInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastInformation.swift; sourceTree = "<group>"; };
 		9BD520C628BCCC240036F5CF /* CustomDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatter.swift; sourceTree = "<group>"; };
 		9BD520C928BCCD840036F5CF /* CustomDateFormatterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatterTest.swift; sourceTree = "<group>"; };
@@ -832,15 +649,6 @@
 			files = (
 				9B1FED8C28CAE17E00340F27 /* AlertState in Frameworks */,
 				9B0E56B528CC2A810051E309 /* Pods_Naenio_deploy.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9B9F880F28CC2D5B00177D29 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9B9F881028CC2D5B00177D29 /* AlertState in Frameworks */,
-				9B9F881128CC2D5B00177D29 /* Pods_Naenio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1068,7 +876,6 @@
 				5384CA9EFAD91A1B81B34F6B /* Pods */,
 				5A5E2382BAF75B50B64733A4 /* Frameworks */,
 				9B53382628C4B210006DECFC /* Recovered References */,
-				9B9F882C28CC2D5B00177D29 /* Naenio copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1079,7 +886,6 @@
 				9B085F0F2879991600DE8E60 /* NaenioTests.xctest */,
 				9B085F192879991600DE8E60 /* NaenioUITests.xctest */,
 				9B1FEDA628CAE17E00340F27 /* Naenio-deploy.app */,
-				9B9F882B28CC2D5B00177D29 /* Naenio copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1828,29 +1634,6 @@
 			productReference = 9B1FEDA628CAE17E00340F27 /* Naenio-deploy.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9B9F876A28CC2D5B00177D29 /* Naenio copy */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9B9F882828CC2D5B00177D29 /* Build configuration list for PBXNativeTarget "Naenio copy" */;
-			buildPhases = (
-				9B9F876D28CC2D5B00177D29 /* [CP] Check Pods Manifest.lock */,
-				9B9F876E28CC2D5B00177D29 /* Sources */,
-				9B9F880F28CC2D5B00177D29 /* Frameworks */,
-				9B9F881228CC2D5B00177D29 /* Resources */,
-				9B9F882628CC2D5B00177D29 /* ShellScript */,
-				9B9F882728CC2D5B00177D29 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Naenio copy";
-			packageProductDependencies = (
-				9B9F876B28CC2D5B00177D29 /* AlertState */,
-			);
-			productName = Naenio;
-			productReference = 9B9F882B28CC2D5B00177D29 /* Naenio copy.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1894,7 +1677,6 @@
 				9B1FECE528CAE17E00340F27 /* Naenio-deploy */,
 				9B085F0E2879991600DE8E60 /* NaenioTests */,
 				9B085F182879991600DE8E60 /* NaenioUITests */,
-				9B9F876A28CC2D5B00177D29 /* Naenio copy */,
 			);
 		};
 /* End PBXProject section */
@@ -1964,33 +1746,6 @@
 				9B1FED9E28CAE17E00340F27 /* Montserrat-Medium.ttf in Resources */,
 				9B1FED9F28CAE17E00340F27 /* Montserrat-Bold.ttf in Resources */,
 				9B1FEDA028CAE17E00340F27 /* Pretendard-Bold.ttf in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9B9F881228CC2D5B00177D29 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9B9F881328CC2D5B00177D29 /* MockPostWroteList.json in Resources */,
-				9B9F881428CC2D5B00177D29 /* MockPostParticipatedList.json in Resources */,
-				9B9F881528CC2D5B00177D29 /* MockPostList.json in Resources */,
-				9B9F881628CC2D5B00177D29 /* MockPost.json in Resources */,
-				9B9F881728CC2D5B00177D29 /* Pretendard-SemiBold.ttf in Resources */,
-				9B9F881828CC2D5B00177D29 /* Pretendard-Regular.ttf in Resources */,
-				9B9F881928CC2D5B00177D29 /* Pretendard-Medium.ttf in Resources */,
-				9B9F881A28CC2D5B00177D29 /* splash_view.png in Resources */,
-				9B9F881B28CC2D5B00177D29 /* .swiftlint.yml in Resources */,
-				9B9F881C28CC2D5B00177D29 /* Montserrat-Regular.ttf in Resources */,
-				9B9F881B28CC2D5B00177D29 /* .swiftlint.yml in Resources */,
-				9B9F881D28CC2D5B00177D29 /* full_loading.json in Resources */,
-				9B9F881E28CC2D5B00177D29 /* Preview Assets.xcassets in Resources */,
-				9B9F881F28CC2D5B00177D29 /* Assets.xcassets in Resources */,
-				9B9F882028CC2D5B00177D29 /* Launch Screen.storyboard in Resources */,
-				9B9F882128CC2D5B00177D29 /* Montserrat-SemiBold.ttf in Resources */,
-				9B9F882228CC2D5B00177D29 /* confetti.json in Resources */,
-				9B9F882328CC2D5B00177D29 /* Montserrat-Medium.ttf in Resources */,
-				9B9F882428CC2D5B00177D29 /* Montserrat-Bold.ttf in Resources */,
-				9B9F882528CC2D5B00177D29 /* Pretendard-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2135,62 +1890,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n\n";
-		};
-		9B9F876D28CC2D5B00177D29 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Naenio-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9B9F882628CC2D5B00177D29 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n\n\n";
-		};
-		9B9F882728CC2D5B00177D29 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Naenio/Pods-Naenio-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Naenio/Pods-Naenio-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Naenio/Pods-Naenio-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		B0AD000654DCCAF8858E82C7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2566,175 +2265,6 @@
 				9B1FED8728CAE17E00340F27 /* MockPostGenerator.swift in Sources */,
 				9B1FED8828CAE17E00340F27 /* CommentView.swift in Sources */,
 				9B1FED8928CAE17E00340F27 /* CurationView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9B9F876E28CC2D5B00177D29 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9B9F876F28CC2D5B00177D29 /* CommentContentCell.swift in Sources */,
-				9B9F877028CC2D5B00177D29 /* VoteRequestModel.swift in Sources */,
-				9B9F877128CC2D5B00177D29 /* TabContentView.swift in Sources */,
-				9B9F877228CC2D5B00177D29 /* CommentModel.swift in Sources */,
-				9B9F877328CC2D5B00177D29 /* NaenioAPI.swift in Sources */,
-				9B9F877428CC2D5B00177D29 /* RandomThemeView.swift in Sources */,
-				9B9F877528CC2D5B00177D29 /* CustomNavigationCongifuration.swift in Sources */,
-				9B9F877628CC2D5B00177D29 /* CustomDivider.swift in Sources */,
-				9B9F877728CC2D5B00177D29 /* MyCommentViewModel.swift in Sources */,
-				9B9F877828CC2D5B00177D29 /* UserError.swift in Sources */,
-				9B9F877928CC2D5B00177D29 /* Toast.swift in Sources */,
-				9B9F877A28CC2D5B00177D29 /* ReportManager.swift in Sources */,
-				9B9F877B28CC2D5B00177D29 /* NaenioAPI+Error.swift in Sources */,
-				9B9F877C28CC2D5B00177D29 /* NaenioAPI+Path.swift in Sources */,
-				9B9F877D28CC2D5B00177D29 /* SystemAlert + Extension.swift in Sources */,
-				9B9F877E28CC2D5B00177D29 /* FullViewModel.swift in Sources */,
-				9B9F877F28CC2D5B00177D29 /* NetworkStatus.swift in Sources */,
-				9B9F878028CC2D5B00177D29 /* FeedRequestInformation.swift in Sources */,
-				9B9F878128CC2D5B00177D29 /* LoginView.swift in Sources */,
-				9B9F878228CC2D5B00177D29 /* KeyValue.swift in Sources */,
-				9B9F878328CC2D5B00177D29 /* ToastInformation.swift in Sources */,
-				9B9F878428CC2D5B00177D29 /* LowSheetNotification.swift in Sources */,
-				9B9F878528CC2D5B00177D29 /* CustomNavigationBackButton.swift in Sources */,
-				9B9F878628CC2D5B00177D29 /* EmptyResultView.swift in Sources */,
-				9B9F878728CC2D5B00177D29 /* MyCommentCell.swift in Sources */,
-				9B9F878828CC2D5B00177D29 /* CardView.swift in Sources */,
-				9B9F878928CC2D5B00177D29 /* CapsuleButtonStyle.swift in Sources */,
-				9B9F878A28CC2D5B00177D29 /* CommentRepliesView.swift in Sources */,
-				9B9F878B28CC2D5B00177D29 /* NicknameResponseModel.swift in Sources */,
-				9B9F878C28CC2D5B00177D29 /* CommentPostResponseModel.swift in Sources */,
-				9B9F878D28CC2D5B00177D29 /* ReportRequestModel.swift in Sources */,
-				9B9F878E28CC2D5B00177D29 /* NaenioAPI+Method.swift in Sources */,
-				9B9F878F28CC2D5B00177D29 /* DefaultSession.swift in Sources */,
-				9B9F879028CC2D5B00177D29 /* OpenedByLinkFullView.swift in Sources */,
-				9B9F879128CC2D5B00177D29 /* ForEach + Extension.swift in Sources */,
-				9B9F879228CC2D5B00177D29 /* LottieView.swift in Sources */,
-				9B9F879328CC2D5B00177D29 /* UserManager + Extension.swift in Sources */,
-				9B9F879428CC2D5B00177D29 /* Navigation + Extension.swift in Sources */,
-				9B9F879528CC2D5B00177D29 /* MyPageSection.swift in Sources */,
-				9B9F879628CC2D5B00177D29 /* CustomNavigationButton.swift in Sources */,
-				9B9F879728CC2D5B00177D29 /* NaenioAPI+Task.swift in Sources */,
-				9B9F879828CC2D5B00177D29 /* ReportAndShareSheetView.swift in Sources */,
-				9B9F879928CC2D5B00177D29 /* MyPageAuthCell.swift in Sources */,
-				9B9F879A28CC2D5B00177D29 /* User.swift in Sources */,
-				9B9F879B28CC2D5B00177D29 /* SystemAlert.swift in Sources */,
-				9B9F879C28CC2D5B00177D29 /* MyPageViewModel.swift in Sources */,
-				9B9F879D28CC2D5B00177D29 /* MyPageNavigationCell.swift in Sources */,
-				9B9F879E28CC2D5B00177D29 /* SinglePostResponseModel.swift in Sources */,
-				9B9F879F28CC2D5B00177D29 /* HomeView.swift in Sources */,
-				9B9F87A028CC2D5B00177D29 /* KeyboardAdaptive.swift in Sources */,
-				9B9F87A128CC2D5B00177D29 /* Font + Extension.swift in Sources */,
-				9B9F87A228CC2D5B00177D29 /* ThemeView.swift in Sources */,
-				9B9F87A328CC2D5B00177D29 /* UIResponder + Extension.swift in Sources */,
-				9B9F87A428CC2D5B00177D29 /* NaenioApp.swift in Sources */,
-				9B9F87A528CC2D5B00177D29 /* VoteResponseModel.swift in Sources */,
-				9B9F87A628CC2D5B00177D29 /* Color + Extension.swift in Sources */,
-				9B9F87A728CC2D5B00177D29 /* MyCommentResponseModel.swift in Sources */,
-				9B9F87A828CC2D5B00177D29 /* AvailableNicknameResponseModel.swift in Sources */,
-				9B9F87A928CC2D5B00177D29 /* Commentable.swift in Sources */,
-				9B9F87AA28CC2D5B00177D29 /* CommentViewModel.swift in Sources */,
-				9B9F87AB28CC2D5B00177D29 /* Notification + Extension.swift in Sources */,
-				9B9F87AC28CC2D5B00177D29 /* ThemeRequestModel.swift in Sources */,
-				9B9F87A428CC2D5B00177D29 /* NaenioApp.swift in Sources */,
-				9B9F87AD28CC2D5B00177D29 /* OnboardingView.swift in Sources */,
-				9B9F87AE28CC2D5B00177D29 /* UIApplication + Extension.swift in Sources */,
-				9B9F87AF28CC2D5B00177D29 /* HalfSheet.swift in Sources */,
-				9B9F87B028CC2D5B00177D29 /* PostRequestInformation.swift in Sources */,
-				9B9F87B128CC2D5B00177D29 /* CommentRepliesResponseModel.swift in Sources */,
-				9B9F87B228CC2D5B00177D29 /* PostResponseModel.swift in Sources */,
-				9B9F87B328CC2D5B00177D29 /* VotesViewModel.swift in Sources */,
-				9B9F87B428CC2D5B00177D29 /* VersionView.swift in Sources */,
-				9B9F87B528CC2D5B00177D29 /* FullView.swift in Sources */,
-				9B9F87B628CC2D5B00177D29 /* PostRequestInformation.swift in Sources */,
-				9B9F87B228CC2D5B00177D29 /* PostResponseModel.swift in Sources */,
-				9B9F87B728CC2D5B00177D29 /* VotesViewModel.swift in Sources */,
-				9B9F87B828CC2D5B00177D29 /* NoticeDetailView.swift in Sources */,
-				9B9F87B928CC2D5B00177D29 /* NaenioAPI+Wrapper.swift in Sources */,
-				9B9F87BA28CC2D5B00177D29 /* ProfileImageSelectionSheetView.swift in Sources */,
-				9B9F87BB28CC2D5B00177D29 /* CommentListRequestModel.swift in Sources */,
-				9B9F87BC28CC2D5B00177D29 /* CardViewModel.swift in Sources */,
-				9B9F87BD28CC2D5B00177D29 /* FeedResponseModel.swift in Sources */,
-				9B9F87BE28CC2D5B00177D29 /* MyCommentRequest.swift in Sources */,
-				9B9F87BF28CC2D5B00177D29 /* ScrollViewHelper.swift in Sources */,
-				9B9F87C028CC2D5B00177D29 /* HttpResponseCode.swift in Sources */,
-				9B9F87C128CC2D5B00177D29 /* SortType.swift in Sources */,
-				9B9F87C228CC2D5B00177D29 /* Theme.swift in Sources */,
-				9B9F87C328CC2D5B00177D29 /* TokenManager.swift in Sources */,
-				9B9F87C428CC2D5B00177D29 /* AuthServiceType.swift in Sources */,
-				9B9F87C528CC2D5B00177D29 /* View + Exetension.swift in Sources */,
-				9B9F87C628CC2D5B00177D29 /* CustomSheet.swift in Sources */,
-				9B9F87C728CC2D5B00177D29 /* AppleLoginManager.swift in Sources */,
-				9B9F87C828CC2D5B00177D29 /* LoadingIndicator.swift in Sources */,
-				9B9F87C928CC2D5B00177D29 /* VotesView.swift in Sources */,
-				9B9F87CA28CC2D5B00177D29 /* DevelopersInfoView.swift in Sources */,
-				9B9F87CB28CC2D5B00177D29 /* String+Extension.swift in Sources */,
-				9B9F87CC28CC2D5B00177D29 /* ProfileImages.swift in Sources */,
-				9B9F87CD28CC2D5B00177D29 /* Post.swift in Sources */,
-				9B9F87CE28CC2D5B00177D29 /* SignInWithKakaoButton.swift in Sources */,
-				9B9F87CF28CC2D5B00177D29 /* Publishers + Extension.swift in Sources */,
-				9B9F87D028CC2D5B00177D29 /* UITextViewRepresentable.swift in Sources */,
-				9B9F87D128CC2D5B00177D29 /* SinglePostRequestInformation.swift in Sources */,
-				9B9F87D228CC2D5B00177D29 /* RoundedCorner.swift in Sources */,
-				9B9F87D328CC2D5B00177D29 /* UserManager.swift in Sources */,
-				9B9F87D428CC2D5B00177D29 /* HomeViewModel.swift in Sources */,
-				9B9F87D528CC2D5B00177D29 /* CustomNavigationView + Extension.swift in Sources */,
-				9B9F87D628CC2D5B00177D29 /* WrappedTextView.swift in Sources */,
-				9B9F87D728CC2D5B00177D29 /* TargetType+Extension.swift in Sources */,
-				9B9F87D828CC2D5B00177D29 /* LocalStorageManager.swift in Sources */,
-				9B9F87D928CC2D5B00177D29 /* CloseButton.swift in Sources */,
-				9B9F87DA28CC2D5B00177D29 /* ModelType.swift in Sources */,
-				9B9F87DB28CC2D5B00177D29 /* MyPageCell.swift in Sources */,
-				9B9F87DC28CC2D5B00177D29 /* NewPostView.swift in Sources */,
-				9B9F87DD28CC2D5B00177D29 /* MyCommentView.swift in Sources */,
-				9B9F87DE28CC2D5B00177D29 /* Encodable+Extension.swift in Sources */,
-				9B9F87DF28CC2D5B00177D29 /* FillHorizontal.swift in Sources */,
-				9B9F87E028CC2D5B00177D29 /* VoteButton.swift in Sources */,
-				9B9F87E128CC2D5B00177D29 /* ProfileChangeViewModel.swift in Sources */,
-				9B9F87E228CC2D5B00177D29 /* MotionManager.swift in Sources */,
-				9B9F87E328CC2D5B00177D29 /* RequestService.swift in Sources */,
-				9B9F87E428CC2D5B00177D29 /* NoticeView.swift in Sources */,
-				9B9F87E528CC2D5B00177D29 /* CustomDateFormatter.swift in Sources */,
-				9B9F87E628CC2D5B00177D29 /* MyComment.swift in Sources */,
-				9B9F87E728CC2D5B00177D29 /* NaenioAPIHeaderInformation.swift in Sources */,
-				9B9F87E828CC2D5B00177D29 /* RandomPostResponseModel.swift in Sources */,
-				9B9F87E928CC2D5B00177D29 /* NaenioAPI+Request.swift in Sources */,
-				9B9F87EA28CC2D5B00177D29 /* CustomSheetView.swift in Sources */,
-				9B9F87EB28CC2D5B00177D29 /* LottieAnimations.swift in Sources */,
-				9B9F87EC28CC2D5B00177D29 /* HapticManager.swift in Sources */,
-				9B9F87ED28CC2D5B00177D29 /* FillScreen.swift in Sources */,
-				9B9F87EE28CC2D5B00177D29 /* Notice.swift in Sources */,
-				9B9F87EF28CC2D5B00177D29 /* CommentContentCellViewModel.swift in Sources */,
-				9B9F87F028CC2D5B00177D29 /* LoginViewModel.swift in Sources */,
-				9B9F87F128CC2D5B00177D29 /* CommentPostRequestModel.swift in Sources */,
-				9B9F87F228CC2D5B00177D29 /* VotesView.swift in Sources */,
-				9B9F87F328CC2D5B00177D29 /* ShareManager.swift in Sources */,
-				9B9F87F428CC2D5B00177D29 /* MyPageView.swift in Sources */,
-				9B9F87F528CC2D5B00177D29 /* SignInWithKakaoButtonViewModel.swift in Sources */,
-				9B9F87F628CC2D5B00177D29 /* ThemeViewModel.swift in Sources */,
-				9B9F87F728CC2D5B00177D29 /* CommentRepliesViewModel.swift in Sources */,
-				9B9F87F828CC2D5B00177D29 /* UserInformation.swift in Sources */,
-				9B9F87F928CC2D5B00177D29 /* NoticeResponseModel.swift in Sources */,
-				9B9F87FA28CC2D5B00177D29 /* NewVoteButton.swift in Sources */,
-				9B9F87FB28CC2D5B00177D29 /* CurationCardView.swift in Sources */,
-				9B9F87FC28CC2D5B00177D29 /* MockCommentGenerator.swift in Sources */,
-				9B9F87FD28CC2D5B00177D29 /* CommentCountComponent.swift in Sources */,
-				9B9F87FE28CC2D5B00177D29 /* ProfileChangeView.swift in Sources */,
-				9B9F87FF28CC2D5B00177D29 /* CustomNavigationView.swift in Sources */,
-				9B9F880028CC2D5B00177D29 /* CustomNavigationBar.swift in Sources */,
-				9B9F880128CC2D5B00177D29 /* MainView.swift in Sources */,
-				9B9F880228CC2D5B00177D29 /* CommentRepliesRequestModel.swift in Sources */,
-				9B9F880328CC2D5B00177D29 /* NoticeViewModel.swift in Sources */,
-				9B9F880428CC2D5B00177D29 /* MyPageActionCell.swift in Sources */,
-				9B9F880528CC2D5B00177D29 /* LazyView.swift in Sources */,
-				9B9F880628CC2D5B00177D29 /* LoginRequestInformation.swift in Sources */,
-				9B9F880728CC2D5B00177D29 /* CommentType.swift in Sources */,
-				9B9F880828CC2D5B00177D29 /* LocalStorageKeys.swift in Sources */,
-				9B9F880928CC2D5B00177D29 /* RandomThemeViewModel.swift in Sources */,
-				9B9F880A28CC2D5B00177D29 /* IndexResponseModel.swift in Sources */,
-				9B9F880B28CC2D5B00177D29 /* KakaoLoginManager.swift in Sources */,
-				9B9F880C28CC2D5B00177D29 /* MockPostGenerator.swift in Sources */,
-				9B9F880D28CC2D5B00177D29 /* CommentView.swift in Sources */,
-				9B9F880E28CC2D5B00177D29 /* CurationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3119,93 +2649,6 @@
 			};
 			name = Release;
 		};
-		9B9F882928CC2D5B00177D29 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2A16018FC1AAF6152F0D6364 /* Pods-Naenio.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Naenio/Naenio.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
-				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
-				DEVELOPMENT_TEAM = W6QHM4Y43Z;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Naenio copy-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "네니오";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SDKROOT)/usr/lib/swift",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamVS.Naenio;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		9B9F882A28CC2D5B00177D29 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DD877B63358DA69A05657BBF /* Pods-Naenio.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Naenio/Naenio.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = W6QHM4Y43Z;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Naenio copy-Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "네니오";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SDKROOT)/usr/lib/swift",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamVS.Naenio;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AppStore com.teamVS.Naenio";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -3254,15 +2697,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9B9F882828CC2D5B00177D29 /* Build configuration list for PBXNativeTarget "Naenio copy" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9B9F882928CC2D5B00177D29 /* Debug */,
-				9B9F882A28CC2D5B00177D29 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -3282,14 +2716,6 @@
 				kind = branch;
 			};
 		};
-		9B9F876C28CC2D5B00177D29 /* XCRemoteSwiftPackageReference "AlertState" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/enebin/AlertState";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -3301,11 +2727,6 @@
 		9B95222728C7683100FA2F01 /* AlertState */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9B95222628C7683100FA2F01 /* XCRemoteSwiftPackageReference "AlertState" */;
-			productName = AlertState;
-		};
-		9B9F876B28CC2D5B00177D29 /* AlertState */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9B9F876C28CC2D5B00177D29 /* XCRemoteSwiftPackageReference "AlertState" */;
 			productName = AlertState;
 		};
 /* End XCSwiftPackageProductDependency section */
