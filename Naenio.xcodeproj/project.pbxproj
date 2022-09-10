@@ -50,8 +50,6 @@
 		4CD3555028BBA04F00BD6FB5 /* RandomThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3554F28BBA04F00BD6FB5 /* RandomThemeViewModel.swift */; };
 		4CD3555328C3987000BD6FB5 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3555228C3987000BD6FB5 /* MotionManager.swift */; };
 		4CE1C4F128CB563600F096B3 /* splash_view.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CE1C4F028CB563600F096B3 /* splash_view.png */; };
-		4CE1C4F328CB7FA800F096B3 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1C4F228CB7F1000F096B3 /* KeyValue.swift */; };
-		92D901F16488AB4A41D32F75 /* Pods_Naenio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B546567C3E3421F07641077D /* Pods_Naenio.framework */; };
 		9B03732428A5551B0089CC48 /* KeyboardAdaptive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732328A5551B0089CC48 /* KeyboardAdaptive.swift */; };
 		9B03732728A555800089CC48 /* Publishers + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732628A555800089CC48 /* Publishers + Extension.swift */; };
 		9B03732B28A555D60089CC48 /* Notification + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732A28A555D60089CC48 /* Notification + Extension.swift */; };
@@ -185,7 +183,7 @@
 		9B1FED5F28CAE17E00340F27 /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD520C628BCCC240036F5CF /* CustomDateFormatter.swift */; };
 		9B1FED6028CAE17E00340F27 /* MyComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382C28C4B408006DECFC /* MyComment.swift */; };
 		9B1FED6128CAE17E00340F27 /* NaenioAPIHeaderInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC296DF288055FD001950A2 /* NaenioAPIHeaderInformation.swift */; };
-		9B1FED6228CAE17E00340F27 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		9B1FED6228CAE17E00340F27 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		9B1FED6328CAE17E00340F27 /* RandomPostResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3554928BB970A00BD6FB5 /* RandomPostResponseModel.swift */; };
 		9B1FED6428CAE17E00340F27 /* NaenioAPI+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B134428847640006044B0 /* NaenioAPI+Request.swift */; };
 		9B1FED6528CAE17E00340F27 /* CustomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D228A88FB200F6DD0B /* CustomSheetView.swift */; };
@@ -289,11 +287,11 @@
 		9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B687DE928954D4A0048AED0 /* Font + Extension.swift */; };
 		9B86192D28A77D920098AC8E /* CommentRepliesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86192C28A77D920098AC8E /* CommentRepliesView.swift */; };
 		9B86192F28A782990098AC8E /* CommentRepliesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B86192E28A782990098AC8E /* CommentRepliesViewModel.swift */; };
-		9B8860E728CC0205005873D6 /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		9B8860E728CC0205005873D6 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		9B8B98BA289948DA007336DE /* LocalStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B98B9289948DA007336DE /* LocalStorageKeys.swift */; };
 		9B8D409C28AE86B90024E989 /* VotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8D409B28AE86B90024E989 /* VotesViewModel.swift */; };
 		9B91D80D28BF835D008D9E9E /* CommentContentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B91D80C28BF835D008D9E9E /* CommentContentCellViewModel.swift */; };
-		9B95222828C7683100FA2F01 /* AlertState in Frameworks */ = {isa = PBXBuildFile; productRef = 9B95222728C7683100FA2F01 /* AlertState */; };
+		9B9F883528CCA61700177D29 /* AlertState in Frameworks */ = {isa = PBXBuildFile; productRef = 9B9F883428CCA61700177D29 /* AlertState */; };
 		9BD5208728BB8B110036F5CF /* ToastInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5208628BB8B110036F5CF /* ToastInformation.swift */; };
 		9BD520C728BCCC240036F5CF /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD520C628BCCC240036F5CF /* CustomDateFormatter.swift */; };
 		9BD520CA28BCCD840036F5CF /* CustomDateFormatterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD520C928BCCD840036F5CF /* CustomDateFormatterTest.swift */; };
@@ -402,7 +400,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9B8860E728CC0205005873D6 /* BuildFile in Embed Frameworks */,
+				9B8860E728CC0205005873D6 /* (null) in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,9 +452,8 @@
 		4CD3554F28BBA04F00BD6FB5 /* RandomThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomThemeViewModel.swift; sourceTree = "<group>"; };
 		4CD3555228C3987000BD6FB5 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		4CE1C4F028CB563600F096B3 /* splash_view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_view.png; sourceTree = "<group>"; };
-		61C6F501A81229B7BDB19416 /* Pods_Naenio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naenio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE1C4F228CB7F1000F096B3 /* KeyValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
-		8D95CCC0C2681997F36E4AFB /* Pods-Naenio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio.debug.xcconfig"; path = "Target Support Files/Pods-Naenio/Pods-Naenio.debug.xcconfig"; sourceTree = "<group>"; };
+		61C6F501A81229B7BDB19416 /* Pods_Naenio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naenio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B03732328A5551B0089CC48 /* KeyboardAdaptive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAdaptive.swift; sourceTree = "<group>"; };
 		9B03732628A555800089CC48 /* Publishers + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers + Extension.swift"; sourceTree = "<group>"; };
 		9B03732A28A555D60089CC48 /* Notification + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification + Extension.swift"; sourceTree = "<group>"; };
@@ -616,8 +613,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B95222828C7683100FA2F01 /* AlertState in Frameworks */,
 				C2EAF95E8F96B1AA2B87B87F /* Pods_Naenio.framework in Frameworks */,
+				9B9F883528CCA61700177D29 /* AlertState in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1551,7 +1548,7 @@
 			);
 			name = Naenio;
 			packageProductDependencies = (
-				9B95222728C7683100FA2F01 /* AlertState */,
+				9B9F883428CCA61700177D29 /* AlertState */,
 			);
 			productName = Naenio;
 			productReference = 9B085EFF2879991400DE8E60 /* Naenio.app */;
@@ -1650,7 +1647,7 @@
 			);
 			mainGroup = 9B085EF62879991400DE8E60;
 			packageReferences = (
-				9B95222628C7683100FA2F01 /* XCRemoteSwiftPackageReference "AlertState" */,
+				9B9F883328CCA61700177D29 /* XCRemoteSwiftPackageReference "AlertState" */,
 			);
 			productRefGroup = 9B085F002879991400DE8E60 /* Products */;
 			projectDirPath = "";
@@ -1874,7 +1871,6 @@
 				4CC3CE9228AA8A2C00458138 /* FeedRequestInformation.swift in Sources */,
 				9C3309D72888EE0D000C592F /* LoginView.swift in Sources */,
 				9B51B55A28CB66B00070913C /* KeyValue.swift in Sources */,
-				4CE1C4F328CB7FA800F096B3 /* KeyValue.swift in Sources */,
 				9BD5208728BB8B110036F5CF /* ToastInformation.swift in Sources */,
 				9BF513C028AD17C400104CAB /* LowSheetNotification.swift in Sources */,
 				9CB1DFB428AB765B0048B313 /* CustomNavigationBackButton.swift in Sources */,
@@ -2164,7 +2160,7 @@
 				9B1FED5F28CAE17E00340F27 /* CustomDateFormatter.swift in Sources */,
 				9B1FED6028CAE17E00340F27 /* MyComment.swift in Sources */,
 				9B1FED6128CAE17E00340F27 /* NaenioAPIHeaderInformation.swift in Sources */,
-				9B1FED6228CAE17E00340F27 /* BuildFile in Sources */,
+				9B1FED6228CAE17E00340F27 /* (null) in Sources */,
 				9B51B55B28CB66B00070913C /* KeyValue.swift in Sources */,
 				9B1FED6328CAE17E00340F27 /* RandomPostResponseModel.swift in Sources */,
 				9B1FED6428CAE17E00340F27 /* NaenioAPI+Request.swift in Sources */,
@@ -2349,7 +2345,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
-				DEVELOPMENT_TEAM = KT2XM3Z9DZ;
+				DEVELOPMENT_TEAM = W6QHM4Y43Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Naenio/ignored/Info.plist;
@@ -2371,7 +2367,7 @@
 					"$(SDKROOT)/usr/lib/swift",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yoonyoung.Naenio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.teamVS.Naenio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2391,7 +2387,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
-				DEVELOPMENT_TEAM = KT2XM3Z9DZ;
+				DEVELOPMENT_TEAM = W6QHM4Y43Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Naenio/ignored/Info.plist;
@@ -2413,7 +2409,7 @@
 					"$(SDKROOT)/usr/lib/swift",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yoonyoung.Naenio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.teamVS.Naenio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2644,12 +2640,12 @@
 				kind = branch;
 			};
 		};
-		9B95222628C7683100FA2F01 /* XCRemoteSwiftPackageReference "AlertState" */ = {
+		9B9F883328CCA61700177D29 /* XCRemoteSwiftPackageReference "AlertState" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/enebin/AlertState";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -2660,9 +2656,9 @@
 			package = 9B1FECE728CAE17E00340F27 /* XCRemoteSwiftPackageReference "AlertState" */;
 			productName = AlertState;
 		};
-		9B95222728C7683100FA2F01 /* AlertState */ = {
+		9B9F883428CCA61700177D29 /* AlertState */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9B95222628C7683100FA2F01 /* XCRemoteSwiftPackageReference "AlertState" */;
+			package = 9B9F883328CCA61700177D29 /* XCRemoteSwiftPackageReference "AlertState" */;
 			productName = AlertState;
 		};
 /* End XCSwiftPackageProductDependency section */
