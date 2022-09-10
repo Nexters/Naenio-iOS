@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import AlertState
 
 struct RandomThemeView: View {
     private let theme: ThemeType
@@ -19,8 +20,9 @@ struct RandomThemeView: View {
     @State var showComments: Bool = false
     @State var showMoreInfoSheet: Bool = false
     @State var selectedPostId: Int? = nil
-    
     @State var attempts: Int = 0
+    
+    @AlertState<SystemAlert> var alertState
     
     var body: some View {
         ZStack {
@@ -93,6 +95,15 @@ struct RandomThemeView: View {
         .onChange(of: viewModel.post.choices) { _ in
             voteHappened = true
         }
+        .onChange(of: viewModel.status) { status in
+            switch status {
+            case .fail(with: let error):
+                alertState = .errorHappend(error: error)
+            default:
+                break
+            }
+        }
+        showAlert(with: $alertState)
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {

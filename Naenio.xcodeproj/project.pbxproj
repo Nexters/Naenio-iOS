@@ -50,6 +50,8 @@
 		4CD3555028BBA04F00BD6FB5 /* RandomThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3554F28BBA04F00BD6FB5 /* RandomThemeViewModel.swift */; };
 		4CD3555328C3987000BD6FB5 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD3555228C3987000BD6FB5 /* MotionManager.swift */; };
 		4CE1C4F128CB563600F096B3 /* splash_view.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CE1C4F028CB563600F096B3 /* splash_view.png */; };
+		4CE1C4F328CB7FA800F096B3 /* KeyValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE1C4F228CB7F1000F096B3 /* KeyValue.swift */; };
+		92D901F16488AB4A41D32F75 /* Pods_Naenio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B546567C3E3421F07641077D /* Pods_Naenio.framework */; };
 		9B03732428A5551B0089CC48 /* KeyboardAdaptive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732328A5551B0089CC48 /* KeyboardAdaptive.swift */; };
 		9B03732728A555800089CC48 /* Publishers + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732628A555800089CC48 /* Publishers + Extension.swift */; };
 		9B03732B28A555D60089CC48 /* Notification + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732A28A555D60089CC48 /* Notification + Extension.swift */; };
@@ -451,9 +453,10 @@
 		4CD3554D28BB9CCD00BD6FB5 /* RandomThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomThemeView.swift; sourceTree = "<group>"; };
 		4CD3554F28BBA04F00BD6FB5 /* RandomThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomThemeViewModel.swift; sourceTree = "<group>"; };
 		4CD3555228C3987000BD6FB5 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
-		4CE1C4EE28CB561500F096B3 /* KeyValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyValue.swift; path = ../../../../../Desktop/ignored/KeyValue.swift; sourceTree = "<group>"; };
 		4CE1C4F028CB563600F096B3 /* splash_view.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_view.png; sourceTree = "<group>"; };
 		61C6F501A81229B7BDB19416 /* Pods_Naenio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Naenio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CE1C4F228CB7F1000F096B3 /* KeyValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValue.swift; sourceTree = "<group>"; };
+		8D95CCC0C2681997F36E4AFB /* Pods-Naenio.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Naenio.debug.xcconfig"; path = "Target Support Files/Pods-Naenio/Pods-Naenio.debug.xcconfig"; sourceTree = "<group>"; };
 		9B03732328A5551B0089CC48 /* KeyboardAdaptive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAdaptive.swift; sourceTree = "<group>"; };
 		9B03732628A555800089CC48 /* Publishers + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers + Extension.swift"; sourceTree = "<group>"; };
 		9B03732A28A555D60089CC48 /* Notification + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification + Extension.swift"; sourceTree = "<group>"; };
@@ -693,7 +696,7 @@
 		4CC296DC288054C0001950A2 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				4CE1C4EE28CB561500F096B3 /* KeyValue.swift */,
+				4CE1C4F228CB7F1000F096B3 /* KeyValue.swift */,
 				4CC296DF288055FD001950A2 /* NaenioAPIHeaderInformation.swift */,
 				4C4B13422883D88A006044B0 /* HttpResponseCode.swift */,
 			);
@@ -1871,6 +1874,7 @@
 				4CC3CE9228AA8A2C00458138 /* FeedRequestInformation.swift in Sources */,
 				9C3309D72888EE0D000C592F /* LoginView.swift in Sources */,
 				9B51B55A28CB66B00070913C /* KeyValue.swift in Sources */,
+				4CE1C4F328CB7FA800F096B3 /* KeyValue.swift in Sources */,
 				9BD5208728BB8B110036F5CF /* ToastInformation.swift in Sources */,
 				9BF513C028AD17C400104CAB /* LowSheetNotification.swift in Sources */,
 				9CB1DFB428AB765B0048B313 /* CustomNavigationBackButton.swift in Sources */,
@@ -2345,7 +2349,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
-				DEVELOPMENT_TEAM = W6QHM4Y43Z;
+				DEVELOPMENT_TEAM = KT2XM3Z9DZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Naenio/ignored/Info.plist;
@@ -2367,7 +2371,7 @@
 					"$(SDKROOT)/usr/lib/swift",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamVS.Naenio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yoonyoung.Naenio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2387,7 +2391,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Naenio/Preview Content\"";
-				DEVELOPMENT_TEAM = W6QHM4Y43Z;
+				DEVELOPMENT_TEAM = KT2XM3Z9DZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Naenio/ignored/Info.plist;
@@ -2409,7 +2413,7 @@
 					"$(SDKROOT)/usr/lib/swift",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamVS.Naenio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yoonyoung.Naenio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2425,7 +2429,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = W6QHM4Y43Z;
+				DEVELOPMENT_TEAM = KT2XM3Z9DZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
@@ -2445,7 +2449,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = W6QHM4Y43Z;
+				DEVELOPMENT_TEAM = KT2XM3Z9DZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;

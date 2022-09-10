@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AlertState
 
 struct CommentRepliesView: View {
     typealias Comment = CommentModel.Comment
@@ -21,6 +22,8 @@ struct CommentRepliesView: View {
     @State var toastInfo = ToastInformation(isPresented: false, title: "", action: {}) // 리팩토링 시급, 토스트 시트 용 정보 스트럭트
 
     @Binding var comment: Comment
+    
+    @AlertState<SystemAlert> var alertState
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -146,8 +149,7 @@ struct CommentRepliesView: View {
                     self.comment.repliesCount = viewModel.replies.count
                 }
             case .fail(let error):
-                print(error.localizedDescription)
-                // TODO: alert
+                alertState = .errorHappend(error: error)
             default:
                 break
             }
@@ -155,6 +157,7 @@ struct CommentRepliesView: View {
         .onAppear {
             viewModel.requestCommentReplies(postId: comment.id, lastCommentId: nil)
         }
+        .showAlert(with: $alertState)
     }
     
     var profileImage: some View {
