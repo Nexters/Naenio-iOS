@@ -14,8 +14,6 @@ struct CardView: View {
     
     @State var voteHappened = false
     
-    @AlertState<SystemAlert> var alertState
-    
     // Injected values
     @EnvironmentObject var userManager: UserManager
     @ObservedObject var viewModel: CardViewModel
@@ -107,25 +105,18 @@ struct CardView: View {
                 switch workType {
                 case .report:
                     // TODO: 신고하기 성공 피드백
-                    break
+                    NotificationCenter.default.postToastAlertNotification("신고가 접수되었습니다")
                 case .delete:
-                    // MARK: 삭제하기 성공 피드백
                     withAnimation {
                         (deletedAction ?? {})()
                     }
                 }
-            case .fail(with: let error):
-                print("@@", error)
-                self.show = true
-                alertState = .errorHappend(error: error)
+            case .fail:
+                NotificationCenter.default.postToastAlertNotification("네트워크 에러: 잠시 후 다시 시도해주세요")
             default:
                 break
             }
         }
-        .alert(isPresented: $show) {
-            Alert(title: Text("SSS"))
-        }
-//        .showAlert(with: $alertState)
     }
     
     init(_ viewModel: CardViewModel = CardViewModel(),

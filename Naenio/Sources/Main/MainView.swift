@@ -14,7 +14,7 @@ struct MainView: View {
     
     @State var selectedTab = 1
     @State fileprivate var tabBarLowSheetInfo = TabBarLowSheetInfo(isPresented: false, title: "", action: {})
-    @State var toastInformation: ToastInformation = ToastInformation(isPresented: false, title: "")
+    @State var toastInformation: ToastInformation = ToastInformation(title: "")
 
     @State var pages: [TabBarPage] = [
         TabBarPage(pageName: .curation, selectedIcon: "tab_curation_selected", deselectedIcon: "tab_curation_deselected", tag: 0),
@@ -35,9 +35,6 @@ struct MainView: View {
                     .tag(item.tag)
             }
         }
-        .onReceive(Publishers.toastAlertNotificationPublisher) { toastInformation in
-            self.toastInformation = toastInformation
-        }
         .introspectTabBarController { controller in
             controller.tabBar.backgroundColor = UIColor(Color.tabBarBackground)
             controller.tabBar.shadowImage = UIImage()
@@ -57,6 +54,16 @@ struct MainView: View {
             title: tabBarLowSheetInfo.title,
             action: tabBarLowSheetInfo.action
         )
+        .onReceive(Publishers.toastAlertNotificationPublisher) { (info: ToastInformation) in
+            // Toast alert
+            self.toastInformation = info
+            self.toastInformation.isPresented = true
+            
+            // 2초뒤 숨기기
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.toastInformation.isPresented = false
+            }
+        }
     }
 }
 

@@ -10,5 +10,11 @@ import SwiftUI
 struct ToastInformation {
     var isPresented: Bool
     var title: String
-    var action: (() -> Void)?
+    var action: () -> Void
+    
+    init(isPresented: Bool = false, title: String, action: (() -> Void)? = nil) {
+        self.isPresented = isPresented
+        self.title = title
+        self.action = action ?? {}
+    }
 }

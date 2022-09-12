@@ -74,7 +74,7 @@ extension View {
         ZStack {
             self
             
-            Toast(isPresented: info.isPresented, title: info.title.wrappedValue, action: info.action.wrappedValue ?? {})
+            Toast(isPresented: info.isPresented, title: info.title.wrappedValue, action: info.action.wrappedValue)
         }
     }
     
@@ -85,6 +85,7 @@ extension View {
             self
             
             ToastAlert(isPresented: isPresented, title: title)
+                .padding(.bottom, 10)
         }
     }
     

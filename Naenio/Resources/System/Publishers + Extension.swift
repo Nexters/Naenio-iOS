@@ -23,7 +23,8 @@ extension Publishers {
     
     static var lowSheetNotificationPublisher: AnyPublisher<LowSheetNotification, Never> {
         return NotificationCenter.default.publisher(for: .lowSheetNotification)
-            .map { return $0.object as! LowSheetNotification }
+            .map {
+                return $0.object as! LowSheetNotification }
             .eraseToAnyPublisher()
     }
     

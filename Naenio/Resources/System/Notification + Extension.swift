@@ -24,7 +24,11 @@ extension NotificationCenter {
     
     /// 안전한 toast alert 이용을 위한 래퍼 함수입니다. 여전히 안전하진 않지만
     func postToastAlertNotification(with notification: ToastInformation) {
-        NotificationCenter.default.post(name: .lowSheetNotification, object: notification)
+        NotificationCenter.default.post(name: .toastAlertNotification, object: notification)
+    }
+    
+    func postToastAlertNotification(_ title: String) {
+        NotificationCenter.default.post(name: .toastAlertNotification, object: ToastInformation(title: title))
     }
     
     func postDidVoteHappen(id value: Int) {
