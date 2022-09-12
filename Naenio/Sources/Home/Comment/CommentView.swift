@@ -16,6 +16,7 @@ struct CommentView: View {
     
     @State var text: String = "" // 메시지 작성용
     @State var toastInfo = ToastInformation(isPresented: false, title: "", action: {}) // 리팩토링 시급, 토스트 시트 용 정보 스트럭트
+    @State var toastAlertInfo = ToastInformation(title: "")
     
     @AlertState<SystemAlert> var alertState
     
@@ -69,6 +70,7 @@ struct CommentView: View {
                             
                             CommentContentCell(isPresented: $isPresented,
                                                toastInfo: $toastInfo,
+                                               toastAlertInfo: $toastAlertInfo,
                                                comment: comment,
                                                isReply: false,
                                                isMine: userManager.getUserId() == comment.wrappedValue.author.id,
@@ -146,6 +148,7 @@ struct CommentView: View {
                 .frame(height: 60)
             }
             .toast(isPresented: $toastInfo.isPresented, title: toastInfo.title, action: toastInfo.action)
+            .toastAlert(isPresented: $toastAlertInfo.isPresented, title: toastAlertInfo.title)
             .navigationBarHidden(true)
         }
         .onAppear {

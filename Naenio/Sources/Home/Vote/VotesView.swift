@@ -6,14 +6,11 @@
 //
 
 import SwiftUI
-import AlertState
 
 struct VotesView: View {
     @ObservedObject var viewModel = VotesViewModel()
     @Binding var post: Post
     @State var lastChoice: Int?
-    
-    @AlertState<SystemAlert> var alertState
     
     var body: some View {
         ZStack {
@@ -50,12 +47,11 @@ struct VotesView: View {
                         viewModel.status = .waiting
                     }
                 case .fail(with: let error):
-                    alertState = .errorHappend(error: error)
+                    NotificationCenter.default.postToastAlertWithErrorNotification()
                 default:
                     break
                 }
             }
-            .showAlert(with: $alertState)
             
             Image("vsIcon")
                 .resizable()

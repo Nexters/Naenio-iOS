@@ -14,7 +14,7 @@ extension SystemAlert {
         case .warnBeforeExit:
             return "정말 나가시겠어요?"
         case .errorHappend:
-            return "알 수 없는 에러"
+            return "네트워크 에러"
         case .logout:
             return "로그아웃"
         case .withdrawal:
@@ -42,10 +42,9 @@ extension SystemAlert {
                 AlertButton("Cancel", role: .cancel, action: primaryAction ?? {}),
                 AlertButton("OK", action: secondaryAction ?? {})
             ]
-        case .errorHappend(_, let primaryAction, let secondaryAction):
+        case .errorHappend:
             return [
-                AlertButton("Cancel", role: .cancel, action: primaryAction ?? {}),
-                AlertButton("OK", action: secondaryAction ?? {})
+                AlertButton("OK")
             ]
         case .logout(let primaryAction, let secondaryAction):
             return [

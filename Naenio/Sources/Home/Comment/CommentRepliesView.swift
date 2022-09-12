@@ -20,6 +20,7 @@ struct CommentRepliesView: View {
     
     @State var text: String = ""
     @State var toastInfo = ToastInformation(isPresented: false, title: "", action: {}) // 리팩토링 시급, 토스트 시트 용 정보 스트럭트
+    @State var toastAlertInfo = ToastInformation(title: "")
 
     @Binding var comment: Comment
     
@@ -71,6 +72,7 @@ struct CommentRepliesView: View {
                     
                     CommentContentCell(isPresented: $isPresented,
                                        toastInfo: $toastInfo,
+                                       toastAlertInfo: $toastAlertInfo,
                                        comment: $comment,
                                        isReply: true,
                                        isMine: userManager.getUserId() == comment.author.id,
@@ -86,6 +88,7 @@ struct CommentRepliesView: View {
                             
                             CommentContentCell(isPresented: $isPresented,
                                                toastInfo: $toastInfo,
+                                               toastAlertInfo: $toastAlertInfo,
                                                comment: reply,
                                                isReply: true,
                                                isMine: userManager.getUserId() == reply.wrappedValue.author.id, deletedAction: {
@@ -138,6 +141,7 @@ struct CommentRepliesView: View {
             }
         }
         .toast(isPresented: $toastInfo.isPresented, title: toastInfo.title, action: toastInfo.action)
+        .toastAlert(isPresented: $toastAlertInfo.isPresented, title: toastAlertInfo.title)
         .navigationBarHidden(true)
         .onChange(of: viewModel.status) { status in
             switch status {
