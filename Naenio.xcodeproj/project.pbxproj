@@ -276,6 +276,8 @@
 		9B53383128C4B409006DECFC /* MyCommentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382E28C4B408006DECFC /* MyCommentResponseModel.swift */; };
 		9B6137CD28CEDD660029C750 /* NetworkStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6137CC28CEDD660029C750 /* NetworkStatusMonitor.swift */; };
 		9B6137CF28CEEB5F0029C750 /* ToastAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6137CE28CEEB5F0029C750 /* ToastAlert.swift */; };
+		9B6137D028CF0DAB0029C750 /* ToastAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6137CE28CEEB5F0029C750 /* ToastAlert.swift */; };
+		9B6137D128CF0DBA0029C750 /* NetworkStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6137CC28CEDD660029C750 /* NetworkStatusMonitor.swift */; };
 		9B61D0D128A88E7F00F6DD0B /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D028A88E7F00F6DD0B /* CustomSheet.swift */; };
 		9B61D0D328A88FB300F6DD0B /* CustomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D228A88FB200F6DD0B /* CustomSheetView.swift */; };
 		9B61D0DC28A8EE4500F6DD0B /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0DB28A8EE4500F6DD0B /* RoundedCorner.swift */; };
@@ -2112,6 +2114,7 @@
 				9B1FED2128CAE17E00340F27 /* MyCommentResponseModel.swift in Sources */,
 				9B1FED2228CAE17E00340F27 /* AvailableNicknameResponseModel.swift in Sources */,
 				9B1FED2328CAE17E00340F27 /* Commentable.swift in Sources */,
+				9B6137D028CF0DAB0029C750 /* ToastAlert.swift in Sources */,
 				9B1FED2428CAE17E00340F27 /* CommentViewModel.swift in Sources */,
 				9B1FED2528CAE17E00340F27 /* Notification + Extension.swift in Sources */,
 				9B1FED2628CAE17E00340F27 /* ThemeRequestModel.swift in Sources */,
@@ -2208,6 +2211,7 @@
 				9B1FED7E28CAE17E00340F27 /* NoticeViewModel.swift in Sources */,
 				9B1FED7F28CAE17E00340F27 /* MyPageActionCell.swift in Sources */,
 				9B1FED8028CAE17E00340F27 /* LazyView.swift in Sources */,
+				9B6137D128CF0DBA0029C750 /* NetworkStatusMonitor.swift in Sources */,
 				9B1FED8128CAE17E00340F27 /* LoginRequestInformation.swift in Sources */,
 				9B1FED8228CAE17E00340F27 /* CommentType.swift in Sources */,
 				9B1FED8328CAE17E00340F27 /* LocalStorageKeys.swift in Sources */,
