@@ -11,6 +11,7 @@ import KakaoSDKCommon
 
 @main
 struct NaenioApp: App {
+    @StateObject var networkMonitor = NetworkStatusMonitor()
     @ObservedObject var tokenManager = TokenManager.shared
     @ObservedObject var userManager = UserManager.shared
     
@@ -34,45 +35,64 @@ struct NaenioApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if tokenManager.accessToken == nil {
-                LoginView()
-                    .environmentObject(tokenManager)
-                    .environmentObject(userManager)
-            } else if userManager.user?.nickname == nil,
-                      userManager.status == .fetched {
-                OnboardingView()
-                    .environmentObject(userManager)
-            } else if tokenManager.accessToken != nil,
-                      userManager.user != nil,
-                      userManager.status == .fetched {
-                NavigationView {
-                    MainView()
-                        .environmentObject(userManager)
-                        .onOpenURL { url in
-                            guard let postId = handleUrl(url) else {
-                                return
-                            }
-                            
-                            self.arrivedPostId = postId
-                        }
-                        .background(
-                            NavigationLink(destination:
-                                            OpenedByLinkFullView(postId: arrivedPostId, showCommentFirst: false)
-                                .environmentObject(userManager),
-                                           isActive: $isLinkOpened) {
-                                               EmptyView()
-                                           }
-                        )
-                        .navigationBarHidden(true)
-                        .navigationBarTitle("", displayMode: .inline)
+            ZStack(alignment: .top) {
+                if networkMonitor.status == .disconnected {
+                    offlineIndicator
                 }
-            } else {
-                ZStack(alignment: .center) {
-                    Color.background
-                        .ignoresSafeArea()
+                
+                if tokenManager.accessToken == nil {
+                    LoginView()
+                        .environmentObject(tokenManager)
+                        .environmentObject(userManager)
+                } else if userManager.user?.nickname == nil,
+                          userManager.status == .fetched {
+                    OnboardingView()
+                        .environmentObject(userManager)
+                } else if tokenManager.accessToken != nil,
+                          userManager.user != nil,
+                          userManager.status == .fetched {
+                    NavigationView {
+                        MainView()
+                            .environmentObject(userManager)
+                            .onOpenURL { url in
+                                guard let postId = handleUrl(url) else {
+                                    return
+                                }
+                                
+                                self.arrivedPostId = postId
+                            }
+                            .background(
+                                NavigationLink(destination:
+                                                OpenedByLinkFullView(postId: arrivedPostId, showCommentFirst: false)
+                                    .environmentObject(userManager),
+                                               isActive: $isLinkOpened) {
+                                                   EmptyView()
+                                               }
+                            )
+                            .navigationBarHidden(true)
+                            .navigationBarTitle("", displayMode: .inline)
+                    }
+                } else {
+                    ZStack(alignment: .center) {
+                        Color.background
+                            .ignoresSafeArea()
+                    }
                 }
             }
         }
+    }
+    
+    var offlineIndicator: some View {
+        HStack{
+            Spacer()
+            Text("인터넷 연결 끊김")
+                .font(.medium(size: 13))
+            Spacer()
+        }
+        .fillHorizontal()
+        .frame(height: 30)
+        .background(Color.naenioGray.ignoresSafeArea())
+        .zIndex(1)
     }
 }
 

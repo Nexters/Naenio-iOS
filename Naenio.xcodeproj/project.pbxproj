@@ -274,6 +274,7 @@
 		9B53382F28C4B409006DECFC /* MyComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382C28C4B408006DECFC /* MyComment.swift */; };
 		9B53383028C4B409006DECFC /* MyCommentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382D28C4B408006DECFC /* MyCommentRequest.swift */; };
 		9B53383128C4B409006DECFC /* MyCommentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382E28C4B408006DECFC /* MyCommentResponseModel.swift */; };
+		9B6137CD28CEDD660029C750 /* NetworkStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6137CC28CEDD660029C750 /* NetworkStatusMonitor.swift */; };
 		9B61D0D128A88E7F00F6DD0B /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D028A88E7F00F6DD0B /* CustomSheet.swift */; };
 		9B61D0D328A88FB300F6DD0B /* CustomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D228A88FB200F6DD0B /* CustomSheetView.swift */; };
 		9B61D0DC28A8EE4500F6DD0B /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0DB28A8EE4500F6DD0B /* RoundedCorner.swift */; };
@@ -506,6 +507,7 @@
 		9B53382E28C4B408006DECFC /* MyCommentResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCommentResponseModel.swift; sourceTree = "<group>"; };
 		9B53383728C4F445006DECFC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B53383C28C4F5CA006DECFC /* libswift_Concurrency.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswift_Concurrency.tbd; path = usr/lib/swift/libswift_Concurrency.tbd; sourceTree = SDKROOT; };
+		9B6137CC28CEDD660029C750 /* NetworkStatusMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusMonitor.swift; sourceTree = "<group>"; };
 		9B61D0D028A88E7F00F6DD0B /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
 		9B61D0D228A88FB200F6DD0B /* CustomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheetView.swift; sourceTree = "<group>"; };
 		9B61D0DB28A8EE4500F6DD0B /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
@@ -668,6 +670,7 @@
 		4CC296D228804E88001950A2 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				9B6137CB28CEDD5D0029C750 /* Monitor */,
 				4CC3CEB228ACCEFC00458138 /* Service */,
 				4C4B13302883AA53006044B0 /* Common */,
 				4CC296DC288054C0001950A2 /* Constants */,
@@ -1102,6 +1105,14 @@
 				9B53382E28C4B408006DECFC /* MyCommentResponseModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9B6137CB28CEDD5D0029C750 /* Monitor */ = {
+			isa = PBXGroup;
+			children = (
+				9B6137CC28CEDD660029C750 /* NetworkStatusMonitor.swift */,
+			);
+			path = Monitor;
 			sourceTree = "<group>";
 		};
 		9B61D0CF28A88E6E00F6DD0B /* Sheet */ = {
@@ -1885,6 +1896,7 @@
 				4CB8944928A74A0200BE2ECF /* NaenioAPI+Method.swift in Sources */,
 				4CC296D92880533C001950A2 /* DefaultSession.swift in Sources */,
 				9CBCDCE128AE24F200C4C577 /* OpenedByLinkFullView.swift in Sources */,
+				9B6137CD28CEDD660029C750 /* NetworkStatusMonitor.swift in Sources */,
 				9CBCDCE928AE377C00C4C577 /* ForEach + Extension.swift in Sources */,
 				9BF513C528AD218200104CAB /* LottieView.swift in Sources */,
 				9C95B991289A4AC100E0910C /* UserManager + Extension.swift in Sources */,
