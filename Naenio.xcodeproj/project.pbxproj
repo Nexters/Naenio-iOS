@@ -2699,9 +2699,6 @@
 			package = 9B1FECE728CAE17E00340F27 /* XCRemoteSwiftPackageReference "AlertState" */;
 			productName = AlertState;
 		};
-		9B95222728C7683100FA2F01 /* AlertState */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9B95222628C7683100FA2F01 /* XCRemoteSwiftPackageReference "AlertState" */;
 		9B9F883428CCA61700177D29 /* AlertState */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9B9F883328CCA61700177D29 /* XCRemoteSwiftPackageReference "AlertState" */;
