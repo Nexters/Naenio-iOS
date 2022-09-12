@@ -23,6 +23,7 @@ extension View {
         ModifiedContent(content: self, modifier: KeyboardAdaptive(offset: offset))
     }
     
+    
     /// 커스텀 시트를 위해 사용
     func customSheet<C: View>(
         isPresented: Binding<Bool>,
@@ -31,6 +32,7 @@ extension View {
     ) -> CustomSheet<C, Self> {
         CustomSheet(isPresented: isPresented, content: content(), view: self, height: height)
     }
+    
     
     /// 반시트
     func halfSheet<C: View>(isPresented: Binding<Bool>,
@@ -44,6 +46,7 @@ extension View {
         }
     }
     
+    
     // 로우시트 with options(인디케이터, 높이, bg)
     @available(*, deprecated, message: "Use .toast instead.")
     func lowSheet<C: View>(isPresented: Binding<Bool>,
@@ -55,14 +58,15 @@ extension View {
         }
     }
     
+    
     /// 토스트 보여주는 함수
     func toast(isPresented: Binding<Bool>,
                title: String,
-               action: @escaping () -> Void) -> some View {
+               action: (() -> Void)?) -> some View {
         ZStack {
             self
             
-            Toast(isPresented: isPresented, title: title, action: action)
+            Toast(isPresented: isPresented, title: title, action: action ?? {})
         }
     }
     
@@ -70,9 +74,20 @@ extension View {
         ZStack {
             self
             
-            Toast(isPresented: info.isPresented, title: info.title.wrappedValue, action: info.action.wrappedValue)
+            Toast(isPresented: info.isPresented, title: info.title.wrappedValue, action: info.action.wrappedValue ?? {})
         }
     }
+    
+    /// 토스트는 토스트인데 액션이 없어서 alert를 보여주는 함수
+    func toast(isPresented: Binding<Bool>,
+               title: String) -> some View {
+        ZStack {
+            self
+            
+            ToastAlert(isPresented: isPresented, title: title)
+        }
+    }
+    
     
     /// 특정 코너만 라운드 주고 싶을 때 사용
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {

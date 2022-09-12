@@ -275,6 +275,7 @@
 		9B53383028C4B409006DECFC /* MyCommentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382D28C4B408006DECFC /* MyCommentRequest.swift */; };
 		9B53383128C4B409006DECFC /* MyCommentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B53382E28C4B408006DECFC /* MyCommentResponseModel.swift */; };
 		9B6137CD28CEDD660029C750 /* NetworkStatusMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6137CC28CEDD660029C750 /* NetworkStatusMonitor.swift */; };
+		9B6137CF28CEEB5F0029C750 /* ToastAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6137CE28CEEB5F0029C750 /* ToastAlert.swift */; };
 		9B61D0D128A88E7F00F6DD0B /* CustomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D028A88E7F00F6DD0B /* CustomSheet.swift */; };
 		9B61D0D328A88FB300F6DD0B /* CustomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0D228A88FB200F6DD0B /* CustomSheetView.swift */; };
 		9B61D0DC28A8EE4500F6DD0B /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0DB28A8EE4500F6DD0B /* RoundedCorner.swift */; };
@@ -508,6 +509,7 @@
 		9B53383728C4F445006DECFC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B53383C28C4F5CA006DECFC /* libswift_Concurrency.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswift_Concurrency.tbd; path = usr/lib/swift/libswift_Concurrency.tbd; sourceTree = SDKROOT; };
 		9B6137CC28CEDD660029C750 /* NetworkStatusMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusMonitor.swift; sourceTree = "<group>"; };
+		9B6137CE28CEEB5F0029C750 /* ToastAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastAlert.swift; sourceTree = "<group>"; };
 		9B61D0D028A88E7F00F6DD0B /* CustomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheet.swift; sourceTree = "<group>"; };
 		9B61D0D228A88FB200F6DD0B /* CustomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSheetView.swift; sourceTree = "<group>"; };
 		9B61D0DB28A8EE4500F6DD0B /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
@@ -1050,6 +1052,7 @@
 			children = (
 				9B2A4ADA28BA07B700349AEC /* Toast.swift */,
 				9BD5208628BB8B110036F5CF /* ToastInformation.swift */,
+				9B6137CE28CEEB5F0029C750 /* ToastAlert.swift */,
 			);
 			path = Toast;
 			sourceTree = "<group>";
@@ -1920,6 +1923,7 @@
 				4CC3CEAC28ABF95400458138 /* VoteResponseModel.swift in Sources */,
 				9BE60293289541B6008F291C /* Color + Extension.swift in Sources */,
 				9B53383128C4B409006DECFC /* MyCommentResponseModel.swift in Sources */,
+				9B6137CF28CEEB5F0029C750 /* ToastAlert.swift in Sources */,
 				9B19A1DD28AF7B1E0072DEDA /* AvailableNicknameResponseModel.swift in Sources */,
 				9B61D6B228C36A4200F116CD /* Commentable.swift in Sources */,
 				9B03732F28A68A6B0089CC48 /* CommentViewModel.swift in Sources */,

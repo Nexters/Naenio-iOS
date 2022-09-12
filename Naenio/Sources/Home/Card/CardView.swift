@@ -23,6 +23,8 @@ struct CardView: View {
     let action: Action // 시트 보여주기 용
     let deletedAction: Action?
     
+    @State var show = false
+    
     var body: some View {
         ZStack {
             Color.card
@@ -111,15 +113,19 @@ struct CardView: View {
                     withAnimation {
                         (deletedAction ?? {})()
                     }
-                    // TODO: Alert
                 }
             case .fail(with: let error):
+                print("@@", error)
+                self.show = true
                 alertState = .errorHappend(error: error)
             default:
                 break
             }
         }
-        .showAlert(with: $alertState)
+        .alert(isPresented: $show) {
+            Alert(title: Text("SSS"))
+        }
+//        .showAlert(with: $alertState)
     }
     
     init(_ viewModel: CardViewModel = CardViewModel(),
@@ -181,6 +187,7 @@ extension CardView {
     
     var reportOrDeleteButton: some View {
         Button(action: {
+            self.show = true
             let notificationInfo: LowSheetNotification
             if post.author.id == userManager.getUserId() {
                 notificationInfo = LowSheetNotification(title: "삭제하기", action: {

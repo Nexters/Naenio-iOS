@@ -79,14 +79,7 @@ struct NaenioApp: App {
                         Spacer()
                         
                         if networkMonitor.status == .disconnected {
-                            EmptyResultView(description: "로그인 중 오류가 발생했습니다. \n네트워크 상태를 확인해주세요.")
-                                .onDisappear {
-                                    if tokenManager.isTokenAvailable, let token = tokenManager.accessToken {
-                                        userManager.updateUserData(with: token)
-                                    }
-                                }
-                        } else {
-                            
+                            loginErrorIndicator
                         }
                         
                         Spacer()
@@ -107,6 +100,15 @@ struct NaenioApp: App {
         .frame(height: 30)
         .background(Color.naenioGray.ignoresSafeArea())
         .zIndex(1)
+    }
+    
+    var loginErrorIndicator: some View {
+        EmptyResultView(description: "로그인 중 오류가 발생했습니다.\n네트워크 상태를 확인해주세요.")
+            .onDisappear {
+                if tokenManager.isTokenAvailable, let token = tokenManager.accessToken {
+                    userManager.updateUserData(with: token)
+                }
+            }
     }
 }
 

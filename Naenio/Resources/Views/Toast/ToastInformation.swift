@@ -10,5 +10,5 @@ import SwiftUI
 struct ToastInformation {
     var isPresented: Bool
     var title: String
-    var action: () -> Void
+    var action: (() -> Void)?
 }

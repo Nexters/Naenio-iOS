@@ -11,9 +11,11 @@ import Combine
 struct MainView: View {
     @EnvironmentObject var userManager: UserManager
     
+    
     @State var selectedTab = 1
     @State fileprivate var tabBarLowSheetInfo = TabBarLowSheetInfo(isPresented: false, title: "", action: {})
-    
+    @State var toastInformation: ToastInformation = ToastInformation(isPresented: false, title: "")
+
     @State var pages: [TabBarPage] = [
         TabBarPage(pageName: .curation, selectedIcon: "tab_curation_selected", deselectedIcon: "tab_curation_deselected", tag: 0),
         TabBarPage(pageName: .home, selectedIcon: "tab_home_selected", deselectedIcon: "tab_home_deselected", tag: 1),
@@ -24,6 +26,7 @@ struct MainView: View {
         TabView(selection: $selectedTab) {
             ForEach(pages) { item in
                 TabContentView(pageName: item.pageName)
+                    .toast(isPresented: $toastInformation.isPresented, title: toastInformation.title)
                     .environmentObject(userManager)
                     .tabItem {
                         Image(self.selectedTab == item.tag ? item.selectedIcon : item.deselectedIcon)
@@ -31,6 +34,9 @@ struct MainView: View {
                     }
                     .tag(item.tag)
             }
+        }
+        .onReceive(Publishers.toastAlertNotificationPublisher) { toastInformation in
+            self.toastInformation = toastInformation
         }
         .introspectTabBarController { controller in
             controller.tabBar.backgroundColor = UIColor(Color.tabBarBackground)

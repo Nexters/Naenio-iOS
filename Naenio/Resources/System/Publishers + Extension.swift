@@ -27,6 +27,12 @@ extension Publishers {
             .eraseToAnyPublisher()
     }
     
+    static var toastAlertNotificationPublisher: AnyPublisher<ToastInformation, Never> {
+        return NotificationCenter.default.publisher(for: .toastAlertNotification)
+            .map { return $0.object as! ToastInformation }
+            .eraseToAnyPublisher()
+    }
+    
     static var didVoteHappen: AnyPublisher<Int, Never> {
         return NotificationCenter.default.publisher(for: .didVoteHappen)
             .map { return $0.object as! Int }
