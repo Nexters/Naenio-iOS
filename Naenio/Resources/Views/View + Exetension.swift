@@ -79,7 +79,7 @@ extension View {
     }
     
     /// 토스트는 토스트인데 액션이 없어서 alert를 보여주는 함수
-    func toast(isPresented: Binding<Bool>,
+    func toastAlert(isPresented: Binding<Bool>,
                title: String) -> some View {
         ZStack {
             self

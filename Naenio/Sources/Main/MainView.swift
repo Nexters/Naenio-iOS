@@ -26,7 +26,7 @@ struct MainView: View {
         TabView(selection: $selectedTab) {
             ForEach(pages) { item in
                 TabContentView(pageName: item.pageName)
-                    .toast(isPresented: $toastInformation.isPresented, title: toastInformation.title)
+                    .toastAlert(isPresented: $toastInformation.isPresented, title: toastInformation.title)
                     .environmentObject(userManager)
                     .tabItem {
                         Image(self.selectedTab == item.tag ? item.selectedIcon : item.deselectedIcon)
