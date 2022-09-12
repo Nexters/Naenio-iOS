@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Introspect
+import AlertState
 
 struct CommentView: View {
     @EnvironmentObject var userManager: UserManager
@@ -15,6 +16,9 @@ struct CommentView: View {
     
     @State var text: String = "" // 메시지 작성용
     @State var toastInfo = ToastInformation(isPresented: false, title: "", action: {}) // 리팩토링 시급, 토스트 시트 용 정보 스트럭트
+    @State var toastAlertInfo = ToastInformation(title: "")
+    
+    @AlertState<SystemAlert> var alertState
     
     @Binding var isPresented: Bool
     @Binding var parentPostId: Int? // sheet가 SwiftUI에서 버그가 있기 땜에 이걸 같이 넘겨줘야 됨..
@@ -66,6 +70,7 @@ struct CommentView: View {
                             
                             CommentContentCell(isPresented: $isPresented,
                                                toastInfo: $toastInfo,
+                                               toastAlertInfo: $toastAlertInfo,
                                                comment: comment,
                                                isReply: false,
                                                isMine: userManager.getUserId() == comment.wrappedValue.author.id,
@@ -106,12 +111,14 @@ struct CommentView: View {
                             self.parentPost.commentCount = viewModel.totalCommentCount
                         }
                         scrollViewHelper.refreshController.endRefreshing()
-                    case .fail(with: _):
+                    case .fail(with: let error):
                         scrollViewHelper.refreshController.endRefreshing()
+                        alertState = .errorHappend(error: error)
                     default:
                         break
                     }
                 }
+                .showAlert(with: $alertState)
                 
                 // 키보드
                 VStack {
@@ -141,6 +148,7 @@ struct CommentView: View {
                 .frame(height: 60)
             }
             .toast(isPresented: $toastInfo.isPresented, title: toastInfo.title, action: toastInfo.action)
+            .toastAlert(isPresented: $toastAlertInfo.isPresented, title: toastAlertInfo.title)
             .navigationBarHidden(true)
         }
         .onAppear {

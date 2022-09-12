@@ -30,11 +30,9 @@ class CardViewModel: ObservableObject {
             .subscribe(
                 onSuccess: { [weak self] _ in
                     guard let self = self else { return }
-                    
                     self.status = .done(result: .report)
                 }, onFailure: { [weak self] error in
                     guard let self = self else { return }
-                    
                     self.status = .fail(with: error)
                 })
             .disposed(by: bag)

@@ -47,7 +47,7 @@ struct VotesView: View {
                         viewModel.status = .waiting
                     }
                 case .fail(with: let error):
-                    print("Votes failed with error: ", error.localizedDescription) // FIXME: 
+                    NotificationCenter.default.postToastAlertWithErrorNotification()
                 default:
                     break
                 }

@@ -7,11 +7,14 @@
 
 import SwiftUI
 import AuthenticationServices
+import AlertState
 
 struct LoginView: View {
     @EnvironmentObject var tokenManager: TokenManager
     @EnvironmentObject var userManager: UserManager
     @ObservedObject var viewModel = LoginViewModel()
+    
+    @AlertState<SystemAlert> var alertState
     
     var body: some View {
         ZStack {
@@ -58,11 +61,13 @@ struct LoginView: View {
                 case .done(result: let userInfo):
                     tokenManager.saveToken(userInfo.token)
                     userManager.updateUserData(with: userInfo.token)
+                case .fail(with: let error):
+                    alertState = .errorHappend(error: error)
                 default:
-                    // TODO: Show alert
                     return
                 }
             }
+            .showAlert(with: $alertState)
         }
     }
 }

@@ -69,8 +69,8 @@ struct ProfileChangeView: View {
             viewModel.submitProfileChangeRequest(nickname: text, index: profileImageIndex)
         })
         .hideLeadingButton(showBackButton == false)
-        .onChange(of: viewModel.status) { value in // Observe status of API request
-            switch value {
+        .onChange(of: viewModel.status) { status in // Observe status of API request
+            switch status {
             case .done(_):
                 userManager.updateNickName(text)
                 userManager.updateProfileImageIndex(profileImageIndex)

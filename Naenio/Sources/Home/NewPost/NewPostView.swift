@@ -14,7 +14,7 @@ struct NewPostView: View {
     @Binding var isPresented: Bool
     
     @State fileprivate var postContent = PostContent()
-    @State var alertState: SystemAlert? // MARK: Alert
+    @AlertState<SystemAlert> var alertState
     
     var body: some View {
         ZStack {
@@ -102,7 +102,15 @@ struct NewPostView: View {
             .padding(.horizontal, 24)
         }
         .fillScreen()
-        .showAlert(with: $alertState) // MARK: Alert
+        .onChange(of: sourceObject.status) { status in
+            switch status {
+            case .fail(with: let error):
+                alertState = .errorHappend(error: error)
+            default:
+                break
+            }
+        }
+        .showAlert(with: $alertState)
     }
     
     init(isPresented: Binding<Bool>) {

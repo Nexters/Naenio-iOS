@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import AlertState
 
 struct CardView: View {
     typealias Action = () -> Void
@@ -19,6 +20,8 @@ struct CardView: View {
     @Binding var post: Post
     let action: Action // 시트 보여주기 용
     let deletedAction: Action?
+    
+    @State var show = false
     
     var body: some View {
         ZStack {
@@ -102,17 +105,14 @@ struct CardView: View {
                 switch workType {
                 case .report:
                     // TODO: 신고하기 성공 피드백
-                    break
+                    NotificationCenter.default.postToastAlertNotification("신고가 접수되었습니다")
                 case .delete:
-                    // MARK: 삭제하기 성공 피드백
                     withAnimation {
                         (deletedAction ?? {})()
                     }
-                    // TODO: Alert
                 }
             case .fail:
-                // TODO: 실패 alert
-                break
+                NotificationCenter.default.postToastAlertWithErrorNotification()
             default:
                 break
             }
@@ -178,6 +178,7 @@ extension CardView {
     
     var reportOrDeleteButton: some View {
         Button(action: {
+            self.show = true
             let notificationInfo: LowSheetNotification
             if post.author.id == userManager.getUserId() {
                 notificationInfo = LowSheetNotification(title: "삭제하기", action: {

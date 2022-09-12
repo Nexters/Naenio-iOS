@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AlertState
 
 struct CommentContentCell: View {
     typealias Comment = CommentModel.Comment
@@ -13,10 +14,13 @@ struct CommentContentCell: View {
     
     @State var isNavigationActive: Bool = false
     
+    @AlertState<SystemAlert> var alertState
+    
     // Injected values
     @StateObject var viewModel = CommentContentCellViewModel()
     @Binding var isPresented: Bool
     @Binding var toastInfo: ToastInformation
+    @Binding var toastAlertInfo: ToastInformation
     @Binding var comment: Comment
     
     let isReply: Bool
@@ -89,15 +93,21 @@ struct CommentContentCell: View {
                     
                     comment.isLiked.toggle()
                 case .report:
-                    break
+                    var toastAlertInfo = ToastInformation(title: "신고가 접수되었습니다.")
+                    toastAlertInfo.isPresented = true
+                    
+                    self.toastAlertInfo = toastAlertInfo
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        self.toastAlertInfo.isPresented = false
+                    }
                 case .delete:
-                    print("DELETED")
                     (deletedAction ?? {})()
                 }
                 
                 viewModel.status = .waiting
             case .fail(with: let error):
-                print(error.localizedDescription)
+                alertState = .errorHappend(error: error)
             default:
                 break
             }

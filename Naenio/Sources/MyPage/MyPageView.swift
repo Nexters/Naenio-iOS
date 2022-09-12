@@ -83,12 +83,12 @@ struct MyPageView: View {
         .showAlert(with: $alertState)
         .onChange(of: viewModel.status) { status in
             switch status {
-            case .fail(let error):
-                self.alertState = .errorHappend(error: error)
             case .done(let type):
                 if type == .withdrawal {
                     viewModel.signOut()
                 }
+            case .fail(let error):
+                self.alertState = .errorHappend(error: error)
             default:
                 break
             }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AlertState
 
 struct MyCommentView: View {
     @EnvironmentObject var userManager: UserManager
@@ -13,8 +14,9 @@ struct MyCommentView: View {
     
     @State var toastInformation = ToastInformation(isPresented: false, title: "댓글 삭제하기", action: {})
     
+    @AlertState<SystemAlert> var alertState
+    
     var body: some View {
-        
         CustomNavigationView(title: "작성한 댓글") {
             ZStack {
                 Color.background.ignoresSafeArea()
@@ -59,6 +61,15 @@ struct MyCommentView: View {
             .onAppear {
                 viewModel.getMyComments()
             }
+            .onChange(of: viewModel.status) { status in
+                switch status {
+                case .fail(with: let error):
+                    alertState = .errorHappend(error: error)
+                default:
+                    break
+                }
+            }
+            .showAlert(with: $alertState)
         }
         .navigationBarHidden(true)
         
