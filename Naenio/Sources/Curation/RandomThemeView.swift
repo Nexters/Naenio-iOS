@@ -103,29 +103,29 @@ struct RandomThemeView: View {
                 break
             }
         }
-        showAlert(with: $alertState)
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text(theme.data.title)
-                    .font(.engBold(size: 22))
-                    .foregroundColor(.white)
+        .showAlert(with: $alertState)
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text(theme.data.title)
+                        .font(.engBold(size: 22))
+                        .foregroundColor(.white)
+                }
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    backButton
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    shareButton
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    moreInformationButton
+                }
             }
-            
-            ToolbarItem(placement: .navigationBarLeading) {
-                backButton
-            }
-            
-            ToolbarItem(placement: .navigationBarTrailing) {
-                shareButton
-            }
-            
-            ToolbarItem(placement: .navigationBarTrailing) {
-                moreInformationButton
-            }
-        }
-        .navigationTitle(theme.data.title)
+            .navigationTitle(theme.data.title)
     }
     
     init(_ theme: ThemeType) {
