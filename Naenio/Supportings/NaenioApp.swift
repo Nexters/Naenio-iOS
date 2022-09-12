@@ -30,7 +30,7 @@ struct NaenioApp: App {
             userManager.updateUserData(with: token)
         }
         
-        print(tokenManager.accessToken)
+        print(tokenManager.accessToken as Any)
     }
     
     var body: some Scene {
@@ -73,9 +73,23 @@ struct NaenioApp: App {
                             .navigationBarTitle("", displayMode: .inline)
                     }
                 } else {
-                    ZStack(alignment: .center) {
-                        Color.background
-                            .ignoresSafeArea()
+                    Color.background
+                        .ignoresSafeArea()
+                    VStack {
+                        Spacer()
+                        
+                        if networkMonitor.status == .disconnected {
+                            EmptyResultView(description: "로그인 중 오류가 발생했습니다. \n네트워크 상태를 확인해주세요.")
+                                .onDisappear {
+                                    if tokenManager.isTokenAvailable, let token = tokenManager.accessToken {
+                                        userManager.updateUserData(with: token)
+                                    }
+                                }
+                        } else {
+                            
+                        }
+                        
+                        Spacer()
                     }
                 }
             }

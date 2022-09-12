@@ -19,7 +19,7 @@ struct EmptyResultView: View {
             
             Text(description)
                 .font(.medium(size: 18))
-                .foregroundColor(.naenioGray)
+                .foregroundColor(.mono)
         }
     }
 }
