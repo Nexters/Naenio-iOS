@@ -112,7 +112,7 @@ struct CardView: View {
                     }
                 }
             case .fail:
-                NotificationCenter.default.postToastAlertNotification("네트워크 에러: 잠시 후 다시 시도해주세요")
+                NotificationCenter.default.postToastAlertWithErrorNotification()
             default:
                 break
             }

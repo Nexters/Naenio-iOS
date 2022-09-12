@@ -31,6 +31,11 @@ extension NotificationCenter {
         NotificationCenter.default.post(name: .toastAlertNotification, object: ToastInformation(title: title))
     }
     
+    func postToastAlertWithErrorNotification() {
+        NotificationCenter.default.post(name: .toastAlertNotification,
+                                        object: ToastInformation(title: "네트워크 에러: 잠시 후 다시 시도해주세요"))
+    }
+    
     func postDidVoteHappen(id value: Int) {
         NotificationCenter.default.post(name: .didVoteHappen, object: value)
     }
