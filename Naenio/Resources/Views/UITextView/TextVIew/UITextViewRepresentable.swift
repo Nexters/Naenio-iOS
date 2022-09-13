@@ -12,9 +12,11 @@ struct RepresentedUITextView: UIViewRepresentable {
     let isTight: Bool
     let allowNewline: Bool
     @Binding var text: String
+    @Binding var isEditing: Bool
     
-    init(text: Binding<String>, limit: Int? = nil, isTight: Bool, allowNewline: Bool = true) {
+    init(text: Binding<String>, isEditing: Binding<Bool>, limit: Int? = nil, isTight: Bool, allowNewline: Bool = true) {
         self._text = text
+        self._isEditing = isEditing
         self.limit = limit
         self.isTight = isTight
         self.allowNewline = allowNewline
@@ -57,6 +59,14 @@ struct RepresentedUITextView: UIViewRepresentable {
             self.parent = uiTextView
             self.limit = limit
             self.allowNewline = allowNewline
+        }
+        
+        func textViewDidBeginEditing(_ textView: UITextView) {
+            self.parent.isEditing = true
+        }
+        
+        func textViewDidEndEditing(_ textView: UITextView) {
+            self.parent.isEditing = false
         }
 
         func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {

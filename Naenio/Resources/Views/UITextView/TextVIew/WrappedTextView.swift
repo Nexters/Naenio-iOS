@@ -14,6 +14,9 @@ struct WrappedTextView: View {
     /// 글 내용
     @Binding var content: String
     
+    /// 포커싱 잡혔는지?
+    @State var isEditing: Bool
+    
     /// 글자수 제한
     let characterLimit: Int
     
@@ -34,6 +37,7 @@ struct WrappedTextView: View {
          allowNewline: Bool = true) {
         self.placeholder = placeholder
         self._content = content
+        self.isEditing = false
         self.characterLimit = characterLimit
         self.showLimit = showLimit
         self.isTight = isTight
@@ -42,14 +46,14 @@ struct WrappedTextView: View {
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            Text(content.isEmpty ? placeholder : "")
+            Text(isEditing || !content.isEmpty ? "" : placeholder)
                 .font(.medium(size: 16))
                 .foregroundColor(.mono)
                 .padding(isTight ? 8 : 16)
                 .zIndex(1)
             
             ZStack(alignment: .bottomTrailing) {
-                RepresentedUITextView(text: $content,
+                RepresentedUITextView(text: $content, isEditing: $isEditing,
                                       limit: characterLimit,
                                       isTight: self.isTight,
                                       allowNewline: self.allowNewline)
