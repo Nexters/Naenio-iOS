@@ -32,7 +32,7 @@ struct KeyboardAdaptive: ViewModifier {
 //                        self.bottomPadding = offset
 //                    }
                 }
-                .animation(.spring())
+                .animation(.interactiveSpring())
         }
     }
 }

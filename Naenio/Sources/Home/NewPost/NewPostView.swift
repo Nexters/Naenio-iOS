@@ -111,6 +111,7 @@ struct NewPostView: View {
             }
         }
         .showAlert(with: $alertState)
+        .animation(nil)
     }
     
     init(isPresented: Binding<Bool>) {
