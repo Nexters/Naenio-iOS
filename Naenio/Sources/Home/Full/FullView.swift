@@ -109,8 +109,8 @@ struct FullView: View {
                     (deletedAction ?? {})()
                 case .singlePost:
                     selectedPostId = post.id
-                default:
-                    break
+                case .report:
+                    NotificationCenter.default.postToastAlertNotification("신고가 접수되었습니다")
                 }
             case .fail(let error):
                 alertState = .errorHappend(error: error)
