@@ -22,15 +22,21 @@ struct TabContentView: View {
             NavigationView {   
                 CurationView()
                     .environmentObject(userManager)
+                    .navigationBarHidden(true)
+                    .navigationBarTitle("")
             }
         } else if pageName == .home {
             NavigationView {
                 HomeView()
                     .environmentObject(userManager)
+                    .navigationBarHidden(true)
+                    .navigationBarTitle("")
             }
         } else if pageName == .myPage {
             MyPageView()
                 .environmentObject(userManager)
+                .navigationBarHidden(true)
+                .navigationBarTitle("")
         }
     }
 }
