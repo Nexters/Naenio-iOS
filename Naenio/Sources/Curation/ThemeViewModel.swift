@@ -22,15 +22,20 @@ class ThemeViewModel: ObservableObject {
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler.init(qos: .userInitiated)
     
-    @objc func requestThemePosts(isPulled: Bool = true) {
+    @objc func refreshThemePosts() {
+        self.requestThemePosts(isPulled: true)
+    }
+    
+    func requestThemePosts(isPulled: Bool = true) {
         bag = DisposeBag()
-        status = .loading(.pulled)
-
+    
         if isPulled {
             status = .loading(.pulled)
         } else {
             status = .loading(.requestPost)
         }
+        
+        print("@@", isPulled, status)
         
         let themeId = self.theme.id
 
@@ -42,7 +47,6 @@ class ThemeViewModel: ObservableObject {
                 onSuccess: { [weak self] post in
                     guard let self = self else { return }
                     
-                    print("Success requestThemePosts")
                     let posts = self.transferToPostModel(from: post)
                     self.posts = posts
                     self.status = .done
