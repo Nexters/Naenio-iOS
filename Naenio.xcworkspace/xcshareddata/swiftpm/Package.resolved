@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/enebin/AlertState",
       "state" : {
-        "revision" : "322708b5948ae851ef643dab631cbafa3a81d867",
-        "version" : "0.1.0"
+        "revision" : "917985c197fb0ceb2b8ce9851a494642e8b701ba",
+        "version" : "1.0.0"
       }
     }
   ],

@@ -263,6 +263,7 @@
 		9B3B6F10289BE3FA002A76A7 /* MockPostWroteList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B6F0E289BE1B4002A76A7 /* MockPostWroteList.json */; };
 		9B3B6F11289BE3FA002A76A7 /* MockPostParticipatedList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B3B6F0F289BE1B6002A76A7 /* MockPostParticipatedList.json */; };
 		9B42552B289D0FA200163327 /* FullViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B42552A289D0FA200163327 /* FullViewModel.swift */; };
+		9B4756C428D0122E00ADA181 /* AlertState in Frameworks */ = {isa = PBXBuildFile; productRef = 9B4756C328D0122E00ADA181 /* AlertState */; };
 		9B478A5028A70F89007A4715 /* CommentCountComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A4F28A70F89007A4715 /* CommentCountComponent.swift */; };
 		9B478A5328A7127B007A4715 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5228A7127B007A4715 /* CloseButton.swift */; };
 		9B478A5728A71A48007A4715 /* CommentContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5628A71A48007A4715 /* CommentContentCell.swift */; };
@@ -295,7 +296,6 @@
 		9B8B98BA289948DA007336DE /* LocalStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B98B9289948DA007336DE /* LocalStorageKeys.swift */; };
 		9B8D409C28AE86B90024E989 /* VotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8D409B28AE86B90024E989 /* VotesViewModel.swift */; };
 		9B91D80D28BF835D008D9E9E /* CommentContentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B91D80C28BF835D008D9E9E /* CommentContentCellViewModel.swift */; };
-		9B9F883528CCA61700177D29 /* AlertState in Frameworks */ = {isa = PBXBuildFile; productRef = 9B9F883428CCA61700177D29 /* AlertState */; };
 		9BD5208728BB8B110036F5CF /* ToastInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5208628BB8B110036F5CF /* ToastInformation.swift */; };
 		9BD520C728BCCC240036F5CF /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD520C628BCCC240036F5CF /* CustomDateFormatter.swift */; };
 		9BD520CA28BCCD840036F5CF /* CustomDateFormatterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD520C928BCCD840036F5CF /* CustomDateFormatterTest.swift */; };
@@ -620,7 +620,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2EAF95E8F96B1AA2B87B87F /* Pods_Naenio.framework in Frameworks */,
-				9B9F883528CCA61700177D29 /* AlertState in Frameworks */,
+				9B4756C428D0122E00ADA181 /* AlertState in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1564,7 +1564,7 @@
 			);
 			name = Naenio;
 			packageProductDependencies = (
-				9B9F883428CCA61700177D29 /* AlertState */,
+				9B4756C328D0122E00ADA181 /* AlertState */,
 			);
 			productName = Naenio;
 			productReference = 9B085EFF2879991400DE8E60 /* Naenio.app */;
@@ -1663,7 +1663,7 @@
 			);
 			mainGroup = 9B085EF62879991400DE8E60;
 			packageReferences = (
-				9B9F883328CCA61700177D29 /* XCRemoteSwiftPackageReference "AlertState" */,
+				9B4756C228D0122E00ADA181 /* XCRemoteSwiftPackageReference "AlertState" */,
 			);
 			productRefGroup = 9B085F002879991400DE8E60 /* Products */;
 			projectDirPath = "";
@@ -2660,12 +2660,12 @@
 				kind = branch;
 			};
 		};
-		9B9F883328CCA61700177D29 /* XCRemoteSwiftPackageReference "AlertState" */ = {
+		9B4756C228D0122E00ADA181 /* XCRemoteSwiftPackageReference "AlertState" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/enebin/AlertState";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.0;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -2676,9 +2676,9 @@
 			package = 9B1FECE728CAE17E00340F27 /* XCRemoteSwiftPackageReference "AlertState" */;
 			productName = AlertState;
 		};
-		9B9F883428CCA61700177D29 /* AlertState */ = {
+		9B4756C328D0122E00ADA181 /* AlertState */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 9B9F883328CCA61700177D29 /* XCRemoteSwiftPackageReference "AlertState" */;
+			package = 9B4756C228D0122E00ADA181 /* XCRemoteSwiftPackageReference "AlertState" */;
 			productName = AlertState;
 		};
 /* End XCSwiftPackageProductDependency section */
