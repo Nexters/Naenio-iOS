@@ -20,7 +20,7 @@ class LoginViewModel: ObservableObject {
     
     // Published vars
     /// 로그인 루틴 처리 상태를 표시
-    @Published var status: Status = .waiting
+    @Published var status: NetworkStatus<UserInformation> = .waiting
     
     // Private vars
     private let bag = DisposeBag()
@@ -103,24 +103,3 @@ class LoginViewModel: ObservableObject {
 #endif
 }
 
-extension LoginViewModel {
-    enum Status {
-        case waiting
-        case inProgress
-        case done(result: UserInformation)
-        case fail(with: Error)
-        
-        var description: String {
-            switch self {
-            case .waiting:
-                return "Waiting"
-            case .inProgress:
-                return "In progres..."
-            case .done:
-                return "Successfully done"
-            case .fail(let error):
-                return "Failed with error: \(error.localizedDescription)"
-            }
-        }
-    }
-}

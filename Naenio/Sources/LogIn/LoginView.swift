@@ -38,6 +38,7 @@ struct LoginView: View {
                 
                 loginButtons
                     .padding(.bottom, 23)
+                    .disabled(viewModel.status == .inProgress)
                 
                 Text("가입 시, 다음 사항에 동의하는 것으로 간주합니다.")
                     .font(.regular(size: 12))
