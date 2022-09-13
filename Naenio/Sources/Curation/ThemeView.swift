@@ -83,7 +83,6 @@ struct ThemeView: View {
                     .introspectScrollView { scrollView in
                         let control = scrollViewHelper.refreshController
                         control.addTarget(viewModel, action: #selector(viewModel.requestThemePosts), for: .valueChanged)
-                        control.tintColor = .yellow
                         
                         scrollView.keyboardDismissMode = .onDrag
                         scrollView.refreshControl = control
