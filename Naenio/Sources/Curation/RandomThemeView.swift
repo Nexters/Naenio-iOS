@@ -8,7 +8,8 @@
 import SwiftUI
 import Combine
 import AlertState
-
+ 
+@available(*, deprecated)
 struct RandomThemeView: View {
     private let theme: ThemeType
     

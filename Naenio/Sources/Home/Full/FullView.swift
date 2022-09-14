@@ -27,23 +27,31 @@ struct FullView: View {
     var deletedAction: Action?
         
     private let showCommentFirst: Bool
+    private let showBackground: Bool
+    private let navigationTitle: String?
     
     init(
         _ viewModel: FullViewModel = FullViewModel(),
         post: Binding<Post>,
         deletedAction: Action? = nil,
-        showCommentFirst: Bool = false
+        showCommentFirst: Bool = false,
+        showBackground: Bool = true,
+        navigationTitle: String? = nil
     ) {
         self.viewModel = viewModel
         self._post = post
         self.deletedAction = deletedAction
         self.showCommentFirst = showCommentFirst
+        self.showBackground = showBackground
+        self.navigationTitle = navigationTitle
     }
 
     var body: some View {
         ZStack {
-            Color.background
-                .ignoresSafeArea()
+            if showBackground {
+                Color.background
+                    .ignoresSafeArea()
+            }
             
             if viewModel.status == .inProgress {
                 LoadingIndicator().zIndex(1)
@@ -138,6 +146,12 @@ struct FullView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 backButton
+            }
+            
+            ToolbarItem(placement: .principal) {
+                Text(navigationTitle ?? "")
+                    .font(.engBold(size: 22))
+                    .foregroundColor(.white)
             }
             
             ToolbarItem(placement: .navigationBarTrailing) {

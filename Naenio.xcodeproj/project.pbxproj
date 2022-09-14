@@ -325,6 +325,8 @@
 		9BF513CF28AD265000104CAB /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 9BF513CE28AD265000104CAB /* confetti.json */; };
 		9BF513D228AD27FA00104CAB /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF513D128AD27FA00104CAB /* HapticManager.swift */; };
 		9C10439D289B747200A45711 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C10439C289B747200A45711 /* HomeViewModel.swift */; };
+		9C160A4D28D17AE6003E7EBA /* NewRandomThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C160A4C28D17AE6003E7EBA /* NewRandomThemeView.swift */; };
+		9C160A4F28D17AF1003E7EBA /* NewRandomThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C160A4E28D17AF1003E7EBA /* NewRandomThemeViewModel.swift */; };
 		9C2D07B72897C683008BBD75 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D07B62897C683008BBD75 /* User.swift */; };
 		9C2D07B92897C728008BBD75 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D07B82897C728008BBD75 /* UserManager.swift */; };
 		9C2D07BB2897CD0A008BBD75 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D07BA2897CD0A008BBD75 /* UserError.swift */; };
@@ -558,6 +560,8 @@
 		9BF513CE28AD265000104CAB /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
 		9BF513D128AD27FA00104CAB /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		9C10439C289B747200A45711 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		9C160A4C28D17AE6003E7EBA /* NewRandomThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRandomThemeView.swift; sourceTree = "<group>"; };
+		9C160A4E28D17AF1003E7EBA /* NewRandomThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRandomThemeViewModel.swift; sourceTree = "<group>"; };
 		9C2D07B62897C683008BBD75 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9C2D07B82897C728008BBD75 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		9C2D07BA2897CD0A008BBD75 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserE\U0010rror.swift"; sourceTree = "<group>"; };
@@ -801,6 +805,8 @@
 				9B61D0F828AE931600F6DD0B /* ThemeViewModel.swift */,
 				4CD3554D28BB9CCD00BD6FB5 /* RandomThemeView.swift */,
 				4CD3554F28BBA04F00BD6FB5 /* RandomThemeViewModel.swift */,
+				9C160A4C28D17AE6003E7EBA /* NewRandomThemeView.swift */,
+				9C160A4E28D17AF1003E7EBA /* NewRandomThemeViewModel.swift */,
 			);
 			path = Curation;
 			sourceTree = "<group>";
@@ -2002,8 +2008,10 @@
 				9B91D80D28BF835D008D9E9E /* CommentContentCellViewModel.swift in Sources */,
 				9C3309D92888EE20000C592F /* LoginViewModel.swift in Sources */,
 				9B61D0E428A9050600F6DD0B /* CommentPostRequestModel.swift in Sources */,
+				9C160A4D28D17AE6003E7EBA /* NewRandomThemeView.swift in Sources */,
 				9B244073289E9AA10060A244 /* VotesView.swift in Sources */,
 				9B27A39828AD079700C63AB6 /* ShareManager.swift in Sources */,
+				9C160A4F28D17AF1003E7EBA /* NewRandomThemeViewModel.swift in Sources */,
 				4CC4B73B2896BF2500774192 /* MyPageView.swift in Sources */,
 				9C3309D12888ED16000C592F /* SignInWithKakaoButtonViewModel.swift in Sources */,
 				9B61D0F928AE931600F6DD0B /* ThemeViewModel.swift in Sources */,

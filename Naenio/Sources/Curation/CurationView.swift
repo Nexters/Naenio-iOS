@@ -26,7 +26,8 @@ struct CurationView: View {
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(themeList) { theme in
                         if theme == .randomPlay {
-                            NavigationLink(destination: LazyView( RandomThemeView(theme).environmentObject(userManager))
+                            NavigationLink(
+                                destination: LazyView(NewRandomThemeView(theme: theme).environmentObject(userManager))
                             ) {
                                 CurationCardView(theme: theme.data)
                             }
