@@ -41,9 +41,12 @@ struct NaenioApp: App {
                 }
                 
                 if tokenManager.accessToken == nil {
-                    LoginView()
-                        .environmentObject(tokenManager)
-                        .environmentObject(userManager)
+                    NavigationView {
+                        LoginView()
+                            .environmentObject(tokenManager)
+                            .environmentObject(userManager)
+                    }
+                    .accentColor(.white)
                 } else if userManager.user?.nickname == nil,
                           userManager.status == .fetched {
                     OnboardingView()

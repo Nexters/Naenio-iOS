@@ -8,11 +8,20 @@
 import SwiftUI
 import AuthenticationServices
 import AlertState
+import Introspect
+
 
 struct LoginView: View {
     @EnvironmentObject var tokenManager: TokenManager
     @EnvironmentObject var userManager: UserManager
     @StateObject var viewModel = LoginViewModel()
+    
+    @State var isPresented: Bool = false
+    @State var term: (any Term)? {
+        didSet {
+            isPresented = true
+        }
+    }
     
     @AlertState<SystemAlert> var alertState
     
@@ -46,12 +55,18 @@ struct LoginView: View {
                     .padding(.bottom, 1)
 
                 HStack(spacing: 4) {
-                    Text("서비스 이용 약관")
-                        .foregroundColor(.naenioGray)
+                    NavigationLink(destination: TermView(term: Agreements())) {
+                        Text("서비스 이용 약관")
+                            .foregroundColor(.naenioGray)
+                    }
+                    
                     Text("및")
                         .foregroundColor(.mono)
-                    Text("개인 정보 정책")
-                        .foregroundColor(.naenioGray)
+                    
+                    NavigationLink(destination: TermView(term: PrivacyProteftion())) {
+                        Text("개인 정보 정책")
+                            .foregroundColor(.naenioGray)
+                    }
                 }
                 .font(.regular(size: 12))
                 .padding(.bottom, 38)
@@ -69,6 +84,9 @@ struct LoginView: View {
                 }
             }
             .showAlert(with: $alertState)
+        }
+        .introspectNavigationController{ nc in
+            nc.navigationBar.barTintColor = UIColor(Color.background)
         }
     }
 }
