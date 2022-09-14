@@ -12,9 +12,10 @@ enum SystemAlert {
     typealias Action = () -> Void
     
     case warnBeforeExit(primaryAction: Action? = nil, secondaryAction: Action? = nil)
-    case errorHappend(error: Error, primaryAction: Action? = nil, secondaryAction: Action? = nil)
+    case networkErrorHappend(error: Error, primaryAction: Action? = nil, secondaryAction: Action? = nil)
     case logout(primaryAction: Action? = nil, secondaryAction: Action? = nil)
     case withdrawal(primaryAction: Action? = nil, secondaryAction: Action? = nil)
+    case specificError(title: String, errorMessage: String)
 }
 
 extension SystemAlert: Identifiable {

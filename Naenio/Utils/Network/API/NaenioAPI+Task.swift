@@ -37,7 +37,7 @@ extension NaenioAPI {
         case .getCommentReplies(_, let model):
             return .requestParameters(parameters: model.toDictionary(), encoding: URLEncoding.default)
         case .getIsNicknameAvailable(let request):
-            return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
+            return .requestParameters(parameters: ["nickname": request], encoding: URLEncoding.default)
         case .getMyComment(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
             

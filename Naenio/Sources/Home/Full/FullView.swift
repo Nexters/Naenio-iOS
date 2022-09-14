@@ -121,7 +121,7 @@ struct FullView: View {
                     NotificationCenter.default.postToastAlertNotification("신고가 접수되었습니다")
                 }
             case .fail(let error):
-                alertState = .errorHappend(error: error)
+                alertState = .networkErrorHappend(error: error)
                 break
             default:
                 break

@@ -13,12 +13,14 @@ extension SystemAlert {
         switch self {
         case .warnBeforeExit:
             return "정말 나가시겠어요?"
-        case .errorHappend:
+        case .networkErrorHappend:
             return "네트워크 에러"
         case .logout:
             return "로그아웃"
         case .withdrawal:
             return "회원탈퇴"
+        case .specificError(let title, _):
+            return title
         }
     }
     
@@ -26,12 +28,14 @@ extension SystemAlert {
         switch self {
         case .warnBeforeExit:
             return "작성 중인 글은 저장되지 않습니다"
-        case .errorHappend(let error, _, _):
+        case .networkErrorHappend(let error, _, _):
             return error.localizedDescription
         case .logout:
             return "정말 로그아웃하시겠어요?"
         case .withdrawal:
             return "정말 탈퇴하시겠어요? 탈퇴 후 회원 정보는 다시 복구할 수 없습니다."
+        case .specificError(_, let message):
+            return message
         }
     }
     
@@ -42,7 +46,7 @@ extension SystemAlert {
                 AlertButton("Cancel", role: .cancel, action: primaryAction ?? {}),
                 AlertButton("OK", action: secondaryAction ?? {})
             ]
-        case .errorHappend:
+        case .networkErrorHappend:
             return [
                 AlertButton("OK")
             ]
@@ -56,6 +60,8 @@ extension SystemAlert {
                 AlertButton("닫기", role: .cancel, action: primaryAction ?? {}),
                 AlertButton("회원탈퇴", role: .destructive, action: secondaryAction ?? {})
             ]
+        case .specificError:
+            return []
         }
     }
 }

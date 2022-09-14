@@ -153,7 +153,7 @@ struct CommentRepliesView: View {
                     self.comment.repliesCount = viewModel.replies.count
                 }
             case .fail(let error):
-                alertState = .errorHappend(error: error)
+                alertState = .networkErrorHappend(error: error)
             default:
                 break
             }

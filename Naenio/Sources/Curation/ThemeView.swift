@@ -95,7 +95,7 @@ struct ThemeView: View {
                             scrollViewHelper.refreshController.endRefreshing()
                         case .fail(with: let error):
                             scrollViewHelper.refreshController.endRefreshing()
-                            alertState = .errorHappend(error: error)
+                            alertState = .networkErrorHappend(error: error)
                         default:
                             break
                         }

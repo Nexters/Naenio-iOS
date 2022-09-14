@@ -99,7 +99,7 @@ struct RandomThemeView: View {
         .onChange(of: viewModel.status) { status in
             switch status {
             case .fail(with: let error):
-                alertState = .errorHappend(error: error)
+                alertState = .networkErrorHappend(error: error)
             default:
                 break
             }

@@ -10,17 +10,26 @@ import Introspect
 import AlertState
 
 struct ProfileChangeView: View {
+    typealias ProfileError = ProfileChangeViewModel.ProfileError
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @EnvironmentObject var userManager: UserManager
     @ObservedObject var viewModel = ProfileChangeViewModel()
     
     @State var showBottomSheet: Bool = false
+    var isButtonDisabled: Bool {
+        return !(
+            self.profileImageIndex != userManager.getProfileImagesIndex() ||
+            !self.text.isEmpty
+            )
+    }
     
     @AlertState<SystemAlert> var alertState
     
     @State var text: String = ""
     @State var profileImageIndex: Int = 0
+    
     
     private let showBackButton: Bool
     
@@ -40,14 +49,23 @@ struct ProfileChangeView: View {
                         .padding(.top, 60)
                         .padding(.bottom, 42)
                     
-                    TextField(userManager.getNickName(), text: $text)
-                        .foregroundColor(.white)
-                        .padding(.vertical, 7)
-                        .padding(.horizontal, 20)
-                        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.white))
-                        .introspectTextField { textField in
-                            textField.becomeFirstResponder()
-                        }
+                    WrappedTextView(
+                        placeholder: userManager.getNickName(), content: $text, characterLimit: 10,
+                        allowNewline: false, allowWhiteSpace: false, becomeFirstResponder: true
+                    )
+                    .frame(height: 20)
+                    .introspectTextField { textField in
+                        textField.becomeFirstResponder()
+                    }
+                    
+//                    TextField(userManager.getNickName(), text: $text)
+//                        .foregroundColor(.white)
+//                        .padding(.vertical, 7)
+//                        .padding(.horizontal, 20)
+//                        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.white))
+//                        .introspectTextField { textField in
+//                            textField.becomeFirstResponder()
+//                        }
                     
                     Spacer()
                 }
@@ -65,7 +83,7 @@ struct ProfileChangeView: View {
                 presentationMode.wrappedValue.dismiss()
             }
         }
-        .addTrailingButton(title: "등록", disabled: text.isEmpty, action: {
+        .addTrailingButton(title: "등록", disabled: isButtonDisabled, action: {
             viewModel.submitProfileChangeRequest(nickname: text, index: profileImageIndex)
         })
         .hideLeadingButton(showBackButton == false)
@@ -76,11 +94,12 @@ struct ProfileChangeView: View {
                 userManager.updateProfileImageIndex(profileImageIndex)
                 
                 presentationMode.wrappedValue.dismiss()
-            case .fail(with: let error):
-                alertState = .errorHappend(error: error)
+            case .fail(with: let error as ProfileError):
+                alertState = .specificError(title: "확인해주세요", errorMessage: error.errorDescription)
             default:
                 break
             }
+            viewModel.status = .waiting
         }
         .showAlert(with: $alertState)
         .onAppear {
