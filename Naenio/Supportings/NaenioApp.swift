@@ -73,16 +73,21 @@ struct NaenioApp: App {
                             .navigationBarTitle("", displayMode: .inline)
                     }
                 } else {
-                    Color.background
-                        .ignoresSafeArea()
-                    VStack {
-                        Spacer()
+                    if networkMonitor.status == .disconnected {
+                        Color.background
+                            .ignoresSafeArea()
                         
-                        if networkMonitor.status == .disconnected {
+                        VStack {
+                            Spacer()
                             loginErrorIndicator
+                            Spacer()
                         }
-                        
-                        Spacer()
+                    } else {
+                        Image("splash_view")
+                            .resizable()
+                            .fillScreen()
+//                            .scaledToFill()
+                            .ignoresSafeArea()
                     }
                 }
             }
