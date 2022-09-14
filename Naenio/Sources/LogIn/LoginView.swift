@@ -93,16 +93,6 @@ extension LoginView {
             .signInWithAppleButtonStyle(.white)
             .frame(width: 300, height: 45)
         }
-        .onReceive(viewModel.$status) { result in
-            switch result {
-            case .done(result: let userInfo):
-                tokenManager.saveToken(userInfo.token)
-                userManager.updateUserData(with: userInfo.token)
-            default:
-                // TODO: Show alert
-                return
-            }
-        }
     }
 }
 
