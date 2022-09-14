@@ -77,11 +77,6 @@ class LoginViewModel: ObservableObject {
                 onFailure: { [weak self] error in
                     guard let self = self else { return }
                     self.status = .fail(with: error)
-                },
-                onDisposed: {
-#if DEBUG
-                    print("disposed")
-#endif
                 }
             )
             .disposed(by: bag)
@@ -95,11 +90,5 @@ class LoginViewModel: ObservableObject {
         self.kakaoLoginManager = kakaoLoginManager
         self.userManager = userManager
     }
-    
-#if DEBUG
-    deinit {
-        print("LoginTestViewModel deinit")
-    }
-#endif
 }
 

@@ -12,7 +12,7 @@ import AlertState
 struct LoginView: View {
     @EnvironmentObject var tokenManager: TokenManager
     @EnvironmentObject var userManager: UserManager
-    @ObservedObject var viewModel = LoginViewModel()
+    @StateObject var viewModel = LoginViewModel()
     
     @AlertState<SystemAlert> var alertState
     
