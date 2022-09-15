@@ -88,15 +88,14 @@ struct RepresentedUITextView: UIViewRepresentable {
         func textViewDidBeginEditing(_ textView: UITextView) {
             DispatchQueue.main.async {
                 self.parent.isEditing = true
-                self.becomeFirstResponder.wrappedValue = true
             }
         }
         
         func textViewDidEndEditing(_ textView: UITextView) {
             DispatchQueue.main.async {
                 self.parent.isEditing = false
-                self.becomeFirstResponder.wrappedValue = false
             }
+            self.becomeFirstResponder.wrappedValue = false
         }
 
         func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
