@@ -85,8 +85,8 @@ struct LoginView: View {
             }
             .showAlert(with: $alertState)
         }
-        .introspectNavigationController{ nc in
-            nc.navigationBar.barTintColor = UIColor(Color.background)
+        .introspectNavigationController{ navigationController in
+            navigationController.navigationBar.barTintColor = UIColor(Color.background)
         }
     }
 }
