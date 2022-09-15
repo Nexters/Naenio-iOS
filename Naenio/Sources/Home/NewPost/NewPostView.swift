@@ -91,7 +91,7 @@ struct NewPostView: View {
                     
                     WrappedTextView(placeholder: "어떤 내용을 추가로 담을까요?",
                                     content: $postContent.details,
-                                    characterLimit: 100,
+                                    characterLimit: 99,
                                     allowNewline: false)
                         .frame(height: 108)
                     
