@@ -98,7 +98,7 @@ struct FullView: View {
                 
                 commentButton
                     .fillHorizontal()
-                    .padding(.bottom, 160)
+                    .padding(.bottom, 110)
             }
             .padding(.horizontal, 40)
             .padding(.top, 27)
