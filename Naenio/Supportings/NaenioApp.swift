@@ -8,6 +8,7 @@
 import SwiftUI
 import KakaoSDKAuth
 import KakaoSDKCommon
+import Introspect
 
 @main
 struct NaenioApp: App {
@@ -74,6 +75,15 @@ struct NaenioApp: App {
                             )
                             .navigationBarHidden(true)
                             .navigationBarTitle("", displayMode: .inline)
+                            .introspectTabBarController { controller in
+                                controller.tabBar.backgroundColor = UIColor(Color.tabBarBackground)
+                                controller.tabBar.shadowImage = UIImage()
+                                controller.tabBar.backgroundImage = UIImage()
+                                
+                                controller.tabBar.layer.masksToBounds = true
+                                controller.tabBar.layer.cornerRadius = 14
+                                controller.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+                            }
                     }
                 } else {
                     if networkMonitor.status == .disconnected {
@@ -89,7 +99,7 @@ struct NaenioApp: App {
                         Image("splash_view")
                             .resizable()
                             .fillScreen()
-//                            .scaledToFill()
+                        //                            .scaledToFill()
                             .ignoresSafeArea()
                     }
                 }

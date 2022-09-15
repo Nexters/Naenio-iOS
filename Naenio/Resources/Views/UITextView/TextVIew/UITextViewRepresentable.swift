@@ -12,13 +12,19 @@ struct RepresentedUITextView: UIViewRepresentable {
     let isTight: Bool
     let allowNewline: Bool
     let allowWhiteSpace: Bool
+    let scrollDisabled: Bool
     
     @Binding var becomeFirstResponder: Bool
     @Binding var text: String
     @Binding var isEditing: Bool
     
-    init(text: Binding<String>, isEditing: Binding<Bool>, limit: Int? = nil,
-         isTight: Bool, allowNewline: Bool = true, allowWhiteSpace: Bool = true,
+    init(text: Binding<String>,
+         isEditing: Binding<Bool>,
+         limit: Int? = nil,
+         isTight: Bool,
+         allowNewline: Bool = true,
+         allowWhiteSpace: Bool = true,
+         scrollDisabled: Bool = false,
          becomeFirstResponder: Binding<Bool> = .constant(false)
     ) {
         self._text = text
@@ -27,6 +33,7 @@ struct RepresentedUITextView: UIViewRepresentable {
         self.isTight = isTight
         self.allowNewline = allowNewline
         self.allowWhiteSpace = allowWhiteSpace
+        self.scrollDisabled = scrollDisabled
         self._becomeFirstResponder = becomeFirstResponder
     }
 
@@ -39,7 +46,7 @@ struct RepresentedUITextView: UIViewRepresentable {
         textView.delegate = context.coordinator
 
         textView.font = UIFont(name: "Pretendard-Medium", size: 16) // Font.medium(size: 16)
-        textView.isScrollEnabled = true
+        textView.isScrollEnabled = scrollDisabled ? false : true
         textView.isEditable = true
         textView.isUserInteractionEnabled = true
         textView.backgroundColor = UIColor(Color.card)

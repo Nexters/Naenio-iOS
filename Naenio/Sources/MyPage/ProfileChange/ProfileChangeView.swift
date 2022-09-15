@@ -50,8 +50,10 @@ struct ProfileChangeView: View {
                         .padding(.bottom, 42)
                     
                     WrappedTextView(
-                        placeholder: userManager.getNickName(), content: $text, characterLimit: 10,
-                        allowNewline: false, allowWhiteSpace: false, becomeFirstResponder: true
+                        placeholder: userManager.getNickName(), content: $text,
+                        characterLimit: 10,
+                        allowNewline: false, allowWhiteSpace: false, becomeFirstResponder: true,
+                        scrollDisabled: true
                     )
                     .frame(height: 20)
                     .introspectTextField { textField in
@@ -84,7 +86,8 @@ struct ProfileChangeView: View {
             }
         }
         .addTrailingButton(title: "등록", disabled: isButtonDisabled, action: {
-            viewModel.submitProfileChangeRequest(nickname: text, index: profileImageIndex)
+            let submittedNickname = text == userManager.getNickName() ? String() : text
+            viewModel.submitProfileChangeRequest(nickname: submittedNickname, index: profileImageIndex)
         })
         .hideLeadingButton(showBackButton == false)
         .onChange(of: viewModel.status) { status in // Observe status of API request
@@ -103,6 +106,7 @@ struct ProfileChangeView: View {
         }
         .showAlert(with: $alertState)
         .onAppear {
+            self.text = userManager.getNickName()
             self.profileImageIndex = userManager.getProfileImagesIndex()
         }
         .navigationBarHidden(true)

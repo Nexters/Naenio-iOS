@@ -111,7 +111,7 @@ class UserManager: ObservableObject {
            let nickname = loadedNickName as? String {
             return nickname
         } else {
-            return "(알 수 없음)"
+            return String()
         }
     }
     

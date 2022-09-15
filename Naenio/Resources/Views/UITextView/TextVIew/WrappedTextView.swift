@@ -32,6 +32,9 @@ struct WrappedTextView: View {
     /// 공백 허용 여부
     let allowWhiteSpace: Bool
     
+    /// 스크롤 잠그기
+    let scrollDisabled: Bool
+    
     /// 첫빠따
     @State var becomeFirstResponder: Bool
     
@@ -42,7 +45,8 @@ struct WrappedTextView: View {
          isTight: Bool = false,
          allowNewline: Bool = true,
          allowWhiteSpace: Bool = true,
-         becomeFirstResponder: Bool = false
+         becomeFirstResponder: Bool = false,
+         scrollDisabled: Bool = false
     ) {
         self.placeholder = placeholder
         self._content = content
@@ -53,6 +57,7 @@ struct WrappedTextView: View {
         self.allowNewline = allowNewline
         self.allowWhiteSpace = allowWhiteSpace
         self.becomeFirstResponder = becomeFirstResponder
+        self.scrollDisabled = scrollDisabled
     }
     
     var body: some View {
@@ -70,6 +75,7 @@ struct WrappedTextView: View {
                     isTight: self.isTight,
                     allowNewline: self.allowNewline,
                     allowWhiteSpace: self.allowWhiteSpace,
+                    scrollDisabled: self.scrollDisabled,
                     becomeFirstResponder: self.$becomeFirstResponder
                 )
                 .foregroundColor(.white)
