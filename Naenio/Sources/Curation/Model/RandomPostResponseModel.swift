@@ -18,10 +18,10 @@ struct RandomPostResponseModel: ModelType {
     struct RandomPostAuthorModel: ModelType {
         var id: Int
         var nickname: String?
-        var profileImageIndeX: Int?
+        var profileImageIndex: Int?
         
         func toAuthor() -> Author {
-            return Author(id: self.id, nickname: self.nickname, profileImageIndex: self.profileImageIndeX)
+            return Author(id: self.id, nickname: self.nickname, profileImageIndex: self.profileImageIndex)
         }
     }
     
@@ -38,7 +38,13 @@ struct RandomPostResponseModel: ModelType {
     }
     
     func toPost() -> Post {
-        return Post(id: self.id, author: self.author.toAuthor(), voteCount: voteTotalCount(choices: transferToChoiceModel(from: self.choices)), title: self.title, content: self.content, choices: transferToChoiceModel(from: self.choices), commentCount: self.commentCount)
+        return Post(id: self.id,
+                    author: self.author.toAuthor(),
+                    voteCount: voteTotalCount(choices: transferToChoiceModel(from: self.choices)),
+                    title: self.title,
+                    content: self.content,
+                    choices: transferToChoiceModel(from: self.choices),
+                    commentCount: self.commentCount)
     }
     
     private func transferToChoiceModel(from choices: [RandomPostResponseModel.RandomPostChoiceModel]) -> [Choice] {
