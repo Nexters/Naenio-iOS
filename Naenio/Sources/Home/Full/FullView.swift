@@ -27,23 +27,34 @@ struct FullView: View {
     var deletedAction: Action?
         
     private let showCommentFirst: Bool
+    private let showBackground: Bool
+    private let navigationTitle: String?
+    private let contentColor: Color
     
     init(
         _ viewModel: FullViewModel = FullViewModel(),
         post: Binding<Post>,
         deletedAction: Action? = nil,
-        showCommentFirst: Bool = false
+        showCommentFirst: Bool = false,
+        showBackground: Bool = true,
+        navigationTitle: String? = nil,
+        contentColor: Color = .naenioGray
     ) {
         self.viewModel = viewModel
         self._post = post
         self.deletedAction = deletedAction
         self.showCommentFirst = showCommentFirst
+        self.showBackground = showBackground
+        self.navigationTitle = navigationTitle
+        self.contentColor = contentColor
     }
 
     var body: some View {
         ZStack {
-            Color.background
-                .ignoresSafeArea()
+            if showBackground {
+                Color.background
+                    .ignoresSafeArea()
+            }
             
             if viewModel.status == .inProgress {
                 LoadingIndicator().zIndex(1)
@@ -79,7 +90,7 @@ struct FullView: View {
                     .fixedSize(horizontal: false, vertical: true)
                     .lineSpacing(5)
                     .font(.medium(size: 14))
-                    .foregroundColor(.naenioGray)
+                    .foregroundColor(contentColor)
                     .padding(.bottom, 18)
                 
                 Spacer()
@@ -90,7 +101,7 @@ struct FullView: View {
                 
                 commentButton
                     .fillHorizontal()
-                    .padding(.bottom, 160)
+                    .padding(.bottom, 100)
             }
             .padding(.horizontal, 40)
             .padding(.top, 27)
@@ -109,11 +120,11 @@ struct FullView: View {
                     (deletedAction ?? {})()
                 case .singlePost:
                     selectedPostId = post.id
-                default:
-                    break
+                case .report:
+                    NotificationCenter.default.postToastAlertNotification("신고가 접수되었습니다")
                 }
             case .fail(let error):
-                alertState = .errorHappend(error: error)
+                alertState = .networkErrorHappend(error: error)
                 break
             default:
                 break
@@ -138,6 +149,12 @@ struct FullView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 backButton
+            }
+            
+            ToolbarItem(placement: .principal) {
+                Text(navigationTitle ?? "")
+                    .font(.engBold(size: 22))
+                    .foregroundColor(.white)
             }
             
             ToolbarItem(placement: .navigationBarTrailing) {

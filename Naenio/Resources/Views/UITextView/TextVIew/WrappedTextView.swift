@@ -14,6 +14,9 @@ struct WrappedTextView: View {
     /// 글 내용
     @Binding var content: String
     
+    /// 포커싱 잡혔는지?
+    @State var isEditing: Bool
+    
     /// 글자수 제한
     let characterLimit: Int
     
@@ -26,36 +29,58 @@ struct WrappedTextView: View {
     /// 개행 허용 여부
     let allowNewline: Bool
     
+    /// 공백 허용 여부
+    let allowWhiteSpace: Bool
+    
+    /// 스크롤 잠그기
+    let scrollDisabled: Bool
+    
+    /// 첫빠따
+    @State var becomeFirstResponder: Bool
+    
     init(placeholder: String,
          content: Binding<String>,
          characterLimit: Int,
          showLimit: Bool = true,
          isTight: Bool = false,
-         allowNewline: Bool = true) {
+         allowNewline: Bool = true,
+         allowWhiteSpace: Bool = true,
+         becomeFirstResponder: Bool = false,
+         scrollDisabled: Bool = false
+    ) {
         self.placeholder = placeholder
         self._content = content
+        self.isEditing = false
         self.characterLimit = characterLimit
         self.showLimit = showLimit
         self.isTight = isTight
         self.allowNewline = allowNewline
+        self.allowWhiteSpace = allowWhiteSpace
+        self.becomeFirstResponder = becomeFirstResponder
+        self.scrollDisabled = scrollDisabled
     }
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            Text(content.isEmpty ? placeholder : "")
+            Text(isEditing || !content.isEmpty ? "" : placeholder)
                 .font(.medium(size: 16))
                 .foregroundColor(.mono)
                 .padding(isTight ? 8 : 16)
                 .zIndex(1)
             
             ZStack(alignment: .bottomTrailing) {
-                RepresentedUITextView(text: $content,
-                                      limit: characterLimit,
-                                      isTight: self.isTight,
-                                      allowNewline: self.allowNewline)
-                    .foregroundColor(.white)
-                    .background(Color.card)
-                    .cornerRadius(8)
+                RepresentedUITextView(
+                    text: $content, isEditing: $isEditing,
+                    limit: characterLimit,
+                    isTight: self.isTight,
+                    allowNewline: self.allowNewline,
+                    allowWhiteSpace: self.allowWhiteSpace,
+                    scrollDisabled: self.scrollDisabled,
+                    becomeFirstResponder: self.$becomeFirstResponder
+                )
+                .foregroundColor(.white)
+                .background(Color.card)
+                .cornerRadius(8)
                 
                 if showLimit {
                     Text("\(content.count)/\(characterLimit)")

@@ -88,7 +88,7 @@ struct MyPageView: View {
                     viewModel.signOut()
                 }
             case .fail(let error):
-                self.alertState = .errorHappend(error: error)
+                self.alertState = .networkErrorHappend(error: error)
             default:
                 break
             }

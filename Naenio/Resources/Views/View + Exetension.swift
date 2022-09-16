@@ -67,6 +67,7 @@ extension View {
             self
             
             Toast(isPresented: isPresented, title: title, action: action ?? {})
+                .zIndex(1)
         }
     }
     
@@ -75,6 +76,7 @@ extension View {
             self
             
             Toast(isPresented: info.isPresented, title: info.title.wrappedValue, action: info.action.wrappedValue)
+                .zIndex(1)
         }
     }
     

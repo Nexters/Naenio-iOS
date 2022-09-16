@@ -16,7 +16,7 @@ class CommentViewModel: ObservableObject {
     private let serialQueue = SerialDispatchQueueScheduler(qos: .utility)
     
     @Published var comments: [Comment]
-    @Published var totalCommentCount = 0
+    @Published var totalCommentCount: Int = 0 // 얘를 stored로 유지해야 하는 이유: 페이징이 안 되어있을 때 가지고 있는 코멘트 카운트만 표시하는 문제가 있다,
     @Published var status: NetworkStatus<WorkType> = .waiting
     
     var pageSize = 10
@@ -43,7 +43,7 @@ class CommentViewModel: ObservableObject {
                     guard let self = self else { return }
                     let newComment = self.transferToCommentModel(comment)
                     
-                    self.totalCommentCount += 1
+//                    self.totalCommentCount += 1
                     withAnimation {
                         self.comments.insert(newComment, at: 0)
                     }
@@ -90,6 +90,8 @@ class CommentViewModel: ObservableObject {
         _ = withAnimation {
             comments.remove(at: index)
         }
+        
+        totalCommentCount -= 1
     }
 }
 

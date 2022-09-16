@@ -105,7 +105,6 @@ struct HomeView: View {
                             .introspectScrollView { scrollView in
                                 let control = scrollViewHelper.refreshController
                                 control.addTarget(viewModel, action: #selector(viewModel.requestPosts), for: .valueChanged)
-                                control.tintColor = .yellow
                                 
                                 scrollView.keyboardDismissMode = .onDrag
                                 scrollView.refreshControl = control
@@ -125,7 +124,7 @@ struct HomeView: View {
                                     scrollViewHelper.refreshController.endRefreshing()
                                 case .fail(with: let error):
                                     scrollViewHelper.refreshController.endRefreshing()
-                                    alertState = .errorHappend(error: error)
+                                    alertState = .networkErrorHappend(error: error)
                                     print(error.localizedDescription)
                                 default:
                                     break

@@ -93,6 +93,7 @@ struct CommentRepliesView: View {
                                                isReply: true,
                                                isMine: userManager.getUserId() == reply.wrappedValue.author.id, deletedAction: {
                                 viewModel.delete(at: index)
+                                comment.repliesCount -= 1
                             })
                         }
                         .onAppear {
@@ -153,7 +154,7 @@ struct CommentRepliesView: View {
                     self.comment.repliesCount = viewModel.replies.count
                 }
             case .fail(let error):
-                alertState = .errorHappend(error: error)
+                alertState = .networkErrorHappend(error: error)
             default:
                 break
             }

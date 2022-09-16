@@ -8,7 +8,8 @@
 import SwiftUI
 import Combine
 import AlertState
-
+ 
+@available(*, deprecated)
 struct RandomThemeView: View {
     private let theme: ThemeType
     
@@ -98,7 +99,7 @@ struct RandomThemeView: View {
         .onChange(of: viewModel.status) { status in
             switch status {
             case .fail(with: let error):
-                alertState = .errorHappend(error: error)
+                alertState = .networkErrorHappend(error: error)
             default:
                 break
             }

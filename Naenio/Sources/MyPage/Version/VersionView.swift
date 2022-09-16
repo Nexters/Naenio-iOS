@@ -15,9 +15,23 @@ struct VersionView: View {
             ZStack(alignment: .center) {
                 Color.background.ignoresSafeArea()
                 
-                Text("현재 버전: \(appVersion ?? "???")")
-                    .font(.engMedium(size: 18))
-                    .foregroundColor(.white)
+                VStack(spacing: 10) {
+                    Image("version_icon")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 108, height: 108)
+                        .onTapGesture {
+                            HapticManager.shared.notification(type: .warning)
+                        }
+                    
+                    Text("현재 버전")
+                        .font(.engMedium(size: 16))
+                        .foregroundColor(.white)
+                    
+                    Text("\(appVersion ?? "?.??.??")")
+                        .font(.engMedium(size: 16))
+                        .foregroundColor(.mono)
+                }
             }
         }
         .navigationBarHidden(true)

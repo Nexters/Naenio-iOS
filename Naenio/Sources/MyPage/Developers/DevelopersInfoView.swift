@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct DevelopersInfoView: View {
-    @State var kimEasterEggCount = 5
     
     var body: some View {
         CustomNavigationView(title: "개발자 정보") {
@@ -25,18 +24,6 @@ struct DevelopersInfoView: View {
                         Description(division: "Backend Developers", names: ["김경준"])
                         Description(division: "Frontend Developers", names: ["김경준"])
                     }
-                    .onTapGesture {
-                        HapticManager.shared.impact(style: .light)
-                        
-                        if kimEasterEggCount <= 0 {
-                            let kimsURL = URL(string: "https://www.linkedin.com/in/kouz/?originalSubdomain=kr")!
-                            if UIApplication.shared.canOpenURL(kimsURL) {
-                                UIApplication.shared.open(kimsURL)
-                            }
-                        } else {
-                            kimEasterEggCount -= 1
-                        }
-                    }
                     
                     Spacer()
                 }
@@ -51,6 +38,8 @@ struct DevelopersInfoView: View {
 
 extension DevelopersInfoView {
     private struct Description: View {
+        @State var kimEasterEggCount = 5
+
         let division: String
         let names: [String]
         
@@ -63,6 +52,30 @@ extension DevelopersInfoView {
                 HStack(spacing: 0) {
                     ForEach(names, id: \.self) { name in
                         Text(name)
+                            .onTapGesture {
+                                if name == "조윤영" {
+                                    let url = URL(string: "https://choyoonyoung98.github.io/")!
+                                    if UIApplication.shared.canOpenURL(url) {
+                                        UIApplication.shared.open(url)
+                                    }
+                                } else if name == "이영빈" {
+                                    let url = URL(string: "https://enebin.medium.com")!
+                                    if UIApplication.shared.canOpenURL(url) {
+                                        UIApplication.shared.open(url)
+                                    }
+                                } else if name == "김경준" {
+                                    HapticManager.shared.impact(style: .light)
+                                    
+                                    if kimEasterEggCount <= 0 {
+                                        let kimsURL = URL(string: "https://www.linkedin.com/in/kouz/?originalSubdomain=kr")!
+                                        if UIApplication.shared.canOpenURL(kimsURL) {
+                                            UIApplication.shared.open(kimsURL)
+                                        }
+                                    } else {
+                                        kimEasterEggCount -= 1
+                                    }
+                                }
+                            }
                         
                         if names.last != name {
                             Text(", ")

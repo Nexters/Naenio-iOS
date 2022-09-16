@@ -56,6 +56,7 @@
 		9B03732D28A556020089CC48 /* UIResponder + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732C28A556020089CC48 /* UIResponder + Extension.swift */; };
 		9B03732F28A68A6B0089CC48 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03732E28A68A6B0089CC48 /* CommentViewModel.swift */; };
 		9B03733228A6926D0089CC48 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B03733128A6926D0089CC48 /* LoadingIndicator.swift */; };
+		9B0433D328D20E6600A02BA7 /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0433D228D20E6600A02BA7 /* Term.swift */; };
 		9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B085F022879991400DE8E60 /* NaenioApp.swift */; };
 		9B085F072879991600DE8E60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B085F062879991600DE8E60 /* Assets.xcassets */; };
 		9B085F0A2879991600DE8E60 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B085F092879991600DE8E60 /* Preview Assets.xcassets */; };
@@ -325,6 +326,8 @@
 		9BF513CF28AD265000104CAB /* confetti.json in Resources */ = {isa = PBXBuildFile; fileRef = 9BF513CE28AD265000104CAB /* confetti.json */; };
 		9BF513D228AD27FA00104CAB /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF513D128AD27FA00104CAB /* HapticManager.swift */; };
 		9C10439D289B747200A45711 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C10439C289B747200A45711 /* HomeViewModel.swift */; };
+		9C160A4D28D17AE6003E7EBA /* NewRandomThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C160A4C28D17AE6003E7EBA /* NewRandomThemeView.swift */; };
+		9C160A4F28D17AF1003E7EBA /* NewRandomThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C160A4E28D17AF1003E7EBA /* NewRandomThemeViewModel.swift */; };
 		9C2D07B72897C683008BBD75 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D07B62897C683008BBD75 /* User.swift */; };
 		9C2D07B92897C728008BBD75 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D07B82897C728008BBD75 /* UserManager.swift */; };
 		9C2D07BB2897CD0A008BBD75 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D07BA2897CD0A008BBD75 /* UserError.swift */; };
@@ -464,6 +467,7 @@
 		9B03732C28A556020089CC48 /* UIResponder + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder + Extension.swift"; sourceTree = "<group>"; };
 		9B03732E28A68A6B0089CC48 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 		9B03733128A6926D0089CC48 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
+		9B0433D228D20E6600A02BA7 /* Term.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
 		9B085EFF2879991400DE8E60 /* Naenio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Naenio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B085F022879991400DE8E60 /* NaenioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaenioApp.swift; sourceTree = "<group>"; };
 		9B085F062879991600DE8E60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -558,6 +562,8 @@
 		9BF513CE28AD265000104CAB /* confetti.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = confetti.json; sourceTree = "<group>"; };
 		9BF513D128AD27FA00104CAB /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		9C10439C289B747200A45711 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		9C160A4C28D17AE6003E7EBA /* NewRandomThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRandomThemeView.swift; sourceTree = "<group>"; };
+		9C160A4E28D17AF1003E7EBA /* NewRandomThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRandomThemeViewModel.swift; sourceTree = "<group>"; };
 		9C2D07B62897C683008BBD75 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9C2D07B82897C728008BBD75 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		9C2D07BA2897CD0A008BBD75 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserE\U0010rror.swift"; sourceTree = "<group>"; };
@@ -801,6 +807,8 @@
 				9B61D0F828AE931600F6DD0B /* ThemeViewModel.swift */,
 				4CD3554D28BB9CCD00BD6FB5 /* RandomThemeView.swift */,
 				4CD3554F28BBA04F00BD6FB5 /* RandomThemeViewModel.swift */,
+				9C160A4C28D17AE6003E7EBA /* NewRandomThemeView.swift */,
+				9C160A4E28D17AF1003E7EBA /* NewRandomThemeViewModel.swift */,
 			);
 			path = Curation;
 			sourceTree = "<group>";
@@ -1306,6 +1314,7 @@
 		9C3309C92888EC13000C592F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9B0433D228D20E6600A02BA7 /* Term.swift */,
 				9BF00C0A287ACFA900F08035 /* LoginRequestInformation.swift */,
 				9CA7922C287BA90600600C32 /* UserInformation.swift */,
 			);
@@ -1660,6 +1669,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = 9B085EF62879991400DE8E60;
 			packageReferences = (
@@ -1920,6 +1930,7 @@
 				9B03732428A5551B0089CC48 /* KeyboardAdaptive.swift in Sources */,
 				9B687DEA28954D4A0048AED0 /* Font + Extension.swift in Sources */,
 				9B61D0F728AE92F700F6DD0B /* ThemeView.swift in Sources */,
+				9B0433D328D20E6600A02BA7 /* Term.swift in Sources */,
 				9B03732D28A556020089CC48 /* UIResponder + Extension.swift in Sources */,
 				9B085F032879991400DE8E60 /* NaenioApp.swift in Sources */,
 				4CC3CEAC28ABF95400458138 /* VoteResponseModel.swift in Sources */,
@@ -2002,8 +2013,10 @@
 				9B91D80D28BF835D008D9E9E /* CommentContentCellViewModel.swift in Sources */,
 				9C3309D92888EE20000C592F /* LoginViewModel.swift in Sources */,
 				9B61D0E428A9050600F6DD0B /* CommentPostRequestModel.swift in Sources */,
+				9C160A4D28D17AE6003E7EBA /* NewRandomThemeView.swift in Sources */,
 				9B244073289E9AA10060A244 /* VotesView.swift in Sources */,
 				9B27A39828AD079700C63AB6 /* ShareManager.swift in Sources */,
+				9C160A4F28D17AF1003E7EBA /* NewRandomThemeViewModel.swift in Sources */,
 				4CC4B73B2896BF2500774192 /* MyPageView.swift in Sources */,
 				9C3309D12888ED16000C592F /* SignInWithKakaoButtonViewModel.swift in Sources */,
 				9B61D0F928AE931600F6DD0B /* ThemeViewModel.swift in Sources */,
@@ -2370,10 +2383,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Naenio/ignored/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "네니오";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -2412,10 +2428,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Naenio/ignored/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "네니오";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

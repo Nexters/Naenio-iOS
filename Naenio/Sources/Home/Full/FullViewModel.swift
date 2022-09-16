@@ -10,7 +10,7 @@ import RxSwift
 
 class FullViewModel: ObservableObject {
     @Published var status: NetworkStatus<WorkType> = .waiting
-    @Published var post: Post = MockPostGenerator.generate(sortType: .wrote)
+    @Published var post: Post = MockPostGenerator.generateEmptyPost()
     
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler.init(qos: .userInitiated)

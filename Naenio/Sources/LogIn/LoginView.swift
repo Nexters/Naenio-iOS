@@ -8,11 +8,20 @@
 import SwiftUI
 import AuthenticationServices
 import AlertState
+import Introspect
+
 
 struct LoginView: View {
     @EnvironmentObject var tokenManager: TokenManager
     @EnvironmentObject var userManager: UserManager
-    @ObservedObject var viewModel = LoginViewModel()
+    @StateObject var viewModel = LoginViewModel()
+    
+    @State var isPresented: Bool = false
+    @State var term: (any Term)? {
+        didSet {
+            isPresented = true
+        }
+    }
     
     @AlertState<SystemAlert> var alertState
     
@@ -38,6 +47,7 @@ struct LoginView: View {
                 
                 loginButtons
                     .padding(.bottom, 23)
+                    .disabled(viewModel.status == .inProgress)
                 
                 Text("가입 시, 다음 사항에 동의하는 것으로 간주합니다.")
                     .font(.regular(size: 12))
@@ -45,12 +55,18 @@ struct LoginView: View {
                     .padding(.bottom, 1)
 
                 HStack(spacing: 4) {
-                    Text("서비스 이용 약관")
-                        .foregroundColor(.naenioGray)
+                    NavigationLink(destination: TermView(term: Agreements())) {
+                        Text("서비스 이용 약관")
+                            .foregroundColor(.naenioGray)
+                    }
+                    
                     Text("및")
                         .foregroundColor(.mono)
-                    Text("개인 정보 정책")
-                        .foregroundColor(.naenioGray)
+                    
+                    NavigationLink(destination: TermView(term: PrivacyProteftion())) {
+                        Text("개인 정보 정책")
+                            .foregroundColor(.naenioGray)
+                    }
                 }
                 .font(.regular(size: 12))
                 .padding(.bottom, 38)
@@ -62,7 +78,7 @@ struct LoginView: View {
                     tokenManager.saveToken(userInfo.token)
                     userManager.updateUserData(with: userInfo.token)
                 case .fail(with: let error):
-                    alertState = .errorHappend(error: error)
+                    alertState = .networkErrorHappend(error: error)
                 default:
                     return
                 }
@@ -91,16 +107,6 @@ extension LoginView {
             )
             .signInWithAppleButtonStyle(.white)
             .frame(width: 300, height: 45)
-        }
-        .onReceive(viewModel.$status) { result in
-            switch result {
-            case .done(result: let userInfo):
-                tokenManager.saveToken(userInfo.token)
-                userManager.updateUserData(with: userInfo.token)
-            default:
-                // TODO: Show alert
-                return
-            }
         }
     }
 }

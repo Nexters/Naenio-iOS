@@ -8,6 +8,7 @@
 import SwiftUI
 import KakaoSDKAuth
 import KakaoSDKCommon
+import Introspect
 
 @main
 struct NaenioApp: App {
@@ -41,9 +42,15 @@ struct NaenioApp: App {
                 }
                 
                 if tokenManager.accessToken == nil {
-                    LoginView()
-                        .environmentObject(tokenManager)
-                        .environmentObject(userManager)
+                    NavigationView {
+                        LoginView()
+                            .environmentObject(tokenManager)
+                            .environmentObject(userManager)
+                            .introspectNavigationController{ navigationController in
+                                navigationController.navigationBar.barTintColor = UIColor(Color.background)
+                            }
+                    }
+                    .accentColor(.white)
                 } else if userManager.user?.nickname == nil,
                           userManager.status == .fetched {
                     OnboardingView()
@@ -71,18 +78,32 @@ struct NaenioApp: App {
                             )
                             .navigationBarHidden(true)
                             .navigationBarTitle("", displayMode: .inline)
+                            .introspectTabBarController { controller in
+                                controller.tabBar.backgroundColor = UIColor(Color.tabBarBackground)
+                                controller.tabBar.shadowImage = UIImage()
+                                controller.tabBar.backgroundImage = UIImage()
+                                
+                                controller.tabBar.layer.masksToBounds = true
+                                controller.tabBar.layer.cornerRadius = 14
+                                controller.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+                            }
                     }
                 } else {
-                    Color.background
-                        .ignoresSafeArea()
-                    VStack {
-                        Spacer()
+                    if networkMonitor.status == .disconnected {
+                        Color.background
+                            .ignoresSafeArea()
                         
-                        if networkMonitor.status == .disconnected {
+                        VStack {
+                            Spacer()
                             loginErrorIndicator
+                            Spacer()
                         }
-                        
-                        Spacer()
+                    } else {
+                        Image("splash_view")
+                            .resizable()
+                            .fillScreen()
+                        //                            .scaledToFill()
+                            .ignoresSafeArea()
                     }
                 }
             }

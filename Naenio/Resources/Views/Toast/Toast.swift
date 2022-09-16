@@ -41,6 +41,8 @@ struct Toast: View {
                             )
                     }
                     .padding(.horizontal, 20)
+                    .padding(.bottom, 10)
+
                 }
                 .transition(.move(edge: .bottom))
             }

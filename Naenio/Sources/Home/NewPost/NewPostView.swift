@@ -91,7 +91,7 @@ struct NewPostView: View {
                     
                     WrappedTextView(placeholder: "어떤 내용을 추가로 담을까요?",
                                     content: $postContent.details,
-                                    characterLimit: 100,
+                                    characterLimit: 99,
                                     allowNewline: false)
                         .frame(height: 108)
                     
@@ -105,12 +105,13 @@ struct NewPostView: View {
         .onChange(of: sourceObject.status) { status in
             switch status {
             case .fail(with: let error):
-                alertState = .errorHappend(error: error)
+                alertState = .networkErrorHappend(error: error)
             default:
                 break
             }
         }
         .showAlert(with: $alertState)
+        .animation(nil)
     }
     
     init(isPresented: Binding<Bool>) {

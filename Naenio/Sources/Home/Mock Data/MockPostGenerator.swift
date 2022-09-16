@@ -13,7 +13,7 @@ struct MockPostGenerator {
         
         switch sortType {
         case .participated:
-            title = "추운 겨울에는 따뜻한 커피와 티를 마셔야지요.추운 겨울에는 따뜻한 커피와 티를 마셔야지요.추운 겨울에는 따뜻한 커피와 티를 마셔야지요.추운 겨울에는 따뜻한 커피와 티를 마셔야지요.추운 겨울에는 따뜻한 커피와 티를 마셔야지요.추운 겨울에는 따뜻한 커피와 티를 마셔야지요.추운 겨울에는 따뜻한 커피와 티를 마셔야지요.추운 겨울에는 따뜻한 커피와 티를 마셔야지요.추운 겨울에는 따뜻한 커피와 티를 마셔야지요.추운 겨울에는 따뜻한 커피와 티를 마셔야지요.추운 겨울에는 따뜻한 커피와 티를 마셔야지요."
+            title = "세상 모든 사람들이 날 알아보지 못하면 슬플 것 같아요.세상 모든 사람들이 날 알아보지 못하면 슬플 것 같아요.세상 모든 사람"
         case .wrote:
             title = "다람쥐 헌 쳇바퀴에 타고파 다람쥐 헌 쳇바퀴에 타고파"
         }
@@ -25,7 +25,7 @@ struct MockPostGenerator {
                                 profileImageIndex: 0),
             voteCount: 132,
             title: title,
-            content: "세상 모든 사람들이 날 알아보지 못하면 슬플 것 같아요.",
+            content: "세상 모든 사람들이 날 알아보지 못하면 슬플 것 같아요.세상 모든 사람들이 날 알아보지 못하면 슬플 것 같아요.세상 모든 사람세상 모든 사람들이 날 알아보지 못하면 슬플 것 같아요",
             choices: [
                 Choice(id: 0,
                             sequence: 0,
@@ -39,6 +39,31 @@ struct MockPostGenerator {
                             voteCount: 25)
             ],
             commentCount: 111
+        )
+    }
+    
+    static func generateEmptyPost() -> Post {
+        return Post(
+            id: UUID().uuidString.hashValue,
+            author: Author(id: 0,
+                           nickname: nil,
+                           profileImageIndex: nil),
+            voteCount: 0,
+            title: "",
+            content: "",
+            choices: [
+                Choice(id: 0,
+                            sequence: 0,
+                            name: "",
+                            isVoted: false,
+                            voteCount: 0),
+                Choice(id: 1,
+                            sequence: 1,
+                            name: "",
+                            isVoted: false,
+                            voteCount: 0)
+            ],
+            commentCount: 0
         )
     }
     

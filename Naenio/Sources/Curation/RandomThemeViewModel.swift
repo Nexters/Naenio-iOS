@@ -8,6 +8,7 @@
 import SwiftUI
 import RxSwift
 
+@available(*, deprecated)
 class RandomThemeViewModel: ObservableObject {
     @Published var status: Status = .waiting
     @Published var post: Post = MockPostGenerator.generate(sortType: .wrote)

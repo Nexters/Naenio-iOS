@@ -26,6 +26,8 @@ struct CustomNavigationView<V>: View where V: View {
             content
                 .fillScreen()
         }
+        .navigationBarHidden(true)
+        .navigationBarTitle("")
     }
     
     init(title: String,

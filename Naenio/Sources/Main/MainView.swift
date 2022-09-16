@@ -33,6 +33,8 @@ struct MainView: View {
                         Text("") // For padding
                     }
                     .tag(item.tag)
+                    .navigationBarHidden(true)
+                    .navigationBarTitle("")
             }
         }
         .introspectTabBarController { controller in
