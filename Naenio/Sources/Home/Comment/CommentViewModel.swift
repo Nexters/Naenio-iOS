@@ -43,7 +43,7 @@ class CommentViewModel: ObservableObject {
                     guard let self = self else { return }
                     let newComment = self.transferToCommentModel(comment)
                     
-//                    self.totalCommentCount += 1
+                    self.totalCommentCount += 1
                     withAnimation {
                         self.comments.insert(newComment, at: 0)
                     }
