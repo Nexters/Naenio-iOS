@@ -46,6 +46,9 @@ struct NaenioApp: App {
                         LoginView()
                             .environmentObject(tokenManager)
                             .environmentObject(userManager)
+                            .introspectNavigationController{ navigationController in
+                                navigationController.navigationBar.barTintColor = UIColor(Color.background)
+                            }
                     }
                     .accentColor(.white)
                 } else if userManager.user?.nickname == nil,
