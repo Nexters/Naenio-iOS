@@ -93,6 +93,7 @@ struct CommentRepliesView: View {
                                                isReply: true,
                                                isMine: userManager.getUserId() == reply.wrappedValue.author.id, deletedAction: {
                                 viewModel.delete(at: index)
+                                comment.repliesCount -= 1
                             })
                         }
                         .onAppear {
