@@ -42,6 +42,31 @@ struct MockPostGenerator {
         )
     }
     
+    static func generateEmptyPost() -> Post {
+        return Post(
+            id: UUID().uuidString.hashValue,
+            author: Author(id: 0,
+                           nickname: nil,
+                           profileImageIndex: nil),
+            voteCount: 0,
+            title: "",
+            content: "",
+            choices: [
+                Choice(id: 0,
+                            sequence: 0,
+                            name: "",
+                            isVoted: false,
+                            voteCount: 0),
+                Choice(id: 1,
+                            sequence: 1,
+                            name: "",
+                            isVoted: false,
+                            voteCount: 0)
+            ],
+            commentCount: 0
+        )
+    }
+    
     static func generate(with request: PostRequestInformation) -> Post {
         return Post(
             id: UUID().uuidString.hashValue,

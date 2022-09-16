@@ -38,7 +38,7 @@ class NewRandomThemeViewModel: ObservableObject {
     }
     
     init() {
-        self.post = MockPostGenerator.generate(sortType: .wrote)
+        self.post = MockPostGenerator.generateEmptyPost()
         self.requestRandomThemePosts()
     }
 }

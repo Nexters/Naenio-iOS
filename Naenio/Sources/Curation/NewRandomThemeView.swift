@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AlertState
 
 struct NewRandomThemeView: View {
     @EnvironmentObject var userManager: UserManager
@@ -13,7 +14,9 @@ struct NewRandomThemeView: View {
     
     @State var mockPost = MockPostGenerator.generate(sortType: .participated)
     @State var attempts = 0
-    
+
+    @AlertState<SystemAlert> var alertState
+
     let theme: ThemeType
     
     var body: some View {
@@ -23,7 +26,7 @@ struct NewRandomThemeView: View {
                            endPoint: .bottom)
             .ignoresSafeArea()
             
-            FullView(post: $mockPost,
+            FullView(post: $viewModel.post,
                      showBackground: false,
                      navigationTitle: theme.data.title,
                      contentColor: .white)
@@ -33,6 +36,15 @@ struct NewRandomThemeView: View {
             updateRandomPostButton
                 .disabled(viewModel.status == .inProgress)
                 .padding()
+        }
+        .showAlert(with: $alertState)
+        .onChange(of: viewModel.status) { status in
+            switch status {
+            case .fail(with: let error):
+                alertState = .networkErrorHappend(error: error)
+            default:
+                break
+            }
         }
     }
     
