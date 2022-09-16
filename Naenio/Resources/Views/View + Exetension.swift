@@ -67,6 +67,7 @@ extension View {
             self
             
             Toast(isPresented: isPresented, title: title, action: action ?? {})
+                .padding(.bottom, 10)
         }
     }
     
