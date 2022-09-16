@@ -29,6 +29,7 @@ struct FullView: View {
     private let showCommentFirst: Bool
     private let showBackground: Bool
     private let navigationTitle: String?
+    private let contentColor: Color
     
     init(
         _ viewModel: FullViewModel = FullViewModel(),
@@ -36,7 +37,8 @@ struct FullView: View {
         deletedAction: Action? = nil,
         showCommentFirst: Bool = false,
         showBackground: Bool = true,
-        navigationTitle: String? = nil
+        navigationTitle: String? = nil,
+        contentColor: Color = .naenioGray
     ) {
         self.viewModel = viewModel
         self._post = post
@@ -44,6 +46,7 @@ struct FullView: View {
         self.showCommentFirst = showCommentFirst
         self.showBackground = showBackground
         self.navigationTitle = navigationTitle
+        self.contentColor = contentColor
     }
 
     var body: some View {
@@ -87,7 +90,7 @@ struct FullView: View {
                     .fixedSize(horizontal: false, vertical: true)
                     .lineSpacing(5)
                     .font(.medium(size: 14))
-                    .foregroundColor(.naenioGray)
+                    .foregroundColor(contentColor)
                     .padding(.bottom, 18)
                 
                 Spacer()
@@ -98,7 +101,7 @@ struct FullView: View {
                 
                 commentButton
                     .fillHorizontal()
-                    .padding(.bottom, 110)
+                    .padding(.bottom, 100)
             }
             .padding(.horizontal, 40)
             .padding(.top, 27)

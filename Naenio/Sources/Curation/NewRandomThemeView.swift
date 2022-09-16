@@ -11,7 +11,7 @@ struct NewRandomThemeView: View {
     @EnvironmentObject var userManager: UserManager
     @ObservedObject var viewModel = NewRandomThemeViewModel()
     
-//    @State var mockPost = MockPostGenerator.generate(sortType: .participated)
+    @State var mockPost = MockPostGenerator.generate(sortType: .participated)
     @State var attempts = 0
     
     let theme: ThemeType
@@ -23,10 +23,12 @@ struct NewRandomThemeView: View {
                            endPoint: .bottom)
             .ignoresSafeArea()
             
-            FullView(post: $viewModel.post, showBackground: false, navigationTitle: theme.data.title)
+            FullView(post: $mockPost,
+                     showBackground: false,
+                     navigationTitle: theme.data.title,
+                     contentColor: .white)
                 .environmentObject(userManager)
                 .modifier(Shake(animatableData: CGFloat(attempts)))
-            
             
             updateRandomPostButton
                 .disabled(viewModel.status == .inProgress)
