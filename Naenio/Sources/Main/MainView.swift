@@ -14,7 +14,7 @@ struct MainView: View {
     @State var selectedTab = 1
     
     @State var toastInformation: ToastInformation = ToastInformation(title: "") // For alert
-    @State var toastContainer = ToastContainter(informations: []) // 신고, 삭제, 차단
+    @State var toastContainer = ToastContainer(informations: []) // 신고, 삭제, 차단
 
     @State var pages: [TabBarPage] = [
         TabBarPage(pageName: .curation, selectedIcon: "tab_curation_selected", deselectedIcon: "tab_curation_deselected", tag: 0),
@@ -47,7 +47,7 @@ struct MainView: View {
             controller.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         }
         .toast($toastContainer)
-        .onReceive(Publishers.newToastAlertNotificationPublisher) { (container: ToastContainter) in
+        .onReceive(Publishers.newToastAlertNotificationPublisher) { (container: ToastContainer) in
             // 신고, 차단, 삭제
             self.toastContainer = container
             self.toastContainer.isPresented = true

@@ -19,7 +19,7 @@ struct CommentRepliesView: View {
     @ObservedObject var scrollViewHelper = ScrollViewHelper()
     
     @State var text: String = ""
-    @State var toastInfo = ToastInformation(isPresented: false, title: "", action: {}) // 리팩토링 시급, 토스트 시트 용 정보 스트럭트
+    @State var toastContainer = ToastContainer(informations: [])
     @State var toastAlertInfo = ToastInformation(title: "")
 
     @Binding var comment: Comment
@@ -71,7 +71,7 @@ struct CommentRepliesView: View {
                     CustomDivider()
                     
                     CommentContentCell(isPresented: $isPresented,
-                                       toastInfo: $toastInfo,
+                                       toastContainer: $toastContainer,
                                        toastAlertInfo: $toastAlertInfo,
                                        comment: $comment,
                                        isReply: true,
@@ -87,7 +87,7 @@ struct CommentRepliesView: View {
                                 .opacity(0)
                             
                             CommentContentCell(isPresented: $isPresented,
-                                               toastInfo: $toastInfo,
+                                               toastContainer: $toastContainer,
                                                toastAlertInfo: $toastAlertInfo,
                                                comment: reply,
                                                isReply: true,
@@ -141,7 +141,7 @@ struct CommentRepliesView: View {
                 .background(Color.background.ignoresSafeArea())
             }
         }
-        .toast(isPresented: $toastInfo.isPresented, title: toastInfo.title, action: toastInfo.action)
+        .toast($toastContainer)
         .toastAlert(isPresented: $toastAlertInfo.isPresented, title: toastAlertInfo.title)
         .navigationBarHidden(true)
         .onChange(of: viewModel.status) { status in

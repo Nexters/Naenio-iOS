@@ -38,7 +38,7 @@ extension NotificationCenter {
     
     func postNewToastNotification(_ infos: [NewToastInformation]) {
         NotificationCenter.default.post(name: .newToastNotification,
-                                        object: ToastContainter(informations: infos))
+                                        object: ToastContainer(informations: infos))
     }
     
     func postDidVoteHappen(id value: Int) {

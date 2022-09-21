@@ -21,7 +21,7 @@ protocol ToastInformationType {
 }
 
 // MARK: - Structs
-struct ToastContainter: ToastContainerType {
+struct ToastContainer: ToastContainerType {
     var isPresented: Bool = false
     var informations: [NewToastInformation]
 }
