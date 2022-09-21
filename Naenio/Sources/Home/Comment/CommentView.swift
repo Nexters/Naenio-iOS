@@ -15,7 +15,6 @@ struct CommentView: View {
     @ObservedObject var scrollViewHelper = ScrollViewHelper()
     
     @State var text: String = "" // 메시지 작성용
-    @State var toastInfo = ToastInformation(isPresented: false, title: "", action: {}) // 리팩토링 시급, 토스트 시트 용 정보 스트럭트
     @State var toastContainer = ToastContainer(informations: [])
     @State var toastAlertInfo = ToastInformation(title: "")
     
