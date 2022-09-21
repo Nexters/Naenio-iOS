@@ -357,6 +357,7 @@
 		9CA6DA8728A21CD10060610F /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6DA8628A21CD10060610F /* NewPostView.swift */; };
 		9CA7922D287BA90600600C32 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7922C287BA90600600C32 /* UserInformation.swift */; };
 		9CAA174028A2468600EAAE40 /* WrappedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAA173F28A2468600EAAE40 /* WrappedTextView.swift */; };
+		9CB0D93228DAF6A9009C2CE0 /* NewToastAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB0D93128DAF6A9009C2CE0 /* NewToastAlertView.swift */; };
 		9CB1DFAA28AB656C0048B313 /* ProfileChangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1DFA928AB656C0048B313 /* ProfileChangeViewModel.swift */; };
 		9CB1DFAC28AB6D900048B313 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1DFAB28AB6D900048B313 /* NetworkStatus.swift */; };
 		9CB1DFAE28AB6E990048B313 /* SystemAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1DFAD28AB6E990048B313 /* SystemAlert.swift */; };
@@ -593,6 +594,7 @@
 		9CA6DA8628A21CD10060610F /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
 		9CA7922C287BA90600600C32 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		9CAA173F28A2468600EAAE40 /* WrappedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappedTextView.swift; sourceTree = "<group>"; };
+		9CB0D93128DAF6A9009C2CE0 /* NewToastAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewToastAlertView.swift; sourceTree = "<group>"; };
 		9CB1DFA928AB656C0048B313 /* ProfileChangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileChangeViewModel.swift; sourceTree = "<group>"; };
 		9CB1DFAB28AB6D900048B313 /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		9CB1DFAD28AB6E990048B313 /* SystemAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemAlert.swift; sourceTree = "<group>"; };
@@ -1063,6 +1065,7 @@
 				9B2A4ADA28BA07B700349AEC /* Toast.swift */,
 				9BD5208628BB8B110036F5CF /* ToastInformation.swift */,
 				9B6137CE28CEEB5F0029C750 /* ToastAlert.swift */,
+				9CB0D93128DAF6A9009C2CE0 /* NewToastAlertView.swift */,
 			);
 			path = Toast;
 			sourceTree = "<group>";
@@ -1879,6 +1882,7 @@
 			files = (
 				9B478A5728A71A48007A4715 /* CommentContentCell.swift in Sources */,
 				4CC3CEAA28ABF94900458138 /* VoteRequestModel.swift in Sources */,
+				9CB0D93228DAF6A9009C2CE0 /* NewToastAlertView.swift in Sources */,
 				4CB4196A28A29C2700EBB777 /* TabContentView.swift in Sources */,
 				9CE311D228A63FB300EDB0F4 /* CommentModel.swift in Sources */,
 				4CC296DB28805366001950A2 /* NaenioAPI.swift in Sources */,

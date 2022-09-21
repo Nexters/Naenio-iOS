@@ -7,6 +7,26 @@
 
 import SwiftUI
 
+protocol ToastContainerType {
+    var isPresented: Bool { get set }
+    var informations: [ToastInformationType] { get }
+}
+
+protocol ToastInformationType {
+    var title: String { get }
+    var action: () -> Void { get }
+}
+
+struct ToastContainter: ToastContainerType {
+    var isPresented: Bool
+    var informations: [ToastInformationType]
+}
+
+struct NewToastInformation: ToastInformationType {
+    var title: String
+    var action: () -> Void
+}
+
 struct ToastInformation {
     var isPresented: Bool
     var title: String

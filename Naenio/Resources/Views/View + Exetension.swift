@@ -71,12 +71,23 @@ extension View {
         }
     }
     
+    func toast(_ infoArray: [Binding<ToastInformation>]) {
+        
+    }
+    
     func toast(_ info: Binding<ToastInformation>) -> some View {
         ZStack {
             self
             
             Toast(isPresented: info.isPresented, title: info.title.wrappedValue, action: info.action.wrappedValue)
                 .zIndex(1)
+        }
+    }
+    
+    func toast(_ container: some ToastContainerType) -> some View {
+        ZStack {
+            self
+            
         }
     }
     
