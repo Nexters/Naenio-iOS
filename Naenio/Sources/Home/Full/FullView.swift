@@ -13,7 +13,7 @@ struct FullView: View {
     typealias Action = () -> Void
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @State private var toastInfo = ToastInformation(isPresented: false, title: "", action: {}) // 리팩토링 시급, 토스트 시트 용 정보 스트럭트
+
     @State private var voteHappened: Bool = false
     @State private var selectedPostId: Int?
     
@@ -111,7 +111,6 @@ struct FullView: View {
             CommentView(isPresented: $showComments, parentPost: $post, parentPostId: $selectedPostId)
                 .environmentObject(userManager)
         }
-        .toast(isPresented: $toastInfo.isPresented, title: toastInfo.title, action: toastInfo.action)
         .onChange(of: viewModel.status) { status in
             switch status {
             case .done(let result):
@@ -178,18 +177,20 @@ extension FullView {
     
     var moreInformationButton: some View {
         Button(action: {
-            let toastInfo: ToastInformation
+            let toastInformations: [NewToastInformation]
             if post.author.id == userManager.getUserId() {
-                toastInfo = ToastInformation(isPresented: true, title: "삭제하기", action: {
+                toastInformations = NewToastInformation.deleteTemplate {
                     viewModel.delete(postId: post.id)
-                })
+                }
             } else {
-                toastInfo = ToastInformation(isPresented: true, title: "신고하기", action: {
+                toastInformations = NewToastInformation.blockAndReportTemplate(blockAction: {
+                    
+                }, reportAction: {
                     viewModel.report(authorId: post.author.id, type: .post)
                 })
             }
             
-            self.toastInfo = toastInfo
+            NotificationCenter.default.postNewToastNotification(toastInformations)
         }) {
             Image(systemName: "ellipsis")
                 .resizable()
