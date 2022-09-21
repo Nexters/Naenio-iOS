@@ -31,6 +31,22 @@ struct NewToastInformation: ToastInformationType {
     var action: () -> Void
 }
 
+extension NewToastInformation {
+    typealias Action = () -> Void
+    
+    static func deleteTemplate(_ action: @escaping Action) -> [Self] {
+        return [NewToastInformation(title: "삭제하기", action: action)]
+    }
+    
+    static func blockAndReportTemplate(blockAction: @escaping Action,
+                                       reportAction: @escaping Action) -> [Self] {
+        return [
+            NewToastInformation(title: "사용자 차단하기", action: blockAction),
+            NewToastInformation(title: "신고하기", action: reportAction)
+        ]
+    }
+}
+
 struct ToastInformation {
     var isPresented: Bool
     var title: String

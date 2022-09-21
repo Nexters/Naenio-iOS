@@ -179,30 +179,16 @@ extension CardView {
     var reportOrDeleteButton: some View {
         Button(action: {
             self.show = true
-            let notificationInfo: LowSheetNotification
-            if post.author.id == userManager.getUserId() {
-                notificationInfo = LowSheetNotification(title: "삭제하기", action: {
-                    viewModel.delete(postId: post.id)
-                })
-            } else {
-                notificationInfo = LowSheetNotification(title: "신고하기", action: {
-                    viewModel.report(authorId: post.author.id, type: .post)
-                })
-            }
-            
-            // 메인 뷰에 하단시트 신호 보내기
-//            NotificationCenter.default.postLowSheetNotification(with: notificationInfo)
-            
             let toastInformations: [NewToastInformation]
             if post.author.id == userManager.getUserId() {
-                toastInformations = [
-                    NewToastInformation(title: "삭제하기", action: { viewModel.delete(postId: post.id) })
-                ]
+                toastInformations = NewToastInformation.deleteTemplate {
+                    viewModel.delete(postId: post.id)
+                }
             } else {
-                toastInformations = [
-                    NewToastInformation(title: "사용자 차단하기", action: {}),
-                    NewToastInformation(title: "신고하기", action: { viewModel.report(authorId: post.author.id, type: .post) })
-                ]
+                toastInformations = NewToastInformation.blockAndReportTemplate(
+                    blockAction: {},
+                    reportAction: { viewModel.report(authorId: post.author.id, type: .post) }
+                )
             }
 
             NotificationCenter.default.postNewToastNotification(toastInformations)
