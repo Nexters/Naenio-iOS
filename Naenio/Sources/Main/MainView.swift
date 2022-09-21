@@ -11,10 +11,10 @@ import Combine
 struct MainView: View {
     @EnvironmentObject var userManager: UserManager
     
-    
     @State var selectedTab = 1
-    @State fileprivate var tabBarLowSheetInfo = TabBarLowSheetInfo(isPresented: false, title: "", action: {})
-    @State var toastInformation: ToastInformation = ToastInformation(title: "")
+    
+    @State var toastInformation: ToastInformation = ToastInformation(title: "") // For alert
+    @State var toastContainer = ToastContainter(informations: []) // 신고, 삭제, 차단
 
     @State var pages: [TabBarPage] = [
         TabBarPage(pageName: .curation, selectedIcon: "tab_curation_selected", deselectedIcon: "tab_curation_deselected", tag: 0),
@@ -46,21 +46,17 @@ struct MainView: View {
             controller.tabBar.layer.cornerRadius = 14
             controller.tabBar.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         }
-        .onReceive(Publishers.lowSheetNotificationPublisher) { (info: LowSheetNotification) in
-            tabBarLowSheetInfo.isPresented = true
-            tabBarLowSheetInfo.title = info.title
-            tabBarLowSheetInfo.action = info.action
-        } // FIXME: 어우 더러워
-        .toast(
-            isPresented: $tabBarLowSheetInfo.isPresented,
-            title: tabBarLowSheetInfo.title,
-            action: tabBarLowSheetInfo.action
-        )
+        .toast($toastContainer)
+        .onReceive(Publishers.newToastAlertNotificationPublisher) { (container: ToastContainter) in
+            // 신고, 차단, 삭제
+            self.toastContainer = container
+            self.toastContainer.isPresented = true
+        }
         .onReceive(Publishers.toastAlertNotificationPublisher) { (info: ToastInformation) in
             // Toast alert
             self.toastInformation = info
             self.toastInformation.isPresented = true
-            
+
             // 2초뒤 숨기기
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.toastInformation.isPresented = false

@@ -83,7 +83,7 @@
 		9B1FECFA28CAE17E00340F27 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1DFAB28AB6D900048B313 /* NetworkStatus.swift */; };
 		9B1FECFB28CAE17E00340F27 /* FeedRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC3CE8F28AA8A2C00458138 /* FeedRequestInformation.swift */; };
 		9B1FECFC28CAE17E00340F27 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3309D62888EE0D000C592F /* LoginView.swift */; };
-		9B1FECFD28CAE17E00340F27 /* ToastInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5208628BB8B110036F5CF /* ToastInformation.swift */; };
+		9B1FECFD28CAE17E00340F27 /* ToastProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5208628BB8B110036F5CF /* ToastProtocol.swift */; };
 		9B1FECFE28CAE17E00340F27 /* LowSheetNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF513BF28AD17C400104CAB /* LowSheetNotification.swift */; };
 		9B1FECFF28CAE17E00340F27 /* CustomNavigationBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1DFB328AB765B0048B313 /* CustomNavigationBackButton.swift */; };
 		9B1FED0028CAE17E00340F27 /* EmptyResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B61D0FA28AE93EA00F6DD0B /* EmptyResultView.swift */; };
@@ -297,7 +297,7 @@
 		9B8B98BA289948DA007336DE /* LocalStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8B98B9289948DA007336DE /* LocalStorageKeys.swift */; };
 		9B8D409C28AE86B90024E989 /* VotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8D409B28AE86B90024E989 /* VotesViewModel.swift */; };
 		9B91D80D28BF835D008D9E9E /* CommentContentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B91D80C28BF835D008D9E9E /* CommentContentCellViewModel.swift */; };
-		9BD5208728BB8B110036F5CF /* ToastInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5208628BB8B110036F5CF /* ToastInformation.swift */; };
+		9BD5208728BB8B110036F5CF /* ToastProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD5208628BB8B110036F5CF /* ToastProtocol.swift */; };
 		9BD520C728BCCC240036F5CF /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD520C628BCCC240036F5CF /* CustomDateFormatter.swift */; };
 		9BD520CA28BCCD840036F5CF /* CustomDateFormatterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD520C928BCCD840036F5CF /* CustomDateFormatterTest.swift */; };
 		9BE13FDC28AA1A83009ED95D /* MyPageAuthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE13FDB28AA1A83009ED95D /* MyPageAuthCell.swift */; };
@@ -357,7 +357,7 @@
 		9CA6DA8728A21CD10060610F /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6DA8628A21CD10060610F /* NewPostView.swift */; };
 		9CA7922D287BA90600600C32 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7922C287BA90600600C32 /* UserInformation.swift */; };
 		9CAA174028A2468600EAAE40 /* WrappedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CAA173F28A2468600EAAE40 /* WrappedTextView.swift */; };
-		9CB0D93228DAF6A9009C2CE0 /* NewToastAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB0D93128DAF6A9009C2CE0 /* NewToastAlertView.swift */; };
+		9CB0D93228DAF6A9009C2CE0 /* ToastAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB0D93128DAF6A9009C2CE0 /* ToastAlertView.swift */; };
 		9CB1DFAA28AB656C0048B313 /* ProfileChangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1DFA928AB656C0048B313 /* ProfileChangeViewModel.swift */; };
 		9CB1DFAC28AB6D900048B313 /* NetworkStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1DFAB28AB6D900048B313 /* NetworkStatus.swift */; };
 		9CB1DFAE28AB6E990048B313 /* SystemAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1DFAD28AB6E990048B313 /* SystemAlert.swift */; };
@@ -533,7 +533,7 @@
 		9B8B98B9289948DA007336DE /* LocalStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorageKeys.swift; sourceTree = "<group>"; };
 		9B8D409B28AE86B90024E989 /* VotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotesViewModel.swift; sourceTree = "<group>"; };
 		9B91D80C28BF835D008D9E9E /* CommentContentCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentContentCellViewModel.swift; sourceTree = "<group>"; };
-		9BD5208628BB8B110036F5CF /* ToastInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastInformation.swift; sourceTree = "<group>"; };
+		9BD5208628BB8B110036F5CF /* ToastProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastProtocol.swift; sourceTree = "<group>"; };
 		9BD520C628BCCC240036F5CF /* CustomDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatter.swift; sourceTree = "<group>"; };
 		9BD520C928BCCD840036F5CF /* CustomDateFormatterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatterTest.swift; sourceTree = "<group>"; };
 		9BE13FDB28AA1A83009ED95D /* MyPageAuthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageAuthCell.swift; sourceTree = "<group>"; };
@@ -594,7 +594,7 @@
 		9CA6DA8628A21CD10060610F /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
 		9CA7922C287BA90600600C32 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		9CAA173F28A2468600EAAE40 /* WrappedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappedTextView.swift; sourceTree = "<group>"; };
-		9CB0D93128DAF6A9009C2CE0 /* NewToastAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewToastAlertView.swift; sourceTree = "<group>"; };
+		9CB0D93128DAF6A9009C2CE0 /* ToastAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastAlertView.swift; sourceTree = "<group>"; };
 		9CB1DFA928AB656C0048B313 /* ProfileChangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileChangeViewModel.swift; sourceTree = "<group>"; };
 		9CB1DFAB28AB6D900048B313 /* NetworkStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatus.swift; sourceTree = "<group>"; };
 		9CB1DFAD28AB6E990048B313 /* SystemAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemAlert.swift; sourceTree = "<group>"; };
@@ -1063,9 +1063,9 @@
 			isa = PBXGroup;
 			children = (
 				9B2A4ADA28BA07B700349AEC /* Toast.swift */,
-				9BD5208628BB8B110036F5CF /* ToastInformation.swift */,
+				9BD5208628BB8B110036F5CF /* ToastProtocol.swift */,
 				9B6137CE28CEEB5F0029C750 /* ToastAlert.swift */,
-				9CB0D93128DAF6A9009C2CE0 /* NewToastAlertView.swift */,
+				9CB0D93128DAF6A9009C2CE0 /* ToastAlertView.swift */,
 			);
 			path = Toast;
 			sourceTree = "<group>";
@@ -1882,7 +1882,7 @@
 			files = (
 				9B478A5728A71A48007A4715 /* CommentContentCell.swift in Sources */,
 				4CC3CEAA28ABF94900458138 /* VoteRequestModel.swift in Sources */,
-				9CB0D93228DAF6A9009C2CE0 /* NewToastAlertView.swift in Sources */,
+				9CB0D93228DAF6A9009C2CE0 /* ToastAlertView.swift in Sources */,
 				4CB4196A28A29C2700EBB777 /* TabContentView.swift in Sources */,
 				9CE311D228A63FB300EDB0F4 /* CommentModel.swift in Sources */,
 				4CC296DB28805366001950A2 /* NaenioAPI.swift in Sources */,
@@ -1901,7 +1901,7 @@
 				4CC3CE9228AA8A2C00458138 /* FeedRequestInformation.swift in Sources */,
 				9C3309D72888EE0D000C592F /* LoginView.swift in Sources */,
 				9B51B55A28CB66B00070913C /* KeyValue.swift in Sources */,
-				9BD5208728BB8B110036F5CF /* ToastInformation.swift in Sources */,
+				9BD5208728BB8B110036F5CF /* ToastProtocol.swift in Sources */,
 				9BF513C028AD17C400104CAB /* LowSheetNotification.swift in Sources */,
 				9CB1DFB428AB765B0048B313 /* CustomNavigationBackButton.swift in Sources */,
 				9B61D0FB28AE93EA00F6DD0B /* EmptyResultView.swift in Sources */,
@@ -2092,7 +2092,7 @@
 				9B1FECFA28CAE17E00340F27 /* NetworkStatus.swift in Sources */,
 				9B1FECFB28CAE17E00340F27 /* FeedRequestInformation.swift in Sources */,
 				9B1FECFC28CAE17E00340F27 /* LoginView.swift in Sources */,
-				9B1FECFD28CAE17E00340F27 /* ToastInformation.swift in Sources */,
+				9B1FECFD28CAE17E00340F27 /* ToastProtocol.swift in Sources */,
 				9B1FECFE28CAE17E00340F27 /* LowSheetNotification.swift in Sources */,
 				9B1FECFF28CAE17E00340F27 /* CustomNavigationBackButton.swift in Sources */,
 				9B1FED0028CAE17E00340F27 /* EmptyResultView.swift in Sources */,

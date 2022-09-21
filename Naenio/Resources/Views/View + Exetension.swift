@@ -71,10 +71,6 @@ extension View {
         }
     }
     
-    func toast(_ infoArray: [Binding<ToastInformation>]) {
-        
-    }
-    
     func toast(_ info: Binding<ToastInformation>) -> some View {
         ZStack {
             self
@@ -84,10 +80,11 @@ extension View {
         }
     }
     
-    func toast(_ container: some ToastContainerType) -> some View {
+    func toast<T>(_ container: Binding<T>) -> some View where T: ToastContainerType {
         ZStack {
             self
             
+            ToastAlertView<T, NewToastInformation>(container)
         }
     }
     

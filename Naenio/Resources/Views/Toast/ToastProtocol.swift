@@ -7,9 +7,12 @@
 
 import SwiftUI
 
+// MARK: - Protocols
 protocol ToastContainerType {
+    associatedtype T: ToastInformationType
+    
     var isPresented: Bool { get set }
-    var informations: [ToastInformationType] { get }
+    var informations: [T] { get set }
 }
 
 protocol ToastInformationType {
@@ -17,9 +20,10 @@ protocol ToastInformationType {
     var action: () -> Void { get }
 }
 
+// MARK: - Structs
 struct ToastContainter: ToastContainerType {
-    var isPresented: Bool
-    var informations: [ToastInformationType]
+    var isPresented: Bool = false
+    var informations: [NewToastInformation]
 }
 
 struct NewToastInformation: ToastInformationType {

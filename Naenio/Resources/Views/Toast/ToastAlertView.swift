@@ -7,17 +7,24 @@
 
 import SwiftUI
 
-struct NewToastAlertView: View {
+struct ToastAlertView<T, Information>: View where T: ToastContainerType, Information: ToastInformationType {
     @Binding var isPresented: Bool
-    let informations: [ToastInformationType]
+    let informations: [Information]
     
     var body: some View {
         ZStack {
-            
-            VStack(alignment: .center) {
-                Spacer()
+            if isPresented {
+                Color.black.opacity(0.3)
+                    .ignoresSafeArea()
+                    .transition(.opacity)
+                    .onTapGesture {
+                        isPresented = false
+                    }
                 
-                if isPresented {
+                VStack(alignment: .center) {
+                    Spacer()
+                    
+                    
                     ForEach(informations, id: \.title) { info in
                         Button(action: {
                             info.action()
@@ -27,7 +34,7 @@ struct NewToastAlertView: View {
                                 .frame(maxWidth: .infinity, alignment: .center)
                                 .frame(height: 62)
                                 .font(.semoBold(size: 16))
-                                .foregroundColor(.white)
+                                .foregroundColor(.warningRed)
                         }
                     }
                     .background(
@@ -35,17 +42,16 @@ struct NewToastAlertView: View {
                             .fill(Color.card)
                     )
                     .cornerRadius(10)
-                    .transition(.opacity)
                 }
+                .transition(.move(edge: .bottom))
+                .padding(.horizontal, 20)
             }
-            .padding(.horizontal, 20)
         }
         .animation(.interactiveSpring(), value: isPresented)
     }
     
-    init(_ container: Binding<some ToastContainerType>,
-         _ informations: [some ToastInformationType]) {
+    init(_ container: Binding<T>) {
         self._isPresented = container.isPresented
-        self.informations = informations
+        self.informations = container.informations.wrappedValue as! [Information]
     }
 }
