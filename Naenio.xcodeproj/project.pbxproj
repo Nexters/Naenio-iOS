@@ -376,6 +376,8 @@
 		9CBCDCEB28AE3A7900C4C577 /* NewVoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCEA28AE3A7900C4C577 /* NewVoteButton.swift */; };
 		9CBCDCEF28AE65B900C4C577 /* SinglePostRequestInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCEE28AE65B900C4C577 /* SinglePostRequestInformation.swift */; };
 		9CBCDCF128AE6E9500C4C577 /* SinglePostResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCF028AE6E9500C4C577 /* SinglePostResponseModel.swift */; };
+		9CBCEB9E28DBE7FD00828818 /* UserBlockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCEB9D28DBE7FD00828818 /* UserBlockManager.swift */; };
+		9CBCEBA028DBE80600828818 /* UserBlockRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCEB9F28DBE80600828818 /* UserBlockRequestModel.swift */; };
 		9CCA2293289BAB0F00A2F9B0 /* MockPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA228F289BA4A900A2F9B0 /* MockPost.json */; };
 		9CCA2295289BB3CF00A2F9B0 /* MockPostList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA2294289BB28500A2F9B0 /* MockPostList.json */; };
 		9CE311CF28A63E7200EDB0F4 /* MockCommentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE311CE28A63E7200EDB0F4 /* MockCommentGenerator.swift */; };
@@ -612,6 +614,8 @@
 		9CBCDCEA28AE3A7900C4C577 /* NewVoteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewVoteButton.swift; sourceTree = "<group>"; };
 		9CBCDCEE28AE65B900C4C577 /* SinglePostRequestInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePostRequestInformation.swift; sourceTree = "<group>"; };
 		9CBCDCF028AE6E9500C4C577 /* SinglePostResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePostResponseModel.swift; sourceTree = "<group>"; };
+		9CBCEB9D28DBE7FD00828818 /* UserBlockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBlockManager.swift; sourceTree = "<group>"; };
+		9CBCEB9F28DBE80600828818 /* UserBlockRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBlockRequestModel.swift; sourceTree = "<group>"; };
 		9CCA228F289BA4A900A2F9B0 /* MockPost.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPost.json; sourceTree = "<group>"; };
 		9CCA2294289BB28500A2F9B0 /* MockPostList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPostList.json; sourceTree = "<group>"; };
 		9CE311CE28A63E7200EDB0F4 /* MockCommentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCommentGenerator.swift; sourceTree = "<group>"; };
@@ -1400,6 +1404,7 @@
 		9C93077728BDD26F001A8E08 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9CBCEB9C28DBE7F400828818 /* Block */,
 				9B7BA95E28C47B5800F1FA7F /* Report */,
 			);
 			path = Common;
@@ -1494,6 +1499,15 @@
 				9CB1DFB828AB827E0048B313 /* SystemAlert + Extension.swift */,
 			);
 			path = Alert;
+			sourceTree = "<group>";
+		};
+		9CBCEB9C28DBE7F400828818 /* Block */ = {
+			isa = PBXGroup;
+			children = (
+				9CBCEB9D28DBE7FD00828818 /* UserBlockManager.swift */,
+				9CBCEB9F28DBE80600828818 /* UserBlockRequestModel.swift */,
+			);
+			path = Block;
 			sourceTree = "<group>";
 		};
 		9CC044F928B88F77004164F7 /* ignored */ = {
@@ -1882,6 +1896,7 @@
 			files = (
 				9B478A5728A71A48007A4715 /* CommentContentCell.swift in Sources */,
 				4CC3CEAA28ABF94900458138 /* VoteRequestModel.swift in Sources */,
+				9CBCEBA028DBE80600828818 /* UserBlockRequestModel.swift in Sources */,
 				9CB0D93228DAF6A9009C2CE0 /* ToastAlertView.swift in Sources */,
 				4CB4196A28A29C2700EBB777 /* TabContentView.swift in Sources */,
 				9CE311D228A63FB300EDB0F4 /* CommentModel.swift in Sources */,
@@ -2041,6 +2056,7 @@
 				9C69153628AC90EE00317489 /* LazyView.swift in Sources */,
 				9BF00C0B287ACFA900F08035 /* LoginRequestInformation.swift in Sources */,
 				4CA59EA328AE8888002C0FA9 /* CommentType.swift in Sources */,
+				9CBCEB9E28DBE7FD00828818 /* UserBlockManager.swift in Sources */,
 				9B8B98BA289948DA007336DE /* LocalStorageKeys.swift in Sources */,
 				4CD3555028BBA04F00BD6FB5 /* RandomThemeViewModel.swift in Sources */,
 				9B61D6AF28B0857700F116CD /* IndexResponseModel.swift in Sources */,

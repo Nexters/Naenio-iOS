@@ -24,6 +24,9 @@ extension NaenioAPI {
             return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
         case .postCommentLike(let request):
             return .requestParameters(parameters: ["commentId": request], encoding: JSONEncoding.default)
+        case .postBlock(let request):
+            return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
+            
         case .getUser(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
         case .getFeed(let request):

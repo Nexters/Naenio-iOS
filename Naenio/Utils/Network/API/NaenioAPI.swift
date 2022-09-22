@@ -20,6 +20,7 @@ enum NaenioAPI {
     case postComment(CommentPostRequestModel)
     case postCommentLike(Int)
     case postReport(ReportRequestModel)
+    case postBlock(UserBlockRequestModel)
     
     case getUser(String)
     case getFeed(FeedRequestInformation)
