@@ -104,8 +104,13 @@ struct CardView: View {
             case .done(let workType):
                 switch workType {
                 case .report:
-                    // TODO: 신고하기 성공 피드백
                     NotificationCenter.default.postToastAlertNotification("신고가 접수되었습니다")
+                case .block:
+                    NotificationCenter.default.postToastAlertNotification("유저가 차단되었습니다")
+
+                    withAnimation {
+                        (deletedAction ?? {})()
+                    }
                 case .delete:
                     withAnimation {
                         (deletedAction ?? {})()
@@ -186,8 +191,12 @@ extension CardView {
                 }
             } else {
                 toastInformations = NewToastInformation.blockAndReportTemplate(
-                    blockAction: {},
-                    reportAction: { viewModel.report(authorId: post.author.id, type: .post) }
+                    blockAction: {
+                        viewModel.block(authorId: post.author.id)
+                    },
+                    reportAction: {
+                        viewModel.report(authorId: post.author.id, type: .post)
+                    }
                 )
             }
 
