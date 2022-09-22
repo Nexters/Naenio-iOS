@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(*, deprecated)
 struct Toast: View {
     @Binding var isPresented: Bool
     

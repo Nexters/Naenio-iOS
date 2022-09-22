@@ -21,28 +21,33 @@ struct ToastAlertView<T, Information>: View where T: ToastContainerType, Informa
                         isPresented = false
                     }
                 
-                VStack(alignment: .center) {
+                VStack(alignment: .center, spacing: 0) {
                     Spacer()
                     
-                    
-                    ForEach(informations, id: \.title) { info in
-                        Button(action: {
-                            info.action()
-                            isPresented = false
-                        }) {
-                            Text(info.title)
-                                .frame(maxWidth: .infinity, alignment: .center)
-                                .frame(height: 62)
-                                .font(.semoBold(size: 16))
-                                .foregroundColor(.warningRed)
+                    VStack(spacing: 0) {
+                        ForEach(informations, id: \.title) { info in
+                            Button(action: {
+                                info.action()
+                                isPresented = false
+                            }) {
+                                Text(info.title)
+                                    .frame(maxWidth: .infinity, alignment: .center)
+                                    .frame(height: 62)
+                                    .font(.semoBold(size: 16))
+                                    .foregroundColor(.warningRed)
+                            }
+                            
+                            
+                            if info.title != informations.last?.title {
+                                CustomDivider()
+                                    .fillHorizontal()
+                            }
                         }
                     }
-                    .background(
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.card)
-                    )
+                    .background(Color.card)
                     .cornerRadius(10)
                 }
+                    
                 .transition(.move(edge: .bottom))
                 .padding(.horizontal, 20)
             }
