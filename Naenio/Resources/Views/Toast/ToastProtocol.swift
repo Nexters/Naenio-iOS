@@ -42,7 +42,7 @@ extension NewToastInformation {
                                        reportAction: @escaping Action) -> [Self] {
         return [
             NewToastInformation(title: "사용자 차단하기", action: blockAction),
-            NewToastInformation(title: "신고하기", action: reportAction)
+            NewToastInformation(title: "피드 신고하기", action: reportAction)
         ]
     }
 }
