@@ -41,7 +41,7 @@ struct CurationView: View {
                     }
                 }
             }
-            .padding(.top, 30)
+            .padding(.top, 20)
             .padding(.horizontal, 20)
         }
         .navigationBarHidden(true)
