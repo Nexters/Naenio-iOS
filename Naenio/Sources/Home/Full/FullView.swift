@@ -121,6 +121,9 @@ struct FullView: View {
                     selectedPostId = post.id
                 case .report:
                     NotificationCenter.default.postToastAlertNotification("신고가 접수되었습니다")
+                case .block:
+                    NotificationCenter.default.postToastAlertNotification("사용자가 차단되었습니다")
+                    self.presentationMode.wrappedValue.dismiss()
                 }
             case .fail(let error):
                 alertState = .networkErrorHappend(error: error)
@@ -184,7 +187,7 @@ extension FullView {
                 }
             } else {
                 toastInformations = NewToastInformation.blockAndReportTemplate(blockAction: {
-                    
+                    viewModel.block(authorId: post.author.id)
                 }, reportAction: {
                     viewModel.report(authorId: post.author.id, type: .post)
                 })
