@@ -93,11 +93,21 @@ struct CommentContentCell: View {
                     
                     comment.isLiked.toggle()
                 case .report:
-                    var toastAlertInfo = ToastInformation(title: "신고가 접수되었습니다.")
+                    var toastAlertInfo = ToastInformation(title: "신고가 접수되었습니다")
                     toastAlertInfo.isPresented = true
                     
                     self.toastAlertInfo = toastAlertInfo
                     
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        self.toastAlertInfo.isPresented = false
+                    }
+                case .block:
+                    var toastAlertInfo = ToastInformation(title: "사용자가 차단되었습니다")
+                    toastAlertInfo.isPresented = true
+                    self.toastAlertInfo = toastAlertInfo
+                    
+                    (deletedAction ?? {})()
+
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         self.toastAlertInfo.isPresented = false
                     }
@@ -172,7 +182,7 @@ extension CommentContentCell {
             } else {
                 toastInfo = NewToastInformation.blockAndReportTemplate(
                     blockAction: {
-
+                        viewModel.block(authorId: comment.author.id)
                     }, reportAction: {
                         viewModel.report(authorId: comment.author.id, type: .comment)
                     })
