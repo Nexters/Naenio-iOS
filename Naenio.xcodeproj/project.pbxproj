@@ -75,7 +75,6 @@
 		9B1FECF128CAE17E00340F27 /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B478A5928A72100007A4715 /* CustomDivider.swift */; };
 		9B1FECF228CAE17E00340F27 /* MyCommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4ADC28BA10F000349AEC /* MyCommentViewModel.swift */; };
 		9B1FECF328CAE17E00340F27 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C2D07BA2897CD0A008BBD75 /* UserError.swift */; };
-		9B1FECF428CAE17E00340F27 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4ADA28BA07B700349AEC /* Toast.swift */; };
 		9B1FECF528CAE17E00340F27 /* ReportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C93077D28BE06A4001A8E08 /* ReportManager.swift */; };
 		9B1FECF628CAE17E00340F27 /* NaenioAPI+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B13382883B709006044B0 /* NaenioAPI+Error.swift */; };
 		9B1FECF728CAE17E00340F27 /* NaenioAPI+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4B13312883AAC3006044B0 /* NaenioAPI+Path.swift */; };
@@ -255,7 +254,6 @@
 		9B2A4AD228B9EA6400349AEC /* DevelopersInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4AD128B9EA6400349AEC /* DevelopersInfoView.swift */; };
 		9B2A4AD528BA01DD00349AEC /* VersionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4AD428BA01DD00349AEC /* VersionView.swift */; };
 		9B2A4AD828BA04BB00349AEC /* MyCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4AD728BA04BB00349AEC /* MyCommentCell.swift */; };
-		9B2A4ADB28BA07B700349AEC /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4ADA28BA07B700349AEC /* Toast.swift */; };
 		9B2A4ADD28BA10F000349AEC /* MyCommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4ADC28BA10F000349AEC /* MyCommentViewModel.swift */; };
 		9B2A4ADF28BA14A900349AEC /* MyCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2A4ADE28BA14A900349AEC /* MyCommentView.swift */; };
 		9B2B25E528ADCEA0009BDC9F /* LottieAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2B25E428ADCEA0009BDC9F /* LottieAnimations.swift */; };
@@ -496,7 +494,6 @@
 		9B2A4AD128B9EA6400349AEC /* DevelopersInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopersInfoView.swift; sourceTree = "<group>"; };
 		9B2A4AD428BA01DD00349AEC /* VersionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionView.swift; sourceTree = "<group>"; };
 		9B2A4AD728BA04BB00349AEC /* MyCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommentCell.swift; sourceTree = "<group>"; };
-		9B2A4ADA28BA07B700349AEC /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		9B2A4ADC28BA10F000349AEC /* MyCommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommentViewModel.swift; sourceTree = "<group>"; };
 		9B2A4ADE28BA14A900349AEC /* MyCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCommentView.swift; sourceTree = "<group>"; };
 		9B2B25E428ADCEA0009BDC9F /* LottieAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieAnimations.swift; sourceTree = "<group>"; };
@@ -1074,7 +1071,6 @@
 		9B2A4AD928BA07A600349AEC /* Toast */ = {
 			isa = PBXGroup;
 			children = (
-				9B2A4ADA28BA07B700349AEC /* Toast.swift */,
 				9BD5208628BB8B110036F5CF /* ToastProtocol.swift */,
 				9B6137CE28CEEB5F0029C750 /* ToastAlert.swift */,
 				9CB0D93128DAF6A9009C2CE0 /* ToastAlertView.swift */,
@@ -1905,7 +1901,6 @@
 				9B478A5A28A72100007A4715 /* CustomDivider.swift in Sources */,
 				9B2A4ADD28BA10F000349AEC /* MyCommentViewModel.swift in Sources */,
 				9C2D07BB2897CD0A008BBD75 /* UserError.swift in Sources */,
-				9B2A4ADB28BA07B700349AEC /* Toast.swift in Sources */,
 				9C93077E28BE06A4001A8E08 /* ReportManager.swift in Sources */,
 				4C4B13392883B709006044B0 /* NaenioAPI+Error.swift in Sources */,
 				4C4B13322883AAC3006044B0 /* NaenioAPI+Path.swift in Sources */,
@@ -2098,7 +2093,6 @@
 				9B1FECF128CAE17E00340F27 /* CustomDivider.swift in Sources */,
 				9B1FECF228CAE17E00340F27 /* MyCommentViewModel.swift in Sources */,
 				9B1FECF328CAE17E00340F27 /* UserError.swift in Sources */,
-				9B1FECF428CAE17E00340F27 /* Toast.swift in Sources */,
 				9B1FECF528CAE17E00340F27 /* ReportManager.swift in Sources */,
 				9B1FECF628CAE17E00340F27 /* NaenioAPI+Error.swift in Sources */,
 				9B1FECF728CAE17E00340F27 /* NaenioAPI+Path.swift in Sources */,
