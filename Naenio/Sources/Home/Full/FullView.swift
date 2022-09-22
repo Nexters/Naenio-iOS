@@ -186,7 +186,7 @@ extension FullView {
                     viewModel.delete(postId: post.id)
                 }
             } else {
-                toastInformations = NewToastInformation.blockAndReportTemplate(blockAction: {
+                toastInformations = NewToastInformation.blockAndReportFeedTemplate(blockAction: {
                     viewModel.block(authorId: post.author.id)
                 }, reportAction: {
                     viewModel.report(authorId: post.author.id, type: .post)

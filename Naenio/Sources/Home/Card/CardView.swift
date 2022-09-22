@@ -190,7 +190,7 @@ extension CardView {
                     viewModel.delete(postId: post.id)
                 }
             } else {
-                toastInformations = NewToastInformation.blockAndReportTemplate(
+                toastInformations = NewToastInformation.blockAndReportFeedTemplate(
                     blockAction: {
                         viewModel.block(authorId: post.author.id)
                     },

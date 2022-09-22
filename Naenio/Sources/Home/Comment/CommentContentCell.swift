@@ -180,7 +180,7 @@ extension CommentContentCell {
                     viewModel.delete(commentId: comment.id)
                 }
             } else {
-                toastInfo = NewToastInformation.blockAndReportTemplate(
+                toastInfo = NewToastInformation.blockAndReportCommentTemplate(
                     blockAction: {
                         viewModel.block(authorId: comment.author.id)
                     }, reportAction: {

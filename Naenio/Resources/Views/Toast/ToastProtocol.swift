@@ -38,11 +38,19 @@ extension NewToastInformation {
         return [NewToastInformation(title: "삭제하기", action: action)]
     }
     
-    static func blockAndReportTemplate(blockAction: @escaping Action,
-                                       reportAction: @escaping Action) -> [Self] {
+    static func blockAndReportFeedTemplate(blockAction: @escaping Action,
+                                           reportAction: @escaping Action) -> [Self] {
         return [
             NewToastInformation(title: "사용자 차단하기", action: blockAction),
             NewToastInformation(title: "피드 신고하기", action: reportAction)
+        ]
+    }
+    
+    static func blockAndReportCommentTemplate(blockAction: @escaping Action,
+                                              reportAction: @escaping Action) -> [Self] {
+        return [
+            NewToastInformation(title: "사용자 차단하기", action: blockAction),
+            NewToastInformation(title: "댓글 신고하기", action: reportAction)
         ]
     }
 }
