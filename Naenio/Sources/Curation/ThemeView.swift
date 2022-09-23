@@ -108,7 +108,6 @@ struct ThemeView: View {
         .showAlert(with: $alertState)
         .onAppear {
             viewModel.theme = self.theme
-            viewModel.requestThemePosts(isPulled: false)
         }
         .navigationBarHidden(true)
     }

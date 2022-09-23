@@ -104,8 +104,13 @@ struct CardView: View {
             case .done(let workType):
                 switch workType {
                 case .report:
-                    // TODO: 신고하기 성공 피드백
                     NotificationCenter.default.postToastAlertNotification("신고가 접수되었습니다")
+                case .block:
+                    NotificationCenter.default.postToastAlertNotification("유저가 차단되었습니다")
+
+                    withAnimation {
+                        (deletedAction ?? {})()
+                    }
                 case .delete:
                     withAnimation {
                         (deletedAction ?? {})()
@@ -179,19 +184,23 @@ extension CardView {
     var reportOrDeleteButton: some View {
         Button(action: {
             self.show = true
-            let notificationInfo: LowSheetNotification
+            let toastInformations: [NewToastInformation]
             if post.author.id == userManager.getUserId() {
-                notificationInfo = LowSheetNotification(title: "삭제하기", action: {
+                toastInformations = NewToastInformation.deleteTemplate {
                     viewModel.delete(postId: post.id)
-                })
+                }
             } else {
-                notificationInfo = LowSheetNotification(title: "신고하기", action: {
-                    viewModel.report(authorId: post.author.id, type: .post)
-                })
+                toastInformations = NewToastInformation.blockAndReportFeedTemplate(
+                    blockAction: {
+                        viewModel.block(authorId: post.author.id)
+                    },
+                    reportAction: {
+                        viewModel.report(authorId: post.author.id, type: .post)
+                    }
+                )
             }
-            
-            // 메인 뷰에 하단시트 신호 보내기
-            NotificationCenter.default.postLowSheetNotification(with: notificationInfo)
+
+            NotificationCenter.default.postNewToastNotification(toastInformations)
         }) {
             Image(systemName: "ellipsis")
                 .resizable()

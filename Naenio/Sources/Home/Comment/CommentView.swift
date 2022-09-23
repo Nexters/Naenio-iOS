@@ -15,7 +15,7 @@ struct CommentView: View {
     @ObservedObject var scrollViewHelper = ScrollViewHelper()
     
     @State var text: String = "" // 메시지 작성용
-    @State var toastInfo = ToastInformation(isPresented: false, title: "", action: {}) // 리팩토링 시급, 토스트 시트 용 정보 스트럭트
+    @State var toastContainer = ToastContainer(informations: [])
     @State var toastAlertInfo = ToastInformation(title: "")
     
     @AlertState<SystemAlert> var alertState
@@ -69,7 +69,7 @@ struct CommentView: View {
                                 .fillHorizontal()
                             
                             CommentContentCell(isPresented: $isPresented,
-                                               toastInfo: $toastInfo,
+                                               toastContainer: $toastContainer,
                                                toastAlertInfo: $toastAlertInfo,
                                                comment: comment,
                                                isReply: false,
@@ -147,7 +147,7 @@ struct CommentView: View {
                 }
                 .frame(height: 60)
             }
-            .toast(isPresented: $toastInfo.isPresented, title: toastInfo.title, action: toastInfo.action)
+            .toast($toastContainer)
             .toastAlert(isPresented: $toastAlertInfo.isPresented, title: toastAlertInfo.title)
             .navigationBarHidden(true)
         }

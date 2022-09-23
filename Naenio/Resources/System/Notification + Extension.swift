@@ -36,6 +36,11 @@ extension NotificationCenter {
                                         object: ToastInformation(title: "네트워크 에러: 잠시 후 다시 시도해주세요"))
     }
     
+    func postNewToastNotification(_ infos: [NewToastInformation]) {
+        NotificationCenter.default.post(name: .newToastNotification,
+                                        object: ToastContainer(informations: infos))
+    }
+    
     func postDidVoteHappen(id value: Int) {
         NotificationCenter.default.post(name: .didVoteHappen, object: value)
     }
@@ -43,6 +48,7 @@ extension NotificationCenter {
 
 extension Notification.Name {
     static let lowSheetNotification = Notification.Name("lowSheetNotification")
+    static let newToastNotification = Notification.Name("newToastNotification")
     static let toastAlertNotification = Notification.Name("toastAlertNotification")
     static let didVoteHappen = Notification.Name("didVoteHappen")
 }

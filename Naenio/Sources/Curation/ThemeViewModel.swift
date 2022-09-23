@@ -35,8 +35,6 @@ class ThemeViewModel: ObservableObject {
             status = .loading(.requestPost)
         }
         
-        print("@@", isPulled, status)
-        
         let themeId = self.theme.id
 
         let themeRequestModel: ThemeRequestModel = ThemeRequestModel(theme: themeId)
@@ -61,6 +59,7 @@ class ThemeViewModel: ObservableObject {
     init(theme: ThemeType) {
         self.posts = []
         self.theme = theme
+        self.requestThemePosts(isPulled: false)
     }
 }
 

@@ -67,12 +67,30 @@ class CommentContentCellViewModel: ObservableObject {
                 })
             .disposed(by: bag)
     }
+    
+    func block(authorId: Int) {
+        status = .inProgress
+        
+        UserBlockManager.block(authorId)
+            .subscribe(on: self.serialQueue)
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onSuccess: { [weak self] _ in
+                    guard let self = self else { return }
+                    self.status = .done(result: .block)
+                }, onFailure: { [weak self] error in
+                    guard let self = self else { return }
+                    self.status = .fail(with: error)
+                })
+            .disposed(by: bag)
+    }
 }
 
 extension CommentContentCellViewModel {
     enum WorkType {
         case like
         case report
+        case block
         case delete
     }
 }

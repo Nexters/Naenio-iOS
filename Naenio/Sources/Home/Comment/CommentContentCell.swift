@@ -19,7 +19,7 @@ struct CommentContentCell: View {
     // Injected values
     @StateObject var viewModel = CommentContentCellViewModel()
     @Binding var isPresented: Bool
-    @Binding var toastInfo: ToastInformation
+    @Binding var toastContainer: ToastContainer
     @Binding var toastAlertInfo: ToastInformation
     @Binding var comment: Comment
     
@@ -40,7 +40,7 @@ struct CommentContentCell: View {
                            isActive: $isNavigationActive) {
                 EmptyView()
             }
-
+            
             profileImage
             
             VStack(alignment: .leading, spacing: 9) {
@@ -48,14 +48,14 @@ struct CommentContentCell: View {
                     Text(comment.author.nickname ?? "(알 수 없음)")
                         .font(.medium(size: 16))
                         .foregroundColor(.white)
-
+                    
                     Spacer()
                     
                     Text(parseDate(comment.createdDatetime))
                         .font(.medium(size: 14))
                         .foregroundColor(.naenioGray)
                 }
-
+                
                 Text(comment.content)
                     .font(.medium(size: 16))
                     .foregroundColor(.white)
@@ -93,11 +93,21 @@ struct CommentContentCell: View {
                     
                     comment.isLiked.toggle()
                 case .report:
-                    var toastAlertInfo = ToastInformation(title: "신고가 접수되었습니다.")
+                    var toastAlertInfo = ToastInformation(title: "신고가 접수되었습니다")
                     toastAlertInfo.isPresented = true
                     
                     self.toastAlertInfo = toastAlertInfo
                     
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        self.toastAlertInfo.isPresented = false
+                    }
+                case .block:
+                    var toastAlertInfo = ToastInformation(title: "사용자가 차단되었습니다")
+                    toastAlertInfo.isPresented = true
+                    self.toastAlertInfo = toastAlertInfo
+                    
+                    (deletedAction ?? {})()
+
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                         self.toastAlertInfo.isPresented = false
                     }
@@ -164,18 +174,22 @@ extension CommentContentCell {
     
     var moreInformationButton: some View {
         Button(action: {
-            let toastInfo: ToastInformation
+            let toastInfo: [NewToastInformation]
             if isMine {
-                toastInfo = ToastInformation(isPresented: true, title: "삭제하기", action: {
+                toastInfo = NewToastInformation.deleteTemplate {
                     viewModel.delete(commentId: comment.id)
-                })
+                }
             } else {
-                toastInfo = ToastInformation(isPresented: true, title: "신고하기", action: {
-                    viewModel.report(authorId: comment.author.id, type: .comment)
-                })
+                toastInfo = NewToastInformation.blockAndReportCommentTemplate(
+                    blockAction: {
+                        viewModel.block(authorId: comment.author.id)
+                    }, reportAction: {
+                        viewModel.report(authorId: comment.author.id, type: .comment)
+                    })
             }
             
-            self.toastInfo = toastInfo
+            self.toastContainer.informations = toastInfo
+            self.toastContainer.isPresented = true
         }) {
             Image(systemName: "ellipsis")
                 .resizable()

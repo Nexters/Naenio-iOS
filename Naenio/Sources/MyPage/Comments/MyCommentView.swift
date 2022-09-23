@@ -12,7 +12,7 @@ struct MyCommentView: View {
     @EnvironmentObject var userManager: UserManager
     @ObservedObject var viewModel = MyCommentViewModel()
     
-    @State var toastInformation = ToastInformation(isPresented: false, title: "댓글 삭제하기", action: {})
+    @State var toastContainer = ToastContainer(informations: [])
     
     @AlertState<SystemAlert> var alertState
     
@@ -39,8 +39,10 @@ struct MyCommentView: View {
                                     .environmentObject(userManager)
                                 ) {
                                     MyCommentCell(myComment: comment, action: {
-                                        self.toastInformation.action = { viewModel.delete(at: index) }
-                                        self.toastInformation.isPresented = true
+                                        self.toastContainer.informations = NewToastInformation.deleteTemplate {
+                                            viewModel.delete(at: index)
+                                        }
+                                        self.toastContainer.isPresented = true
                                     })
                                     .frame(height: 184)
                                     .padding(.horizontal, 20)
@@ -57,7 +59,7 @@ struct MyCommentView: View {
                     }
                 }
             }
-            .toast($toastInformation)
+            .toast($toastContainer)
             .onAppear {
                 viewModel.getMyComments()
             }

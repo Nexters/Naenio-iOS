@@ -60,6 +60,25 @@ class FullViewModel: ObservableObject {
             .disposed(by: bag)
     }
     
+    func block(authorId: Int) {
+        status = .inProgress
+        
+        UserBlockManager.block(authorId)
+            .subscribe(on: self.serialQueue)
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onSuccess: { [weak self] _ in
+                    guard let self = self else { return }
+                    
+                    self.status = .done(result: .block)
+                }, onFailure: { [weak self] error in
+                    guard let self = self else { return }
+                    
+                    self.status = .fail(with: error)
+                })
+            .disposed(by: bag)
+    }
+    
     func delete(postId: Int) {
         status = .inProgress
         
@@ -83,6 +102,7 @@ class FullViewModel: ObservableObject {
 extension FullViewModel {
     enum WorkType { // FIXME:
         case report
+        case block
         case singlePost
         case delete
     }

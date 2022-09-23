@@ -19,6 +19,7 @@ extension NaenioAPI {
         case .postPost, .getTheme: return "/app/posts"
         case .postCommentLike: return "/app/comment-likes"
         case .postReport: return "/app/reports"
+        case .postBlock: return "/app/blocks"
             
         case .getUser: return "/app/members/me"
         case .getFeed: return "/app/feed"

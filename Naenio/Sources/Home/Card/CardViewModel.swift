@@ -38,6 +38,23 @@ class CardViewModel: ObservableObject {
             .disposed(by: bag)
     }
     
+    func block(authorId: Int) {
+        self.status = .inProgress
+        
+        UserBlockManager.block(authorId)
+            .subscribe(on: self.serialQueue)
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onSuccess: { [weak self] _ in
+                    guard let self = self else { return }
+                    self.status = .done(result: .block)
+                }, onFailure: { [weak self] error in
+                    guard let self = self else { return }
+                    self.status = .fail(with: error)
+                })
+            .disposed(by: bag)
+    }
+    
     func delete(postId: Int) {
         self.status = .inProgress
         
@@ -62,6 +79,7 @@ extension CardViewModel {
     // TODO: Abtract it later
     enum WorkType {
         case report
+        case block
         case delete
     }
 }
