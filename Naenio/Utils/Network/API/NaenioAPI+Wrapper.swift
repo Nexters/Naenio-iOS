@@ -12,17 +12,6 @@ import Foundation
 
 // Wrapper 정의
 extension NaenioAPI {
-    struct Wrapper: TargetType {
-        let base: NaenioAPI
-        
-        var baseURL: URL { self.base.baseURL }
-        var path: String { self.base.path }
-        var method: Moya.Method { self.base.method }
-        var sampleData: Data { self.base.sampleData }
-        var task: Task { self.base.task }
-        var headers: [String: String]? { self.base.headers }
-    }
-    
     enum MoyaWrapper {
         struct Plugins {
             var plugins: [PluginType]
@@ -34,11 +23,11 @@ extension NaenioAPI {
             func callAsFunction() -> [PluginType] { self.plugins }
         }
         
-        static var provider: MoyaProvider<NaenioAPI.Wrapper> {
+        static var provider: MoyaProvider<NaenioAPI> {
             let plugins = Plugins(plugins: [])
             let session = DefaultSession.sharedSession
             
-            return MoyaProvider<NaenioAPI.Wrapper>(
+            return MoyaProvider<NaenioAPI>(
                 endpointClosure: { target in
                     MoyaProvider.defaultEndpointMapping(for: target)
                 },

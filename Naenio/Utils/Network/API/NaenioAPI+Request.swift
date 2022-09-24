@@ -18,11 +18,12 @@ extension NaenioAPI {
     }
   
     func request(
+        provider: MoyaProvider<NaenioAPI> = NaenioAPI.moyaProvider,
         file: StaticString = #file,
         function: StaticString = #function,
         line: UInt = #line
     ) -> Single<Response> {
-        let endpoint = NaenioAPI.Wrapper(base: self)
+        let endpoint = self
         let requestString = "\(endpoint.method) \(endpoint.baseURL) \(endpoint.path)"
         
         print("endpoint: \(endpoint)")
