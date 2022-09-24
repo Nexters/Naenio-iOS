@@ -24,7 +24,12 @@ extension NaenioAPI {
         }
         
         static var provider: MoyaProvider<NaenioAPI> {
-            let plugins = Plugins(plugins: [])
+            let loggerConfig = NetworkLoggerPlugin.Configuration(logOptions: .verbose)
+            let networkLogger = NetworkLoggerPlugin(configuration: loggerConfig)
+            
+            let plugins = Plugins(plugins: [
+                networkLogger
+            ])
             let session = DefaultSession.sharedSession
             
             return MoyaProvider<NaenioAPI>(
