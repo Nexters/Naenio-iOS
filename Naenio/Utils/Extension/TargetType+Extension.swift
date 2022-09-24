@@ -12,6 +12,7 @@
 
 import Alamofire
 import Moya
+import Foundation
 
 extension TargetType {
     static func isNotConnected(error: Error) -> Bool {

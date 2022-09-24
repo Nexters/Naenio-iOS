@@ -8,6 +8,7 @@
 import RxSwift
 import Moya
 import Alamofire
+import Foundation
 
 extension NaenioAPI {
     func handleInternetConnection<T: Any>(error: Error) throws -> Single<T> {

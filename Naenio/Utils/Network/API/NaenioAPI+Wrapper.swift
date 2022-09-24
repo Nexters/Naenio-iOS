@@ -8,6 +8,7 @@
 import Moya
 import RxSwift
 import Alamofire
+import Foundation
 
 // Wrapper 정의
 extension NaenioAPI {

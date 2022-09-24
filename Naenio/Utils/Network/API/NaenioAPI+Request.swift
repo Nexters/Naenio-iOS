@@ -5,7 +5,9 @@
 //  Created by 조윤영 on 2022/07/18.
 //
 import Moya
+import RxMoya
 import RxSwift
+import Foundation
 
 extension NaenioAPI {
     static let moyaProvider = MoyaWrapper.provider
