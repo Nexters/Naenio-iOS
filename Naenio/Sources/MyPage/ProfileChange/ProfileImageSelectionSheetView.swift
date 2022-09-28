@@ -9,16 +9,10 @@ import SwiftUI
 
 struct ProfileImageSelectionSheetView: View {
     // Dependencies
-    private let userManager: UserManager = UserManager.shared
-    
     @Binding var isPresented: Bool
-    @Binding var index: Int
+    @Binding var profileImageIndex: Int
     
-    let columns: [GridItem] = [
-        GridItem(.flexible(maximum: 85), spacing: 35),
-        GridItem(.flexible(maximum: 85), spacing: 35),
-        GridItem(.flexible(maximum: 85), spacing: 35)
-    ]
+    let columns: [GridItem] = Array(repeating: GridItem(.flexible(maximum: 85), spacing: 35), count: 3)
     
     var body: some View {
         LazyVGrid(columns: columns, spacing: 35) {
@@ -28,9 +22,7 @@ struct ProfileImageSelectionSheetView: View {
                     .scaledToFit()
                     .frame(width: 85, height: 85)
                     .onTapGesture {
-                        self.index = index // is needed?
-                        
-                        userManager.updateProfileImageIndex(index)
+                        profileImageIndex = index
                         HapticManager.shared.impact(style: .light)
                         
                         self.isPresented = false

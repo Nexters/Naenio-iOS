@@ -6,29 +6,21 @@
 //
 
 import SwiftUI
+import AlertState
 
 struct MyPageView: View {
+    @EnvironmentObject var userManager: UserManager
     @ObservedObject var viewModel = MyPageViewModel()
     
-    private let personalCells: [CellData] = [
-        CellData(name: "✏️ 작성한 댓글", destination: Text("dest"))
-    ]
-    
-    private let businessCells: [CellData] = [
-        CellData(name: "📢 공지사항", destination: Text("dest")),
-        CellData(name: "⁉️ 문의하기", destination: Text("dest")),
-        CellData(name: "👤 개발자 정보", destination: Text("dest")),
-        CellData(name: "📱 버전 정보", destination: Text("dest"))
-    ]
-    
-    private let userCells: [CellData] = [
-        CellData(name: "🔓 로그아웃", destination: Text("dest")),
-        CellData(name: "️️🚪 회원탈퇴", destination: Text("dest"))
-    ]
+    @AlertState<SystemAlert> var alertState
     
     var body: some View {
         ZStack {
             Color.background.ignoresSafeArea()
+            
+            if viewModel.status == .inProgress {
+                LoadingIndicator()
+            }
             
             ScrollView {
                 VStack(spacing: 20) {
@@ -36,35 +28,50 @@ struct MyPageView: View {
                         .padding(.top, 40)
                         .padding(.bottom, 20)
                     
-                    MyPageAuthCell(authType: .kakao)
+                    MyPageAuthCell(userManager.user?.authServiceType)
                         .cornerRadius(10)
                     
                     MyPageSection {
-                        ForEach(Array(zip(personalCells.indices, personalCells)), id: \.1.id) { index, cell in
-                            MyPageNavigationCell(name: cell.name, destination: cell.destination)
-                            
-                            if personalCells.count != 1 && index != personalCells.count - 1 {
-                                CustomDivider()
-                                    .padding(.horizontal, 12)
+                        ForEach(PersonalCell.allCases, id: \.title) { cell in
+                            MyPageNavigationCell(name: cell.title) {
+                                cell.view().environmentObject(userManager)
                             }
-                        }
-                    }
-                    
-                    MyPageSection {
-                        ForEach(Array(zip(businessCells.indices, businessCells)), id: \.1.id) { index, cell in
-                            MyPageNavigationCell(name: cell.name, destination: cell.destination)
                             
-                            if businessCells.count != 1 && index != businessCells.count - 1 {
+                            if cell.title != PersonalCell.allCases.last?.title {
                                 CustomDivider()
                             }
                         }
                     }
                     
                     MyPageSection {
-                        ForEach(Array(zip(userCells.indices, userCells)), id: \.1.id) { index, cell in
-                            MyPageNavigationCell(name: cell.name, destination: cell.destination)
+                        ForEach(BusinessCell.allCases, id: \.title) { cell in
+                            MyPageNavigationCell(name: cell.title, destination: cell.view)
                             
-                            if userCells.count != 1 && index != userCells.count - 1 {
+                            CustomDivider()
+                        }
+                        
+                        MyPageActionCell(name: "⁉️ 문의하기", action: {
+                            let url = URL(string: "https://www.instagram.com/_naenio_/")!
+                            if UIApplication.shared.canOpenURL(url) {
+                                UIApplication.shared.open(url)
+                            }
+                        })
+                    }
+                    
+                    MyPageSection {
+                        ForEach(AccountCell.allCases, id: \.title) { cell in
+                            switch cell {
+                            case .logout:
+                                MyPageActionCell(name: cell.title, action: {
+                                    alertState = .logout(secondaryAction: { viewModel.signOut() })
+                                })
+                            case .withdrawal:
+                                MyPageActionCell(name: cell.title, action: {
+                                    alertState = .withdrawal(secondaryAction: { viewModel.withdrawal() })
+                                })
+                            }
+                            
+                            if cell.title != AccountCell.allCases.last?.title {
                                 CustomDivider()
                             }
                         }
@@ -72,26 +79,37 @@ struct MyPageView: View {
                 }
                 .padding(.horizontal, 20)
             }
-            
+        }
+        .showAlert(with: $alertState)
+        .onChange(of: viewModel.status) { status in
+            switch status {
+            case .done(let type):
+                if type == .withdrawal {
+                    viewModel.signOut()
+                }
+            case .fail(let error):
+                self.alertState = .networkErrorHappend(error: error)
+            default:
+                break
+            }
         }
     }
-}
-
-// Components
-extension MyPageView {
+    
     var headerWithUserInformation: some View {
         HStack(spacing: 17) {
-            viewModel.profileImage
+            ProfileImages.getImage(of: userManager.getProfileImagesIndex())
                 .resizable()
                 .scaledToFit()
                 .frame(width: 61, height: 61)
             
-            Text(viewModel.nickname)
+            Text(userManager.getNickName())
                 .font(.semoBold(size: 22))
             
             Spacer()
             
-            NavigationLink(destination: LazyView(ProfileChangeView())) {
+            NavigationLink(destination: LazyView(
+                ProfileChangeView().environmentObject(userManager)
+            )) {
                 Text("edit")
                     .font(.semoBold(size: 15))
                     .frame(width: 58, height: 31)
@@ -103,11 +121,72 @@ extension MyPageView {
     }
 }
 
-// Data model
-fileprivate struct CellData<V: View>: Identifiable {
-    let id = UUID()
-    let name: String
-    let destination: V
+extension MyPageView {
+    private enum AccountCell: CaseIterable {
+        case logout
+        case withdrawal
+        
+        var title: String {
+            switch self {
+            case .logout:
+                return "🔓 로그아웃"
+            case .withdrawal:
+                return "🚪 회원탈퇴"
+            }
+        }
+    }
+    
+    private enum BusinessCell: CaseIterable, NavigatableCell {
+        case notice, developers, version
+        
+        var title: String {
+            switch self {
+            case .notice:
+                return "📢 공지사항"
+            case .developers:
+                return "👤 개발자 정보"
+            case .version:
+                return "📱 버전 정보"
+            }
+        }
+        
+        @ViewBuilder func view() -> some View {
+            switch self {
+            case .notice:
+                NoticeView()
+            case .developers:
+                DevelopersInfoView()
+            case .version:
+                VersionView()
+            }
+        }
+    }
+    
+    private enum PersonalCell: CaseIterable, NavigatableCell {
+        case comment
+        
+        var title: String {
+            switch self {
+            case .comment:
+                return "✏️ 작성한 댓글"
+            }
+        }
+        
+        @ViewBuilder func view() -> some View {
+            switch self {
+            case .comment:
+                MyCommentView()
+            }
+        }
+    }
+    
+}
+
+protocol NavigatableCell {
+    associatedtype V: View
+
+    var title: String { get }
+    func view() -> V
 }
 
 struct MyPageView_Previews: PreviewProvider {

@@ -5,7 +5,9 @@
 //  Created by 조윤영 on 2022/07/18.
 //
 import Moya
+import RxMoya
 import RxSwift
+import Foundation
 
 extension NaenioAPI {
     static let moyaProvider = MoyaWrapper.provider
@@ -16,13 +18,16 @@ extension NaenioAPI {
     }
   
     func request(
+        provider: MoyaProvider<NaenioAPI> = NaenioAPI.moyaProvider,
         file: StaticString = #file,
         function: StaticString = #function,
         line: UInt = #line
     ) -> Single<Response> {
-        let endpoint = NaenioAPI.Wrapper(base: self)
+        let endpoint = self
         let requestString = "\(endpoint.method) \(endpoint.baseURL) \(endpoint.path)"
+        
         print("endpoint: \(endpoint)")
+        
         return Self.moyaProvider.rx.request(endpoint)
             .filterSuccessfulStatusCodes()
             .catch(self.handleInternetConnection)
@@ -40,9 +45,10 @@ extension NaenioAPI {
                     case NaenioAPIError.internetConnection:
                         print("TODO: alert MyAPIError.internetConnection")
                     case let NaenioAPIError.restError(error, _, _):
-                        print("🛰 FAILURE: \(error)")
-
                         guard let response = (error as? MoyaError)?.response else { break }
+                        
+                        print("🛰 FAILURE: \(error): \(String(data: response.data, encoding: .utf8))")
+
                         if let jsonObject = try? response.mapJSON(failsOnEmptyData: false) {
                             let errorDictionary = jsonObject as? [String: Any]
                             guard let key = errorDictionary?.first?.key else { return }

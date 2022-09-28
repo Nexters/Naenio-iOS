@@ -23,7 +23,20 @@ extension Publishers {
     
     static var lowSheetNotificationPublisher: AnyPublisher<LowSheetNotification, Never> {
         return NotificationCenter.default.publisher(for: .lowSheetNotification)
-            .map { return $0.object as! LowSheetNotification }
+            .map {
+                return $0.object as! LowSheetNotification }
+            .eraseToAnyPublisher()
+    }
+    
+    static var toastAlertNotificationPublisher: AnyPublisher<ToastInformation, Never> {
+        return NotificationCenter.default.publisher(for: .toastAlertNotification)
+            .map { return $0.object as! ToastInformation }
+            .eraseToAnyPublisher()
+    }
+    
+    static var newToastAlertNotificationPublisher: AnyPublisher<ToastContainer, Never> {
+        return NotificationCenter.default.publisher(for: .newToastNotification)
+            .map { return $0.object as! ToastContainer }
             .eraseToAnyPublisher()
     }
     

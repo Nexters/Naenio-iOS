@@ -8,6 +8,7 @@
 import RxSwift
 import Moya
 import Alamofire
+import Foundation
 
 extension NaenioAPI {
     func handleInternetConnection<T: Any>(error: Error) throws -> Single<T> {
@@ -49,7 +50,7 @@ enum NaenioAPIError: Error {
         case let .restError(_, statusCode, _):
             return statusCode
         default:
-            return nil
+            return -100
         }
     }
     
@@ -72,6 +73,17 @@ enum NaenioAPIError: Error {
             return true
         default:
             return false
+        }
+    }
+}
+
+extension NaenioAPIError: LocalizedError {
+    var errorDescription: String? {
+        switch self {
+        case .requestTimeout: return NSLocalizedString("서비스 요청 처리가 지연되고 있습니다.", comment: "")
+        case .restError:  return NSLocalizedString("서비스 요청에 실패했습니다", comment: "")
+        case .internetConnection: return NSLocalizedString("인터넷 연결에 실패했습니다.", comment: "")
+        default: return NSLocalizedString("다시 시도해주세요.", comment: "")
         }
     }
 }

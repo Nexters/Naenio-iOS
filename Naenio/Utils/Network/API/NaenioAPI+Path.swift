@@ -17,15 +17,27 @@ extension NaenioAPI {
         case .postVote: return "/app/votes"
         case .postComment: return "/app/comments"
         case .postPost, .getTheme: return "/app/posts"
+        case .postCommentLike: return "/app/comment-likes"
+        case .postReport: return "/app/reports"
+        case .postBlock: return "/app/blocks"
             
-        case .getUser: return "app/members/me"
+        case .getUser: return "/app/members/me"
         case .getFeed: return "/app/feed"
+        case .getRandomPost: return "/app/posts-random"
         case .getComment(let postId, _): return "/app/posts/\(postId)/comments"
         case .getCommentReplies(let postId, _): return "/app/comments/\(postId)/comment-replies"
         case .getSinglePost(let info): return "/app/posts/\(info.id)"
-        case .getIsNicknameAvailable(let nickname): return "/app/members/exist?nickname=\(nickname)"
+        case .getIsNicknameAvailable: return "/app/members/exist"
+        case .getMyComment: return "/app/comments/me"
+        case .getNotice: return "/app/notices"
+            
         case .putNickname: return "/app/members/nickname"
         case .putProfileIndex: return "/app/members/profile-image"
+            
+        case .deleteAccount: return "/app/members/me"
+        case .deleteCommentLike: return "/app/comment-likes"
+        case .deletePost(let postId): return "/app/posts/\(postId)"
+        case .deleteComment(let commentId): return "/app/comments/\(commentId)"
         }
     }
 }

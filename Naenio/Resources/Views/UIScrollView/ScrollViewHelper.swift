@@ -16,11 +16,16 @@ class ScrollViewHelper: NSObject, ObservableObject {
     @Published var scrollVelocity: CGFloat = 0
     @Published var currentVerticalPosition: CGFloat = 0
     
-    let refreshController = UIRefreshControl()
+    let refreshController: UIRefreshControl
     
     enum ScrollDirection {
         case upward
         case downward
+    }
+    
+    override init() {
+        self.refreshController = UIRefreshControl()
+        self.refreshController.tintColor = UIColor(Color.naenioPink)
     }
 }
 

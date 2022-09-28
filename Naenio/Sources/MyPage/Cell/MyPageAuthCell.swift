@@ -15,9 +15,26 @@ struct MyPageAuthCell: View {
             Text("🔒 소셜 로그인 정보")
                 .font(.semoBold(size: 16))
         }, trailing: {
-            Text(authType.rawValue)
-                .font(.semoBold(size: 16))
+            HStack(spacing: 8) {
+                authType.image
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 24, height: 24)
+                
+                Text(authType.rawValue)
+                    .font(.semoBold(size: 16))
+            }
         })
+    }
+    
+    init(_ authTypeString: String?) {
+        if authTypeString == "KAKAO" {
+            authType = .kakao
+        } else if authTypeString == "APPLE" {
+            authType = .apple
+        } else {
+            authType = .kakao
+        }
     }
 }
 
@@ -25,11 +42,14 @@ extension MyPageAuthCell {
     enum AuthType: String {
         case apple = "애플"
         case kakao = "카카오"
-    }
-}
-
-struct MyPageCell_Previews: PreviewProvider {
-    static var previews: some View {
-        MyPageAuthCell(authType: .kakao)
+        
+        var image: Image {
+            switch self {
+            case .apple:
+                return Image("btn_login_apple")
+            case .kakao:
+                return Image("btn_login_kakao")
+            }
+        }
     }
 }

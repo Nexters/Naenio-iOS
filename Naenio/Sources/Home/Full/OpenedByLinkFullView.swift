@@ -6,22 +6,41 @@
 //
 
 import SwiftUI
+import AlertState
 
 struct OpenedByLinkFullView: View {
+    @EnvironmentObject var userManager: UserManager
     @ObservedObject var viewModel = FullViewModel()
+    
+    @AlertState<SystemAlert> var alertState
+    
     private let postId: Int
+    var showCommentFirst: Bool
     
     var body: some View {
         ZStack {
-            FullView(post: $viewModel.post)
-                .redacted(reason: viewModel.status == .inProgress || viewModel.status == .waiting ? .placeholder : [])
+            FullView(self.viewModel,
+                     post: $viewModel.post,
+                     showCommentFirst: self.showCommentFirst)
+            .redacted(reason: viewModel.status == .inProgress || viewModel.status == .waiting ? .placeholder : [])
+            .environmentObject(userManager)
         }
         .onAppear {
             viewModel.getOnePost(with: postId)
         }
+        .onChange(of: viewModel.status) { status in
+            switch status {
+            case .fail(with: let error):
+                alertState = .networkErrorHappend(error: error)
+            default:
+                break
+            }
+        }
+        .showAlert(with: $alertState)
     }
     
-    init(postId: Int) {
+    init(postId: Int, showCommentFirst: Bool) {
         self.postId = postId
+        self.showCommentFirst = showCommentFirst
     }
 }

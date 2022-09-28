@@ -9,91 +9,96 @@ import SwiftUI
 import RxSwift
 
 class ProfileChangeViewModel: ObservableObject {
-    // Dependencies
-    let userManager: UserManager = UserManager.shared
-    
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler.init(qos: .userInitiated)
     
     @Published var status: NetworkStatus<Bool> = .waiting
     
-    func getIsNicknameDuplicated(nickname: String) {
+    func submitProfileChangeRequest(nickname: String, index: Int) {
+        if !nickname.isEmpty {
+            self.checkDuplicatedNickname(nickname: nickname, with: index)
+        } else {
+            // Nickname 바꾸지 않는 케이스 - 인덱스만 포스트
+            RequestService<IndexResponseModel>.request(api: .putProfileIndex(index))
+                .subscribe(on: serialQueue)
+                .observe(on: MainScheduler.instance)
+                .subscribe(
+                    onSuccess: { [weak self] _ in // Would not use response data
+                        guard let self = self else { return }
+                        
+                        self.status = .done(result: true)
+                    }, onFailure: { [weak self] _ in
+                        guard let self = self else { return }
+                        
+                        self.status = .fail(with: ProfileError.networkError)
+                    })
+                .disposed(by: bag)
+        }
+    }
+    
+    private func checkDuplicatedNickname(nickname: String, with index: Int) {
         RequestService<AvailableNicknameResponseModel>.request(api: .getIsNicknameAvailable(nickname))
             .observe(on: MainScheduler.instance)
             .subscribe(
                 onSuccess: { [weak self] response in
                     guard let self = self else { return }
-                    let isAvailable = response.exist
+                    let isExist = response.exist
                     
-                    print("Success getIsNicknameDuplicated")
-                    
-                    self.status = .done(result: isAvailable)
-                }, onFailure: { [weak self] error in
+                    print("@@", isExist)
+                                        
+                    if !isExist {
+                        self.postRequestToServer(nickname, index)
+                    } else {
+                        self.status = .fail(with: ProfileError.duplicatedNickname)
+                    }
+                }, onFailure: { [weak self] _ in
                     guard let self = self else { return }
                     
-                    self.status = .fail(with: error)
+                    self.status = .fail(with: ProfileError.networkError)
                 })
             .disposed(by: bag)
     }
     
-    func submitChangeNicknameRequest(_ nickname: String) {
-        if nickname.isEmpty {
-            return
-        }
+    private func postRequestToServer(_ nickname: String, _ index: Int) {
+        let nicknameSequence = RequestService<NicknameResponseModel>.request(api: .putNickname(nickname))
+        let profileImageSequence = RequestService<IndexResponseModel>.request(api: .putProfileIndex(index))
         
-        RequestService<NicknameResponseModel>.request(api: .putNickname(nickname))
+        Single.zip(nicknameSequence, profileImageSequence)
+            .subscribe(on: serialQueue)
             .observe(on: MainScheduler.instance)
             .subscribe(
-                onSuccess: { [weak self] response in
-                    guard let self = self else { return }
-                    print(nickname)
-                    self.userManager.updateNickName(response.nickname)
-                    self.status = .done(result: true)
-                }, onFailure: { [weak self] error in
+                onSuccess: { [weak self] _, _ in // Would not use response data
                     guard let self = self else { return }
                     
-                    self.status = .fail(with: error)
+                    self.status = .done(result: true)
+                }, onFailure: { [weak self] _ in
+                    guard let self = self else { return }
+                    
+                    self.status = .fail(with: ProfileError.networkError)
                 })
             .disposed(by: bag)
-        
-        // TODO: 서버 API 붙여야 함!!!
-        // if networkingSuccessed {
-        self.status = .done(result: true) // 임시
-        // }
-        
-    }
-    
-    func submitChangeProfileRequest(_ index: Int) {
-        if index < 0 || index >= ProfileImages.count {
-            return
-        }
-        
-        RequestService<IndexResponseModel>.request(api: .putProfileIndex(index))
-            .observe(on: MainScheduler.instance)
-            .subscribe(
-                onSuccess: { [weak self] response in
-                    guard let self = self else { return }
-                    
-                    self.userManager.updateProfileImageIndex(response.profileImageIndex)
-                    self.status = .done(result: true)
-                }, onFailure: { [weak self] error in
-                    guard let self = self else { return }
-                    
-                    self.status = .fail(with: error)
-                })
-            .disposed(by: bag)
-        
-        // TODO: 서버 API 붙여야 함!!!
-        // if networkingSuccessed {
-        self.status = .done(result: true) // 임시
-        // }
-        
     }
     
     init() {
         print("init")
     }
-    deinit {
-        print("deinit")
+}
+
+extension ProfileChangeViewModel {
+    enum ProfileError: LocalizedError {
+        case duplicatedNickname
+        case emptyNickname
+        case networkError
+        
+        var errorDescription: String {
+            switch self {
+            case .duplicatedNickname:
+                return "중복된 닉네임입니다"
+            case .emptyNickname:
+                return "닉네임을 적어주세요"
+            case .networkError:
+                return "요청을 실행할 수 없습니다. 잠시후 재시도해주세요."
+            }
+        }
     }
 }

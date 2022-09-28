@@ -8,13 +8,21 @@
 import SwiftUI
 import RxSwift
 
+/// 프로필과 관련된 정보를 수정합니다
+///
+/// Get and set`profileImageIndex`, `nickname`,
+/// Get `AuthServiceType`
 class UserManager: ObservableObject {
     static let shared = UserManager() // FIXME: 흑마법이라 나중에 고쳐야 될 듯..(전역적으로 공유되는 observedobject)
+    
+    // Dependencies
     private let localStorageManager: LocalStorageManager
     
+    // Publihsed vars
     @Published private(set) var status: UserStatus = .waiting
     @Published private(set) var user: User?
     
+    // Private vars and lets
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler.init(qos: .userInitiated)
     
@@ -27,7 +35,7 @@ class UserManager: ObservableObject {
     /// 서버 데이터를 받아 옴
     func updateUserData(with token: String) {
         status = .fetching
-        
+                
         // 여기가 API 업데이트여야 하는데 로컬 업데이트 였음
         RequestService<User>.request(api: .getUser(token))
             .subscribe(on: self.serialQueue)
@@ -38,7 +46,6 @@ class UserManager: ObservableObject {
 
                     self.user = user
                     self.updateLocalUserData(with: user)
-                    print("RX \(user) \(self.getNickName())")
                     self.status = .fetched
                 }, onFailure: { [weak self] error in
                     guard let self = self else { return }
@@ -69,12 +76,27 @@ class UserManager: ObservableObject {
         localStorageManager.save(nickname, key: self.nicknameKey)
     }
     
-    func updateAuth(_ type: AuthServiceType) {
+    func updateAuthServiceType(_ type: AuthServiceType) {
         self.user?.authServiceType = type.rawValue
         localStorageManager.save(type.rawValue, key: self.authServiceTypeKey)
     }
     
     // MARK: - Gets
+    func getUserId() -> Int {
+        if let user = self.user {
+            return user.id
+        } else {
+            return -1
+        }
+        
+//        if let loadedUserId = localStorageManager.load(key: self.idKey),
+//           let userId = loadedUserId as? Int {
+//            return userId
+//        }
+//
+//        return 0
+    }
+    
     func getProfileImagesIndex() -> Int {
         if let loadedProfileImageIndex = localStorageManager.load(key: self.profileImageIndexKey),
            let profileImageIndex = loadedProfileImageIndex as? Int {
@@ -89,7 +111,7 @@ class UserManager: ObservableObject {
            let nickname = loadedNickName as? String {
             return nickname
         } else {
-            return "(알 수 없음)"
+            return String()
         }
     }
     

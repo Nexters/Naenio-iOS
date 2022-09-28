@@ -10,17 +10,21 @@ import Moya
 extension NaenioAPI {
     func getTask() -> Task {
         switch self {
-        case .signOut, .withDrawal:
+        case .signOut, .withDrawal, .deleteAccount, .getNotice, .deletePost, .deleteComment, .getRandomPost:
             return .requestPlain
-            
         case .login(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
-            
         case .postPost(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
         case .postVote(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
         case .postComment(let request):
+            return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
+        case .postReport(let request):
+            return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
+        case .postCommentLike(let request):
+            return .requestParameters(parameters: ["commentId": request], encoding: JSONEncoding.default)
+        case .postBlock(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: JSONEncoding.default)
             
         case .getUser(let request):
@@ -36,11 +40,16 @@ extension NaenioAPI {
         case .getCommentReplies(_, let model):
             return .requestParameters(parameters: model.toDictionary(), encoding: URLEncoding.default)
         case .getIsNicknameAvailable(let request):
+            return .requestParameters(parameters: ["nickname": request], encoding: URLEncoding.default)
+        case .getMyComment(let request):
             return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
+            
         case .putNickname(let request):
-            return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
+            return .requestParameters(parameters: ["nickname": request], encoding: JSONEncoding.default)
         case .putProfileIndex(let request):
-            return .requestParameters(parameters: request.toDictionary(), encoding: URLEncoding.default)
+            return .requestParameters(parameters: ["profileImageIndex": request], encoding: JSONEncoding.default)
+        case .deleteCommentLike(let request):
+            return .requestParameters(parameters: ["commentId": request], encoding: JSONEncoding.default)
         }
     }
 }

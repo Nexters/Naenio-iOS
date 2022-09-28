@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AlertState
 
 struct CommentRepliesView: View {
     typealias Comment = CommentModel.Comment
@@ -13,20 +14,24 @@ struct CommentRepliesView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Binding var isPresented: Bool
     
-    @ObservedObject var viewModel = CommentRepliesViewModel()
+    @EnvironmentObject var userManager: UserManager
+    @StateObject var viewModel = CommentRepliesViewModel()
     @ObservedObject var scrollViewHelper = ScrollViewHelper()
     
     @State var text: String = ""
+    @State var toastContainer = ToastContainer(informations: [])
+    @State var toastAlertInfo = ToastInformation(title: "")
 
-    let comment: Comment
-    var parentId: Int
+    @Binding var comment: Comment
+    
+    @AlertState<SystemAlert> var alertState
     
     var body: some View {
         ZStack(alignment: .bottom) {
             Color.card
                 .ignoresSafeArea()
             
-            if viewModel.status == .loading {
+            if viewModel.status == .inProgress {
                 VStack {
                     Spacer()
                     
@@ -42,7 +47,7 @@ struct CommentRepliesView: View {
                     // placeholder
                     Rectangle()
                         .fill(Color.clear)
-                        .frame(height: 30)
+                        .frame(height: 8)
                     
                     HStack { // Sheet's header
                         Button(action: {
@@ -65,17 +70,37 @@ struct CommentRepliesView: View {
                     
                     CustomDivider()
                     
-                    CommentContentCell(isPresented: $isPresented, comment: comment, isReply: true, parentId: parentId)
+                    CommentContentCell(isPresented: $isPresented,
+                                       toastContainer: $toastContainer,
+                                       toastAlertInfo: $toastAlertInfo,
+                                       comment: $comment,
+                                       isReply: true,
+                                       isMine: userManager.getUserId() == comment.author.id,
+                                       isMoreInfoDisabled: true)
                     
                     CustomDivider()
 
-                    ForEach(viewModel.replies, id: \.id) { reply in
+                    ForEach($viewModel.replies) { index, reply in
                         HStack {
-                            Text("😀")
+                            Text("▬")   // place holder for inset
                                 .padding(3)
                                 .opacity(0)
                             
-                            CommentContentCell(isPresented: $isPresented, comment: reply, isReply: true, parentId: parentId)
+                            CommentContentCell(isPresented: $isPresented,
+                                               toastContainer: $toastContainer,
+                                               toastAlertInfo: $toastAlertInfo,
+                                               comment: reply,
+                                               isReply: true,
+                                               isMine: userManager.getUserId() == reply.wrappedValue.author.id, deletedAction: {
+                                viewModel.delete(at: index)
+                                comment.repliesCount -= 1
+                            })
+                        }
+                        .onAppear {
+                            if index == viewModel.replies.count - 3 {
+                                guard let lastCommentId = viewModel.replies.last?.id else { return }
+                                viewModel.requestCommentReplies(postId: comment.id, lastCommentId: lastCommentId)
+                            }
                         }
                     }
                     
@@ -96,14 +121,14 @@ struct CommentRepliesView: View {
                 Spacer()
                 
                 HStack(spacing: 12) {
-                    Text("😀")
-                        .padding(3)
-                        .background(Circle().fill(Color.green.opacity(0.2)))
+                    profileImage
                     
                     WrappedTextView(placeholder: "댓글 추가", content: $text, characterLimit: 100, showLimit: false, isTight: true)
                     
                     Button(action: {
-                        viewModel.registerReply(self.text, postId: self.parentId)
+                        viewModel.registerReply(text, postId: comment.id)
+                        UIApplication.shared.endEditing()
+                        text = ""
                     }) {
                         Text("게시")
                             .font(.semoBold(size: 14))
@@ -116,9 +141,35 @@ struct CommentRepliesView: View {
                 .background(Color.background.ignoresSafeArea())
             }
         }
+        .toast($toastContainer)
+        .toastAlert(isPresented: $toastAlertInfo.isPresented, title: toastAlertInfo.title)
         .navigationBarHidden(true)
-        .onAppear {
-            viewModel.requestCommentReplies(postId: self.parentId)
+        .onChange(of: viewModel.status) { status in
+            switch status {
+            case .done(let task):
+                switch task {
+                case .requestComments:
+                    break
+                case .registerComment:
+                    self.comment.repliesCount = viewModel.replies.count
+                }
+            case .fail(let error):
+                alertState = .networkErrorHappend(error: error)
+            default:
+                break
+            }
         }
+        .onAppear {
+            viewModel.requestCommentReplies(postId: comment.id, lastCommentId: nil)
+        }
+        .showAlert(with: $alertState)
+    }
+    
+    var profileImage: some View {
+        let profileImageIndex = userManager.getProfileImagesIndex()
+        return ProfileImages.getImage(of: profileImageIndex)
+            .resizable()
+            .scaledToFit()
+            .frame(width: 24, height: 24)
     }
 }

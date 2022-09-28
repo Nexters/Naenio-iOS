@@ -27,31 +27,27 @@ struct VotesView: View {
                            choice: self.choiceA,
                            percent: getPercentage(ofSequence: 0), action: {
                     lastChoice = 0
-                    viewModel.requestVote(postId: post.id,
-                                          choiceId: choiceA?.id)
-//                    NotificationCenter.default.postDidVoteHappen(id: post.id)
+                    viewModel.requestVote(postId: post.id, choiceId: choiceA?.id)
                 })
                 
                 VoteButton(type: .choiceB,
                            isOpened: self.isVoteOpened,
                            choice: self.choiceB,
-                           percent: self.getPercentage(ofSequence: 1),
+                           percent: getPercentage(ofSequence: 1),
                            action: {
                     lastChoice = 1
-                    viewModel.requestVote(postId: post.id,
-                                          choiceId: choiceB?.id)
-//                    NotificationCenter.default.postDidVoteHappen(id: post.id)
+                    viewModel.requestVote(postId: post.id, choiceId: choiceB?.id)
                 })
             }
             .onChange(of: viewModel.status) { status in
                 switch status {
-                case .done(_):
+                case .done:
                     DispatchQueue.main.async {
                         vote(sequence: lastChoice)
                         viewModel.status = .waiting
                     }
                 case .fail(with: let error):
-                    print("Votes failed with error: ", error.localizedDescription) // FIXME: 
+                    NotificationCenter.default.postToastAlertWithErrorNotification()
                 default:
                     break
                 }

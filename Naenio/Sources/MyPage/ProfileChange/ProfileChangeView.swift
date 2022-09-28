@@ -7,28 +7,29 @@
 
 import SwiftUI
 import Introspect
+import AlertState
 
 struct ProfileChangeView: View {
+    typealias ProfileError = ProfileChangeViewModel.ProfileError
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    @EnvironmentObject var userManager: UserManager
     @ObservedObject var viewModel = ProfileChangeViewModel()
     
     @State var showBottomSheet: Bool = false
-    
-    @State var showAlert: Bool = false
-    @State var alertType: AlertType = .none {
-        didSet {
-            switch alertType {
-            case .none:
-                showAlert = false
-            default:
-                showAlert = true
-            }
-        }
+    var isButtonDisabled: Bool {
+        return !(
+            self.profileImageIndex != userManager.getProfileImagesIndex() ||
+            !self.text.isEmpty
+            )
     }
     
-    @State var profileImageIndex: Int = 0 // !!!: 나중에 유저 모델의 인덱스로 바뀌어야 함
+    @AlertState<SystemAlert> var alertState
+    
     @State var text: String = ""
+    @State var profileImageIndex: Int = 0
+    
     
     private let showBackButton: Bool
     
@@ -48,11 +49,25 @@ struct ProfileChangeView: View {
                         .padding(.top, 60)
                         .padding(.bottom, 42)
                     
-                    TextField("", text: $text)
-                        .foregroundColor(.white)
-                        .padding(.vertical, 7)
-                        .padding(.horizontal, 20)
-                        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.white))
+                    WrappedTextView(
+                        placeholder: userManager.getNickName(), content: $text,
+                        characterLimit: 10,
+                        allowNewline: false, allowWhiteSpace: false, becomeFirstResponder: true,
+                        scrollDisabled: true
+                    )
+                    .frame(height: 20)
+                    .introspectTextField { textField in
+                        textField.becomeFirstResponder()
+                    }
+                    
+//                    TextField(userManager.getNickName(), text: $text)
+//                        .foregroundColor(.white)
+//                        .padding(.vertical, 7)
+//                        .padding(.horizontal, 20)
+//                        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.white))
+//                        .introspectTextField { textField in
+//                            textField.becomeFirstResponder()
+//                        }
                     
                     Spacer()
                 }
@@ -60,38 +75,39 @@ struct ProfileChangeView: View {
                 .foregroundColor(.white)
             }
             .halfSheet(isPresented: $showBottomSheet, ratio: 0.67, topBarTitle: "이미지 선택") {
-                ProfileImageSelectionSheetView(isPresented: $showBottomSheet, index: $profileImageIndex)
+                ProfileImageSelectionSheetView(isPresented: $showBottomSheet, profileImageIndex: $profileImageIndex)
             }
         }
         .leadingButtonAction {
             if text.isEmpty == false {
-                alertType = .warnBeforeExit
+                alertState = .warnBeforeExit(secondaryAction: { presentationMode.wrappedValue.dismiss() })
             } else {
                 presentationMode.wrappedValue.dismiss()
             }
         }
-        .addTrailingButton(title: "등록", disabled: text.isEmpty, action: {
-            viewModel.submitChangeNicknameRequest(text)
-            print(viewModel.userManager.user)
+        .addTrailingButton(title: "등록", disabled: isButtonDisabled, action: {
+            let submittedNickname = text == userManager.getNickName() ? String() : text
+            viewModel.submitProfileChangeRequest(nickname: submittedNickname, index: profileImageIndex)
         })
         .hideLeadingButton(showBackButton == false)
-        .onChange(of: viewModel.status) { value in // Observe status of API request
-            switch value {
+        .onChange(of: viewModel.status) { status in // Observe status of API request
+            switch status {
             case .done(_):
+                userManager.updateNickName(text)
+                userManager.updateProfileImageIndex(profileImageIndex)
+                
                 presentationMode.wrappedValue.dismiss()
-            case .fail(with: let error):
-                alertType = .errorHappend(error: error)
+            case .fail(with: let error as ProfileError):
+                alertState = .specificError(title: "확인해주세요", errorMessage: error.errorDescription)
             default:
                 break
             }
+            viewModel.status = .waiting
         }
-        .alert(isPresented: $showAlert) {   // Show the alert popup depending on the alert's type
-            switch alertType {
-            case .warnBeforeExit:
-                return AlertType.getAlert(of: .warnBeforeExit, secondaryAction: { presentationMode.wrappedValue.dismiss() })
-            default:
-                return AlertType.getAlert(of: .none, secondaryAction: { presentationMode.wrappedValue.dismiss() })
-            }
+        .showAlert(with: $alertState)
+        .onAppear {
+            self.text = userManager.getNickName()
+            self.profileImageIndex = userManager.getProfileImagesIndex()
         }
         .navigationBarHidden(true)
     }

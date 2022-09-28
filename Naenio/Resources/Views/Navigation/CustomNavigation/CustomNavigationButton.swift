@@ -18,5 +18,6 @@ struct CustomNavigationButton: View {
                 .font(.semoBold(size: 18))
                 .foregroundColor(disabled ? .naenioGray : .naenioPink)
         }
+        .disabled(self.disabled)
     }
 }

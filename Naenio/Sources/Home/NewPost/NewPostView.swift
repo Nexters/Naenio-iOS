@@ -7,15 +7,14 @@
 
 import SwiftUI
 import Combine
+import AlertState
 
 struct NewPostView: View {
     @EnvironmentObject var sourceObject: HomeViewModel
     @Binding var isPresented: Bool
     
     @State fileprivate var postContent = PostContent()
-    
-    @State var showAlert = false
-    @State var alertType: AlertType = .none
+    @AlertState<SystemAlert> var alertState
     
     var body: some View {
         ZStack {
@@ -50,7 +49,10 @@ struct NewPostView: View {
                         .foregroundColor(.white)
                         .font(.medium(size: 16))
                     
-                    WrappedTextView(placeholder: "무슨 주제를 담아볼까요?", content: $postContent.title, characterLimit: 72)
+                    WrappedTextView(placeholder: "무슨 주제를 담아볼까요?",
+                                    content: $postContent.title,
+                                    characterLimit: 70,
+                                    allowNewline: false)
                         .frame(height: 108)
                         .padding(.bottom, 20)
                     
@@ -67,10 +69,16 @@ struct NewPostView: View {
                             .zIndex(1)
                         
                         VStack(spacing: 20) {
-                            WrappedTextView(placeholder: "A의 선택지를 입력해 주세요", content: $postContent.choiceA, characterLimit: 32)
+                            WrappedTextView(placeholder: "A의 선택지를 입력해 주세요",
+                                            content: $postContent.choiceA,
+                                            characterLimit: 32,
+                                            allowNewline: false)
                                 .frame(height: 70)
                             
-                            WrappedTextView(placeholder: "B의 선택지를 입력해 주세요", content: $postContent.choiceB, characterLimit: 32)
+                            WrappedTextView(placeholder: "B의 선택지를 입력해 주세요",
+                                            content: $postContent.choiceB,
+                                            characterLimit: 32,
+                                            allowNewline: false)
                                 .frame(height: 70)
                         }
                     }
@@ -81,7 +89,10 @@ struct NewPostView: View {
                         .foregroundColor(.white)
                         .font(.medium(size: 16))
                     
-                    WrappedTextView(placeholder: "어떤 내용을 추가로 담을까요?", content: $postContent.details, characterLimit: 100)
+                    WrappedTextView(placeholder: "어떤 내용을 추가로 담을까요?",
+                                    content: $postContent.details,
+                                    characterLimit: 99,
+                                    allowNewline: false)
                         .frame(height: 108)
                     
                     Spacer()
@@ -91,20 +102,16 @@ struct NewPostView: View {
             .padding(.horizontal, 24)
         }
         .fillScreen()
-        .alert(isPresented: $showAlert) {
-            switch alertType {
-            case .warnBeforeExit:
-                return Alert(title: Text("정말 나가시겠어요?"),
-                             message: Text("작성 중인 글은 저장되지 않습니다"),
-                             primaryButton: .cancel(),
-                             secondaryButton: .default(Text("Ok"), action: { isPresented = false }))
+        .onChange(of: sourceObject.status) { status in
+            switch status {
+            case .fail(with: let error):
+                alertState = .networkErrorHappend(error: error)
             default:
-                return Alert(title: Text("알 수 없는 에러"), // FIXME: 어차피 나중에 얼러트 바꿀거라 임시로 아무거나 넣어 놓음
-                             message: Text("알 수 없는 에러가 발생했습니다"),
-                             primaryButton: .cancel(),
-                             secondaryButton: .default(Text("Ok"), action: { isPresented = false }))
+                break
             }
         }
+        .showAlert(with: $alertState)
+        .animation(nil)
     }
     
     init(isPresented: Binding<Bool>) {
@@ -117,8 +124,11 @@ extension NewPostView {
         HStack {
             Button(action: {
                 if !postContent.isAnyContentEmtpy {
-                    alertType = .warnBeforeExit
-                    showAlert = true
+                    alertState = .warnBeforeExit(
+                        secondaryAction: {
+                            UIApplication.shared.endEditing()
+                            isPresented = false
+                        }) // MARK: Alert
                 } else {
                     isPresented = false
                 }
@@ -134,8 +144,9 @@ extension NewPostView {
             Spacer()
             
             Button(action: {
+                postContent.removeNewlineInContents()
                 let postRequest = postContent.toPostRequestInformation()
-                sourceObject.register(postRequesInformation: postRequest)
+                sourceObject.register(postRequest)
                 isPresented = false
             }) {
                 Text("등록")
@@ -159,6 +170,27 @@ fileprivate struct PostContent {
     
     var isAnyContentEmtpy: Bool {
         title.isEmpty && choiceA.isEmpty && choiceB.isEmpty && details.isEmpty
+    }
+    
+    var hasNewlineInContents: Bool {
+        title.contains("\n") && choiceA.contains("\n") && choiceB.contains("\n") && details.contains("\n")
+    }
+    
+    mutating func removeNewlineInContents() {
+        title = removeNewline(title)
+        choiceA = removeNewline(choiceA)
+        choiceB = removeNewline(choiceB)
+        details = removeNewline(details)
+    }
+    
+    private func removeNewline(_ content: String) -> String {
+        content.reduce("") { partialResult, character in
+            if !character.isNewline {
+                return partialResult + String(character)
+            } else {
+                return partialResult + " "
+            }
+        }
     }
     
     func toPostRequestInformation() -> PostRequestInformation {

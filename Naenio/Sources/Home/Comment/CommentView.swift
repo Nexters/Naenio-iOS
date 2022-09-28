@@ -7,20 +7,27 @@
 
 import SwiftUI
 import Introspect
+import AlertState
 
 struct CommentView: View {
+    @EnvironmentObject var userManager: UserManager
     @StateObject var viewModel = CommentViewModel()
     @ObservedObject var scrollViewHelper = ScrollViewHelper()
     
     @State var text: String = "" // 메시지 작성용
+    @State var toastContainer = ToastContainer(informations: [])
+    @State var toastAlertInfo = ToastInformation(title: "")
+    
+    @AlertState<SystemAlert> var alertState
     
     @Binding var isPresented: Bool
-    @Binding var parentId: Int?
+    @Binding var parentPostId: Int? // sheet가 SwiftUI에서 버그가 있기 땜에 이걸 같이 넘겨줘야 됨..
+    @Binding var parentPost: Post
     
-    init(isPresented: Binding<Bool>, parentId: Binding<Int?>) {
+    init(isPresented: Binding<Bool>, parentPost: Binding<Post>, parentPostId: Binding<Int?>) {
         self._isPresented = isPresented
-        self._parentId = parentId
-        print("init", parentId)
+        self._parentPost = parentPost
+        self._parentPostId = parentPostId
     }
     
     var body: some View {
@@ -29,7 +36,7 @@ struct CommentView: View {
                 Color.card
                     .ignoresSafeArea()
                 
-                if viewModel.status == .loading {
+                if viewModel.status == .inProgress {
                     VStack {
                         Spacer()
                         
@@ -45,11 +52,11 @@ struct CommentView: View {
                         // placeholder
                         Rectangle()
                             .fill(Color.clear)
-                            .frame(height: 30)
+                            .frame(height: 8)
                         
                         // Sheet's header
                         HStack {
-                            CommentCountComponent(count: viewModel.comments.count)
+                            CommentCountComponent(count: viewModel.totalCommentCount)
                             
                             Spacer()
                             
@@ -57,20 +64,28 @@ struct CommentView: View {
                                 .frame(width: 12, height: 12)
                         }
                         
-                        ForEach(viewModel.comments, id: \.id) { comment in
+                        ForEach($viewModel.comments) { index, comment in
                             CustomDivider()
                                 .fillHorizontal()
                             
-                            if let parentId = parentId {
-                                CommentContentCell(isPresented: $isPresented, comment: comment, isReply: false, parentId: parentId)
-                            } else {
-                                ZStack {
-                                    Text("⚠️ 일시적인 오류가 발생했습니다")
-                                        .font(.semoBold(size: 16))
-                                        .foregroundColor(.white)
-                                    
-                                    CommentContentCell(isPresented: $isPresented, comment: comment, isReply: false, parentId: -1)
-                                        .blur(radius: 2)
+                            CommentContentCell(isPresented: $isPresented,
+                                               toastContainer: $toastContainer,
+                                               toastAlertInfo: $toastAlertInfo,
+                                               comment: comment,
+                                               isReply: false,
+                                               isMine: userManager.getUserId() == comment.wrappedValue.author.id,
+                                               deletedAction: {
+                                viewModel.delete(at: index)
+                            })
+                            .onAppear {
+                                if viewModel.totalCommentCount > viewModel.comments.count && index == viewModel.comments.count - 3 {
+                                    guard let lastCommentId = viewModel.comments.last?.id,
+                                          let parentPostId = parentPostId
+                                    else {
+                                        // TODO: 에러 표기
+                                        return
+                                    }
+                                    viewModel.requestComments(postId: parentPostId, lastCommentId: lastCommentId)
                                 }
                             }
                         }
@@ -88,14 +103,22 @@ struct CommentView: View {
                 }
                 .onChange(of: viewModel.status) { status in
                     switch status {
-                    case .done:
+                    case .done(let task):
+                        switch task {
+                        case .requestComments:
+                            break
+                        case .register:
+                            self.parentPost.commentCount = viewModel.totalCommentCount
+                        }
                         scrollViewHelper.refreshController.endRefreshing()
-                    case .fail(with: _):
+                    case .fail(with: let error):
                         scrollViewHelper.refreshController.endRefreshing()
+                        alertState = .networkErrorHappend(error: error)
                     default:
                         break
                     }
                 }
+                .showAlert(with: $alertState)
                 
                 // 키보드
                 VStack {
@@ -107,7 +130,7 @@ struct CommentView: View {
                         WrappedTextView(placeholder: "댓글 추가", content: $text, characterLimit: 100, showLimit: false, isTight: true)
                         
                         Button(action: {
-                            viewModel.registerComment(self.text, postId: self.parentId)
+                            viewModel.registerComment(self.text, postId: self.parentPostId)
                             UIApplication.shared.endEditing()
                             text = ""
                         }) {
@@ -124,17 +147,21 @@ struct CommentView: View {
                 }
                 .frame(height: 60)
             }
+            .toast($toastContainer)
+            .toastAlert(isPresented: $toastAlertInfo.isPresented, title: toastAlertInfo.title)
             .navigationBarHidden(true)
         }
         .onAppear {
-            viewModel.requestComments(postId: self.parentId, isFirstRequest: true)
-
-            viewModel.isFirstRequest = true
+            guard let parentPostId = parentPostId else {
+                // TODO: 에러 표기
+                return
+            }
+            viewModel.requestComments(postId: parentPostId, lastCommentId: nil)
         }
     }
     
     var profileImage: some View {
-        let profileImageIndex = UserManager.shared.getProfileImagesIndex()  // FIXME:
+        let profileImageIndex = userManager.getProfileImagesIndex()
         return ProfileImages.getImage(of: profileImageIndex)
             .resizable()
             .scaledToFit()

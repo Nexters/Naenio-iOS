@@ -8,5 +8,6 @@
 import Foundation
 
 struct LowSheetNotification {
-    let postId: Int
+    let title: String
+    let action: () -> Void
 }

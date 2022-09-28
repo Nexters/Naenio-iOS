@@ -19,16 +19,19 @@ struct CustomNavigationView<V>: View where V: View {
             CustomNavigationBar(title: self.title,
                                 leading: configuration.leadingButton,
                                 trailing: configuration.trailingButton)
-                .padding(.vertical, 17)
-                .padding(.horizontal, 20)
-                .background(self.bgColor.ignoresSafeArea())
+            .padding(.vertical, 17)
+            .padding(.horizontal, 20)
+            .background(self.bgColor.ignoresSafeArea())
             
             content
                 .fillScreen()
         }
+        .navigationBarHidden(true)
+        .navigationBarTitle("")
     }
     
     init(title: String,
+         showLeadingButton: Bool = true,
          configuration: CustomNavigationConfiguration = CustomNavigationConfiguration(),
          bgColor: Color = .background,
          isClear: Bool = false,
@@ -37,5 +40,9 @@ struct CustomNavigationView<V>: View where V: View {
         self.content = content()
         self.configuration = configuration
         self.bgColor = bgColor
+        
+        if showLeadingButton {
+            configuration.leadingButton = CustomNavigationBackButton()
+        }
     }
 }

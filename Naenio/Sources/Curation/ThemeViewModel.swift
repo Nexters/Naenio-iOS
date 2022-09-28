@@ -11,7 +11,7 @@ import RxSwift
 
 class ThemeViewModel: ObservableObject {
     // Published vars
-    var theme: ThemeType = .noisy
+    var theme: ThemeType
     
     @Published var posts: [Post]
     @Published var status: Status = .waiting
@@ -22,9 +22,18 @@ class ThemeViewModel: ObservableObject {
     private var bag = DisposeBag()
     private let serialQueue = SerialDispatchQueueScheduler.init(qos: .userInitiated)
     
-    @objc func requestThemePosts() {
+    @objc func refreshThemePosts() {
+        self.requestThemePosts(isPulled: true)
+    }
+    
+    func requestThemePosts(isPulled: Bool = true) {
         bag = DisposeBag()
-        status = .loading
+    
+        if isPulled {
+            status = .loading(.pulled)
+        } else {
+            status = .loading(.requestPost)
+        }
         
         let themeId = self.theme.id
 
@@ -33,11 +42,10 @@ class ThemeViewModel: ObservableObject {
             .subscribe(on: self.serialQueue)
             .observe(on: MainScheduler.instance)
             .subscribe(
-                onSuccess: { [weak self] newFeed in
+                onSuccess: { [weak self] post in
                     guard let self = self else { return }
                     
-                    print("Success requestPosts")
-                    let posts = self.transferToPostModel(from: newFeed)
+                    let posts = self.transferToPostModel(from: post)
                     self.posts = posts
                     self.status = .done
                 }, onFailure: { [weak self] error in
@@ -47,19 +55,15 @@ class ThemeViewModel: ObservableObject {
                 })
             .disposed(by: bag)
     }
-
-    init() {
+    
+    init(theme: ThemeType) {
         self.posts = []
+        self.theme = theme
+        self.requestThemePosts(isPulled: false)
     }
 }
 
 extension ThemeViewModel {
-    private func voteTotalCount(choices: [Choice]) -> Int {
-        guard choices.count == 2 else { return 0 }
-        
-        return choices[0].voteCount + choices[1].voteCount
-    }
-    
     private func transferToPostModel(from feed: FeedResponseModel) -> [Post] {
         var resultPosts: [Post] = [ ]
         feed.posts.forEach { post in
@@ -70,6 +74,12 @@ extension ThemeViewModel {
         }
         
         return resultPosts
+    }
+    
+    private func voteTotalCount(choices: [Choice]) -> Int {
+        guard choices.count == 2 else { return 0 }
+        
+        return choices[0].voteCount + choices[1].voteCount
     }
     
     private func transferToChoiceModel(from choices: [PostResponseModel.Choice]) -> [Choice] {
@@ -90,7 +100,7 @@ extension ThemeViewModel {
         }
         
         case waiting
-        case loading
+        case loading(_ reason: WorkType)
         case done
         case fail(with: Error)
         
@@ -98,8 +108,8 @@ extension ThemeViewModel {
             switch self {
             case .waiting:
                 return "Waiting"
-            case .loading:
-                return "Loading..."
+            case .loading(let work):
+                return "Loading \(work)"
             case .done:
                 return "Successfully done"
             case .fail(let error):
@@ -107,5 +117,9 @@ extension ThemeViewModel {
             }
         }
     }
-
+    
+    enum WorkType {
+        case pulled
+        case requestPost
+    }
 }

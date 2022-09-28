@@ -5,27 +5,38 @@
 //  Created by 조윤영 on 2022/08/09.
 //
 
-import Foundation
 import SwiftUI
+import Introspect
 
 struct TabContentView: View {
-    let pageName: PageName
+    @EnvironmentObject var userManager: UserManager
     
-    init(pageName: PageName = .home) {
+    let pageName: TabBarPage.PageType
+    
+    init(pageName: TabBarPage.PageType = .home) {
         self.pageName = pageName
     }
     
     var body: some View {
         if pageName == .curation {
-            CurationView()
+            NavigationView {   
+                CurationView()
+                    .environmentObject(userManager)
+                    .navigationBarHidden(true)
+                    .navigationBarTitle("")
+            }
         } else if pageName == .home {
-            HomeView()
+            NavigationView {
+                HomeView()
+                    .environmentObject(userManager)
+                    .navigationBarHidden(true)
+                    .navigationBarTitle("")
+            }
         } else if pageName == .myPage {
             MyPageView()
+                .environmentObject(userManager)
+                .navigationBarHidden(true)
+                .navigationBarTitle("")
         }
     }
-}
-
-enum PageName {
-    case curation, home, myPage
 }

@@ -8,6 +8,7 @@
  API endpoint 케이스 정의
  */
 
+import Foundation
 import Moya
 
 enum NaenioAPI {
@@ -18,17 +19,28 @@ enum NaenioAPI {
     case postPost(PostRequestInformation)
     case postVote(VoteRequestModel)
     case postComment(CommentPostRequestModel)
+    case postCommentLike(Int)
+    case postReport(ReportRequestModel)
+    case postBlock(UserBlockRequestModel)
     
     case getUser(String)
     case getFeed(FeedRequestInformation)
     case getComment(postId: Int, model: CommentListRequestModel)
     case getCommentReplies(postId: Int, model: CommentRepliesRequestModel)
     case getTheme(ThemeRequestModel)
+    case getRandomPost
     case getSinglePost(SinglePostRequestInformation)
     case getIsNicknameAvailable(String)
+    case getMyComment(MyCommentRequest)
+    case getNotice
     
     case putNickname(String)
     case putProfileIndex(Int)
+    
+    case deleteAccount
+    case deleteCommentLike(Int)
+    case deletePost(Int)
+    case deleteComment(Int)
 }
 
 extension NaenioAPI: TargetType {
@@ -45,12 +57,18 @@ extension NaenioAPI: TargetType {
     var headers: [String: String]? {
         switch self {
         case .login:
-            return [HeaderInformation.HeaderKey.contentType: HeaderInformation.HeaderValue.json]
+            return [NaenioAPIHeaderKey.contentType: NaenioAPIHeaderValue.json]
+        case .getUser(let token):
+            return [
+                NaenioAPIHeaderKey.accept: NaenioAPIHeaderValue.json,
+                NaenioAPIHeaderKey.contentType: NaenioAPIHeaderValue.json,
+                NaenioAPIHeaderKey.authorization: "Bearer \(token)"
+            ]
         default:
             return [
-                HeaderInformation.HeaderKey.accept: HeaderInformation.HeaderValue.json,
-                HeaderInformation.HeaderKey.contentType: HeaderInformation.HeaderValue.json,
-                HeaderInformation.HeaderKey.authorization: HeaderInformation.HeaderValue.authoization
+                NaenioAPIHeaderKey.accept: NaenioAPIHeaderValue.json,
+                NaenioAPIHeaderKey.contentType: NaenioAPIHeaderValue.json,
+                NaenioAPIHeaderKey.authorization: NaenioAPIHeaderValue.authoization
             ]
         }
     }

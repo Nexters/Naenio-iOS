@@ -6,33 +6,49 @@
 //
 
 import SwiftUI
-import Combine
+import RxSwift
 
 class MyPageViewModel: ObservableObject {
-    // Dependencies
-    private let userManager: UserManager
-    private var cancellable: AnyCancellable?
+    // Dependecies
+    private let tokenManager: TokenManager
+    
+    // lets and vars
+    private let serialQueue = SerialDispatchQueueScheduler.init(qos: .userInitiated)
+    private let bag = DisposeBag()
+    
+    @Published var status: NetworkStatus<MyPageStatus> = .waiting
+    
+    func signOut() {
+        tokenManager.deleteToken()
+    }
+    
+    func withdrawal() {
+        status = .inProgress
+        
+        NaenioAPI.deleteAccount.request()
+            .subscribe(on: serialQueue)
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onSuccess: { [weak self] _ in
+                    guard let self = self else { return }
+                    self.status = .done(result: .withdrawal)
+                },
+                onFailure: { [weak self] error in
+                    guard let self = self else { return }
+                    self.status = .fail(with: error)
+                }
+            )
+            .disposed(by: bag)
+    }
+    
+    init(_ tokenManager: TokenManager = TokenManager.shared) {
+        self.tokenManager = tokenManager
+    }
+}
 
-    @Published var user: User?
-    
-    var profileImage: Image {
-        let imageIndex = user?.profileImageIndex ?? 0
-        return ProfileImages.getImage(of: imageIndex)
-    }
-    
-    var nickname: String {
-        self.user?.nickname ?? "(알 수 없음)"
-    }
-    
-    init(userManager: UserManager = UserManager.shared) {
-        self.userManager = userManager
-        
-        
-        let userPublisher = userManager.$user
-            .sink { user in
-                self.user = user
-            }
-        
-        self.cancellable = userPublisher
+extension MyPageViewModel {
+    enum MyPageStatus { // !!!: 얘도 조만간 추상화 갑니다
+        case withdrawal
+        case user
     }
 }

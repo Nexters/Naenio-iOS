@@ -7,20 +7,28 @@
 
 import SwiftUI
 import Combine
+import AlertState
 
 struct CardView: View {
-    @ObservedObject var viewModel = CardViewModel()
-    @State var didVote = false
+    typealias Action = () -> Void
     
+    @State var voteHappened = false
+    
+    // Injected values
+    @EnvironmentObject var userManager: UserManager
+    @ObservedObject var viewModel: CardViewModel
     @Binding var post: Post
-    let action: () -> Void
+    let action: Action // 시트 보여주기 용
+    let deletedAction: Action?
+    
+    @State var show = false
     
     var body: some View {
         ZStack {
             Color.card
             
-            if didVote {
-                LottieView(isPlaying: $didVote, animation: LottieAnimations.confettiAnimation)
+            if voteHappened {
+                LottieView(isPlaying: $voteHappened, animation: LottieAnimations.confettiAnimation)
                     .allowsHitTesting(false)
                     .fillScreen()
                     .zIndex(0)
@@ -34,15 +42,11 @@ struct CardView: View {
                         
                         Spacer()
                         
-                        // 신고/공유
-                        Button(action: { NotificationCenter.default.postLowSheetNotification(with: LowSheetNotification(postId: post.id)) }) {
-                            Image(systemName: "ellipsis")
-                                .resizable()
-                                .scaledToFit()
-                                .rotationEffect(Angle(degrees: 90))
-                                .foregroundColor(.white)
-                                .frame(width: 14, height: 14)
-                        }
+                        // MARK: 공유버튼
+                        shareButton
+                        
+                        // MARK: 신고 / 삭제 버튼
+                        reportOrDeleteButton
                     }
                     .padding(.bottom, 24)
                     
@@ -92,16 +96,64 @@ struct CardView: View {
         }
         .fillScreen()
         .mask(RoundedRectangle(cornerRadius: 16))
-        .onChange(of: post.choices) { _ in
-            didVote = true
+        .onChange(of: post.choices) { [oldValue = post.choices] newValue in
+            voteHappened = didVoteChange(oldValue, newValue)
         }
+        .onChange(of: viewModel.status) { status in
+            switch status {
+            case .done(let workType):
+                switch workType {
+                case .report:
+                    NotificationCenter.default.postToastAlertNotification("신고가 접수되었습니다")
+                case .block:
+                    NotificationCenter.default.postToastAlertNotification("유저가 차단되었습니다")
+
+                    withAnimation {
+                        (deletedAction ?? {})()
+                    }
+                case .delete:
+                    withAnimation {
+                        (deletedAction ?? {})()
+                    }
+                }
+            case .fail:
+                NotificationCenter.default.postToastAlertWithErrorNotification()
+            default:
+                break
+            }
+        }
+    }
+    
+    init(_ viewModel: CardViewModel = CardViewModel(),
+         post: Binding<Post>,
+         action: @escaping Action,
+         deletedAction: Action? = nil) {
+        self.viewModel = viewModel
+        self._post = post
+        self.action = action
+        self.deletedAction = deletedAction
     }
 }
 
 extension CardView {
+    private func didVoteChange(_ lhs: [Choice], _ rhs: [Choice]) -> Bool {
+        let firstArr = lhs.sorted{ $0.sequence < $1.sequence }
+        let secondArr = rhs.sorted{ $0.sequence < $1.sequence }
+        
+        var isVoteChanged: Bool
+        if firstArr.first?.isVoted == secondArr.first?.isVoted,
+           firstArr.last?.isVoted == secondArr.last?.isVoted {
+            isVoteChanged = false
+        } else {
+            isVoteChanged = true
+        }
+        
+        return isVoteChanged
+    }
+    
     var profile: some View {
         HStack {
-            if let profileImageIndex = post.author.profileImageIndex { // FIXME: 
+            if let profileImageIndex = post.author.profileImageIndex {
                 viewModel.getImage(of: profileImageIndex)
                     .resizable()
                     .scaledToFit()
@@ -114,6 +166,48 @@ extension CardView {
             
             Text("\(post.author.nickname ?? "(알 수 없음)")")
                 .font(.medium(size: 16))
+        }
+    }
+    
+    var shareButton: some View {
+        Button(action: {
+            ShareManager.share(url: URL(string: "https://naenio.shop/posts/\(post.id)"))
+        }) {
+            Image("icon_share")
+                .resizable()
+                .scaledToFit()
+                .foregroundColor(.white)
+                .frame(width: 14, height: 14)
+        }
+    }
+    
+    var reportOrDeleteButton: some View {
+        Button(action: {
+            self.show = true
+            let toastInformations: [NewToastInformation]
+            if post.author.id == userManager.getUserId() {
+                toastInformations = NewToastInformation.deleteTemplate {
+                    viewModel.delete(postId: post.id)
+                }
+            } else {
+                toastInformations = NewToastInformation.blockAndReportFeedTemplate(
+                    blockAction: {
+                        viewModel.block(authorId: post.author.id)
+                    },
+                    reportAction: {
+                        viewModel.report(authorId: post.author.id, type: .post)
+                    }
+                )
+            }
+
+            NotificationCenter.default.postNewToastNotification(toastInformations)
+        }) {
+            Image(systemName: "ellipsis")
+                .resizable()
+                .scaledToFit()
+                .rotationEffect(Angle(degrees: 90))
+                .foregroundColor(.white)
+                .frame(width: 14, height: 14)
         }
     }
 }

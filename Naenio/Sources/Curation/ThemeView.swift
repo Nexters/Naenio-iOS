@@ -8,10 +8,15 @@
 import SwiftUI
 import Combine
 import Introspect
+import AlertState
 
 struct ThemeView: View {
-    @StateObject var viewModel = ThemeViewModel()
+    @EnvironmentObject var userManager: UserManager
+    @StateObject var viewModel: ThemeViewModel
     @ObservedObject var scrollViewHelper = ScrollViewHelper()
+    
+    @AlertState<SystemAlert> var alertState
+    
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     @State var showComments = false
@@ -35,7 +40,7 @@ struct ThemeView: View {
                 
                 // Card scroll view
                 ZStack(alignment: .center) {
-                    if viewModel.status == .loading {
+                    if viewModel.status == .loading(.requestPost) {
                         LoadingIndicator()
                             .zIndex(1)
                     }
@@ -46,9 +51,9 @@ struct ThemeView: View {
                     
                     ScrollView(.vertical, showsIndicators: true) {
                         LazyVStack(spacing: 20) {
-                            ForEach($viewModel.posts) { index, post in
+                            ForEach($viewModel.posts) { post in
                                 NavigationLink(destination: LazyView(
-                                    FullView(post: post))
+                                    FullView(post: post)).environmentObject(userManager)
                                 ) {
                                     CardView(post: post) {
                                         withAnimation(.spring()) {
@@ -56,7 +61,10 @@ struct ThemeView: View {
                                             selectedPostId = post.wrappedValue.id
                                         }
                                     }
-                                    .environmentObject(viewModel)
+                                    .environmentObject(userManager)
+                                    .sheet(isPresented: $showComments) {
+                                        CommentView(isPresented: $showComments, parentPost: post, parentPostId: $selectedPostId)
+                                    }
                                     .background(
                                         RoundedRectangle(cornerRadius: 16)
                                             .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 0)
@@ -74,8 +82,8 @@ struct ThemeView: View {
                     }
                     .introspectScrollView { scrollView in
                         let control = scrollViewHelper.refreshController
-                        control.addTarget(viewModel, action: #selector(viewModel.requestThemePosts), for: .valueChanged)
-                        control.tintColor = .yellow
+                        control.addTarget(viewModel, action: #selector(viewModel.refreshThemePosts),
+                                          for: .valueChanged)
                         
                         scrollView.keyboardDismissMode = .onDrag
                         scrollView.refreshControl = control
@@ -85,8 +93,9 @@ struct ThemeView: View {
                         switch status {
                         case .done:
                             scrollViewHelper.refreshController.endRefreshing()
-                        case .fail(with: _):
+                        case .fail(with: let error):
                             scrollViewHelper.refreshController.endRefreshing()
+                            alertState = .networkErrorHappend(error: error)
                         default:
                             break
                         }
@@ -96,18 +105,16 @@ struct ThemeView: View {
             .padding(.top, 20)
             .fillScreen()
         }
+        .showAlert(with: $alertState)
         .onAppear {
             viewModel.theme = self.theme
-            viewModel.requestThemePosts()
         }
         .navigationBarHidden(true)
-        .sheet(isPresented: $showComments) {
-            CommentView(isPresented: $showComments, parentId: $selectedPostId)
-        }
     }
     
     init(_ theme: ThemeType) {
         self.theme = theme
+        self._viewModel = StateObject(wrappedValue: ThemeViewModel(theme: theme))
     }
 }
 
