@@ -8,6 +8,7 @@
  API endpoint 케이스 정의
  */
 
+import Foundation
 import Moya
 
 enum NaenioAPI {
