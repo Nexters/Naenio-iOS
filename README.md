@@ -1,6 +1,8 @@
 # Naenio-iOS
 <img width="2322" alt="iShot_2022-08-25_20 40 40" src="https://user-images.githubusercontent.com/46271447/186655078-2c9f9354-5a3a-4334-90ff-b5d57756ff7e.png">
 
+[<img src="https://user-images.githubusercontent.com/46271447/193392398-7cb8d230-2e0f-4a2f-8802-fe4f1fdf8b42.png" width="200">](http://google.com.au/)
+
 네니오 iOS앱을 위한 저장소입니다
 
 ## 🎨 Environment
