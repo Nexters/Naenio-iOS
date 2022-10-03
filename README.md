@@ -1,7 +1,12 @@
 # Naenio-iOS
 <img width="2322" alt="iShot_2022-08-25_20 40 40" src="https://user-images.githubusercontent.com/46271447/186655078-2c9f9354-5a3a-4334-90ff-b5d57756ff7e.png">
 
-[<img src="https://user-images.githubusercontent.com/46271447/193392398-7cb8d230-2e0f-4a2f-8802-fe4f1fdf8b42.png" width="200">](https://apps.apple.com/kr/app/%EB%84%A4%EB%8B%88%EC%98%A4/id1634376427)
+<p align="center">
+
+ [<img src="https://user-images.githubusercontent.com/46271447/193392398-7cb8d230-2e0f-4a2f-8802-fe4f1fdf8b42.png" height="80">](https://apps.apple.com/kr/app/%EB%84%A4%EB%8B%88%EC%98%A4/id1634376427)
+[<img src="https://user-images.githubusercontent.com/46271447/193523600-3b736069-93be-4bdb-8db6-16f47c4004b0.png" height="80">](https://play.google.com/store/apps/details?id=com.nexters.teamversus.naenio)
+
+</p>
 
 네니오 iOS앱을 위한 저장소입니다
 
