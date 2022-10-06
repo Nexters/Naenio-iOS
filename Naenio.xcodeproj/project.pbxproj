@@ -377,6 +377,7 @@
 		9CBCDCF128AE6E9500C4C577 /* SinglePostResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCDCF028AE6E9500C4C577 /* SinglePostResponseModel.swift */; };
 		9CBCEB9E28DBE7FD00828818 /* UserBlockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCEB9D28DBE7FD00828818 /* UserBlockManager.swift */; };
 		9CBCEBA028DBE80600828818 /* UserBlockRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCEB9F28DBE80600828818 /* UserBlockRequestModel.swift */; };
+		9CC96A0A28EE7DC9006318FB /* HandleUrlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC96A0928EE7DC9006318FB /* HandleUrlTests.swift */; };
 		9CCA2293289BAB0F00A2F9B0 /* MockPost.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA228F289BA4A900A2F9B0 /* MockPost.json */; };
 		9CCA2295289BB3CF00A2F9B0 /* MockPostList.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CCA2294289BB28500A2F9B0 /* MockPostList.json */; };
 		9CE311CF28A63E7200EDB0F4 /* MockCommentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE311CE28A63E7200EDB0F4 /* MockCommentGenerator.swift */; };
@@ -614,6 +615,7 @@
 		9CBCDCF028AE6E9500C4C577 /* SinglePostResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePostResponseModel.swift; sourceTree = "<group>"; };
 		9CBCEB9D28DBE7FD00828818 /* UserBlockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBlockManager.swift; sourceTree = "<group>"; };
 		9CBCEB9F28DBE80600828818 /* UserBlockRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBlockRequestModel.swift; sourceTree = "<group>"; };
+		9CC96A0928EE7DC9006318FB /* HandleUrlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleUrlTests.swift; sourceTree = "<group>"; };
 		9CCA228F289BA4A900A2F9B0 /* MockPost.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPost.json; sourceTree = "<group>"; };
 		9CCA2294289BB28500A2F9B0 /* MockPostList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockPostList.json; sourceTree = "<group>"; };
 		9CE311CE28A63E7200EDB0F4 /* MockCommentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCommentGenerator.swift; sourceTree = "<group>"; };
@@ -1207,6 +1209,7 @@
 			isa = PBXGroup;
 			children = (
 				9B085F132879991600DE8E60 /* LoginTests.swift */,
+				9CC96A0928EE7DC9006318FB /* HandleUrlTests.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -2072,6 +2075,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CC96A0A28EE7DC9006318FB /* HandleUrlTests.swift in Sources */,
 				9BD520CA28BCCD840036F5CF /* CustomDateFormatterTest.swift in Sources */,
 				9B085F142879991600DE8E60 /* LoginTests.swift in Sources */,
 			);
