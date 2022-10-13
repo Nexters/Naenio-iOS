@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import StoreKit
+
 import KakaoSDKAuth
 import KakaoSDKCommon
 import Introspect
@@ -15,6 +17,8 @@ struct NaenioApp: App {
     @StateObject var networkMonitor = NetworkStatusMonitor()
     @ObservedObject var tokenManager = TokenManager.shared
     @ObservedObject var userManager = UserManager.shared
+    
+    private let localStorageManager = LocalStorageManager.shared
     
     @State var isLinkOpened = false
     @State var arrivedPostId: Int = 0 {
@@ -30,7 +34,7 @@ struct NaenioApp: App {
         if tokenManager.isTokenAvailable, let token = tokenManager.accessToken {
             userManager.updateUserData(with: token)
         }
-        
+
         print(tokenManager.accessToken as Any)
     }
     
@@ -107,6 +111,10 @@ struct NaenioApp: App {
                     }
                 }
             }
+            .onAppear {
+                // 리뷰 리퀘스트
+                requestReview()
+            }
         }
     }
     
@@ -131,10 +139,33 @@ struct NaenioApp: App {
                 }
             }
     }
+    
+    private func requestReview() {
+        NSLog("@@ req")
+        guard let currentScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+              print("UNABLE TO GET CURRENT SCENE")
+              return
+        }
+             
+        if let visitCount = localStorageManager.load(key: "visitCount") as? Int {
+            localStorageManager.save(visitCount + 1, key: "visitCount")
+            NSLog("@@ Visit count: %d", visitCount)
+
+            if visitCount == 2 || visitCount == 9 || visitCount == 19 {
+                // show review dialog
+                SKStoreReviewController.requestReview(in: currentScene)
+            }
+        } else {
+            NSLog("@@ Visit count: %d", 0)
+
+            localStorageManager.save(1, key: "visitCount")
+        }
+    }
+
 }
 
 // Maybe replaced later by URL handler class
-func handleUrl(_ url: URL) -> Int? {
+fileprivate func handleUrl(_ url: URL) -> Int? {
     print("URL received: \(url)")
     guard let link = URLComponents(url: url, resolvingAgainstBaseURL: false),
           let linkItem = link.queryItems?.filter({ $0.name == "link" }).last?.value,
